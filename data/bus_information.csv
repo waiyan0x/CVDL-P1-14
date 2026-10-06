@@ -1,0 +1,610 @@
+Route number,Origin,Destination
+2,Changi Village Bus Terminal,Kampong Bahru Bus Terminal
+2B,Changi Village Bus Terminal,Bedok MRT station
+3,Tampines Bus Interchange,Punggol Temporary Bus Interchange
+3A,Tampines Bus Interchange,Pasir Ris Drive 12 (Blk 747A)
+4,Tampines Bus Interchange,Changi North Way (loop)
+5,Pasir Ris Bus Interchange,Bukit Merah Bus Interchange
+5A,Mariam Way,Upper Changi MRT station / SUTD
+5B,Simei MRT station,Mariam Way
+6,Pasir Ris Bus Interchange,Loyang Crescent (loop)
+7,Bedok Bus Interchange,Clementi Bus Interchange
+7A,Bedok Bus Interchange,Orchard MRT station
+7B,Clementi Bus Interchange,Dhoby Ghaut MRT station
+8,Tampines Bus Interchange,Toa Payoh Bus Interchange
+9,Bedok Bus Interchange,Changi Airfreight Centre (loop)
+9A,Bedok Bus Interchange,Loyang Avenue (Blk 149A)
+9B,Simei MRT station,Airline Road (3rd Cargo Agents)
+10,Tampines Bus Interchange,Kent Ridge Bus Terminal
+10E,Bedok Road,Shenton Way / Anson Road
+11,Lorong 1 Geylang Bus Terminal,Rhu Cross (loop)
+12,Pasir Ris Bus Interchange,Kampong Bahru Bus Terminal
+12E,Pasir Ris Bus Interchange,Kampong Bahru Bus Terminal
+13,Yio Chu Kang Bus Interchange,Upper East Coast Bus Terminal
+13A,Ang Mo Kio Avenue 6 (Blk 307A),Bishan MRT station
+14,Bedok Bus Interchange,Clementi Bus Interchange
+14A,Bedok Bus Interchange,Grange Road (Somerset Youth Pk)
+14E,Bedok North Avenue 3,Orchard MRT station
+15,Pasir Ris Bus Interchange,Marine Parade (loop)
+15A,Pasir Ris Bus Interchange,Eunos MRT station
+16,Bedok Bus Interchange,Bukit Merah Bus Interchange
+16M,Bedok Bus Interchange,Bukit Merah Bus Interchange
+17,Pasir Ris Bus Interchange,Bedok Bus Interchange
+17A,Bedok Bus Interchange,Bedok North Avenue 4 (SBST Bedok Nth Depot)
+18,Tampines North Bus Interchange,Bedok North Bus Depot
+19,Tampines Bus Interchange,Changi Airfreight Centre (loop)
+20,Tampines Bus Interchange,Changi Business Park Avenue 3 (loop)
+20A,Simei Street 1 (Blk 148),Expo MRT station
+21,Pasir Ris Bus Interchange,Saint Michael’s Bus Terminal
+21A,Geylang Road (Bef Lor 18 Geylang),Kitchener Road (Bef Tai Hoe Hotel)
+21X,Saint Michael's Bus Terminal,Novena MRT station (loop)
+22,Ang Mo Kio Bus Interchange,Eunos Bus Interchange
+23,Tampines Bus Interchange,Rochor Canal Road (loop)
+24,Ang Mo Kio Bus Interchange,Changi Airport (loop)
+25,Ang Mo Kio Bus Interchange,Upper East Coast Bus Terminal
+26,Bedok Bus Interchange,Toa Payoh Bus Interchange
+27,Hougang Central Bus Interchange,Changi Airport (loop)
+27A,Sengkang East Avenue (Blk 203B),Tampines Avenue 4 (Opp Century Sq)
+28,Tampines Bus Interchange,Toa Payoh Bus Interchange
+29,Tampines Bus Interchange,Changi Village Bus Terminal (loop)
+29A,Tampines Bus Interchange,Tampines Avenue 7 (Blk 497D)
+30,Bedok Bus Interchange,Boon Lay Bus Interchange
+30E,Bedok Bus Interchange,Pasir Panjang Road
+31,Tampines Bus Interchange,Toa Payoh Bus Interchange
+31A,Tampines Bus Interchange,Tanah Merah MRT station
+32,Bedok Bus Interchange,Buona Vista Bus Terminal
+33,Kent Ridge Bus Terminal,Bedok Bus Interchange
+33A,Kent Ridge Bus Terminal,Tiong Bahru Road (Blk 1)
+33B,Bedok Bus Interchange,Old Airport Road (Blk 22)
+34,Punggol Bus Interchange,Changi Airport (loop)
+34A,Punggol Bus Interchange,Tampines Ave 5 (Opp Our Tampines Hub)
+34B,Tampines Avenue 10 (IKEA Tampines),Tampines Avenue 10 (Tampines Wafer Fab Pk) via Changi Airport
+35,Bedok Bus Interchange,Airport Logistics Park of Singapore (ALPS) (loop)
+35M,Bedok Bus Interchange,Tanah Merah Ferry Terminal (loop)
+36,Changi Airport,Tomlinson Road (loop)
+36T,Changi Airport,Tomlinson Road (loop)
+36A,Changi Airport,Tomlinson Road (Aft Cuscaden Rd)
+36B,Marine Parade Road (Lagoon View),Siglap Road (Bef Seaside Residences) via Tomlinson Road
+37,Tampines Bus Interchange,Changi North Crescent (loop)
+38,Tampines Bus Interchange,Bedok Bus Interchange
+39,Yishun Bus Interchange,Tampines Concourse Bus Interchange
+39A,Pasir Ris MRT station,Jalan Kayu
+39B,Punggol Way (Block 220C),Pasir Ris MRT station
+40,Bedok Bus Interchange,Merpati Road (loop)
+41,Jurong East Bus Interchange,Jalan Anak Bukit (loop)
+42,Kembangan MRT station,Fidelio Street (loop)
+43,Punggol Bus Interchange,Upper East Coast Bus Terminal
+43E,Punggol Bus Interchange,Marine Parade Road
+43M,Punggol Bus Interchange,Serangoon MRT station (loop)
+45,Upper East Coast Bus Terminal,Ang Mo Kio Street 63
+45A,Lorong Ah Soo (Opp Blk 115),Serangoon MRT station
+46,Upper East Coast Bus Terminal,Pasir Ris Bus Interchange
+47,Changi Business Park Bus Terminal,Amber Road (loop)
+48,Bedok North Bus Depot,Buona Vista Bus Terminal
+49,Jurong East Bus Interchange,Jurong West Street 42 (loop)
+50,Bishan Bus Interchange,Punggol Bus Interchange
+50A,Punggol East,Ang Mo Kio MRT station
+51,Hougang Central Bus Interchange,Jurong East Bus Interchange
+51A,Jurong East Bus Interchange,Pandan Gardens (Blk 407)
+52,Bishan Bus Interchange,Jurong East Bus Interchange
+53,Bishan Bus Interchange,Changi Airport (loop)
+53A,Pasir Ris Drive 1 (Blk 738),Changi Airport
+53M,Hougang Avenue 1,Serangoon MRT station (loop)
+54,Bishan Bus Interchange,Kampong Bahru Bus Terminal
+55,Bishan Bus Interchange,Upper East Coast Bus Terminal
+55B,Bishan Bus Interchange,Ang Mo Kio Avenue 10 (Blk 443B)
+56,Bishan Bus Interchange,Marina Centre Bus Terminal
+57,Bishan Bus Interchange,Bukit Merah Bus Interchange
+58,Bishan Bus Interchange,Pasir Ris Bus Interchange
+58A,Serangoon MRT station,Tampines Avenue 10 (Tampines Wafer Fab Pk)
+58B,Pasir Ris Bus Interchange,Tai Seng MRT station
+59,Bishan Bus Interchange,Changi Village Bus Terminal
+60,Eunos Bus Interchange,Bedok Bus Interchange (loop)
+60A,Eunos Bus Interchange,Bedok Reservoir Road (Blk 608)
+61,Bukit Batok Bus Interchange,Eunos Bus Interchange
+62,Punggol Bus Interchange,Sims Avenue (loop)
+62A,Punggol Bus Interchange,Aljunied MRT station
+63,Eunos Bus Interchange,Jalan Rumah Tinggi (loop)
+63A,Eunos Bus Interchange,Jalan Rumah Tinggi (Opp Blk 36)
+63M,Eunos Bus Interchange,Circuit Road (loop)
+64,Sims Place Bus Terminal,Mei Ling Street (loop)
+65,Tampines Bus Interchange,HarbourFront Bus Interchange
+66,Jurong East Bus Interchange,Upper Bukit Timah Road (loop)
+67,Choa Chu Kang Bus Interchange,Tampines Bus Interchange
+68,Pasir Ris Bus Interchange,Tampines Bus Interchange (loop)
+68A,Tampines Avenue 11 (Opp Reebonz Bldg),Tampines Bus Interchange
+68B,Tampines Bus Interchange,Tampines Avenue 11 (Reebonz Bldg)
+69,Tampines Bus Interchange,Bedok Bus Interchange (loop)
+70,Yio Chu Kang Bus Interchange,Shenton Way Bus Terminal
+70A,Yio Chu Kang Bus Interchange,Temasek Avenue (Opp The Ritz-Carlton)
+70B,Yio Chu Kang Road (Opp Serenity Pk),Serangoon MRT station
+70M,Yio Chu Kang Bus Interchange,Temasek Avenue (loop)
+71,Yio Chu Kang Bus Interchange,Bishan Street 11 (loop)
+72,Yio Chu Kang Bus Interchange,Tampines Bus Interchange
+72A,Yio Chu Kang Bus Interchange,Hougang Central (Opp Hougang Ctrl Int)
+72B,Yio Chu Kang Bus Interchange,Ang Mo Kio Avenue 5 (ITE Coll Ctrl)
+73,Ang Mo Kio Bus Interchange,Toa Payoh Bus Interchange (loop)
+74,Hougang Central Bus Interchange,Buona Vista Bus Terminal
+75,Gali Batu Bus Terminal,Bukit Merah Bus Interchange
+76,Yio Chu Kang Bus Interchange,Eunos Bus Interchange
+77,Bukit Batok Bus Interchange,Marina Centre Bus Terminal
+78,Jurong Town Hall Bus Interchange,Clementi MRT station
+78A,Jurong Town Hall Bus Interchange,Tanjong Penjuru (Opp CLP Intl)
+79,Jurong Town Hall Bus Interchange,Boon Lay Bus Interchange (loop)
+80,Sengkang Bus Interchange,HarbourFront Bus Interchange
+80A,Sengkang Bus Interchange,Aljunied MRT station
+81,Tampines Bus Interchange,Serangoon MRT station (loop)
+82,Punggol Bus Interchange,Serangoon MRT station (loop)
+83,Punggol Bus Interchange,Sengkang Bus Interchange (loop)
+84A,Punggol Bus Interchange,Punggol Coast MRT station
+84G,Punggol Bus Interchange,Punggol Way (via Sentul Crescent)
+84W,Punggol Bus Interchange,Punggol Way (via New Punggol Road)
+85,Punggol Bus Interchange,Yishun Bus Interchange
+85A,Yishun Bus Interchange,Sengkang East Road (Sengkang Community Hub)
+86,Sengkang Bus Interchange,Ang Mo Kio Bus Interchange
+86A,Jalan Kayu (Aft Seletar Camp G),Yio Chu Kang MRT station
+86B,Yio Chu Kang MRT station,Jalan Kayu (Bef Seletar Camp G)
+87,Sengkang Bus Interchange,Bedok Bus Interchange
+88,Pasir Ris Bus Interchange,Toa Payoh Bus Interchange
+88A,Punggol Road (Blk 190C),Ang Mo Kio MRT station
+88B,Ang Mo Kio MRT station,Ang Mo Kio Avenue 5 (Bef Yio Chu Kang Rd)
+89,Hougang Central Bus Interchange,Changi Airfreight Centre (loop)
+89A,Tampines Expressway (Aft Punggol Rd),Airport Cargo Road (AirFreight Ter Bldg)
+89E,Hougang Central Bus Interchange,Airport Cargo Road
+90,Toa Payoh Bus Interchange,Airport Road (loop)
+90A,Toa Payoh Bus Interchange,Airport Road (Paya Lebar Air Base)
+91,Buona Vista Bus Terminal,Ayer Rajah Crescent (loop)
+92,Ghim Moh Bus Terminal,Science Park Drive (loop)
+92T,Ghim Moh Bus Terminal,Science Park Drive (loop)
+92A,Buona Vista MRT station,Science Park Drive
+92B,Kent Ridge MRT dtation,
+93,HarbourFront Bus Interchange,Eunos Bus Interchange
+94,Eunos Bus Interchange,Airport Road (loop)
+94A,Eunos Bus Interchange,Airport Road (Bef RSAF Roundabout)
+95,Kent Ridge Bus Terminal,Holland Road (loop)
+95B,Kent Ridge Bus Terminal,Buona Vista MRT station
+96,Clementi Bus Interchange,Kent Ridge Crescent (loop)
+96A,Clementi Bus Interchange,Kent Ridge Crescent (NUS Raffles Hall)
+96B,Kent Ridge Crescent (Aft Architecture Dr),Clementi MRT station
+97,Jurong East Bus Interchange,Marina Centre Bus Terminal
+97E,Jurong East Bus Interchange,Marina Centre Bus Terminal
+98,Jurong East Bus Interchange,Jurong Pier Way (loop)
+98A,Lakeside MRT station,Corporation Road (Corp Pl)
+98B,Jurong West Avenue 1 (Blk 490),Jurong Pier Way (Jurong Island Checkpt)
+98M,Jurong East Bus Interchange,Corporation Road (loop)
+99,Clementi Bus Interchange,Joo Koon Bus Interchange
+100,Serangoon Bus Interchange,Ghim Moh Bus Terminal
+100A,Serangoon Bus Interchange,Aljunied MRT station
+101,Serangoon Bus Interchange,Buangkok Crescent (loop)
+102,Hougang Central Bus Interchange,Seletar Airport (loop)
+102A,Sengkang MRT/LRT Station,Sengkang West Way
+102B,Sengkang West Way (Blk 461B),Sengkang East Way (Opp Sengkang Stn/Blk 260A)
+103,Serangoon Bus Interchange,Yishun Bus Interchange
+105,Serangoon Bus Interchange,Jurong East Bus Interchange
+105B,Jurong East Bus Interchange,Clementi MRT station
+106,Bukit Batok Bus Interchange,Shenton Way Bus Terminal
+106A,Bukit Batok Bus Interchange,Clementi MRT station
+107,Hougang Central Bus Interchange,Shenton Way Bus Terminal
+107M,Hougang Central Bus Interchange,Raffles Boulevard (loop)
+109,Serangoon Bus Interchange,Changi Village Bus Terminal
+109A,Serangoon Bus Interchange,Hougang Avenue 4
+110,Buangkok Bus Interchange,Changi Airport (loop)
+111,Ghim Moh Bus Terminal,Temasek Avenue (loop)
+112,Hougang Central Bus Interchange,Hougang Street 92 (loop)
+112A,Hougang Central Bus Interchange,Kovan MRT station
+112B,Hougang Central Bus Interchange,Hougang Avenue 7
+113,Hougang Central Bus Interchange,Hougang Street 11 (loop)
+113A,Kovan Stn Exit C,Kovan Stn Exit B
+114,Buangkok Bus Interchange,Buangkok Crescent (loop)
+114A,Buangkok MRT station,Buangkok Crescent
+115,Kovan Hub (Hougang Street 21),Hougang Avenue 3 (loop)
+116,Hougang Central Bus Interchange,Serangoon Central (loop)
+116A,Serangoon North Avenue 4,Serangoon Central (loop)
+117,Punggol Bus Interchange,Sembawang Bus Interchange
+117A,Yishun Avenue 1,Yishun Avenue 2
+117M,Punggol Bus Interchange,Sembawang Bus Interchange
+118,Punggol Bus Interchange,Changi Business Park Bus Terminal
+118A,Punggol Bus Interchange,Simei Avenue
+118B,Simei Avenue,Tampines Expressway
+119,Punggol Temporary Bus Interchange,Kovan Hub (Hougang Street 21) (loop)
+120,Kampong Bahru Bus Terminal,Telok Blangah Heights (loop)
+121,Shenton Way Bus Terminal,Telok Blangah Crescent (loop)
+122,Kampong Bahru Bus Terminal,Commonwealth Drive (loop)
+123,Bukit Merah Bus Interchange,Beach Station Bus Terminal (Sentosa)
+123M,HarbourFront Bus Interchange,Tiong Bahru Road (loop)
+124,Saint Michael's Bus Terminal,HarbourFront Bus Interchange
+125,Saint Michael's Bus Terminal,Sims Drive (loop)
+125A,Aljunied Road,MacPherson Road
+127,Tampines Bus Interchange,Tampines Industrial Avenue 5 (loop)
+127A,Tampines Bus Interchange,Tampines North Drive 1
+129,Tampines North Bus Interchange,Saint Michael's Bus Terminal
+129A,Temasek Polytechnic,Bartley MRT station
+129B,Bartley Road,Temasek Polytechnic
+130,Ang Mo Kio Bus Interchange,Shenton Way Bus Terminal
+131,Saint Michael's Bus Terminal,Bukit Merah Bus Interchange
+131A,Saint Michael's Bus Terminal,Shenton Way
+132,Hougang Central Bus Interchange,Bukit Merah Bus Interchange
+133,Ang Mo Kio Bus Interchange,Shenton Way Bus Terminal
+134,Sims Place Bus Terminal,Marine Terrace
+135,Ang Mo Kio Bus Interchange,Kembangan MRT station
+136,Ang Mo Kio Bus Interchange,Punggol Bus Interchange
+137,Sims Place Bus Terminal,Upper East Coast Bus Terminal
+137A,Bedok Stn Exit B,Bedok Nth Stn Exit A
+138,Ang Mo Kio Bus Interchange,Singapore Zoo
+138A,Ang Mo Kio Bus Interchange,Singapore Zoo
+138C,Singapore Zoo,Springleaf MRT station
+139,Toa Payoh Bus Interchange,Bukit Merah Bus Interchange
+139A,Toa Payoh Bus Interchange,Jalan Bahagia
+140,Lorong 1 Geylang Bus Terminal,St. Wilfred Road (loop)
+141,Lorong 1 Geylang Bus Terminal,Toa Payoh Bus Interchange
+142,Toa Payoh Bus Interchange,Potong Pasir Avenue 1 (loop)
+142A,Toa Payoh Bus Interchange,Upper Serangoon Road
+143,Toa Payoh Bus Interchange,Jurong East Bus Interchange
+143M,Jurong East Bus Interchange,Pandan Gardens
+145,Toa Payoh Bus Interchange,Buona Vista Bus Terminal
+145A,Redhill MRT station,Henderson Road
+146,Woodleigh Bus Interchange,Bartley Road
+147,Hougang Central Bus Interchange,Clementi Bus Interchange
+147A,Hougang Central Bus Interchange,New Bridge Road
+148,Woodleigh Bus Interchange,Potong Pasir Avenue 1 (loop)
+150,Eunos Bus Interchange,Marine Terrace (loop)
+151,Hougang Central Bus Interchange,Kent Ridge Bus Terminal
+153,Hougang Central Bus Interchange,Bukit Merah Bus Interchange
+154,Boon Lay Bus Interchange,Eunos Bus Interchange
+154A,Yung Ho Road,Boon Lay Way (Lakeside MRT station)
+154B,Boon Lay Bus Interchange,Clementi Road
+155,Toa Payoh Bus Interchange,Bedok Bus Interchange
+156,Buangkok Bus Interchange,Clementi Bus Interchange
+157,Toa Payoh Bus Interchange,Boon Lay Bus Interchange
+158,Serangoon Bus Interchange,Rhu Cross
+158A,Aljunied Stn,Opp Aljiuned Stn
+159,Sengkang Bus Interchange,Toa Payoh Bus Interchange
+159A,Sengkang Bus Interchange,Ang Mo Kio Avenue 8
+159B,Ang Mo Kio Avenue 8,Ang Mo Kio Avenue 5
+160,Jurong Town Hall Bus Interchange,JB Sentral Bus Terminal
+160A,Jurong Town Hall Bus Interchange,Bukit Batok Road
+161,Hougang Central Bus Interchange,Woodlands Bus Interchange
+162,Yio Chu Kang Bus Interchange,Sin Ming Drive (loop)
+163,Sengkang Bus Interchange,Toa Payoh Bus Interchange
+163A,Fernvale Drive (Bef Sengkang West Rd),Sengkang Bus Interchange
+163B,Yio Chu Kang Road (NCS Hub),Sengkang Bus Interchange
+165,Hougang Central Bus Interchange,Clementi Bus Interchange
+166,Ang Mo Kio Bus Interchange,Clementi Bus Interchange
+167,Bukit Merah Bus Interchange,Sembawang Bus Interchange
+168,Bedok Bus Interchange,Woodlands Bus Interchange
+168A,Woodlands Bus Interchange,Tampines Avenue 4
+169,Woodlands Bus Interchange,Ang Mo Kio Bus Interchange
+169A,Woodlands Bus Interchange,Yishun MRT station
+169B,Woodlands Bus Interchange,Woodlands Avenue 8
+170,Queen Street Bus Terminal,Larkin Sentral (Malaysia)
+170X,Kranji MRT station,JB Sentral Bus Terminal
+171,Yishun Bus Interchange,Upper Bukit Timah Road (Bukit Panjang MRT/LRT station)
+172,Choa Chu Kang Bus Interchange,Boon Lay Bus Interchange
+173,Bukit Batok Bus Interchange,Clementi Bus Interchange (loop)
+173A,Bukit Batok Bus Interchange,Bukit Batok East Avenue 4
+174,Boon Lay Bus Interchange,Kampong Bahru Bus Terminal
+174E,Boon Lay Bus Interchange,Kampong Bahru Bus Terminal
+175,Clementi Bus Interchange,Lorong 1 Geylang Bus Terminal
+176,Bukit Panjang Bus Interchange,Bukit Merah Bus Interchange
+177,Bukit Batok Bus Interchange,Jelebu Road (Bukit Panjang MRT/LRT station)
+178,Woodlands Bus Interchange,Boon Lay Bus Interchange
+178A,Woodlands Bus Interchange,Kranji MRT station
+179,Boon Lay Bus Interchange,Nanyang Technological University
+179A,Boon Lay Bus Interchange,Nanyang Drive
+179A,Lien Ying Chow Drive,Boon Lay Bus Interchange
+180,Boon Lay Bus Interchange,Bukit Panjang Bus Interchange
+180A,Boon Lay Bus Interchange,Bukit Panjang Road
+181,Boon Lay Bus Interchange,Jurong West Avenue 3
+181M,Boon Lay Bus Interchange,Jurong West Street 23 (Corporation Primary School)
+182,Joo Koon Bus Interchange,Tuas South Avenue 9
+182M,Joo Koon Bus Interchange,Tuas South Avenue 10
+183,Jurong East Bus Interchange,Science Park Rd (loop)
+183B,Jurong East Bus Interchange,Toh Tuck Avenue
+184,Gali Batu Bus Terminal,Clementi MRT station
+185,Soon Lee Bus Park,Buona Vista Bus Terminal
+186,Shenton Way Bus Terminal,Saint Michael's Bus Terminal
+187,Woodlands Bus Interchange,Boon Lay Bus Interchange
+188,Choa Chu Kang Bus Interchange,HarbourFront Bus Interchange
+188E,Choa Chu Kang Bus Interchange,HarbourFront Bus Interchange
+189,Bukit Batok Bus Interchange,Clementi Avenue 1
+189A,Bukit Batok Bus Interchange,Bukit Batok Street 23
+190,Choa Chu Kang Bus Interchange,Kampong Bahru Bus Terminal
+190A,Choa Chu Kang Bus Interchange,Dhoby Ghaut MRT station
+191,Buona Vista Bus Terminal,Media Circle
+192,Boon Lay Bus Interchange,Tuas Bus Terminal
+193,Boon Lay Bus Interchange,Tuas Bus Terminal
+194,Boon Lay Bus Interchange,Jalan Ahmad Ibrahim
+195,Marina Centre Bus Terminal,Commonwealth MRT station
+195A,Marina Centre Bus Terminal,Tiong Bahru MRT station
+196,Bedok Bus Interchange,Clementi Bus Interchange
+196A,Bedok Bus Interchange,Shenton Way
+196E,Marine Parade Road,Shenton Way
+197,Bedok Bus Interchange,Jurong East Bus Interchange
+198,Boon Lay Bus Interchange,Bukit Merah Bus Interchange
+198A,Boon Lay Bus Interchange,Jurong East Avenue 1
+199,Boon Lay Bus Interchange,Nanyang Crescent
+200,Buona Vista Bus Terminal,Kent Ridge Bus Terminal
+200A,Buona Vista Bus Terminal,Kent Ridge Bus Terminal
+201,Kent Ridge Bus Terminal,Pandan Gardens
+222,Bedok Bus Interchange,Chai Chee Street
+222A,Bedok Bus Interchange,Bedok MRT station
+222B,New Upper Changi Road,Chai Chee Drive
+225G,Bedok Bus Interchange,Bedok North Street 3
+225W,Bedok Bus Interchange,Bedok North Street 3
+228,Bedok Bus Interchange,Bedok Reservoir Road
+229,Bedok Bus Interchange,Bedok South Road
+230,Toa Payoh Link (Caldecott MRT station),Lorong 8 Toa Payoh (loop)
+230M,Toa Payoh Bus Interchange,Kim Keat Avenue (loop)
+231,Toa Payoh Bus Interchange,Lorong 5 Toa Payoh
+232,Toa Payoh Bus Interchange,Toa Payoh East
+235,Toa Payoh Bus Interchange,Toa Payoh Link (Caldecott MRT station) (loop)
+238,Toa Payoh Bus Interchange,Lorong 8 Toa Payoh
+240,Boon Lay Bus Interchange,Jalan Ahmad Ibrahim
+240A,Corporation Drive,Boon Lay Way (Lakeside MRT station)
+240M,Lakeside MRT station,Boon Lay MRT station
+241,Boon Lay Bus Interchange,Jurong West Street 91
+241A,Jurong West Street 91,Jurong West Street 63 (Pioneer MRT station)
+242,Boon Lay Bus Interchange,Jurong West Street 71
+243G,Boon Lay Bus Interchange,Jurong West Avenue 5
+243W,Boon Lay Bus Interchange,Jurong West Avenue 6
+246,Boon Lay Bus Interchange,Boon Lay Drive
+247,Tuas Bus Terminal,Tuas Bay Link
+248,Tuas Bus Terminal,Tuas South Avenue 14
+248M,Tuas Bus Terminal,Tuas South Way
+249,Boon Lay Bus Interchange,Jalan Samulun
+249A,Boon Lay Bus Interchange,Tanjong Kling Road
+251,Boon Lay Bus Interchange,Shipyard Road
+252,Boon Lay Bus Interchange,Joo Koon Road
+253,Joo Koon Bus Interchange,Benoi Road
+254,Joo Koon Bus Interchange,Tuas Avenue 11
+255,Joo Koon Bus Interchange,Gul Crescent
+257,Joo Koon Bus Interchange,Pioneer Sector 2
+258,Joo Koon Bus Interchange,Boon Lay MRT station
+258M,Joo Koon Bus Interchange,Boon Lay Place (loop)
+261,Ang Mo Kio Bus Interchange,Ang Mo Kio Avenue 10
+262,Ang Mo Kio Bus Interchange,Ang Mo Kio Avenue 2
+265,Ang Mo Kio Street 63,Ang Mo Kio Avenue 10
+265,Ang Mo Kio Street 64,Ang Mo Kio Avenue 9
+268,Ang Mo Kio Street 65,Ang Mo Kio Industrial Park 2
+268A,Ang Mo Kio Street 66,Ang Mo Kio Avenue 5
+268B,Ang Mo Kio Avenue 9,Ang Mo Kio MRT station
+268C,Ang Mo Kio MRT station,Ang Mo Kio Avenue 9
+269,Ang Mo Kio Bus Interchange,Ang Mo Kio Street 61
+269A,Ang Mo Kio Bus Interchange,Ang Mo Kio Street 61
+272,Bukit Merah Bus Interchange,Telok Blangah Rise
+273,Bukit Merah Bus Interchange,Henderson Road
+282,Clementi Bus Interchange,Clementi West Street 2
+284,Clementi Bus Interchange,Clementi Avenue 4
+285,Clementi Bus Interchange,Pandan Loop
+291,Tampines Bus Interchange,Tampines Street 81/32
+291T,Tampines Bus Interchange,Tampines Street 81/32
+292,Tampines Bus Interchange,Tampines Street 22
+293T,Tampines Bus Interchange,Tampines Street 71/Avenue 7
+293,Tampines Bus Interchange,Tampines Street 71/Avenue 7
+296,Tampines Bus Interchange,Tampines North Drive 2
+298,Tampines North Bus Interchange,Tampines Avenue 5
+298X,Tampines North Bus Interchange,Tampines Avenue 5
+299,Tampines North Bus Interchange,Tampines Street 96
+300,Choa Chu Kang Bus Interchange,Choa Chu Kang Avenue 3
+301,Choa Chu Kang Bus Interchange,Keat Hong Close
+302,Choa Chu Kang Bus Interchange,Choa Chu Kang Crescent
+302A,Yew Tee MRT station,Choa Chu Kang Drive (Opposite Yew Tee MRT station)
+307,Choa Chu Kang Bus Interchange,Choa Chu Kang Street 62
+307T,Choa Chu Kang MRT/LRT station,Teck Whye Lane
+307,Choa Chu Kang Bus Interchange,Choa Chu Kang Street 62
+307T,Choa Chu Kang MRT/LRT station,Teck Whye Lane
+307A,Choa Chu Kang Bus Interchange,Choa Chu Kang Street 62
+315,Serangoon Bus Interchange,Serangoon North Avenue 5
+317,Serangoon Bus Interchange,Berwick Drive
+324,Hougang Central Bus Interchange,Upper Serangoon Crescent
+325,Hougang Central Bus Interchange,Hougang Street 91
+329,Hougang Central Bus Interchange,Buangkok Crescent
+333,Jurong East Bus Interchange,Jurong East Street 32
+334,Jurong East Bus Interchange,Jurong West Street 42
+335,Jurong East Bus Interchange,Jurong West Avenue 1
+354,Pasir Ris Bus Interchange,Jalan Loyang Besar
+358,Pasir Ris Bus Interchange,Pasir Ris Drive 10 / Pasir Ris Street 41
+359,Pasir Ris Bus Interchange,Pasir Ris Street 71 / Pasir Ris Drive 2
+371,Sengkang Bus Interchange,Rivervale Crescent
+372,Sengkang Bus Interchange,Anchorvale Road
+374,Sengkang Bus Interchange,Fernvale Road
+381,Punggol Bus Interchange,Punggol East
+382G,Punggol Bus Interchange,Sumang Walk (via Punggol Field)
+382W,Punggol Bus Interchange,Sumang Walk (via Sentul Crescent)
+382A,Punggol Bus Interchange,Sumang Lane
+384,Punggol Bus Interchange,Northshore Drive (Blk 413C)
+385,Punggol Coast Bus Interchange,Edgefield Plains
+386,Punggol Bus Interchange,Punggol East
+386A,Punggol Bus Interchange,Edgedale Plains (Blk 682A)
+400,Shenton Way Bus Terminal,Marina South Pier
+401,Bedok Bus Interchange,Fort Road
+403,Pasir Ris Bus Interchange,Pasir Ris Road (via Pasir Ris Park)
+405,Boon Lay Bus Interchange,Old Choa Chu Kang Road End
+410G,Bishan Bus Interchange,Shunfu Road (via Bishan Street 21)
+410W,Bishan Bus Interchange,Shunfu Road (via Bishan Street 22)
+502,Soon Lee Bus Park,Bayfront MRT station/Marina Bay Sands
+502A,Soon Lee Bus Park,Downtown MRT station
+506,Jurong East Bus Interchange,Serangoon Bus Interchange
+513,Tampines Avenue 5,Anson Road / Shenton Way
+518,Pasir Ris Bus Interchange,Bayfront MRT station/Marina Bay Sands
+518A,Pasir Ris Bus Interchange,Bayfront MRT station/Marina Bay Sands
+651,Jurong West Avenue 3,Marina Bay MRT
+652,Upper Thomson Road,Shenton Way / Anson Road
+653,Hume Avenue / Hillview Avenue,Marina Bay MRT
+654,Anchorvale Crescent,Shenton Way / Anson Road
+655,West Coast Road,Marina Bay MRT
+656,Canberra Road,Shenton Way / Anson Road
+657,Jurong West Avenue 1,Marina Bay MRT
+660,Buangkok Green,Shenton Way / Anson Road
+660M,Buangkok Crescent,Shenton Way / Anson Road
+661,Pasir Ris Drive 3,Marina Bay MRT
+663,Yishun Avenue 6,Shenton Way / Anson Road
+665,Marsiling Drive,Shenton Way / Anson Road
+666,Punggol Drive (Damai LRT),Suntec Convention Centre
+667,Clementi Avenue 4,Marina Bay MRT
+668,Ang Mo Kio Avenue 5,Marina Bay MRT
+670,Yishun Avenue 7,Marina Bay MRT
+671,Punggol Road,Suntec Convention Centre
+672,Hougang Street 51,Suntec Convention Centre
+673,Punggol Way (Punggol Point LRT),Suntec Tower 3
+674,Tengah Drive,Marina Bay MRT
+675,Yio Chu Kang Road,Suntec Tower 3
+676,Upper Serangoon Road,Suntec Tower 3
+677,Punggol Road,Suntec Tower 3
+678,Punggol Central,Suntec Tower 3
+679,Punggol,Suntec Tower 3
+800,Yishun Bus Interchange,Sembawang Road (Blk 101)
+801,Yishun Bus Interchange,Yishun Avenue 1 (Blk 469B)
+803,Yishun Bus Interchange,Yishun Avenue 6 (Bet Blk 318A/318B)
+804,Yishun Bus Interchange,Yishun Avenue 11 (Opp Blk 419)
+805,Yishun Bus Interchange,Yishun Avenue 1 (Opp Orchid Country Club)
+806,Yishun Bus Interchange,Yishun Avenue 6 (Blk 391)
+807,Yishun Bus Interchange,Yishun Avenue 5 (Blk 701)
+807A,Yishun Bus Interchange,Yishun Ring Road (Khatib MRT station)
+807B,Yishun Bus Interchange,Yishun Ring Road (Jiemin Pri Sch)
+811,Yishun Bus Interchange,Yishun Avenue 5/1
+811T,Yishun Bus Interchange,Yishun Avenue 5/1
+811A,Yishun Bus Interchange,Yishun Avenue 5 (Opp Yishun Stn Exit B)
+812,Yishun Bus Interchange,Yishun Avenue 4/3
+812T,Yishun Bus Interchange,Yishun Avenue 4/3
+825,Yio Chu Kang Bus Interchange,Lentor Loop
+850E,Yishun Street 41,Shenton Way
+850E,Anson Road,Yishun Ring Road
+851,Yishun Bus Interchange,Bukit Merah Bus Interchange
+851e,Yishun Bus Interchange,New Bridge Road
+852,Yishun Bus Interchange,Bukit Batok Bus Interchange
+853,Yishun Bus Interchange,Lorong 1 Geylang Bus Terminal
+853M,Yishun Bus Interchange,Upper East Coast Bus Terminal
+854,Yishun Bus Interchange,Bedok Bus Interchange
+854E,Yishun Bus Interchange,Bedok Bus Interchange
+855,Yishun Bus Interchange,HarbourFront Bus Interchange
+856,Yishun Bus Interchange,Woodlands Bus Interchange
+856A,Woodlands Bus Interchange,Woodlands Train Checkpoint
+856B,Woodlands Bus Interchange,Canberra Road
+857,Yishun Bus Interchange,Temasek Ave (loop)
+857A,Yishun Bus Interchange,Yio Chu Kang Road
+857B,Yishun Bus Interchange,Promenade MRT station
+858,Woodlands Bus Interchange,Changi Airport
+858A,Woodlands Bus Interchange,Yishun MRT station
+858B,Jalan Kayu,Changi Airport
+859,Sembawang Bus Interchange,Yishun Bus Interchange (loop)
+859A,Sembawang Bus Interchange,Admiralty Link / Sembawang Crescent (loop)
+859B,Sembawang Bus Interchange,Sembawang Crescent / Admiralty Link (loop)
+860,Yio Chu Kang Bus Interchange,Yishun Bus Interchange (loop)
+861,Sembawang Bus Interchange,Khatib MRT station (loop)
+861A,Sembawang Bus Interchange,Yishun Ring Road (Khatib MRT)
+868E,Bukit Batok West Avenue 5,Promenade MRT station
+870,Jurong Town Hall Bus Interchange,Tengah Bus Interchange
+870X,Jurong Town Hall Bus Interchange,Tengah Bus Interchange
+871,Tengah Bus Interchange,Beauty World MRT station (loop)
+871A,Tengah Bus Interchange,Bukit Batok East Avenue 2
+871X,Tengah Bus Interchange,Beauty World MRT station (Loop)
+872,Tengah Bus Interchange,Jurong East Street 32 (Loop)
+882,Sembawang Bus Interchange,Sembawang Road End
+882A,Sembawang Bus Interchange,Montreal Link
+883,Sembawang Bus Interchange,Yishun Central 2 (Yishun Community Hosp)
+883B,Yishun MRT station,Sembawang Road (Opp Blk 590C)
+883M,Sembawang Bus Interchange,Yishun Ave 5 (Opp Yishun Stn Exit B)
+900,Woodlands Bus Interchange,Woodlands Drive 14
+901,Woodlands Bus Interchange,Woodlands Avenue 6
+901M,Woodlands Bus Interchange,Woodlands Avenue 7 (Admiralty MRT)
+902,Woodlands Bus Interchange,Republic Polytechnic
+903,Woodlands Bus Interchange,Woodlands Centre Road
+903M,Woodlands Bus Interchange,Marsiling Lane
+904,Woodlands Bus Interchange,Woodlands Crescent
+911T,Woodlands Bus Interchange,Woodlands Avenue 2 / Woodlands Centre Road
+911A,Woodlands Bus Interchange,Woodlands St 83
+912,Woodlands Bus Interchange,Woodlands Avenue 7 / Woodlands Centre Road
+912A,Woodlands Bus Interchange,Woodlands Avenue 7
+912B,Woodlands Bus Interchange,Woodlands Centre Road
+913,Woodlands Bus Interchange,Woodlands Circle / Marsiling MRT station
+913T,Woodlands Bus Interchange,Woodlands Circle / Marsiling MRT station
+913M,Woodlands Bus Interchange,Woodlands Street 13
+920,Bukit Panjang Bus Interchange,Bangkit Road
+922,Bukit Panjang Bus Interchange,Bangkit Road
+925,Woodlands Temporary Bus Interchange,Choa Chu Kang Bus Interchange
+925A,Woodlands Temporary Bus Interchange,Kranji Reservoir Park B (loop)
+925M,Woodlands Temporary Bus Interchange,Sungei Buloh Wetland Reserve
+927,Choa Chu Kang Bus Interchange,Singapore Zoo
+941,Bukit Batok Bus Interchange,Bukit Batok West Avenue 9
+945,Bukit Batok Bus Interchange,Bukit Batok Street 33
+947,Bukit Batok Bus Interchange,Bukit Batok Road
+950,Woodlands Temporary Bus Interchange,JB Sentral Bus Terminal
+951E,Woodlands Street 82,Shenton Way
+951E,Anson Road,Woodlands Street 82
+960,Woodlands Bus Interchange,Marina Centre Bus Terminal
+960e,Woodlands Bus Interchange,Marina Centre Bus Terminal
+961,Woodlands Temporary Bus Interchange,Lorong 1 Geylang Bus Terminal
+961M,Woodlands Temporary Bus Interchange,Lorong 1 Geylang Bus Terminal
+962,Woodlands Bus Interchange,Admiralty Street
+962B,Sembawang Drive (Opp Sun Plaza),Sembawang Drive (Sembawang MRT station/Sun Plaza)
+962C,Woodlands Avenue 5,Woodlands Avenue 6 (Admiralty MRT)
+963,Woodlands Bus Interchange,HarbourFront Bus Interchange
+963e,Woodlands Bus Interchange,HarbourFront Bus Interchange
+964,Woodlands Bus Interchange,Woodlands Link
+965,Woodlands Temporary Bus Interchange,Sengkang Bus Interchange
+965A,Woodlands Temporary Bus Interchange,Yishun Avenue 2 (Yishun MRT station)
+966,Woodlands Bus Interchange,Marine Parade Road
+966A,Woodlands Bus Interchange,Marine Parade Road
+967,Woodlands Temporary Bus Interchange,Woodlands Health Campus
+969,Woodlands Bus Interchange,Tampines Bus Interchange
+969A,Tampines Bus Interchange,Yishun MRT station
+970,Bukit Panjang Bus Interchange,Shenton Way Bus Terminal
+972,Bukit Panjang Bus Interchange,Bencoolen Street
+972A,Bukit Panjang Bus Interchange,Dhoby Ghaut MRT station
+972M,Bukit Panjang Bus Interchange,Bencoolen Street
+973,Bukit Panjang Bus Interchange,Hume Avenue
+973A,Bukit Panjang Bus Interchange,Pending Road
+974,Joo Koon Bus Interchange,Bukit Panjang MRT station
+974A,Joo Koon Bus Interchange,Choa Chu Kang Avenue 4
+975,Bukit Panjang Bus Interchange,Lim Chu Kang Road
+975A,Choa Chu Kang MRT/LRT station,Brickland Road
+975B,Choa Chu Kang MRT/LRT station,Lim Chu Kang Road
+975C,Bukit Panjang Bus Interchange,Lim Chu Kang Road
+976,Bukit Panjang Bus Interchange,Choa Chu Kang Bus Interchange
+979,Bukit Panjang Bus Interchange,Choa Chu Kang Crescent
+979X,Bukit Panjang Bus Interchange,Choa Chu Kang Crescent
+980,Sembawang Bus Interchange,Lorong 1 Geylang Bus Terminal
+981,Sembawang Bus Interchange,Senoko Road/Loop
+981,Senoko Road/Loop,Sembawang Bus Interchange
+982E,Choa Chu Kang Avenue 5,Marina Boulevard
+982E,Central Boulevard,Choa Chu Kang Avenue 5
+983,Choa Chu Kang Bus Interchange,Jelebu Road
+983A,Choa Chu Kang Bus Interchange,Choa Chu Kang Road
+983M,Choa Chu Kang Avenue 5,Teck Whye Crescent
+985,Choa Chu Kang Bus Interchange,Lorong 1 Geylang Bus Terminal
+990,Bukit Batok Bus Interchange,Jurong Gateway Road (Jurong East MRT station)
+991,Bukit Batok Bus Interchange,Choa Chu Kang Bus Interchange
+991A,Bukit Batok Bus Interchange,Bukit Batok West Avenue 3
+991B,Choa Chu Kang Bus Interchange,Choa Chu Kang Avenue 1
+991C,Choa Chu Kang Avenue 3,Bukit Batok West Avenue 5 (Bukit Gombak MRT station)
+992,Bukit Batok Bus Interchange,Tengah Bus Interchange
+993,Jurong East Bus Interchange,Bukit Batok West Avenue 8
+AC7,Yishun Bus Interchange,Johor Bahru CIQ
+CW1,Johor Bahru CIQ,Kranji MRT station
+CW2,Johor Bahru CIQ,Queen Street Bus Terminal
+CW3,Perling Mall Bus Terminal,Jurong Town Hall Bus Interchange
+CW4,Pontian Bus Terminal,Jurong Town Hall Bus Interchange
+CW4S,Sutera Mall Bus Terminal,Jurong Town Hall Bus Interchange
+CW5,Johor Bahru CIQ,Newton Circus (Newton Food Centre)
+CW6,Sultan Abu Bakar Complex,Boon Lay MRT station
+CW7,Sultan Abu Bakar Complex,Tuas Link MRT station
+Courts Megastore,Tampines MRT station,Courts Tampines
+Giant/IKEA Bedok,Bedok MRT station,Giant/IKEA Tampines
+IKEA Buona Vista,Buona Vista MRT station,IKEA Alexandra
+Giant/IKEA Pasir Ris,Pasir Ris MRT station,Giant/IKEA Tampines
+IKEA Redhill,Redhill MRT station,IKEA Alexandra
+Giant/IKEA Sengkang,Sengkang MRT/LRT station,Giant/IKEA Tampines
+IKEA Tiong Bahru,Tiong Bahru MRT station,IKEA Alexandra
+Giant/IKEA Tampines,Tampines MRT station,Giant/IKEA Tampines
+RWS8,HarbourFront MRT station,Resorts World Sentosa
+TS1,Singapore Changi Airport,Johor Bahru CIQ
+TS3,Marina Square,Johor Bahru CIQ
+TS6,Buona Vista (The Star Vista),GP Sentral Bus Terminal
+TS8,Resorts World Sentosa,Johor Bahru CIQ
+SJE,Queen Street Bus Terminal,Larkin Sentral
+LCS1,Tampines Avenue 9,Airport Cargo Road
+LCS1,Airport Cargo Road ,Tampines Avenue 9 
+LCS2,Punggol Way,Airport Cargo Road
+LCS2,Airport Cargo Road ,Punggol Way 
+911,Woodlands Bus Interchange,Woodlands Avenue 2 / Woodlands Centre Road
