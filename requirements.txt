@@ -6,3 +6,5 @@ python-multipart>=0.0.18
 rapidfuzz>=3.9,<4
 Pillow>=10
 opencv-python>=4.10,<6
+transformers>=4.52,<5
+safetensors>=0.4

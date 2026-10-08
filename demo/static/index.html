@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Bus EDS · Recognition demo</title><link rel="stylesheet" href="/static/styles.css">
+  <title>Bus EDS · Recognition demo</title><link rel="stylesheet" href="/static/styles.css"><link rel="icon" href="/static/bus.svg" type="image/svg+xml">
 </head>
 <body>
 <header>
@@ -17,7 +17,7 @@
     <button id="replay" disabled>Replay photos</button>
     <span class="control-divider"></span>
     <button id="camera" disabled>Use camera</button>
-    <label class="button" for="upload">Upload image / video</label><input id="upload" type="file" accept="image/jpeg,image/png,image/webp,video/*" hidden disabled>
+    <button id="upload-button" type="button" disabled>Upload image / video</button><input id="upload" type="file" accept="image/jpeg,image/png,image/webp,video/*" aria-label="Upload image or video" hidden disabled>
     <button id="stop" class="stop" disabled>Stop</button>
   </section>
   <div class="workspace">

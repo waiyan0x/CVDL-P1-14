@@ -74,7 +74,7 @@ class Pipeline:
         fields = []
         for box in prediction.boxes:
             cls = int(box.cls.item())
-            x1, y1, x2, y2 = [round(v) for v in box.xyxy[0].tolist()]
+            x1, y1, x2, y2 = [int(v) for v in box.xyxy[0].tolist()]
             coordinates = [max(0, min(x1, width-1)), max(0, min(y1, height-1)),
                            max(1, min(x2, width)), max(1, min(y2, height))]
             if coordinates[2] <= coordinates[0] or coordinates[3] <= coordinates[1]:
@@ -88,7 +88,7 @@ class Pipeline:
                 if field is None:
                     continue
                 x1, y1, x2, y2 = field['box']
-                crop = image[max(0,y1-3):min(height,y2+3),max(0,x1-3):min(width,x2+3)]
+                crop = image[y1:y2,x1:x2]
                 raw, confidence = self.ocr.read(crop, field['label'], backend)
                 recognised[field['label']] = {**field, 'raw': raw,
                     'ocr_confidence': round(confidence, 3), 'crop': jpeg_data(crop)}

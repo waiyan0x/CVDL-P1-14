@@ -32,3 +32,8 @@ def test_csv_route_identifiers_preserve_letters(tmp_path):
     p = tmp_path / 'routes.csv'
     p.write_text('Route number,Origin,Destination\n2B,A,B\n')
     assert RouteMatcher(p).match('2b', '')['service'] == '2B'
+
+
+def test_multiline_road_text_does_not_hide_endpoint(tmp_path):
+    r = matcher(tmp_path).match('65', 'PUNGGOL RD\nTAMPINES INT')
+    assert r['status'] == 'matched' and r['endpoint'] == 'Tampines Int'

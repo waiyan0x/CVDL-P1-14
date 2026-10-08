@@ -1,7 +1,7 @@
 'use strict';
 const $ = id => document.getElementById(id);
 const labels = {easyocr:'EasyOCR baseline', tesseract:'Tesseract baseline', trocr:'Supplied fine-tuned TrOCR'};
-const state = {ready:false, busy:false, running:false, generation:0, samples:[], mode:'sample', stream:null, timer:null, objectURL:null, history:[]};
+const state = {ready:false, busy:false, loading:false, running:false, generation:0, samples:[], mode:'sample', stream:null, timer:null, objectURL:null, history:[]};
 const video = $('source-video');
 const canvas = $('preview');
 const context = canvas.getContext('2d');
@@ -11,13 +11,14 @@ function status(message, error=false) {
   $('status').classList.toggle('error', error);
 }
 function controls() {
-  for (const id of ['analyse','replay','camera','upload','sample','backend']) $(id).disabled = !state.ready || state.busy || state.running;
-  $('stop').disabled = !state.busy && !state.running;
+  for (const id of ['analyse','replay','camera','upload','upload-button','sample','backend']) $(id).disabled = !state.ready || state.busy || state.loading || state.running;
+  $('stop').disabled = !state.busy && !state.loading && !state.running;
   $('processing').hidden = !state.busy;
   $('stage').setAttribute('aria-busy', String(state.busy));
 }
 function stop(message='Processing stopped. Last processed frame retained.') {
   state.running = false;
+  state.loading = false;
   state.generation++;
   clearTimeout(state.timer);
   video.pause();
@@ -114,7 +115,7 @@ function renderResults(data, requestMs) {
   const services = data.results.map(r=>r.match.service || r.fields.bus_number?.raw || '?').join(', ') || 'No display';
   state.history.unshift({time:new Date().toLocaleTimeString('en-SG'),services,ms:data.latency_ms,engine:labels[data.backend]});
   state.history = state.history.slice(0,20);
-  $('history-count').textContent = `${state.history.length} frames`;
+  $('history-count').textContent = `${state.history.length} ${state.history.length===1?'frame':'frames'}`;
   $('history-list').replaceChildren(...state.history.map(entry=>{
     const row = element('div',null,'history-entry');
     row.append(element('span',`${entry.time} · Service ${entry.services}`),element('span',`${entry.ms} ms · ${entry.engine}`));
@@ -174,6 +175,7 @@ async function loop(generation) {
     if (video.readyState>=2) {
       const body=options(); const blob=await captureFrame();
       if (blob && state.running && generation===state.generation) {
+        state.frameBlob=blob;
         body.set('file',blob,'frame.jpg');
         await processFrame('/api/recognize',body,generation);
       }
@@ -190,8 +192,12 @@ $('analyse').addEventListener('click',async()=>{
   if (state.mode==='image' && state.imageFile) {
     const body=options();body.set('file',state.imageFile);
     await processFrame('/api/recognize',body,state.generation);
+  } else if (['video','camera'].includes(state.mode) && state.frameBlob) {
+    const body=options();body.set('file',state.frameBlob,'frame.jpg');
+    await processFrame('/api/recognize',body,state.generation);
   } else {
     const sample=state.samples[Number($('sample').value)];
+    $('source-label').textContent=`${sample.name} · included project dataset`;
     await processFrame(`/api/samples/${sample.id}/recognize`,options(),state.generation);
   }
 });
@@ -199,19 +205,27 @@ $('replay').addEventListener('click',()=>{stop();startLoop('replay');});
 $('stop').addEventListener('click',()=>stop());
 $('camera').addEventListener('click',async()=>{
   stop(); const generation=state.generation;
+  state.loading=true;controls();
   try {
     status('Requesting camera access…');
     const stream=await navigator.mediaDevices.getUserMedia({video:{width:{ideal:1280},height:{ideal:720}},audio:false});
     if (generation!==state.generation) {stream.getTracks().forEach(t=>t.stop());return;}
     state.stream=stream;video.srcObject=stream;
     await video.play();
+    if (generation!==state.generation) {stream.getTracks().forEach(t=>t.stop());return;}
+    state.loading=false;
     $('source-label').textContent='Camera · latest processed frame';
     startLoop('camera');
-  } catch(error) {status(`Camera unavailable: ${error.message}. Use an uploaded image or video.`,true);controls();}
+  } catch(error) {
+    if (generation===state.generation) status(`Camera unavailable: ${error.message}. Use an uploaded image or video.`,true);
+  } finally {if(generation===state.generation){state.loading=false;controls();}}
 });
+$('upload-button').addEventListener('click',()=>$('upload').click());
 $('upload').addEventListener('change',async event=>{
   const file=event.target.files[0]; if (!file) return;
   stop();
+  const generation=state.generation;
+  state.loading=true;controls();
   if (state.objectURL) URL.revokeObjectURL(state.objectURL);
   state.objectURL=URL.createObjectURL(file);
   $('source-label').textContent=file.name;
@@ -222,14 +236,19 @@ $('upload').addEventListener('change',async event=>{
         video.onloadeddata=resolve;video.onerror=()=>reject(new Error('This browser cannot play the video. Try an H.264 MP4 or WebM.'));
       });
       video.src=state.objectURL;video.load();await loaded;await video.play();
+      if(generation!==state.generation) return;
+      state.loading=false;
       startLoop('video');
     } else {
       state.mode='image';state.imageFile=file;
       await showImage(state.objectURL);
+      if(generation!==state.generation) return;
+      state.loading=false;
       const body=options();body.set('file',file);
       await processFrame('/api/recognize',body,state.generation);
     }
-  } catch(error) {status(error.message,true);controls();}
+  } catch(error) {if(generation===state.generation) status(error.message,true);}
+  finally {if(generation===state.generation){state.loading=false;controls();}}
   event.target.value='';
 });
 for (const [id,output] of [['detection','detection-value'],['ocr-threshold','ocr-value'],['similarity','similarity-value']]) {

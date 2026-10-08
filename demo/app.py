@@ -97,7 +97,7 @@ def run_recognition(data, detection, ocr_threshold, similarity, backend):
         raise HTTPException(429, 'Another frame is being processed. Try again shortly.')
     try:
         return pipeline.recognise(image, detection, ocr_threshold, similarity, backend)
-    except (ValueError, RuntimeError) as exc:
+    except Exception as exc:
         logging.exception('Recognition failed')
         raise HTTPException(500, 'Recognition failed. Check the terminal log or choose another OCR engine.') from exc
     finally:

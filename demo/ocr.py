@@ -43,8 +43,13 @@ class OCR:
             return self.read_trocr(crop)
         if backend == 'easyocr':
             allow = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' if field == 'bus_number' else None
-            lines = self.reader.readtext(crop, detail=1, paragraph=False, allowlist=allow,
-                                         min_size=3, text_threshold=.5, low_text=.3, canvas_size=1280)
+            if field == 'bus_number':
+                h, w = crop.shape[:2]
+                lines = self.reader.recognize(crop, horizontal_list=[[0, w, 0, h]],
+                    free_list=[], detail=1, allowlist=allow)
+            else:
+                lines = self.reader.readtext(crop, detail=1, paragraph=False,
+                    min_size=3, text_threshold=.5, low_text=.3, canvas_size=1280)
             # Preserve top-to-bottom, left-to-right ordering of detected text lines.
             lines.sort(key=lambda line: (round(line[0][0][1] / 15), line[0][0][0]))
             raw = (' ' if field == 'bus_number' else '\n').join(line[1] for line in lines).strip()
