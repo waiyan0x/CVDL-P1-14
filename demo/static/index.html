@@ -25,8 +25,8 @@
       <div class="panel-heading"><h2 id="vision-heading">Detection view</h2><span id="source-label">Choose a project image</span></div>
       <div class="stage" id="stage"><canvas id="preview" aria-label="Input image with detected display regions"></canvas><div id="empty">The selected image will appear here.</div><span id="processing" hidden>Reading display…</span></div>
       <video id="source-video" muted playsinline hidden></video><canvas id="capture" hidden></canvas>
-      <div class="legend"><span><i class="number-key"></i>Service number</span><span><i class="destination-key"></i>Destination / road text</span><span><i class="eds-key"></i>EDS screen</span></div>
-      <div class="stats"><div><span id="latency">—</span><small>Server processing</small></div><div><span id="fps">—</span><small>Processing capacity*</small></div><div><span id="regions">—</span><small>Detected regions</small></div><div><span id="roundtrip">—</span><small>Request round trip</small></div></div>
+      <div class="legend"><span><i class="number-key"></i>Service number</span><span><i class="destination-key"></i>Destination / road text</span><span><i class="eds-key"></i>EDS screen · dashed = estimated</span></div>
+      <div class="stats"><div><span id="latency">—</span><small>Server processing</small></div><div><span id="fps">—</span><small>Processing capacity*</small></div><div><span id="regions">—</span><small>Display boxes</small></div><div><span id="roundtrip">—</span><small>Request round trip</small></div></div>
       <p class="fine-print">*Reciprocal of this frame’s server processing time; includes detection, OCR and matching. It is not measured sustained video FPS.</p>
     </section>
     <aside class="results-panel" aria-labelledby="results-heading">

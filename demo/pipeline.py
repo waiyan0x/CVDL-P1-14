@@ -49,6 +49,29 @@ def pair_fields(fields):
     return groups[:3]
 
 
+def add_eds_boxes(fields, groups, width, height):
+    """Estimate a display envelope only when both text fields are located."""
+    screens = [f for f in fields if f['label'] == 'eds']
+    estimates = []
+    for number, destination in groups:
+        if number is None or destination is None:
+            continue
+        x1 = min(number['box'][0], destination['box'][0])
+        y1 = min(number['box'][1], destination['box'][1])
+        x2 = max(number['box'][2], destination['box'][2])
+        y2 = max(number['box'][3], destination['box'][3])
+        # Keep genuine screen predictions, without drawing a duplicate envelope.
+        if any(s['box'][0] <= x1 and s['box'][1] <= y1 and
+               s['box'][2] >= x2 and s['box'][3] >= y2 for s in screens):
+            continue
+        pad_x = max(4, round((x2 - x1) * .15))
+        pad_y = max(4, round((y2 - y1) * .35))
+        estimates.append({'label': 'eds', 'source': 'field_union', 'confidence': None,
+                          'box': [max(0, x1-pad_x), max(0, y1-pad_y),
+                                  min(width, x2+pad_x), min(height, y2+pad_y)]})
+    return fields + estimates
+
+
 class Pipeline:
     def __init__(self):
         torch.set_num_threads(4)
@@ -81,8 +104,10 @@ class Pipeline:
                 continue
             fields.append({'label': self.model.names[cls], 'box': coordinates,
                            'confidence': round(float(box.conf.item()), 3)})
+        groups = pair_fields(fields)
+        fields = add_eds_boxes(fields, groups, width, height)
         results = []
-        for number, destination in pair_fields(fields):
+        for number, destination in groups:
             recognised = {}
             for field in [number, destination]:
                 if field is None:

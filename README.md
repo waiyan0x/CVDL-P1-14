@@ -12,7 +12,7 @@ For a fresh setup, run `bash scripts/setup.sh`. TrOCR weights can be retrieved s
 
 See [DEMO_GUIDE.md](DEMO_GUIDE.md) for the presentation sequence, recovery steps, limitations, and verification commands.
 
-The demo detects service/destination field regions without a bus-front detection gate. Matching requires an exact recognised service and compares observed text/lines with that service's endpoints. Raw road text is retained. Detection/OCR/matching thresholds are adjustable; weak matches are rejected. Video processing allows one request at a time and skips frames while inference is busy.
+The demo detects service/destination field regions without a bus-front detection gate. When no enclosing EDS screen is predicted, it draws a padded outer box inferred from paired fields, labelled **EDS screen · estimated** with a dashed amber outline and no confidence score. Matching requires an exact recognised service and compares observed text/lines with that service's endpoints. Raw road text is retained. Detection/OCR/matching thresholds are adjustable; weak matches are rejected. Video processing allows one request at a time and skips frames while inference is busy.
 
 ## Project goals
 

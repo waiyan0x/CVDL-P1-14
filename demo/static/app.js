@@ -52,12 +52,18 @@ async function showImage(src, generation=state.generation, detections=[]) {
   $('empty').hidden = true;
   const scale = Math.max(1,canvas.width/900);
   const colours = {bus_number:'#36ca92', destination:'#64a5ff', eds:'#ffc35c'};
-  for (const detection of detections) {
+  // Draw the enclosing screens first so the text-region boxes remain readable.
+  const ordered = [...detections].sort((a,b)=>(a.label==='eds'?0:1)-(b.label==='eds'?0:1));
+  for (const detection of ordered) {
     const [x1,y1,x2,y2] = detection.box;
     const colour = colours[detection.label] || '#fff';
-    const text = `${detection.label.replaceAll('_',' ')} · ${Math.round(detection.confidence*100)}%`;
+    const estimated = detection.source === 'field_union';
+    const label = detection.label === 'eds' ? 'EDS screen' : detection.label.replaceAll('_',' ');
+    const text = estimated ? `${label} · estimated` : `${label} · ${Math.round(detection.confidence*100)}%`;
     context.strokeStyle = colour; context.lineWidth = 2.5*scale;
+    context.setLineDash(estimated ? [8*scale, 5*scale] : []);
     context.strokeRect(x1,y1,x2-x1,y2-y1);
+    context.setLineDash([]);
     context.font = `600 ${12*scale}px -apple-system, sans-serif`;
     const textWidth = context.measureText(text).width + 12*scale;
     const labelY = Math.max(0,y1-22*scale);

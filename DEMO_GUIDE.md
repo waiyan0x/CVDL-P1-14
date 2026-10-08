@@ -22,7 +22,7 @@ The result panel retains raw road/destination text. Endpoint references come fro
 
 ## What is implemented
 
-- Supplied YOLO11n checkpoint detects service-number, destination and EDS regions directly. The bus-front class is not a gate. Most included images produce field boxes rather than a whole EDS box.
+- Supplied YOLO11n checkpoint detects service-number, destination and EDS regions directly. The bus-front class is not a gate. When the checkpoint supplies no enclosing EDS box, a padded envelope is inferred from paired text fields and drawn as a dashed amber **EDS screen · estimated** box, with no invented confidence score. It approximates the display extent, not the exact physical screen boundary.
 - EasyOCR baseline, optional installed Tesseract baseline, and the supplied fine-tuned TrOCR checkpoint.
 - Exact service lookup, fuzzy matching of observed text/lines against that service's endpoint references, and configurable rejection thresholds.
 - Image uploads, local browser camera capture, browser-playable video input, bundled images, and photo replay.
