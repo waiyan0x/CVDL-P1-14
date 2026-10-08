@@ -1,0 +1,8 @@
+ultralytics==8.3.158
+easyocr==1.7.2
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+python-multipart>=0.0.18
+rapidfuzz>=3.9,<4
+Pillow>=10
+opencv-python>=4.10,<6
