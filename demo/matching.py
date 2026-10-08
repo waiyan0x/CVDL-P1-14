@@ -10,6 +10,7 @@ def normalise(text: str) -> str:
     text = re.sub(r"[^A-Z0-9 ]", " ", text.upper())
     for long, short in [("INTERCHANGE", "INT"), ("TERMINAL", "TER"), ("STATION", "STN")]:
         text = re.sub(rf"\b{long}\b", short, text)
+    text = re.sub(r"\bBUS (?=INT\b|TER\b)", "", text)
     return " ".join(text.split())
 
 
@@ -31,7 +32,9 @@ class RouteMatcher:
         if len(observed.replace(" ", "")) < 4:
             return {"status": "service_only", "service": service, "endpoint": None,
                     "similarity": None, "reason": "Service found; destination not confirmed.", "routes": reference}
-        scored = [(fuzz.ratio(observed, normalise(r[key])) / 100, r[key])
+        observations = [observed] + [normalise(line) for line in destination.splitlines()
+                                      if len(normalise(line).replace(' ', '')) >= 4]
+        scored = [(max(fuzz.ratio(line, normalise(r[key])) for line in observations) / 100, r[key])
                   for r in candidates for key in ("Origin", "Destination") if r[key].strip()]
         score, endpoint = max(scored, key=lambda pair: pair[0], default=(0, None))
         accepted = score >= threshold
