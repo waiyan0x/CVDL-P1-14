@@ -1,0 +1,67 @@
+.viewer { position: relative; background: var(--surface); border-radius: 20px; overflow: hidden; min-width: 0; }
+.viewer:empty { min-height: 280px; }
+.viewer img, .camera-preview { display: block; width: 100%; height: auto; border-radius: 20px; }
+.camera-preview { background: #1d1d1f; aspect-ratio: 16 / 10; object-fit: contain; }
+.box { position: absolute; border: 2px solid #fff; border-radius: 3px; box-shadow: 0 0 0 1px #0009, inset 0 0 0 1px #0009; min-width: 3px; min-height: 3px; padding: 0; background: transparent; }
+.box.estimated { border-style: dashed; border-radius: 6px; box-shadow: 0 0 0 1px #0007; }
+.box-number { position: absolute; bottom: 100%; left: -2px; margin-bottom: 3px; background: #fff; color: #000; border: 1px solid #000; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 5px; white-space: nowrap; }
+.box.estimated .box-number, .box.screen .box-number { top: 100%; bottom: auto; margin-top: 4px; background: #000; color: #fff; border-color: #fff; font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 13px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.legend i { width: 20px; border-top: 2px solid var(--ink); }
+.legend i.dashed { border-top-style: dashed; }
+.samples { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.sample { display: flex; flex-direction: column; gap: 8px; padding: 6px 6px 10px; background: #fff; border-radius: 14px; cursor: pointer; text-align: left; min-width: 0; border: 2px solid #e5e5ea; }
+.sample[aria-pressed="true"] { border-color: var(--ink); }
+.sample img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 9px; }
+.sample span { font-size: 13px; font-weight: 600; color: var(--ink); }
+.sample .sample-description { font-size: 12px; font-weight: 400; color: var(--muted); margin-top: -6px; }
+.dropzone { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; aspect-ratio: 16 / 10; padding: 24px; border: 1.5px dashed #c7c7cc; border-radius: 20px; text-align: center; cursor: pointer; }
+.dropzone.dragging { border-color: #000; background: var(--surface); }
+.dropzone strong { font-size: 19px; font-weight: 600; }
+.dropzone span, .dropzone input { font-size: 13px; color: var(--muted); max-width: 100%; }
+.dropzone input { width: 100%; padding: 8px; }
+.dropzone.compact { aspect-ratio: auto; padding: 12px 16px; align-items: flex-start; gap: 4px; text-align: left; }
+.dropzone.compact svg, .dropzone.compact > span { display: none; }
+.dropzone.compact strong { font-size: 14px; }
+.dropzone input::file-selector-button { border: 1px solid var(--line); border-radius: 980px; background: #fff; padding: 8px 12px; margin-right: 8px; cursor: pointer; }
+.options { border-top: 1px solid #e5e5ea; padding-top: 16px; font-size: 13px; }
+.options summary { cursor: pointer; font-weight: 500; min-height: 32px; }
+.options-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 12px; }
+.control { display: flex; flex-direction: column; gap: 8px; min-width: 0; color: var(--muted); font-size: 13px; }
+.control select, .control input[type="number"] { min-height: 44px; border: 1px solid var(--line); border-radius: 10px; padding: 0 12px; background: #fff; color: var(--ink); width: 100%; }
+input[type="range"] { accent-color: var(--ink); width: 100%; }
+.range-label { display: flex; justify-content: space-between; gap: 12px; }
+.field-card { display: flex; flex-direction: column; gap: 14px; }
+.field-label { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 500; color: var(--muted); }
+.field-number { width: 22px; height: 22px; border-radius: 6px; background: var(--ink); color: #fff; font-size: 12px; font-weight: 700; display: grid; place-items: center; flex-shrink: 0; }
+.crop { display: block; max-width: 100%; height: 56px; object-fit: contain; object-position: left; align-self: flex-start; border-radius: 8px; background: #000; }
+.screen-crop { max-height: 90px; height: auto; }
+.field-text { display: flex; flex-direction: column; gap: 6px; overflow-wrap: anywhere; }
+.raw-text { font-size: 17px; line-height: 1.35; font-weight: 500; color: var(--muted); white-space: pre-line; }
+.matched-text { font-size: 22px; line-height: 1.25; font-weight: 600; letter-spacing: -.01em; }
+.scores { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding-top: 14px; border-top: 1px solid var(--line); margin: 0; }
+.scores div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.scores dt { font-size: 12px; color: var(--muted); }
+.scores dd { margin: 0; font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.route-card { display: flex; flex-direction: column; gap: 6px; }
+.route-card p { margin: 0; font-size: 14px; color: var(--muted); }
+.timings { display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+.timings dl { display: flex; flex-direction: column; gap: 10px; margin: 0; }
+.timings dl div { display: flex; justify-content: space-between; gap: 12px; }
+.timings dd { margin: 0; color: var(--muted); font-variant-numeric: tabular-nums; }
+.timings .total { border-top: 1px solid var(--line); padding-top: 10px; font-weight: 600; }
+.timings .total dd { color: var(--ink); }
+.frame-label { margin: 0; font-size: 12px; line-height: 1.5; color: var(--muted); font-variant-numeric: tabular-nums; }
+.display-group { display: flex; flex-direction: column; gap: 12px; }
+.display-title { font-size: 13px; font-weight: 500; color: var(--muted); }
+.live-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; }
+.live-controls .control { margin-left: auto; width: 140px; }
+@media (max-width: 420px) {
+  .samples { gap: 6px; }
+  .sample { padding: 3px 3px 8px; gap: 6px; border-radius: 10px; }
+  .sample span { font-size: 11px; }
+  .options-grid { grid-template-columns: minmax(0, 1fr); }
+  .live-controls .control { margin-left: 0; width: 100%; }
+  .scores dt { font-size: 11px; }
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live — EDS Reader</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/analysis.css">
+  <script type="module" src="/assets/js/pages/live.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header data-header></header>
+  <main id="main">
+    <div class="page-heading">
+      <h1>Live</h1>
+      <p>Read a bus sign from a camera or sample frames from an uploaded video.</p>
+    </div>
+    <div class="columns">
+      <section class="stack" aria-label="Stream input">
+        <div class="toolbar">
+          <div class="segments" id="modes" role="group" aria-label="Stream source">
+            <button type="button" data-mode="camera" aria-pressed="true">Camera</button>
+            <button type="button" data-mode="video" aria-pressed="false">Upload video</button>
+          </div>
+          <button type="button" class="button push" id="reset">Reset</button>
+        </div>
+        <label class="dropzone" id="video-zone" hidden>
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="m17 10 4-3v10l-4-3"/></svg>
+          <strong>Drop a video or choose a file</strong>
+          <span id="video-limit">The server validates and decodes your video.</span>
+          <input id="video-file" type="file" accept="video/*,.mkv,.avi,.mov,.mp4,.webm" aria-label="Upload video">
+        </label>
+        <video id="camera" class="camera-preview" autoplay playsinline muted aria-label="Camera preview"></video>
+        <div class="live-controls">
+          <button id="start" type="button" class="button primary">Start</button>
+          <button id="stop" type="button" class="button" disabled>Stop</button>
+          <button id="restart" type="button" class="button" disabled>Restart</button>
+          <label class="control">Sample interval (ms)<input id="interval" type="number" min="100" max="10000" step="100" value="1000" inputmode="numeric"></label>
+        </div>
+        <p id="status" class="notice" role="status" aria-live="polite">Start the camera or choose a video.</p>
+        <div id="viewer" class="viewer" hidden></div>
+        <p id="frame-label" class="frame-label"></p>
+        <div id="legend" class="legend" hidden>
+          <span><i aria-hidden="true"></i>Detected region</span>
+          <span><i class="dashed" aria-hidden="true"></i>Estimated whole EDS box</span>
+        </div>
+        <div id="options"></div>
+      </section>
+      <section class="stack tight" aria-label="Results">
+        <div id="results" class="stack tight"><div class="message">Start a stream to process its first frame.</div></div>
+        <p class="caption">The image and results belong to the same processed frame. Stop retains the last result; reset or switching input clears it.</p>
+      </section>
+    </div>
+  </main>
+  <noscript>This application needs JavaScript to access the camera and process videos.</noscript>
+</body>
+</html>
