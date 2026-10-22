@@ -1,1 +1,0 @@
-"""Local bus EDS demonstration."""

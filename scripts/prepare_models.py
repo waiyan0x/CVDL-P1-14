@@ -8,4 +8,4 @@ import easyocr
 
 root = Path(__file__).resolve().parents[1]
 easyocr.Reader(['en'], gpu=False, model_storage_directory=str(root / '.cache/easyocr'), verbose=False)
-print('EasyOCR weights ready. No network connection is needed to run the demo.')
+print('EasyOCR weights ready. Inference uses the local model cache.')
