@@ -1,0 +1,34 @@
+const {assert, path, base, output, assertResponsive, assertAccessible, videoFixture} = require('./helpers.cjs');
+
+module.exports = async function live(page) {
+  await page.goto(`${base}/live`);
+  await page.locator('#options summary').waitFor();
+  await page.getByRole('button', {name: 'Upload video', exact: true}).click();
+  await page.locator('#video-file').setInputFiles(videoFixture());
+  await page.waitForFunction(() => !document.getElementById('start').disabled);
+  const request = page.waitForResponse(response => /\/api\/videos\/[^/]+\/frames$/.test(response.url()) && response.status() === 200);
+  await page.getByRole('button', {name: 'Start', exact: true}).click();
+  const data = await (await request).json();
+  assert.equal(data.frame.source, 'video');
+  assert.equal(typeof data.frame.frame_id, 'number');
+  assert.equal(typeof data.frame.source_timestamp_ms, 'number');
+  await page.locator('#viewer img').waitFor();
+  await page.getByRole('button', {name: 'Stop', exact: true}).click();
+  assert.match(await page.locator('#frame-label').innerText(), /Stopped/);
+  await assertResponsive(page, '/live');
+  await assertAccessible(page);
+  await page.screenshot({path: path.join(output, 'live-desktop.png'), fullPage: true});
+  const restarted = page.waitForResponse(response => /\/api\/videos\/[^/]+\/frames$/.test(response.url()) && response.status() === 200);
+  await page.getByRole('button', {name: 'Restart', exact: true}).click();
+  const first = await (await restarted).json();
+  assert.equal(first.frame.source_timestamp_ms, 0);
+  await page.getByRole('button', {name: 'Reset', exact: true}).click();
+  assert.equal(await page.locator('#viewer').isVisible(), false);
+  await page.getByRole('button', {name: 'Camera', exact: true}).click();
+  const camera = page.waitForResponse(response => response.url().endsWith('/api/analysis') && response.status() === 200);
+  await page.getByRole('button', {name: 'Start', exact: true}).click();
+  assert.equal((await (await camera).json()).frame.source, 'camera');
+  await page.getByRole('button', {name: 'Stop', exact: true}).click();
+  assert.equal(await page.evaluate(() => document.getElementById('camera').srcObject), null);
+  console.log('Live: server upload/decode, restart/reset, simulated camera and stop passed.');
+};

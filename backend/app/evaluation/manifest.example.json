@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "dataset": {
+    "id": "REPLACE_WITH_DATASET_ID",
+    "version": "REPLACE_WITH_VERSION",
+    "split": "held_out"
+  },
+  "review": {
+    "reviewed": false,
+    "reviewer": "",
+    "reviewed_at": ""
+  },
+  "images": []
+}

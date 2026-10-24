@@ -1,0 +1,13 @@
+{
+  "name": "bus-eds-reader",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/frontend/*.test.mjs",
+    "test:browser": "node scripts/browser-smoke.cjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "playwright": "^1.64.1"
+  }
+}
