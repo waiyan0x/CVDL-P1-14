@@ -1,0 +1,14 @@
+autodistill==0.1.29
+transformers==5.20.2
+supervision==0.31.2
+pillow==13.0.0
+nbformat==5.11.1
+nbclient==0.11.0
+ipykernel==7.4.0
+numpy==2.5.4
+torch==2.14.1
+torchvision==0.29.1
+opencv-python==5.0.0.93
+scikit-learn==1.9.1
+scipy==1.18.1
+matplotlib==3.11.2

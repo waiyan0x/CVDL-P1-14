@@ -7,10 +7,9 @@ and image types are recorded in [IMAGE_CATEGORIES.md](IMAGE_CATEGORIES.md).
 
 ## Next work (do first)
 
-- [ ] **Confirm the dataset contract.** Decide which front, side, and rear EDS
-  formats are supported, which text fields must be extracted, and whether
-  multiple EDS in one frame are in scope. Record camera and uploaded-video
-  requirements and consistent EDS box, text-line, and field-label rules.
+- [x] **Record the bbox annotation contract.** The [guide](../eds_layout_and_annotation_guide.md)
+  includes front/side EDS, excludes rear EDS and defines four classes and multiple
+  displays per frame. Reviewing all current labels against it remains open.
 - [ ] **Make the current snapshot retrievable and traceable.** Share the raw,
   labelled, and processed files at the paths in `manifests/2026-10-24.csv`.
   Record the source, collection method, usage permission, and source group for
@@ -46,9 +45,11 @@ and image types are recorded in [IMAGE_CATEGORIES.md](IMAGE_CATEGORIES.md).
 - [ ] Confirm train, validation, and held-out test membership after grouping
   duplicates, related frames, and recordings by source. Preserve the held-out
   test set for final evaluation.
-- [ ] Record preprocessing and augmentation settings and apply training
-  augmentations only to training images. Keep separate robustness conditions
-  for blur, lighting, and perspective without changing the original test set.
+- [x] Record the [phase sequence and augmentation recipe](../docs/data_preparation/README.md)
+  and implement training-only augmentation with unchanged validation/test copies.
+- [ ] Review the resulting small-text readability and resolve flagged similar
+  scenes across current splits before training. Visual plots are available in
+  [the inspection notebook](../notebooks/data_visual_checks.ipynb).
 
 ### Reference data and versioning
 

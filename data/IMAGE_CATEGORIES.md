@@ -7,7 +7,7 @@
   Git tree. The raw images can be inspected in commit `9b15447`.
 - The base Roboflow COCO export has **199 images** (140 train, 39 validation,
   20 test) and four annotated classes: `front_eds`,
-  `front_eds_destination`, `front_eds_num`, and `front_eds_route`. The augmented
+  `front_eds_destination`, `front_eds_num`, and `front_eds_route`. The historical Roboflow augmented
   export has **479 images** (420 train, 39 validation, 20 test). These exports
   are derived data, not additional raw photos.
 - The raw set mixes camera photos, screenshots, and visibly watermarked images.
@@ -21,7 +21,7 @@ coverage categories, not counts per category.
 
 | Broad category | Subsets visible in the images | Why we included them |
 | --- | --- | --- |
-| **Viewing angle and display location** | Straight-on front; three-quarter front; side; rear; bus partly outside the frame; front EDS and side/rear displays where visible. | The display changes shape and position with perspective. Side and rear views help distinguish the front EDS from other displays or bus markings. |
+| **Viewing angle and display location** | Straight-on front; three-quarter front; side; rear; bus partly outside the frame; front EDS and side/rear displays where visible. | The display changes shape and position with perspective. Front and side EDS are targets; rear EDS is excluded under the annotation guide. |
 | **Distance and image quality** | Close, readable buses; small or distant buses; soft focus, motion blur, low resolution, and cropped displays. | Tests whether the system still finds the bus and knows when EDS text is too small or unclear to read reliably. |
 | **Lighting and environment** | Bright sun, shade, backlighting or windshield glare; dusk and night with bright LEDs/headlights; sheltered interchanges and bus stops. | EDS contrast and reflections vary substantially across real operating conditions. |
 | **EDS text and layout** | Route number with destination; number and destination without a detailed route or “via” line; one-line and multi-line destination text; number placed at different positions; different LED brightness, colour, and spacing. | Prevents the reader from assuming one fixed text position or format. Covers short and long messages on different bus and display designs. |
@@ -31,3 +31,15 @@ coverage categories, not counts per category.
 | **Distracting text and hard negatives** | Bus-stop/service signs, advertisements, vehicle branding, side or rear text, and scenes with no readable front EDS. | Tests whether the system reads the actual front display instead of nearby unrelated text or inventing a reading when none is visible. |
 
 The remaining work is tracked in [DATA_PREP_TODO.md](DATA_PREP_TODO.md).
+
+## Reviewed visual examples
+
+[data_visual_checks.ipynb](../notebooks/data_visual_checks.ipynb) displays three
+images in one row for each category above. Filenames, SHA-256 hashes and brief
+observations are recorded in
+[the preview sample manifest](manifests/2026-10-24-preview-samples.json).
+These examples were visually selected, not assigned by an automatic classifier.
+They do not establish per-category counts or exhaustive coverage. Rear views,
+bus-stop signs and arrival screens illustrate exclusion/hard-negative context;
+they are not additional bounding-box classes. See the
+[annotation guide](../eds_layout_and_annotation_guide.md) for target scope.

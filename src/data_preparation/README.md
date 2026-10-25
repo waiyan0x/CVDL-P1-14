@@ -1,0 +1,23 @@
+# Reusable preparation code
+
+Use the [standalone scripts](../../scripts/README.md) to execute phases and the
+[visual notebook](../../notebooks/README.md) to inspect samples. Modules perform
+no inference or pipeline writes when imported. Imports resolve from `src/`;
+scripts and the notebook add that path explicitly.
+
+| Module | Responsibility |
+| --- | --- |
+| `config.py` | Repository paths and default split/augmentation settings |
+| `images.py` | OpenCV decoding/encoding, codec fallback, hashes and similarity fingerprints |
+| `splitting.py` | Raw inventory, duplicate grouping, split plan and frozen copies |
+| `annotation.py` | Autodistill model adapter, draft proposals and isolated export |
+| `annotation_cli.py` | Dependency-light plan/help commands; model imports deferred until `--run` |
+| `datasets.py` | COCO validation, leakage candidates and existing PyTorch Dataset helpers |
+| `augmentation.py` | Seeded paired image/box transforms and atomic training export |
+| `preprocessing.py` | Optional letterbox, scaling and normalization for later model integration |
+| `visualization.py` | Read-only Matplotlib comparisons and category sample plots |
+
+Phase inputs, outputs and justifications are in
+[docs/data_preparation/README.md](../../docs/data_preparation/README.md).
+Image coverage categories describe scenes; COCO classes describe objects inside
+those scenes. They are separate concepts and need separate records.

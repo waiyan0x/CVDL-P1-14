@@ -2,12 +2,15 @@
 /data/raw/
 /data/labelled/
 /data/processed/
+/data/incoming/
+/data_old
 
 # Python virtual environments and generated caches.
 .venv/
 venv/
 __pycache__/
 *.py[cod]
+.ipynb_checkpoints/
 
 # Local runtime artifacts.
 /.cache/

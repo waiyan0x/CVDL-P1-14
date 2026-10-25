@@ -1,50 +1,49 @@
 # Project datasets
 
-Dataset payloads are local and excluded from Git. Documentation and checksum
-manifests remain tracked so the team can identify the exact files used.
+Image payloads, annotations and generated exports stay local. Git tracks code,
+documentation and checksum/sample manifests. Ignoring data does not back it up.
 
 ```text
 data/
-  README.md
-  IMAGE_CATEGORIES.md                  # Snapshot coverage and image types
-  DATA_PREP_TODO.md                    # Next work and remaining tasks
-  manifests/
-    2026-10-24.csv
-  raw/YYYY-MM-DD/                     # Original collected images
-  labelled/YYYY-MM-DD/roboflow/        # Base COCO export, including splits
-  processed/YYYY-MM-DD/roboflow-augmented/ # Augmented COCO export
+  IMAGE_CATEGORIES.md                     # Overlapping scene coverage categories
+  DATA_PREP_TODO.md                       # Remaining dataset/project work
+  manifests/                             # Tracked inventory and reviewed sample paths
+  raw/<cutoff>/                          # Collected original images
+    splits/{train,valid,test}/            # Existing frozen annotation inputs
+  labelled/<cutoff>/{train,val,test}/     # Accepted images and _annotations.coco.json
+  processed/<cutoff>/<recipe>/{train,valid,test}/
 ```
 
-The previous `cutoff_24-10` and `cutoff_30-10` directories are now named
-`2026-10-24` and `2026-10-30`. Dates identify the existing cutoff folders;
-they do not establish whether batches are cumulative. The October 30 folders
-are currently empty placeholders and are not stored by Git.
+`2026-10-24` contains the current images; `2026-10-30` is an empty placeholder.
+Cutoff names do not establish whether batches are cumulative. `val` and `valid`
+are accepted validation aliases; do not create both for the same accepted export.
 
-The augmented export was moved from `labelled` to `processed`. Image names,
-annotations, and train/valid/test membership are unchanged. Its bundled README
-identifies the export as Front EDS v2, generated on October 24, 2026.
+## Phase handoffs
 
-## Retrieving data
+1. Inspect/deduplicate raw originals and freeze grouped splits before annotation.
+2. Annotate existing splits. Experimental drafts remain under
+   `experiments/eds_autodistill/outputs/`; review/correct them before accepting.
+3. Place accepted plain images and COCO JSON in `labelled/<cutoff>/`. Rendered
+   boxes belong in previews, not the input image pixels.
+4. Augment training only. `processed/train` contains both original and augmented
+   images; accepted pre-augmentation originals remain in `labelled/train`.
+   Validation/test images and JSON are copied unchanged.
 
-Shared storage and an automated download workflow have not been configured yet.
-Until they are, obtain the exact dataset from the data-preparation maintainer
-and place it at the paths recorded in `manifests/2026-10-24.csv`. The manifest
-records relative paths, byte sizes, and SHA-256 checksums for all 898 files.
-Do not substitute a newly generated Roboflow export without recording a new
-manifest and its source version.
+Commands and phase context: [scripts](../scripts/README.md),
+[recipe](../docs/data_preparation/README.md),
+[annotation guide](../eds_layout_and_annotation_guide.md).
+Existing labelled splits are never silently moved or regenerated.
 
-For a future Roboflow download script, record the workspace, project, version,
-and export format; supply credentials through environment variables. Raw
-originals need their own shared storage location. DVC is an alternative for
-versioning the complete raw and labelled snapshots against shared storage.
+## Manifests and retrieval
 
-## Preparing new snapshots
+See [manifests/README.md](manifests/README.md). `2026-10-24.csv` records the
+historical 898-file snapshot before subsequent local folder changes. Its old
+`roboflow/` paths are historical, not current loader paths. Do not edit it to
+make a new dataset appear equivalent. A new export needs its own recipe/version
+and checksums. The reviewed preview manifest references actual current paths.
 
-Preserve raw originals. Record sources, cutoff semantics, class definitions,
-split membership, preprocessing, and augmentation settings for each snapshot.
-Keep validation and test sets consistent when comparing experiments and apply
-training augmentation only to training images.
-
-Ignoring dataset paths does not upload or back them up. Local data remains on
-disk when switching branches. A cleanup commit removes payloads from the branch's
-current tree; copies in earlier Git commits remain in repository history.
+Shared storage and automated download are not configured. Obtain the exact
+snapshot from the maintainer. Record source, permission and capture group for
+new data; use shared storage or DVC for payload versions if configured later.
+Dataset removal from the current Git tree does not remove earlier historical
+copies. No history rewrite is part of this workflow.
