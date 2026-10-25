@@ -1,0 +1,14 @@
+# Local datasets and generated training exports. Keep documentation and manifests in Git.
+/data/raw/
+/data/labelled/
+/data/processed/
+
+# Python virtual environments and generated caches.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Local runtime artifacts.
+/.cache/
+/.runtime/
