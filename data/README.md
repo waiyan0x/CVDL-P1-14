@@ -6,6 +6,8 @@ manifests remain tracked so the team can identify the exact files used.
 ```text
 data/
   README.md
+  IMAGE_CATEGORIES.md                  # Snapshot coverage and image types
+  DATA_PREP_TODO.md                    # Next work and remaining tasks
   manifests/
     2026-10-24.csv
   raw/YYYY-MM-DD/                     # Original collected images

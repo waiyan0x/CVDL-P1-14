@@ -1,4 +1,4 @@
-# Data preparation: image coverage and next work
+# Image coverage in the data-preparation snapshot
 
 ## Current snapshot
 
@@ -30,25 +30,4 @@ coverage categories, not counts per category.
 | **Crowded or obstructed scenes** | Multiple buses in one image; buses behind other buses; people, poles, shelters, trees, and vehicles crossing the bus or EDS; busy interchange backgrounds. | Forces the system to associate each display with the correct bus and handle partly hidden text. |
 | **Distracting text and hard negatives** | Bus-stop/service signs, advertisements, vehicle branding, side or rear text, and scenes with no readable front EDS. | Tests whether the system reads the actual front display instead of nearby unrelated text or inventing a reading when none is visible. |
 
-## Next Data Prep work
-
-1. **Agree on the dataset contract.** Confirm supported front/side/rear EDS,
-   required text fields, camera and video inputs, and whether multiple EDS in
-   one frame are in scope. Write consistent box and text-label rules before
-   adding more annotations.
-2. **Make the snapshot accessible and traceable.** Put the raw and export files
-   in shared storage matching the manifest. Record each image or source group's
-   origin, collection method, usage permission, and relationship to a video or
-   image sequence. Collect representative camera and uploaded-video examples.
-3. **Audit cleaning, boxes, and splits.** The raw manifest contains **12 exact
-   duplicate groups (13 extra files)**. Review near-duplicates and related
-   frames; keep each group in one split. Review missing/inaccurate EDS boxes and
-   the **22 base-export images with no boxes** to distinguish intentional
-   negatives from missed labels. Preserve the held-out test set.
-4. **Prepare OCR ground truth.** Create EDS crops and verified transcriptions,
-   with field or line labels where needed. Include a clear rule for unreadable,
-   partial, and special-message displays.
-5. **Version the remaining inputs.** Document the export version, split
-   membership, preprocessing, and training-only augmentation settings. Obtain
-   the reference CSV, record its source and fields, and check missing or
-   inconsistent entries before matching experiments.
+The remaining work is tracked in [DATA_PREP_TODO.md](DATA_PREP_TODO.md).
