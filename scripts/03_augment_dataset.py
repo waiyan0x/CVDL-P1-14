@@ -8,7 +8,7 @@ import torch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from data_preparation.config import CUTOFF, SEED, AUGMENTATION, EXCLUDED_PREFIXES, CLEAN_LABELLED_VERSION, TRAINING_VERSION
+from data_preparation.config import CUTOFF, SEED, AUGMENTATION, EXCLUDED_PREFIXES, TRAINING_VERSION
 from data_preparation.datasets import load_coco_splits, dataset_summary, find_cross_split_pairs
 from data_preparation.readiness import audit_labels
 from data_preparation.augmentation import build_augmented_dataset
@@ -19,13 +19,13 @@ def main():
     cv2.setNumThreads(1)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--cutoff", default=CUTOFF)
-    parser.add_argument("--input", type=Path, help="Reviewed clean COCO export; defaults to labelled/<cutoff>-clean-v1")
+    parser.add_argument("--input", type=Path, help="Accepted COCO source; defaults to data/labelled/<cutoff>")
     parser.add_argument("--output", type=Path, help="New version under data/training; defaults to <cutoff>-eds-v1")
     parser.add_argument("--seed", type=int, default=SEED)
     parser.add_argument("--multiplier", type=int, default=AUGMENTATION['multiplier'])
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args()
-    source = args.input or ROOT / "data/labelled" / f"{args.cutoff}-{CLEAN_LABELLED_VERSION}"
+    source = args.input or ROOT / "data/labelled" / args.cutoff
     output = args.output or ROOT / "data/training" / f"{args.cutoff}-{TRAINING_VERSION}"
     datasets = load_coco_splits(source)
     drafts = [row['image']['file_name'] for dataset in datasets.values() for row in dataset['rows']
@@ -38,7 +38,7 @@ def main():
     if args.write:
         if not audit_labels(datasets)['automated_checks_passed']:
             raise ValueError("Resolve cross-split similarity, marked-up images and class issues first; "
-                             "use scripts/00_audit_dataset.py and the reviewed clean export")
+                             "use scripts/00_audit_dataset.py to review the accepted source")
         settings = dict(AUGMENTATION, multiplier=args.multiplier)
         manifest = build_augmented_dataset(datasets, output, settings, args.seed, EXCLUDED_PREFIXES)
         provenance = manifest['training_provenance']

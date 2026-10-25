@@ -3,7 +3,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 CUTOFF = "2026-10-24"
-CLEAN_LABELLED_VERSION = "clean-v1"
+LABELLED_DATASET = ROOT / "data/labelled" / CUTOFF
 TRAINING_VERSION = "eds-v1"
 TRAINING_DATASET = ROOT / "data/training" / f"{CUTOFF}-{TRAINING_VERSION}"
 AUGMENTATION_REFERENCE = Path("docs/data_preparation/recipes/eds-torchvision-v1-reference.md")

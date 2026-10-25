@@ -1,12 +1,12 @@
 # Project datasets
 
 Image payloads, annotations and generated exports stay local. Git tracks code,
-documentation and checksum/sample manifests. Ignoring data does not back it up.
+documentation and the notebook's preview sample metadata. Ignoring data does not
+back it up.
 
 ```text
 data/
   IMAGE_CATEGORIES.md                     # Overlapping scene coverage categories
-  manifests/                             # Tracked inventory and reviewed sample paths
   raw/<cutoff>/                          # Collected original images
     splits/{train,valid,test}/            # Existing frozen annotation inputs
   labelled/<cutoff>/{train,val,test}/     # Accepted images and _annotations.coco.json
@@ -35,13 +35,17 @@ Commands and phase context: [scripts](../scripts/README.md),
 [annotation guide](../docs/annotation/guide.md).
 Existing labelled splits are never silently moved or regenerated.
 
-## Manifests and retrieval
+## Export integrity and retrieval
 
-See [manifests/README.md](manifests/README.md). `2026-10-24.csv` records the
-historical 898-file snapshot before subsequent local folder changes. Its old
-`roboflow/` paths are historical, not current loader paths. Do not edit it to
-make a new dataset appear equivalent. A new export needs its own recipe/version
-and checksums. The reviewed preview manifest references actual current paths.
+The labelled and training exports keep their own local integrity manifests
+beside their payloads. These record source/output hashes and augmentation
+provenance and are checked by the loader. Keep them with their dataset versions.
+COCO JSONs contain the training annotations. The removed `data/manifests/`
+inventory/report folder is not needed by the current pipeline.
+
+The visual notebook's sample paths, hashes and observations live separately in
+[notebooks/preview_samples.json](../notebooks/preview_samples.json). No preparation
+or model-loading command depends on that notebook metadata.
 
 Shared storage and automated download are not configured. Obtain the exact
 snapshot from the maintainer. Record source, permission and capture group for
@@ -53,9 +57,11 @@ copies. No history rewrite is part of this workflow.
 
 Use **`training/2026-10-24-eds-v1/`** for model training and evaluation:
 411 train (137 originals + 274 augmented), 39 validation, 20 test.
-`labelled/2026-10-24-clean-v1/` is its reviewed source before augmentation.
-The original accepted export remains an input to the audit/cleaning and visual
-inspection workflow. Only the current torchvision training version is retained;
+`labelled/2026-10-24/` is the accepted original source before augmentation:
+137 train, 39 validation and 20 test images. It contains the former cleaned
+export, promoted to the canonical date folder. The superseded 199-image export
+and the separate cleaned-name folder have been removed. Only the current
+torchvision training version is retained;
 `data/processed/` and its superseded exports have been removed.
 See [training/README.md](training/README.md) for the exact layout and defaults.
 See the [readiness handoff](../docs/data_preparation/TRAINING_READINESS.md)

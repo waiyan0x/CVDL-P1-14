@@ -36,3 +36,7 @@ include `split`, and each training row has `augmentation_variant` (0 for an
 original). `fit_training_statistics()` requires the training split and skips
 augmented variants. An audit may pass `allow_cross_split_duplicates=True` to
 inspect/remediate exact overlaps; ordinary loading rejects them.
+
+`config.LABELLED_DATASET` selects the canonical accepted originals at
+`data/labelled/2026-10-24/` (137/39/20). The audit defaults to this source;
+future exclusion exports require explicit decisions and a separate destination.

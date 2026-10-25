@@ -210,11 +210,12 @@ The tested sample demonstrated the corrected side-display behavior; **it did not
 
 ## 9. Split and augmentation settings
 
-Your latest verified Dataset contained **199 images**:
+The current accepted source at `data/labelled/2026-10-24/` contains **196 images**
+after removing the three reviewed training overlaps:
 
 | Split | Images |
 |---|---:|
-| Train | 140 |
+| Train | 137 |
 | Validation | 39 |
 | Test | 20 |
 

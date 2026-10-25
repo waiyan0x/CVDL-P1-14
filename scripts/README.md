@@ -37,20 +37,22 @@ See [phase context and augmentation recipe](../docs/data_preparation/README.md).
 
 ```powershell
 python scripts/00_audit_dataset.py
-python scripts/00_audit_dataset.py --write --report .runtime/clean-label-audit.json
+python scripts/00_audit_dataset.py --report .runtime/labelled-audit.json
 python scripts/03_augment_dataset.py --write
 ```
 
-The audit returns exit code 1 when automated readiness checks fail. Cleaning uses
-three checksum-bound, visually reviewed training exclusions from
-`data/manifests/2026-10-24-training-exclusions.json`; it creates a separate export,
-keeps validation/test bytes and accepted originals, and verifies idempotent reruns.
-It refuses unknown/changed review evidence, unresolved similarities and modified
-outputs. Augmentation now refuses writes with unresolved similarities, markup,
-drafts or class issues. See the [training handoff](../docs/data_preparation/TRAINING_READINESS.md).
+The audit returns exit code 1 when automated readiness checks fail. The default
+accepted source is already cleaned; it does not reapply historical exclusions.
+For a future batch requiring reviewed exclusions, `--write` requires explicit
+`--exclusions` and a separate `--output`; use `--input` to select that batch.
+The exporter refuses
+unknown/changed review evidence, unresolved similarities and modified outputs.
+Past exclusion decisions remain inside the accepted source's local
+`preparation_manifest.json`. Augmentation refuses writes with unresolved
+similarities, markup, drafts or class issues. See the [training handoff](../docs/data_preparation/TRAINING_READINESS.md).
 
-The augmentation command now defaults to `data/labelled/2026-10-24-clean-v1/`
-as its source and `data/training/2026-10-24-eds-v1/` as its final output. All
+The augmentation command now defaults to `data/labelled/2026-10-24/`
+as its accepted original source and `data/training/2026-10-24-eds-v1/` as its final output. All
 new augmented exports must be under `data/training/`; use `--output` for a new
 version. Models load the complete final version, including its separate
 `train/`, `valid/` and `test/` folders.

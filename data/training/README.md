@@ -17,8 +17,9 @@ Point detector training, validation and evaluation at these three splits.
 future trainers should use this configured path. Keep validation and test separate
 from the images used to fit the model.
 
-`data/labelled/` holds accepted annotation sources before augmentation. The
-cleaned source for this dataset is `data/labelled/2026-10-24-clean-v1/`.
+`data/labelled/2026-10-24/` holds the accepted original images and annotations
+before augmentation (137 train, 39 validation, 20 test). The former cleaned
+export now occupies this canonical path; the older export was removed.
 Only `2026-10-24-eds-v1/`, built with torchvision, is retained as an augmented
 training export. `data/processed/` and its obsolete `eds-aug-v1` and
 `eds-torch-v1` exports have been removed. Raw and labelled sources remain so the
@@ -31,8 +32,8 @@ python scripts/03_augment_dataset.py
 python scripts/03_augment_dataset.py --write
 ```
 
-Both commands use the cleaned labelled source. The first validates the cleaned labelled source without
-writing; the second verifies an existing export or builds a missing one.
+Both commands use the accepted labelled source. The first validates the source
+without writing; the second verifies an existing export or builds a missing one.
 Changed inputs/settings require a new version via `--output data/training/<version>`.
 
 The four-class mapping, readiness checks and remaining limits are in the

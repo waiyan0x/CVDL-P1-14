@@ -11,7 +11,7 @@ from .augmentation import augment_sample
 def load_examples(path=None, *, root=ROOT):
     """Validate reviewed representative paths and hashes, without reclassifying images."""
     root = Path(root).resolve()
-    path = Path(path) if path else root / "data/manifests/2026-10-24-preview-samples.json"
+    path = Path(path) if path else root / "notebooks/preview_samples.json"
     manifest = json.loads(path.read_text(encoding="utf-8"))
     for sample in [s for group in manifest["categories"] for s in group["samples"]] + manifest["augmentation_samples"]:
         image = (root / sample["path"]).resolve()

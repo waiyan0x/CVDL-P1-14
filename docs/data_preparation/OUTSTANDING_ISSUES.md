@@ -14,8 +14,8 @@ handoff. The final dataset remains `data/training/2026-10-24-eds-v1/` with
 | Excluded annotations remained in the cleanup preflight | Image rows, COCO images and annotations are filtered together before auditing | A legacy class used only by an excluded image no longer blocks its removal |
 | Newly generated augmentations were not checked for cross-split similarity | A similar scene introduced by augmentation prevents the staged export from being published | Publication fails and leaves no output dataset |
 
-The [real-dataset verification](../../data/manifests/2026-10-25-pipeline-verification.json)
-confirms all 473 output checksums, zero cross-split similarity matches,
+Verification of the real dataset confirmed all 473 output checksums and zero
+cross-split similarity matches,
 unchanged validation/test, an unchanged idempotent export, and identical
 normalization statistics from the final dataset's 137 originals and the clean
 source. The visual notebook also executes all 12 plots without embedding outputs
@@ -23,8 +23,8 @@ in the tracked source.
 
 The new checks supplement the existing source hashes, atomic output staging,
 box geometry validation, unchanged holdouts and rejection of modified exports.
-`tests/test_data_preparation.py` and `tests/test_readiness.py` contain the
-regressions; the full suite has 29 tests.
+`tests/test_data_preparation.py`, `tests/test_readiness.py` and
+`tests/test_readiness_cli.py` contain the regressions; the full suite has 31 tests.
 
 ## Open work requiring additional evidence
 
@@ -43,7 +43,7 @@ regressions; the full suite has 29 tests.
   configured for that model. The four-class COCO mapping remains explicit in
   the [training handoff](TRAINING_READINESS.md).
 - **Reproducible distribution:** payloads are local and shared storage is not
-  configured. Git contains code and manifests; another machine still needs the
+  configured. Git contains code and notebook metadata; another machine still needs the
   exact dataset files. The reference CSV is also not supplied.
 - **Later coverage and evaluation:** collect representative camera/uploaded-video
   examples and fill coverage gaps when evaluating generalization. Check small-text

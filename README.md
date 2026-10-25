@@ -5,7 +5,7 @@ Standalone Python scripts own processing; the single notebook only displays
 augmentation comparisons and representative scene categories.
 
 Model dataset: **`data/training/2026-10-24-eds-v1/`**.
-Its `train/` contains 137 clean originals + 274 augmented images (411 total);
+Its `train/` contains 137 accepted originals + 274 augmented images (411 total);
 `valid/` and `test/` contain 39 and 20 unchanged originals.
 `data/labelled/` is the annotation source before augmentation. Only the current
 torchvision training export is retained; superseded exports have been removed.
@@ -37,7 +37,7 @@ validate accepted COCO -> augment training only. Keep validation/test unchanged.
 The existing snapshot is already split; do not replace its membership.
 
 Images, labels, generated exports, model caches and virtual environments stay
-local. Git contains code, documentation and checksum/sample manifests. Notebook
+local. Git contains code, documentation and notebook sample metadata. Notebook
 outputs are cleared before committing so images are not embedded in Git.
 
 ```powershell

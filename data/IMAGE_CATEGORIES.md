@@ -2,19 +2,19 @@
 
 ## Current snapshot
 
-- The `2026-10-24` snapshot contains **212 raw images**. The tracked manifest is
-  `data/manifests/2026-10-24.csv`; image payloads are excluded from the current
-  Git tree. The raw images can be inspected in commit `9b15447`.
-- The base Roboflow COCO export has **199 images** (140 train, 39 validation,
-  20 test) and four annotated classes: `front_eds`,
-  `front_eds_destination`, `front_eds_num`, and `front_eds_route`. The cleaned
-  source has **196 images** (137 train, 39 validation, 20 test). The sole current
-  torchvision training export has **470 images** (411 train, 39 validation,
-  20 test), including 274 training augmentations. Derived exports are not
-  additional raw photos; obsolete augmented exports have been removed.
+- The `2026-10-24` snapshot contains **212 raw images**. Image payloads stay
+  local; the early raw snapshot can also be inspected in commit `9b15447`.
+- The accepted labelled source, `data/labelled/2026-10-24/`, has **196 images**
+  (137 train, 39 validation, 20 test) and four annotated classes: `front_eds`,
+  `front_eds_destination`, `front_eds_num`, and `front_eds_route`. It is the
+  cleaned export promoted to the canonical source folder; its 199-image
+  predecessor has been removed. The sole current torchvision training export
+  has **470 images** (411 train, 39 validation, 20 test), including 274 training
+  augmentations. Derived exports are not additional raw photos.
 - The raw set mixes camera photos, screenshots, and visibly watermarked images.
-  Source and usage-permission records are not in this branch. Its manifest
-  records paths, sizes, and SHA-256 checksums, but not provenance.
+  Source and usage-permission records are not in this branch. The retained
+  local export manifests record file hashes and processing lineage, not verified
+  capture provenance.
 
 ## Image coverage
 
@@ -41,7 +41,7 @@ recorded in the [pipeline review](../docs/data_preparation/OUTSTANDING_ISSUES.md
 [data_visual_checks.ipynb](../notebooks/data_visual_checks.ipynb) displays three
 images in one row for each category above. Filenames, SHA-256 hashes and brief
 observations are recorded in
-[the preview sample manifest](manifests/2026-10-24-preview-samples.json).
+[the notebook sample JSON](../notebooks/preview_samples.json).
 These examples were visually selected, not assigned by an automatic classifier.
 They do not establish per-category counts or exhaustive coverage. Rear views,
 bus-stop signs and arrival screens illustrate exclusion/hard-negative context;

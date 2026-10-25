@@ -1,22 +1,16 @@
 # Training handoff — 25 October 2026
 
-The cleaned COCO export passes the automated checks for a detector baseline.
-The [machine-readable verification](../../data/manifests/2026-10-25-readiness.json)
-records the initial counts, checksums, preserved holdouts and test results.
-The [layout verification](../../data/manifests/2026-10-25-training-layout.json)
-records the final model-input location and unchanged export checksums.
-The original labelled source contains known cross-split scene overlaps, removed
-in the clean source and final export. Superseded processed exports have been
-removed. Models use **`data/training/2026-10-24-eds-v1/`**.
-The labelled directories below are annotation sources.
+The accepted COCO export passes the automated checks for a detector baseline.
+The accepted original source is **`data/labelled/2026-10-24/`**: the former
+cleaned export now uses the canonical date folder. Its superseded 199-image
+predecessor has been removed. Models use **`data/training/2026-10-24-eds-v1/`**.
 
 | Export | Training images | Validation images | Test images |
 | --- | ---: | ---: | ---: |
-| Original `data/labelled/2026-10-24` | 140 | 39 | 20 |
-| Clean `data/labelled/2026-10-24-clean-v1` | 137 | 39 | 20 |
+| Accepted originals `data/labelled/2026-10-24` | 137 | 39 | 20 |
 | Final `data/training/2026-10-24-eds-v1` | 411 | 39 | 20 |
 
-The clean export has 548 training boxes, 154 validation boxes and 83 test boxes.
+The accepted originals have 548 training boxes, 154 validation boxes and 83 test boxes.
 All 22 zero-box examples remain (16/4/2). Their contact sheet shows rear views,
 non-target signage, or scenes without a visible eligible display; this visual
 check does not establish the annotation platform's historical Null status.
@@ -25,18 +19,19 @@ check does not establish the annotation platform's historical Null status.
 
 The three pairs in the original export were visually inspected. Two contain
 the same interchange scene in training and validation/test; the third contains
-a training image with drawn-on boxes matching a clean validation image. The
-[reviewed exclusions](../../data/manifests/2026-10-24-training-exclusions.json)
-record every filename, reason and both image checksums.
+a training image with drawn-on boxes matching a clean validation image.
+The accepted source's local `preparation_manifest.json` retains the reviewed
+exclusions and source/output hashes.
 
-Cleaning excludes these three training copies in a new export. It preserves
-the original accepted export and all validation/test image and JSON bytes.
-No held-out image moves into training. The clean export has no exact decoded
+The three training copies were excluded before promoting the accepted source
+to the canonical date folder. The older uncleaned export has been removed;
+validation/test image and JSON bytes remain unchanged. No held-out image moves
+into training. The accepted export has no exact decoded
 pixel overlap or cross-split dHash matches at distance <= 4, no `annotated_`
 images, and no explicitly unreviewed drafts. COCO identities, image sizes,
 category consistency and bounding-box geometry pass the existing loader checks.
 
-The cleaned export's local `preparation_manifest.json` freezes source hashes,
+The accepted export's local `preparation_manifest.json` freezes source hashes,
 decisions, the audit and every output checksum. The augmented export has its
 own `augmentation_manifest.json` recording source hashes, recipe and provenance.
 Reruns reject changed sources, review evidence or output files.
@@ -64,8 +59,7 @@ the number of foreground classes or infer labels from category-list order.
 Run from the repository root with the project's Python environment:
 
 ```powershell
-python scripts/00_audit_dataset.py --write --report .runtime/clean-label-audit.json
-python scripts/00_audit_dataset.py --input data/labelled/2026-10-24-clean-v1
+python scripts/00_audit_dataset.py --report .runtime/labelled-audit.json
 python scripts/03_augment_dataset.py --write
 python -m unittest discover -s tests -v
 ```
@@ -77,11 +71,9 @@ when configuring any additional trainer augmentation. `TRAINING_DATASET` in
 `src/data_preparation/config.py` selects this version, and `load_coco_splits()`
 loads it by default. `data/labelled/` remains the annotation source.
 
-The verified export was relocated from
-`data/processed/2026-10-24/eds-torch-v2-clean-v1/` without modifying any image,
-COCO JSON or augmentation-manifest bytes. That old path in the initial
-readiness report is historical. `data/processed/` and its superseded exports
-have now been removed; only the current torchvision training version remains.
+The accepted source and final export retain their original file checksums after
+the directory renames. Superseded labelled and processed exports have been
+removed; the current source and torchvision training version remain.
 The raw `splits/` directory is an earlier annotation input; pair each COCO JSON
 only with the images in its own export.
 
@@ -108,6 +100,6 @@ text transcriptions, which are not supplied by these bounding-box annotations.
 No model training or model accuracy evaluation was run.
 
 Image payloads and generated exports remain local under the repository's existing
-ignore rules. Git contains the code, reviewed exclusion checksums and handoff;
+ignore rules. Git contains the code, handoff and notebook sample metadata;
 pushing Git does not distribute the dataset. The unused `models_old/` archive
 has been removed from the working tree. Git history is unchanged.

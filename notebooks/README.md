@@ -14,8 +14,10 @@ The notebook has only two displays:
    scene categories in [IMAGE_CATEGORIES.md](../data/IMAGE_CATEGORIES.md).
 
 Sample filenames, hashes and observations live in
-[`data/manifests/2026-10-24-preview-samples.json`](../data/manifests/2026-10-24-preview-samples.json).
-They are illustrative examples, not exhaustive category assignments. Rear views
+[preview_samples.json](preview_samples.json).
+This JSON is used only by the visual notebook and its plotting helpers.
+The preparation and model-data loading commands do not use it.
+The samples are illustrative examples, not exhaustive category assignments. Rear views
 and information screens illustrate exclusions, not new bbox classes. Missing or
 changed sample files raise an actionable error; no substitute image is invented.
 
