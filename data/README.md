@@ -11,10 +11,10 @@ data/
     splits/{train,valid,test}/            # Existing frozen annotation inputs
   labelled/<cutoff>/{train,val,test}/     # Accepted images and _annotations.coco.json
   training/<version>/{train,valid,test}/  # Final model inputs: originals + train variants
-  processed/<cutoff>/<recipe>/            # Historical exports
 ```
 
-`2026-10-24` contains the current images; `2026-10-30` is an empty placeholder.
+`2026-10-24` contains the current source images; unused empty batch placeholders
+have been removed.
 Cutoff names do not establish whether batches are cumulative. `val` and `valid`
 are accepted validation aliases; do not create both for the same accepted export.
 
@@ -54,8 +54,9 @@ copies. No history rewrite is part of this workflow.
 Use **`training/2026-10-24-eds-v1/`** for model training and evaluation:
 411 train (137 originals + 274 augmented), 39 validation, 20 test.
 `labelled/2026-10-24-clean-v1/` is its reviewed source before augmentation.
-The original accepted export remains intact. `processed/` is historical;
-its verified clean export was relocated into the final training directory.
+The original accepted export remains an input to the audit/cleaning and visual
+inspection workflow. Only the current torchvision training version is retained;
+`data/processed/` and its superseded exports have been removed.
 See [training/README.md](training/README.md) for the exact layout and defaults.
 See the [readiness handoff](../docs/data_preparation/TRAINING_READINESS.md)
 for verified counts, class mapping and limitations.

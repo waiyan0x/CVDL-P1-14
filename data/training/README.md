@@ -19,9 +19,10 @@ from the images used to fit the model.
 
 `data/labelled/` holds accepted annotation sources before augmentation. The
 cleaned source for this dataset is `data/labelled/2026-10-24-clean-v1/`.
-`data/processed/` contains historical exports. The final verified export formerly
-at `data/processed/2026-10-24/eds-torch-v2-clean-v1/` was relocated here without
-changing its images, labels or augmentation manifest.
+Only `2026-10-24-eds-v1/`, built with torchvision, is retained as an augmented
+training export. `data/processed/` and its obsolete `eds-aug-v1` and
+`eds-torch-v1` exports have been removed. Raw and labelled sources remain so the
+current export can still be audited and reproduced.
 
 Build or verify the current version with:
 

@@ -5,8 +5,9 @@ The [machine-readable verification](../../data/manifests/2026-10-25-readiness.js
 records the initial counts, checksums, preserved holdouts and test results.
 The [layout verification](../../data/manifests/2026-10-25-training-layout.json)
 records the final model-input location and unchanged export checksums.
-The original labelled export and the older processed exports contain known
-cross-split scene overlaps. Models use **`data/training/2026-10-24-eds-v1/`**.
+The original labelled source contains known cross-split scene overlaps, removed
+in the clean source and final export. Superseded processed exports have been
+removed. Models use **`data/training/2026-10-24-eds-v1/`**.
 The labelled directories below are annotation sources.
 
 | Export | Training images | Validation images | Test images |
@@ -79,7 +80,8 @@ loads it by default. `data/labelled/` remains the annotation source.
 The verified export was relocated from
 `data/processed/2026-10-24/eds-torch-v2-clean-v1/` without modifying any image,
 COCO JSON or augmentation-manifest bytes. That old path in the initial
-readiness report is historical; `data/processed/` now holds older exports.
+readiness report is historical. `data/processed/` and its superseded exports
+have now been removed; only the current torchvision training version remains.
 The raw `splits/` directory is an earlier annotation input; pair each COCO JSON
 only with the images in its own export.
 
@@ -107,5 +109,5 @@ No model training or model accuracy evaluation was run.
 
 Image payloads and generated exports remain local under the repository's existing
 ignore rules. Git contains the code, reviewed exclusion checksums and handoff;
-pushing Git does not distribute the dataset. Old checkpoints are archived in
-`models_old/`, with the TrOCR checkpoint managed by Git LFS.
+pushing Git does not distribute the dataset. The unused `models_old/` archive
+has been removed from the working tree. Git history is unchanged.

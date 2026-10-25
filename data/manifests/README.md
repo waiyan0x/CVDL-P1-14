@@ -36,3 +36,9 @@ checks, original-only training statistics, unchanged dataset manifest and held-o
 files, zero final cross-split similarity matches, 29 passing tests and 12 executed
 notebook plots. The [pipeline review](../../docs/data_preparation/OUTSTANDING_ISSUES.md)
 separates resolved code bugs from missing source/annotation/model evidence.
+
+`2026-10-25-cleanup.json` records removal of superseded augmentation exports,
+the old model archive and empty batch placeholders. It confirms that only
+`data/training/2026-10-24-eds-v1/` remains as an augmented training export, with
+all 473 output checksums unchanged. Historical inventory and verification
+records are retained as provenance; their former output paths need not exist.

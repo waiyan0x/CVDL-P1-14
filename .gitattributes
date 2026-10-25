@@ -1,4 +1,2 @@
-models_old/trocr-finetuned/model.safetensors filter=lfs diff=lfs merge=lfs -text
-
 # Frozen recipe reference: preserve the bytes recorded in export manifests.
 /docs/data_preparation/recipes/* -text

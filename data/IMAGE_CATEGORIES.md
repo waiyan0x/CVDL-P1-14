@@ -7,9 +7,11 @@
   Git tree. The raw images can be inspected in commit `9b15447`.
 - The base Roboflow COCO export has **199 images** (140 train, 39 validation,
   20 test) and four annotated classes: `front_eds`,
-  `front_eds_destination`, `front_eds_num`, and `front_eds_route`. The historical Roboflow augmented
-  export has **479 images** (420 train, 39 validation, 20 test). These exports
-  are derived data, not additional raw photos.
+  `front_eds_destination`, `front_eds_num`, and `front_eds_route`. The cleaned
+  source has **196 images** (137 train, 39 validation, 20 test). The sole current
+  torchvision training export has **470 images** (411 train, 39 validation,
+  20 test), including 274 training augmentations. Derived exports are not
+  additional raw photos; obsolete augmented exports have been removed.
 - The raw set mixes camera photos, screenshots, and visibly watermarked images.
   Source and usage-permission records are not in this branch. Its manifest
   records paths, sizes, and SHA-256 checksums, but not provenance.

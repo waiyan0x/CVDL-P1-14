@@ -7,9 +7,10 @@ augmentation comparisons and representative scene categories.
 Model dataset: **`data/training/2026-10-24-eds-v1/`**.
 Its `train/` contains 137 clean originals + 274 augmented images (411 total);
 `valid/` and `test/` contain 39 and 20 unchanged originals.
-`data/labelled/` is the annotation source before augmentation; `data/processed/`
-contains historical exports. See the [training dataset](data/training/README.md)
-and [readiness handoff](docs/data_preparation/TRAINING_READINESS.md).
+`data/labelled/` is the annotation source before augmentation. Only the current
+torchvision training export is retained; superseded exports have been removed.
+See the [training dataset](data/training/README.md) and
+[readiness handoff](docs/data_preparation/TRAINING_READINESS.md).
 
 ```powershell
 python -m pip install -r requirements.txt

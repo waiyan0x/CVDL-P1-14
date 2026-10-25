@@ -60,8 +60,9 @@ blur and gain are disabled to avoid redundant or unrealistic corruption.
 source hashes, parameters, library versions, this recipe's hash, provenance and
 output checksums. Changed inputs/settings or modified exports require a new
 dataset version. The default source is `data/labelled/2026-10-24-clean-v1/`;
-the final output is `data/training/2026-10-24-eds-v1/`. `data/processed/` holds
-historical exports. The recipe hash uses a [frozen reference](recipes/README.md)
+the final output is `data/training/2026-10-24-eds-v1/`. Superseded augmentation
+exports under `data/processed/` have been removed. The recipe hash uses a
+[frozen reference](recipes/README.md)
 so current workflow documentation can evolve without changing dataset identity.
 
 ### Reviewed visual comparisons

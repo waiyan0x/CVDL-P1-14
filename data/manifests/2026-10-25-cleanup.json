@@ -1,0 +1,47 @@
+{
+  "checked_on": "2026-10-25",
+  "active_dataset": "data/training/2026-10-24-eds-v1",
+  "recipe": "eds-torchvision-v1",
+  "training_versions": [
+    "2026-10-24-eds-v1"
+  ],
+  "splits": {
+    "train": 411,
+    "valid": 39,
+    "test": 20
+  },
+  "training_originals": 137,
+  "training_augmented": 274,
+  "verified_output_checksums": 473,
+  "augmentation_manifest_sha256": "51918f57ad382f5f58206c1be204556138c713670b752e68cd700c26b0752a58",
+  "removed": [
+    {
+      "path": "data/processed",
+      "files": 960,
+      "bytes": 1396670553
+    },
+    {
+      "path": "models_old",
+      "files": 11,
+      "bytes": 1346339907
+    },
+    {
+      "path": "data/raw/2026-10-30",
+      "files": 0,
+      "bytes": 0
+    },
+    {
+      "path": "data/labelled/2026-10-30",
+      "files": 0,
+      "bytes": 0
+    }
+  ],
+  "retained_inputs_and_recipe": [
+    "data/raw/2026-10-24",
+    "data/labelled/2026-10-24",
+    "data/labelled/2026-10-24-clean-v1",
+    "data/training/2026-10-24-eds-v1",
+    "docs/data_preparation/recipes"
+  ],
+  "git_history_unchanged": true
+}
