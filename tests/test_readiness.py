@@ -67,6 +67,32 @@ class ReadinessTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Unresolved"):
             clean_labels(self.datasets, self.output, dict(exclude_train=[]))
 
+    def test_exact_duplicate_can_be_audited_and_cleaned_but_not_trained(self):
+        copy = self.source / 'train/copy.jpg'
+        copy.write_bytes((self.source / 'val/scene.png').read_bytes())
+        self.decisions['exclude_train'][0]['sha256'] = file_hash(copy)
+        with self.assertRaisesRegex(ValueError,'Exact image duplicated'):
+            load_coco_splits(self.source)
+        datasets = load_coco_splits(self.source,allow_cross_split_duplicates=True)
+        self.assertFalse(audit_labels(datasets)['automated_checks_passed'])
+        clean_labels(datasets,self.output,self.decisions)
+        self.assertTrue(audit_labels(load_coco_splits(self.output))['automated_checks_passed'])
+
+    def test_excluded_annotations_do_not_block_cleaned_preflight(self):
+        # A legacy class used only by the reviewed excluded copy must not survive.
+        for folder in self.source.iterdir():
+            path = folder / '_annotations.coco.json'
+            coco = json.loads(path.read_text())
+            coco['categories'].append(dict(id=99,name='legacy_markup'))
+            if folder.name == 'train':
+                coco['annotations'].append(dict(id=1,image_id=2,category_id=99,bbox=[10,10,20,20]))
+            path.write_text(json.dumps(coco),encoding='utf-8')
+        datasets = load_coco_splits(self.source)
+        self.assertFalse(audit_labels(datasets)['automated_checks_passed'])
+        result = clean_labels(datasets,self.output,self.decisions)
+        self.assertTrue(result['audit']['automated_checks_passed'])
+        self.assertEqual(result['audit']['splits'][0]['boxes'],0)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -13,7 +13,7 @@ from torchvision import tv_tensors
 from torchvision.transforms import v2, InterpolationMode
 from .config import ROOT, AUGMENTATION_REFERENCE
 from .images import file_hash, read_rgb, write_rgb
-from .datasets import load_coco_splits
+from .datasets import load_coco_splits, find_cross_split_pairs
 
 def augment_sample(image,annotations,seed,settings, *, parameters=None):
     generator = torch.Generator().manual_seed(seed)
@@ -158,7 +158,9 @@ def build_augmented_dataset(datasets, output, settings, seed, excluded_prefixes=
             for row in dataset["rows"]:
                 if file_hash(row["path"]) != inputs[f"{split}/{row['image']['file_name']}"]:
                     raise ValueError("Source image changed during augmentation")
-        load_coco_splits(staging)
+        staged = load_coco_splits(staging)
+        if find_cross_split_pairs(staged):
+            raise ValueError("Augmented images create cross-split similar scenes; review before publishing")
         checksums = {p.relative_to(staging).as_posix():file_hash(p)
                      for p in staging.rglob("*") if p.is_file()}
         manifest = dict(spec=spec,excluded_train_images=excluded,training_provenance=provenance,checksums=checksums)

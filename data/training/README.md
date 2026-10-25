@@ -40,3 +40,10 @@ Coordinate any further trainer augmentation with this offline recipe. OCR
 training still requires verified text transcriptions.
 
 Version folders are local and ignored by Git. This README is tracked.
+
+Loading verifies the frozen output checksums and augmentation provenance.
+For optional dataset normalization, `fit_training_statistics(splits["train"])`
+uses only the 137 original training images even when loading the full 411-image
+training split. It rejects validation/test inputs. See the
+[pipeline review](../../docs/data_preparation/OUTSTANDING_ISSUES.md) for resolved
+code gaps and remaining data requirements.

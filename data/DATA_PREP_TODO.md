@@ -16,6 +16,11 @@ and image types are recorded in [IMAGE_CATEGORIES.md](IMAGE_CATEGORIES.md).
   checks; retain them as existing accepted examples. Platform Null history and
   full positive-box semantic review remain unverified.
 
+- [x] Resolve the [pipeline review findings](../docs/data_preparation/OUTSTANDING_ISSUES.md):
+  checksum verification at load time, original-only normalization, auditable
+  exact-duplicate cleanup, consistent exclusion preflight, and final similarity
+  checks before augmentation publication. The full regression suite has 29 tests.
+
 Use the [current training handoff](../docs/data_preparation/TRAINING_READINESS.md).
 The historical checklist below describes wider work, including source provenance
 and grouping by recording, beyond the repaired scene overlaps.

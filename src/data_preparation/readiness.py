@@ -62,6 +62,9 @@ def clean_labels(datasets, output, decisions):
             raise ValueError("Reviewed counterpart missing or changed")
     filtered = deepcopy(datasets)
     filtered["train"]["rows"] = [r for r in datasets["train"]["rows"] if r["image"]["file_name"] not in filenames]
+    kept_ids = {r['image']['id'] for r in filtered['train']['rows']}
+    filtered['train']['data']['images'] = [im for im in filtered['train']['data']['images'] if im['id'] in kept_ids]
+    filtered['train']['data']['annotations'] = [a for a in filtered['train']['data']['annotations'] if a['image_id'] in kept_ids]
     audit = audit_labels(filtered)
     if not audit["automated_checks_passed"]:
         raise ValueError("Unresolved leakage, markup, draft labels or class issues remain")

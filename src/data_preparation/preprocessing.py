@@ -21,9 +21,14 @@ def letterbox(image,boxes_xywh,target_size):
     return transform(image,boxes)
 
 def fit_training_statistics(dataset,target_size=None):
+    """Fit channel statistics using original images in a loaded training split."""
     # Fit only on unaugmented training images, using PyTorch channel reductions.
+    if dataset.get("split") != "train":
+        raise ValueError("Fit statistics on the training split only")
     total,squared,count = torch.zeros(3,dtype=torch.float64),torch.zeros(3,dtype=torch.float64),0
     for row in dataset["rows"]:
+        if row.get("augmentation_variant", 0) != 0:
+            continue
         if Path(row["image"]["file_name"]).name.lower().startswith(EXCLUDED_PREFIXES):
             continue
         image = read_rgb(row["path"])

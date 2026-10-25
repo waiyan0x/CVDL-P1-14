@@ -13,7 +13,8 @@ scripts and the notebook add that path explicitly.
 | `annotation.py` | Autodistill model adapter, draft proposals and isolated export |
 | `annotation_cli.py` | Dependency-light plan/help commands; model imports deferred until `--run` |
 | `readiness.py` | Readiness audit and checksum-bound, versioned training exclusions |
-| `datasets.py` | COCO validation, leakage candidates and existing PyTorch Dataset helpers |
+| `datasets.py` | Verified COCO loading, provenance tags, leakage candidates and PyTorch Dataset helpers |
+| `manifests.py` | Frozen export file checksums and complete training provenance |
 | `augmentation.py` | Seeded paired image/box transforms and atomic training export |
 | `preprocessing.py` | Optional letterbox, scaling and normalization for later model integration |
 | `visualization.py` | Read-only Matplotlib comparisons and category sample plots |
@@ -29,3 +30,9 @@ source paths; future model trainers should load this final dataset root.
 The final `train/` combines originals and augmented images; its `valid/` and
 `test/` contain unchanged originals. The augmentation exporter writes only
 under `data/training/` and hashes the frozen recipe reference from `config.py`.
+
+Frozen export checksums are verified when loading. Loaded split dictionaries
+include `split`, and each training row has `augmentation_variant` (0 for an
+original). `fit_training_statistics()` requires the training split and skips
+augmented variants. An audit may pass `allow_cross_split_duplicates=True` to
+inspect/remediate exact overlaps; ordinary loading rejects them.

@@ -83,6 +83,15 @@ readiness report is historical; `data/processed/` now holds older exports.
 The raw `splits/` directory is an earlier annotation input; pair each COCO JSON
 only with the images in its own export.
 
+## Current code checks
+
+Export loading now verifies frozen file checksums and complete augmentation
+provenance. Optional normalization statistics use original training rows only;
+validation/test cannot be used to fit them. The audit can remediate reviewed
+exact overlaps, and new augmentation exports must pass a cross-split similarity
+check before publication. See the [pipeline review](OUTSTANDING_ISSUES.md) for
+regression coverage and the remaining evidence requirements.
+
 ## Limits of this readiness check
 
 Similarity is a heuristic, not proof that all photos or frames are independent.

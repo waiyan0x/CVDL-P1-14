@@ -35,10 +35,11 @@ class PreparationTests(unittest.TestCase):
         cv2.setNumThreads(1)
         self.settings = dict(multiplier=3, brightness=.10, rotation_degrees=3.,
                              noise_fraction=.01, blur_radius=1.)
-        for split, colour in zip(('train','val','test'), ((80,100,140),(140,90,60),(60,140,90))):
+        for index, split in enumerate(('train','val','test')):
             folder = self.source / split
             folder.mkdir(parents=True)
-            image = np.full((40,60,3),colour,dtype=np.uint8)
+            # Distinct scene texture avoids false cross-split similarity in fixtures.
+            image = np.random.default_rng(index).integers(0,256,(40,60,3),dtype=np.uint8)
             cv2.rectangle(image,(12,8),(35,23),(255,255,255),-1)
             self.write_fixture(folder/f'{split}.png',image)
             images = [dict(id=1,file_name=f'{split}.png',width=60,height=40)]
@@ -174,6 +175,43 @@ class PreparationTests(unittest.TestCase):
         self.assertEqual(result['image'].shape,(3,80,80))
         self.assertEqual(result['image'].dtype,torch.float32)
         self.assertTrue(torch.isfinite(result['image']).all())
+
+    def test_statistics_ignore_augmented_variants(self):
+        original_mean, original_std = self.scope['fit_training_statistics'](self.datasets['train'])
+        self.build()
+        exported = self.scope['load_coco_splits'](self.output)
+        self.assertEqual(sum(r['augmentation_variant'] == 0 for r in exported['train']['rows']),2)
+        mean, std = self.scope['fit_training_statistics'](exported['train'])
+        torch.testing.assert_close(mean,original_mean)
+        torch.testing.assert_close(std,original_std)
+
+    def test_statistics_reject_validation_or_test_splits(self):
+        for split in ('valid','test'):
+            with self.assertRaisesRegex(ValueError,'training split only'):
+                self.scope['fit_training_statistics'](self.datasets[split])
+
+    def test_loader_rejects_modified_export_even_when_image_still_decodes(self):
+        self.build()
+        name = self.datasets['train']['rows'][0]['image']['file_name']
+        self.write_fixture(self.output/'train'/name,np.zeros((40,60,3),dtype=np.uint8))
+        with self.assertRaisesRegex(ValueError,'checksum mismatch'):
+            self.scope['load_coco_splits'](self.output)
+
+    def test_loader_requires_complete_augmentation_provenance(self):
+        self.build()
+        path = self.output/'augmentation_manifest.json'
+        manifest = json.loads(path.read_text())
+        manifest['training_provenance'].pop()
+        path.write_text(json.dumps(manifest),encoding='utf-8')
+        with self.assertRaisesRegex(ValueError,'provenance does not match'):
+            self.scope['load_coco_splits'](self.output)
+
+    def test_new_augmented_cross_split_matches_prevent_publication(self):
+        from unittest.mock import patch
+        with patch('data_preparation.augmentation.find_cross_split_pairs',return_value=[['train','aug.png','test','test.png']]):
+            with self.assertRaisesRegex(ValueError,'cross-split similar scenes'):
+                self.build()
+        self.assertFalse(self.output.exists())
 
     def test_group_shuffle_split_is_reproducible_and_keeps_groups(self):
         rows = []

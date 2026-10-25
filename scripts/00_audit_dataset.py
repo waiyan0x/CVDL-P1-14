@@ -25,7 +25,8 @@ def main():
     if args.report and (args.report.resolve().is_relative_to(args.input.resolve())
                         or args.report.resolve().is_relative_to(args.output.resolve())):
         parser.error("Report must be outside input/output datasets")
-    datasets = load_coco_splits(args.input)
+    # Audit/cleaning may inspect known exact overlaps; final model loading stays strict.
+    datasets = load_coco_splits(args.input, allow_cross_split_duplicates=True)
     report = audit_labels(datasets)
     if args.write:
         decisions = json.loads(args.exclusions.read_text(encoding="utf-8"))

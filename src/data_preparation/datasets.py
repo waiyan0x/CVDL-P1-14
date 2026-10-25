@@ -10,6 +10,7 @@ from PIL import Image as PillowImage
 from .config import SPLITS, TRAINING_DATASET
 from .images import image_info
 from .preprocessing import model_input
+from .manifests import verify_export, training_variants
 
 def split_folder(root, split):
     choices = [Path(root)/split]
@@ -20,8 +21,12 @@ def split_folder(root, split):
         raise ValueError(f"Expected one {split} folder with _annotations.coco.json: {root}")
     return present[0]
 
-def load_coco_splits(root=TRAINING_DATASET):
-    """Load a complete COCO export; default to the configured final training version."""
+def load_coco_splits(root=TRAINING_DATASET, *, allow_cross_split_duplicates=False):
+    """Verify/load COCO and provenance; duplicate tolerance is for auditing only."""
+    root = Path(root)
+    manifest = verify_export(root)
+    if root.resolve() == TRAINING_DATASET.resolve() and manifest is None:
+        raise ValueError("The configured training dataset requires an export manifest")
     datasets, categories, seen_pixels = {}, None, {}
     for split in SPLITS:
         folder = split_folder(root, split)
@@ -64,11 +69,14 @@ def load_coco_splits(root=TRAINING_DATASET):
             if (info["width"],info["height"]) != (image["width"],image["height"]):
                 raise ValueError(f"COCO dimensions differ from image: {path}")
             previous = seen_pixels.get(info["pixel_hash"])
-            if previous is not None and previous != split:
+            if previous is not None and previous != split and not allow_cross_split_duplicates:
                 raise ValueError(f"Exact image duplicated across {previous}/{split}: {path.name}")
             seen_pixels[info["pixel_hash"]] = split
             rows.append(dict(image=image, path=path, annotations=annotations[image["id"]], **info))
-        datasets[split] = dict(folder=folder, data=data, rows=rows)
+        variants = training_variants(manifest, filenames) if split == "train" else {}
+        for row in rows:
+            row['augmentation_variant'] = variants.get(row['image']['file_name'], 0)
+        datasets[split] = dict(split=split, folder=folder, data=data, rows=rows)
     return datasets
 
 def dataset_summary(datasets):

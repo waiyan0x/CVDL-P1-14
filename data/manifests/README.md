@@ -30,3 +30,9 @@ into `data/training/2026-10-24-eds-v1/`, its 137 original + 274 augmented traini
 images, and checksum/holdout verification. The `processed_export` path in the
 initial readiness report is historical; use the training-layout record and
 `src/data_preparation/config.py::TRAINING_DATASET` for the current location.
+
+`2026-10-25-pipeline-verification.json` records the stricter model-load integrity
+checks, original-only training statistics, unchanged dataset manifest and held-out
+files, zero final cross-split similarity matches, 29 passing tests and 12 executed
+notebook plots. The [pipeline review](../../docs/data_preparation/OUTSTANDING_ISSUES.md)
+separates resolved code bugs from missing source/annotation/model evidence.
