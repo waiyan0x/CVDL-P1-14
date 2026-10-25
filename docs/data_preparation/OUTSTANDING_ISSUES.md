@@ -45,7 +45,13 @@ regressions; the full suite has 29 tests.
 - **Reproducible distribution:** payloads are local and shared storage is not
   configured. Git contains code and manifests; another machine still needs the
   exact dataset files. The reference CSV is also not supplied.
+- **Later coverage and evaluation:** collect representative camera/uploaded-video
+  examples and fill coverage gaps when evaluating generalization. Check small-text
+  readability at the chosen model input size, and define runtime hardware,
+  update/failure behaviour, evaluation metrics and a model-comparison protocol.
 
 These are open requirements, not failed code checks, and must not be marked
 complete by inventing provenance, labels, permissions or model measurements.
-The broader project backlog remains in [DATA_PREP_TODO.md](../../data/DATA_PREP_TODO.md).
+The current image export is prepared for a detector-training baseline. The items
+above cover stronger evidence and later project stages; they do not require
+rebuilding the already verified export before starting that baseline.

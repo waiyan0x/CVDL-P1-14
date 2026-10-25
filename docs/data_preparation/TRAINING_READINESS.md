@@ -98,7 +98,7 @@ Similarity is a heuristic, not proof that all photos or frames are independent.
 Capture/recording provenance is incomplete, so grouping all frames by their true
 recording remains open. This run does not certify every positive box's semantics,
 small-text readability for an unspecified model size, or every source's usage
-permission. Those remain in the [data checklist](../../data/DATA_PREP_TODO.md).
+permission. Those remain in the [pipeline review](OUTSTANDING_ISSUES.md).
 Use the [annotation guide](../annotation/guide.md) for further label review.
 
 This export supports detector development. OCR fine-tuning still needs verified

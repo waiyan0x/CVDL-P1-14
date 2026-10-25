@@ -30,7 +30,9 @@ coverage categories, not counts per category.
 | **Crowded or obstructed scenes** | Multiple buses in one image; buses behind other buses; people, poles, shelters, trees, and vehicles crossing the bus or EDS; busy interchange backgrounds. | Forces the system to associate each display with the correct bus and handle partly hidden text. |
 | **Distracting text and hard negatives** | Bus-stop/service signs, advertisements, vehicle branding, side or rear text, and scenes with no readable front EDS. | Tests whether the system reads the actual front display instead of nearby unrelated text or inventing a reading when none is visible. |
 
-The remaining work is tracked in [DATA_PREP_TODO.md](DATA_PREP_TODO.md).
+The [training handoff](../docs/data_preparation/TRAINING_READINESS.md) describes
+the prepared detector dataset. Remaining evidence and later project work are
+recorded in the [pipeline review](../docs/data_preparation/OUTSTANDING_ISSUES.md).
 
 ## Reviewed visual examples
 

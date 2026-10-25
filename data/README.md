@@ -6,7 +6,6 @@ documentation and checksum/sample manifests. Ignoring data does not back it up.
 ```text
 data/
   IMAGE_CATEGORIES.md                     # Overlapping scene coverage categories
-  DATA_PREP_TODO.md                       # Remaining dataset/project work
   manifests/                             # Tracked inventory and reviewed sample paths
   raw/<cutoff>/                          # Collected original images
     splits/{train,valid,test}/            # Existing frozen annotation inputs
