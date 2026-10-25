@@ -49,7 +49,7 @@ Torchvision v2 applies geometry to images and boxes together. Rotation uses a
 padded canvas to retain the original scene. Seeds derive from the source hash,
 variant number and configured seed. Only training expands: the default multiplier
 of 3 means one original plus two variants, all together in the final
-`data/training/<version>/train/`.
+`data/training/<cutoff>/train/`.
 Validation/test images and JSON are copied byte-for-byte. Null images keep no boxes.
 
 Flips, 90° rotation, crops, shear, cutout and mosaic are disabled to protect
@@ -60,7 +60,7 @@ blur and gain are disabled to avoid redundant or unrealistic corruption.
 source hashes, parameters, library versions, this recipe's hash, provenance and
 output checksums. Changed inputs/settings or modified exports require a new
 dataset version. The default source is `data/labelled/2026-10-24/`;
-the final output is `data/training/2026-10-24-eds-v1/`. Superseded augmentation
+the final output is `data/training/2026-10-24/`. Superseded augmentation
 exports under `data/processed/` have been removed. The recipe hash uses a
 [frozen reference](recipes/README.md)
 so current workflow documentation can evolve without changing dataset identity.
@@ -78,7 +78,7 @@ recipe; reduce/disable blur if the required text becomes unreadable.
 
 ## 4. Loading and model-specific preprocessing
 
-Models use `data/training/2026-10-24-eds-v1/` as their complete dataset root.
+Models use `data/training/2026-10-24/` as their complete dataset root.
 `TRAINING_DATASET` in `config.py` selects the current version, and
 `load_coco_splits()` loads it by default. Its training split contains 137
 originals + 274 variants; validation/test contain 39/20 unchanged originals.

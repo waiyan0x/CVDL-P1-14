@@ -16,7 +16,7 @@ Use each script's `--help` to change paths, cutoff and seed.
 | --- | --- | --- |
 | Split | `python scripts/01_prepare_and_split.py --write --output data/raw/2026-10-24/splits/new-v1` | Frozen image copies and manifest; do this before annotation |
 | Annotation | `python scripts/02_auto_annotate.py --run --limit 3 --output experiments/eds_autodistill/outputs/trial-001` | Isolated draft COCO, overlays and review queue |
-| Augmentation | `python scripts/03_augment_dataset.py --write` | Final `data/training/2026-10-24-eds-v1/`: train originals + variants, unchanged validation/test |
+| Augmentation | `python scripts/03_augment_dataset.py --write` | Final `data/training/2026-10-24/`: train originals + variants, unchanged validation/test |
 
 The current split directory is `data/raw/2026-10-24/splits`; do not replace it.
 Annotation runs through `02_auto_annotate.py`, alongside the other phase scripts;
@@ -52,7 +52,7 @@ Past exclusion decisions remain inside the accepted source's local
 similarities, markup, drafts or class issues. See the [training handoff](../docs/data_preparation/TRAINING_READINESS.md).
 
 The augmentation command now defaults to `data/labelled/2026-10-24/`
-as its accepted original source and `data/training/2026-10-24-eds-v1/` as its final output. All
+as its accepted original source and `data/training/2026-10-24/` as its final output. All
 new augmented exports must be under `data/training/`; use `--output` for a new
 version. Models load the complete final version, including its separate
 `train/`, `valid/` and `test/` folders.

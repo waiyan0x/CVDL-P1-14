@@ -4,7 +4,7 @@ Prepare local bus images for front/side electronic destination sign detection.
 Standalone Python scripts own processing; the single notebook only displays
 augmentation comparisons and representative scene categories.
 
-Model dataset: **`data/training/2026-10-24-eds-v1/`**.
+Model dataset: **`data/training/2026-10-24/`**.
 Its `train/` contains 137 accepted originals + 274 augmented images (411 total);
 `valid/` and `test/` contain 39 and 20 unchanged originals.
 `data/labelled/` is the annotation source before augmentation. Only the current

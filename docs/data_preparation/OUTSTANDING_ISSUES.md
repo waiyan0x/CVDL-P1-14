@@ -1,7 +1,7 @@
 # Pipeline review — 25 October 2026
 
 The review covers the data-preparation code and current detector-training
-handoff. The final dataset remains `data/training/2026-10-24-eds-v1/` with
+handoff. The final dataset remains `data/training/2026-10-24/` with
 411 training, 39 validation and 20 test images. These fixes preserve its files.
 
 ## Resolved

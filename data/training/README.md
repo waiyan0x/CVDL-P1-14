@@ -1,9 +1,10 @@
 # Final datasets for model training
 
-The current detector dataset is `2026-10-24-eds-v1/`:
+The current detector dataset is `2026-10-24/`, matching the raw and labelled
+batch folder names:
 
 ```text
-data/training/2026-10-24-eds-v1/
+data/training/2026-10-24/
   train/                       # 137 clean originals + 274 augmented images = 411
     _annotations.coco.json     # Labels for all 411 training images
   valid/                       # 39 unchanged original images and COCO JSON
@@ -20,7 +21,7 @@ from the images used to fit the model.
 `data/labelled/2026-10-24/` holds the accepted original images and annotations
 before augmentation (137 train, 39 validation, 20 test). The former cleaned
 export now occupies this canonical path; the older export was removed.
-Only `2026-10-24-eds-v1/`, built with torchvision, is retained as an augmented
+Only `2026-10-24/`, built with torchvision, is retained as an augmented
 training export. `data/processed/` and its obsolete `eds-aug-v1` and
 `eds-torch-v1` exports have been removed. Raw and labelled sources remain so the
 current export can still be audited and reproduced.

@@ -10,7 +10,7 @@ data/
   raw/<cutoff>/                          # Collected original images
     splits/{train,valid,test}/            # Existing frozen annotation inputs
   labelled/<cutoff>/{train,val,test}/     # Accepted images and _annotations.coco.json
-  training/<version>/{train,valid,test}/  # Final model inputs: originals + train variants
+  training/<cutoff>/{train,valid,test}/  # Final model inputs: originals + train variants
 ```
 
 `2026-10-24` contains the current source images; unused empty batch placeholders
@@ -25,7 +25,7 @@ are accepted validation aliases; do not create both for the same accepted export
    `experiments/eds_autodistill/outputs/`; review/correct them before accepting.
 3. Place accepted plain images and COCO JSON in `labelled/<cutoff>/`. Rendered
    boxes belong in previews, not the input image pixels.
-4. Build `training/<version>/` from the cleaned labelled source. `train/` contains
+4. Build `training/<cutoff>/` from the cleaned labelled source. `train/` contains
    both original and augmented images; `valid/` and `test/` contain unchanged
    original images and COCO JSON. Models use this complete versioned export.
    Accepted pre-augmentation originals remain in `labelled/`.
@@ -55,7 +55,7 @@ copies. No history rewrite is part of this workflow.
 
 ## Current training inputs
 
-Use **`training/2026-10-24-eds-v1/`** for model training and evaluation:
+Use **`training/2026-10-24/`** for model training and evaluation:
 411 train (137 originals + 274 augmented), 39 validation, 20 test.
 `labelled/2026-10-24/` is the accepted original source before augmentation:
 137 train, 39 validation and 20 test images. It contains the former cleaned

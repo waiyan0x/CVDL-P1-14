@@ -25,7 +25,7 @@ Image coverage categories describe scenes; COCO classes describe objects inside
 those scenes. They are separate concepts and need separate records.
 
 `load_coco_splits()` defaults to `config.TRAINING_DATASET`, currently
-`data/training/2026-10-24-eds-v1/`. Preparation commands pass their explicit
+`data/training/2026-10-24/`. Preparation commands pass their explicit
 source paths; future model trainers should load this final dataset root.
 The final `train/` combines originals and augmented images; its `valid/` and
 `test/` contain unchanged originals. The augmentation exporter writes only

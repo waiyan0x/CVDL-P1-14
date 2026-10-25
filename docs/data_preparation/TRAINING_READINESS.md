@@ -3,12 +3,12 @@
 The accepted COCO export passes the automated checks for a detector baseline.
 The accepted original source is **`data/labelled/2026-10-24/`**: the former
 cleaned export now uses the canonical date folder. Its superseded 199-image
-predecessor has been removed. Models use **`data/training/2026-10-24-eds-v1/`**.
+predecessor has been removed. Models use **`data/training/2026-10-24/`**.
 
 | Export | Training images | Validation images | Test images |
 | --- | ---: | ---: | ---: |
 | Accepted originals `data/labelled/2026-10-24` | 137 | 39 | 20 |
-| Final `data/training/2026-10-24-eds-v1` | 411 | 39 | 20 |
+| Final `data/training/2026-10-24` | 411 | 39 | 20 |
 
 The accepted originals have 548 training boxes, 154 validation boxes and 83 test boxes.
 All 22 zero-box examples remain (16/4/2). Their contact sheet shows rear views,
@@ -64,7 +64,7 @@ python scripts/03_augment_dataset.py --write
 python -m unittest discover -s tests -v
 ```
 
-Model trainers use the final `data/training/2026-10-24-eds-v1/` export.
+Model trainers use the final `data/training/2026-10-24/` export.
 Its training split already combines 137 originals and 274 augmented images.
 Validation/test remain separate and unaugmented. Account for the offline recipe
 when configuring any additional trainer augmentation. `TRAINING_DATASET` in
