@@ -3,7 +3,6 @@ from pathlib import Path
 import json
 import textwrap
 import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
 from .config import ROOT, AUGMENTATION, SEED
 from .images import file_hash, read_rgb
 from .augmentation import augment_sample
@@ -47,22 +46,6 @@ def plot_category(group, *, root=ROOT):
     return figure
 
 
-def _panel_view(axis, image, annotations, categories, show_boxes=False):
-    """Zoom to the largest existing panel; do not infer boxes or alter dataset pixels."""
-    axis.imshow(_rgb(image), interpolation="nearest")
-    panels = [a for a in annotations if categories[a["category_id"]] == "front_eds"]
-    if panels:
-        x, y, width, height = max(panels, key=lambda a: a["bbox"][2]*a["bbox"][3])["bbox"]
-        margin_x, margin_y = width*.10, max(height*.6, width*.08)
-        axis.set_xlim(max(0, x-margin_x), min(image.shape[-1], x+width+margin_x))
-        axis.set_ylim(min(image.shape[-2], y+height+margin_y), max(0, y-margin_y))
-    if show_boxes:
-        for annotation in annotations:
-            x, y, width, height = annotation['bbox']
-            axis.add_patch(Rectangle((x, y), width, height, fill=False, edgecolor="#26c6da", linewidth=.8))
-    axis.axis('off')
-
-
 def augmentation_cases(settings=AUGMENTATION):
     """Fixed endpoints expose each enabled transform; exported variants remain random combinations."""
     disabled = dict(settings, brightness=0., rotation_degrees=0., noise_fraction=0., blur_radius=0.)
@@ -78,20 +61,20 @@ def augmentation_cases(settings=AUGMENTATION):
     ]
 
 
-def plot_augmentation(name, rows, categories, settings, parameters, description, *, seed=SEED, show_boxes=False):
-    """One original/transformed pair per training example; no image or COCO files are written."""
+def plot_augmentation(name, rows, settings, parameters, description, *, seed=SEED):
+    """One whole-image before/after pair per sample, without cropping or box overlays."""
     if not rows:
         raise ValueError("Select at least one original training example")
-    figure, axes = plt.subplots(len(rows), 2, figsize=(13, 3*len(rows)), squeeze=False,
+    figure, axes = plt.subplots(len(rows), 2, figsize=(12, 4.4*len(rows)), squeeze=False,
                                 layout="constrained")
-    figure.suptitle(f"{name}: {description}\nEDS close-ups from original training images", fontsize=15)
+    figure.suptitle(f"{name}: {description}\nWhole original training images", fontsize=15)
     for index, row in enumerate(rows):
         image = read_rgb(row['path'])
-        transformed, annotations, _ = augment_sample(image, row['annotations'], seed+index,
+        transformed, _, _ = augment_sample(image, row['annotations'], seed+index,
                                                      settings, parameters=parameters)
-        for axis, pixels, labels in ((axes[index, 0], image, row['annotations']),
-                                     (axes[index, 1], transformed, annotations)):
-            _panel_view(axis, pixels, labels, categories, show_boxes)
+        for axis, pixels in ((axes[index, 0], image), (axes[index, 1], transformed)):
+            axis.imshow(_rgb(pixels), interpolation="nearest")
+            axis.axis('off')
         caption = textwrap.fill(Path(row['image']['file_name']).name.split('_jpg.rf.')[0], 50)
         axes[index, 0].set_title(f"Before | {caption}", fontsize=10)
         axes[index, 1].set_title(f"After | {description}", fontsize=10)

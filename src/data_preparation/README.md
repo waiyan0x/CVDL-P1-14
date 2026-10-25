@@ -12,6 +12,7 @@ scripts and the notebook add that path explicitly.
 | `splitting.py` | Raw inventory, duplicate grouping, split plan and frozen copies |
 | `annotation.py` | Autodistill model adapter, draft proposals and isolated export |
 | `annotation_cli.py` | Dependency-light plan/help commands; model imports deferred until `--run` |
+| `readiness.py` | Readiness audit and checksum-bound, versioned training exclusions |
 | `datasets.py` | COCO validation, leakage candidates and existing PyTorch Dataset helpers |
 | `augmentation.py` | Seeded paired image/box transforms and atomic training export |
 | `preprocessing.py` | Optional letterbox, scaling and normalization for later model integration |

@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from data_preparation.config import CUTOFF, SEED, AUGMENTATION, EXCLUDED_PREFIXES
 from data_preparation.datasets import load_coco_splits, dataset_summary, find_cross_split_pairs
+from data_preparation.readiness import audit_labels
 from data_preparation.augmentation import build_augmented_dataset
 
 
@@ -34,6 +35,9 @@ def main():
     pairs = find_cross_split_pairs(datasets)
     print(json.dumps(dict(splits=dataset_summary(datasets), similar_scene_pairs=pairs), indent=2))
     if args.write:
+        if not audit_labels(datasets)['automated_checks_passed']:
+            raise ValueError("Resolve cross-split similarity, marked-up images and class issues first; "
+                             "use scripts/00_audit_dataset.py and the reviewed clean export")
         settings = dict(AUGMENTATION, multiplier=args.multiplier)
         manifest = build_augmented_dataset(datasets, output, settings, args.seed, EXCLUDED_PREFIXES)
         print(json.dumps(dict(output=str(output), files=len(manifest['checksums'])), indent=2))

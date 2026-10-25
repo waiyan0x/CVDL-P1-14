@@ -21,8 +21,8 @@ The current `splits/` already contains images; use it as the annotation input.
 
 `scripts/02_auto_annotate.py` uses a local Autodistill Grounding DINO adapter.
 It plans by default; `--run` explicitly downloads weights and generates proposals.
-See the [experiment README](../../experiments/eds_autodistill/README.md) and
-[annotation guide](../../eds_layout_and_annotation_guide.md) for scope and classes.
+See the [annotation README](../annotation/README.md) and
+[annotation guide](../annotation/guide.md) for scope and classes.
 
 Draft output stays under `experiments/eds_autodistill/outputs/<run>/`, with plain
 images and COCO JSON separate from rendered overlays. It never writes accepted
@@ -64,7 +64,8 @@ the CLI therefore defaults to a new `eds-torch-v2` output. Existing v1 data stay
 ### Reviewed visual comparisons
 
 Three original training examples cover a sheltered stop (176), daylight (131M)
-and night (120). At the displayed endpoints, 10% dimming retains the visible
+and night (120). The notebook compares whole images without bbox crops or overlays.
+On visual review, 10% dimming retains the visible
 layout; 3° rotation tilts the scene while the panel remains visible; 1% noise
 adds speckles over thin strokes; sigma-1 blur noticeably softens the smallest
 letters in the 176 panel. These visual observations do not measure model

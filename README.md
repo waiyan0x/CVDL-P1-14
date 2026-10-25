@@ -4,6 +4,10 @@ Prepare local bus images for front/side electronic destination sign detection.
 Standalone Python scripts own processing; the single notebook only displays
 augmentation comparisons and representative scene categories.
 
+Current training handoff: [readiness and cleaned export](docs/data_preparation/TRAINING_READINESS.md).
+The original labelled export and older processed exports contain cross-split
+scene overlaps; use the versioned clean export described there.
+
 ```powershell
 python -m pip install -r requirements.txt
 python scripts/01_prepare_and_split.py
@@ -21,8 +25,8 @@ inference requires `--run`. No model training is included.
 | [src/data_preparation/](src/data_preparation/README.md) | Reusable loading, splitting, annotation, augmentation and preprocessing code |
 | [notebooks/](notebooks/README.md) | Read-only before/after plots and three images per coverage category |
 | [data/](data/README.md) | Local dataset layout, tracked manifests and coverage |
-| [experiments/eds_autodistill/](experiments/eds_autodistill/README.md) | Isolated annotation drafts and review |
-| [Annotation guide](eds_layout_and_annotation_guide.md) | Front/side EDS scope, four bbox classes, exclusions and review rules |
+| [docs/annotation/](docs/annotation/README.md) | Autodistill annotation, isolated drafts and review |
+| [Annotation guide](docs/annotation/guide.md) | Front/side EDS scope, four bbox classes, exclusions and review rules |
 
 Inspect/group raw images -> freeze train/validation/test -> annotate and review ->
 validate accepted COCO -> augment training only. Keep validation/test unchanged.

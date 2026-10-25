@@ -5,9 +5,24 @@ visible in the `data-preparation` branch. An unchecked item means completion is
 not evidenced here; it may already be in progress outside Git. Dataset counts
 and image types are recorded in [IMAGE_CATEGORIES.md](IMAGE_CATEGORIES.md).
 
+## Current recovery status (25 October 2026)
+
+- [x] Recheck the accepted 199-image export and visually confirm its three
+  cross-split overlaps; record checksum-bound training exclusions.
+- [x] Create a separate clean export (137/39/20) with validation/test unchanged
+  and no remaining cross-split dHash matches at distance <= 4.
+- [x] Record the four active classes and their explicit training mapping.
+- [x] Inspect the 22 zero-box images in a contact sheet with selected full-size
+  checks; retain them as existing accepted examples. Platform Null history and
+  full positive-box semantic review remain unverified.
+
+Use the [current training handoff](../docs/data_preparation/TRAINING_READINESS.md).
+The historical checklist below describes wider work, including source provenance
+and grouping by recording, beyond the repaired scene overlaps.
+
 ## Next work (do first)
 
-- [x] **Record the bbox annotation contract.** The [guide](../eds_layout_and_annotation_guide.md)
+- [x] **Record the bbox annotation contract.** The [guide](../docs/annotation/guide.md)
   includes front/side EDS, excludes rear EDS and defines four classes and multiple
   displays per frame. Reviewing all current labels against it remains open.
 - [ ] **Make the current snapshot retrievable and traceable.** Share the raw,

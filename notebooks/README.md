@@ -6,10 +6,10 @@ root; image paths are resolved against the repository automatically.
 
 The notebook has only two displays:
 
-1. Before/after EDS close-ups from three original training images, separately for
+1. Whole-image before/after pairs from three original training images, separately for
    brightness, rotation, salt/pepper noise and Gaussian blur. Fixed endpoint
    parameters make individual effects visible; the production export randomly
-   combines transforms. `SHOW_BOXES=True` displays the paired box geometry.
+   combines transforms. Each pair shows the complete image with no bbox crops or overlays.
 2. One Matplotlib row of three manually reviewed examples for each of the eight
    scene categories in [IMAGE_CATEGORIES.md](../data/IMAGE_CATEGORIES.md).
 

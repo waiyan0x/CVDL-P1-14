@@ -42,4 +42,4 @@ These examples were visually selected, not assigned by an automatic classifier.
 They do not establish per-category counts or exhaustive coverage. Rear views,
 bus-stop signs and arrival screens illustrate exclusion/hard-negative context;
 they are not additional bounding-box classes. See the
-[annotation guide](../eds_layout_and_annotation_guide.md) for target scope.
+[annotation guide](../docs/annotation/guide.md) for target scope.

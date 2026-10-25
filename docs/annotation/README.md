@@ -1,10 +1,14 @@
-# EDS Autodistill experiment
+# EDS annotation with Autodistill
 
 Code only: no model inference has been run and no annotations have been generated.
 Use `python scripts/02_auto_annotate.py` from the repository root.
-The implementation lives in `src/data_preparation/annotation.py`; the local CLI
-is a compatibility entry point. Install dependencies from the root requirements.txt.
+The implementation lives alongside the other preparation modules in
+`src/data_preparation/annotation.py` and `annotation_cli.py`. The single launcher
+is `scripts/02_auto_annotate.py`. Install dependencies from the root `requirements.txt`.
+`experiments/eds_autodistill/` is only for local environment, cache and draft
+outputs; it contains no separate annotation code or dependency list.
 
+The [annotation guide](guide.md) defines target scope, the four classes and review rules.
 The local Grounding DINO adapter implements Autodistill's `DetectionBaseModel`.
 It uses positive visual captions and the guide's four canonical class IDs.
 The guide's Gemini-specific job settings do not configure this backend.
@@ -40,10 +44,10 @@ for background require a separate training-time mapping.
 
 ```powershell
 # Plan only; no model download or inference.
-experiments/eds_autodistill/.venv/Scripts/python.exe experiments/eds_autodistill/eds_autodistill.py
+python scripts/02_auto_annotate.py
 
 # When ready: 3 images per split. Use a new output name for each run.
-experiments/eds_autodistill/.venv/Scripts/python.exe experiments/eds_autodistill/eds_autodistill.py --run --limit 3
+python scripts/02_auto_annotate.py --run --limit 3
 ```
 
 References: [Autodistill](https://github.com/autodistill/autodistill),

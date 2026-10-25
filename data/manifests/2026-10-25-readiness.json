@@ -1,0 +1,143 @@
+{
+  "checked_on": "2026-10-25",
+  "intended_use": "detector baseline; no OCR text ground truth",
+  "clean_export": "data/labelled/2026-10-24-clean-v1",
+  "processed_export": "data/processed/2026-10-24/eds-torch-v2-clean-v1",
+  "clean_audit": {
+    "structural_checks_passed": true,
+    "automated_checks_passed": true,
+    "semantic_review": "Use the annotation guide; automated checks cannot verify missed panels or text classes.",
+    "splits": [
+      {
+        "split": "train",
+        "images": 137,
+        "boxes": 548,
+        "negative_images": 16
+      },
+      {
+        "split": "valid",
+        "images": 39,
+        "boxes": 154,
+        "negative_images": 4
+      },
+      {
+        "split": "test",
+        "images": 20,
+        "boxes": 83,
+        "negative_images": 2
+      }
+    ],
+    "similar_scene_pairs": [],
+    "marked_up_images": [],
+    "unreviewed_drafts": [],
+    "empty_images": [
+      "train/IMG20261024203742_jpg.rf.afdc1c6039f6e1b5869993842dee5e1c.jpg",
+      "train/Screenshot_2026-10-24-20-31-27-83_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.eda9981afefd582d596d9664b22f58bc.jpg",
+      "train/Screenshot_2026-10-24-20-31-13-43_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ad07b88546c2333a3538748d5060a2a8.jpg",
+      "train/Screenshot_2026-10-24-20-31-31-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.183df155d145ad0e5762a0700b4412aa.jpg",
+      "train/IMG20261024204105_jpg.rf.e48a18aedb72762aaa6cf221473b8ce1.jpg",
+      "train/IMAGE_2026-10-23_22_19_07_jpg.rf.22df686643e8ee0cface58f97e2601d9.jpg",
+      "train/IMAGE_2026-10-23_22_16_53_jpg.rf.028c72ee221354d9d5c1b3fff5555580.jpg",
+      "train/Screenshot_2026-10-24-20-36-28-77_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3ce95aca6d2f95c11edff72ace554504.jpg",
+      "train/IMAGE_2026-10-23_22_17_14_jpg.rf.45d1c300c46f17748e0d7bbea9974c10.jpg",
+      "train/Screenshot_2026-10-24-20-34-58-22_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3ddef94498f7d41fa7b067e48e315edd.jpg",
+      "train/Screenshot_2026-10-24-20-35-28-51_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.41386597c3baf09c0b96bd444d35aa2e.jpg",
+      "train/IMAGE_2026-10-23_22_01_21_jpg.rf.5731563fdd8e6471ba7021a308834a6b.jpg",
+      "train/IMAGE_2026-10-23_21_55_45_jpg.rf.6a40b5a2145deb83d0de5b0998c2316b.jpg",
+      "train/Screenshot_2026-10-24-20-32-41-70_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ae772426fb8368ade4eeca590e9a0f47.jpg",
+      "train/IMG_20261022_115936_jpg.rf.09157b047aadfe5b6739e036028bd4dc.jpg",
+      "train/IMAGE_2026-10-23_21_56_02_jpg.rf.6e26457b5d4eee248c933ebc693fa33d.jpg",
+      "valid/IMAGE_2026-10-23_21_56_09_jpg.rf.b74dd5352c689be9c7dcc6a048280656.jpg",
+      "valid/IMAGE_2026-10-23_22_00_10_jpg.rf.e727927a614ecd87c4489e5e75b54552.jpg",
+      "valid/Screenshot_2026-10-24-20-32-46-63_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.fa82cac18def90cac5dc4670c3b38139.jpg",
+      "valid/Screenshot_2026-10-24-20-30-27-50_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ae9182d34648c47d9d8cb5f70b786191.jpg",
+      "test/photo_2026-10-22_13-26-55_jpg.rf.43e98513aed62ce2e4aef43f5c5aa62c.jpg",
+      "test/IMAGE_2026-10-23_21_56_04_jpg.rf.7606c1d0b36ef0d91dbf5444075494a2.jpg"
+    ],
+    "unexpected_active_classes": [],
+    "missing_classes": [],
+    "categories": [
+      {
+        "id": 0,
+        "name": "front-eds",
+        "supercategory": "none",
+        "boxes": 0
+      },
+      {
+        "id": 1,
+        "name": "front_eds",
+        "supercategory": "front-eds",
+        "boxes": 230
+      },
+      {
+        "id": 2,
+        "name": "front_eds_destination",
+        "supercategory": "front-eds",
+        "boxes": 183
+      },
+      {
+        "id": 3,
+        "name": "front_eds_num",
+        "supercategory": "front-eds",
+        "boxes": 205
+      },
+      {
+        "id": 4,
+        "name": "front_eds_route",
+        "supercategory": "front-eds",
+        "boxes": 167
+      }
+    ],
+    "category_id_to_training_index": {
+      "1": 0,
+      "2": 3,
+      "3": 1,
+      "4": 2
+    },
+    "training_class_order": [
+      "front_eds",
+      "front_eds_num",
+      "front_eds_route",
+      "front_eds_destination"
+    ],
+    "similarity_method": "64-bit OpenCV grayscale area-resize dHash, distance <= 4; heuristic only"
+  },
+  "processed_splits": [
+    {
+      "split": "train",
+      "images": 411,
+      "boxes": 1644
+    },
+    {
+      "split": "valid",
+      "images": 39,
+      "boxes": 154
+    },
+    {
+      "split": "test",
+      "images": 20,
+      "boxes": 83
+    }
+  ],
+  "verified_clean_output_checksums": 199,
+  "verified_processed_output_checksums": 473,
+  "all_accepted_source_checksums_unchanged": true,
+  "all_augmentation_source_checksums_match": true,
+  "holdouts": {
+    "valid": "all images and COCO JSON byte-identical to original accepted export",
+    "test": "all images and COCO JSON byte-identical to original accepted export"
+  },
+  "processed_cross_split_pixel_duplicates": [],
+  "processed_cross_split_pillow_dhash_pairs": [],
+  "processed_similarity_method": "Pillow RGB-to-L, BOX resize 9x8, 64-bit horizontal dHash, distance <= 4; supplementary heuristic",
+  "tests": {
+    "passed": 20,
+    "command": "python -m unittest discover -s tests -v"
+  },
+  "limits": [
+    "Capture/recording groups unavailable; similarity checks cannot prove independence.",
+    "Accepted positive boxes have not all been semantically reviewed in this run.",
+    "Map the four active COCO category IDs to the chosen model label convention.",
+    "Payloads remain local; Git push does not distribute datasets."
+  ]
+}

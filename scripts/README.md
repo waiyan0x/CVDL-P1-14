@@ -19,6 +19,10 @@ Use each script's `--help` to change paths, cutoff and seed.
 | Augmentation | `python scripts/03_augment_dataset.py --write` | New `data/processed/2026-10-24/eds-torch-v2/` containing originals and training variants |
 
 The current split directory is `data/raw/2026-10-24/splits`; do not replace it.
+Annotation runs through `02_auto_annotate.py`, alongside the other phase scripts;
+its shared implementation is in `src/data_preparation/`. The experiment directory
+stores local runtime files only. See the [annotation guide to running and reviewing
+drafts](../docs/annotation/README.md).
 Pass `--input` to annotation if you prepared a different snapshot. Annotation uses
 three images per split by default; `--limit 0` selects all. Review the trial first.
 Copy accepted labels manually to `data/labelled/<cutoff>/` before augmentation.
@@ -28,3 +32,19 @@ list of exact input-relative paths such as `train/example.jpg`. A missing model
 prediction does not establish that an image is a negative.
 
 See [phase context and augmentation recipe](../docs/data_preparation/README.md).
+
+## Audit and clean the current accepted export
+
+```powershell
+python scripts/00_audit_dataset.py
+python scripts/00_audit_dataset.py --write --report .runtime/clean-label-audit.json
+python scripts/03_augment_dataset.py --input data/labelled/2026-10-24-clean-v1 --output data/processed/2026-10-24/eds-torch-v2-clean-v1 --write
+```
+
+The audit returns exit code 1 when automated readiness checks fail. Cleaning uses
+three checksum-bound, visually reviewed training exclusions from
+`data/manifests/2026-10-24-training-exclusions.json`; it creates a separate export,
+keeps validation/test bytes and accepted originals, and verifies idempotent reruns.
+It refuses unknown/changed review evidence, unresolved similarities and modified
+outputs. Augmentation now refuses writes with unresolved similarities, markup,
+drafts or class issues. See the [training handoff](../docs/data_preparation/TRAINING_READINESS.md).

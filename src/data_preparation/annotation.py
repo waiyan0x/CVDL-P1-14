@@ -186,7 +186,7 @@ def run_experiment(model: LocalGroundingDINO, input_root: Path, run_dir: Path, c
     available = {path.relative_to(input_root).as_posix() for paths in inputs.values() for path in paths}
     if negative_keys - available:
         raise ValueError("Declared negative paths must belong to the selected input images")
-    guide = ROOT / "eds_layout_and_annotation_guide.md"
+    guide = ROOT / "docs/annotation/guide.md"
     guide_before = sha256(guide)
     source_hashes, review, raw_predictions, counts = {}, [], {}, {}
     run_dir.parent.mkdir(parents=True, exist_ok=True)

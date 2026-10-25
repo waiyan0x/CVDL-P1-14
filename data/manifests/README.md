@@ -14,3 +14,13 @@ The notebook checks the recorded sample hashes before plotting. Restore the
 expected local image if it is missing or changed; do not silently replace it.
 Dataset exports also contain local split/augmentation manifests. Keep those
 with their payload versions; source and output hashes must identify the run.
+
+`2026-10-24-training-exclusions.json` records the three visually confirmed
+training overlaps excluded from the separate clean export, with checksums for
+each training image and its held-out counterpart. See the
+[training handoff](../../docs/data_preparation/TRAINING_READINESS.md).
+
+`2026-10-25-readiness.json` records the completed clean/processed verification,
+including 20 passing tests, holdout preservation, source/output checksum checks,
+and the exact training class mapping. This is a dataset check, not a model
+accuracy result or proof of complete capture-group independence.

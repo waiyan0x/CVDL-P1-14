@@ -1,0 +1,30 @@
+{
+  "review_date": "2026-10-25",
+  "policy": "Preserve validation/test and original accepted export; exclude reviewed training copies only in a new export.",
+  "exclude_train": [
+    {
+      "file_name": "photo_2026-10-22_13-27-01_jpg.rf.1d36b6c8985c30f57ce5afeb93c52509.jpg",
+      "sha256": "902c4ed3bf89e860fa0a34cef67322b340498e81b9f4e4617ae365dfc5fd8c32",
+      "matches_split": "valid",
+      "matches_file_name": "IMG20261022115934_jpg.rf.c39557d328e95037b8528560d62672d5.jpg",
+      "matches_sha256": "93ae3d77ed63d3e0af303ee01513fef604848414fccaf418b3cc8ee6749f0f87",
+      "reason": "Same interchange scene visually confirmed across splits"
+    },
+    {
+      "file_name": "annotated_0c7ddfa8-27d65774-133_jpg.rf.63330f995b6398edb287190ece04513a.jpg",
+      "sha256": "3129fb9805ec1a1ce8024179821cc1d9f83d61c97add1eea804f0982675a7252",
+      "matches_split": "valid",
+      "matches_file_name": "0c7ddfa8-27d65774-133_jpg.rf.b59df7caf115c9f87e29064c06a2a428.jpg",
+      "matches_sha256": "ff60223a66a1199273b93ca8d682033cc7f7adf5dac75b7746d14668d96ce31c",
+      "reason": "Drawn-on annotations duplicate a clean validation scene"
+    },
+    {
+      "file_name": "IMG20261022115957_jpg.rf.2f0fb128a2fd006dbbacf4c28d3aa6fd.jpg",
+      "sha256": "2e5a254729f926bc733ac9b267451f6b03a261564062d7f3c6e30e326a347519",
+      "matches_split": "test",
+      "matches_file_name": "photo_2026-10-22_13-26-55_jpg.rf.43e98513aed62ce2e4aef43f5c5aa62c.jpg",
+      "matches_sha256": "f5f865c5048b84d2aceb512981c2a4acbaa7f8cfcac30426f80aa40bdfc0126d",
+      "reason": "Same interchange scene visually confirmed across splits"
+    }
+  ]
+}

@@ -31,7 +31,7 @@ are accepted validation aliases; do not create both for the same accepted export
 
 Commands and phase context: [scripts](../scripts/README.md),
 [recipe](../docs/data_preparation/README.md),
-[annotation guide](../eds_layout_and_annotation_guide.md).
+[annotation guide](../docs/annotation/guide.md).
 Existing labelled splits are never silently moved or regenerated.
 
 ## Manifests and retrieval
@@ -47,3 +47,12 @@ snapshot from the maintainer. Record source, permission and capture group for
 new data; use shared storage or DVC for payload versions if configured later.
 Dataset removal from the current Git tree does not remove earlier historical
 copies. No history rewrite is part of this workflow.
+
+## Current training inputs
+
+Use `labelled/2026-10-24-clean-v1/` (137 train, 39 val, 20 test) or its
+training-only augmentation `processed/2026-10-24/eds-torch-v2-clean-v1/`.
+The original accepted export remains intact. The earlier v1 processed exports
+inherit the original scene overlaps and are superseded for training.
+See the [readiness handoff](../docs/data_preparation/TRAINING_READINESS.md)
+for verified counts, class mapping and limitations.
