@@ -20,7 +20,7 @@ class PreparationTests(unittest.TestCase):
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name)
         self.source = self.root / 'data/labelled/date'
-        reference = self.root / 'docs/data_preparation/README.md'
+        reference = self.root / 'docs/data_preparation/recipes/eds-torchvision-v1-reference.md'
         reference.parent.mkdir(parents=True)
         reference.write_text('Augmentation reference', encoding='utf-8')
         sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
@@ -49,7 +49,7 @@ class PreparationTests(unittest.TestCase):
                         annotations=[dict(id=1,image_id=1,category_id=1,bbox=[12,8,24,16],area=384)])
             (folder/'_annotations.coco.json').write_text(json.dumps(data),encoding='utf-8')
         self.datasets = self.scope['load_coco_splits'](self.source)
-        self.output = self.root/'data/processed/date/aug-v1'
+        self.output = self.root/'data/training/date-aug-v1'
 
     def build(self, **kwargs):
         return self.scope['build_augmented_dataset'](self.datasets,self.output,self.settings,42,**kwargs)
@@ -120,8 +120,20 @@ class PreparationTests(unittest.TestCase):
         manifest = self.build()
         name = next(name for name in manifest['checksums'] if name.endswith('.png'))
         (self.output/name).write_bytes(b'changed')
-        with self.assertRaisesRegex(ValueError,'Processed files changed'):
+        with self.assertRaisesRegex(ValueError,'Training dataset files changed'):
             self.build()
+
+    def test_legacy_processed_path_cannot_receive_new_training_exports(self):
+        self.output = self.root / 'data/processed/date/legacy'
+        with self.assertRaisesRegex(ValueError, 'under data/training'):
+            self.build()
+        self.assertFalse(self.output.exists())
+
+    def test_general_documentation_edits_do_not_invalidate_frozen_recipe(self):
+        manifest = self.build()
+        guide = self.root / 'docs/data_preparation/README.md'
+        guide.write_text('Updated navigation and directory layout', encoding='utf-8')
+        self.assertEqual(manifest, self.build())
 
     def test_bad_box_is_rejected(self):
         path = self.source/'train/_annotations.coco.json'

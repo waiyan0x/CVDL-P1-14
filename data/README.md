@@ -11,7 +11,8 @@ data/
   raw/<cutoff>/                          # Collected original images
     splits/{train,valid,test}/            # Existing frozen annotation inputs
   labelled/<cutoff>/{train,val,test}/     # Accepted images and _annotations.coco.json
-  processed/<cutoff>/<recipe>/{train,valid,test}/
+  training/<version>/{train,valid,test}/  # Final model inputs: originals + train variants
+  processed/<cutoff>/<recipe>/            # Historical exports
 ```
 
 `2026-10-24` contains the current images; `2026-10-30` is an empty placeholder.
@@ -25,9 +26,10 @@ are accepted validation aliases; do not create both for the same accepted export
    `experiments/eds_autodistill/outputs/`; review/correct them before accepting.
 3. Place accepted plain images and COCO JSON in `labelled/<cutoff>/`. Rendered
    boxes belong in previews, not the input image pixels.
-4. Augment training only. `processed/train` contains both original and augmented
-   images; accepted pre-augmentation originals remain in `labelled/train`.
-   Validation/test images and JSON are copied unchanged.
+4. Build `training/<version>/` from the cleaned labelled source. `train/` contains
+   both original and augmented images; `valid/` and `test/` contain unchanged
+   original images and COCO JSON. Models use this complete versioned export.
+   Accepted pre-augmentation originals remain in `labelled/`.
 
 Commands and phase context: [scripts](../scripts/README.md),
 [recipe](../docs/data_preparation/README.md),
@@ -50,9 +52,11 @@ copies. No history rewrite is part of this workflow.
 
 ## Current training inputs
 
-Use `labelled/2026-10-24-clean-v1/` (137 train, 39 val, 20 test) or its
-training-only augmentation `processed/2026-10-24/eds-torch-v2-clean-v1/`.
-The original accepted export remains intact. The earlier v1 processed exports
-inherit the original scene overlaps and are superseded for training.
+Use **`training/2026-10-24-eds-v1/`** for model training and evaluation:
+411 train (137 originals + 274 augmented), 39 validation, 20 test.
+`labelled/2026-10-24-clean-v1/` is its reviewed source before augmentation.
+The original accepted export remains intact. `processed/` is historical;
+its verified clean export was relocated into the final training directory.
+See [training/README.md](training/README.md) for the exact layout and defaults.
 See the [readiness handoff](../docs/data_preparation/TRAINING_READINESS.md)
 for verified counts, class mapping and limitations.

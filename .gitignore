@@ -2,6 +2,7 @@
 /data/raw/
 /data/labelled/
 /data/processed/
+/data/training/*/
 /data/incoming/
 /data_old
 

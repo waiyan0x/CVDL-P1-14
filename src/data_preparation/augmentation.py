@@ -11,7 +11,7 @@ import torch
 import torchvision
 from torchvision import tv_tensors
 from torchvision.transforms import v2, InterpolationMode
-from .config import ROOT
+from .config import ROOT, AUGMENTATION_REFERENCE
 from .images import file_hash, read_rgb, write_rgb
 from .datasets import load_coco_splits
 
@@ -63,9 +63,9 @@ def augment_sample(image,annotations,seed,settings, *, parameters=None):
 
 def build_augmented_dataset(datasets, output, settings, seed, excluded_prefixes=(), *, root=ROOT):
     output = Path(output).resolve()
-    processed_root = (Path(root)/"data/processed").resolve()
-    if not output.is_relative_to(processed_root) or output == processed_root:
-        raise ValueError("Augmented output must be under data/processed")
+    training_root = (Path(root)/"data/training").resolve()
+    if not output.is_relative_to(training_root) or output == training_root:
+        raise ValueError("Augmented output must be under data/training")
     if not isinstance(settings["multiplier"],int) or settings["multiplier"] < 1:
         raise ValueError("Multiplier must be an integer >= 1")
     if not (0 <= settings["noise_fraction"] <= 1 and 0 <= settings["brightness"] <= 1
@@ -79,26 +79,26 @@ def build_augmented_dataset(datasets, output, settings, seed, excluded_prefixes=
     spec = dict(recipe="eds-torchvision-v1",
                 libraries=dict(torch=torch.__version__,torchvision=torchvision.__version__,opencv=cv2.__version__), seed=seed, settings=settings,
                 excluded_train_prefixes=list(excluded_prefixes), inputs=inputs,
-                reference_sha256=file_hash(Path(root)/"docs/data_preparation/README.md"))
+                reference_sha256=file_hash(Path(root)/AUGMENTATION_REFERENCE))
     manifest_path = output/"augmentation_manifest.json"
     if output.exists():
         if not manifest_path.exists():
             raise FileExistsError(f"Output exists without a manifest: {output}")
         saved = json.loads(manifest_path.read_text(encoding="utf-8"))
         if saved["spec"] != spec:
-            raise ValueError("Source/settings changed; choose a new PROCESSED directory")
+            raise ValueError("Source/settings changed; choose a new training dataset version")
         actual = {p.relative_to(output).as_posix() for p in output.rglob("*")
                   if p.is_file() and p != manifest_path}
         if actual != set(saved["checksums"]):
-            raise ValueError("Processed file list changed")
+            raise ValueError("Training dataset file list changed")
         if any(file_hash(output/name) != checksum for name,checksum in saved["checksums"].items()):
-            raise ValueError("Processed files changed; refusing to overwrite")
+            raise ValueError("Training dataset files changed; refusing to overwrite")
         return saved
     output.parent.mkdir(parents=True,exist_ok=True)
     # Build in a verified sibling temporary directory; publish only a complete dataset.
     with TemporaryDirectory(prefix=".augmentation-", dir=output.parent) as temporary:
         staging = Path(temporary).resolve()
-        if not staging.is_relative_to(processed_root):
+        if not staging.is_relative_to(training_root):
             raise ValueError("Unexpected staging location")
         provenance, excluded = [], []
         for split,dataset in datasets.items():

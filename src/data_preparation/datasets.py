@@ -7,7 +7,7 @@ import math
 import torch
 from torch.utils.data import Dataset
 from PIL import Image as PillowImage
-from .config import SPLITS
+from .config import SPLITS, TRAINING_DATASET
 from .images import image_info
 from .preprocessing import model_input
 
@@ -20,7 +20,8 @@ def split_folder(root, split):
         raise ValueError(f"Expected one {split} folder with _annotations.coco.json: {root}")
     return present[0]
 
-def load_coco_splits(root):
+def load_coco_splits(root=TRAINING_DATASET):
+    """Load a complete COCO export; default to the configured final training version."""
     datasets, categories, seen_pixels = {}, None, {}
     for split in SPLITS:
         folder = split_folder(root, split)

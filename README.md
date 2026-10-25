@@ -4,9 +4,12 @@ Prepare local bus images for front/side electronic destination sign detection.
 Standalone Python scripts own processing; the single notebook only displays
 augmentation comparisons and representative scene categories.
 
-Current training handoff: [readiness and cleaned export](docs/data_preparation/TRAINING_READINESS.md).
-The original labelled export and older processed exports contain cross-split
-scene overlaps; use the versioned clean export described there.
+Model dataset: **`data/training/2026-10-24-eds-v1/`**.
+Its `train/` contains 137 clean originals + 274 augmented images (411 total);
+`valid/` and `test/` contain 39 and 20 unchanged originals.
+`data/labelled/` is the annotation source before augmentation; `data/processed/`
+contains historical exports. See the [training dataset](data/training/README.md)
+and [readiness handoff](docs/data_preparation/TRAINING_READINESS.md).
 
 ```powershell
 python -m pip install -r requirements.txt

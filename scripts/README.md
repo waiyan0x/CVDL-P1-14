@@ -16,7 +16,7 @@ Use each script's `--help` to change paths, cutoff and seed.
 | --- | --- | --- |
 | Split | `python scripts/01_prepare_and_split.py --write --output data/raw/2026-10-24/splits/new-v1` | Frozen image copies and manifest; do this before annotation |
 | Annotation | `python scripts/02_auto_annotate.py --run --limit 3 --output experiments/eds_autodistill/outputs/trial-001` | Isolated draft COCO, overlays and review queue |
-| Augmentation | `python scripts/03_augment_dataset.py --write` | New `data/processed/2026-10-24/eds-torch-v2/` containing originals and training variants |
+| Augmentation | `python scripts/03_augment_dataset.py --write` | Final `data/training/2026-10-24-eds-v1/`: train originals + variants, unchanged validation/test |
 
 The current split directory is `data/raw/2026-10-24/splits`; do not replace it.
 Annotation runs through `02_auto_annotate.py`, alongside the other phase scripts;
@@ -38,7 +38,7 @@ See [phase context and augmentation recipe](../docs/data_preparation/README.md).
 ```powershell
 python scripts/00_audit_dataset.py
 python scripts/00_audit_dataset.py --write --report .runtime/clean-label-audit.json
-python scripts/03_augment_dataset.py --input data/labelled/2026-10-24-clean-v1 --output data/processed/2026-10-24/eds-torch-v2-clean-v1 --write
+python scripts/03_augment_dataset.py --write
 ```
 
 The audit returns exit code 1 when automated readiness checks fail. Cleaning uses
@@ -48,3 +48,9 @@ keeps validation/test bytes and accepted originals, and verifies idempotent reru
 It refuses unknown/changed review evidence, unresolved similarities and modified
 outputs. Augmentation now refuses writes with unresolved similarities, markup,
 drafts or class issues. See the [training handoff](../docs/data_preparation/TRAINING_READINESS.md).
+
+The augmentation command now defaults to `data/labelled/2026-10-24-clean-v1/`
+as its source and `data/training/2026-10-24-eds-v1/` as its final output. All
+new augmented exports must be under `data/training/`; use `--output` for a new
+version. Models load the complete final version, including its separate
+`train/`, `valid/` and `test/` folders.

@@ -2,15 +2,18 @@
 
 The cleaned COCO export passes the automated checks for a detector baseline.
 The [machine-readable verification](../../data/manifests/2026-10-25-readiness.json)
-records counts, checksums verified, preserved holdouts and test results.
+records the initial counts, checksums, preserved holdouts and test results.
+The [layout verification](../../data/manifests/2026-10-25-training-layout.json)
+records the final model-input location and unchanged export checksums.
 The original labelled export and the older processed exports contain known
-cross-split scene overlaps. Use the new paths below for training.
+cross-split scene overlaps. Models use **`data/training/2026-10-24-eds-v1/`**.
+The labelled directories below are annotation sources.
 
 | Export | Training images | Validation images | Test images |
 | --- | ---: | ---: | ---: |
 | Original `data/labelled/2026-10-24` | 140 | 39 | 20 |
 | Clean `data/labelled/2026-10-24-clean-v1` | 137 | 39 | 20 |
-| Augmented `data/processed/2026-10-24/eds-torch-v2-clean-v1` | 411 | 39 | 20 |
+| Final `data/training/2026-10-24-eds-v1` | 411 | 39 | 20 |
 
 The clean export has 548 training boxes, 154 validation boxes and 83 test boxes.
 All 22 zero-box examples remain (16/4/2). Their contact sheet shows rear views,
@@ -62,13 +65,21 @@ Run from the repository root with the project's Python environment:
 ```powershell
 python scripts/00_audit_dataset.py --write --report .runtime/clean-label-audit.json
 python scripts/00_audit_dataset.py --input data/labelled/2026-10-24-clean-v1
-python scripts/03_augment_dataset.py --input data/labelled/2026-10-24-clean-v1 --output data/processed/2026-10-24/eds-torch-v2-clean-v1 --write
+python scripts/03_augment_dataset.py --write
 python -m unittest discover -s tests -v
 ```
 
-Use the clean labelled export if the trainer applies augmentation itself. Use
-the processed export for the existing offline augmentation recipe, and account
-for its transforms when configuring any additional training augmentation.
+Model trainers use the final `data/training/2026-10-24-eds-v1/` export.
+Its training split already combines 137 originals and 274 augmented images.
+Validation/test remain separate and unaugmented. Account for the offline recipe
+when configuring any additional trainer augmentation. `TRAINING_DATASET` in
+`src/data_preparation/config.py` selects this version, and `load_coco_splits()`
+loads it by default. `data/labelled/` remains the annotation source.
+
+The verified export was relocated from
+`data/processed/2026-10-24/eds-torch-v2-clean-v1/` without modifying any image,
+COCO JSON or augmentation-manifest bytes. That old path in the initial
+readiness report is historical; `data/processed/` now holds older exports.
 The raw `splits/` directory is an earlier annotation input; pair each COCO JSON
 only with the images in its own export.
 

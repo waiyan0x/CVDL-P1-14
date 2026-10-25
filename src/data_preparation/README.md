@@ -7,7 +7,7 @@ scripts and the notebook add that path explicitly.
 
 | Module | Responsibility |
 | --- | --- |
-| `config.py` | Repository paths and default split/augmentation settings |
+| `config.py` | Repository paths, final `TRAINING_DATASET` and split/augmentation settings |
 | `images.py` | OpenCV decoding/encoding, codec fallback, hashes and similarity fingerprints |
 | `splitting.py` | Raw inventory, duplicate grouping, split plan and frozen copies |
 | `annotation.py` | Autodistill model adapter, draft proposals and isolated export |
@@ -22,3 +22,10 @@ Phase inputs, outputs and justifications are in
 [docs/data_preparation/README.md](../../docs/data_preparation/README.md).
 Image coverage categories describe scenes; COCO classes describe objects inside
 those scenes. They are separate concepts and need separate records.
+
+`load_coco_splits()` defaults to `config.TRAINING_DATASET`, currently
+`data/training/2026-10-24-eds-v1/`. Preparation commands pass their explicit
+source paths; future model trainers should load this final dataset root.
+The final `train/` combines originals and augmented images; its `valid/` and
+`test/` contain unchanged originals. The augmentation exporter writes only
+under `data/training/` and hashes the frozen recipe reference from `config.py`.

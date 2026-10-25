@@ -24,3 +24,9 @@ each training image and its held-out counterpart. See the
 including 20 passing tests, holdout preservation, source/output checksum checks,
 and the exact training class mapping. This is a dataset check, not a model
 accuracy result or proof of complete capture-group independence.
+
+`2026-10-25-training-layout.json` records the move of the verified final export
+into `data/training/2026-10-24-eds-v1/`, its 137 original + 274 augmented training
+images, and checksum/holdout verification. The `processed_export` path in the
+initial readiness report is historical; use the training-layout record and
+`src/data_preparation/config.py::TRAINING_DATASET` for the current location.
