@@ -47,3 +47,123 @@ They do not establish per-category counts or exhaustive coverage. Rear views,
 bus-stop signs and arrival screens illustrate exclusion/hard-negative context;
 they are not additional bounding-box classes. See the
 [annotation guide](../docs/annotation/guide.md) for target scope.
+
+## Additional examples by subset
+
+These examples extend the [notebook samples](../notebooks/preview_samples.json)
+under the same eight categories, split into finer subsets. None of the
+notebook's images are repeated. Paths are from the repository root.
+Categories overlap; these are illustrative examples, not category counts.
+
+Under the [annotation guide](../docs/annotation/guide.md), front and side EDS
+are labelled targets and rear EDS is excluded, so rear views are listed as hard
+negatives.
+
+### Viewing angle and display location
+
+| Subset | Image | Observation |
+| --- | --- | --- |
+| Three-quarter front | `data/raw/2026-10-24/1eb1313a-bus_25.jpg` | Three-quarter view of a double-decker; front panel seen at an angle. |
+| Three-quarter front | `data/raw/2026-10-24/ccd80ac0-bus_3.jpg` | Three-quarter front view of a single-decker in bright daylight. |
+| Side-on | `data/raw/2026-10-24/86406228__82dccf57-1453.jpg` | Side-on view; front panel is compressed at a steep angle. |
+| Side-on | `data/raw/2026-10-24/8d6d224a__5e37e4fd-1204.jpg` | Side-on single-decker at a stop; front panel is small and angled. |
+| Elevated viewpoint | `data/raw/2026-10-24/IMAGE 2026-10-23 22_12_50.jpg` | Elevated viewpoint looking down on the bus front. |
+| Elevated viewpoint | `data/raw/2026-10-24/a1af74f0__3b8afd1d-10.jpg` | High-angle view of a single-decker turning in. |
+| Bus partly outside the frame | `data/raw/2026-10-24/Screenshot_2026-10-24-20-31-51-31_f9ee0578fe1cc94de7482bd41accb329.jpg` | Bus cut off at the right edge; front panel still visible. |
+| Bus partly outside the frame | `data/raw/2026-10-24/Screenshot_2026-10-24-20-36-08-87_f9ee0578fe1cc94de7482bd41accb329.jpg` | Bus cut off at the left edge; part of the destination is outside the frame. |
+| Side EDS | `data/raw/2026-10-24/IMAGE 2026-10-23 22_04_04.jpg` | Side display beside the door in a dark scene; side EDS is a labelled target. |
+| Side EDS | `data/raw/2026-10-24/IMAGE 2026-10-23 21_55_18.jpg` | Side display on a double-decker at an interchange berth. |
+
+### Distance and image quality
+
+| Subset | Image | Observation |
+| --- | --- | --- |
+| Distant / small bus | `data/raw/2026-10-24/18c17495__774fa852-32.jpg` | Distant bus behind a lorry; panel is only a few pixels high. |
+| Motion blur | `data/raw/2026-10-24/8c3cf30a__afc6ed73-1452.jpg` | Night shot with motion blur and street-light flare. |
+| Motion blur | `data/raw/2026-10-24/IMG20261024204414.jpg` | Moving double-decker; panel text smeared by motion blur. |
+| Low resolution | `data/raw/2026-10-24/fce77034-bus_19.jpg` | 300x240 image; panel characters merge together. |
+| EDS cropped at the image edge | `data/raw/2026-10-24/Screenshot_2026-10-24-20-31-47-75_f9ee0578fe1cc94de7482bd41accb329.jpg` | Front panel cut off at the top-left edge of the frame. |
+| EDS cropped at the image edge | `data/raw/2026-10-24/Screenshot_2026-10-24-20-31-16-62_f9ee0578fe1cc94de7482bd41accb329.jpg` | Close crop; part of the destination text is outside the frame. |
+
+### Lighting and environment
+
+| Subset | Image | Observation |
+| --- | --- | --- |
+| Bright daylight | `data/raw/2026-10-24/ea59d01b-212fcccc-138.jpg` | Bright daylight; amber text against a dark housing. |
+| Backlit / sunset | `data/raw/2026-10-24/Screenshot_2026-10-24-20-30-42-44_f9ee0578fe1cc94de7482bd41accb329.jpg` | Sunset behind the bus; panel against a bright sky. |
+| Night with headlight glare | `data/raw/2026-10-24/159ee871__0cc20afd-643.jpg` | Night with strong headlight glare and glass reflections. |
+| Night with headlight glare | `data/raw/2026-10-24/c3135218__54e3dc26-1456.jpg` | Night with headlight flare beside a red traffic light. |
+| Dim covered interchange | `data/raw/2026-10-24/11c0e4ce__0efd8c24-16.jpg` | Covered interchange; bright headlights with dim surroundings. |
+| Rain / wet road | `data/raw/2026-10-24/a3f68075-b877a683-3.jpg` | Rain haze and a wet road at an interchange. |
+| Rain / wet road | `data/raw/2026-10-24/f168db11__5c0aa197-386.jpg` | Wet road with reflections under the bus. |
+
+### EDS text and layout
+
+| Subset | Image | Observation |
+| --- | --- | --- |
+| Destination + via route + number | `data/raw/2026-10-24/IMG20261024204212.jpg` | "via" route line under the destination, number on the right. |
+| Two-line destination with > | `data/raw/2026-10-24/fce01393-3b0671f0-272.jpg` | Two-line destination; second line starts with ">". |
+| One-line destination + number, no route | `data/raw/2026-10-24/7ad1fda5-948e0751-382G.jpg` | One-line destination and number; no route line. |
+| One-line destination + number, no route | `data/raw/2026-10-24/8c8975f2__d9140853-49.jpg` | One-line destination and number at an interchange. |
+| Number only | `data/raw/2026-10-24/IMAGE 2026-10-23 21_55_08.jpg` | Service number 384 shown without a destination. |
+| Number only | `data/raw/2026-10-24/IMAGE 2026-10-23 21_55_41.jpg` | Service number 386 shown without a destination. |
+| Number with a letter suffix | `data/raw/2026-10-24/88ceca91__c40d16a8-131M.jpg` | Service number with a letter suffix (131M). |
+| Number with a letter suffix | `data/raw/2026-10-24/a99f66b7-1c01c769-170x.jpg` | Service number with a letter suffix (170X). |
+| Number with a letter suffix | `data/raw/2026-10-24/e8f74339-bus_24.jpg` | Double-decker showing 248M. |
+| Red/pink LED text | `data/raw/2026-10-24/Screenshot_2026-10-24-20-34-34-01_f9ee0578fe1cc94de7482bd41accb329.jpg` | Red/pink LED text instead of amber at night. |
+
+### Special display messages
+
+| Subset | Image | Observation |
+| --- | --- | --- |
+| Terminate at | `data/raw/2026-10-24/c22dd64d__8c462f49-51A.jpg` | "TERMINATE AT" short-working message with 51A. |
+| Terminate at | `data/raw/2026-10-24/IMG20261024204444.jpg` | "TERMINATE AT ORCHARD RD" message with 7B. |
+| Express and limited-stop branding | `data/raw/2026-10-24/IMG20261024204233.jpg` | "Fast Forward" branding beside 147e. |
+| Express and limited-stop branding | `data/raw/2026-10-24/101d21ec-a1646361-660.jpg` | "CITY DIRECT" wording beside 660. |
+| Public notice | `data/raw/2026-10-24/e6da286e__f1a820d8-77.jpg` | "Mask on before boarding" in place of a destination. |
+| Non-English text | `data/raw/2026-10-24/IMG20261024203954.jpg` | Chinese New Year greeting in Chinese characters beside 284. |
+| Operator name on the display | `data/raw/2026-10-24/Screenshot_2026-10-24-20-36-12-52_f9ee0578fe1cc94de7482bd41accb329.jpg` | Front panel shows "sbs Transit" instead of a destination. |
+
+### Bus and operator variety
+
+| Subset | Image | Observation |
+| --- | --- | --- |
+| SBS Transit | `data/raw/2026-10-24/49775ed2__a5dcfafd-122.jpg` | SBS Transit double-decker at a night interchange. |
+| SMRT | `data/raw/2026-10-24/11f93650__c441d33c-67.jpg` | SMRT double-decker at a night interchange. |
+| SMRT | `data/raw/2026-10-24/IMAGE 2026-10-23 22_00_52.jpg` | SMRT single-decker on cross-border service 950. |
+| Tower Transit | `data/raw/2026-10-24/7768179e-bus_16.jpg` | Tower Transit double-decker; panel shows the operator name. |
+| SG Bus livery | `data/raw/2026-10-24/8d1b1e36__9b19a4c8-62.jpg` | Green SG Bus double-decker on a wet road. |
+| Articulated bus | `data/raw/2026-10-24/8a7bda49-965.jpg` | Articulated (bendy) bus at a stop at dusk. |
+| Advertising-wrapped bus | `data/raw/2026-10-24/352eed8b__1433d18a-1325.jpg` | Advertising wrap with large text along the bus side. |
+
+### Crowded or obstructed scenes
+
+| Subset | Image | Observation |
+| --- | --- | --- |
+| Multiple buses in one image | `data/raw/2026-10-24/Screenshot_2026-10-24-20-30-22-72_f9ee0578fe1cc94de7482bd41accb329.jpg` | Two buses side by side, each with its own front panel. |
+| Multiple buses in one image | `data/raw/2026-10-24/404c1c1b-bus_2.png` | Two buses at interchange berths; one shows only a number. |
+| Pole or pillar blocking the bus | `data/raw/2026-10-24/5f70217e-b77e92ba-329.jpg` | Pole in front of part of the front panel at a crowded stop. |
+| Pole or pillar blocking the bus | `data/raw/2026-10-24/IMAGE 2026-10-23 21_55_51.jpg` | Pillar and boarding passengers cover part of the bus front. |
+| People in the foreground | `data/raw/2026-10-24/f530945b-43ba0cf3-31.jpg` | Person in the foreground at a bus stop. |
+| People in the foreground | `data/raw/2026-10-24/bceb09d2-c89c1fa8-14_2.jpg` | Passengers boarding in front of the bus. |
+| Photographed through glass | `data/raw/2026-10-24/IMG20261022115750.jpg` | Bus seen through interchange glass with reflections. |
+| Photographed through glass | `data/raw/2026-10-24/IMG20261022123822.jpg` | Buses behind glass panels and railings. |
+
+### Distracting text and hard negatives
+
+| Subset | Image | Observation |
+| --- | --- | --- |
+| Bus-stop sign with service numbers | `data/raw/2026-10-24/6b2ac35e-2508011c-135.jpg` | Bus-stop sign lists service numbers next to a real front panel. |
+| Advertising text on the bus body | `data/raw/2026-10-24/Screenshot_2026-10-24-20-36-28-77_f9ee0578fe1cc94de7482bd41accb329.jpg` | Large advertising text on the bus side; video-player overlay at top left. |
+| Livery text on the bus body | `data/raw/2026-10-24/Screenshot_2026-10-24-20-33-02-23_f9ee0578fe1cc94de7482bd41accb329.jpg` | "1000th Citaro" lettering on the bus body. |
+| Rear EDS | `data/raw/2026-10-24/IMG20261024204105.jpg` | Rear number display; rear EDS is excluded from labelling. |
+| Rear EDS | `data/raw/2026-10-24/Screenshot_2026-10-24-20-35-28-51_f9ee0578fe1cc94de7482bd41accb329.jpg` | Rear "OFF SVC" display; rear EDS is excluded from labelling. |
+| No front or side EDS in view | `data/raw/2026-10-24/Screenshot_2026-10-24-20-34-58-22_f9ee0578fe1cc94de7482bd41accb329.jpg` | Bus front with the panel outside the frame. |
+| Interchange signage, no bus | `data/raw/2026-10-24/IMG_20261022_115936.jpg` | "Bus Services towards HarbourFront" sign; no bus. |
+| Interchange signage, no bus | `data/raw/2026-10-24/IMAGE 2026-10-23 21_56_09.jpg` | Interchange concourse with signs; no bus EDS. |
+
+### Image not to use
+
+`data/raw/2026-10-24/annotated_0c7ddfa8-27d65774-133.jpg` is a copy of
+`data/raw/2026-10-24/0c7ddfa8-27d65774-133.jpg` with a box and caption drawn
+onto the pixels. Do not use it as a raw image.
