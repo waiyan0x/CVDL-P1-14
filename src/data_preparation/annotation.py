@@ -241,6 +241,8 @@ def run_experiment(model: LocalGroundingDINO, input_root: Path, run_dir: Path, c
         for filename, content in [("run_manifest.json", manifest), ("review_queue.json", review),
                                   ("raw_predictions.json", raw_predictions)]:
             (staging / filename).write_text(json.dumps(content, indent=2), encoding="utf-8")
+        from .annotation_review import ReviewProject
+        ReviewProject(staging).write_report()
         if run_dir.exists():
             raise FileExistsError(run_dir)
         staging.rename(run_dir)

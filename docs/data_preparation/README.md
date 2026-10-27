@@ -26,9 +26,13 @@ See the [annotation README](../annotation/README.md) and
 
 Draft output stays under `experiments/eds_autodistill/outputs/<run>/`, with plain
 images and COCO JSON separate from rendered overlays. It never writes accepted
-labels automatically. Correct missed/incorrect boxes, confirm negatives, and
-mark draft image `review_status` as `accepted` before copying the reviewed export
-to `data/labelled/<cutoff>/{train,val,test}`. Existing manual exports are accepted
+labels automatically. Use the
+[local box editor](../annotation/README.md#local-box-editor-no-additional-dependencies)
+to correct boxes, confirm positives/negatives and export accepted labels to
+`data/labelled/<cutoff>/{train,val,test}`. The editor opens after inference with
+`--review`; automatic checks flag structural issues but do not confirm semantic
+correctness. External editors may instead mark image `review_status` as
+`accepted` and copy the reviewed export manually. Existing manual exports are accepted
 without requiring this experimental metadata. Keep the original split membership.
 
 ## 3. Validate and augment

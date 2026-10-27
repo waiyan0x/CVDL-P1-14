@@ -33,6 +33,7 @@ def main():
     parser.add_argument("--cutoff", default=CUTOFF)
     parser.add_argument("--limit", type=int, default=3, help="Images per split; 0 selects all")
     parser.add_argument("--run", action="store_true", help="Download weights and perform actual inference")
+    parser.add_argument("--review", action="store_true", help="Open the local box editor immediately after inference")
     parser.add_argument("--negatives", type=Path, help="JSON list of explicitly reviewed negative input-relative paths")
     args = parser.parse_args()
     limit = None if args.limit == 0 else args.limit
@@ -59,6 +60,13 @@ def main():
     from .annotation import LocalGroundingDINO, run_experiment
     result = run_experiment(LocalGroundingDINO(), input_root, output, args.cutoff, limit, set(negatives))
     print(result)
+    print(f"Automatic checks: {output / 'automatic_review.json'}")
+    print(f"Box overlays: {output / 'overlays'}")
+    print(f'Open editor: python scripts/review_annotations.py --run-dir "{output}" --serve')
+    if args.review:
+        from .annotation_review import ReviewProject
+        from .review_cli import serve
+        serve(ReviewProject(output))
 
 
 if __name__ == '__main__':

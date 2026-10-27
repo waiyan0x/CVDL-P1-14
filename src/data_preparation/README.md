@@ -12,6 +12,8 @@ scripts and the notebook add that path explicitly.
 | `splitting.py` | Raw inventory, duplicate grouping, split plan and frozen copies |
 | `annotation.py` | Autodistill model adapter, draft proposals and isolated export |
 | `annotation_cli.py` | Dependency-light plan/help commands; model imports deferred until `--run` |
+| `annotation_review.py` | Automatic geometry/consistency report, saved human decisions and reviewed COCO export |
+| `review_cli.py`, `review.html` | Local browser editor for explicit boxes/classes, positive/negative confirmation and export |
 | `readiness.py` | Readiness audit and checksum-bound, versioned training exclusions |
 | `datasets.py` | Verified COCO loading, provenance tags, leakage candidates and PyTorch Dataset helpers |
 | `manifests.py` | Frozen export file checksums and complete training provenance |

@@ -12,15 +12,64 @@ torchvision training export is retained; superseded exports have been removed.
 See the [training dataset](data/training/README.md) and
 [readiness handoff](docs/data_preparation/TRAINING_READINESS.md).
 
+## Commands for a new batch
+
+Run from the repository root (the folder containing `scripts/`, `src/` and
+`requirements.txt`). The example below processes a separate `2026-10-31` batch;
+replace that date consistently for another batch. The configured defaults still
+point to `2026-10-24`, so keep the new batch arguments explicit.
+
 ```powershell
 python -m pip install -r requirements.txt
-python scripts/01_prepare_and_split.py
-python scripts/02_auto_annotate.py
-python scripts/03_augment_dataset.py
+
+# 1. Put the new raw images in data/raw/2026-10-31/, then freeze their splits.
+python scripts/01_prepare_and_split.py --cutoff 2026-10-31 --output "data/raw/2026-10-31/splits" --write
+
+# 2. Annotate all images and open the local review editor after inference.
+python scripts/02_auto_annotate.py --cutoff 2026-10-31 --input "data/raw/2026-10-31/splits" --output "experiments/eds_autodistill/outputs/2026-10-31-run-001" --limit 0 --run --review
 ```
 
-The commands above plan or validate. Dataset writes require `--write` and model
-inference requires `--run`. No model training is included.
+In the editor, correct the boxes/classes and save **Accept positive** or
+**Confirm negative** for every image. Progress is saved in the experiment's
+`review_decisions.json`. Viewing overlay PNGs alone does not record acceptance;
+there is no need to send overlay paths to anyone. Automatic checks flag label
+issues; visual confirmation of front/side EDS coverage and negatives is manual.
+
+After every image is accepted, click **Export reviewed dataset** with destination
+`data/labelled/2026-10-31`, or stop the editor with Ctrl+C and use the export
+command below. Use one export method; an existing destination is not overwritten.
+
+```powershell
+# 3. Export saved decisions (skip if already exported through the editor).
+python scripts/review_annotations.py --run-dir "experiments/eds_autodistill/outputs/2026-10-31-run-001" --export "data/labelled/2026-10-31"
+
+# 4. Audit the accepted dataset. Resolve failures before continuing.
+python scripts/00_audit_dataset.py --input "data/labelled/2026-10-31" --report ".runtime/labelled-audit-2026-10-31.json"
+
+# 5. Run only after the audit reports automated_checks_passed: true.
+python scripts/03_augment_dataset.py --cutoff 2026-10-31 --input "data/labelled/2026-10-31" --output "data/training/2026-10-31" --multiplier 3 --write
+```
+
+The final dataset is `data/training/2026-10-31/{train,valid,test}/`, with images and
+`_annotations.coco.json` in each split. Training contains originals plus variants;
+validation/test images and COCO JSON are copied unchanged. Separate batch paths
+preserve the existing `2026-10-24` dataset; batches are not automatically merged.
+
+To resume review without rerunning inference:
+
+```powershell
+python scripts/review_annotations.py --run-dir "experiments/eds_autodistill/outputs/2026-10-31-run-001" --serve
+```
+
+The experiment's `overlays/{train,val,test}/` folders contain `__draft.png` images
+with explicit boxes/classes and `__raw.png` detector proposals. The editor shows
+your current corrections; static overlays retain the initial predictions.
+
+See [script arguments and defaults](scripts/README.md) for path overrides,
+planning commands, and working with existing accepted labels. Without `--write`,
+split/augmentation commands only plan/validate; annotation needs `--run` for
+inference and defaults to three images per split unless `--limit 0` is supplied.
+No model training is included.
 
 | Location | Purpose |
 | --- | --- |
