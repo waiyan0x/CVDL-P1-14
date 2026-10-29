@@ -47,12 +47,20 @@ bus-stop signs and arrival screens illustrate exclusion/hard-negative context;
 they are not additional bounding-box classes. See the
 [annotation guide](../docs/annotation/guide.md) for target scope.
 
-## One representative per category
+## Selected representatives by subcategory
 
-[data/samples](samples/README.md) contains eight visually selected raw-image
-copies, one per broad category above, plus four isolated augmentation previews.
-Source paths, hashes and selection reasons are recorded beside the samples.
-These examples supplement the three-per-category notebook gallery.
+[The sample gallery](samples/README.md) contains **44 coverage images**: one for
+each of the 41 distinct subsets documented below, plus straight-on front,
+close/readable EDS and Off Service from the broad coverage table. Files are
+grouped by broad category and named after the subcategory. The gallery includes
+four separate augmentation previews (48 sample images total).
+
+The selections were compared visually with the raw candidates; the clearest
+example of each distinguishing feature was preferred. In particular, the
+gallery uses a 150 × 150 front view for low resolution and a daylight SMRT view
+with clearer branding. The tables below remain additional candidate examples;
+their rows do not dictate the gallery's chosen file. Sources, hashes and reasons
+are recorded in `data/samples/manifest.json`. The notebook gallery is separate.
 
 ## Additional examples by subset
 

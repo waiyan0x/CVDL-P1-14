@@ -8,7 +8,7 @@ export async function loadSamples(container, onSelect) {
     const button = el('button', {type: 'button', class: 'sample', 'aria-pressed': 'false', onclick: () => {
       buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
       onSelect(sample);
-    }}, el('img', {src: sample.url, alt: '', loading: 'lazy'}), el('span', {}, `Sample ${index + 1}`),
+    }}, el('img', {src: sample.url, alt: '', loading: 'lazy'}), el('span', {}, sample.name),
     sample.description ? el('span', {class: 'sample-description'}, sample.description) : null);
     buttons.push(button);
   });

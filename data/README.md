@@ -65,9 +65,9 @@ outputs each; it does not establish which outputs are originals. The older
 `labelled/2026-10-24/` remains a separate accepted source of **196 images**:
 137 train, 39 validation (`val/`) and 20 test. The raw folder has **212 top-level
 images** plus **198 frozen split copies** (138/40/20); do not count split copies
-as additional collected photos. [samples/](samples/README.md) contains eight
-coverage examples and four isolated augmentation demonstrations, excluded from
-all dataset counts above.
+as additional collected photos. [samples/](samples/README.md) contains 44 coverage representatives named by
+subcategory and four isolated augmentation demonstrations (48 images), excluded
+from all dataset counts above.
 
 The current training folder lacks the export manifest required by the configured
 loader; do not assume it is a verified torchvision build or that validation/test
