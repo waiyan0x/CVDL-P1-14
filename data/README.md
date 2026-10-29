@@ -37,9 +37,10 @@ Existing labelled splits are never silently moved or regenerated.
 
 ## Export integrity and retrieval
 
-The labelled and training exports keep their own local integrity manifests
-beside their payloads. These record source/output hashes and augmentation
-provenance and are checked by the loader. Keep them with their dataset versions.
+The pipeline expects local integrity manifests beside export payloads. These
+record source/output hashes and augmentation provenance and are checked by the
+loader. The current local training folder is missing its expected manifest;
+see the inventory and loading limits below. Keep existing manifests with their versions.
 COCO JSONs contain the training annotations. The removed `data/manifests/`
 inventory/report folder is not needed by the current pipeline.
 
@@ -55,14 +56,21 @@ copies. No history rewrite is part of this workflow.
 
 ## Current training inputs
 
-Use **`training/2026-10-24/`** for model training and evaluation:
-411 train (137 originals + 274 augmented), 39 validation, 20 test.
-`labelled/2026-10-24/` is the accepted original source before augmentation:
-137 train, 39 validation and 20 test images. It contains the former cleaned
-export, promoted to the canonical date folder. The superseded 199-image export
-and the separate cleaned-name folder have been removed. Only the current
-torchvision training version is retained;
-`data/processed/` and its superseded exports have been removed.
-See [training/README.md](training/README.md) for the exact layout and defaults.
-See the [readiness handoff](../docs/data_preparation/TRAINING_READINESS.md)
-for verified counts, class mapping and limitations.
+The current **`training/2026-10-24/`** local inventory is **479 images**:
+420 train, 39 validation, 20 test (verified against image files and COCO records
+on 2026-10-29). Its Roboflow training metadata records 140 source names with three
+outputs each; it does not establish which outputs are originals. The older
+411-image training / 470-image total description no longer matches this folder.
+
+`labelled/2026-10-24/` remains a separate accepted source of **196 images**:
+137 train, 39 validation (`val/`) and 20 test. The raw folder has **212 top-level
+images** plus **198 frozen split copies** (138/40/20); do not count split copies
+as additional collected photos. [samples/](samples/README.md) contains eight
+coverage examples and four isolated augmentation demonstrations, excluded from
+all dataset counts above.
+
+The current training folder lacks the export manifest required by the configured
+loader; do not assume it is a verified torchvision build or that validation/test
+images are unchanged copies of the labelled export. See
+[training/README.md](training/README.md) for current inventory, provenance limits
+and safe rebuild instructions. Earlier readiness reports describe a prior export.

@@ -1,0 +1,174 @@
+{
+  "reviewed_on": "2026-10-29",
+  "selection": "One visually selected example per broad category; categories overlap and examples are not exhaustive. Four isolated augmentation previews use the same raw original and the repository transform code; they are not claimed to be current training-export members.",
+  "samples": [
+    {
+      "kind": "coverage",
+      "category": "Viewing angle and display location",
+      "path": "data/samples/01-viewing-angle.jpg",
+      "source": "data\\raw\\2026-10-24\\903f73c7-bus_34.jpg",
+      "sha256": "440da022e65a2925525135ad5369a0e5eb7fbf7d6b6d1a79c8f69220b78198fa",
+      "source_sha256": "440da022e65a2925525135ad5369a0e5eb7fbf7d6b6d1a79c8f69220b78198fa",
+      "observation": "Three-quarter view of a single-deck bus, showing front and side displays on separate faces."
+    },
+    {
+      "kind": "coverage",
+      "category": "Distance and image quality",
+      "path": "data/samples/02-distance-quality.jpg",
+      "source": "data\\raw\\2026-10-24\\e9d46895-80ec3d7b-130.jpg",
+      "sha256": "05e31a65eba10310df26eeb3dec80fe91d4636f975826819361537cfd69532fc",
+      "source_sha256": "05e31a65eba10310df26eeb3dec80fe91d4636f975826819361537cfd69532fc",
+      "observation": "Distant bus at a roadside stop; the EDS occupies very few pixels and cannot be read reliably."
+    },
+    {
+      "kind": "coverage",
+      "category": "Lighting and environment",
+      "path": "data/samples/03-lighting.jpg",
+      "source": "data\\raw\\2026-10-24\\97d32566__18ed301a-1205.jpg",
+      "sha256": "03c3c8473598fd6e81a1938d185256fb3fb181e7a5e3ba8704069e8f10250bb0",
+      "source_sha256": "03c3c8473598fd6e81a1938d185256fb3fb181e7a5e3ba8704069e8f10250bb0",
+      "observation": "Night scene with a bright amber EDS, lit interior and headlight against dark surroundings."
+    },
+    {
+      "kind": "coverage",
+      "category": "EDS text and layout",
+      "path": "data/samples/04-eds-layout.jpg",
+      "source": "data\\raw\\2026-10-24\\34ba8852__c8494b97-1454.jpg",
+      "sha256": "625caa2012f41f6966470cdbb0c3bf5ae1a8c96849c7d5323cf429bf96ad303d",
+      "source_sha256": "625caa2012f41f6966470cdbb0c3bf5ae1a8c96849c7d5323cf429bf96ad303d",
+      "observation": "Route 145 on the right of a wide front panel, with stacked destination/route text to the left."
+    },
+    {
+      "kind": "coverage",
+      "category": "Special display messages",
+      "path": "data/samples/05-special-message.jpg",
+      "source": "data\\raw\\2026-10-24\\IMG20261024204409.jpg",
+      "sha256": "e6c7161d1d5d0e65eaf01e878074dd33c1e6e5b0f055795eb6113aa7aba9c4d9",
+      "source_sha256": "e6c7161d1d5d0e65eaf01e878074dd33c1e6e5b0f055795eb6113aa7aba9c4d9",
+      "observation": "OFF SERVICE fills the front display instead of an ordinary route number and destination."
+    },
+    {
+      "kind": "coverage",
+      "category": "Bus and operator variety",
+      "path": "data/samples/06-bus-variety.jpg",
+      "source": "data\\raw\\2026-10-24\\39312fb4-bus_1.jpg",
+      "sha256": "72686c1e0a3591c300dd79c82a3256cefb9009d020842ac9a4c871edcbc0844c",
+      "source_sha256": "72686c1e0a3591c300dd79c82a3256cefb9009d020842ac9a4c871edcbc0844c",
+      "observation": "SBS Transit double-decker with purple/white livery and a tall, distinctive front; complements the single-deck examples."
+    },
+    {
+      "kind": "coverage",
+      "category": "Crowded or obstructed scenes",
+      "path": "data/samples/07-crowded.jpg",
+      "source": "data\\raw\\2026-10-24\\4ec3e58a-bus_17.jpg",
+      "sha256": "1f75c1ae5726b16e2a5929afb72023da4071b46c6e1178e0c0c2449c1fa470a5",
+      "source_sha256": "1f75c1ae5726b16e2a5929afb72023da4071b46c6e1178e0c0c2449c1fa470a5",
+      "observation": "Several overlapping buses in an interchange; the nearer buses partly hide those behind."
+    },
+    {
+      "kind": "coverage",
+      "category": "Distracting text and hard negatives",
+      "path": "data/samples/08-hard-negative.jpg",
+      "source": "data\\raw\\2026-10-24\\IMAGE 2026-10-23 21_56_02.jpg",
+      "sha256": "4b90dcc5438d648c6c2db57758a82980e37d82fc83c932271ec61fc75dbe7a32",
+      "source_sha256": "4b90dcc5438d648c6c2db57758a82980e37d82fc83c932271ec61fc75dbe7a32",
+      "observation": "Sheltered interchange berth/service sign with route numbers; this text is not a bus EDS."
+    },
+    {
+      "kind": "augmentation",
+      "category": "Brightness",
+      "path": "data/samples/09-brightness-minus10.png",
+      "source": "data\\raw\\2026-10-24\\34ba8852__c8494b97-1454.jpg",
+      "source_sha256": "625caa2012f41f6966470cdbb0c3bf5ae1a8c96849c7d5323cf429bf96ad303d",
+      "sha256": "e91920d855fd95b627ce096fcfdeb2d24f92250affac820e868620347d1c1a4e",
+      "description": "factor 0.90",
+      "seed": 42,
+      "settings": {
+        "multiplier": 3,
+        "brightness": 0.1,
+        "rotation_degrees": 0.0,
+        "noise_fraction": 0.0,
+        "blur_radius": 0.0
+      },
+      "parameters": {
+        "rotation": 0.0,
+        "brightness": 0.9,
+        "noise_fraction": 0.0,
+        "blur_sigma": 0.0,
+        "padding": 0
+      }
+    },
+    {
+      "kind": "augmentation",
+      "category": "Rotation",
+      "path": "data/samples/10-rotation-plus3.png",
+      "source": "data\\raw\\2026-10-24\\34ba8852__c8494b97-1454.jpg",
+      "source_sha256": "625caa2012f41f6966470cdbb0c3bf5ae1a8c96849c7d5323cf429bf96ad303d",
+      "sha256": "d752e9c5b4edab549e5242d4984b4be03d5d87cda6c68099c3e83c08b3de4f17",
+      "description": "+3 degrees",
+      "seed": 42,
+      "settings": {
+        "multiplier": 3,
+        "brightness": 0.0,
+        "rotation_degrees": 3.0,
+        "noise_fraction": 0.0,
+        "blur_radius": 0.0
+      },
+      "parameters": {
+        "rotation": 3.0,
+        "brightness": 1.0,
+        "noise_fraction": 0.0,
+        "blur_sigma": 0.0,
+        "padding": 40
+      }
+    },
+    {
+      "kind": "augmentation",
+      "category": "Salt/pepper noise",
+      "path": "data/samples/11-noise-1percent.png",
+      "source": "data\\raw\\2026-10-24\\34ba8852__c8494b97-1454.jpg",
+      "source_sha256": "625caa2012f41f6966470cdbb0c3bf5ae1a8c96849c7d5323cf429bf96ad303d",
+      "sha256": "0419aa618aa5ec705fa703568a977094aef460dd17356c3f5150d1f14d576610",
+      "description": "1% expected pixel rate",
+      "seed": 42,
+      "settings": {
+        "multiplier": 3,
+        "brightness": 0.0,
+        "rotation_degrees": 0.0,
+        "noise_fraction": 0.01,
+        "blur_radius": 0.0
+      },
+      "parameters": {
+        "rotation": 0.0,
+        "brightness": 1.0,
+        "noise_fraction": 0.01,
+        "blur_sigma": 0.0,
+        "padding": 0
+      }
+    },
+    {
+      "kind": "augmentation",
+      "category": "Gaussian blur",
+      "path": "data/samples/12-blur-sigma1.png",
+      "source": "data\\raw\\2026-10-24\\34ba8852__c8494b97-1454.jpg",
+      "source_sha256": "625caa2012f41f6966470cdbb0c3bf5ae1a8c96849c7d5323cf429bf96ad303d",
+      "sha256": "316ee3f52a42f8bc9e13814ef85e0b2efca7baf6b14d8e46fcbb9b7c0fe43e39",
+      "description": "sigma 1 px",
+      "seed": 42,
+      "settings": {
+        "multiplier": 3,
+        "brightness": 0.0,
+        "rotation_degrees": 0.0,
+        "noise_fraction": 0.0,
+        "blur_radius": 1.0
+      },
+      "parameters": {
+        "rotation": 0.0,
+        "brightness": 1.0,
+        "noise_fraction": 0.0,
+        "blur_sigma": 1.0,
+        "padding": 0
+      }
+    }
+  ]
+}

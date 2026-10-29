@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evaluation — EDS Reader</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/analysis.css">
+  <link rel="stylesheet" href="/assets/styles/research.css">
+  <script type="module" src="/assets/js/pages/evaluation.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header data-header></header>
+  <main id="main">
+    <div class="page-heading">
+      <h1>Evaluation</h1>
+      <p>Compare three OCR pipelines on the same regions, then inspect the evidence behind the metrics.</p>
+    </div>
+    <section class="stack" aria-labelledby="comparison-heading">
+      <div class="section-heading"><div><h2 id="comparison-heading">Compare one image</h2><p>One detector pass supplies identical crops to EasyOCR, Tesseract and fine-tuned TrOCR. Confidence scores are engine-specific and do not measure accuracy.</p></div></div>
+      <div class="comparison-controls">
+        <label for="comparison-sample">Sample</label><select id="comparison-sample" aria-label="Comparison sample"><option value="">Loading samples…</option></select>
+        <label class="button" for="comparison-file">Choose image</label><input type="file" id="comparison-file" class="visually-hidden" accept="image/jpeg,image/png,image/webp">
+        <button type="button" id="compare" class="button primary" disabled>Compare pipelines</button>
+        <button type="button" id="reset" class="button">Reset</button>
+      </div>
+      <div class="comparison-input"><div class="stack tight"><div id="viewer" class="viewer" hidden></div><p id="frame-label" class="frame-label"></p></div><div id="options"></div></div>
+      <p id="status" class="notice" role="status" aria-live="polite">Choose a sample or image to compare.</p>
+      <div id="comparison-results" class="comparison-results"></div>
+    </section>
+    <div id="evaluation" class="stack"><div class="message">Loading evaluation evidence…</div></div>
+  </main>
+  <noscript>This application needs JavaScript to compare OCR pipelines.</noscript>
+</body>
+</html>

@@ -12,8 +12,15 @@ venv/
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
-
 # Local runtime artifacts.
 /.cache/
 /.runtime/
 /experiments/
+.pytest_cache/
+.cache/
+.runtime/
+.env
+.DS_Store
+node_modules/
+test-results/
+playwright-report/

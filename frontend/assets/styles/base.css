@@ -1,0 +1,80 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  color: #1d1d1f;
+  background: #fff;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  --ink: #1d1d1f;
+  --muted: #6e6e73;
+  --surface: #f5f5f7;
+  --line: #d2d2d7;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input, select { font: inherit; }
+button, a, input, select, summary { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+button:disabled { cursor: default; opacity: .45; }
+a { color: var(--ink); }
+a:hover { color: #000; }
+:focus-visible { outline: 3px solid #777; outline-offset: 4px; }
+[hidden] { display: none !important; }
+header { border-bottom: 1px solid #e5e5ea; }
+.nav {
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 0 24px;
+  min-height: 52px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 28px;
+}
+.nav a { display: flex; align-items: center; min-height: 44px; text-decoration: none; font-size: 14px; color: var(--muted); }
+.nav a[aria-current] { color: var(--ink); font-weight: 600; }
+.nav .brand { gap: 10px; margin-right: auto; color: var(--ink); font-size: 15px; font-weight: 600; letter-spacing: -.01em; }
+.brand-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--ink); display: grid; place-items: center; }
+main { max-width: 1248px; margin: 0 auto; padding: 56px 24px 96px; display: flex; flex-direction: column; gap: 40px; }
+.page-heading { display: flex; flex-direction: column; gap: 10px; }
+h1 { margin: 0; font-size: 48px; line-height: 1.05; font-weight: 600; letter-spacing: -.025em; }
+.page-heading p { margin: 0; font-size: 19px; line-height: 1.45; color: var(--muted); max-width: 680px; }
+h2 { margin: 0; font-size: 24px; line-height: 1.25; font-weight: 600; letter-spacing: -.015em; }
+h3 { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.35; }
+p { line-height: 1.5; }
+.muted { color: var(--muted); }
+.caption { font-size: 12px; line-height: 1.5; color: var(--muted); margin: 4px 0 0; }
+.small { font-size: 13px; line-height: 1.5; }
+.button { min-height: 44px; padding: 0 20px; border-radius: 980px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+.button.primary { border-color: var(--ink); background: var(--ink); color: #fff; font-weight: 600; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.toolbar .push { margin-left: auto; }
+.segments { display: inline-flex; gap: 2px; padding: 3px; background: var(--surface); border-radius: 12px; max-width: 100%; }
+.segments button { min-height: 44px; padding: 0 18px; border: 0; border-radius: 9px; font-size: 14px; background: transparent; color: var(--muted); font-weight: 500; }
+.segments button[aria-pressed="true"] { background: #fff; color: var(--ink); font-weight: 600; box-shadow: 0 1px 3px #00000024; }
+.panel { padding: 20px; background: var(--surface); border-radius: 18px; min-width: 0; }
+.stack { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.stack.tight { gap: 12px; }
+.columns { display: grid; grid-template-columns: minmax(0, 2.244fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+.message { border: 1px dashed #c7c7cc; padding: 28px 20px; border-radius: 18px; font-size: 14px; line-height: 1.5; color: var(--muted); }
+.message strong { display: block; font-size: 22px; color: var(--ink); font-weight: 600; margin-bottom: 8px; }
+.message.error { border: 1.5px solid var(--ink); }
+.message .button { margin-top: 16px; }
+.notice { margin: 0; font-size: 13px; line-height: 1.5; color: var(--muted); min-height: 20px; }
+.skip-link { position: absolute; left: 24px; top: -60px; background: #fff; padding: 12px; z-index: 50; }
+.skip-link:focus { top: 8px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 800px) {
+  main { padding-top: 36px; gap: 32px; }
+  .columns { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .nav { gap: 0 20px; }
+  .nav .brand { flex-basis: 100%; }
+}
+@media (max-width: 420px) {
+  main, .nav { padding-left: 16px; padding-right: 16px; }
+  h1 { font-size: 40px; }
+  .page-heading p { font-size: 17px; }
+  .nav { gap: 0 16px; }
+  .nav a { font-size: 12px; }
+  .segments button { padding: 0 12px; font-size: 13px; }
+  .toolbar { gap: 8px; }
+}
