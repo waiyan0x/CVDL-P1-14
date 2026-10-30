@@ -5,12 +5,11 @@
 - The `2026-10-24` snapshot contains **212 raw images**. Image payloads stay
   local; the early raw snapshot can also be inspected in commit `9b15447`.
 - The accepted labelled source, `data/labelled/2026-10-24/`, has **196 images**
-  (137 train, 39 validation, 20 test) and four annotated classes: `front_eds`,
-  `front_eds_destination`, `front_eds_num`, and `front_eds_route`. It is the
-  cleaned export promoted to the canonical source folder; its 199-image
-  predecessor has been removed. The sole current torchvision training export
-  has **470 images** (411 train, 39 validation, 20 test), including 274 training
-  augmentations. Derived exports are not additional raw photos.
+  (137 train, 39 validation, 20 test). The current training folder has
+  **479 images** (420 train, 39 validation, 20 test), verified on 2026-10-29.
+  Training metadata groups outputs under 140 source names, three outputs each.
+  It identifies a Roboflow export and lacks the manifest needed to verify its
+  augmentation lineage. Derived outputs are not additional raw photos.
 - The raw set mixes camera photos, screenshots, and visibly watermarked images.
   Source and usage-permission records are not in this branch. The retained
   local export manifests record file hashes and processing lineage, not verified
@@ -47,6 +46,21 @@ They do not establish per-category counts or exhaustive coverage. Rear views,
 bus-stop signs and arrival screens illustrate exclusion/hard-negative context;
 they are not additional bounding-box classes. See the
 [annotation guide](../docs/annotation/guide.md) for target scope.
+
+## Selected representatives by subcategory
+
+[The sample gallery](samples/README.md) contains **44 coverage images**: one for
+each of the 41 distinct subsets documented below, plus straight-on front,
+close/readable EDS and Off Service from the broad coverage table. Files are
+grouped by broad category and named after the subcategory. The gallery includes
+four separate augmentation previews (48 sample images total).
+
+The selections were compared visually with the raw candidates; the clearest
+example of each distinguishing feature was preferred. In particular, the
+gallery uses a 150 × 150 front view for low resolution and a daylight SMRT view
+with clearer branding. The tables below remain additional candidate examples;
+their rows do not dictate the gallery's chosen file. Sources, hashes and reasons
+are recorded in `data/samples/manifest.json`. The notebook gallery is separate.
 
 ## Additional examples by subset
 

@@ -83,9 +83,13 @@ recipe; reduce/disable blur if the required text becomes unreadable.
 ## 4. Loading and model-specific preprocessing
 
 Models use `data/training/2026-10-24/` as their complete dataset root.
-`TRAINING_DATASET` in `config.py` selects the current version, and
-`load_coco_splits()` loads it by default. Its training split contains 137
-originals + 274 variants; validation/test contain 39/20 unchanged originals.
+`TRAINING_DATASET` in `config.py` selects the current version.
+The current local inventory is **420 train, 39 validation and 20 test images
+(479 total)**, verified on 2026-10-29. Training metadata has 140 source names
+with three outputs each; exact original/variant provenance is unavailable.
+The COCO identifies a Roboflow export, not a verified build of this recipe.
+`load_coco_splits()` requires a manifest at this configured path, but the current
+folder has none and will be rejected. See [the current training inventory](../../data/training/README.md).
 Keep these splits separate during model fitting and evaluation. `labelled/`
 remains the reviewed source used to build the final dataset.
 

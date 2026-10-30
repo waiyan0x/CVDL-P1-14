@@ -1,0 +1,43 @@
+{
+  "verified_on": "2026-10-29",
+  "raw_originals": 212,
+  "raw_split_copies": 198,
+  "labelled": {
+    "train": {
+      "images": 137,
+      "annotations": 548,
+      "annotation_sha256": "6d10f9fba797a00cfea40cd98cc237bec1d4daac17112b45e6c5619a01418496"
+    },
+    "val": {
+      "images": 39,
+      "annotations": 154,
+      "annotation_sha256": "f8f85e6e9c3911d17933fb00441527e67bd0e64bd9ab71ba1465fa9b099ddfdf"
+    },
+    "test": {
+      "images": 20,
+      "annotations": 83,
+      "annotation_sha256": "6bfc578b25a68fcde7e9af9a683241d099b1bc92734db8006811494b89701c0e"
+    }
+  },
+  "training": {
+    "train": {
+      "images": 420,
+      "annotations": 1674,
+      "annotation_sha256": "33dc35275eefa6bf8a79a2f1ea04c1c721bee6bd07113217754fabf2bebb6927"
+    },
+    "valid": {
+      "images": 39,
+      "annotations": 154,
+      "annotation_sha256": "5b2a9ca23d79a22c1a7e02e21b072d60c91b0e6a92e5d8698f1c98e657ada8ae"
+    },
+    "test": {
+      "images": 20,
+      "annotations": 83,
+      "annotation_sha256": "efccbf4045d2a94825411ef45d28f6b2be16f04d5abad38c2103c76b7936213c"
+    }
+  },
+  "training_source_groups": 140,
+  "training_outputs_per_source": {
+    "3": 140
+  }
+}
