@@ -12,6 +12,10 @@ the completed YOLO11n run and the interrupted YOLO11s run. DETR and the common
 benchmark have not run. Training and benchmarking are paused by default.
 The first cell has a master training switch plus separate YOLO11n, YOLO11s and
 DETR switches; each model has its own training cell for inspection.
+Set a new `RUN_ID` before a fresh experiment. Training starts from pretrained
+weights and raises an error if that model already has a folder under the same
+`RUN_ID`. Keep the ID unchanged when you later run validation or test for that
+experiment. Earlier run folders and archived metrics remain available.
 
 The benchmark defaults to the local manifest-backed
 `data/training/2026-10-30-torchvision/` export built from the uploaded accepted

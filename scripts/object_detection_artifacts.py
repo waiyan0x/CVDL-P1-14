@@ -4,6 +4,7 @@ import csv
 import hashlib
 import json
 import os
+import re
 import shutil
 from datetime import datetime, timezone
 from pathlib import Path
@@ -12,10 +13,14 @@ from pathlib import Path
 MODEL_NAMES = ("yolo11n", "yolo11s", "detr-resnet-50")
 
 
-def archive_dir(repo_root, dataset_fingerprint, model_name):
+def archive_dir(repo_root, dataset_fingerprint, model_name, run_id=None):
     if model_name not in MODEL_NAMES:
         raise ValueError(f"Unknown detector: {model_name}")
     base = Path(repo_root) / "evaluation" / "object_detection" / dataset_fingerprint[:12] / model_name
+    if run_id is not None:
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]{0,63}", run_id):
+            raise ValueError(f"Invalid run ID: {run_id!r}")
+        base = base.parent / "runs" / run_id / model_name
     for phase in ("train", "validation", "test", "checkpoints"):
         folder = base / phase
         folder.mkdir(parents=True, exist_ok=True)
@@ -66,9 +71,9 @@ def _sha256(path):
     return digest.hexdigest()
 
 
-def archive_yolo_run(repo_root, dataset_fingerprint, model_name, run_dir):
+def archive_yolo_run(repo_root, dataset_fingerprint, model_name, run_dir, run_id=None):
     """Copy current YOLO evidence, including partial runs, without changing it."""
-    base, run_dir = archive_dir(repo_root, dataset_fingerprint, model_name), Path(run_dir)
+    base, run_dir = archive_dir(repo_root, dataset_fingerprint, model_name, run_id), Path(run_dir)
     for filename in ("results.csv", "args.yaml", "results.png"):
         _copy_if_changed(run_dir / filename, base / "train" / filename)
     checkpoint_hashes = {}
@@ -83,6 +88,7 @@ def archive_yolo_run(repo_root, dataset_fingerprint, model_name, run_dir):
             epochs = sum(1 for _ in csv.DictReader(stream))
     record = {
         "model": model_name,
+        "run_id": run_id,
         "dataset_manifest_sha256": dataset_fingerprint,
         "training_status": "complete" if (run_dir / "complete.txt").is_file() else "partial",
         "epochs_recorded": epochs,
@@ -96,9 +102,9 @@ def archive_yolo_run(repo_root, dataset_fingerprint, model_name, run_dir):
     return base
 
 
-def archive_detr_epoch(repo_root, dataset_fingerprint, history, checkpoint_dir=None):
+def archive_detr_epoch(repo_root, dataset_fingerprint, history, checkpoint_dir=None, run_id=None):
     """Save DETR losses each epoch and mirror the latest best model if supplied."""
-    base = archive_dir(repo_root, dataset_fingerprint, "detr-resnet-50")
+    base = archive_dir(repo_root, dataset_fingerprint, "detr-resnet-50", run_id)
     _atomic_json(base / "train" / "history.json", history)
     if checkpoint_dir is not None:
         checkpoint_dir = Path(checkpoint_dir)
@@ -107,6 +113,7 @@ def archive_detr_epoch(repo_root, dataset_fingerprint, history, checkpoint_dir=N
                 _copy_if_changed(source, base / "checkpoints" / source.name)
     _atomic_json(base / "status.json", {
         "model": "detr-resnet-50",
+        "run_id": run_id,
         "dataset_manifest_sha256": dataset_fingerprint,
         "training_status": "complete" if checkpoint_dir and (Path(checkpoint_dir) / "complete.txt").is_file() else "partial",
         "epochs_recorded": len(history),
@@ -117,11 +124,11 @@ def archive_detr_epoch(repo_root, dataset_fingerprint, history, checkpoint_dir=N
     return base
 
 
-def archive_benchmark(repo_root, dataset_fingerprint, model_name, phase, report):
+def archive_benchmark(repo_root, dataset_fingerprint, model_name, phase, report, run_id=None):
     """Save a per-model benchmark report in the tracked results tree."""
     if phase not in ("validation", "test"):
         raise ValueError(f"Unexpected phase: {phase}")
-    base = archive_dir(repo_root, dataset_fingerprint, model_name)
+    base = archive_dir(repo_root, dataset_fingerprint, model_name, run_id)
     model_report = dict(report)
     model_report["benchmark"] = {model_name: report["benchmark"][model_name]}
     model_report["validation_threshold_sweep"] = [
@@ -131,6 +138,7 @@ def archive_benchmark(repo_root, dataset_fingerprint, model_name, phase, report)
     status_path = base / "status.json"
     status = json.loads(status_path.read_text(encoding="utf-8")) if status_path.is_file() else {"model": model_name}
     status[f"{phase}_status"] = "saved"
+    status["run_id"] = run_id
     status["dataset_manifest_sha256"] = dataset_fingerprint
     status["archived_at_utc"] = datetime.now(timezone.utc).isoformat()
     _atomic_json(status_path, status)

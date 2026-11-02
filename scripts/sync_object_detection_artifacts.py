@@ -19,3 +19,13 @@ for model_name in MODEL_NAMES:
     if model_name.startswith("yolo") and (runs / model_name / "results.csv").is_file():
         archive_yolo_run(ROOT, fingerprint, model_name, runs / model_name)
     print(base)
+
+if runs.is_dir():
+    for experiment in runs.iterdir():
+        if not experiment.is_dir() or experiment.name in MODEL_NAMES:
+            continue
+        for model_name in ("yolo11n", "yolo11s"):
+            run_dir = experiment / model_name
+            if (run_dir / "results.csv").is_file():
+                base = archive_yolo_run(ROOT, fingerprint, model_name, run_dir, experiment.name)
+                print(base)
