@@ -52,9 +52,9 @@ TRAIN_MODEL = 'yolo11n'   # Choose: 'yolo11n', 'yolo11s', or 'detr-resnet-50'.
 RUN_BENCHMARK = False      # Train/valid mAP and latency for BENCHMARK_MODELS.
 RUN_FINAL_TEST = False     # Enable once, after settings/model selection on validation.
 RUN_ID = 'baseline-01'      # Keep this ID for all three models in one benchmark set.
-BENCHMARK_MODELS = ('yolo11n',)  # Choose one completed model per run, or list all three.
+BENCHMARK_MODELS = ('yolo11s',)  # Validation-selected model; list all three only for validation comparison.
 YOLO_EPOCHS, DETR_EPOCHS, IMAGE_SIZE, BATCH_SIZE, SEED = 30, 30, 640, 4, 42
-OPERATING_CONF, YOLO_NMS_IOU = 0.30, 0.70  # Freeze from validation before opening test.
+OPERATING_CONF, YOLO_NMS_IOU = 0.20, 0.70  # Validation-selected deployment settings.
 DEVICE = 'cuda' if importlib.util.find_spec('torch') and __import__('torch').cuda.is_available() else 'cpu'
 CLASS_NAMES = ('front_eds', 'front_eds_num', 'front_eds_route', 'front_eds_destination')
 COCO_TO_INDEX = {1: 0, 3: 1, 4: 2, 2: 3}  # Explicit IDs from the readiness handoff.
@@ -376,15 +376,29 @@ else:
     print('Threshold selection pending validation predictions.')
 """),
     md(r"""
-### Result and interpretation log
+### Recorded `baseline-01` benchmark results
 
-| Candidate | Train mAP50 / mAP50:95 | Valid mAP50 / mAP50:95 | Test mAP50 / mAP50:95 | EDS panel | Number | Route | Destination | Median / p95 ms | Negatives FP |
-|---|---|---|---|---|---|---|---|---|---|
-| YOLO11n | Pending | Pending | Held out | Pending | Pending | Pending | Pending | Pending | Pending |
-| YOLO11s | Pending | Pending | Held out | Pending | Pending | Pending | Pending | Pending | Pending |
-| DETR-ResNet50 | Pending | Pending | Held out | Pending | Pending | Pending | Pending | Pending | Pending |
+The following measurements were saved on 2 November 2026 using dataset manifest `bf938f526d2c01f1960b9af018f1fd1dc78a431e725037c84d1707dfcc5b826c`, CUDA, 640-pixel input, seed 42, and the best validation-selected checkpoint from each training run.
 
-**Findings to fill after the run:** Which class is weakest? Does the whole-panel box contain its fields? Are route and final destination confused? How many rear signs, unrelated text, blurred/distant displays or zero-box images produce false positives? Compare crop readability with OCR and inspect at least ten worst misses and ten false positives. Record validation threshold and NMS choices before opening test. A class with no reviewed ground truth in a split has undefined AP; do not report it as 0.
+| Candidate | Train mAP50 / mAP50:95 | Valid mAP50 / mAP50:95 | Test mAP50 / mAP50:95 | Test median / p95 ms | Test negative FP |
+|---|---|---|---|---|---:|
+| YOLO11n | 0.8910 / 0.7451 | 0.5709 / 0.3466 | 0.7165 / 0.4139 | 40.21 / 123.25 | 0 |
+| **YOLO11s** | **0.9140 / 0.8024** | **0.6734 / 0.4274** | 0.7077 / 0.3938 | **34.22** / 128.14 | 0 |
+| DETR-ResNet50 | 0.3446 / 0.1504 | 0.3127 / 0.1359 | 0.2873 / 0.1251 | 83.79 / 191.24 | 7 |
+
+Test per-class AP:
+
+| Candidate | EDS panel | Number | Route / landmark | Destination |
+|---|---|---|---|---|
+| YOLO11n | 0.7088 / 0.3928 | 0.8356 / 0.5593 | 0.6677 / 0.3455 | 0.6539 / 0.3578 |
+| **YOLO11s** | **0.8478 / 0.3865** | 0.7950 / **0.5704** | 0.6310 / **0.3476** | 0.5573 / 0.2706 |
+| DETR-ResNet50 | 0.5560 / 0.2707 | 0.3446 / 0.1508 | 0.1168 / 0.0347 | 0.1317 / 0.0441 |
+
+Each per-class entry is `mAP50 / mAP50:95`. YOLO11s remains the selected model because selection was based on the highest validation mAP50:95 (`0.4274`), before opening the held-out test. Its validation threshold sweep had the highest F1 at confidence `0.20` (`0.7032`) with no false positives on four reviewed validation negatives. NMS IoU remained `0.70`.
+
+**Recorded execution deviation:** the final Run All used `BENCHMARK_MODELS=('yolo11n', 'yolo11s', 'detr-resnet-50')` and `OPERATING_CONF=0.30`, so the test report contains all three models and negative false-positive counts at `0.30`. The mAP calculation used predictions from score `0.001`, but the test did not measure the validation-selected operating threshold `0.20`. Do not use the test results to reselect a model or tune settings, and do not rerun the test to optimize them.
+
+**Quantitative interpretation:** YOLO11s provides the strongest validation result and lowest median test latency. Number detection is its strongest localized class; destination and route/landmark require the most qualitative attention. DETR is slower, has substantially lower AP, and produced false positives on reviewed negatives. The 20-image test split is small, including only two reviewed negatives, so these results need qualitative failure inspection and integrated camera/video testing before deployment.
 """),
     code(r"""
 if DATA_READY and BENCHMARK:
@@ -423,10 +437,12 @@ Primary references: [Ultralytics detection loss source](https://docs.ultralytics
 ## 7. Outstanding task-allocation checklist
 
 - [x] Obtain the labelled source, run the automated audit, and build a separate manifest-backed training export. The uploaded Roboflow export still lacks provenance; source permissions and capture groups remain to be documented.
+- [x] Fine-tune YOLO11n, YOLO11s and DETR on identical reviewed splits; save checkpoints, settings, versions and training curves.
+- [x] Quantitatively benchmark train/validation/test mAP, all four classes, reviewed negatives and inference speed on the target CUDA laptop.
+- [x] Select YOLO11s using validation mAP50:95 and record the validation threshold sweep, held-out test and execution deviation.
+- [x] Document YOLO11 CIoU, BCE classification and DFL losses and their proposed project use.
 - [ ] Review all four class definitions and negative examples with Jy; inspect route/destination ambiguity and missing boxes. Confirm source/recording groups do not cross splits.
-- [ ] Fine-tune YOLO11n, YOLO11s and DETR on identical reviewed splits; save checkpoints, settings, versions and training curves.
-- [ ] Validate all four classes, negatives and speed on target hardware; inspect small, distant, blurred, angled and occluded failures and OCR crop quality.
-- [ ] Select model, confidence threshold and NMS setting using validation. Freeze settings, run held-out test once and record remaining limitations.
+- [ ] Inspect at least ten weak/missed detections and available false positives across small, distant, blurred, angled and occluded cases; assess route/destination confusion and OCR crop quality.
 - [ ] Deliver selected detector checkpoint/configuration and label/box contract to the app/OCR team; verify multiple displays and camera/uploaded-video latency in the integrated system.
 
 The historical 13-image field-detector report and sample gallery are useful references, but they do not replace this four-class, held-out evaluation.

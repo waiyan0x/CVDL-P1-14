@@ -1,0 +1,217 @@
+{
+  "dataset_root": "C:\\Users\\brend\\CVDL-P1-14\\data\\training\\2026-10-30-torchvision",
+  "dataset_manifest_sha256": "bf938f526d2c01f1960b9af018f1fd1dc78a431e725037c84d1707dfcc5b826c",
+  "inventory": {
+    "train": {
+      "images": 411,
+      "negative_images": 48,
+      "boxes_by_class": {
+        "front_eds": 483,
+        "front_eds_num": 423,
+        "front_eds_route": 360,
+        "front_eds_destination": 378
+      },
+      "coco_sha256": "8bf40dbbcdb651792fd686bda4dd3dc29eeb472ffbeae8f05e8343edb84c40fa"
+    },
+    "valid": {
+      "images": 39,
+      "negative_images": 4,
+      "boxes_by_class": {
+        "front_eds": 44,
+        "front_eds_num": 41,
+        "front_eds_route": 31,
+        "front_eds_destination": 38
+      },
+      "coco_sha256": "f8f85e6e9c3911d17933fb00441527e67bd0e64bd9ab71ba1465fa9b099ddfdf"
+    },
+    "test": {
+      "images": 20,
+      "negative_images": 2,
+      "boxes_by_class": {
+        "front_eds": 25,
+        "front_eds_num": 23,
+        "front_eds_route": 16,
+        "front_eds_destination": 19
+      },
+      "coco_sha256": "6bfc578b25a68fcde7e9af9a683241d099b1bc92734db8006811494b89701c0e"
+    }
+  },
+  "class_map": {
+    "1": 0,
+    "3": 1,
+    "4": 2,
+    "2": 3
+  },
+  "run_id": "baseline-01",
+  "models": {
+    "yolo11n": "C:\\Users\\brend\\CVDL-P1-14\\.runtime\\object_detection_benchmark\\bf938f526d2c\\runs\\baseline-01\\yolo11n\\weights\\best.pt",
+    "yolo11s": "C:\\Users\\brend\\CVDL-P1-14\\.runtime\\object_detection_benchmark\\bf938f526d2c\\runs\\baseline-01\\yolo11s\\weights\\best.pt",
+    "detr-resnet-50": "C:\\Users\\brend\\CVDL-P1-14\\.runtime\\object_detection_benchmark\\bf938f526d2c\\runs\\baseline-01\\detr-resnet-50"
+  },
+  "training_history": {
+    "yolo11n": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\.runtime\\object_detection_benchmark\\bf938f526d2c\\runs\\baseline-01\\yolo11n\\results.csv"
+    },
+    "yolo11s": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\.runtime\\object_detection_benchmark\\bf938f526d2c\\runs\\baseline-01\\yolo11s\\results.csv"
+    }
+  },
+  "benchmark": {
+    "yolo11s": {
+      "train": {
+        "images": 411,
+        "negatives": 48,
+        "map50": 0.9139741063117981,
+        "map50_95": 0.802437424659729,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9841634035110474,
+            "map50_95": 0.8966782689094543,
+            "mar_100": 0.9306418299674988
+          },
+          "front_eds_num": {
+            "map50": 0.9108399152755737,
+            "map50_95": 0.8230125308036804,
+            "mar_100": 0.8510638475418091
+          },
+          "front_eds_route": {
+            "map50": 0.8703619837760925,
+            "map50_95": 0.7260522246360779,
+            "mar_100": 0.761388897895813
+          },
+          "front_eds_destination": {
+            "map50": 0.8905312418937683,
+            "map50_95": 0.7640066742897034,
+            "mar_100": 0.7910053133964539
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 0,
+        "median_inference_ms": 42.80979998293333,
+        "p95_inference_ms": 125.88290001440328
+      },
+      "valid": {
+        "images": 39,
+        "negatives": 4,
+        "map50": 0.6734036207199097,
+        "map50_95": 0.42743489146232605,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.8785643577575684,
+            "map50_95": 0.5056845545768738,
+            "mar_100": 0.6136363744735718
+          },
+          "front_eds_num": {
+            "map50": 0.8240039944648743,
+            "map50_95": 0.5744444727897644,
+            "mar_100": 0.6268292665481567
+          },
+          "front_eds_route": {
+            "map50": 0.5092462301254272,
+            "map50_95": 0.3229444622993469,
+            "mar_100": 0.448387086391449
+          },
+          "front_eds_destination": {
+            "map50": 0.48179981112480164,
+            "map50_95": 0.30666613578796387,
+            "mar_100": 0.46578946709632874
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 0,
+        "median_inference_ms": 35.51389998756349,
+        "p95_inference_ms": 94.21060999447947
+      },
+      "test": {
+        "images": 20,
+        "negatives": 2,
+        "map50": 0.7077481150627136,
+        "map50_95": 0.39376503229141235,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.8477517366409302,
+            "map50_95": 0.38645583391189575,
+            "mar_100": 0.527999997138977
+          },
+          "front_eds_num": {
+            "map50": 0.794966995716095,
+            "map50_95": 0.5703533291816711,
+            "mar_100": 0.6304348111152649
+          },
+          "front_eds_route": {
+            "map50": 0.6309680938720703,
+            "map50_95": 0.34761255979537964,
+            "mar_100": 0.48124998807907104
+          },
+          "front_eds_destination": {
+            "map50": 0.5573057532310486,
+            "map50_95": 0.2706384062767029,
+            "mar_100": 0.378947377204895
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 0,
+        "median_inference_ms": 34.22229998977855,
+        "p95_inference_ms": 128.14040000521345
+      }
+    }
+  },
+  "validation_threshold_sweep": [
+    {
+      "model": "yolo11s",
+      "threshold": 0.1,
+      "precision_iou50": 0.653179190751445,
+      "recall_iou50": 0.7337662337662337,
+      "f1_iou50": 0.691131498470948,
+      "negative_false_positives": 0
+    },
+    {
+      "model": "yolo11s",
+      "threshold": 0.2,
+      "precision_iou50": 0.6987179487179487,
+      "recall_iou50": 0.7077922077922078,
+      "f1_iou50": 0.7032258064516129,
+      "negative_false_positives": 0
+    },
+    {
+      "model": "yolo11s",
+      "threshold": 0.3,
+      "precision_iou50": 0.7285714285714285,
+      "recall_iou50": 0.6623376623376623,
+      "f1_iou50": 0.6938775510204082,
+      "negative_false_positives": 0
+    },
+    {
+      "model": "yolo11s",
+      "threshold": 0.5,
+      "precision_iou50": 0.8157894736842105,
+      "recall_iou50": 0.6038961038961039,
+      "f1_iou50": 0.6940298507462687,
+      "negative_false_positives": 0
+    },
+    {
+      "model": "yolo11s",
+      "threshold": 0.7,
+      "precision_iou50": 0.8977272727272727,
+      "recall_iou50": 0.512987012987013,
+      "f1_iou50": 0.6528925619834711,
+      "negative_false_positives": 0
+    }
+  ],
+  "settings": {
+    "yolo_epochs": 30,
+    "detr_epochs": 30,
+    "image_size": 640,
+    "batch_size": 4,
+    "seed": 42,
+    "device": "cuda",
+    "operating_conf": 0.3,
+    "yolo_nms_iou": 0.7,
+    "final_test_run": true
+  },
+  "environment": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.11.0+cu128",
+    "ultralytics": "8.3.158",
+    "transformers": "4.57.6",
+    "torchmetrics": "1.9.0"
+  }
+}
