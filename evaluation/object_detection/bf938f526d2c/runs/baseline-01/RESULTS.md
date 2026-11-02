@@ -52,7 +52,9 @@ The final notebook execution evaluated all three candidates with `OPERATING_CONF
 - DETR is slower, has substantially lower AP and produced seven predictions on two reviewed test negatives at confidence `0.30`.
 - The test set is small: 20 images with only two reviewed negatives.
 - Blur, glare, oblique perspective, crowding and partial occlusion make several detected crops unsuitable for reliable OCR; the ten-case review, overlays and crops are saved under `yolo11s/qualitative_validation/`.
-- Human confirmation of class definitions, negative examples, source permissions and capture-group split isolation remains pending.
+- The Task 3 semantic audit covers 137 original training, 39 validation and 20 test images. It flags 15 images with 17 panel-without-content cases for joint review and inventories all 22 original zero-box images.
+- Twelve timestamp-derived filename groups cross splits, including same-minute screenshot/image sequences. This is evidence of possible shared capture sessions, although only source records can confirm it. Exact/dHash checks alone do not certify recording-level isolation.
+- Human confirmation with Jy of class definitions, semantic candidates, negative/Null history, source permissions and capture-group split isolation remains pending; no labels or splits were changed.
 - App/OCR integration and camera/uploaded-video testing remain pending.
 
 ## Evidence files
@@ -65,3 +67,5 @@ The final notebook execution evaluated all three candidates with `OPERATING_CONF
 - Validation qualitative review: `yolo11s/qualitative_validation/QUALITATIVE_REVIEW.md`
 - Machine-readable failure analysis: `yolo11s/qualitative_validation/failure_analysis.json`
 - Ten-case contact sheet: `yolo11s/qualitative_validation/contact_sheet.jpg`
+- Task 3 joint-review packet: `data_review/REVIEW.md`
+- Task 3 machine-readable audit: `data_review/semantic_audit.json`

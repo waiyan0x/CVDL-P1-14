@@ -401,6 +401,8 @@ Each per-class entry is `mAP50 / mAP50:95`. YOLO11s remains the selected model b
 **Quantitative interpretation:** YOLO11s provides the strongest validation result and lowest median test latency. Number detection is its strongest localized class. DETR is slower, has substantially lower AP, and produced false positives on reviewed negatives. The 20-image test split is small, including only two reviewed negatives.
 
 **Validation qualitative review:** the ten highest-priority YOLO11s cases were inspected at the validation-selected confidence `0.20`. The ranked cases contained 61 GT boxes: 52 occupied less than 1% of the image and 36 less than 0.25%. Diagnostic class-correct matching counted 109 TP, 47 FP and 45 FN across all 39 validation images, with 17 destination-to-route and 10 route-to-destination confusion candidates. Blur, glare, oblique perspective, crowding and partial occlusion also made several crops unsuitable for OCR. None of four reviewed validation negatives produced a prediction. These counts are diagnostics, not COCO mAP. The review package is under `evaluation/object_detection/bf938f526d2c/runs/baseline-01/yolo11s/qualitative_validation/`.
+
+**Task 3 annotation/split audit:** a human-review packet now covers the 137 original training, 39 validation and 20 test images. Structural heuristics flag 15 images containing 17 panels without associated content boxes, and the packet inventories all 22 original zero-box images. Twelve timestamp-derived filename groups cross splits, including same-minute screenshot/image sequences. This is a recording-level isolation warning, not proof of leakage; source/capture records are required to decide it. No labels or splits were changed, and the checklist remains open pending Brendan/Jy decisions. Evidence is under `evaluation/object_detection/bf938f526d2c/runs/baseline-01/data_review/`.
 """),
     code(r"""
 if DATA_READY and BENCHMARK:
@@ -443,7 +445,7 @@ Primary references: [Ultralytics detection loss source](https://docs.ultralytics
 - [x] Quantitatively benchmark train/validation/test mAP, all four classes, reviewed negatives and inference speed on the target CUDA laptop.
 - [x] Select YOLO11s using validation mAP50:95 and record the validation threshold sweep, held-out test and execution deviation.
 - [x] Document YOLO11 CIoU, BCE classification and DFL losses and their proposed project use.
-- [ ] Review all four class definitions and negative examples with Jy; inspect route/destination ambiguity and missing boxes. Confirm source/recording groups do not cross splits.
+- [ ] Review all four class definitions and negative examples with Jy; inspect route/destination ambiguity and missing boxes. Confirm source/recording groups do not cross splits. A prepared joint-review packet flags 15 semantic candidates, inventories 22 original negatives and identifies 12 timestamp-derived cross-split groups under `evaluation/object_detection/bf938f526d2c/runs/baseline-01/data_review/`.
 - [x] Inspect ten weak/missed validation detections and available false positives across small, distant, blurred, angled and occluded cases; assess route/destination confusion and OCR crop quality. Evidence is saved under `evaluation/object_detection/bf938f526d2c/runs/baseline-01/yolo11s/qualitative_validation/`.
 - [ ] Deliver selected detector checkpoint/configuration and label/box contract to the app/OCR team; verify multiple displays and camera/uploaded-video latency in the integrated system.
 
