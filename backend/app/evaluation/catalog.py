@@ -71,17 +71,23 @@ def model_catalog(settings, pipeline=None) -> dict:
         engine["artifact_files"] = _artifacts(Path(engine["path"]), root) if engine["id"] == "tesseract" and engine["path"] else (
             _artifacts(root / engine["path"], root) if engine["path"] else {})
     return {
-        "detector": {"id": "supplied-yolo11n", "name": "Supplied fine-tuned YOLO11n", "path": _display_path(detector, root),
+        "detector": {"id": "eds-yolo11s-baseline-01", "name": "Selected fine-tuned YOLO11s", "path": _display_path(detector, root),
                      "available": detector.is_file(), "version": _version("ultralytics"),
                      "sha256": file_hash(detector) if detector.is_file() else None,
                      "artifact_files": _artifacts(detector, root),
-                     "filename_note": "best_v6.pt is a checkpoint filename; the architecture is YOLO11n, not YOLOv6.",
-                     "classes": [{"id": i, "label": label, "used": i in [1, 2, 3]} for i, label in enumerate(
-                         ["bus_front", "bus_number", "destination", "eds"])],
-                     "training_class_filter": [1, 2], "device": settings.detector_device,
+                     "filename_note": "Validation selected YOLO11s from the three-model baseline benchmark.",
+                     "classes": [
+                         {"id": 0, "label": "front_eds", "api_label": "eds", "used": True},
+                         {"id": 1, "label": "front_eds_num", "api_label": "bus_number", "used": True},
+                         {"id": 2, "label": "front_eds_route", "api_label": "route", "used": True},
+                         {"id": 3, "label": "front_eds_destination", "api_label": "destination", "used": True},
+                     ],
+                     "training_class_filter": [0, 1, 2, 3], "device": settings.detector_device,
                      "image_size": settings.detector_image_size,
                      "confidence_definition": "YOLO confidence that a box contains its predicted class; not OCR correctness or model accuracy.",
-                     "note": "Number, destination and EDS classes are requested at inference. Bus-front detection is not a gate; training metadata filtered classes to [1, 2]."},
+                     "operating_confidence": .20, "nms_iou": settings.detector_nms_iou,
+                     "checkpoint_sha256_expected": "01d832cb6eda71dcf4a88e6ebbafc080f9dc299be8161c76ab15c75f7c60c2e3",
+                     "note": "Panel, number, route and destination are all requested. Model labels are translated explicitly to the stable API labels."},
         "ocr_engines": engines,
         "pipeline": [
             {"id": "input", "title": "Validate and sample", "description": "Validate image/video content, decode a frame, retain frame identity and media time, and bound image dimensions."},

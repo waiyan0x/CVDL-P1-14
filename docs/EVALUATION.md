@@ -1,12 +1,20 @@
 # Evaluation evidence
 
-The application compares one YOLO11n detector with three OCR engines: EasyOCR,
+The application compares the validation-selected YOLO11s detector with three OCR engines: EasyOCR,
 Tesseract and the supplied fine-tuned TrOCR. A same-image comparison runs the
 detector once and shares the resulting boxes/crops. It reports actual text,
 reference matches, engine-specific confidence and processing time. This is a
 functional comparison, not accuracy measurement without reviewed transcriptions.
 
-## Field-detector measurement
+## Selected four-class detector measurement
+
+The current selected detector benchmark is recorded under
+`evaluation/object_detection/bf938f526d2c/runs/baseline-01/`. YOLO11s was selected
+using validation mAP50:95 (`0.4274`) with 640-pixel input, confidence `0.20` and NMS
+IoU `0.70`. It detects panel, number, route and destination classes. See
+`docs/OBJECT_DETECTION_DEPLOYMENT.md` for installation and the application contract.
+
+## Historical field-detector measurement
 
 Reproduce the committed report:
 

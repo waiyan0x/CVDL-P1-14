@@ -55,7 +55,10 @@ The final notebook execution evaluated all three candidates with `OPERATING_CONF
 - The Task 3 semantic audit covers 137 original training, 39 validation and 20 test images. It flags 15 images with 17 panel-without-content cases for joint review and inventories all 22 original zero-box images.
 - Twelve timestamp-derived filename groups cross splits, including same-minute screenshot/image sequences. This is evidence of possible shared capture sessions, although only source records can confirm it. Exact/dHash checks alone do not certify recording-level isolation.
 - Human confirmation with Jy of class definitions, semantic candidates, negative/Null history, source permissions and capture-group split isolation remains pending; no labels or splits were changed.
-- App/OCR integration and camera/uploaded-video testing remain pending.
+- The selected checkpoint is hash-verified at the app runtime path, and the four-class model contract is mapped to stable API labels (`eds`, `bus_number`, `route`, `destination`).
+- Real CUDA integration recovered two displays and all four field types in the multi-bus verification image. Five-run detector latency was 35.249 ms median; the first measured call after adapter warmup was still an outlier at 252.003 ms.
+- A four-frame uploaded-video fixture verified server decode, timestamps, multi-display association and detector flow at 73.706 ms median / 145.758 ms p95 total time. A simulated camera response path also passed.
+- Production OCR and reference matching remain unverified locally because EasyOCR/TrOCR assets, Tesseract and `data/bus_information.csv` are absent. Physical-camera and moving-bus field latency also remain pending.
 
 ## Evidence files
 
@@ -69,3 +72,6 @@ The final notebook execution evaluated all three candidates with `OPERATING_CONF
 - Ten-case contact sheet: `yolo11s/qualitative_validation/contact_sheet.jpg`
 - Task 3 joint-review packet: `data_review/REVIEW.md`
 - Task 3 machine-readable audit: `data_review/semantic_audit.json`
+- Deployment contract: `deployment/detector_config.json`
+- Integration verification: `deployment/integration_verification.json`
+- Local checkpoint installer: `scripts/install_selected_detector.py`

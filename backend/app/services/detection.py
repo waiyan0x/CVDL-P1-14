@@ -1,6 +1,13 @@
 """Local YOLO checkpoint adapter; no online weight downloads at startup."""
 import numpy as np
 
+MODEL_TO_API_LABEL = {
+    'front_eds': 'eds',
+    'front_eds_num': 'bus_number',
+    'front_eds_route': 'route',
+    'front_eds_destination': 'destination',
+}
+
 
 class Detector:
     def __init__(self, settings):
@@ -11,11 +18,21 @@ class Detector:
         torch.set_num_threads(settings.torch_threads)
         self.settings = settings
         self.model = YOLO(str(settings.detector_path))
-        self.model.predict(np.zeros((640, 640, 3), np.uint8), device=settings.detector_device, verbose=False)
+        names = self.model.names
+        actual = [names[index] for index in sorted(names)] if isinstance(names, dict) else list(names)
+        expected = list(MODEL_TO_API_LABEL)
+        if actual != expected:
+            raise RuntimeError(f'YOLO class contract mismatch: expected {expected}, found {actual}.')
+        self.model.predict(
+            np.zeros((settings.detector_image_size, settings.detector_image_size, 3), np.uint8),
+            device=settings.detector_device, imgsz=settings.detector_image_size,
+            conf=.20, iou=settings.detector_nms_iou, classes=list(range(4)), max_det=100, verbose=False,
+        )
 
     def predict(self, image, threshold):
         prediction = self.model.predict(image, device=self.settings.detector_device,
-            imgsz=self.settings.detector_image_size, conf=threshold, classes=[1, 2, 3], max_det=30, verbose=False)[0]
+            imgsz=self.settings.detector_image_size, conf=threshold, iou=self.settings.detector_nms_iou,
+            classes=list(range(4)), max_det=100, verbose=False)[0]
         height, width = image.shape[:2]
         fields = []
         for box in prediction.boxes:
@@ -23,6 +40,7 @@ class Detector:
             coordinates = [max(0, min(x1, width - 1)), max(0, min(y1, height - 1)),
                            max(1, min(x2, width)), max(1, min(y2, height))]
             if coordinates[2] > coordinates[0] and coordinates[3] > coordinates[1]:
-                fields.append({'label': self.model.names[int(box.cls.item())], 'box': coordinates,
+                model_label = self.model.names[int(box.cls.item())]
+                fields.append({'label': MODEL_TO_API_LABEL[model_label], 'model_label': model_label, 'box': coordinates,
                                'confidence': round(float(box.conf.item()), 4), 'source': 'model'})
         return fields

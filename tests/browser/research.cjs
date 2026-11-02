@@ -18,8 +18,8 @@ module.exports = async function research(page) {
   const ids = await page.locator('[id]').evaluateAll(nodes => nodes.map(node => node.id));
   assert.equal(new Set(ids).size, ids.length, 'Comparison columns must not duplicate DOM IDs.');
   await page.goto(`${base}/models`);
-  await page.getByText('YOLO11n', {exact: false}).first().waitFor();
-  assert.match(await page.locator('#models').innerText(), /best_v6.pt/);
+  await page.getByText('YOLO11s', {exact: false}).first().waitFor();
+  assert.match(await page.locator('#models').innerText(), /yolo11s-best.pt/);
   await assertResponsive(page, '/models');
   await assertAccessible(page);
   await page.screenshot({path: path.join(output, 'models-desktop.png'), fullPage: true});

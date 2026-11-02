@@ -1,7 +1,7 @@
 import {health} from '../core/api.js';
 import {el} from '../core/dom.js';
 
-const defaults = {backend: 'easyocr', detection: .3, ocr_threshold: .25, similarity: .7};
+const defaults = {backend: 'easyocr', detection: .20, ocr_threshold: .25, similarity: .7};
 export class Options {
   constructor(container, onChange = () => {}, {comparison = false} = {}) {
     this.values = {...defaults};

@@ -45,7 +45,8 @@ def test_screen_only_result_is_unreadable_with_screen_crop(tmp_path):
 def test_comparison_detects_once_and_isolates_engine_failure(tmp_path):
     service = pipeline(tmp_path, [
         {'label': 'bus_number', 'box': [75, 10, 100, 30], 'confidence': .9},
-        {'label': 'destination', 'box': [10, 10, 70, 30], 'confidence': .85}])
+        {'label': 'destination', 'box': [10, 10, 70, 30], 'confidence': .85},
+        {'label': 'route', 'box': [10, 32, 70, 45], 'confidence': .8}])
     response = service.compare(np.zeros((60, 120, 3), np.uint8), FrameOptions())
     assert service.detector.calls == 1
     engines = {entry['backend']: entry for entry in response['comparisons']}
@@ -54,6 +55,7 @@ def test_comparison_detects_once_and_isolates_engine_failure(tmp_path):
     assert 'private' not in engines['tesseract']['error']
     assert engines['trocr']['status'] == 'unavailable'
     assert engines['easyocr']['result']['detections'] == response['detections']
+    assert any(item['label'] == 'route' for item in response['detections'])
     AnalysisResponse.model_validate(engines['easyocr']['result'])
 
 
