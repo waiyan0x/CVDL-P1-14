@@ -19,6 +19,10 @@ __pycache__/
 .pytest_cache/
 .cache/
 .runtime/
+/evaluation/object_detection/**/checkpoints/*.pt
+/evaluation/object_detection/**/checkpoints/*.safetensors
+/evaluation/object_detection/**/checkpoints/*.bin
+/evaluation/object_detection/**/*.tmp
 .env
 .DS_Store
 node_modules/

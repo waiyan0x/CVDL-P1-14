@@ -37,6 +37,8 @@ if not (ROOT / 'src').is_dir():
     ROOT = ROOT.parent
 assert (ROOT / 'src').is_dir(), 'Run from the repository root or notebooks/ folder.'
 sys.path.insert(0, str(ROOT / 'src'))
+sys.path.insert(0, str(ROOT / 'scripts'))
+from object_detection_artifacts import archive_yolo_run, archive_detr_epoch, archive_benchmark
 
 DATASET_ROOT = Path(os.environ.get('EDS_DATASET_ROOT', ROOT / 'data/training/2026-10-30-torchvision')).resolve()
 OUTPUT_ROOT = ROOT / '.runtime/object_detection_benchmark'
@@ -192,6 +194,8 @@ if DATA_READY:
     saved_runs = OUTPUT_ROOT / DATA_FINGERPRINT[:12] / 'runs'
     for candidate in ('yolo11n', 'yolo11s'):
         checkpoint = saved_runs / candidate / 'weights/best.pt'
+        if (saved_runs / candidate / 'results.csv').is_file():
+            archive_yolo_run(ROOT, DATA_FINGERPRINT, candidate, saved_runs / candidate)
         if checkpoint.is_file() and (saved_runs / candidate / 'complete.txt').is_file():
             MODEL_PATHS[candidate] = str(checkpoint)
     detr_checkpoint = saved_runs / 'detr-resnet-50'
@@ -228,6 +232,7 @@ def train_yolo(candidate):
                                    'checkpoint_sha256': sha256(checkpoint),
                                    'history_csv': str(run_dir / 'results.csv')}
     (run_dir / 'complete.txt').write_text('Finished training; best.pt is selected by validation.\n', encoding='utf-8')
+    archive_yolo_run(ROOT, DATA_FINGERPRINT, candidate, run_dir)
     print(candidate, TRAINING_HISTORY[candidate])
 print('Discovered checkpoints:', MODEL_PATHS)
 """),
@@ -316,10 +321,12 @@ if DATA_READY and RUN_TRAINING and RUN_DETR and 'detr-resnet-50' not in MODEL_PA
             detr_dir.mkdir(parents=True, exist_ok=True)
             detr.save_pretrained(detr_dir)
             processor.save_pretrained(detr_dir)
+        archive_detr_epoch(ROOT, DATA_FINGERPRINT, history, detr_dir if detr_dir.is_dir() else None)
     MODEL_PATHS['detr-resnet-50'] = str(detr_dir)
     TRAINING_HISTORY['detr-resnet-50'] = {'seconds': time.perf_counter() - started,
                                          'best_valid_loss': best_loss, 'epochs': history}
     (detr_dir / 'complete.txt').write_text('Finished DETR fine-tuning; checkpoint selected by validation loss.\n', encoding='utf-8')
+    archive_detr_epoch(ROOT, DATA_FINGERPRINT, history, detr_dir)
 else:
     print('DETR fine-tuning pending.')
 """),
@@ -503,6 +510,8 @@ if DATA_READY and BENCHMARK:
     destination = OUTPUT_ROOT / DATA_FINGERPRINT[:12] / f'benchmark_{suffix}_{phase}.json'
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(report, indent=2), encoding='utf-8')
+    for name in BENCHMARK_MODELS:
+        archive_benchmark(ROOT, DATA_FINGERPRINT, name, phase, report)
     print('Evidence saved:', destination)
 else:
     print('No measured benchmark report was written. The table remains pending.')
