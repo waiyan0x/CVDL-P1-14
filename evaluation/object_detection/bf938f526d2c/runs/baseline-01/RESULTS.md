@@ -58,7 +58,9 @@ The final notebook execution evaluated all three candidates with `OPERATING_CONF
 - The selected checkpoint is hash-verified at the app runtime path, and the four-class model contract is mapped to stable API labels (`eds`, `bus_number`, `route`, `destination`).
 - Real CUDA integration recovered two displays and all four field types in the multi-bus verification image. Five-run detector latency was 35.249 ms median; the first measured call after adapter warmup was still an outlier at 252.003 ms.
 - A four-frame uploaded-video fixture verified server decode, timestamps, multi-display association and detector flow at 73.706 ms median / 145.758 ms p95 total time. A simulated camera response path also passed.
-- Production OCR and reference matching remain unverified locally because EasyOCR/TrOCR assets, Tesseract and `data/bus_information.csv` are absent. Physical-camera and moving-bus field latency also remain pending.
+- EasyOCR English assets are installed locally and real CPU OCR was exercised on YOLO11s number/route/destination crops. Across six diagnostic runs, OCR latency was 184.363 ms median / 382.270 ms p95 and total latency was 231.409 ms median / 558.472 ms p95.
+- The raw EasyOCR observations were often incorrect or below threshold on small/distant fields. Without reviewed transcriptions these are integration observations, not accuracy measurements.
+- Missing route reference data now degrades to an unmatched raw-OCR result instead of disabling the application. Tesseract, fine-tuned TrOCR, physical-camera and moving-bus field testing remain pending.
 
 ## Evidence files
 
@@ -74,4 +76,5 @@ The final notebook execution evaluated all three candidates with `OPERATING_CONF
 - Task 3 machine-readable audit: `data_review/semantic_audit.json`
 - Deployment contract: `deployment/detector_config.json`
 - Integration verification: `deployment/integration_verification.json`
+- EasyOCR integration verification: `deployment/easyocr_integration_verification.json`
 - Local checkpoint installer: `scripts/install_selected_detector.py`

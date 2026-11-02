@@ -1,8 +1,9 @@
 # Bus EDS Reader and data preparation
 
 Prepare local bus images for front/side electronic destination sign detection.
-Standalone Python scripts own processing; the single notebook only displays
-augmentation comparisons and representative scene categories.
+Standalone Python scripts own data preparation. The data visual-check notebook
+displays augmentation comparisons and representative scene categories; the
+separate detector benchmark notebook records model evaluation.
 
 Model dataset: **`data/training/2026-10-24/`**.
 Its current local export contains **420 training, 39 validation and 20 test
@@ -14,6 +15,10 @@ training files identify a Roboflow export and lack the manifest required by the
 configured loader. See the training README before loading or rebuilding it.
 See the [training dataset](data/training/README.md) and
 [readiness handoff](docs/data_preparation/TRAINING_READINESS.md).
+
+The completed detector benchmark instead used the separate manifest-backed
+`data/training/2026-10-30-torchvision/` export with 411 train, 39 validation
+and 20 test images. Do not substitute the older Roboflow folder for that run.
 
 ## Commands for a new batch
 
@@ -177,6 +182,18 @@ See [docs/DEVELOPMENT_CONTRACT.md](docs/DEVELOPMENT_CONTRACT.md) for component
 boundaries, HTTP payloads and input/result lifecycle. The former `demo/` package
 is replaced by this application; its completed version remains on Git's `demo`
 branch.
+
+## Object detection handoff
+
+The four-class YOLO11n, YOLO11s and DETR benchmark is complete as
+`baseline-01`; YOLO11s is the validation-selected detector. Cody can start with
+the [handoff](docs/OBJECT_DETECTION_HANDOFF.md), [saved results](evaluation/object_detection/bf938f526d2c/runs/baseline-01/RESULTS.md),
+[joint data review](evaluation/object_detection/bf938f526d2c/runs/baseline-01/data_review/REVIEW.md)
+and [deployment instructions](docs/OBJECT_DETECTION_DEPLOYMENT.md).
+
+Jy and Brendan still need to review the class rules, negatives and capture
+groups. A changed dataset requires a new version and run ID. OCR accuracy and
+real moving-bus camera performance have not been established.
 
 ## Processing behaviour
 

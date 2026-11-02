@@ -4,6 +4,9 @@ The validation-selected detector is **YOLO11s baseline-01**, checkpoint SHA-256
 `01d832cb6eda71dcf4a88e6ebbafc080f9dc299be8161c76ab15c75f7c60c2e3`.
 Selection used validation mAP50:95 before the held-out test.
 
+See [the Cody handoff](OBJECT_DETECTION_HANDOFF.md) for the current evidence and
+remaining integration work.
+
 ## Install the local checkpoint
 
 The 19 MB checkpoint is a generated runtime artifact and is intentionally not
@@ -18,6 +21,16 @@ The app reads `evaluation/object_detection/bf938f526d2c/runs/baseline-01/checkpo
 If the runtime training folder is unavailable, supply `--source PATH`. Installation
 refuses a checkpoint whose SHA-256 differs from the selected checkpoint. The full
 machine-readable contract is in the adjacent deployment `detector_config.json`.
+
+Install the EasyOCR English assets once before starting the app:
+
+```powershell
+venv\detector\Scripts\python.exe scripts\install_easyocr_assets.py
+```
+
+The assets stay under ignored `.cache/easyocr/`. Missing Tesseract or TrOCR does
+not disable EasyOCR. Missing route-reference CSV now disables only endpoint
+matching; detection, crops and raw OCR remain available.
 
 ## Inference contract
 
@@ -38,7 +51,9 @@ classes and at most 100 detections. Rear-facing EDS and unrelated text are exclu
   across known panel owners.
 - Detection, OCR and matching confidence remain separate quantities.
 - Route OCR is observational; current references do not verify road-name coverage.
-- OCR accuracy remains unmeasured because reviewed text transcriptions are absent.
+- EasyOCR integration latency and raw observations are recorded in
+  `deployment/easyocr_integration_verification.json`. OCR accuracy remains
+  unmeasured because reviewed text transcriptions are absent.
 - Browser camera and uploaded-video controls have automated lifecycle/decode tests.
   Real camera hardware, moving buses, glare and sustained field latency still require
   a recorded field test; simulated tests must not be reported as that evidence.

@@ -27,7 +27,10 @@ TorchMetrics, pycocotools and Notebook installed. Launch from the repository roo
 with `venv\detector\Scripts\python.exe -m notebook`, open the benchmark notebook,
 and choose the **CVDL Detector (CUDA)** kernel.
 
-Start fresh fine-tuning from pretrained weights, one model at a time:
+The `baseline-01` commands below have already completed and are retained only as
+the reproducibility record. Do **not** rerun them with the same run ID: training
+refuses to overwrite an existing model folder. Use a new run ID only after a new
+reviewed dataset version or a deliberately changed experiment is ready.
 
 ```powershell
 venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11n --run-id baseline-01
@@ -68,9 +71,18 @@ dataset images out of Git. The previous execution notebooks have been removed.
 
 - [x] Copy the uploaded dataset, audit accepted labels, and build a separate manifest-backed training export. Source permissions and capture groups, and the uploaded Roboflow export's missing provenance, still need review.
 - [ ] Review all four class definitions and negative examples with Jy; inspect route/destination ambiguity and missing boxes. Confirm source/recording groups do not cross splits.
-- [ ] Fine-tune YOLO11n, YOLO11s and DETR on identical reviewed splits; save checkpoints, settings, versions and training curves.
-- [ ] Validate all four classes, negatives and speed on target hardware; inspect small, distant, blurred, angled and occluded failures and OCR crop quality.
-- [ ] Select model, confidence threshold and NMS setting using validation. Freeze settings, run held-out test once and record remaining limitations.
-- [ ] Deliver selected detector checkpoint/configuration and label/box contract to the app/OCR team; verify multiple displays and camera/uploaded-video latency in the integrated system.
+- [x] Fine-tune YOLO11n, YOLO11s and DETR on identical current splits; save checkpoints, settings, versions and training curves.
+- [x] Validate all four classes, negatives and speed on the Windows CUDA machine; inspect small, distant, blurred, angled and occluded failures and OCR crop quality.
+- [x] Select YOLO11s and confidence `0.20` using validation, retain NMS IoU `0.70`, run the held-out test once and record the execution deviation and limitations.
+- [ ] Compare at least two NMS IoU settings on validation if strict completion of the overlapping-box-suppression allocation is required. Do not tune this on the held-out test.
+- [x] Deliver the selected detector checkpoint contract/configuration and label/box contract; verify multiple displays, uploaded-video decode and a simulated camera path. Physical-camera and moving-bus field testing remain pending integration evidence.
 
-The historical 13-image field-detector report and sample gallery are useful references, but they do not replace this four-class, held-out evaluation.
+The human data review remains a prerequisite for declaring the dataset final. If
+it changes labels or split groups, publish a new dataset version and rerun all
+three models under a new run ID; otherwise preserve `baseline-01` without rerunning
+the held-out test. See the [Cody handoff](../docs/OBJECT_DETECTION_HANDOFF.md),
+[saved results](../evaluation/object_detection/bf938f526d2c/runs/baseline-01/RESULTS.md)
+and [review packet](../evaluation/object_detection/bf938f526d2c/runs/baseline-01/data_review/REVIEW.md).
+
+The historical 13-image field-detector report and sample gallery are useful
+references, but they do not replace this four-class, held-out evaluation.

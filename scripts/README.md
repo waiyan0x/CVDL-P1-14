@@ -13,15 +13,23 @@ Despite its `00` prefix, the audit checks an already labelled dataset.
 
 ## Fresh object detection training
 
-The benchmark notebook no longer contains model-training cells. Train one model
-at a time from its published pretrained weights. Every command needs a new run
-ID and refuses to overwrite an existing run:
+The benchmark notebook has a small manual training launcher backed by this
+script. Train one model at a time from its published pretrained weights. Use a
+new run ID for a new attempt of the same model; existing model folders are not
+overwritten:
 
 ```powershell
 venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11n --run-id baseline-01
 venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11s --run-id baseline-01
 venv\detector\Scripts\python.exe scripts\train_object_detection.py --model detr-resnet-50 --run-id baseline-01
 ```
+
+These exact `baseline-01` commands have already completed. They are shown as the
+reproducibility record, not as the next action. Preserve that run and its held-out
+test. If the Jy/Brendan review changes labels or split groups, publish a new
+manifest-backed dataset and replace `baseline-01` with a new run ID in all three
+commands. If the review makes no changes, do not retrain merely to regenerate the
+saved results. See [the handoff](../docs/OBJECT_DETECTION_HANDOFF.md).
 
 The default dataset is `data/training/2026-10-30-torchvision`, with 30 epochs,
 640-pixel input and YOLO batch size 4. Use `--dataset`, `--epochs`,

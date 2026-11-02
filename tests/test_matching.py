@@ -2,6 +2,14 @@ from pathlib import Path
 from backend.app.services.matching import RouteMatcher
 
 
+def test_missing_reference_does_not_disable_detection_or_ocr(tmp_path):
+    matcher = RouteMatcher(tmp_path / 'missing.csv')
+    result = matcher.match('3', 'Tampines Int', .7)
+    assert matcher.available is False
+    assert result['status'] == 'unmatched'
+    assert result['reason'] == 'Reference data unavailable; raw OCR retained.'
+
+
 def matcher(tmp_path):
     p = tmp_path / 'routes.csv'
     p.write_text('Route number,Origin,Destination\n65,HarbourFront Int,Tampines Int\n133,Ang Mo Kio Int,Shenton Way Ter\n')
