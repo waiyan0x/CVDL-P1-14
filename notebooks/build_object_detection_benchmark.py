@@ -47,9 +47,11 @@ os.environ.setdefault('YOLO_CONFIG_DIR', str(OUTPUT_ROOT / 'ultralytics'))
 os.environ.setdefault('USE_TF', '0')  # Keep this detector kernel on the PyTorch backend.
 os.environ.setdefault('HF_HOME', str(OUTPUT_ROOT / 'huggingface'))
 RUN_PREPARE_YOLO = False  # Optional dataset conversion; training CLI prepares it too.
+RUN_TRAINING = False      # Set True only when ready to start TRAIN_MODEL from pretrained weights.
+TRAIN_MODEL = 'yolo11n'   # Choose: 'yolo11n', 'yolo11s', or 'detr-resnet-50'.
 RUN_BENCHMARK = False      # Train/valid mAP and latency for BENCHMARK_MODELS.
 RUN_FINAL_TEST = False     # Enable once, after settings/model selection on validation.
-RUN_ID = 'fresh-01'        # Change for each fresh training experiment; reuse for its validation/test.
+RUN_ID = 'baseline-01'      # Keep this ID for all three models in one benchmark set.
 BENCHMARK_MODELS = ('yolo11n',)  # Choose one completed model per run, or list all three.
 YOLO_EPOCHS, DETR_EPOCHS, IMAGE_SIZE, BATCH_SIZE, SEED = 30, 30, 640, 4, 42
 OPERATING_CONF, YOLO_NMS_IOU = 0.30, 0.70  # Freeze from validation before opening test.
@@ -59,8 +61,13 @@ COCO_TO_INDEX = {1: 0, 3: 1, 4: 2, 2: 3}  # Explicit IDs from the readiness hand
 INDEX_TO_NAME = dict(enumerate(CLASS_NAMES))
 if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]{0,63}', RUN_ID):
     raise ValueError('RUN_ID may contain only letters, digits, underscores and hyphens.')
+if TRAIN_MODEL not in ('yolo11n', 'yolo11s', 'detr-resnet-50'):
+    raise ValueError(f'Unsupported TRAIN_MODEL: {TRAIN_MODEL!r}')
+if RUN_TRAINING and (RUN_BENCHMARK or RUN_FINAL_TEST):
+    raise ValueError('Train and benchmark/test in separate Run All executions.')
 print({'repo': str(ROOT), 'dataset': str(DATASET_ROOT), 'device': DEVICE,
-       'run_id': RUN_ID, 'prepare_yolo': RUN_PREPARE_YOLO, 'benchmark': RUN_BENCHMARK, 'final_test': RUN_FINAL_TEST})
+       'run_id': RUN_ID, 'train_model': TRAIN_MODEL, 'training': RUN_TRAINING,
+       'prepare_yolo': RUN_PREPARE_YOLO, 'benchmark': RUN_BENCHMARK, 'final_test': RUN_FINAL_TEST})
 """),
     md(r"""
 ## 1. Data and class audit
@@ -181,6 +188,27 @@ if DATA_READY and RUN_PREPARE_YOLO:
     print('Converted verified COCO export:', YOLO_DATA_YAML)
 else:
     print('YOLO conversion skipped; training CLI can prepare it when needed.')
+"""),
+    md(r"""
+## Manual model training
+
+Select one candidate in the first code cell with `TRAIN_MODEL` and set `RUN_TRAINING=True`. Keep `RUN_BENCHMARK=False` and `RUN_FINAL_TEST=False` during training, then click **Run All**. Use the same `RUN_ID` for YOLO11n, YOLO11s and DETR when they belong to one comparison, such as `baseline-01`; each model still gets its own folder. Change the ID only when starting another experiment set. Training starts from the published pretrained weights and refuses to overwrite the same model under an existing run ID. It does not resume an earlier EDS checkpoint.
+
+After training finishes, set `RUN_TRAINING=False`, keep the same `RUN_ID`, select the model in `BENCHMARK_MODELS`, and enable `RUN_BENCHMARK` in a separate Run All execution.
+"""),
+    code(r"""
+if DATA_READY and RUN_TRAINING:
+    import subprocess
+    training_epochs = YOLO_EPOCHS if TRAIN_MODEL.startswith('yolo') else DETR_EPOCHS
+    command = [sys.executable, str(ROOT / 'scripts/train_object_detection.py'),
+               '--model', TRAIN_MODEL, '--run-id', RUN_ID,
+               '--dataset', str(DATASET_ROOT), '--epochs', str(training_epochs),
+               '--batch-size', str(BATCH_SIZE), '--image-size', str(IMAGE_SIZE),
+               '--seed', str(SEED)]
+    print('Starting fresh model training:', ' '.join(command))
+    subprocess.run(command, cwd=ROOT, check=True)
+else:
+    print('Training paused. Set RUN_TRAINING=True when the model and run ID are ready.')
 """),
     md(r"""
 ## 4. Common evaluation: all four classes, all splits, and negatives

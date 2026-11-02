@@ -7,11 +7,12 @@ four-class YOLO11n, YOLO11s and DETR experiment protocol. It audits a verified
 COCO export, converts it for YOLO without changing the source, and reports
 per-class mAP, negative-image false positives and latency across the
 train/validation/held-out-test splits. It also explains YOLO losses and records
-the object detection tasks still outstanding. Model training is intentionally
-outside the notebook so each candidate can be started separately with
-`scripts/train_object_detection.py`. Section 3 and all earlier saved model runs
-were removed. The notebook is now used for audit, validation and test reporting.
-Set its `RUN_ID` to the fresh training run you want to evaluate.
+the object detection tasks still outstanding. The earlier Section 3 and all
+earlier saved model runs were removed. The current notebook has a small manual
+training launcher backed by `scripts/train_object_detection.py`: select one
+model, use one `RUN_ID` for the three-model comparison, enable training, and
+click Run All. The same notebook then performs validation and test reporting in
+separate runs.
 
 The benchmark defaults to the local manifest-backed
 `data/training/2026-10-30-torchvision/` export built from the uploaded accepted
@@ -29,9 +30,9 @@ and choose the **CVDL Detector (CUDA)** kernel.
 Start fresh fine-tuning from pretrained weights, one model at a time:
 
 ```powershell
-venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11n --run-id fresh-yolo11n
-venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11s --run-id fresh-yolo11s
-venv\detector\Scripts\python.exe scripts\train_object_detection.py --model detr-resnet-50 --run-id fresh-detr
+venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11n --run-id baseline-01
+venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11s --run-id baseline-01
+venv\detector\Scripts\python.exe scripts\train_object_detection.py --model detr-resnet-50 --run-id baseline-01
 ```
 
 ## Data preparation visual checks

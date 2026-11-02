@@ -18,9 +18,9 @@ at a time from its published pretrained weights. Every command needs a new run
 ID and refuses to overwrite an existing run:
 
 ```powershell
-venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11n --run-id fresh-yolo11n
-venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11s --run-id fresh-yolo11s
-venv\detector\Scripts\python.exe scripts\train_object_detection.py --model detr-resnet-50 --run-id fresh-detr
+venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11n --run-id baseline-01
+venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11s --run-id baseline-01
+venv\detector\Scripts\python.exe scripts\train_object_detection.py --model detr-resnet-50 --run-id baseline-01
 ```
 
 The default dataset is `data/training/2026-10-30-torchvision`, with 30 epochs,
