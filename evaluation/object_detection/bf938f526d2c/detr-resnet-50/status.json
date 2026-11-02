@@ -1,7 +1,0 @@
-{
-  "model": "detr-resnet-50",
-  "dataset_manifest_sha256": "bf938f526d2c01f1960b9af018f1fd1dc78a431e725037c84d1707dfcc5b826c",
-  "training_status": "pending",
-  "validation_status": "pending",
-  "test_status": "pending"
-}

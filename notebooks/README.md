@@ -4,18 +4,14 @@
 
 [object_detection_benchmark.ipynb](object_detection_benchmark.ipynb) contains the
 four-class YOLO11n, YOLO11s and DETR experiment protocol. It audits a verified
-COCO export, converts it for YOLO without changing the source, trains candidates,
-and reports per-class mAP, negative-image false positives and latency across the
+COCO export, converts it for YOLO without changing the source, and reports
+per-class mAP, negative-image false positives and latency across the
 train/validation/held-out-test splits. It also explains YOLO losses and records
-the object detection tasks still outstanding. Its saved progress section records
-the completed YOLO11n run and the interrupted YOLO11s run. DETR and the common
-benchmark have not run. Training and benchmarking are paused by default.
-The first cell has a master training switch plus separate YOLO11n, YOLO11s and
-DETR switches; each model has its own training cell for inspection.
-Set a new `RUN_ID` before a fresh experiment. Training starts from pretrained
-weights and raises an error if that model already has a folder under the same
-`RUN_ID`. Keep the ID unchanged when you later run validation or test for that
-experiment. Earlier run folders and archived metrics remain available.
+the object detection tasks still outstanding. Model training is intentionally
+outside the notebook so each candidate can be started separately with
+`scripts/train_object_detection.py`. Section 3 and all earlier saved model runs
+were removed. The notebook is now used for audit, validation and test reporting.
+Set its `RUN_ID` to the fresh training run you want to evaluate.
 
 The benchmark defaults to the local manifest-backed
 `data/training/2026-10-30-torchvision/` export built from the uploaded accepted
@@ -29,6 +25,14 @@ It reuses the installed CUDA PyTorch build and has Ultralytics, Transformers,
 TorchMetrics, pycocotools and Notebook installed. Launch from the repository root
 with `venv\detector\Scripts\python.exe -m notebook`, open the benchmark notebook,
 and choose the **CVDL Detector (CUDA)** kernel.
+
+Start fresh fine-tuning from pretrained weights, one model at a time:
+
+```powershell
+venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11n --run-id fresh-yolo11n
+venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11s --run-id fresh-yolo11s
+venv\detector\Scripts\python.exe scripts\train_object_detection.py --model detr-resnet-50 --run-id fresh-detr
+```
 
 ## Data preparation visual checks
 

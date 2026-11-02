@@ -25,11 +25,11 @@ Sources: [task allocation PDF](file:///C:/Users/brend/Downloads/CVDL_Task_Alloca
 
 ## Environment and run controls
 
-Use a dedicated Python environment. Install a PyTorch build appropriate to this machine, then `ultralytics==8.3.158 transformers>=4.52,<5 timm torchmetrics pycocotools pyyaml pillow nbformat ipykernel`. Keep it separate from the pinned data-preparation environment, which uses Transformers 5.x. Pretrained weights may download when training is enabled. The first run is a safe preflight: set the three switches below deliberately after the dataset is available.
+Use a dedicated Python environment. Install a PyTorch build appropriate to this machine, then `ultralytics==8.3.158 transformers>=4.52,<5 timm torchmetrics pycocotools pyyaml pillow nbformat ipykernel`. Keep it separate from the pinned data-preparation environment, which uses Transformers 5.x. Pretrained weights may download when training is enabled. The first run is a safe preflight. Train each model separately with `scripts/train_object_detection.py`.
 """),
     code(r"""
 from pathlib import Path
-import hashlib, importlib.util, json, os, platform, statistics, sys, time
+import hashlib, importlib.util, json, os, platform, sys, time
 import re
 from collections import Counter
 
@@ -39,17 +39,14 @@ if not (ROOT / 'src').is_dir():
 assert (ROOT / 'src').is_dir(), 'Run from the repository root or notebooks/ folder.'
 sys.path.insert(0, str(ROOT / 'src'))
 sys.path.insert(0, str(ROOT / 'scripts'))
-from object_detection_artifacts import archive_yolo_run, archive_detr_epoch, archive_benchmark
+from object_detection_artifacts import archive_benchmark
 
 DATASET_ROOT = Path(os.environ.get('EDS_DATASET_ROOT', ROOT / 'data/training/2026-10-30-torchvision')).resolve()
 OUTPUT_ROOT = ROOT / '.runtime/object_detection_benchmark'
 os.environ.setdefault('YOLO_CONFIG_DIR', str(OUTPUT_ROOT / 'ultralytics'))
 os.environ.setdefault('USE_TF', '0')  # Keep this detector kernel on the PyTorch backend.
 os.environ.setdefault('HF_HOME', str(OUTPUT_ROOT / 'huggingface'))
-RUN_TRAINING = False       # Explicitly enable only after the verified-data preflight passes.
-RUN_YOLO11N = False
-RUN_YOLO11S = False
-RUN_DETR = False
+RUN_PREPARE_YOLO = False  # Optional dataset conversion; training CLI prepares it too.
 RUN_BENCHMARK = False      # Train/valid mAP and latency for BENCHMARK_MODELS.
 RUN_FINAL_TEST = False     # Enable once, after settings/model selection on validation.
 RUN_ID = 'fresh-01'        # Change for each fresh training experiment; reuse for its validation/test.
@@ -63,7 +60,7 @@ INDEX_TO_NAME = dict(enumerate(CLASS_NAMES))
 if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]{0,63}', RUN_ID):
     raise ValueError('RUN_ID may contain only letters, digits, underscores and hyphens.')
 print({'repo': str(ROOT), 'dataset': str(DATASET_ROOT), 'device': DEVICE,
-       'run_id': RUN_ID, 'training': RUN_TRAINING, 'benchmark': RUN_BENCHMARK, 'final_test': RUN_FINAL_TEST})
+       'run_id': RUN_ID, 'prepare_yolo': RUN_PREPARE_YOLO, 'benchmark': RUN_BENCHMARK, 'final_test': RUN_FINAL_TEST})
 """),
     md(r"""
 ## 1. Data and class audit
@@ -179,158 +176,31 @@ def make_yolo_view():
     return yaml_path
 
 YOLO_DATA_YAML = None
-if DATA_READY and RUN_TRAINING and (RUN_YOLO11N or RUN_YOLO11S):
+if DATA_READY and RUN_PREPARE_YOLO:
     YOLO_DATA_YAML = make_yolo_view()
     print('Converted verified COCO export:', YOLO_DATA_YAML)
 else:
-    print('YOLO conversion pending verified data and RUN_TRAINING=True.')
+    print('YOLO conversion skipped; training CLI can prepare it when needed.')
 """),
     md(r"""
-## 3. Pretrained candidates and training protocol
+## 4. Common evaluation: all four classes, all splits, and negatives
 
-Candidates: official COCO-pretrained `yolo11n.pt`, `yolo11s.pt`, and `facebook/detr-resnet-50`. Their pretrained COCO class scores are **not EDS benchmark scores**; all three require a four-class head fine-tuned on the same EDS train split. YOLO11n and YOLO11s use the same Ultralytics recipe, seed, input size, and offline augmented data. Additional online geometric/color augmentation is disabled for this first controlled comparison to avoid silently augmenting an already augmented export. DETR uses its own optimizer and Hungarian-matching loss; equal epoch counts do not mean equal compute, so record wall time and hardware. Validation selects checkpoints; test remains closed until the protocol is frozen.
-
-The notebook defaults to no training. Set a new `RUN_ID` for each fresh experiment, then set `RUN_TRAINING=True` and only that model's `RUN_YOLO11N`, `RUN_YOLO11S`, or `RUN_DETR` switch to `True`. Training always starts from the named pretrained model, never from an earlier EDS checkpoint. An existing run folder with the same `RUN_ID` causes an error instead of overwriting evidence. Keep that `RUN_ID` for its validation and test. For a completed model, set `RUN_TRAINING=False`, `RUN_BENCHMARK=True`, and `BENCHMARK_MODELS` to a one-model tuple such as `('yolo11n',)` to calculate train/valid metrics and save its report. Compare validation results for all three, freeze model/threshold settings, then set `RUN_FINAL_TEST=True` for the selected model's one-time held-out measurement.
+Measure box mAP@0.50 and mAP@0.50:0.95 per class using the same COCO targets and TorchMetrics implementation for each selected candidate. Include zero-box images: predictions on them are false positives. Also report false positives per negative image at score ≥ 0.30, median/p95 end-to-end detector inference milliseconds per image, and sample count. Train metrics describe fit and are optimistic; validation is for selection; test is held out. `RUN_BENCHMARK=True` evaluates train+valid for `BENCHMARK_MODELS`, even if only one checkpoint exists. Each selection writes a separate JSON report. `RUN_FINAL_TEST=True` evaluates test after validation-based model and thresholds are frozen. The small historical YOLO report in `evaluation/reports/detection.json` is separate: it covers two field classes on 13 images from another dataset and cannot fill this table.
 """),
     code(r"""
 MODEL_PATHS, TRAINING_HISTORY = {}, {}
 if DATA_READY:
     saved_runs = OUTPUT_ROOT / DATA_FINGERPRINT[:12] / 'runs' / RUN_ID
     for candidate in ('yolo11n', 'yolo11s'):
-        checkpoint = saved_runs / candidate / 'weights/best.pt'
-        if (saved_runs / candidate / 'results.csv').is_file():
-            archive_yolo_run(ROOT, DATA_FINGERPRINT, candidate, saved_runs / candidate, RUN_ID)
-        if checkpoint.is_file() and (saved_runs / candidate / 'complete.txt').is_file():
+        run_dir = saved_runs / candidate
+        checkpoint = run_dir / 'weights/best.pt'
+        if checkpoint.is_file() and (run_dir / 'complete.txt').is_file():
             MODEL_PATHS[candidate] = str(checkpoint)
-    detr_checkpoint = saved_runs / 'detr-resnet-50'
-    if (detr_checkpoint / 'config.json').is_file() and (detr_checkpoint / 'complete.txt').is_file():
-        MODEL_PATHS['detr-resnet-50'] = str(detr_checkpoint)
-def train_yolo(candidate):
-    from ultralytics import YOLO
-    run_dir = saved_runs / candidate
-    if run_dir.exists():
-        raise FileExistsError(f'Run already exists: {run_dir}. Choose a new RUN_ID for fresh training.')
-    started = time.perf_counter()
-    pretrained = OUTPUT_ROOT / 'pretrained' / (candidate + '.pt')
-    model = YOLO(str(pretrained))
-    model.train(data=str(YOLO_DATA_YAML), epochs=YOLO_EPOCHS, imgsz=IMAGE_SIZE,
-                batch=BATCH_SIZE, seed=SEED, deterministic=True,
-                project=str(saved_runs), name=candidate,
-                exist_ok=False, device=DEVICE, workers=0, patience=10,
-                mosaic=0.0, mixup=0.0, copy_paste=0.0, degrees=0.0,
-                translate=0.0, scale=0.0, fliplr=0.0,
-                hsv_h=0.0, hsv_s=0.0, hsv_v=0.0)
-    run_dir = Path(model.trainer.save_dir)
-    checkpoint = run_dir / 'weights/best.pt'
-    if not checkpoint.is_file():
-        raise FileNotFoundError(checkpoint)
-    MODEL_PATHS[candidate] = str(checkpoint)
-    TRAINING_HISTORY[candidate] = {'seconds': time.perf_counter() - started,
-                                   'checkpoint_sha256': sha256(checkpoint),
-                                   'history_csv': str(run_dir / 'results.csv')}
-    (run_dir / 'complete.txt').write_text('Finished training; best.pt is selected by validation.\n', encoding='utf-8')
-    archive_yolo_run(ROOT, DATA_FINGERPRINT, candidate, run_dir, RUN_ID)
-    print(candidate, TRAINING_HISTORY[candidate])
-print('Discovered checkpoints:', MODEL_PATHS)
-"""),
-    md(r"""
-### 3a. YOLO11n
-
-Run this cell on its own to start a fresh YOLO11n experiment. The checkpoint and epoch history are saved under `.runtime/` and mirrored to the results archive.
-"""),
-    code(r"""
-if DATA_READY and RUN_TRAINING and RUN_YOLO11N:
-    train_yolo('yolo11n')
-else:
-    print('YOLO11n training paused; checkpoint:', MODEL_PATHS.get('yolo11n'))
-"""),
-    md(r"""
-### 3b. YOLO11s
-
-Run this cell separately when ready. It starts from pretrained YOLO11s weights and uses the same split and hyperparameters as YOLO11n.
-"""),
-    code(r"""
-if DATA_READY and RUN_TRAINING and RUN_YOLO11S:
-    train_yolo('yolo11s')
-else:
-    print('YOLO11s training paused; checkpoint:', MODEL_PATHS.get('yolo11s'))
-"""),
-    md(r"""
-### 3c. DETR
-
-Run this cell separately when ready. Validation loss selects its checkpoint.
-"""),
-    code(r"""
-if DATA_READY and RUN_TRAINING and RUN_DETR:
+            TRAINING_HISTORY[candidate] = {'history_csv': str(run_dir / 'results.csv')}
     detr_dir = saved_runs / 'detr-resnet-50'
-    if detr_dir.exists():
-        raise FileExistsError(f'Run already exists: {detr_dir}. Choose a new RUN_ID for fresh training.')
-    import torch
-    from PIL import Image
-    from transformers import DetrForObjectDetection, DetrImageProcessor
-
-    processor = DetrImageProcessor.from_pretrained('facebook/detr-resnet-50')
-    detr = DetrForObjectDetection.from_pretrained(
-        'facebook/detr-resnet-50', num_labels=4,
-        id2label=INDEX_TO_NAME, label2id={name: i for i, name in INDEX_TO_NAME.items()},
-        ignore_mismatched_sizes=True).to(DEVICE)
-    optimizer = torch.optim.AdamW(detr.parameters(), lr=1e-5, weight_decay=1e-4)
-
-    def detr_item(row):
-        with Image.open(row['path']) as opened:
-            image = opened.convert('RGB')
-        annotations = []
-        for ann in row['annotations']:
-            annotations.append({'id': ann['id'], 'image_id': row['image']['id'],
-                                'category_id': COCO_TO_INDEX[ann['category_id']],
-                                'bbox': ann['bbox'], 'area': ann['bbox'][2] * ann['bbox'][3], 'iscrowd': 0})
-        item = processor(images=image,
-                         annotations={'image_id': row['image']['id'], 'annotations': annotations},
-                         size={'shortest_edge': IMAGE_SIZE, 'longest_edge': IMAGE_SIZE},
-                         return_tensors='pt')
-        return {'pixel_values': item['pixel_values'].to(DEVICE),
-                'pixel_mask': item['pixel_mask'].to(DEVICE),
-                'labels': [{k: v.to(DEVICE) for k, v in item['labels'][0].items()}]}
-
-    best_loss, history = float('inf'), []
-    started = time.perf_counter()
-    for epoch in range(1, DETR_EPOCHS + 1):
-        detr.train()
-        train_losses = []
-        for row in splits['train']['rows']:
-            batch = detr_item(row)
-            optimizer.zero_grad(set_to_none=True)
-            loss = detr(**batch).loss
-            loss.backward()
-            optimizer.step()
-            train_losses.append(float(loss.detach().cpu()))
-        detr.eval()
-        valid_losses = []
-        with torch.inference_mode():
-            for row in splits['valid']['rows']:
-                valid_losses.append(float(detr(**detr_item(row)).loss.detach().cpu()))
-        record = {'epoch': epoch, 'train_loss': statistics.mean(train_losses),
-                  'valid_loss': statistics.mean(valid_losses)}
-        history.append(record)
-        print(record)
-        if record['valid_loss'] < best_loss:
-            best_loss = record['valid_loss']
-            detr_dir.mkdir(parents=True, exist_ok=True)
-            detr.save_pretrained(detr_dir)
-            processor.save_pretrained(detr_dir)
-        archive_detr_epoch(ROOT, DATA_FINGERPRINT, history, detr_dir if detr_dir.is_dir() else None, RUN_ID)
-    MODEL_PATHS['detr-resnet-50'] = str(detr_dir)
-    TRAINING_HISTORY['detr-resnet-50'] = {'seconds': time.perf_counter() - started,
-                                         'best_valid_loss': best_loss, 'epochs': history}
-    (detr_dir / 'complete.txt').write_text('Finished DETR fine-tuning; checkpoint selected by validation loss.\n', encoding='utf-8')
-    archive_detr_epoch(ROOT, DATA_FINGERPRINT, history, detr_dir, RUN_ID)
-else:
-    print('DETR fine-tuning pending.')
-"""),
-    md(r"""
-## 4. Common evaluation: all four classes, all splits, and negatives
-
-Measure box mAP@0.50 and mAP@0.50:0.95 per class using the same COCO targets and TorchMetrics implementation for each selected candidate. Include zero-box images: predictions on them are false positives. Also report false positives per negative image at score ≥ 0.30, median/p95 end-to-end detector inference milliseconds per image, and sample count. Train metrics describe fit and are optimistic; validation is for selection; test is held out. `RUN_BENCHMARK=True` evaluates train+valid for `BENCHMARK_MODELS`, even if only one checkpoint exists. Each selection writes a separate JSON report. `RUN_FINAL_TEST=True` evaluates test after validation-based model and thresholds are frozen. The small historical YOLO report in `evaluation/reports/detection.json` is separate: it covers two field classes on 13 images from another dataset and cannot fill this table.
+    if (detr_dir / 'config.json').is_file() and (detr_dir / 'complete.txt').is_file():
+        MODEL_PATHS['detr-resnet-50'] = str(detr_dir)
+print('Completed runs for evaluation:', MODEL_PATHS)
 """),
     code(r"""
 BENCHMARK = {}
@@ -541,8 +411,7 @@ notebook = {'nbformat': 4, 'nbformat_minor': 5, 'cells': cells, 'metadata': {
 }}
 for index, cell in enumerate(notebook['cells'], 1):
     cell['id'] = f'eds-detector-{index:02d}'
-# Save the observed preflight status in notebook outputs. Run controls are false,
-# so this cannot train, download weights, or publish benchmark figures.
+# Save observed preflight output; default controls cannot train or publish benchmark figures.
 state = {'__name__': '__main__'}
 execution_count = 0
 for cell in notebook['cells']:

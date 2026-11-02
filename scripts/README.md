@@ -11,6 +11,26 @@ Scripts read files saved by the previous stage; no notebook is required. The
 working order is **split -> annotate -> review/export -> audit -> augment**.
 Despite its `00` prefix, the audit checks an already labelled dataset.
 
+## Fresh object detection training
+
+The benchmark notebook no longer contains model-training cells. Train one model
+at a time from its published pretrained weights. Every command needs a new run
+ID and refuses to overwrite an existing run:
+
+```powershell
+venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11n --run-id fresh-yolo11n
+venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11s --run-id fresh-yolo11s
+venv\detector\Scripts\python.exe scripts\train_object_detection.py --model detr-resnet-50 --run-id fresh-detr
+```
+
+The default dataset is `data/training/2026-10-30-torchvision`, with 30 epochs,
+640-pixel input and YOLO batch size 4. Use `--dataset`, `--epochs`,
+`--image-size` or `--batch-size` to change them. New outputs are stored under
+`.runtime/object_detection_benchmark/<dataset-id>/runs/<run-id>/<model>/` and
+mirrored to `evaluation/object_detection/<dataset-id>/runs/<run-id>/<model>/`.
+Set the same `RUN_ID` and model selection in the benchmark notebook for
+validation and test.
+
 ## New batch: complete command sequence
 
 This example uses `data/raw/2026-10-31/`. Replace `2026-10-31` consistently to
