@@ -47,10 +47,11 @@ The final notebook execution evaluated all three candidates with `OPERATING_CONF
 
 - YOLO11s has the strongest validation AP and lowest median test latency.
 - Number detection is its strongest localized class.
-- Destination and route/landmark require priority qualitative review.
+- A validation-only review of the ten highest-priority YOLO11s cases found that small/distant text is the dominant miss condition: 52 of 61 GT boxes in those cases occupy less than 1% of the image and 36 occupy less than 0.25%.
+- Route/destination separation is the clearest class problem. Diagnostic matching found 17 destination-to-route and 10 route-to-destination confusion candidates across validation.
 - DETR is slower, has substantially lower AP and produced seven predictions on two reviewed test negatives at confidence `0.30`.
 - The test set is small: 20 images with only two reviewed negatives.
-- Qualitative review of weak detections, route/destination confusion, OCR crop readability, blur, distance, angle and occlusion remains pending.
+- Blur, glare, oblique perspective, crowding and partial occlusion make several detected crops unsuitable for reliable OCR; the ten-case review, overlays and crops are saved under `yolo11s/qualitative_validation/`.
 - Human confirmation of class definitions, negative examples, source permissions and capture-group split isolation remains pending.
 - App/OCR integration and camera/uploaded-video testing remain pending.
 
@@ -61,3 +62,6 @@ The final notebook execution evaluated all three candidates with `OPERATING_CONF
 - Runtime originals: `.runtime/object_detection_benchmark/bf938f526d2c/runs/baseline-01/benchmark_yolo11n_yolo11s_detr-resnet-50_{validation,test}.json`
 - Per-model archived reports: each model's `validation/benchmark.json` and `test/benchmark.json` under this directory
 - Selected checkpoint: `.runtime/object_detection_benchmark/bf938f526d2c/runs/baseline-01/yolo11s/weights/best.pt`
+- Validation qualitative review: `yolo11s/qualitative_validation/QUALITATIVE_REVIEW.md`
+- Machine-readable failure analysis: `yolo11s/qualitative_validation/failure_analysis.json`
+- Ten-case contact sheet: `yolo11s/qualitative_validation/contact_sheet.jpg`

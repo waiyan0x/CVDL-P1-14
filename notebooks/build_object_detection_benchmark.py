@@ -398,7 +398,9 @@ Each per-class entry is `mAP50 / mAP50:95`. YOLO11s remains the selected model b
 
 **Recorded execution deviation:** the final Run All used `BENCHMARK_MODELS=('yolo11n', 'yolo11s', 'detr-resnet-50')` and `OPERATING_CONF=0.30`, so the test report contains all three models and negative false-positive counts at `0.30`. The mAP calculation used predictions from score `0.001`, but the test did not measure the validation-selected operating threshold `0.20`. Do not use the test results to reselect a model or tune settings, and do not rerun the test to optimize them.
 
-**Quantitative interpretation:** YOLO11s provides the strongest validation result and lowest median test latency. Number detection is its strongest localized class; destination and route/landmark require the most qualitative attention. DETR is slower, has substantially lower AP, and produced false positives on reviewed negatives. The 20-image test split is small, including only two reviewed negatives, so these results need qualitative failure inspection and integrated camera/video testing before deployment.
+**Quantitative interpretation:** YOLO11s provides the strongest validation result and lowest median test latency. Number detection is its strongest localized class. DETR is slower, has substantially lower AP, and produced false positives on reviewed negatives. The 20-image test split is small, including only two reviewed negatives.
+
+**Validation qualitative review:** the ten highest-priority YOLO11s cases were inspected at the validation-selected confidence `0.20`. The ranked cases contained 61 GT boxes: 52 occupied less than 1% of the image and 36 less than 0.25%. Diagnostic class-correct matching counted 109 TP, 47 FP and 45 FN across all 39 validation images, with 17 destination-to-route and 10 route-to-destination confusion candidates. Blur, glare, oblique perspective, crowding and partial occlusion also made several crops unsuitable for OCR. None of four reviewed validation negatives produced a prediction. These counts are diagnostics, not COCO mAP. The review package is under `evaluation/object_detection/bf938f526d2c/runs/baseline-01/yolo11s/qualitative_validation/`.
 """),
     code(r"""
 if DATA_READY and BENCHMARK:
@@ -442,7 +444,7 @@ Primary references: [Ultralytics detection loss source](https://docs.ultralytics
 - [x] Select YOLO11s using validation mAP50:95 and record the validation threshold sweep, held-out test and execution deviation.
 - [x] Document YOLO11 CIoU, BCE classification and DFL losses and their proposed project use.
 - [ ] Review all four class definitions and negative examples with Jy; inspect route/destination ambiguity and missing boxes. Confirm source/recording groups do not cross splits.
-- [ ] Inspect at least ten weak/missed detections and available false positives across small, distant, blurred, angled and occluded cases; assess route/destination confusion and OCR crop quality.
+- [x] Inspect ten weak/missed validation detections and available false positives across small, distant, blurred, angled and occluded cases; assess route/destination confusion and OCR crop quality. Evidence is saved under `evaluation/object_detection/bf938f526d2c/runs/baseline-01/yolo11s/qualitative_validation/`.
 - [ ] Deliver selected detector checkpoint/configuration and label/box contract to the app/OCR team; verify multiple displays and camera/uploaded-video latency in the integrated system.
 
 The historical 13-image field-detector report and sample gallery are useful references, but they do not replace this four-class, held-out evaluation.
