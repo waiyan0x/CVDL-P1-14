@@ -45,6 +45,73 @@ near-duplicates, and augmentation parent IDs; the function cannot infer identity
 from pixels or recover IDs that were never recorded. Resolve all flagged groups
 in the manifest before measuring validation or test accuracy.
 
+### Build the reviewed crop inventory
+
+Use the header in `evaluation/seven_segment_input.schema.csv` and add one row per
+single-reading image. `crop_path` is relative to the inventory CSV (or absolute);
+`sample_id`, `display_group_id`, and `recording_id` are stable, nonempty IDs.
+`frame_index` is a nonnegative source-frame number. Use the same
+`display_group_id` for the same physical display across recordings. Set
+`augmented_from` to the source `sample_id` for a derived crop, or leave it blank.
+
+`label_status` is `readable`, `unreadable`, `blank`, or `error`. Only a readable
+row has `truth_raw`; transcribe the visible characters exactly. Every row needs
+a `primary_reviewer`. Validation and test rows need a different
+`secondary_reviewer`, including unreadable/blank/error cases. The current
+normalizer accepts digits, optional leading sign and one decimal point; if the
+real displays include units or other symbols, revise the agreed alphabet before
+creating final truth. Do not populate `truth_raw` from a model prediction.
+
+From the repository root, create an **audited draft** manifest:
+
+```sh
+python3 scripts/seven_segment_manifest.py \
+  --inventory /absolute/path/to/crops/inventory.csv \
+  --dataset-id seven-segment-readings --version v1 \
+  --output evaluation/seven_segment_manifest.v1.json
+```
+
+The command exits with code 2 when any evaluation gate fails and prints the
+issues. Its manifest records crop hashes, dimensions, format, group-safe draft
+splits and split feature counts. Review the split balance before freezing it;
+the percentages are approximate because whole displays/recordings stay together.
+The builder checks exact crop hashes and declared identities. The team must also
+review near-duplicate imagery and source provenance, which metadata alone cannot
+prove. Keep the reviewed test split untouched after approval.
+
+### Run the first baselines
+
+After the review gate passes, run one engine at a time on the **same** reviewed
+validation crops. The template method needs PNG glyph exemplars cut from train
+crops only, plus `templates.json` in the template directory:
+
+```json
+[
+  {"glyph": "1", "file": "1.png", "source_sample_id": "train-sample-001"},
+  {"glyph": ".", "file": "dot.png", "source_sample_id": "train-sample-002"}
+]
+```
+
+`source_sample_id` must identify a train row in the manifest. Add templates for
+every symbol that the confirmed display alphabet uses. The simple projection
+splitter is a reference method and may fail on tightly touching glyphs or glare;
+record its failures rather than manually correcting predictions.
+
+```sh
+python3 scripts/seven_segment_baseline.py --manifest evaluation/seven_segment_manifest.v1.json \
+  --engine template --templates /absolute/path/to/train-glyph-templates \
+  --split val --device cpu --run-id template-v1 \
+  --output evaluation/seven_segment_template_val.csv
+```
+
+Replace `template` with `tesseract` or `easyocr` and use a distinct run ID/output
+file. EasyOCR accepts `--device cuda` on a compatible Colab GPU or `--device mps`
+on a supported Mac. Tesseract and the template reference use `--device cpu`.
+The runner refuses an unreviewed manifest, changed crop bytes, or a template
+whose source sample is outside the train split. Its CSV stores raw and normalized
+scores, engine-specific confidence, and timing per crop. After selecting settings
+on validation, run the unchanged configuration once on `--split test`.
+
 ## GPU timing protocol
 
 `time_gpu_inference` accepts an **already loaded** inference callable and runs warm-up
@@ -67,6 +134,10 @@ not measured, never zero. Required identity/provenance columns are `run_id`,
 `truth_raw`, `prediction_raw`, `truth_normalized`, and `prediction_normalized`
 are UTF-8 strings; `strict_match` and `normalized_match` are `true`/`false`;
 `cer`, `normalized_cer`, and `latency_ms_*` are nonnegative decimal numbers.
+`ocr_confidence` retains an engine-specific score with its `confidence_method`;
+do not rank confidence values across engines. `checkpoint_sha256` is blank only
+when the external engine's model artifact cannot yet be identified, and this
+must be disclosed with the result.
 `input_width`, `input_height`, `warmup_runs`, and `timed_runs` are integers.
 `device` is `cuda` or `mps`; `gpu_model` is the returned model name and
 `timing_method` identifies CUDA events versus synchronized wall clock.
