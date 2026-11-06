@@ -80,8 +80,8 @@ still present and unchanged.
 
 ## Saved evidence
 
-The [OCR crop handoff](OCR_HANDOFF.md) documents the separate local package of
-validation annotation and predicted-box crops for Cody.
+The [OCR crop handoff](OCR_HANDOFF.md) documents the committed validation
+annotation and predicted-box crops for Cody.
 
 - Combined validation:
   `.runtime/object_detection_benchmark/01760a841333/runs/v4-reviewed-01/benchmark_yolo11n_yolo11s_detr-resnet-50_validation.json`

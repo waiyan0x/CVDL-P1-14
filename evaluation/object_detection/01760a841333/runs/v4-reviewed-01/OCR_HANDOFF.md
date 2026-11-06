@@ -1,10 +1,11 @@
 # YOLO11s v4 validation crop handoff
 
-The local package is `.runtime/ocr_handoff/v4-reviewed-01-validation.zip`.
-Its SHA-256 is
+The [crop package](ocr_handoff/README.md) is committed in `ocr_handoff/`, with
+individual PNG files, `manifest.json` and `transcriptions_template.csv`. Cody
+can get it by pulling `bren-object-detection`. A portable local ZIP also exists
+at `.runtime/ocr_handoff/v4-reviewed-01-validation.zip`. Its SHA-256 is
 `b45ad9d2414f4000ac57ab9af36a3fc51466628e6c9a7fb8502933c1dc494f14`
-and its size is 4,888,780 bytes. Transfer this ZIP to Cody separately: the
-package contains derived dataset images and is intentionally Git-ignored.
+and its size is 4,888,780 bytes; the ZIP itself is not committed.
 
 The package covers all 53 **validation** images from the reviewed Roboflow v4
 export, including ten zero-box negatives. It contains 221 annotation-box crops
@@ -14,7 +15,7 @@ are whole-panel crops for context. At confidence `0.50`, none of the ten
 validation negatives produced a predicted box. The model used 640-pixel input
 and NMS IoU `0.70`.
 
-Inside the ZIP:
+Inside `ocr_handoff/` (and the ZIP):
 
 - `ground_truth/`: tight crops from COCO annotations, organised by the four
   detection classes. These box locations still require human content review.
@@ -42,3 +43,7 @@ venv\detector\Scripts\python.exe scripts\export_ocr_handoff_crops.py --zip
 
 Use a new `--output` path for a new export; the script refuses to overwrite an
 existing package. The selected checkpoint SHA-256 is recorded in [RESULTS.md](RESULTS.md).
+
+The source export metadata identifies Roboflow Front EDS v4 with a CC BY 4.0
+notice. Individual image source and permission records remain part of the
+outstanding dataset provenance review.

@@ -4,7 +4,7 @@ The latest result is the [reviewed Roboflow v4 run](../evaluation/object_detecti
 with three trained models, three validation reports and one final YOLO11s test.
 The new YOLO11s checkpoint and dataset payload are local Git-ignored artifacts.
 The [v4 validation crop handoff](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/OCR_HANDOFF.md)
-is ready locally as a portable ZIP of annotation and detector-predicted crops.
+is committed as individual annotation and detector-predicted crop files.
 The older `baseline-01` result and weights remain preserved. The sections below
 describe that earlier baseline and its application integration.
 
@@ -60,10 +60,10 @@ real EasyOCR asset installation/verification, raw OCR timing observations and
 graceful behaviour when the route-reference CSV is missing. It does **not** prove
 OCR accuracy because no reviewed transcription manifest is available. Tesseract,
 fine-tuned TrOCR, a physical camera and moving-bus field testing remain pending.
-For the new v4 detector, transfer the crop ZIP to Cody and use its manifest to
+For the new v4 detector, Cody can pull the crop folder and use its manifest to
 review actual predicted text regions. Its transcription template is blank;
-reviewed text must be entered before measuring OCR accuracy. The ZIP is ignored
-by Git because it contains derived dataset images.
+reviewed text must be entered before measuring OCR accuracy. A separate local
+ZIP is available for direct transfer if preferred.
 
 Do not add the loose root-level `yolo11n.pt` file to a commit. Model weights and
 local caches are generated artifacts, not source files.
