@@ -1,0 +1,110 @@
+.
+├── backend
+│   ├── app
+│   │   ├── api
+│   │   ├── evaluation
+│   │   ├── media
+│   │   ├── schemas
+│   │   ├── services
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   ├── errors.py
+│   │   └── main.py
+│   └── __init__.py
+├── data
+│   ├── images
+│   │   ├── test
+│   │   ├── train
+│   │   └── val
+│   ├── labels
+│   │   ├── test
+│   │   ├── train
+│   │   ├── val
+│   │   ├── train.cache
+│   │   └── val.cache
+│   ├── samples
+│   │   └── README.md
+│   ├── bus_information.csv
+│   ├── classes.txt
+│   └── data.yaml
+├── docs
+│   ├── DEVELOPMENT_CONTRACT.md
+│   └── EVALUATION.md
+├── evaluation
+│   └── reports
+│       └── detection.json
+├── frontend
+│   ├── assets
+│   │   ├── js
+│   │   ├── styles
+│   │   └── favicon.svg
+│   └── pages
+│       ├── detect.html
+│       ├── evaluation.html
+│       ├── live.html
+│       └── models.html
+├── models
+│   ├── trocr-finetuned
+│   │   ├── config.json
+│   │   ├── generation_config.json
+│   │   ├── merges.txt
+│   │   ├── preprocessor_config.json
+│   │   ├── special_tokens_map.json
+│   │   ├── tokenizer.json
+│   │   ├── tokenizer_config.json
+│   │   ├── training_args.bin
+│   │   └── vocab.json
+│   └── yolo-v6-finetuned
+│       └── best_v6.pt
+├── scripts
+│   ├── browser-smoke.cjs
+│   ├── detection_dataset.py
+│   ├── evaluate.py
+│   ├── evaluate_detector.py
+│   ├── fetch_trocr.py
+│   ├── prepare_models.py
+│   ├── run.sh
+│   └── setup.sh
+├── slide
+│   └── CVDL Week 6 demo.pdf
+├── tests
+│   ├── backend
+│   │   ├── test_api_contract.py
+│   │   ├── test_association.py
+│   │   ├── test_images.py
+│   │   ├── test_pipeline_contract.py
+│   │   └── test_videos.py
+│   ├── browser
+│   │   ├── detect.cjs
+│   │   ├── failures.cjs
+│   │   ├── fixture.py
+│   │   ├── helpers.cjs
+│   │   ├── live.cjs
+│   │   └── research.cjs
+│   ├── evaluation
+│   │   ├── test_api.py
+│   │   ├── test_benchmark.py
+│   │   ├── test_manifest.py
+│   │   ├── test_metrics.py
+│   │   └── test_reports.py
+│   ├── frontend
+│   │   └── session.test.mjs
+│   ├── test_api.py
+│   ├── test_detection_dataset.py
+│   ├── test_matching.py
+│   └── test_pipeline.py
+├── agents.md
+├── Bus_EDS_Project_Complete_Overview.docx
+├── Bus_EDS_Project_Documentation.docx
+├── model_log.txt
+├── package-lock.json
+├── package.json
+├── pytest.ini
+├── README.md
+├── repo_tree.txt
+├── requirements-dev.txt
+├── requirements.txt
+├── skills.md
+└── start.command
+
+35 directories, 72 files
