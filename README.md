@@ -192,6 +192,8 @@ mAP50:95 (`0.3510`) and scored `0.3270` on the final held-out test. The earlier
 [`baseline-01`](evaluation/object_detection/bf938f526d2c/runs/baseline-01/RESULTS.md)
 and its [application integration](docs/OBJECT_DETECTION_DEPLOYMENT.md) remain
 separate. Continue from the [handoff](docs/OBJECT_DETECTION_HANDOFF.md).
+The latest run also has a [validation NMS and crop review](evaluation/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
+and a saved v4 detector configuration; the Jy/Brendan annotation review is on hold.
 
 Jy and Brendan still need to review the class rules, negatives and capture
 groups. The v4 dataset and checkpoints are local ignored files; a Git pull

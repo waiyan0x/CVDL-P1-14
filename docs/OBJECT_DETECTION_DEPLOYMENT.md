@@ -7,6 +7,27 @@ Selection used validation mAP50:95 before the held-out test.
 See [the Cody handoff](OBJECT_DETECTION_HANDOFF.md) for the current evidence and
 remaining integration work.
 
+## Optional v4 detector verification
+
+The newer [v4 detector configuration](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json)
+records YOLO11s confidence `0.50`, NMS IoU `0.70` and the local checkpoint hash.
+The app's default still uses `baseline-01`. On a machine with the ignored v4
+checkpoint and reviewed validation dataset, run the application-path smoke test:
+
+```powershell
+venv\detector\Scripts\python.exe scripts\verify_v4_detector_handoff.py
+```
+
+To inspect the v4 model in a separate application process, set
+`EDS_DETECTOR_WEIGHTS` to the absolute path of
+`.runtime/object_detection_benchmark/01760a841333/runs/v4-reviewed-01/yolo11s/weights/best.pt`
+and `EDS_DETECTOR_NMS_IOU=0.70`, then select detection confidence `0.50` in the
+app. The smoke test verifies detection, grouping and nonempty crops on validation
+stills; it does not measure OCR, moving-bus video or a physical camera. The
+dataset and checkpoint are not supplied by Git. The human v4 annotation review
+is on hold, so this is a recorded research configuration, not a replacement of
+the deployed baseline.
+
 ## Install the local checkpoint
 
 The 19 MB checkpoint is a generated runtime artifact and is intentionally not

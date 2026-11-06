@@ -38,6 +38,14 @@ Its five-point validation confidence sweep had the highest IoU50 F1 at `0.50`
 `0.5928`). The final test used `0.50`, with NMS IoU `0.70` retained. The NMS
 setting was not separately swept.
 
+After the recorded final test, a **validation-only exploratory NMS comparison**
+was run on the same saved YOLO11s checkpoint. NMS `0.50` gave mAP50:95 `0.3532`
+and diagnostic IoU50 F1 `0.6933`; NMS `0.70` gave `0.3510` and `0.6877`.
+Both had zero predictions on ten validation negatives at confidence `0.50`.
+The small difference does not change the recorded final-test configuration:
+that result belongs to NMS `0.70`. See the [validation review](validation_review/REVIEW.md)
+for error counts, overlays and limits.
+
 ## Final held-out test
 
 Only the validation-selected YOLO11s was tested. The test included 53 images,
@@ -60,6 +68,14 @@ The checkpoint is a local ignored artifact, not part of the Git commit. Keep a
 separate backup before moving machines; the previous `baseline-01` weights are
 still present and unchanged.
 
+The [v4 detector configuration](detector_config.json) records the tested
+confidence `0.50`, NMS `0.70`, class mapping and checkpoint hash. A
+[local application-path smoke test](validation_review/integration_verification.json)
+loaded that checkpoint, associated fields and produced nonempty crops on two
+validation images; a validation negative produced no detection. The app's
+default checkpoint remains the earlier baseline. This is not OCR or field-video
+verification.
+
 ## Interpretation and remaining review
 
 - Number has the strongest test localization AP; route is the weakest. The
@@ -70,11 +86,13 @@ still present and unchanged.
   comparison alone does not measure the causal effect of the new images or 60
   epochs. It does not support a claim that mAP increased.
 - Per-image bus type, lighting, angle, distance, blur and occlusion tags have
-  not been reviewed for this run. Do not claim which scene categories perform
-  best until those tags and matched detections are inspected together.
+  not been reviewed across the full split. The twelve visually inspected
+  high-priority cases in the validation review indicate difficult small/distant,
+  angled and nested-text conditions, but do not establish category-level rates.
 - The source export's automated cleanup removed known similar-scene overlaps;
   source/capture provenance, negative semantics and full four-class annotation
-  completeness still require human confirmation with Jy.
+  completeness still require human confirmation with Jy. This review is on hold
+  at Brendan's request.
 - Keep the final test closed for tuning. Future changes should use validation
   and a new run ID, preserving this result as recorded evidence.
 

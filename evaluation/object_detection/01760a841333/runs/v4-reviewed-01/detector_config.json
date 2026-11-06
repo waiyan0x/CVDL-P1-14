@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "model_id": "eds-yolo11s-v4-reviewed-01",
+  "status": "recorded_tested_configuration_pending_human_data_review",
+  "architecture": "YOLO11s",
+  "selection_basis": "Highest validation mAP50:95 among YOLO11n, YOLO11s and DETR-ResNet50; confidence chosen using validation IoU50 F1",
+  "dataset_manifest_sha256": "01760a84133353028e203b0f06a4c7dd5d012be7b67c0c02f52fd3e4128180e0",
+  "checkpoint_sha256": "97150601de39a999754015648cad2ef930842d52e8e37eb77d7576ffe2da33b5",
+  "checkpoint_local_path": ".runtime/object_detection_benchmark/01760a841333/runs/v4-reviewed-01/yolo11s/weights/best.pt",
+  "input_size": 640,
+  "confidence": 0.5,
+  "nms_iou": 0.7,
+  "max_detections": 100,
+  "class_contract": [
+    {"model_id": 0, "model_label": "front_eds", "api_label": "eds", "meaning": "Complete visible front- or side-facing EDS panel"},
+    {"model_id": 1, "model_label": "front_eds_num", "api_label": "bus_number", "meaning": "Complete service-number group"},
+    {"model_id": 2, "model_label": "front_eds_route", "api_label": "route", "meaning": "Intermediate route or landmark text"},
+    {"model_id": 3, "model_label": "front_eds_destination", "api_label": "destination", "meaning": "Final destination, terminal or interchange text"}
+  ],
+  "final_test": {"split": "test", "images": 53, "map50_95": 0.3270,
+                 "note": "This score applies to NMS IoU 0.70 only; the later 0.50 validation sweep is exploratory."},
+  "checkpoint_tracked_in_git": false,
+  "application_default_changed": false
+}

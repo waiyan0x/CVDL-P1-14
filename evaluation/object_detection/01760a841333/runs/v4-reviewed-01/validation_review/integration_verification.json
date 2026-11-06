@@ -1,0 +1,90 @@
+{
+  "checkpoint_sha256": "97150601de39a999754015648cad2ef930842d52e8e37eb77d7576ffe2da33b5",
+  "device": "cuda",
+  "confidence": 0.5,
+  "nms_iou": 0.7,
+  "app_default_changed": false,
+  "scope": "Local application detector, association and crop-path smoke test on three validation stills; no OCR, video or physical-camera claim.",
+  "samples": {
+    "clear_display": {
+      "image": "14488614-bus_8_jpg.rf.f42edf43192002dc5ef10238a21c7e38.jpg",
+      "image_sha256": "d40382e6fa3f79a54b0cfa180cb914601563ae43c28dbe55ae9edf67645581ec",
+      "detections_by_api_label": {
+        "eds": 1,
+        "bus_number": 1,
+        "destination": 1,
+        "route": 1
+      },
+      "display_groups": 1,
+      "crop_count": 4,
+      "crop_shapes_hw": {
+        "field-2": [
+          44,
+          70
+        ],
+        "field-3": [
+          33,
+          204
+        ],
+        "field-4": [
+          35,
+          192
+        ],
+        "field-1": [
+          85,
+          353
+        ]
+      }
+    },
+    "multiple_buses": {
+      "image": "4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5.jpg",
+      "image_sha256": "cdc7414f6df953b79dce15290cb8e0bc033dc27f723e964703f8fd7004dffc19",
+      "detections_by_api_label": {
+        "eds": 2,
+        "bus_number": 2,
+        "route": 2,
+        "destination": 1
+      },
+      "display_groups": 2,
+      "crop_count": 7,
+      "crop_shapes_hw": {
+        "field-3": [
+          25,
+          27
+        ],
+        "field-4": [
+          13,
+          70
+        ],
+        "field-6": [
+          13,
+          95
+        ],
+        "field-2": [
+          35,
+          155
+        ],
+        "field-5": [
+          22,
+          42
+        ],
+        "field-7": [
+          15,
+          90
+        ],
+        "field-1": [
+          45,
+          200
+        ]
+      }
+    },
+    "negative": {
+      "image": "IMAGE_2026-10-23_21_56_09_jpg.rf.b74dd5352c689be9c7dcc6a048280656.jpg",
+      "image_sha256": "a372a87e3f7cffbadc4b4e415d117db37edac36fff2f5359d0c165be2c5903e9",
+      "detections_by_api_label": {},
+      "display_groups": 0,
+      "crop_count": 0,
+      "crop_shapes_hw": {}
+    }
+  }
+}

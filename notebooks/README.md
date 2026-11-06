@@ -34,6 +34,9 @@ The v4 notebook has saved outputs, but its older written `baseline-01` table is
 historical. Read the v4 `RESULTS.md` and archived JSON reports for the new
 measurements. Both final-test reports are complete; avoid running either test
 again for threshold selection. Use a new run ID for future experiments.
+The later [v4 validation NMS/crop review](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
+compares `0.50` and `0.70` without reopening the test. The tested v4
+configuration remains NMS `0.70`.
 
 The `baseline-01` commands below have already completed and are retained only as
 the reproducibility record. Do **not** rerun them with the same run ID: training

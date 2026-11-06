@@ -25,6 +25,18 @@ for all three models, with image size 640, batch size 4 and seed 42. YOLO used
 patience 15. Validation reports exist for all three models; only selected
 YOLO11s has a final-test report. Use a new run ID for future training.
 
+For the completed v4 validation-only NMS comparison and the application crop
+smoke test, the reproducible commands are:
+
+```powershell
+venv\detector\Scripts\python.exe scripts\review_v4_detector_validation.py --output evaluation\object_detection\01760a841333\runs\v4-reviewed-01\validation_review_new
+venv\detector\Scripts\python.exe scripts\verify_v4_detector_handoff.py
+```
+
+The review script requires a fresh output directory and never reads the test
+split. The second command checks the local v4 checkpoint through the app's
+detection/grouping/crop path without changing the app's default model.
+
 ```powershell
 venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11n --run-id baseline-01
 venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11s --run-id baseline-01
