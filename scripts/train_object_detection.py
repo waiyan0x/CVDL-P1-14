@@ -100,7 +100,7 @@ def train_yolo(args, splits, fingerprint, output_root, run_dir, device):
         data=str(data_yaml), epochs=args.epochs, imgsz=args.image_size,
         batch=args.batch_size, seed=args.seed, deterministic=True,
         project=str(run_dir.parent), name=args.model, exist_ok=False,
-        device=device, workers=0, patience=10, mosaic=0.0, mixup=0.0,
+        device=device, workers=0, patience=15, mosaic=0.0, mixup=0.0,
         copy_paste=0.0, degrees=0.0, translate=0.0, scale=0.0,
         fliplr=0.0, hsv_h=0.0, hsv_s=0.0, hsv_v=0.0,
     )

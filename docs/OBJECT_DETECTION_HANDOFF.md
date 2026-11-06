@@ -1,10 +1,13 @@
 # Object detection handoff
 
-This is the stopping point for Brendan's object-detection work on
-`bren-object-detection`. Do not restart training or reopen the held-out test merely
-to reproduce the existing numbers. The committed branch tip is `58e4030`, which
-includes the selected-detector application integration. The three-model benchmark
-and its evidence are recorded as `baseline-01`.
+The latest result is the [reviewed Roboflow v4 run](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md),
+with three trained models, three validation reports and one final YOLO11s test.
+The new YOLO11s checkpoint and dataset payload are local Git-ignored artifacts.
+The older `baseline-01` result and weights remain preserved. The sections below
+describe that earlier baseline and its application integration.
+
+The earlier three-model benchmark and its application integration are recorded
+as `baseline-01`. Keep both completed held-out tests closed for tuning.
 
 ## Completed baseline
 

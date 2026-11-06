@@ -18,6 +18,13 @@ script. Train one model at a time from its published pretrained weights. Use a
 new run ID for a new attempt of the same model; existing model folders are not
 overwritten:
 
+The completed reviewed-v4 experiment is
+[`v4-reviewed-01`](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
+It used `--dataset data/training/2026-11-05-roboflow-v4-reviewed --epochs 60`
+for all three models, with image size 640, batch size 4 and seed 42. YOLO used
+patience 15. Validation reports exist for all three models; only selected
+YOLO11s has a final-test report. Use a new run ID for future training.
+
 ```powershell
 venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11n --run-id baseline-01
 venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11s --run-id baseline-01

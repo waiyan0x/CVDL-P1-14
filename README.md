@@ -185,14 +185,18 @@ branch.
 
 ## Object detection handoff
 
-The four-class YOLO11n, YOLO11s and DETR benchmark is complete as
-`baseline-01`; YOLO11s is the validation-selected detector. Cody can start with
-the [handoff](docs/OBJECT_DETECTION_HANDOFF.md), [saved results](evaluation/object_detection/bf938f526d2c/runs/baseline-01/RESULTS.md),
-[joint data review](evaluation/object_detection/bf938f526d2c/runs/baseline-01/data_review/REVIEW.md)
-and [deployment instructions](docs/OBJECT_DETECTION_DEPLOYMENT.md).
+The latest four-class YOLO11n, YOLO11s and DETR comparison is
+[`v4-reviewed-01`](evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md)
+on the corrected Roboflow v4 export. YOLO11s was selected by validation
+mAP50:95 (`0.3510`) and scored `0.3270` on the final held-out test. The earlier
+[`baseline-01`](evaluation/object_detection/bf938f526d2c/runs/baseline-01/RESULTS.md)
+and its [application integration](docs/OBJECT_DETECTION_DEPLOYMENT.md) remain
+separate. Continue from the [handoff](docs/OBJECT_DETECTION_HANDOFF.md).
 
 Jy and Brendan still need to review the class rules, negatives and capture
-groups. A changed dataset requires a new version and run ID. OCR accuracy and
+groups. The v4 dataset and checkpoints are local ignored files; a Git pull
+provides reports but not those payloads. A changed dataset requires a new
+version and run ID. OCR accuracy and
 real moving-bus camera performance have not been established.
 
 ## Processing behaviour

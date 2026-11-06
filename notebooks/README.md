@@ -15,8 +15,11 @@ click Run All. The same notebook then performs validation and test reporting in
 separate runs.
 
 The benchmark defaults to the local manifest-backed
-`data/training/2026-10-30-torchvision/` export built from the uploaded accepted
-labels. It needs separate model dependencies before training.
+`data/training/2026-11-05-roboflow-v4-reviewed/` export. Its completed
+`v4-reviewed-01` run has a [saved three-model validation comparison and selected
+YOLO11s final test](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
+The older `2026-10-30-torchvision` dataset and `baseline-01` results are
+preserved. Separate model dependencies are needed before training.
 The curated `data/samples/` gallery is for qualitative inspection and cannot
 replace the labelled export. The source for the notebook is maintained in
 [build_object_detection_benchmark.py](build_object_detection_benchmark.py).
@@ -26,6 +29,11 @@ It reuses the installed CUDA PyTorch build and has Ultralytics, Transformers,
 TorchMetrics, pycocotools and Notebook installed. Launch from the repository root
 with `venv\detector\Scripts\python.exe -m notebook`, open the benchmark notebook,
 and choose the **CVDL Detector (CUDA)** kernel.
+
+The v4 notebook has saved outputs, but its older written `baseline-01` table is
+historical. Read the v4 `RESULTS.md` and archived JSON reports for the new
+measurements. Both final-test reports are complete; avoid running either test
+again for threshold selection. Use a new run ID for future experiments.
 
 The `baseline-01` commands below have already completed and are retained only as
 the reproducibility record. Do **not** rerun them with the same run ID: training

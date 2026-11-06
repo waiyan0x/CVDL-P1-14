@@ -17,7 +17,7 @@ cells = [
     md(r"""
 # EDS object detection: YOLO11n, YOLO11s, and DETR
 
-**Status (30 October 2026): the uploaded source has been audited and a manifest-backed `2026-10-30-torchvision` export is available locally; no new model was trained or measured yet.** Results below stay **pending** until the experiment cells are run. Do not copy the historical 13-image YOLO result into this comparison.
+**Status (6 November 2026): the manifest-backed Roboflow v4 reviewed export has completed three training and validation runs and one selected-model final test.** See the recorded results below and the [archived report](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md). The earlier baseline remains a separate experiment.
 
 This notebook implements the object detection allocation: dataset/label audit, pretrained model selection, fine-tuning, validation, per-class mAP, speed/failure comparison, threshold selection, and a final held-out test. It retains train/valid/test separation and records settings and hashes. Run from the repo's `notebooks/` folder or repo root.
 
@@ -41,7 +41,7 @@ sys.path.insert(0, str(ROOT / 'src'))
 sys.path.insert(0, str(ROOT / 'scripts'))
 from object_detection_artifacts import archive_benchmark
 
-DATASET_ROOT = Path(os.environ.get('EDS_DATASET_ROOT', ROOT / 'data/training/2026-10-30-torchvision')).resolve()
+DATASET_ROOT = Path(os.environ.get('EDS_DATASET_ROOT', ROOT / 'data/training/2026-11-05-roboflow-v4-reviewed')).resolve()
 OUTPUT_ROOT = ROOT / '.runtime/object_detection_benchmark'
 os.environ.setdefault('YOLO_CONFIG_DIR', str(OUTPUT_ROOT / 'ultralytics'))
 os.environ.setdefault('USE_TF', '0')  # Keep this detector kernel on the PyTorch backend.
@@ -51,10 +51,10 @@ RUN_TRAINING = False      # Set True only when ready to start TRAIN_MODEL from p
 TRAIN_MODEL = 'yolo11n'   # Choose: 'yolo11n', 'yolo11s', or 'detr-resnet-50'.
 RUN_BENCHMARK = False      # Train/valid mAP and latency for BENCHMARK_MODELS.
 RUN_FINAL_TEST = False     # Enable once, after settings/model selection on validation.
-RUN_ID = 'baseline-01'      # Keep this ID for all three models in one benchmark set.
+RUN_ID = 'v4-reviewed-01'   # Completed experiment; choose a new ID for new training.
 BENCHMARK_MODELS = ('yolo11s',)  # Validation-selected model; list all three only for validation comparison.
-YOLO_EPOCHS, DETR_EPOCHS, IMAGE_SIZE, BATCH_SIZE, SEED = 30, 30, 640, 4, 42
-OPERATING_CONF, YOLO_NMS_IOU = 0.20, 0.70  # Validation-selected deployment settings.
+YOLO_EPOCHS, DETR_EPOCHS, IMAGE_SIZE, BATCH_SIZE, SEED = 60, 60, 640, 4, 42
+OPERATING_CONF, YOLO_NMS_IOU = 0.50, 0.70  # v4 validation-selected settings.
 DEVICE = 'cuda' if importlib.util.find_spec('torch') and __import__('torch').cuda.is_available() else 'cpu'
 CLASS_NAMES = ('front_eds', 'front_eds_num', 'front_eds_route', 'front_eds_destination')
 COCO_TO_INDEX = {1: 0, 3: 1, 4: 2, 2: 3}  # Explicit IDs from the readiness handoff.
@@ -376,6 +376,18 @@ else:
     print('Threshold selection pending validation predictions.')
 """),
     md(r"""
+### Recorded `v4-reviewed-01` benchmark and final test
+
+The reviewed v4 export has 735 train, 53 validation and 53 test images. All three models trained for up to 60 epochs with seed 42, 640-pixel input and CUDA. The validation comparison selected YOLO11s by mAP50:95; only it received a final held-out test.
+
+| Model | Validation mAP50 / mAP50:95 | Final test mAP50 / mAP50:95 |
+| --- | --- | --- |
+| YOLO11n | 0.6250 / 0.3383 | Not tested |
+| **YOLO11s** | **0.6131 / 0.3510** | **0.6314 / 0.3270** |
+| DETR-ResNet50 | 0.4377 / 0.1746 | Not tested |
+
+YOLO11s test AP50 / AP50:95 by class: panel `0.7467 / 0.3158`, number `0.7934 / 0.5246`, route `0.4116 / 0.2027`, destination `0.5739 / 0.2651`. At the validation-selected confidence `0.50`, one false positive occurred across 12 zero-box test images; median / p95 inference was `26.46 / 36.57 ms`. Full training settings, per-class validation AP, hashes and evidence paths are in the [v4 results report](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md). The older result below uses a different dataset and is historical.
+
 ### Recorded `baseline-01` benchmark results
 
 The following measurements were saved on 2 November 2026 using dataset manifest `bf938f526d2c01f1960b9af018f1fd1dc78a431e725037c84d1707dfcc5b826c`, CUDA, 640-pixel input, seed 42, and the best validation-selected checkpoint from each training run.
