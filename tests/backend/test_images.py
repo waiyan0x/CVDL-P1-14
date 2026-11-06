@@ -9,7 +9,7 @@ from backend.app.media.images import decode_image
 
 def test_known_bundled_avif_sample_decodes_without_allowing_arbitrary_uploads():
     settings = Settings()
-    data = (settings.root / 'data/images/test/fce01393-3b0671f0-272.jpg').read_bytes()
+    data = (settings.root / 'data/samples/viewing-angle-and-display-location/straight-on-front.avif').read_bytes()
     with pytest.raises(AppError) as failure:
         decode_image(data, settings)
     assert failure.value.code == 'unsupported_image'

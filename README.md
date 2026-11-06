@@ -154,9 +154,10 @@ setup, not inference. Individual unavailable OCR engines are reported separately
 | `/models` | Check model provenance, confidence definitions and pipeline methods. |
 | `/docs` | FastAPI's generated API documentation. |
 
-The interface follows the supplied Detect design with native Apple system fonts
-and grayscale controls. Photographs and cropped regions retain their original
-colours. Results come from inference; design-mockup predictions are not used.
+The interface takes its layout cues from [TinyBus](https://tinybus.phrypy.dev/)
+in black, white and grey only, with self-hosted Space Grotesk and IBM Plex Mono
+fonts. Photographs and cropped regions retain their original colours. Results
+come from inference; design-mockup predictions are not used.
 
 ## Structure
 
