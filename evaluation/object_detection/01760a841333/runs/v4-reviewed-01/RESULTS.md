@@ -71,9 +71,10 @@ still present and unchanged.
 The [v4 detector configuration](detector_config.json) records the tested
 confidence `0.50`, NMS `0.70`, class mapping and checkpoint hash. A
 [local application-path smoke test](validation_review/integration_verification.json)
-loaded that checkpoint, associated fields and produced nonempty crops on two
-validation images; a validation negative produced no detection. The app's
-default checkpoint remains the earlier baseline. This is not OCR or field-video
+loaded the installed default checkpoint, associated fields and produced
+nonempty crops on two validation images; a validation negative produced no
+detection. The app now defaults to v4 at confidence `0.50` and NMS `0.70`.
+The baseline checkpoint and reports are retained. This is not OCR or field-video
 verification.
 
 ## Interpretation and remaining review

@@ -1,9 +1,10 @@
 {
   "checkpoint_sha256": "97150601de39a999754015648cad2ef930842d52e8e37eb77d7576ffe2da33b5",
+  "checkpoint": "evaluation/object_detection/01760a841333/runs/v4-reviewed-01/checkpoints/yolo11s-best.pt",
   "device": "cuda",
   "confidence": 0.5,
   "nms_iou": 0.7,
-  "app_default_changed": false,
+  "app_default_changed": true,
   "scope": "Local application detector, association and crop-path smoke test on three validation stills; no OCR, video or physical-camera claim.",
   "samples": {
     "clear_display": {

@@ -31,8 +31,8 @@ Inside `ocr_handoff/` (and the ZIP):
 Do not report OCR accuracy until the text fields are reviewed and transcribed.
 Use the same predicted crops and preprocessing choices when comparing OCR
 engines. The final detector test split is held out and was not exported here.
-The current application still loads the older `baseline-01` checkpoint; using
-these v4 crops for OCR research does not switch the application model.
+The application now defaults to this v4 checkpoint at confidence `0.50` and
+NMS `0.70`. The earlier `baseline-01` checkpoint remains documented separately.
 
 To regenerate this package on a machine with the ignored reviewed-v4 dataset
 and selected checkpoint, from the repository root run:

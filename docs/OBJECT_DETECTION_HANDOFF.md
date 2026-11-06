@@ -7,10 +7,10 @@ The [v4 validation crop handoff](../evaluation/object_detection/01760a841333/run
 is committed as individual annotation and detector-predicted crop files.
 The [validation NMS/failure review](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
 and [tested v4 detector configuration](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json)
-are also saved. The v4 checkpoint passed a local application detection/crop smoke
-test; it has not replaced the app's baseline default.
-The older `baseline-01` result and weights remain preserved. The sections below
-describe that earlier baseline and its application integration.
+are also saved. The v4 checkpoint is now installed as the application default
+and passed a local detection/crop smoke test at confidence `0.50`, NMS `0.70`.
+The older `baseline-01` result and weights remain preserved as historical
+documentation. The sections below describe that earlier baseline separately.
 
 The earlier three-model benchmark and its application integration are recorded
 as `baseline-01`. Keep both completed held-out tests closed for tuning.
@@ -91,7 +91,7 @@ local caches are generated artifacts, not source files.
 Run from the repository root in PowerShell:
 
 ```powershell
-# Confirm that the selected checkpoint is present and matches the saved hash.
+# Confirm that the v4 default checkpoint is present and matches the saved hash.
 venv\detector\Scripts\python.exe scripts\install_selected_detector.py --verify-only
 
 # Review the current working state.

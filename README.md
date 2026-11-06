@@ -190,8 +190,10 @@ The latest four-class YOLO11n, YOLO11s and DETR comparison is
 on the corrected Roboflow v4 export. YOLO11s was selected by validation
 mAP50:95 (`0.3510`) and scored `0.3270` on the final held-out test. The earlier
 [`baseline-01`](evaluation/object_detection/bf938f526d2c/runs/baseline-01/RESULTS.md)
-and its [application integration](docs/OBJECT_DETECTION_DEPLOYMENT.md) remain
-separate. Continue from the [handoff](docs/OBJECT_DETECTION_HANDOFF.md).
+remains as historical evidence. The app now defaults to v4 YOLO11s at confidence
+`0.50` and NMS `0.70`; install its ignored local checkpoint using the
+[deployment instructions](docs/OBJECT_DETECTION_DEPLOYMENT.md). Continue from
+the [handoff](docs/OBJECT_DETECTION_HANDOFF.md).
 The latest run also has a [validation NMS and crop review](evaluation/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
 and a saved v4 detector configuration; the Jy/Brendan annotation review is on hold.
 

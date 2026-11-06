@@ -35,12 +35,17 @@ def sha256(path):
 def main():
     os.environ.setdefault("YOLO_CONFIG_DIR", str(ROOT / ".runtime/ultralytics"))
     config = json.loads((RUN / "detector_config.json").read_text(encoding="utf-8"))
-    checkpoint = ROOT / config["checkpoint_local_path"]
+    checkpoint = ROOT / config["checkpoint_install_path"]
     if not checkpoint.is_file() or sha256(checkpoint) != config["checkpoint_sha256"]:
         raise RuntimeError("V4 checkpoint is absent or has the wrong hash")
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    settings = Settings(root=ROOT, detector_weights=checkpoint, detector_device=device,
-                        detector_image_size=config["input_size"], detector_nms_iou=config["nms_iou"])
+    settings = Settings(root=ROOT, detector_device=device)
+    if settings.detector_path.resolve() != checkpoint.resolve():
+        raise RuntimeError("Application default detector path does not match the v4 configuration")
+    if settings.detector_image_size != config["input_size"] or settings.detector_nms_iou != config["nms_iou"]:
+        raise RuntimeError("Application default detector settings differ from the v4 configuration")
+    if FrameOptions().detection != config["confidence"]:
+        raise RuntimeError("Application default confidence differs from the v4 configuration")
     detector = Detector(settings)
     pipeline = Pipeline(settings, detector, None, None)
     evidence = {}
@@ -64,9 +69,9 @@ def main():
                           "detections_by_api_label": labels, "display_groups": len(prepared["groups"]),
                           "crop_count": len(crop_shapes), "crop_shapes_hw": crop_shapes}
         print(f"{name}: {labels}; {len(crop_shapes)} nonempty crops")
-    result = {"checkpoint_sha256": config["checkpoint_sha256"], "device": device,
+    result = {"checkpoint_sha256": config["checkpoint_sha256"], "checkpoint": str(checkpoint.relative_to(ROOT)).replace('\\', '/'), "device": device,
               "confidence": config["confidence"], "nms_iou": config["nms_iou"],
-              "app_default_changed": False,
+              "app_default_changed": True,
               "scope": "Local application detector, association and crop-path smoke test on three validation stills; no OCR, video or physical-camera claim.",
               "samples": evidence}
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)

@@ -1,11 +1,12 @@
 import {health} from '../core/api.js';
 import {el} from '../core/dom.js';
 
-const defaults = {backend: 'easyocr', detection: .20, ocr_threshold: .25, similarity: .7};
+const defaults = {backend: 'easyocr', detection: .50, ocr_threshold: .25, similarity: .7};
+const storageKey = 'eds-options-v4';
 export class Options {
   constructor(container, onChange = () => {}, {comparison = false} = {}) {
     this.values = {...defaults};
-    try { Object.assign(this.values, JSON.parse(localStorage.getItem('eds-options') || '{}')); } catch {}
+    try { Object.assign(this.values, JSON.parse(localStorage.getItem(storageKey) || '{}')); } catch {}
     if (!['easyocr', 'tesseract', 'trocr'].includes(this.values.backend)) this.values.backend = defaults.backend;
     for (const key of ['detection', 'ocr_threshold', 'similarity']) {
       const value = Number(this.values[key]);
@@ -33,7 +34,7 @@ export class Options {
 
   change(name, value, onChange) {
     this.values[name] = value;
-    try { localStorage.setItem('eds-options', JSON.stringify(this.values)); } catch {}
+    try { localStorage.setItem(storageKey, JSON.stringify(this.values)); } catch {}
     onChange();
   }
 

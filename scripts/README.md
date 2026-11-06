@@ -13,6 +13,19 @@ Despite its `00` prefix, the audit checks an already labelled dataset.
 
 ## Fresh object detection training
 
+The reader app now defaults to the completed v4 YOLO11s checkpoint. Install or
+verify the local ignored weight before starting it:
+
+```powershell
+venv\detector\Scripts\python.exe scripts\install_selected_detector.py
+venv\detector\Scripts\python.exe scripts\install_selected_detector.py --verify-only
+```
+
+The earlier baseline checkpoint and its config remain under
+`evaluation/object_detection/bf938f526d2c/runs/baseline-01/`; pass that
+configuration with `--config` to verify or reinstall it without changing the
+application default.
+
 The benchmark notebook has a small manual training launcher backed by this
 script. Train one model at a time from its published pretrained weights. Use a
 new run ID for a new attempt of the same model; existing model folders are not
