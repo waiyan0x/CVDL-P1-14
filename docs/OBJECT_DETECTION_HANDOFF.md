@@ -55,6 +55,9 @@ If a future revision selects `0.50`, use a new independent held-out set.
 
 ## Application and OCR continuation for Cody
 
+Cody should start with the [OCR handoff README](OCR_CODY_HANDOFF.md) for the
+committed crop package, reviewed-text workflow and three-engine comparison steps.
+
 The committed detector integration covers model loading, stable four-class API
 labels, multiple-display association, uploaded-video decoding and a simulated
 camera response path. Installation and the runtime contract are documented in

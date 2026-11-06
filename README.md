@@ -194,6 +194,7 @@ remains as historical evidence. The app now defaults to v4 YOLO11s at confidence
 `0.50` and NMS `0.70`; install its ignored local checkpoint using the
 [deployment instructions](docs/OBJECT_DETECTION_DEPLOYMENT.md). Continue from
 the [handoff](docs/OBJECT_DETECTION_HANDOFF.md).
+For Cody's OCR work, start with the [OCR handoff README](docs/OCR_CODY_HANDOFF.md).
 The latest run also has a [validation NMS and crop review](evaluation/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
 and a saved v4 detector configuration; the Jy/Brendan annotation review is on hold.
 
