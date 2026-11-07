@@ -1,12 +1,34 @@
 # EDS crop transcription rules
 
-Status: **proposal**, 5 November 2026. These rules are for human-reviewed LED
+Status: **project decision for the prepared v4 annotation workspace**, 7 November
+2026, following the user's instruction to define annotation/scoring before review.
+These are local working conventions, not coursework or rubric requirements.
+These rules are for human-reviewed LED
 dot-matrix OCR ground truth, not seven-segment text. They contain no measured
-results or coursework requirements. Field names and views follow the user's
-current project context; the conventions below are proposed project decisions.
+results. The v4 workflow below preserves the supplied handoff schema and provenance.
 The worked examples are synthetic, not observations of supplied crops.
 
-## CSV format and metadata
+## Supplied v4 handoff workflow
+
+Use [OCR_ANNOTATION_PACKAGE.md](OCR_ANNOTATION_PACKAGE.md) for the prepared
+workspace, column dictionary, review transitions and missing-field scoring.
+It supersedes the generic draft's pending-only treatment of blank/absent fields.
+The handoff's `crop,image,label,transcription,review_status` columns and values
+are retained, with metadata/review columns appended. Do not rename `crop` to
+`crop_id`, `transcription` to `text`, or `valid` to `val` in the working CSVs.
+Crop paths resolve against the workspace's `source/` directory.
+
+Review `annotation_review.csv` (157 rows) and `prediction_review.csv` (114 rows)
+separately. Both start blank and `pending`. Diagnostic IoU candidates must not
+automatically copy an annotation transcription into a predicted crop. The
+53-row `image_review.csv` retains images without text crops, including the ten
+source zero-box negatives. No row is human-reviewed by this preparation.
+
+## Generic draft CSV format and metadata
+
+The earlier inventory script and synthetic examples use the following separate
+schema. They remain useful for new loose crops; do not apply this fixed-column
+schema to the richer supplied v4 package.
 
 Use UTF-8 CSV with exactly these columns:
 
@@ -79,10 +101,13 @@ for stored text. Review unfamiliar characters rather than transliterating them.
    unresolved or clipped; include at least one `[UNK]`. `illegible`: no text can
    be reliably transcribed; use exactly `[UNK]`. A damaged glyph that remains
    unambiguous may still be `full`; record the damage in the quality register.
-9. **Blank or absent fields.** This template targets text-bearing crops. Leave
-   such cases pending, record `blank_field`/`absent_field` in the companion
-   register, and exclude them until a missing-field policy is agreed. Do not
-   misuse `illegible` for a genuinely empty region or use blank `text` as truth.
+9. **Blank or absent fields.** A visible intended field with no text is `blank`;
+   an intended field that is not present is `absent`. Do not confuse either with
+   lit but unreadable text. In the v4 workspace, use explicit `field_status`,
+   `legibility=not_applicable` and real review metadata; empty transcription
+   alone never establishes review. Follow the separate blank/absent scoring in
+   the package guide. For the generic draft, record the state and review in its
+   companion register; a blank `text` cell alone remains unannotated.
 
 Normal viewing and nearest-neighbour enlargement are permitted. Do not use
 generative enhancement or OCR suggestions to decide ambiguous characters.
@@ -114,6 +139,12 @@ only, before reference matching. Preserve case, punctuation and line breaks;
 apply the same declared whitespace convention to references and predictions.
 If normalized scores are also reported, label them separately. Report sample
 counts and excluded partial/illegible counts per field to expose coverage.
+For v4, primary eligibility also requires `review_status=reviewed`,
+`field_status=present`, reviewer/date, no exclusion, confirmed grouping and,
+for predictions, completed correspondence review. Blank/absent cases are scored
+only under the separate policies in the package guide. These are specifications
+for the later scorer, not a claim that the existing image evaluator implements
+this crop-review schema.
 
 Keep partial cases as a separate challenge set. Do not pass `[UNK]` through CER,
 train it as literal text, or score guessed completions as ground truth. Scoring
