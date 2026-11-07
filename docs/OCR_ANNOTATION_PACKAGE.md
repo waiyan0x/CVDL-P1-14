@@ -83,6 +83,15 @@ separate schema requiring an explicit conversion step.
 
 ## Human review procedure
 
+Numbered [human review batches](../evaluation/ocr_annotations/v4-reviewed-01/human_review/README.md)
+provide 18 annotation sheets (`A001`–`A157`) and 13 prediction sheets
+(`P001`–`P114`), with up to nine crops per sheet. Their submission templates
+retain every original working-row value and append neutral IDs/sheet names;
+all transcription and reviewer fields remain blank. Copy a template to a new
+reviewer-named export before entering human labels. Generate a new set with
+`python3 scripts/prepare_ocr_human_review.py --output /path/to/new-review-directory`.
+This requires Pillow and refuses existing output or already-labelled input.
+
 1. Open the crop at its native size and, if useful, nearest-neighbour enlargement.
    Use panel context crops from the same source image to check field identity.
    Request the original image when necessary; do not guess missing context.
