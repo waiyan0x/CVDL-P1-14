@@ -1,0 +1,1510 @@
+{
+  "schema_version": 1,
+  "reviewer": "Codex",
+  "reviewer_type": "AI",
+  "reviewed_at": "2026-11-08",
+  "independent_human_review": false,
+  "evidence": "All 31 native-crop contact sheets with pixel-coordinate rulers visually inspected; no OCR text, transcription labels or route reference used. All 36 initially proposed multiline layouts were additionally inspected as native overlays and separate extracted patches; ambiguous edge strips were quarantined and three false extra bands removed.",
+  "entries": {
+    "A001": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A002": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Two visible text rows overlap in projection and the lower row leaves the crop at the right edge; reliable separate quadrilaterals cannot be fixed from this crop."
+    },
+    "A003": {
+      "status": "split_lines",
+      "separators": [
+        [
+          14,
+          23
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "A004": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A005": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A006": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A007": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A008": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A009": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A010": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A011": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A012": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A013": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A014": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A015": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A016": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A017": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A018": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A019": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A020": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A021": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A022": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A023": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A024": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A025": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A026": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A027": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A028": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "A clipped upper text fragment meets the sloping lower line near the top edge; separate line boundaries remain ambiguous."
+    },
+    "A029": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A030": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A031": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A032": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A033": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A034": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A035": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A036": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A037": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A038": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A039": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A040": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A041": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A042": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A043": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A044": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A045": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A046": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A047": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A048": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Very low-resolution blur does not support a reliable line-count decision."
+    },
+    "A049": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A050": {
+      "status": "split_lines",
+      "separators": [
+        [
+          14,
+          12
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "A051": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A052": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Refresh/overlapping glyph states cannot be separated confidently into spatial text lines."
+    },
+    "A053": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A054": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A055": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Clipped upper text fragments meet the main line near the crop edge; no reliable separator across the full width."
+    },
+    "A056": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A057": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "A small upper fragment and main row merge at the edge; the layout cannot be separated confidently."
+    },
+    "A058": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A059": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A060": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A061": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A062": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A063": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A064": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A065": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A066": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A067": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A068": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A069": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A070": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Bottom-edge strip cannot confidently be distinguished from display border/glow; do not invent an extra text line."
+    },
+    "A071": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A072": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A073": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A074": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Blur leaves no defensible glyph-row boundary or line-count decision."
+    },
+    "A075": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A076": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A077": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A078": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A079": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A080": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A081": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A082": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A083": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A084": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A085": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A086": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A087": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A088": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A089": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A090": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A091": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A092": {
+      "status": "split_lines",
+      "separators": [
+        [
+          19,
+          20
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "A093": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A094": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Very thin lower-edge fragment cannot be assigned a defensible separate text region."
+    },
+    "A095": {
+      "status": "split_lines",
+      "separators": [
+        [
+          4,
+          4
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "A096": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A097": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A098": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A099": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A100": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A101": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A102": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A103": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A104": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A105": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A106": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A107": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A108": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A109": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A110": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A111": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A112": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A113": {
+      "status": "split_lines",
+      "separators": [
+        [
+          10,
+          11
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "A114": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A115": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A116": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A117": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A118": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A119": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A120": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Saturation removes the internal text-row structure; line count cannot be established."
+    },
+    "A121": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Severe bloom merges potential rows; a defensible line boundary is not visible."
+    },
+    "A122": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A123": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A124": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A125": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A126": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A127": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A128": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A129": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A130": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A131": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A132": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A133": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A134": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A135": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A136": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A137": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A138": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A139": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A140": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A141": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A142": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A143": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A144": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A145": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A146": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A147": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A148": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A149": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A150": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A151": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A152": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A153": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A154": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A155": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A156": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "A157": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P001": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P002": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Lower text row is clipped away toward the right while the upper line slopes into the same band; full-width separators would cut glyphs."
+    },
+    "P003": {
+      "status": "split_lines",
+      "separators": [
+        [
+          10,
+          15
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P004": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P005": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Small oblique whole-panel content is too blurred to establish reliable individual line geometry."
+    },
+    "P006": {
+      "status": "split_lines",
+      "separators": [
+        [
+          4,
+          4
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P007": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P008": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P009": {
+      "status": "split_lines",
+      "separators": [
+        [
+          5,
+          5
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P010": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P011": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P012": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P013": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P014": {
+      "status": "split_lines",
+      "separators": [
+        [
+          8,
+          8
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P015": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P016": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P017": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P018": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P019": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P020": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P021": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P022": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P023": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P024": {
+      "status": "split_lines",
+      "separators": [
+        [
+          7,
+          7
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P025": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P026": {
+      "status": "split_lines",
+      "separators": [
+        [
+          19,
+          19
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P027": {
+      "status": "split_lines",
+      "separators": [
+        [
+          8,
+          8
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P028": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P029": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Clipped upper fragments and sloping lower glyphs meet the top edge; reliable independent line regions cannot be placed."
+    },
+    "P030": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P031": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P032": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P033": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P034": {
+      "status": "split_lines",
+      "separators": [
+        [
+          3,
+          3
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P035": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P036": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P037": {
+      "status": "split_lines",
+      "separators": [
+        [
+          4,
+          4
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P038": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P039": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P040": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P041": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "A possible lower clipped text fragment is too thin to distinguish from background/glow."
+    },
+    "P042": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P043": {
+      "status": "split_lines",
+      "separators": [
+        [
+          6,
+          7
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P044": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "Patch-level reinspection found non-text background/glow in the proposed extra band; retain one spatial glyph row."
+    },
+    "P045": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P046": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Display refresh states overlap spatially; no confident line separation."
+    },
+    "P047": {
+      "status": "split_lines",
+      "separators": [
+        [
+          10,
+          10
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P048": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Bottom-edge trace may be a clipped next line or glyph/border glow; independent adjudication required."
+    },
+    "P049": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P050": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P051": {
+      "status": "split_lines",
+      "separators": [
+        [
+          8,
+          8
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P052": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P053": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P054": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P055": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P056": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P057": {
+      "status": "split_lines",
+      "separators": [
+        [
+          8,
+          8
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P058": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P059": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P060": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P061": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P062": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P063": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P064": {
+      "status": "split_lines",
+      "separators": [
+        [
+          9,
+          9
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P065": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P066": {
+      "status": "split_lines",
+      "separators": [
+        [
+          25,
+          25
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P067": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P068": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "Patch-level reinspection found non-text background/glow in the proposed extra band; retain one spatial glyph row."
+    },
+    "P069": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P070": {
+      "status": "split_lines",
+      "separators": [
+        [
+          9,
+          9
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P071": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P072": {
+      "status": "split_lines",
+      "separators": [
+        [
+          9,
+          9
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P073": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P074": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P075": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P076": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P077": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P078": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P079": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P080": {
+      "status": "split_lines",
+      "separators": [
+        [
+          8,
+          8
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P081": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "Patch-level reinspection found non-text background/glow in the proposed extra band; retain one spatial glyph row."
+    },
+    "P082": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P083": {
+      "status": "split_lines",
+      "separators": [
+        [
+          15,
+          15
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P084": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P085": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P086": {
+      "status": "split_lines",
+      "separators": [
+        [
+          10,
+          10
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P087": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Upper/lower clipped traces and the central row cannot all be separated confidently at native resolution."
+    },
+    "P088": {
+      "status": "split_lines",
+      "separators": [
+        [
+          6,
+          6
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P089": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "Adjacent two-line text and a tall service identifier occupy overlapping vertical ranges; full-width line partitions would cut the service glyphs."
+    },
+    "P090": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P091": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P092": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P093": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P094": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P095": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P096": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P097": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P098": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P099": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P100": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P101": {
+      "status": "split_lines",
+      "separators": [
+        [
+          5,
+          5
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P102": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P103": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P104": {
+      "status": "split_lines",
+      "separators": [
+        [
+          6,
+          6
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P105": {
+      "status": "unresolved",
+      "separators": [],
+      "reason": "A possible lower-edge text fragment is too clipped to distinguish from neighboring glare."
+    },
+    "P106": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P107": {
+      "status": "split_lines",
+      "separators": [
+        [
+          13,
+          13
+        ]
+      ],
+      "reason": "Separate visible rows, including captured clipped fragments; ordered separators chosen from pixels, not from OCR/transcriptions."
+    },
+    "P108": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P109": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P110": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P111": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P112": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P113": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    },
+    "P114": {
+      "status": "single_line",
+      "separators": [],
+      "reason": "One spatial glyph row observed; internal LED dot rows/strokes are not separate text lines. This does not attest text legibility."
+    }
+  }
+}

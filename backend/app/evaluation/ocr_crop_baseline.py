@@ -119,11 +119,11 @@ def segment_lines(rgb):
     return gray, [[0, top, width, bottom] for top, bottom in zip(boundaries, boundaries[1:])], info
 
 
-def recognize_crop(record, reader, synchronize):
+def recognize_crop(record, reader, synchronize, layout=None):
     """Measure one crop. Failed crops/lines retain IDs and partial outputs."""
     result = {key: value for key, value in record.items() if key != "crop_path"}
     result.update(status="error", raw_text="", ocr_confidence=None, error=None,
-                  segmentation=None, line_regions=[], line_outputs=[], preprocessing_ms=None, recognition_ms=0.0,
+                  segmentation=None, line_regions=[], line_quads=[], line_outputs=[], preprocessing_ms=None, recognition_ms=0.0,
                   crop_total_ms=None, line_count=0)
     synchronize()
     start = perf_counter()
@@ -135,7 +135,19 @@ def recognize_crop(record, reader, synchronize):
             if image.size != (record["input_width"], record["input_height"]):
                 raise ValueError("Crop dimensions differ from manifest")
             rgb = np.asarray(image.convert("RGB"))
-        gray, regions, info = segment_lines(rgb)
+        if layout is None:
+            gray, regions, info = segment_lines(rgb)
+        else:
+            from .ocr_line_layout import METHOD, validate_entry
+            validate_entry(layout, record)
+            gray = cv2.cvtColor(rgb, cv2.COLOR_RGB2GRAY)
+            result["line_quads"] = layout["line_quads"]
+            regions = [[min(p[0] for p in q), min(p[1] for p in q),
+                        max(p[0] for p in q), max(p[1] for p in q)] for q in layout["line_quads"]]
+            info = {"status": "fixed_layout_accepted" if regions else "fixed_layout_unresolved",
+                    "method": METHOD, "needs_review": not bool(regions),
+                    "reviewer": layout["reviewer"], "reviewer_type": layout["reviewer_type"],
+                    "independent_human_review": False, "reason": layout["reason"]}
         result["preprocessing_ms"] = (perf_counter()-start)*1000
         result["segmentation"] = info
         result["line_regions"] = regions
@@ -144,7 +156,12 @@ def recognize_crop(record, reader, synchronize):
             raise ValueError(f"Line segmentation unresolved: {info['status']}; full-crop recognition was not substituted")
         for index, box in enumerate(regions):
             x1, y1, x2, y2 = box
-            line = gray[y1:y2, x1:x2].copy()
+            quad = result["line_quads"][index] if result["line_quads"] else None
+            if quad:
+                from .ocr_line_layout import extract_region
+                line = extract_region(gray, quad)
+            else:
+                line = gray[y1:y2, x1:x2].copy()
             synchronize()
             line_start = perf_counter()
             try:
@@ -161,7 +178,8 @@ def recognize_crop(record, reader, synchronize):
             for entry in output:
                 score = float(entry[2])
                 items.append({"text": entry[1], "confidence": score if math.isfinite(score) else None})
-            result["line_outputs"].append({"index": index, "box_xyxy": box, "recognition_ms": duration,
+            result["line_outputs"].append({"index": index, "box_xyxy": box, "quad_xy": quad,
+                                            "line_input_size": [line.shape[1], line.shape[0]], "recognition_ms": duration,
                                             "items": items, "raw_text": "\n".join(item["text"] for item in items)})
         result["raw_text"] = "\n".join(line["raw_text"] for line in result["line_outputs"])
         items = [item for line in result["line_outputs"] for item in line["items"] if item["text"]]

@@ -17,6 +17,7 @@ sys.path.insert(0, str(ROOT))
 from backend.app.evaluation.ocr_crop_baseline import (
     FIELDS, SEGMENTATION, load_crops, recognize_crop, sha256, summarize,
 )
+from backend.app.evaluation.ocr_line_layout import load_layout
 
 
 def snapshot(root):
@@ -40,6 +41,10 @@ def run(args):
     if args.device == "cuda" and not torch.cuda.is_available():
         raise RuntimeError("CUDA unavailable; CPU fallback is forbidden for this run")
     records = load_crops(workspace)
+    layout_manifest, layouts, layout_hash = None, {}, None
+    if args.line_layout:
+        layout_manifest, layouts = load_layout(args.line_layout.resolve(), records)
+        layout_hash = sha256(args.line_layout.resolve())
     source_before = snapshot(workspace)
     weight_path = cache / "english_g2.pth"
     weight_before = sha256(weight_path)
@@ -79,14 +84,19 @@ def run(args):
         (output / "command.json").write_text(json.dumps([sys.executable, *sys.argv], indent=2)+"\n")
         (output / "runner_source.py").write_bytes(Path(__file__).read_bytes())
         (output / "core_source.py").write_bytes((ROOT / "backend/app/evaluation/ocr_crop_baseline.py").read_bytes())
+        if layout_manifest:
+            (output / "line_layout.json").write_bytes(args.line_layout.read_bytes())
+            (output / "line_layout.sha256").write_text(layout_hash+"  line_layout.json\n")
+            (output / "layout_source.py").write_bytes((ROOT / "backend/app/evaluation/ocr_line_layout.py").read_bytes())
         (output / "input_hashes.json").write_text(json.dumps(source_before, indent=2)+"\n")
         (output / "environment_requirements.txt").write_text("\n".join(f"{k}=={v}" for k, v in sorted(environment["packages"].items()))+"\n")
         warmups = []
         for field in FIELDS:
-            representative = next(r for r in records if r["field"] == field)
+            representative = next(r for r in records if r["field"] == field and (
+                not layouts or layouts[r["review_id"]]["review_status"] == "accepted"))
             for index in range(args.warmup):
                 with torch.inference_mode():
-                    result = recognize_crop(representative, reader, sync)
+                    result = recognize_crop(representative, reader, sync, layouts.get(representative["review_id"]))
                 warmups.append({"review_id": representative["review_id"], "field": field, "iteration": index+1,
                                 "status": result["status"], "error": result["error"]})
                 if result["status"] != "success":
@@ -97,7 +107,7 @@ def run(args):
         with (output / "predictions.jsonl").open("x", encoding="utf-8") as handle:
             for index, record in enumerate(records, 1):
                 with torch.inference_mode():
-                    result = recognize_crop(record, reader, sync)
+                    result = recognize_crop(record, reader, sync, layouts.get(record["review_id"]))
                 results.append(result)
                 handle.write(json.dumps(result, ensure_ascii=False, allow_nan=False)+"\n")
                 handle.flush()
@@ -105,9 +115,14 @@ def run(args):
                 with Image.open(record["crop_path"]) as original:
                     preview = original.convert("RGB")
                 draw = ImageDraw.Draw(preview)
-                for box in result["line_regions"]:
-                    x1, y1, x2, y2 = box
-                    draw.rectangle((x1, y1, x2-1, y2-1), outline=(0, 255, 0), width=1)
+                if result["line_quads"]:
+                    for quad in result["line_quads"]:
+                        points = [(min(preview.width-1,x),min(preview.height-1,y)) for x,y in quad]
+                        draw.line(points+[points[0]], fill=(0,255,0), width=1)
+                else:
+                    for box in result["line_regions"]:
+                        x1, y1, x2, y2 = box
+                        draw.rectangle((x1, y1, x2-1, y2-1), outline=(0, 255, 0), width=1)
                 preview.save(output / "segmentation_previews" / f"{record['review_id']}.png")
                 if index % 25 == 0 or index == len(records):
                     print(f"{index}/{len(records)} crops; errors={sum(r['status'] != 'success' for r in results)}", flush=True)
@@ -122,6 +137,8 @@ def run(args):
         cached_weights_after = {p.name: sha256(p) for p in cache.glob("*.pth")}
         if source_after != source_before or cached_weights_after != cached_weights_before:
             raise RuntimeError("Source files or cached pretrained weights changed during the run")
+        if layout_manifest and sha256(args.line_layout) != layout_hash:
+            raise RuntimeError("Frozen layout changed during the run")
         summary = summarize(results)
         report = {
             "schema_version": 1, "status": "complete", "run_name": output.name,
@@ -132,12 +149,15 @@ def run(args):
             "model_sha256_after": sha256(weight_path), "cached_weights_unchanged": True,
             "source_workspace_unchanged": True, "actual_device": actual_device,
             "seed": args.seed, "warmup_runs_per_field": args.warmup, "measured_runs_per_crop": 1,
-            "warmup_policy": "First annotation crop per field, repeated before measurements; unseen shapes can incur first-use costs",
+            "warmup_policy": "First accepted-layout annotation crop per field (or first crop in automatic mode), repeated before measurements; unseen shapes can incur first-use costs",
+            "frozen_line_layout": {"version": layout_manifest["version"], "sha256": layout_hash,
+                                   "reviewer_type": layout_manifest["reviewer_type"], "summary": layout_manifest["summary"]} if layout_manifest else None,
             "recognition_settings": {"detector": False, "decoder": "greedy", "batch_size": 1,
                 "languages": ["en"], "allowlist": None, "blocklist": None, "workers": 0,
                 "contrast_ths": 0.0, "paragraph": False, "reformat": False, "download_enabled": False},
             "preprocessing": {"external_resize": None, "external_padding": None,
-                "conversion": "Pillow RGB then OpenCV RGB-to-grayscale", "line_segmentation": SEGMENTATION,
+                "conversion": "Pillow RGB then OpenCV RGB-to-grayscale",
+                "line_segmentation": {"method": layout_manifest["method"], "transform": layout_manifest["transformation"], "unresolved_policy": layout_manifest["unresolved_policy"]} if layout_manifest else SEGMENTATION,
                 "recognizer_resize": "Unmodified EasyOCR internal height/aspect-dependent width preprocessing"},
             "confidence_method": "Character-count-weighted mean of EasyOCR returned region confidences, excluding inserted newlines; empty output has null score",
             "raw_text_assembly": "Preserve each returned string; join regions/lines top-to-bottom with actual newlines; no spelling/case/reference correction",
@@ -157,6 +177,8 @@ def run(args):
                 "English pretrained vocabulary may not cover every visible symbol or script",
                 "No accuracy, independence, training, model selection or fine-tuning claim is made"],
         }
+        if layout_manifest:
+            report["limitations"][0] = "Fixed upstream geometry was visually reviewed by AI, not independently adjudicated by a human; it is diagnostic layout information, not automatic deployment performance"
         (output / "report.json").write_text(json.dumps(report, indent=2)+"\n")
         lines = ["# EasyOCR recognition-only crop run", "", f"Actual recognizer device: **{actual_device}**. All {len(records)} crop IDs attempted.", "",
                  "| Set | Field | Completed | Errors | Empty | Multi-line candidates | Recognition median / p95 ms | Crop median / p95 ms |",
@@ -167,7 +189,7 @@ def run(args):
         lines += ["", "Frozen weights and source/transcription hashes passed before/after checks. No reference matching, training or accuracy scoring was performed.",
                   "", "Inspect `segmentation_previews/` and `predictions.jsonl` before trusting line layout. `predictions.csv` is the compact raw export.",
                   "`report.json` contains complete settings/timing boundaries/limitations. `environment.json` records the actual device and versions.",
-                  "", "All line regions—including single-band cases—are unverified candidates. No claim of correct segmentation or dataset independence is made.",
+                  "", "Fixed layouts, when supplied, are AI-reviewed diagnostic geometry; automatic layouts remain unverified candidates. No independent human review or dataset independence is claimed.",
                   "Median/p95 describe one pass across successful heterogeneous crops, not repeated measurements of a fixed input or application throughput.", ""]
         (output / "README.md").write_text("\n".join(lines))
         print(json.dumps(summary, indent=2), flush=True)
@@ -184,6 +206,7 @@ def main():
     parser.add_argument("--device", choices=("cpu", "mps", "cuda"), default="mps")
     parser.add_argument("--warmup", type=int, default=3)
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--line-layout", type=Path, help="Optional frozen manifest.json with adjacent manifest.sha256; unresolved rows never fall back")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.warmup < 1:

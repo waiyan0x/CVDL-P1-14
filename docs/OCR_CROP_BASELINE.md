@@ -28,6 +28,12 @@ choose line boundaries. The existing 157 A and 114 P crops are reported separate
 
 ## Shared line-region method
 
+The frozen, visually reviewed alternative is now documented in
+[OCR_LINE_LAYOUT.md](OCR_LINE_LAYOUT.md). Pass `--line-layout` explicitly to use
+it; the automatic method and historical runs described below remain unchanged.
+Fixed reviewed layout supplies additional upstream information and is reported
+as a separate recognition diagnostic, not automatic segmentation performance.
+
 `backend/app/evaluation/ocr_crop_baseline.py::segment_lines` supplies the same
 field-independent, deterministic image-only method for both sets. Its versioned
 parameters are recorded in each run's `report.json`:
