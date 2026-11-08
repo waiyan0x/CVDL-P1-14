@@ -1,4 +1,3 @@
-import {health} from '../core/api.js';
 import {el} from '../core/dom.js';
 
 const pages = [['/detect', 'Detect'], ['/live', 'Live'], ['/evaluation', 'Evaluation'], ['/models', 'Models & Method']];
@@ -9,9 +8,5 @@ if (header) {
   mark.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="15" height="17" rx="3"/><path d="M4.5 10.5h15M7.5 6h5.5M15.5 6h1M7.5 19v2.5M16.5 19v2.5M2.5 8.5v3M21.5 8.5v3"/><circle cx="8" cy="15.5" r="1" fill="white"/><circle cx="16" cy="15.5" r="1" fill="white"/></svg>';
   const nav = el('nav', {class: 'nav', 'aria-label': 'Primary'}, el('a', {class: 'brand', href: '/detect'}, mark, 'EDS Reader'));
   pages.forEach(([href, label]) => nav.append(el('a', {href, 'aria-current': href === current ? 'page' : null}, label)));
-  const models = el('span', {}, 'checking models');
-  const band = el('div', {class: 'route-band'}, el('div', {}, el('span', {}, 'sg bus eds'), models, el('span', {class: 'route-band-end'}, 'local demo')));
-  header.replaceChildren(nav, band);
-  health().then(status => { models.textContent = status.ready ? 'models ready' : 'models not loaded'; })
-    .catch(() => { models.textContent = 'server not reachable'; });
+  header.replaceChildren(nav);
 }

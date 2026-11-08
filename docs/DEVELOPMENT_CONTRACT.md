@@ -4,7 +4,7 @@ The visual design takes its layout cues from TinyBus (https://tinybus.phrypy.dev
 in black, white and grey only. Use four pages: `/detect` (also `/`), `/live`,
 `/evaluation`, `/models`. Native HTML, CSS and ES modules; self-hosted Space
 Grotesk and IBM Plex Mono; original photos/crops in colour. Keep the top
-navigation, route band, centred page heading, image/result columns, segmented
+navigation, centred page heading, image/result columns, segmented
 controls and compact result cards, responsive at phone, tablet and desktop
 widths. No fake
 predictions, fabricated confidence or unverified accuracy figures.
