@@ -1,10 +1,19 @@
 # Object detection handoff
 
-This is the stopping point for Brendan's object-detection work on
-`bren-object-detection`. Do not restart training or reopen the held-out test merely
-to reproduce the existing numbers. The committed branch tip is `58e4030`, which
-includes the selected-detector application integration. The three-model benchmark
-and its evidence are recorded as `baseline-01`.
+The latest result is the [reviewed Roboflow v4 run](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md),
+with three trained models, three validation reports and one final YOLO11s test.
+The new YOLO11s checkpoint and dataset payload are local Git-ignored artifacts.
+The [v4 validation crop handoff](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/OCR_HANDOFF.md)
+is committed as individual annotation and detector-predicted crop files.
+The [validation NMS/failure review](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
+and [tested v4 detector configuration](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json)
+are also saved. The v4 checkpoint is now installed as the application default
+and passed a local detection/crop smoke test at confidence `0.50`, NMS `0.70`.
+The older `baseline-01` result and weights remain preserved as historical
+documentation. The sections below describe that earlier baseline separately.
+
+The earlier three-model benchmark and its application integration are recorded
+as `baseline-01`. Keep both completed held-out tests closed for tuning.
 
 ## Completed baseline
 
@@ -22,7 +31,7 @@ and its evidence are recorded as `baseline-01`.
 
 The authoritative numerical summary is [the baseline results](../evaluation/object_detection/bf938f526d2c/runs/baseline-01/RESULTS.md).
 
-## Pending decisions before another detector experiment
+## Pending Jy/Brendan data decisions (on hold)
 
 Brendan and Jy still need to complete the prepared [data-review packet](../evaluation/object_detection/bf938f526d2c/runs/baseline-01/data_review/REVIEW.md):
 
@@ -38,12 +47,16 @@ review changes either, publish a new manifest-backed dataset version and use a n
 run ID to retrain all three candidates. Preserve `baseline-01` unchanged as
 historical evidence. If the review makes no changes, retraining is unnecessary.
 
-The only strict Task 2 comparison still worth adding is a validation-only NMS IoU
-comparison, for example `0.50` versus `0.70`, because the completed run swept the
-confidence threshold but retained NMS IoU `0.70`. Do not use the held-out test to
-tune this setting.
+The v4 validation-only NMS IoU `0.50` versus `0.70` comparison is now recorded
+in the [review](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md).
+NMS `0.50` had a small validation advantage, but the existing final test belongs
+to the originally selected `0.70` setting. Keep that tested configuration fixed.
+If a future revision selects `0.50`, use a new independent held-out set.
 
 ## Application and OCR continuation for Cody
+
+Cody should start with the [OCR handoff README](OCR_CODY_HANDOFF.md) for the
+committed crop package, reviewed-text workflow and three-engine comparison steps.
 
 The committed detector integration covers model loading, stable four-class API
 labels, multiple-display association, uploaded-video decoding and a simulated
@@ -55,6 +68,10 @@ real EasyOCR asset installation/verification, raw OCR timing observations and
 graceful behaviour when the route-reference CSV is missing. It does **not** prove
 OCR accuracy because no reviewed transcription manifest is available. Tesseract,
 fine-tuned TrOCR, a physical camera and moving-bus field testing remain pending.
+For the new v4 detector, Cody can pull the crop folder and use its manifest to
+review actual predicted text regions. Its transcription template is blank;
+reviewed text must be entered before measuring OCR accuracy. A separate local
+ZIP is available for direct transfer if preferred.
 
 Do not add the loose root-level `yolo11n.pt` file to a commit. Model weights and
 local caches are generated artifacts, not source files.
@@ -77,7 +94,7 @@ local caches are generated artifacts, not source files.
 Run from the repository root in PowerShell:
 
 ```powershell
-# Confirm that the selected checkpoint is present and matches the saved hash.
+# Confirm that the v4 default checkpoint is present and matches the saved hash.
 venv\detector\Scripts\python.exe scripts\install_selected_detector.py --verify-only
 
 # Review the current working state.

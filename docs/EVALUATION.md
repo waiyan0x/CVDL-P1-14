@@ -8,9 +8,21 @@ Tesseract and fine-tuned TrOCR remain pending. Reported text, engine-specific
 confidence and processing time form a functional comparison, not an accuracy
 measurement without reviewed transcriptions.
 
-## Selected four-class detector measurement
+## Latest four-class detector experiment
 
-The current selected detector benchmark is recorded under
+The corrected Roboflow v4 dataset was used for `v4-reviewed-01`: all three
+models have training and validation records, and validation-selected YOLO11s has
+a final held-out test. Its validation mAP50:95 is `0.3510`; test mAP50:95 is
+`0.3270` at confidence `0.50` and NMS IoU `0.70`. The complete table, per-class
+AP, run settings and evidence paths are in
+[`RESULTS.md`](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
+This checkpoint is now installed as the application default; the earlier
+baseline is preserved as historical evidence. The human v4 annotation review
+and real moving-bus evaluation remain open.
+
+## Earlier application detector measurement
+
+The earlier application detector benchmark is recorded under
 `evaluation/object_detection/bf938f526d2c/runs/baseline-01/`. YOLO11s was selected
 using validation mAP50:95 (`0.4274`) with 640-pixel input, confidence `0.20` and NMS
 IoU `0.70`. It detects panel, number, route and destination classes. See

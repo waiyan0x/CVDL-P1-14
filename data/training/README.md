@@ -1,5 +1,39 @@
 # Final datasets for model training
 
+## New Roboflow v4 export (local, review required)
+
+The corrected version is now `data/training/2026-11-05-roboflow-v4-reviewed/`.
+It has a verified `preparation_manifest.json` and passed the automated audit:
+735 train, 53 validation and 53 test images, with no flagged cross-split similar
+pairs or marked-up images. Nine training variants from three overlapping source
+families were excluded; the source export and held-out images were preserved.
+The current detector run `v4-reviewed-01` used this corrected version. See its
+[training, validation and final-test results](../../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
+Human review of all four class semantics, negatives and source/capture records
+remains necessary. Both local dataset folders are ignored by Git.
+
+The supplied `Front EDS.v4i.coco` export was copied without modifying its files to
+`data/training/2026-11-05-roboflow-v4/` on 2026-11-05. Its 855 files (142.2 MiB)
+were SHA-256 compared with the supplied folder; all copies matched. The export
+contains 744 train, 53 validation and 53 test images, with 2,784 / 221 / 171
+boxes and 147 / 10 / 12 zero-box images. It retains the four active EDS classes
+and an unused zero-box parent category.
+
+The automated audit passed structural checks but **did not pass readiness**:
+it flagged six similar-scene train/validation or train/test pairs and three
+`annotated_` training images with drawn-on boxes. The full local report is
+`.runtime/front-eds-v4-source-audit.json`. Review those cases, source/capture
+groups and zero-box semantics with Jy before preparing a new benchmark. This
+Roboflow export has no project integrity/augmentation manifest and cannot be
+loaded by the strict detector training script as-is. Do not invent a manifest
+or use its validation/test splits to choose changes without resolving overlap.
+
+The v4 payload is ignored by Git under the repository's dataset policy; a branch
+pull does not download it. The previous `2026-10-30-torchvision` benchmark input
+and `baseline-01` results remain unchanged. Source metadata in the export states
+Roboflow Front EDS v4, exported 2026-11-05, with a CC BY 4.0 notice; the individual
+image source and capture/permission register still need review.
+
 ## Current local inventory
 
 Verified on **2026-10-29** by counting image files and matching them one-to-one

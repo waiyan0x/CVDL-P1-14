@@ -43,6 +43,18 @@ def _artifacts(path: Path, root: Path) -> dict:
 def model_catalog(settings, pipeline=None) -> dict:
     root = settings.root
     detector = settings.detector_path
+    detector_hash = file_hash(detector) if detector.is_file() else None
+    v4_hash = "97150601de39a999754015648cad2ef930842d52e8e37eb77d7576ffe2da33b5"
+    baseline_hash = "01d832cb6eda71dcf4a88e6ebbafc080f9dc299be8161c76ab15c75f7c60c2e3"
+    if detector_hash == v4_hash or (detector_hash is None and "01760a841333" in str(detector)):
+        detector_id, expected_hash, operating_confidence = "eds-yolo11s-v4-reviewed-01", v4_hash, .50
+        detector_note = "Validation-selected YOLO11s from the reviewed-v4 experiment; human annotation review remains open."
+    elif detector_hash == baseline_hash:
+        detector_id, expected_hash, operating_confidence = "eds-yolo11s-baseline-01", baseline_hash, .20
+        detector_note = "Historical baseline-01 YOLO11s checkpoint."
+    else:
+        detector_id, expected_hash, operating_confidence = "eds-yolo11s-custom", None, None
+        detector_note = "Custom or unverified detector checkpoint; compare its hash with the saved experiment records."
     available = pipeline.ocr.backends() if pipeline is not None else []
     errors = pipeline.ocr.availability() if pipeline is not None and hasattr(pipeline.ocr, "availability") else {}
     common = "An engine-specific heuristic, not calibrated accuracy; confidence scores cannot rank different engines."
@@ -71,11 +83,11 @@ def model_catalog(settings, pipeline=None) -> dict:
         engine["artifact_files"] = _artifacts(Path(engine["path"]), root) if engine["id"] == "tesseract" and engine["path"] else (
             _artifacts(root / engine["path"], root) if engine["path"] else {})
     return {
-        "detector": {"id": "eds-yolo11s-baseline-01", "name": "Selected fine-tuned YOLO11s", "path": _display_path(detector, root),
+        "detector": {"id": detector_id, "name": "Selected fine-tuned YOLO11s", "path": _display_path(detector, root),
                      "available": detector.is_file(), "version": _version("ultralytics"),
-                     "sha256": file_hash(detector) if detector.is_file() else None,
+                     "sha256": detector_hash,
                      "artifact_files": _artifacts(detector, root),
-                     "filename_note": "Validation selected YOLO11s from the three-model baseline benchmark.",
+                     "filename_note": detector_note,
                      "classes": [
                          {"id": 0, "label": "front_eds", "api_label": "eds", "used": True},
                          {"id": 1, "label": "front_eds_num", "api_label": "bus_number", "used": True},
@@ -85,8 +97,8 @@ def model_catalog(settings, pipeline=None) -> dict:
                      "training_class_filter": [0, 1, 2, 3], "device": settings.detector_device,
                      "image_size": settings.detector_image_size,
                      "confidence_definition": "YOLO confidence that a box contains its predicted class; not OCR correctness or model accuracy.",
-                     "operating_confidence": .20, "nms_iou": settings.detector_nms_iou,
-                     "checkpoint_sha256_expected": "01d832cb6eda71dcf4a88e6ebbafc080f9dc299be8161c76ab15c75f7c60c2e3",
+                     "operating_confidence": operating_confidence, "nms_iou": settings.detector_nms_iou,
+                     "checkpoint_sha256_expected": expected_hash,
                      "note": "Panel, number, route and destination are all requested. Model labels are translated explicitly to the stable API labels."},
         "ocr_engines": engines,
         "pipeline": [

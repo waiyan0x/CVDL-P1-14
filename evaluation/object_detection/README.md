@@ -2,7 +2,19 @@
 
 ## Current handoff
 
-`bf938f526d2c/runs/baseline-01/` is the completed three-model benchmark. YOLO11s
+The latest completed experiment is
+[`01760a841333/runs/v4-reviewed-01/`](01760a841333/runs/v4-reviewed-01/RESULTS.md):
+YOLO11n, YOLO11s and DETR were trained and compared on the corrected Roboflow v4
+dataset; only validation-selected YOLO11s received a final held-out test. The
+selected checkpoint uses confidence `0.50` and NMS IoU `0.70` for this run. Its
+validation mAP50:95 was `0.3510`, and test mAP50:95 was `0.3270`. The old
+`baseline-01` result below remains a separate historical dataset/run.
+The [validation-only NMS and failure review](01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
+and [v4 configuration](01760a841333/runs/v4-reviewed-01/detector_config.json)
+are saved separately. The app now defaults to the v4 checkpoint at confidence
+`0.50` and NMS `0.70`; the earlier baseline remains documented and preserved.
+
+`bf938f526d2c/runs/baseline-01/` is the earlier three-model benchmark. YOLO11s
 was selected using validation mAP50:95, and the held-out test has already been
 run. Do not overwrite, delete or retune this run using its test results. Start
 with [RESULTS.md](bf938f526d2c/runs/baseline-01/RESULTS.md) and the repository

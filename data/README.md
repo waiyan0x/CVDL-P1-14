@@ -56,6 +56,14 @@ copies. No history rewrite is part of this workflow.
 
 ## Current training inputs
 
+A newer local `training/2026-11-05-roboflow-v4/` export was imported, then a
+separate `training/2026-11-05-roboflow-v4-reviewed/` version was created after
+excluding nine overlapping training variants. The corrected version passed the
+automated readiness audit and supports the [v4 detector run](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
+The earlier `training/2026-10-30-torchvision/` export and `baseline-01` results
+are preserved. See [training/README.md](training/README.md) for the provenance
+limits and local payload policy.
+
 The current **`training/2026-10-24/`** local inventory is **479 images**:
 420 train, 39 validation, 20 test (verified against image files and COCO records
 on 2026-10-29). Its Roboflow training metadata records 140 source names with three

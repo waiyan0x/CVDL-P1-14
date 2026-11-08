@@ -12,7 +12,7 @@ AnalysisStatus = Literal['no_eds', 'unreadable', 'partial', 'unknown_match', 'ma
 class FrameOptions(BaseModel):
     model_config = ConfigDict(allow_inf_nan=False)
     backend: Backend = 'easyocr'
-    detection: float = Field(.20, ge=.05, le=.95)
+    detection: float = Field(.50, ge=.05, le=.95)
     ocr_threshold: float = Field(.25, ge=0, le=1)
     similarity: float = Field(.7, ge=0, le=1)
     session_id: str = Field(default_factory=lambda: str(uuid4()), min_length=1, max_length=100)
