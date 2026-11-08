@@ -1,4 +1,4 @@
-"""Run frozen EasyOCR weights on A/P validation crops, without matching or scoring."""
+"""Run frozen EasyOCR or public TrOCR on A/P crops without matching or scoring."""
 
 import argparse
 from datetime import datetime, timezone
@@ -7,6 +7,7 @@ import json
 import os
 from pathlib import Path
 import platform
+import shutil
 import subprocess
 import sys
 import traceback
@@ -26,7 +27,6 @@ def snapshot(root):
 
 def run(args):
     import csv
-    import easyocr
     import numpy as np
     import torch
     from PIL import Image, ImageDraw
@@ -46,19 +46,38 @@ def run(args):
         layout_manifest, layouts = load_layout(args.line_layout.resolve(), records)
         layout_hash = sha256(args.line_layout.resolve())
     source_before = snapshot(workspace)
-    weight_path = cache / "english_g2.pth"
+    engine = args.engine
+    if engine == "trocr" and not layout_manifest:
+        raise ValueError("TrOCR comparison requires the shared frozen --line-layout")
+    # Actual loading exhausted this Mac's disk through memory/swap pressure.
+    # This operational margin is not a model requirement or performance target.
+    if engine == "trocr" and shutil.disk_usage(ROOT).free < 3 * 1024**3:
+        raise RuntimeError("TrOCR run blocked: free at least 3 GiB on the workspace volume before loading; a previous load exhausted disk space")
+    weight_path = cache / ("english_g2.pth" if engine == "easyocr" else "model.safetensors")
     weight_before = sha256(weight_path)
-    cached_weights_before = {p.name: sha256(p) for p in cache.glob("*.pth")}
+    cached_files = sorted(p for p in cache.iterdir() if p.is_file())
+    cached_weights_before = {p.name: sha256(p) for p in cached_files}
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
     sync = torch.mps.synchronize if args.device == "mps" else torch.cuda.synchronize if args.device == "cuda" else lambda: None
     output.mkdir(parents=True, exist_ok=False)
     started = datetime.now(timezone.utc).isoformat()
     try:
-        reader = easyocr.Reader(["en"], gpu=False if args.device == "cpu" else args.device,
-                                detector=False, recognizer=True, model_storage_directory=str(cache),
-                                user_network_directory=str(cache / "user_network"),
-                                download_enabled=False, verbose=False)
+        if engine == "easyocr":
+            import easyocr
+            reader = easyocr.Reader(["en"], gpu=False if args.device == "cpu" else args.device,
+                                    detector=False, recognizer=True, model_storage_directory=str(cache),
+                                    user_network_directory=str(cache / "user_network"),
+                                    download_enabled=False, verbose=False)
+            model_name = "EasyOCR English generation-2 pretrained recognizer"
+            model_provenance = {"easyocr_version": easyocr.__version__}
+        else:
+            from backend.app.evaluation.trocr_crop_reader import TrOCRCropReader
+            model_provenance = json.loads((cache / "provenance.json").read_text())
+            if model_provenance.get("repository") != "microsoft/trocr-base-printed":
+                raise ValueError("Expected public pretrained TrOCR provenance")
+            reader = TrOCRCropReader(cache, args.device, args.max_new_tokens)
+            model_name = "microsoft/trocr-base-printed (public pretrained)"
         reader.recognizer.eval()
         actual_device = str(next(reader.recognizer.parameters()).device)
         if actual_device.split(":")[0] != args.device:
@@ -88,6 +107,8 @@ def run(args):
             (output / "line_layout.json").write_bytes(args.line_layout.read_bytes())
             (output / "line_layout.sha256").write_text(layout_hash+"  line_layout.json\n")
             (output / "layout_source.py").write_bytes((ROOT / "backend/app/evaluation/ocr_line_layout.py").read_bytes())
+        if engine == "trocr":
+            (output / "engine_source.py").write_bytes((ROOT / "backend/app/evaluation/trocr_crop_reader.py").read_bytes())
         (output / "input_hashes.json").write_text(json.dumps(source_before, indent=2)+"\n")
         (output / "environment_requirements.txt").write_text("\n".join(f"{k}=={v}" for k, v in sorted(environment["packages"].items()))+"\n")
         warmups = []
@@ -99,15 +120,25 @@ def run(args):
                     result = recognize_crop(representative, reader, sync, layouts.get(representative["review_id"]))
                 warmups.append({"review_id": representative["review_id"], "field": field, "iteration": index+1,
                                 "status": result["status"], "error": result["error"]})
+                if engine == "trocr":
+                    warmups[-1]["engine_lines"] = reader.history[:]
+                    reader.history.clear()
                 if result["status"] != "success":
+                    (output / "warmup.json").write_text(json.dumps(warmups, indent=2)+"\n")
                     raise RuntimeError(f"Warmup failed: {result['error']}")
         (output / "warmup.json").write_text(json.dumps(warmups, indent=2)+"\n")
         results = []
+        engine_history = []
+        if engine == "trocr":
+            reader.history.clear()
         (output / "segmentation_previews").mkdir()
         with (output / "predictions.jsonl").open("x", encoding="utf-8") as handle:
             for index, record in enumerate(records, 1):
                 with torch.inference_mode():
                     result = recognize_crop(record, reader, sync, layouts.get(record["review_id"]))
+                if engine == "trocr":
+                    engine_history.append({"review_id": record["review_id"], "lines": reader.history[:]})
+                    reader.history.clear()
                 results.append(result)
                 handle.write(json.dumps(result, ensure_ascii=False, allow_nan=False)+"\n")
                 handle.flush()
@@ -134,7 +165,9 @@ def run(args):
             writer.writeheader()
             writer.writerows({key: row[key] for key in flat_columns} for row in results)
         source_after = snapshot(workspace)
-        cached_weights_after = {p.name: sha256(p) for p in cache.glob("*.pth")}
+        cached_weights_after = {p.name: sha256(p) for p in cache.iterdir() if p.is_file()}
+        if engine == "trocr":
+            (output / "engine_history.json").write_text(json.dumps(engine_history, indent=2, allow_nan=False)+"\n")
         if source_after != source_before or cached_weights_after != cached_weights_before:
             raise RuntimeError("Source files or cached pretrained weights changed during the run")
         if layout_manifest and sha256(args.line_layout) != layout_hash:
@@ -144,9 +177,10 @@ def run(args):
             "schema_version": 1, "status": "complete", "run_name": output.name,
             "started_at_utc": started, "finished_at_utc": datetime.now(timezone.utc).isoformat(),
             "dataset": str(workspace), "split": "valid", "inputs": len(records),
-            "model": "EasyOCR English generation-2 pretrained recognizer",
-            "easyocr_version": easyocr.__version__, "model_sha256_before": weight_before,
+            "engine": engine, "model": model_name, "model_provenance": model_provenance,
+            "model_sha256_before": weight_before,
             "model_sha256_after": sha256(weight_path), "cached_weights_unchanged": True,
+            "model_files_sha256": cached_weights_before,
             "source_workspace_unchanged": True, "actual_device": actual_device,
             "seed": args.seed, "warmup_runs_per_field": args.warmup, "measured_runs_per_crop": 1,
             "warmup_policy": "First accepted-layout annotation crop per field (or first crop in automatic mode), repeated before measurements; unseen shapes can incur first-use costs",
@@ -177,10 +211,19 @@ def run(args):
                 "English pretrained vocabulary may not cover every visible symbol or script",
                 "No accuracy, independence, training, model selection or fine-tuning claim is made"],
         }
+        if engine == "trocr":
+            report["recognition_settings"] = {"detector": False, "decoder": "greedy", "num_beams": 1,
+                "do_sample": False, "batch_size": 1, "use_cache": True, "forced_eos_token_id": None,
+                "max_new_tokens": args.max_new_tokens, "missing_eos_policy": "explicit error; retained token history",
+                "local_files_only": True, "character_restriction": None}
+            report["preprocessing"]["recognizer_resize"] = reader.processor.image_processor.to_dict()
+            report["preprocessing"]["processor_input"] = "Shared grayscale region replicated to three RGB channels"
+            report["confidence_method"] = "Per-line geometric mean of generated token probabilities excluding special tokens; crop character-weighted mean of line scores; not calibrated or comparable with EasyOCR confidence"
+            report["timing"]["recognition_ms"] = "Sum of synchronized wall times around line processor resize/normalization, device transfer, generation, token confidence and text decode"
         if layout_manifest:
             report["limitations"][0] = "Fixed upstream geometry was visually reviewed by AI, not independently adjudicated by a human; it is diagnostic layout information, not automatic deployment performance"
         (output / "report.json").write_text(json.dumps(report, indent=2)+"\n")
-        lines = ["# EasyOCR recognition-only crop run", "", f"Actual recognizer device: **{actual_device}**. All {len(records)} crop IDs attempted.", "",
+        lines = [f"# {model_name} recognition-only crop run", "", f"Actual recognizer device: **{actual_device}**. All {len(records)} crop IDs attempted.", "",
                  "| Set | Field | Completed | Errors | Empty | Multi-line candidates | Recognition median / p95 ms | Crop median / p95 ms |",
                  "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |"]
         for row in summary:
@@ -195,20 +238,30 @@ def run(args):
         print(json.dumps(summary, indent=2), flush=True)
         return report
     except Exception:
-        (output / "failure.json").write_text(json.dumps({"status": "failed", "traceback": traceback.format_exc()}, indent=2)+"\n")
+        failure = {"status": "failed", "traceback": traceback.format_exc()}
+        try:
+            (output / "failure.json").write_text(json.dumps(failure, indent=2)+"\n")
+        except OSError:
+            print("Could not write failure.json; retaining original exception", file=sys.stderr)
         raise
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--workspace", type=Path, default=ROOT / "evaluation/ocr_annotations/v4-reviewed-01")
-    parser.add_argument("--cache", type=Path, default=ROOT / ".cache/easyocr")
+    parser.add_argument("--engine", choices=("easyocr", "trocr"), default="easyocr")
+    parser.add_argument("--cache", type=Path, help="Defaults to the selected engine cache under .cache/")
+    parser.add_argument("--max-new-tokens", type=int, default=64, help="TrOCR per-line generation cap; missing EOS is an error")
     parser.add_argument("--device", choices=("cpu", "mps", "cuda"), default="mps")
     parser.add_argument("--warmup", type=int, default=3)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--line-layout", type=Path, help="Optional frozen manifest.json with adjacent manifest.sha256; unresolved rows never fall back")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
+    if args.cache is None:
+        args.cache = ROOT / ".cache" / ("easyocr" if args.engine == "easyocr" else "trocr-base-printed")
+    if not 1 <= args.max_new_tokens <= 256:
+        parser.error("max-new-tokens must be between 1 and 256")
     if args.warmup < 1:
         parser.error("At least one warmup per field is required")
     run(args)

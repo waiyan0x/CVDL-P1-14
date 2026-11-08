@@ -1,0 +1,14 @@
+{
+  "status": "failed_before_inference",
+  "engine": "trocr",
+  "model": "microsoft/trocr-base-printed",
+  "revision": "93450be3f1ed40a930690d951ef3932687cc1892",
+  "actual_parameter_device_observed": "mps:0",
+  "stage": "writing environment.json after model load",
+  "error": "OSError: [Errno 28] No space left on device",
+  "predictions_completed": 0,
+  "accuracy_calculated": false,
+  "record_origin": "Reconstructed from captured process stderr; initial failure.json write also failed because disk was full",
+  "next_action": "User chose another machine later; do not retry locally",
+  "loader_warning": "Unused encoder.pooler.dense bias/weight were newly initialized by the Transformers loader; no training was performed"
+}

@@ -4,6 +4,11 @@
 reference matching or scoring. This is a crop diagnostic, not an end-to-end
 application benchmark or an assessment requirement.
 
+The runner also supports the public TrOCR baseline with `--engine trocr` and
+mandatory frozen layouts. See [model selection status](OCR_MODEL_SELECTION.md)
+for the completed fixed-layout EasyOCR runs and the deferred TrOCR execution.
+The default remains EasyOCR; historical source snapshots are unchanged.
+
 ## Reproduce
 
 Run from the repository root with the installed project environment and cached
