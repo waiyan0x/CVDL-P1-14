@@ -50,6 +50,12 @@ The review script requires a fresh output directory and never reads the test
 split. The second command checks the local v4 checkpoint through the app's
 detection/grouping/crop path without changing the app's default model.
 
+For Cody's OCR training handoff, [`export_ocr_handoff_crops.py`](export_ocr_handoff_crops.py)
+supports `--split train` to export annotation crops without loading a detector.
+It verifies the reviewed-v4 manifest and refuses a nonempty destination. See
+the [OCR handoff](../docs/OCR_CODY_HANDOFF.md) for the local transfer archives
+and blank transcription template.
+
 ```powershell
 venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11n --run-id baseline-01
 venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11s --run-id baseline-01
