@@ -16,7 +16,7 @@ class Submission:
 
 
 def parse_submission(file: UploadFile | None = File(None), sample_id: int | None = Form(None),
-                     backend: str = Form('easyocr'), detection: float = Form(.3),
+                     backend: str = Form('easyocr'), detection: float = Form(.50),
                      ocr_threshold: float = Form(.25), similarity: float = Form(.7),
                      session_id: str | None = Form(None), frame_id: int = Form(0), source: str = Form('image'),
                      source_timestamp_ms: float = Form(0), captured_at: str | None = Form(None)):

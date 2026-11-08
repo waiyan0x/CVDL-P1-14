@@ -1,8 +1,9 @@
-"""Presentation samples and original project test images, with stable registry IDs."""
+"""Reviewed subcategory samples and original project test images."""
+import json
+
 from ..errors import AppError
 
-PRESENTATION = [('01-daylight-329.jpg', 'Daylight'), ('02-night-965.jpg', 'Night, wet glass'),
-                ('03-angle-181.jpg', 'Angled, double deck'), ('04-stop-133.jpg', 'At stop, partial view')]
+
 PREFERRED = ['ea005707__9aebe21b-3.jpg', 'fce01393-3b0671f0-272.jpg',
              '49775ed2__a5dcfafd-122.jpg', '0c7ddfa8-27d65774-133.jpg']
 
@@ -10,10 +11,16 @@ PREFERRED = ['ea005707__9aebe21b-3.jpg', 'fce01393-3b0671f0-272.jpg',
 class SampleRegistry:
     def __init__(self, root):
         self.entries = []
-        for name, description in PRESENTATION:
-            path = root / 'data/samples' / name
-            if path.is_file():
-                self.entries.append((path, f'Sample {len(self.entries) + 1}', description))
+        sample_root = (root / 'data/samples').resolve()
+        manifest = sample_root / 'manifest.json'
+        if manifest.is_file():
+            for sample in json.loads(manifest.read_text(encoding='utf-8'))['samples']:
+                path = (root / sample['path']).resolve()
+                if not path.is_relative_to(sample_root):
+                    raise ValueError('Sample manifest path must stay inside data/samples')
+                if path.is_file():
+                    self.entries.append((path, sample['subcategory'],
+                                         f"{sample['category']}: {sample['observation']}"))
         originals = sorted((root / 'data/images/test').glob('*.jpg'),
                            key=lambda path: (PREFERRED.index(path.name) if path.name in PREFERRED else 99, path.name))
         for index, path in enumerate(originals, 1):

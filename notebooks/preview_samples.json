@@ -1,0 +1,185 @@
+{
+  "cutoff": "2026-10-24",
+  "reviewed_on": "2026-10-25",
+  "category_guide": "data/IMAGE_CATEGORIES.md",
+  "selection": "Hand-reviewed representative examples; categories overlap. Not exhaustive category labels or category counts.",
+  "categories": [
+    {
+      "name": "Viewing angle and display location",
+      "samples": [
+        {
+          "path": "data/raw/2026-10-24/06444756-98a982e6-176.jpg",
+          "sha256": "cddbfeed9aa0d73e64d3c57aebd78ad306e9d7e254c0789d675501965e6708c2",
+          "observation": "Straight-on front panel at a sheltered stop."
+        },
+        {
+          "path": "data/raw/2026-10-24/903f73c7-bus_34.jpg",
+          "sha256": "440da022e65a2925525135ad5369a0e5eb7fbf7d6b6d1a79c8f69220b78198fa",
+          "observation": "Three-quarter side view: front and side displays occupy different faces."
+        },
+        {
+          "path": "data/raw/2026-10-24/IMAGE 2026-10-23 22_16_53.jpg",
+          "sha256": "dbfe8995005ac63eec24c7680e8ef44c1e3864263b3d0598d8debc62d3e0367c",
+          "observation": "Rear view: rear EDS is excluded under the annotation guide."
+        }
+      ]
+    },
+    {
+      "name": "Distance and image quality",
+      "samples": [
+        {
+          "path": "data/raw/2026-10-24/51415b5c-64c0f70b-124.jpg",
+          "sha256": "2972a5f562e67e62b71e949e53d58cfda8981e7200bf68cf3bff77a122174c00",
+          "observation": "Close front view with legible LED text."
+        },
+        {
+          "path": "data/raw/2026-10-24/b66a7806-12fea725-76.jpg",
+          "sha256": "9640a2755ef61fdd97cd79aaa0acc77a5cfc2f086ef0c8c816759c58d4677dcd",
+          "observation": "Low-resolution front view; small characters are difficult to separate."
+        },
+        {
+          "path": "data/raw/2026-10-24/e9d46895-80ec3d7b-130.jpg",
+          "sha256": "05e31a65eba10310df26eeb3dec80fe91d4636f975826819361537cfd69532fc",
+          "observation": "Distant bus occupies a small fraction of the frame."
+        }
+      ]
+    },
+    {
+      "name": "Lighting and environment",
+      "samples": [
+        {
+          "path": "data/raw/2026-10-24/09202387-00ec58da-983.jpg",
+          "sha256": "56e350dbcea69618c73d1e6c6bdd760d1b82fe62f2d581979efa0324e5a8ca34",
+          "observation": "Bright daylight with windshield reflections."
+        },
+        {
+          "path": "data/raw/2026-10-24/8c616d8e__da3d95ee-641.jpg",
+          "sha256": "50a636bc4cf5e7772371d6def8c4e9dcf1a8de83a79d0764951f43385e12bd6f",
+          "observation": "Dusk with headlight flare and reduced ambient light."
+        },
+        {
+          "path": "data/raw/2026-10-24/97d32566__18ed301a-1205.jpg",
+          "sha256": "03c3c8473598fd6e81a1938d185256fb3fb181e7a5e3ba8704069e8f10250bb0",
+          "observation": "Night scene: bright LED panel against a dark surrounding scene."
+        }
+      ]
+    },
+    {
+      "name": "EDS text and layout",
+      "samples": [
+        {
+          "path": "data/raw/2026-10-24/34ba8852__c8494b97-1454.jpg",
+          "sha256": "625caa2012f41f6966470cdbb0c3bf5ae1a8c96849c7d5323cf429bf96ad303d",
+          "observation": "Multiple orange text lines; number appears on the right."
+        },
+        {
+          "path": "data/raw/2026-10-24/d4ac80eb-185.jpg",
+          "sha256": "c48d5458e13d9934a007e09141690d8d0b01dd107996835de26bd3853ddb8545",
+          "observation": "Number and stacked text share a wide front panel."
+        },
+        {
+          "path": "data/raw/2026-10-24/IMG_20261024_204126.jpg",
+          "sha256": "fac6a0cf54a5aea69875102b60b83ec91f3945fba65dd438ef6d7b9eee0151b8",
+          "observation": "White/cyan display uses different contrast and spacing."
+        }
+      ]
+    },
+    {
+      "name": "Special display messages",
+      "samples": [
+        {
+          "path": "data/raw/2026-10-24/3cf4b60f-bus_13.jpg",
+          "sha256": "320aa043cb9444aecfde21250336e2719a05008e0ae2498a0332d8126c7515fc",
+          "observation": "Off Service status instead of a normal route destination."
+        },
+        {
+          "path": "data/raw/2026-10-24/IMG20261024204044.jpg",
+          "sha256": "bc4787b676a11b9fddffce5776e4c1c1cf347484b67a078477d62c3e5bf73011",
+          "observation": "Off Service text occupies the front panel without a service number."
+        },
+        {
+          "path": "data/raw/2026-10-24/Screenshot_2026-10-24-20-33-28-57_f9ee0578fe1cc94de7482bd41accb329.jpg",
+          "sha256": "4e9613944c6bd083dc93d335a08e3581588029369855d0ee6e3994394f9d19a9",
+          "observation": "Express wording appears beside an alphanumeric service identifier."
+        }
+      ]
+    },
+    {
+      "name": "Bus and operator variety",
+      "samples": [
+        {
+          "path": "data/raw/2026-10-24/39312fb4-bus_1.jpg",
+          "sha256": "72686c1e0a3591c300dd79c82a3256cefb9009d020842ac9a4c871edcbc0844c",
+          "observation": "Purple/white SBS Transit double-decker."
+        },
+        {
+          "path": "data/raw/2026-10-24/4d6bc22f__6538cf90-752.jpg",
+          "sha256": "7b40fa2fcf1223e99f93ff407c285e1ef7dd8128e0d220de8a0844bd1dae0e3a",
+          "observation": "Red/white SMRT single-decker."
+        },
+        {
+          "path": "data/raw/2026-10-24/ae1a397c__d8c9586d-1457.jpg",
+          "sha256": "c20c88ad860689eec9db92a36b24362deb3336577f8298a990f0dfcb0be5a3d3",
+          "observation": "Green SG Bus livery and a different front-panel housing."
+        }
+      ]
+    },
+    {
+      "name": "Crowded or obstructed scenes",
+      "samples": [
+        {
+          "path": "data/raw/2026-10-24/209ac893-6c0f00ef-14.jpg",
+          "sha256": "e4b250a01c834ed8cde1fd3e820c20c587ff2f820af9594bce15b18db33639b0",
+          "observation": "Two buses and separate front EDS panels in one frame."
+        },
+        {
+          "path": "data/raw/2026-10-24/4ec3e58a-bus_17.jpg",
+          "sha256": "1f75c1ae5726b16e2a5929afb72023da4071b46c6e1178e0c0c2449c1fa470a5",
+          "observation": "Parked buses overlap in a crowded interchange scene."
+        },
+        {
+          "path": "data/raw/2026-10-24/IMG20261022115934.jpg",
+          "sha256": "13ab18c8132d7805074ff6f4a473e5ab9c4359125333978920c11af101ddd525",
+          "observation": "Foreground sign and shelter partly obstruct buses behind them."
+        }
+      ]
+    },
+    {
+      "name": "Distracting text and hard negatives",
+      "samples": [
+        {
+          "path": "data/raw/2026-10-24/IMAGE 2026-10-23 21_56_02.jpg",
+          "sha256": "4b90dcc5438d648c6c2db57758a82980e37d82fc83c932271ec61fc75dbe7a32",
+          "observation": "Berth/service information board: not a bus EDS panel."
+        },
+        {
+          "path": "data/raw/2026-10-24/IMAGE 2026-10-23 22_01_21.jpg",
+          "sha256": "8c5b49670767c9442ba01b3ac4bba263d2d898d03921eb75bcb8653e7a569ad8",
+          "observation": "Bus arrival screen contains service numbers but is not a target display."
+        },
+        {
+          "path": "data/raw/2026-10-24/IMAGE 2026-10-23 22_19_07.jpg",
+          "sha256": "e747c967caeeceb26834e6324e92bc67549d05a3327e0c7c8737251b6dfdbc9b",
+          "observation": "Rear bus view and nearby text are excluded from EDS labelling."
+        }
+      ]
+    }
+  ],
+  "augmentation_samples": [
+    {
+      "path": "data/labelled/2026-10-24/train/06444756-98a982e6-176_jpg.rf.409ad83515b5cc48ff9c0d5145e5ad20.jpg",
+      "sha256": "44cc4e226e5314608f70cc635f88870c9b053752d7bb7fcfe2d376c16d3864ea",
+      "observation": "Sheltered stop; compact two-line LED text."
+    },
+    {
+      "path": "data/labelled/2026-10-24/train/88ceca91__c40d16a8-131M_jpg.rf.a81af12965c459bb37278f24cedf0147.jpg",
+      "sha256": "0bd060f9d279d2adcc3f18486c98ebe43a1899b3e48dc8a398fc9413e0ad13db",
+      "observation": "Daylight; route text and service identifier."
+    },
+    {
+      "path": "data/labelled/2026-10-24/train/97d32566__18ed301a-1205_jpg.rf.2939ca6be514972ef29b01fdf1773072.jpg",
+      "sha256": "513fb6c33403706525c13bb09fef313c86d602d4dae1131f2e2a60ca6b034905",
+      "observation": "Night; bright LED text on a dark background."
+    }
+  ]
+}

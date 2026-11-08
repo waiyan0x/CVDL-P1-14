@@ -1,10 +1,12 @@
 # EDS Reader development contract
 
-The supplied Detect HTML reference defines the visual design. Use four pages:
-`/detect` (also `/`), `/live`, `/evaluation`, `/models`. Native HTML, CSS and ES
-modules; Apple system font; grayscale UI with original photos/crops in colour.
-Keep the reference's top navigation, 1200px content width, generous heading,
-image/result columns, segmented controls and compact result panels. No fake
+The visual design takes its layout cues from TinyBus (https://tinybus.phrypy.dev/)
+in black, white and grey only. Use four pages: `/detect` (also `/`), `/live`,
+`/evaluation`, `/models`. Native HTML, CSS and ES modules; self-hosted Space
+Grotesk and IBM Plex Mono; original photos/crops in colour. Keep the top
+navigation, centred page heading, image/result columns, segmented
+controls and compact result cards, responsive at phone, tablet and desktop
+widths. No fake
 predictions, fabricated confidence or unverified accuracy figures.
 
 ## Modules
@@ -59,7 +61,7 @@ Analysis response:
   "backend":"easyocr",
   "image":"data:image/jpeg;base64,...", "width":1280, "height":720,
   "detections":[{"id":"field-1","display_id":"display-1",
-    "label":"bus_number","box":[1,2,3,4],"confidence":0.9,"source":"model"}],
+    "label":"bus_number","model_label":"front_eds_num","box":[1,2,3,4],"confidence":0.9,"source":"model"}],
   "results":[{"display_id":"display-1","status":"matched","message":"...",
     "screen":{"box":[0,0,100,30],"source":"field_union","confidence":null,
       "crop":"data:image/jpeg;base64,..."},
@@ -103,12 +105,13 @@ confidence; field IDs/numbers link boxes to their single result panel.
 
 ## Evaluation
 
-Compare YOLO + EasyOCR, YOLO + Tesseract and YOLO + supplied fine-tuned TrOCR.
+Compare the selected YOLO11s + EasyOCR, YOLO11s + Tesseract and YOLO11s + supplied fine-tuned TrOCR.
 Same-frame comparison measures behaviour/timing, not accuracy without ground
 truth. Verified reports require reviewed transcriptions, split/hash provenance,
 hardware/settings, exact accuracy/CER and latency protocol. Report known split
 overlap. Historical checkpoint scores are separate from independently verified
-metrics; saved training class filter is [1,2], so these are not whole-EDS scores.
+metrics. The selected detector requests panel, number, route and destination
+classes and maps their model labels explicitly to stable API labels.
 
 ## Verification
 

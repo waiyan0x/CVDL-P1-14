@@ -1,12 +1,35 @@
 # Evaluation evidence
 
-The application compares one YOLO11n detector with three OCR engines: EasyOCR,
-Tesseract and the supplied fine-tuned TrOCR. A same-image comparison runs the
-detector once and shares the resulting boxes/crops. It reports actual text,
-reference matches, engine-specific confidence and processing time. This is a
-functional comparison, not accuracy measurement without reviewed transcriptions.
+The application is designed to compare the validation-selected YOLO11s detector
+with EasyOCR, Tesseract and the supplied fine-tuned TrOCR. A same-image comparison
+runs the detector once and shares the resulting boxes/crops. At the current
+handoff, only real EasyOCR integration observations have been recorded locally;
+Tesseract and fine-tuned TrOCR remain pending. Reported text, engine-specific
+confidence and processing time form a functional comparison, not an accuracy
+measurement without reviewed transcriptions.
 
-## Field-detector measurement
+## Latest four-class detector experiment
+
+The corrected Roboflow v4 dataset was used for `v4-reviewed-01`: all three
+models have training and validation records, and validation-selected YOLO11s has
+a final held-out test. Its validation mAP50:95 is `0.3510`; test mAP50:95 is
+`0.3270` at confidence `0.50` and NMS IoU `0.70`. The complete table, per-class
+AP, run settings and evidence paths are in
+[`RESULTS.md`](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
+This checkpoint is now installed as the application default; the earlier
+baseline is preserved as historical evidence. The human v4 annotation review
+and real moving-bus evaluation remain open.
+
+## Earlier application detector measurement
+
+The earlier application detector benchmark is recorded under
+`evaluation/object_detection/bf938f526d2c/runs/baseline-01/`. YOLO11s was selected
+using validation mAP50:95 (`0.4274`) with 640-pixel input, confidence `0.20` and NMS
+IoU `0.70`. It detects panel, number, route and destination classes. See
+`docs/OBJECT_DETECTION_DEPLOYMENT.md` for installation and the application contract,
+and `docs/OBJECT_DETECTION_HANDOFF.md` for the exact stopping point and remaining work.
+
+## Historical field-detector measurement
 
 Reproduce the committed report:
 

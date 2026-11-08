@@ -16,8 +16,12 @@ def normalise(text: str) -> str:
 
 class RouteMatcher:
     def __init__(self, csv_path: Path):
-        with csv_path.open(newline="", encoding="utf-8-sig") as stream:
-            self.rows = list(csv.DictReader(stream))
+        self.available = csv_path.is_file()
+        if self.available:
+            with csv_path.open(newline="", encoding="utf-8-sig") as stream:
+                self.rows = list(csv.DictReader(stream))
+        else:
+            self.rows = []
 
     def match(self, service: str, destination: str, threshold: float = .7) -> dict:
         service = re.sub(r"\s+", "", service.upper())
@@ -25,7 +29,9 @@ class RouteMatcher:
         candidates = [r for r in self.rows if r["Route number"].upper() == service]
         if not candidates:
             return {"status": "unmatched", "service": None, "endpoint": None,
-                    "similarity": None, "reason": "No exact service match; raw OCR retained.", "routes": []}
+                    "similarity": None,
+                    "reason": "Reference data unavailable; raw OCR retained." if not self.available
+                              else "No exact service match; raw OCR retained.", "routes": []}
         routes = list(dict.fromkeys((r["Origin"], r["Destination"]) for r in candidates))
         reference = [{"origin": a, "destination": b} for a, b in routes]
         observed = normalise(destination)

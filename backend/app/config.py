@@ -15,6 +15,7 @@ class Settings(BaseModel):
     trocr_cache: Path | None = None
     easyocr_cache: Path | None = None
     detector_image_size: int = Field(640, ge=320, le=1920)
+    detector_nms_iou: float = Field(.70, gt=0, le=1)
     torch_threads: int = Field(4, ge=1, le=32)
     max_image_bytes: int = Field(16 * 1024 * 1024, ge=1024)
     max_image_pixels: int = Field(40_000_000, ge=1)
@@ -47,7 +48,10 @@ class Settings(BaseModel):
 
     @property
     def detector_path(self):
-        return self._path(self.detector_weights, 'models/yolo-v6-finetuned/best_v6.pt')
+        return self._path(
+            self.detector_weights,
+            'evaluation/object_detection/01760a841333/runs/v4-reviewed-01/checkpoints/yolo11s-best.pt',
+        )
 
     @property
     def trocr_dir(self):

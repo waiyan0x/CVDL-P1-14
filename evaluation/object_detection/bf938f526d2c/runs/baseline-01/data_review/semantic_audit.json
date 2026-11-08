@@ -1,0 +1,734 @@
+{
+  "dataset": "C:\\Users\\brend\\CVDL-P1-14\\data\\training\\2026-10-30-torchvision",
+  "scope": "original train images plus unaugmented validation/test",
+  "split_counts": {
+    "train": {
+      "original_images": 137,
+      "negative_images": 16,
+      "boxes": 548
+    },
+    "valid": {
+      "original_images": 39,
+      "negative_images": 4,
+      "boxes": 154
+    },
+    "test": {
+      "original_images": 20,
+      "negative_images": 2,
+      "boxes": 83
+    }
+  },
+  "class_counts": {
+    "train": {
+      "front_eds": 161,
+      "front_eds_num": 141,
+      "front_eds_destination": 126,
+      "front_eds_route": 120
+    },
+    "valid": {
+      "front_eds": 44,
+      "front_eds_num": 41,
+      "front_eds_destination": 38,
+      "front_eds_route": 31
+    },
+    "test": {
+      "front_eds": 25,
+      "front_eds_num": 23,
+      "front_eds_destination": 19,
+      "front_eds_route": 16
+    }
+  },
+  "semantic_candidate_images": 15,
+  "semantic_candidate_events": {
+    "panel_without_content": 17
+  },
+  "review_candidates": [
+    {
+      "split": "train",
+      "file_name": "Screenshot_2026-10-24-20-36-12-52_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.4bf33714370a1d5755de8af86aa3f4c5.jpg",
+      "width": 2616,
+      "height": 1140,
+      "negative": false,
+      "capture_group": "screenshot-minute:screenshot_2026-10-24-20-36",
+      "reasons": [
+        "panel without content"
+      ],
+      "details": [
+        {
+          "type": "panel_without_content"
+        },
+        {
+          "type": "panel_without_content"
+        }
+      ],
+      "severity": 2,
+      "overlay_relative": "candidate_overlays/case_01.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "e1d7ff20-bus_36_jpg.rf.50931d4347074a989c99c26981eb4cfe.jpg",
+      "width": 2048,
+      "height": 1365,
+      "negative": false,
+      "capture_group": null,
+      "reasons": [
+        "panel without content"
+      ],
+      "details": [
+        {
+          "type": "panel_without_content"
+        },
+        {
+          "type": "panel_without_content"
+        }
+      ],
+      "severity": 2,
+      "overlay_relative": "candidate_overlays/case_02.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "Screenshot_2026-10-24-20-34-31-17_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0c9ce34e0609d76a33d8948faf1ad1af.jpg",
+      "width": 2616,
+      "height": 1140,
+      "negative": false,
+      "capture_group": "screenshot-minute:screenshot_2026-10-24-20-34",
+      "reasons": [
+        "panel without content"
+      ],
+      "details": [
+        {
+          "type": "panel_without_content"
+        }
+      ],
+      "severity": 1,
+      "overlay_relative": "candidate_overlays/case_03.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "c4072ca1-979_jpg.rf.e46a41d6f2ddcd74f98abfb0fd26f414.jpg",
+      "width": 1440,
+      "height": 1080,
+      "negative": false,
+      "capture_group": null,
+      "reasons": [
+        "panel without content"
+      ],
+      "details": [
+        {
+          "type": "panel_without_content"
+        }
+      ],
+      "severity": 1,
+      "overlay_relative": "candidate_overlays/case_04.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "3cf4b60f-bus_13_jpg.rf.1920692b5d8ddaccd09d59ff13130a55.jpg",
+      "width": 800,
+      "height": 450,
+      "negative": false,
+      "capture_group": null,
+      "reasons": [
+        "panel without content"
+      ],
+      "details": [
+        {
+          "type": "panel_without_content"
+        }
+      ],
+      "severity": 1,
+      "overlay_relative": "candidate_overlays/case_05.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "e89dca00-4ec58783-51_jpg.rf.43988cbd4784426fad460ef0275a94f8.jpg",
+      "width": 1170,
+      "height": 2080,
+      "negative": false,
+      "capture_group": null,
+      "reasons": [
+        "panel without content"
+      ],
+      "details": [
+        {
+          "type": "panel_without_content"
+        }
+      ],
+      "severity": 1,
+      "overlay_relative": "candidate_overlays/case_06.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "ccd80ac0-bus_3_jpg.rf.656e5f4a1a8ae4e715b4a75146d9cddd.jpg",
+      "width": 960,
+      "height": 640,
+      "negative": false,
+      "capture_group": null,
+      "reasons": [
+        "panel without content"
+      ],
+      "details": [
+        {
+          "type": "panel_without_content"
+        }
+      ],
+      "severity": 1,
+      "overlay_relative": "candidate_overlays/case_07.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "IMAGE_2026-10-23_21_55_36_jpg.rf.6b34543973a4300e76a0863d3af8916c.jpg",
+      "width": 960,
+      "height": 1280,
+      "negative": false,
+      "capture_group": "image-minute:image_2026-10-23_21_55",
+      "reasons": [
+        "panel without content"
+      ],
+      "details": [
+        {
+          "type": "panel_without_content"
+        }
+      ],
+      "severity": 1,
+      "overlay_relative": "candidate_overlays/case_08.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "IMG20261024204044_jpg.rf.1f4949e47a885dd0b8edbf5356241a43.jpg",
+      "width": 2304,
+      "height": 4096,
+      "negative": false,
+      "capture_group": "img-minute:img202610242040",
+      "reasons": [
+        "panel without content"
+      ],
+      "details": [
+        {
+          "type": "panel_without_content"
+        }
+      ],
+      "severity": 1,
+      "overlay_relative": "candidate_overlays/case_09.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "209ac893-6c0f00ef-14_jpg.rf.d7caaf301e064d352d2523c0411f5c71.jpg",
+      "width": 640,
+      "height": 360,
+      "negative": false,
+      "capture_group": null,
+      "reasons": [
+        "panel without content"
+      ],
+      "details": [
+        {
+          "type": "panel_without_content"
+        }
+      ],
+      "severity": 1,
+      "overlay_relative": "candidate_overlays/case_10.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "Screenshot_2026-10-24-20-36-01-26_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.bf0c2e35ae07633bbe888410476aa9d4.jpg",
+      "width": 2616,
+      "height": 1140,
+      "negative": false,
+      "capture_group": "screenshot-minute:screenshot_2026-10-24-20-36",
+      "reasons": [
+        "panel without content"
+      ],
+      "details": [
+        {
+          "type": "panel_without_content"
+        }
+      ],
+      "severity": 1,
+      "overlay_relative": "candidate_overlays/case_11.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "Screenshot_2026-10-24-20-35-26-38_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c77a4621b99c72961515489233fc3725.jpg",
+      "width": 2616,
+      "height": 1140,
+      "negative": false,
+      "capture_group": "screenshot-minute:screenshot_2026-10-24-20-35",
+      "reasons": [
+        "panel without content"
+      ],
+      "details": [
+        {
+          "type": "panel_without_content"
+        }
+      ],
+      "severity": 1,
+      "overlay_relative": "candidate_overlays/case_12.jpg"
+    },
+    {
+      "split": "valid",
+      "file_name": "e273f0c9-8d3c1a80-132_jpg.rf.1fd6f21632e707a1913f6e07d8b68d6c.jpg",
+      "width": 1080,
+      "height": 810,
+      "negative": false,
+      "capture_group": null,
+      "reasons": [
+        "panel without content"
+      ],
+      "details": [
+        {
+          "type": "panel_without_content"
+        }
+      ],
+      "severity": 1,
+      "overlay_relative": "candidate_overlays/case_13.jpg"
+    },
+    {
+      "split": "test",
+      "file_name": "IMAGE_2026-10-23_21_55_15_jpg.rf.c10c50d17372d129eb54404b81fa049d.jpg",
+      "width": 960,
+      "height": 1280,
+      "negative": false,
+      "capture_group": "image-minute:image_2026-10-23_21_55",
+      "reasons": [
+        "panel without content"
+      ],
+      "details": [
+        {
+          "type": "panel_without_content"
+        }
+      ],
+      "severity": 1,
+      "overlay_relative": "candidate_overlays/case_14.jpg"
+    },
+    {
+      "split": "test",
+      "file_name": "Screenshot_2026-10-24-20-32-06-12_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.1804c20abcac5a3caf5ffcbae15a6425.jpg",
+      "width": 2616,
+      "height": 1140,
+      "negative": false,
+      "capture_group": "screenshot-minute:screenshot_2026-10-24-20-32",
+      "reasons": [
+        "panel without content"
+      ],
+      "details": [
+        {
+          "type": "panel_without_content"
+        }
+      ],
+      "severity": 1,
+      "overlay_relative": "candidate_overlays/case_15.jpg"
+    }
+  ],
+  "negative_images": [
+    {
+      "split": "train",
+      "file_name": "IMG20261024203742_jpg.rf.afdc1c6039f6e1b5869993842dee5e1c.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "Screenshot_2026-10-24-20-31-27-83_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.eda9981afefd582d596d9664b22f58bc.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "Screenshot_2026-10-24-20-31-13-43_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ad07b88546c2333a3538748d5060a2a8.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "Screenshot_2026-10-24-20-31-31-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.183df155d145ad0e5762a0700b4412aa.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "IMG20261024204105_jpg.rf.e48a18aedb72762aaa6cf221473b8ce1.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "IMAGE_2026-10-23_22_19_07_jpg.rf.22df686643e8ee0cface58f97e2601d9.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "IMAGE_2026-10-23_22_16_53_jpg.rf.028c72ee221354d9d5c1b3fff5555580.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "Screenshot_2026-10-24-20-36-28-77_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3ce95aca6d2f95c11edff72ace554504.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "IMAGE_2026-10-23_22_17_14_jpg.rf.45d1c300c46f17748e0d7bbea9974c10.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "Screenshot_2026-10-24-20-34-58-22_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3ddef94498f7d41fa7b067e48e315edd.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "Screenshot_2026-10-24-20-35-28-51_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.41386597c3baf09c0b96bd444d35aa2e.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "IMAGE_2026-10-23_22_01_21_jpg.rf.5731563fdd8e6471ba7021a308834a6b.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "IMAGE_2026-10-23_21_55_45_jpg.rf.6a40b5a2145deb83d0de5b0998c2316b.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "Screenshot_2026-10-24-20-32-41-70_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ae772426fb8368ade4eeca590e9a0f47.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "IMG_20261022_115936_jpg.rf.09157b047aadfe5b6739e036028bd4dc.jpg"
+    },
+    {
+      "split": "train",
+      "file_name": "IMAGE_2026-10-23_21_56_02_jpg.rf.6e26457b5d4eee248c933ebc693fa33d.jpg"
+    },
+    {
+      "split": "valid",
+      "file_name": "IMAGE_2026-10-23_21_56_09_jpg.rf.b74dd5352c689be9c7dcc6a048280656.jpg"
+    },
+    {
+      "split": "valid",
+      "file_name": "IMAGE_2026-10-23_22_00_10_jpg.rf.e727927a614ecd87c4489e5e75b54552.jpg"
+    },
+    {
+      "split": "valid",
+      "file_name": "Screenshot_2026-10-24-20-32-46-63_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.fa82cac18def90cac5dc4670c3b38139.jpg"
+    },
+    {
+      "split": "valid",
+      "file_name": "Screenshot_2026-10-24-20-30-27-50_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ae9182d34648c47d9d8cb5f70b786191.jpg"
+    },
+    {
+      "split": "test",
+      "file_name": "photo_2026-10-22_13-26-55_jpg.rf.43e98513aed62ce2e4aef43f5c5aa62c.jpg"
+    },
+    {
+      "split": "test",
+      "file_name": "IMAGE_2026-10-23_21_56_04_jpg.rf.7606c1d0b36ef0d91dbf5444075494a2.jpg"
+    }
+  ],
+  "timestamp_groups_crossing_splits": [
+    {
+      "group": "image-minute:image_2026-10-23_21_55",
+      "splits": [
+        "test",
+        "train",
+        "valid"
+      ],
+      "files": [
+        {
+          "split": "train",
+          "file_name": "IMAGE_2026-10-23_21_55_48_jpg.rf.a39641f6aad6897f997c4e06ca2cf42e.jpg"
+        },
+        {
+          "split": "train",
+          "file_name": "IMAGE_2026-10-23_21_55_32_jpg.rf.b083b72bb0da0a5078752d35cfdb5d99.jpg"
+        },
+        {
+          "split": "train",
+          "file_name": "IMAGE_2026-10-23_21_55_41_jpg.rf.2c69f4f2031829aa7ed99baa91c98a13.jpg"
+        },
+        {
+          "split": "train",
+          "file_name": "IMAGE_2026-10-23_21_55_36_jpg.rf.6b34543973a4300e76a0863d3af8916c.jpg"
+        },
+        {
+          "split": "train",
+          "file_name": "IMAGE_2026-10-23_21_55_45_jpg.rf.6a40b5a2145deb83d0de5b0998c2316b.jpg"
+        },
+        {
+          "split": "train",
+          "file_name": "IMAGE_2026-10-23_21_55_13_jpg.rf.80cdfbe786db803f42911a38c1cc717b.jpg"
+        },
+        {
+          "split": "train",
+          "file_name": "IMAGE_2026-10-23_21_55_08_jpg.rf.8db514c7150e8cbc5fd812649c274445.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "IMAGE_2026-10-23_21_55_06_jpg.rf.23f5ecc056568d0dbda1dad8077166a5.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "IMAGE_2026-10-23_21_55_18_jpg.rf.be7598ff20f19315830bc4be8ab67506.jpg"
+        },
+        {
+          "split": "test",
+          "file_name": "IMAGE_2026-10-23_21_55_15_jpg.rf.c10c50d17372d129eb54404b81fa049d.jpg"
+        },
+        {
+          "split": "test",
+          "file_name": "IMAGE_2026-10-23_21_55_51_jpg.rf.656028c6ad6b2fa5bc26db5c1f735599.jpg"
+        }
+      ]
+    },
+    {
+      "group": "image-minute:image_2026-10-23_21_56",
+      "splits": [
+        "test",
+        "train",
+        "valid"
+      ],
+      "files": [
+        {
+          "split": "train",
+          "file_name": "IMAGE_2026-10-23_21_56_02_jpg.rf.6e26457b5d4eee248c933ebc693fa33d.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "IMAGE_2026-10-23_21_56_09_jpg.rf.b74dd5352c689be9c7dcc6a048280656.jpg"
+        },
+        {
+          "split": "test",
+          "file_name": "IMAGE_2026-10-23_21_56_04_jpg.rf.7606c1d0b36ef0d91dbf5444075494a2.jpg"
+        }
+      ]
+    },
+    {
+      "group": "image-minute:image_2026-10-23_22_00",
+      "splits": [
+        "train",
+        "valid"
+      ],
+      "files": [
+        {
+          "split": "train",
+          "file_name": "IMAGE_2026-10-23_22_00_52_jpg.rf.d3acde44eb190cea526abf445c8e0bf4.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "IMAGE_2026-10-23_22_00_10_jpg.rf.e727927a614ecd87c4489e5e75b54552.jpg"
+        }
+      ]
+    },
+    {
+      "group": "img-minute:img202610221159",
+      "splits": [
+        "train",
+        "valid"
+      ],
+      "files": [
+        {
+          "split": "train",
+          "file_name": "IMG20261022115955_jpg.rf.934a37f2409631440c3478282e14a8ce.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "IMG20261022115934_jpg.rf.c39557d328e95037b8528560d62672d5.jpg"
+        }
+      ]
+    },
+    {
+      "group": "img-minute:img202610242037",
+      "splits": [
+        "train",
+        "valid"
+      ],
+      "files": [
+        {
+          "split": "train",
+          "file_name": "IMG20261024203742_jpg.rf.afdc1c6039f6e1b5869993842dee5e1c.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "IMG20261024203759_jpg.rf.4c80b6912cb6bca0babd5a0c8968b7ed.jpg"
+        }
+      ]
+    },
+    {
+      "group": "img-minute:img202610242042",
+      "splits": [
+        "train",
+        "valid"
+      ],
+      "files": [
+        {
+          "split": "train",
+          "file_name": "IMG20261024204212_jpg.rf.bb1660bcd4ef9d8d00e2583feed7cb36.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "IMG20261024204233_jpg.rf.3b250c1788af0c670634a1f57f12ee11.jpg"
+        }
+      ]
+    },
+    {
+      "group": "img-minute:img202610242044",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "files": [
+        {
+          "split": "train",
+          "file_name": "IMG20261024204444_jpg.rf.f206d26bef2f2883949845fbfe92017e.jpg"
+        },
+        {
+          "split": "train",
+          "file_name": "IMG20261024204409_jpg.rf.017d118609cdc1725871fa5c04e862fb.jpg"
+        },
+        {
+          "split": "test",
+          "file_name": "IMG20261024204414_jpg.rf.b274533adf158ad68f7a2b5f98076df1.jpg"
+        }
+      ]
+    },
+    {
+      "group": "screenshot-minute:screenshot_2026-10-24-20-30",
+      "splits": [
+        "test",
+        "train",
+        "valid"
+      ],
+      "files": [
+        {
+          "split": "train",
+          "file_name": "Screenshot_2026-10-24-20-30-22-72_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5190747facf63f6ec88108ffbc46d55e.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "Screenshot_2026-10-24-20-30-42-44_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.7f9fda2f0a040ed093c36cd087877a49.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "Screenshot_2026-10-24-20-30-27-50_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ae9182d34648c47d9d8cb5f70b786191.jpg"
+        },
+        {
+          "split": "test",
+          "file_name": "Screenshot_2026-10-24-20-30-34-90_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.89a13d39e26882a27c5828fa3a0ce24b.jpg"
+        }
+      ]
+    },
+    {
+      "group": "screenshot-minute:screenshot_2026-10-24-20-31",
+      "splits": [
+        "test",
+        "train",
+        "valid"
+      ],
+      "files": [
+        {
+          "split": "train",
+          "file_name": "Screenshot_2026-10-24-20-31-27-83_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.eda9981afefd582d596d9664b22f58bc.jpg"
+        },
+        {
+          "split": "train",
+          "file_name": "Screenshot_2026-10-24-20-31-13-43_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ad07b88546c2333a3538748d5060a2a8.jpg"
+        },
+        {
+          "split": "train",
+          "file_name": "Screenshot_2026-10-24-20-31-31-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.183df155d145ad0e5762a0700b4412aa.jpg"
+        },
+        {
+          "split": "train",
+          "file_name": "Screenshot_2026-10-24-20-31-47-75_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.15bf964a11cf52391c32e3b89a560fce.jpg"
+        },
+        {
+          "split": "train",
+          "file_name": "Screenshot_2026-10-24-20-31-24-58_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.56dba8220cbcb6bf88197cd7f3b3a2eb.jpg"
+        },
+        {
+          "split": "train",
+          "file_name": "Screenshot_2026-10-24-20-31-51-31_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.4df250afd689ef7ed24c4497126dd8fb.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "Screenshot_2026-10-24-20-31-36-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c11ce65aacfffb873aa98abfd604f7f6.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "Screenshot_2026-10-24-20-31-40-58_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.293cd45295c2e2157ff03fd9883e91fc.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "Screenshot_2026-10-24-20-31-16-62_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.b89ba746618af3dbd32dff6d0b87890e.jpg"
+        },
+        {
+          "split": "test",
+          "file_name": "Screenshot_2026-10-24-20-31-06-82_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.30e452192a7c5436d03b6922e2077a98.jpg"
+        }
+      ]
+    },
+    {
+      "group": "screenshot-minute:screenshot_2026-10-24-20-32",
+      "splits": [
+        "test",
+        "train",
+        "valid"
+      ],
+      "files": [
+        {
+          "split": "train",
+          "file_name": "Screenshot_2026-10-24-20-32-41-70_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ae772426fb8368ade4eeca590e9a0f47.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "Screenshot_2026-10-24-20-32-58-90_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.da6c4b57dd93bbf06ab9e905eb1ddb39.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "Screenshot_2026-10-24-20-32-46-63_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.fa82cac18def90cac5dc4670c3b38139.jpg"
+        },
+        {
+          "split": "test",
+          "file_name": "Screenshot_2026-10-24-20-32-06-12_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.1804c20abcac5a3caf5ffcbae15a6425.jpg"
+        }
+      ]
+    },
+    {
+      "group": "screenshot-minute:screenshot_2026-10-24-20-33",
+      "splits": [
+        "train",
+        "valid"
+      ],
+      "files": [
+        {
+          "split": "train",
+          "file_name": "Screenshot_2026-10-24-20-33-02-23_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.98f1c58f60c2e346087f7d0f02bee86d.jpg"
+        },
+        {
+          "split": "train",
+          "file_name": "Screenshot_2026-10-24-20-33-30-00_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.bad19a4a5578e92b267d26e96109f1ee.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "Screenshot_2026-10-24-20-33-23-69_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c49a3f86ee38fbae3a205187a7cecc74.jpg"
+        },
+        {
+          "split": "valid",
+          "file_name": "Screenshot_2026-10-24-20-33-28-57_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5675eb72c8eab203ea62ec477b340f9d.jpg"
+        }
+      ]
+    },
+    {
+      "group": "screenshot-minute:screenshot_2026-10-24-20-35",
+      "splits": [
+        "test",
+        "train"
+      ],
+      "files": [
+        {
+          "split": "train",
+          "file_name": "Screenshot_2026-10-24-20-35-28-51_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.41386597c3baf09c0b96bd444d35aa2e.jpg"
+        },
+        {
+          "split": "train",
+          "file_name": "Screenshot_2026-10-24-20-35-26-38_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c77a4621b99c72961515489233fc3725.jpg"
+        },
+        {
+          "split": "test",
+          "file_name": "Screenshot_2026-10-24-20-35-06-01_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.19e74a51f100eff002660707a73851e0.jpg"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Structural heuristics are review candidates, not proof of annotation error.",
+    "Filename timestamp grouping is evidence of possible shared capture sessions, not verified provenance.",
+    "The dataset contains no source-permission register or platform Null history.",
+    "Human confirmation by the annotation owners is still required before labels or splits are changed."
+  ]
+}

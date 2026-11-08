@@ -4,7 +4,7 @@ export function fieldNumbers(data) {
   const mapping = new Map();
   let number = 1;
   for (const result of data.results || []) {
-    for (const label of ['bus_number', 'destination']) {
+    for (const label of ['bus_number', 'route', 'destination']) {
       const field = result.fields?.[label];
       if (field) mapping.set(field.id, number++);
     }
@@ -43,7 +43,7 @@ export class Viewer {
       const box = el(number ? 'a' : 'span', {
         class: `box${estimated ? ' estimated' : ''}${screen ? ' screen' : ''}`,
         href: number ? `#result-${idPrefix}${detection.id}` : null,
-        'aria-label': number ? `Region ${number}, ${detection.label === 'bus_number' ? 'service number' : 'destination'}: go to result` : null,
+        'aria-label': number ? `Region ${number}, ${{bus_number: 'service number', route: 'route or landmark', destination: 'destination'}[detection.label]}: go to result` : null,
         'aria-hidden': number ? null : 'true',
       }, el('span', {class: 'box-number'}, screen ? `EDS${estimated ? ' · estimated' : ''}` : String(number || '')));
       Object.assign(box.style, {left: `${x1 / data.width * 100}%`, top: `${y1 / data.height * 100}%`, width: `${(x2 - x1) / data.width * 100}%`, height: `${(y2 - y1) / data.height * 100}%`});

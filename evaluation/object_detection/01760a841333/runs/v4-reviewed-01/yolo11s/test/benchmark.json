@@ -1,0 +1,217 @@
+{
+  "dataset_root": "C:\\Users\\brend\\CVDL-P1-14\\data\\training\\2026-11-05-roboflow-v4-reviewed",
+  "dataset_manifest_sha256": "01760a84133353028e203b0f06a4c7dd5d012be7b67c0c02f52fd3e4128180e0",
+  "inventory": {
+    "train": {
+      "images": 735,
+      "negative_images": 147,
+      "boxes_by_class": {
+        "front_eds": 837,
+        "front_eds_num": 720,
+        "front_eds_route": 579,
+        "front_eds_destination": 618
+      },
+      "coco_sha256": "7d14c5cf4691da8783b443dde832557608a0700cfc7ed15a9a306d210c4af117"
+    },
+    "valid": {
+      "images": 53,
+      "negative_images": 10,
+      "boxes_by_class": {
+        "front_eds": 64,
+        "front_eds_num": 60,
+        "front_eds_route": 42,
+        "front_eds_destination": 55
+      },
+      "coco_sha256": "d0655277d63a999a540256d00325c5a4b9bd24e9d2959541777eb77a9df6550c"
+    },
+    "test": {
+      "images": 53,
+      "negative_images": 12,
+      "boxes_by_class": {
+        "front_eds": 53,
+        "front_eds_num": 47,
+        "front_eds_route": 32,
+        "front_eds_destination": 39
+      },
+      "coco_sha256": "590a676aa2328b5b98499e0d104554e7f6438f96c33ef69aa16dc941c5c4767f"
+    }
+  },
+  "class_map": {
+    "1": 0,
+    "3": 1,
+    "4": 2,
+    "2": 3
+  },
+  "run_id": "v4-reviewed-01",
+  "models": {
+    "yolo11n": "C:\\Users\\brend\\CVDL-P1-14\\.runtime\\object_detection_benchmark\\01760a841333\\runs\\v4-reviewed-01\\yolo11n\\weights\\best.pt",
+    "yolo11s": "C:\\Users\\brend\\CVDL-P1-14\\.runtime\\object_detection_benchmark\\01760a841333\\runs\\v4-reviewed-01\\yolo11s\\weights\\best.pt",
+    "detr-resnet-50": "C:\\Users\\brend\\CVDL-P1-14\\.runtime\\object_detection_benchmark\\01760a841333\\runs\\v4-reviewed-01\\detr-resnet-50"
+  },
+  "training_history": {
+    "yolo11n": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\.runtime\\object_detection_benchmark\\01760a841333\\runs\\v4-reviewed-01\\yolo11n\\results.csv"
+    },
+    "yolo11s": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\.runtime\\object_detection_benchmark\\01760a841333\\runs\\v4-reviewed-01\\yolo11s\\results.csv"
+    }
+  },
+  "benchmark": {
+    "yolo11s": {
+      "train": {
+        "images": 735,
+        "negatives": 147,
+        "map50": 0.8836551904678345,
+        "map50_95": 0.7605134844779968,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9801859855651855,
+            "map50_95": 0.8786576390266418,
+            "mar_100": 0.9124253392219543
+          },
+          "front_eds_num": {
+            "map50": 0.8811880946159363,
+            "map50_95": 0.7702404856681824,
+            "mar_100": 0.8012499809265137
+          },
+          "front_eds_route": {
+            "map50": 0.8217614889144897,
+            "map50_95": 0.6869569420814514,
+            "mar_100": 0.7246977686882019
+          },
+          "front_eds_destination": {
+            "map50": 0.8514851331710815,
+            "map50_95": 0.7061989307403564,
+            "mar_100": 0.7423948049545288
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 0,
+        "median_inference_ms": 28.023799997754395,
+        "p95_inference_ms": 46.966290019918226
+      },
+      "valid": {
+        "images": 53,
+        "negatives": 10,
+        "map50": 0.6131020784378052,
+        "map50_95": 0.35102227330207825,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.7842903733253479,
+            "map50_95": 0.434303879737854,
+            "mar_100": 0.5234375
+          },
+          "front_eds_num": {
+            "map50": 0.7063573002815247,
+            "map50_95": 0.4891156554222107,
+            "mar_100": 0.5383333563804626
+          },
+          "front_eds_route": {
+            "map50": 0.45978981256484985,
+            "map50_95": 0.21560421586036682,
+            "mar_100": 0.37142857909202576
+          },
+          "front_eds_destination": {
+            "map50": 0.5019707083702087,
+            "map50_95": 0.26506543159484863,
+            "mar_100": 0.36181819438934326
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 0,
+        "median_inference_ms": 25.03039996372536,
+        "p95_inference_ms": 33.62311996752396
+      },
+      "test": {
+        "images": 53,
+        "negatives": 12,
+        "map50": 0.6313775777816772,
+        "map50_95": 0.32703304290771484,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.7467043995857239,
+            "map50_95": 0.31578660011291504,
+            "mar_100": 0.44528302550315857
+          },
+          "front_eds_num": {
+            "map50": 0.7933543920516968,
+            "map50_95": 0.5245974659919739,
+            "mar_100": 0.5702127814292908
+          },
+          "front_eds_route": {
+            "map50": 0.41155922412872314,
+            "map50_95": 0.20267705619335175,
+            "mar_100": 0.328125
+          },
+          "front_eds_destination": {
+            "map50": 0.5738922953605652,
+            "map50_95": 0.2650711238384247,
+            "mar_100": 0.39743590354919434
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 1,
+        "median_inference_ms": 26.45850001135841,
+        "p95_inference_ms": 36.56790001550689
+      }
+    }
+  },
+  "validation_threshold_sweep": [
+    {
+      "model": "yolo11s",
+      "threshold": 0.1,
+      "precision_iou50": 0.7047619047619048,
+      "recall_iou50": 0.669683257918552,
+      "f1_iou50": 0.6867749419953596,
+      "negative_false_positives": 0
+    },
+    {
+      "model": "yolo11s",
+      "threshold": 0.2,
+      "precision_iou50": 0.7357512953367875,
+      "recall_iou50": 0.6425339366515838,
+      "f1_iou50": 0.6859903381642513,
+      "negative_false_positives": 0
+    },
+    {
+      "model": "yolo11s",
+      "threshold": 0.3,
+      "precision_iou50": 0.7569060773480663,
+      "recall_iou50": 0.6199095022624435,
+      "f1_iou50": 0.681592039800995,
+      "negative_false_positives": 0
+    },
+    {
+      "model": "yolo11s",
+      "threshold": 0.5,
+      "precision_iou50": 0.81875,
+      "recall_iou50": 0.5927601809954751,
+      "f1_iou50": 0.6876640419947506,
+      "negative_false_positives": 0
+    },
+    {
+      "model": "yolo11s",
+      "threshold": 0.7,
+      "precision_iou50": 0.8421052631578947,
+      "recall_iou50": 0.579185520361991,
+      "f1_iou50": 0.6863270777479893,
+      "negative_false_positives": 0
+    }
+  ],
+  "settings": {
+    "yolo_epochs": 60,
+    "detr_epochs": 60,
+    "image_size": 640,
+    "batch_size": 4,
+    "seed": 42,
+    "device": "cuda",
+    "operating_conf": 0.5,
+    "yolo_nms_iou": 0.7,
+    "final_test_run": true
+  },
+  "environment": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.11.0+cu128",
+    "ultralytics": "8.3.158",
+    "transformers": "4.57.6",
+    "torchmetrics": "1.9.0"
+  }
+}

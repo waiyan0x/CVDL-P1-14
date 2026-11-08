@@ -57,7 +57,7 @@ def associate_displays(predictions, width, height):
     for index, field in enumerate(detections, 1):
         field.update(id=f'field-{index}', source=field.get('source', 'model'))
     screens = [field for field in detections if field['label'] == 'eds']
-    fields = [field for field in detections if field['label'] in ('bus_number', 'destination')]
+    fields = [field for field in detections if field['label'] in ('bus_number', 'route', 'destination')]
     owners = {screen['id']: [] for screen in screens}
     unowned = []
     for field in fields:
