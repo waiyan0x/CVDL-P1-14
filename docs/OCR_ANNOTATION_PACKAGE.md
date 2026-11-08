@@ -175,6 +175,23 @@ reference similarity.
 
 ## What is still required
 
+### Codi submission received 8 November 2026
+
+The user supplied both complete ID sets and identified **Codi** as reviewer,
+with an actual review date of **7 November 2026**. The
+[new import](../evaluation/ocr_annotations/v4-reviewed-01/submissions/codi-01/README.md)
+preserves raw submissions and joins labels to the crop metadata. It is separate
+from the original pending templates and Jun Yong's earlier legibility-only draft.
+All 271 IDs are present without duplicates. Submitted quality totals are
+107 full, 98 partial and 66 illegible; **77 distinct rows require resolution or
+visual inspection**. This checks structure/conventions, not visual correctness.
+Five note-column CSV quoting problems were repaired without changing text.
+Grouping, predicted-crop correspondence and independent second review remain
+outstanding; no imported row is declared scoring-ready. See the import's
+`rows_to_resolve.csv` and `import_audit.json` for the exact issues and provenance.
+
+### Original preparation boundary
+
 Human text/field review, group/overlap audit, full source images where needed,
 and all OCR measurements remain outstanding. For application evaluation,
 prepare a separate reviewed image-level JSON under

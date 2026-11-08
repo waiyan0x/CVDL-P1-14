@@ -1,0 +1,168 @@
+id,field,text,quality,note
+A001,service number,980,full,
+A002,destination,"[UNK]MBAWANG
+[UNK]",partial,object occludes left of upper line, lower line clipped
+A003,route text,"[UNK]MBAWANG via
+ROCHOR RD",partial,upper line cut through letter bodies
+A004,route text,HOUGANG AVE 3,full,
+A005,destination,"[UNK]
+> ANG MO KIO DEPOT",partial,upper line clipped
+A006,service number,45,full,
+A007,service number,120,full,
+A008,destination,[UNK] TELOK BLANGAH HTS,partial,low confidence read, leading tokens unreadable
+A009,route text,TELOK BLANGAH HTS,partial,defocus
+A010,route text,CHANGI RD,partial,low confidence read
+A011,destination,> BOON LAY,full,
+A012,service number,30,full,
+A013,service number,142,full,
+A014,route text,T. PAYOH INT - POTONG P. AVE 1,partial,trailing token low confidence
+A015,destination,LOR 6 TOA PAYOH,partial,low contrast
+A016,destination,[UNK],illegible,underexposed dot matrix
+A017,service number,[UNK],illegible,underexposed dot matrix
+A018,service number,145,full,
+A019,route text,HENDERSON RD,partial,leading character distorted
+A020,destination,> TOA PAYOH INT,partial,heavy bloom
+A021,service number,7,full,
+A022,destination,> CLEMENTI INT,full,
+A023,route text,ORCHARD BOULEVARD,full,
+A024,destination,[UNK],illegible,crop too small
+A025,route text,[UNK],illegible,crop too small
+A026,service number,66,full,
+A027,destination,BEDOK,full,
+A028,route text,"[UNK]
+BUKIT BATOK CENTRAL",partial,upper line clipped
+A029,destination,[UNK],illegible,crop too small
+A030,route text,[UNK],illegible,crop too small
+A031,service number,[UNK],illegible,crop is a narrow vertical sliver
+A032,service number,965,full,
+A033,destination,SENGKANG,full,
+A034,service number,145,full,
+A035,destination,> TOA PAYOH INT,partial,heavy bloom
+A036,route text,BALESTIER RD,partial,low confidence read
+A037,service number,49,full,
+A038,destination,JURONG EAST,full,
+A039,service number,151,full,
+A040,destination,> KENT RIDGE TER,full,
+A041,route text,BUKIT TIMAH RD,full,right edge slightly clipped
+A042,service number,[UNK],illegible,dot matrix washed out
+A043,destination,[UNK],illegible,dot matrix washed out
+A044,service number,[UNK],illegible,underexposed
+A045,destination,PUNGGOL INT,partial,underexposed
+A046,route text,SUMANG LINK,partial,underexposed
+A047,service number,[UNK],illegible,crop too small
+A048,destination,[UNK],illegible,crop too small
+A049,route text,AIRLINE RD,full,
+A050,destination,"[UNK]
+> CHANGI AIRFREIGHT CTR",partial,upper line clipped
+A051,service number,19,full,
+A052,service number,14[UNK],partial,display mid refresh, two rows overlap
+A053,service number,148,full,
+A054,destination,[UNK] INT,partial,only trailing token readable
+A055,route text,[UNK] 1 (LOOP),partial,leading tokens unreadable
+A056,destination,[UNK],illegible,
+A057,route text,[UNK],illegible,
+A058,service number,46,partial,could be 48
+A059,destination,> BEDOK NTH DEPOT,full,
+A060,route text,[UNK] RD,partial,only trailing token readable
+A061,service number,[UNK],illegible,dot matrix washed out
+A062,destination,[UNK],illegible,dot matrix washed out
+A063,route text,[UNK],illegible,dot matrix washed out
+A064,service number,110,full,
+A065,service number,110,full,
+A066,destination,[UNK]GI AIRPORT via,partial,left edge clipped
+A067,destination,[UNK]GI AIRPORT via,partial,left edge clipped
+A068,route text,"NUKI[UNK] ST",partial,object occludes centre of sign
+A069,route text,[UNK],illegible,crop too small
+A070,destination,[UNK],illegible,motion blur
+A071,route text,[UNK],illegible,motion blur
+A072,service number,359,full,
+A073,service number,350,full,
+A074,destination,[UNK],illegible,
+A075,service number,[UNK],illegible,blown highlights
+A076,service number,[UNK],illegible,defocus
+A077,service number,162M,partial,low confidence read
+A078,destination,[UNK],illegible,
+A079,route text,[UNK],illegible,
+A080,service number,87,full,
+A081,route text,BEDOK NORTH RD,full,
+A082,destination,> BEDOK INT,full,
+A083,service number,[UNK],illegible,crop is a narrow vertical sliver
+A084,route text,[UNK],illegible,underexposed
+A085,destination,[UNK],illegible,underexposed
+A086,service number,965,partial,defocus
+A087,destination,[UNK],illegible,underexposed
+A088,service number,965,partial,underexposed
+A089,destination,BUANGKOK,partial,underexposed
+A090,route text,YISHUN AVE 7,partial,underexposed
+A091,service number,302,partial,very low contrast
+A092,destination,"CHOA CHU KANG
+INT [UNK] MRT [UNK]",partial,second line unreadable
+A093,service number,991,full,
+A094,destination,"CHOA CHU KANG INT
+[UNK]",partial,second line clipped
+A095,route text,"[UNK]
+BUKIT BATOK ST 11",partial,upper line clipped
+A096,route text,[UNK],illegible,crop too small
+A097,service number,[UNK],illegible,defocus
+A098,destination,[UNK],illegible,blown highlights
+A099,route text,[UNK],illegible,blown highlights
+A100,service number,269,full,
+A101,service number,[UNK],illegible,defocus
+A102,service number,187,full,
+A103,destination,"WOODLANDS [UNK] via
+[UNK]",partial,second line clipped
+A104,route text,[UNK] AVENUE 3,partial,leading token unreadable
+A105,service number,966,full,
+A106,destination,[UNK],illegible,
+A107,service number,966,full,
+A108,destination,[UNK],illegible,
+A109,service number,963,partial,low confidence read
+A110,destination,[UNK],illegible,crop too small
+A111,service number,[UNK],illegible,severe defocus
+A112,destination,[UNK],illegible,severe defocus
+A113,route text,[UNK],illegible,severe defocus
+A114,route text,[UNK] ST,partial,only trailing token readable
+A115,destination,> SHENTON WAY TER,full,
+A116,service number,133,full,
+A117,destination,PASIR RIS,partial,right edge clipped
+A118,route text,[UNK],illegible,severe defocus
+A119,service number,518,full,
+A120,service number,[UNK],illegible,blown out
+A121,destination,[UNK],illegible,blown out
+A122,service number,[UNK],illegible,display mid refresh
+A123,destination,[UNK],illegible,
+A124,route text,[UNK],illegible,
+A125,service number,195,full,
+A126,destination,MARINA CTR -,full,
+A127,route text,C'WEALTH AVE (LOOP),full,
+A128,service number,36T,full,
+A129,destination,CHANGI AIRPORT TER 2,full,
+A130,route text,"[UNK]
+TERMINATING AT",partial,upper line clipped
+A131,destination,Pasir Ris,partial,defocus
+A132,service number,12,partial,defocus
+A133,route text,[UNK],illegible,defocus
+A134,destination,> [UNK],illegible,only arrow readable
+A135,service number,[UNK],illegible,defocus
+A136,service number,[UNK],illegible,crop too small
+A137,service number,16,full,
+A138,destination,[UNK],illegible,blown out
+A139,service number,51A,full,
+A140,destination,TERMINATE AT,full,
+A141,route text,PANDAN GARDENS (BLK 407),full,
+A142,service number,185,full,
+A143,destination,BUONA VISTA TER via,full,
+A144,route text,PIONEER RD NTH,full,
+A145,service number,T[UNK],partial,defocus
+A146,destination,[UNK] CTR INT,partial,leading token unreadable
+A147,route text,UPPER THOMSON RD,full,
+A148,service number,130,full,
+A149,destination,> SHENTON WAY TER,full,
+A150,route text,THOMSON RD,full,
+A151,destination,PUNGGOL,full,
+A152,route text,PASIR RIS DR 4 / 3 / 8 / 1,full,
+A153,service number,3,full,
+A154,route text,BEDOK NORTH AVE 3,partial,washed out, low confidence
+A155,destination,> BEDOK INT,partial,washed out
+A156,service number,69,full,
+A157,service number,[UNK],illegible,crop too small

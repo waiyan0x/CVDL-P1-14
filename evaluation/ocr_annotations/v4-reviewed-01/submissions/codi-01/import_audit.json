@@ -1,0 +1,123 @@
+{
+  "status": "imported_with_resolution_items",
+  "reviewer": "Codi",
+  "reviewed_at": "2026-11-07",
+  "review_attestation": "Reviewer/date supplied by user; no independent second review attested",
+  "sources": {
+    "annotation": {
+      "filename": "ocr_labels_A001_A157.csv",
+      "sha256": "f75356757aa2428c2263eb1654001d56e34ad213dd7965df5908d436d610233f",
+      "rows": 157
+    },
+    "prediction": {
+      "filename": "ocr_labels_P001_P114.csv",
+      "sha256": "befa9aaec943f4263fd78dcf6a781092c7f94904199e81a65145db8cdedea47e",
+      "rows": 114
+    }
+  },
+  "summary": {
+    "annotation": {
+      "rows": 157,
+      "quality_counts": {
+        "full": 60,
+        "partial": 45,
+        "illegible": 52
+      },
+      "field_counts": {
+        "front_eds_num": {
+          "full": 34,
+          "illegible": 17,
+          "partial": 9
+        },
+        "front_eds_route": {
+          "partial": 17,
+          "full": 11,
+          "illegible": 14
+        },
+        "front_eds_destination": {
+          "partial": 19,
+          "full": 15,
+          "illegible": 21
+        }
+      },
+      "review_status_counts": {
+        "reviewed": 133,
+        "needs_resolution": 24
+      }
+    },
+    "prediction": {
+      "rows": 114,
+      "quality_counts": {
+        "full": 47,
+        "partial": 53,
+        "illegible": 14
+      },
+      "field_counts": {
+        "front_eds_num": {
+          "full": 30,
+          "illegible": 5,
+          "partial": 7
+        },
+        "front_eds_route": {
+          "partial": 22,
+          "full": 12,
+          "illegible": 3
+        },
+        "front_eds_destination": {
+          "partial": 24,
+          "illegible": 6,
+          "full": 5
+        }
+      },
+      "review_status_counts": {
+        "reviewed": 61,
+        "needs_resolution": 53
+      }
+    }
+  },
+  "mechanical_note_repairs": [
+    {
+      "review_id": "A002",
+      "source_file": "ocr_labels_A001_A157.csv",
+      "repair": "Rejoined overflow CSV cells into the final note column; text unchanged"
+    },
+    {
+      "review_id": "A008",
+      "source_file": "ocr_labels_A001_A157.csv",
+      "repair": "Rejoined overflow CSV cells into the final note column; text unchanged"
+    },
+    {
+      "review_id": "A052",
+      "source_file": "ocr_labels_A001_A157.csv",
+      "repair": "Rejoined overflow CSV cells into the final note column; text unchanged"
+    },
+    {
+      "review_id": "A154",
+      "source_file": "ocr_labels_A001_A157.csv",
+      "repair": "Rejoined overflow CSV cells into the final note column; text unchanged"
+    },
+    {
+      "review_id": "P046",
+      "source_file": "ocr_labels_P001_P114.csv",
+      "repair": "Rejoined overflow CSV cells into the final note column; text unchanged"
+    }
+  ],
+  "issue_counts": {
+    "partial_missing_unknown": 36,
+    "case_variant": 3,
+    "illegible_has_readable_text": 1,
+    "field_bleed": 26,
+    "no_text_state": 1,
+    "field_mismatch": 15,
+    "full_contains_unknown": 1
+  },
+  "rows_needing_resolution": 77,
+  "missing_group_ids": 271,
+  "split_counts": {
+    "valid": 271
+  },
+  "group_leakage_check": "Not assessable: group IDs are unassigned. All imported rows are validation only",
+  "scoring_ready_rows": 0,
+  "field_patterns": "No closed field regex established; only declared whitespace and legibility syntax checked",
+  "text_changes": "None; transcription and supplied quality preserved, including actual newlines"
+}

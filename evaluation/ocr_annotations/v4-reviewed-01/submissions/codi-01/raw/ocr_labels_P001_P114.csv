@@ -1,0 +1,145 @@
+id,field,text,quality,flag,note
+P001,service number,980,full,ok,
+P002,destination,"SEMBAWANG v[UNK]
+[UNK]",partial,field_bleed,grey object overlaps lower left; second line clipped to top of glyphs
+P003,route text,"[UNK]BAWANG v[UNK]
+ROCHOR RD",partial,field_bleed,upper line is destination text cut through letter bodies
+P004,route text,HOUGANG AVE 3,full,ok,
+P005,destination,[UNK],illegible,no_text,crop is the whole display panel at an oblique angle; no character is resolvable
+P006,destination,"[UNK]
+> ANG MO KIO DEPOT",partial,field_bleed,clipped line above
+P007,service number,45,full,ok,
+P008,service number,120,full,ok,
+P009,route text,"[UNK]
+[UNK] TELOK BLANGAH HTS",partial,field_bleed,upper line clipped; leading tokens of lower line unreadable
+P010,route text,TELOK BLANGAH HTS,partial,ok,defocus and bloom
+P011,destination,TELOK BLANGAH HTS,partial,field_mismatch,content matches route text; same string as P010
+P012,route text,CHANGI RD,partial,ok,underexposed
+P013,service number,30,full,ok,
+P014,destination,"[UNK]
+> BOON LAY",partial,field_bleed,clipped line above
+P015,service number,142,full,ok,
+P016,route text,LOR 6 TOA PAYOH,full,ok,low contrast but every character resolvable
+P017,service number,[UNK],illegible,ok,underexposed dot matrix
+P018,destination,T. PAYOH INT-POTONG P. AVE,partial,field_mismatch,content is route text format; right edge clipped
+P019,route text,[UNK],illegible,ok,underexposed dot matrix
+P020,service number,145,full,ok,
+P021,route text,HENDERSON RD,partial,ok,blown highlights
+P022,destination,> TOA PAYOH INT,partial,ok,blown highlights
+P023,service number,7,full,ok,
+P024,destination,"[UNK]
+> CLEMENTI INT",partial,field_bleed,upper line clipped
+P025,route text,ORCHARD BOULEVARD,full,ok,
+P026,route text,"ORCHARD BOULEVARD
+> CLEMENTI INT",full,field_bleed,crop holds route text and destination; both lines readable
+P027,route text,"[UNK]RCHARD BOULEVA[UNK]
+> CLEMENTI INT",partial,field_bleed,upper line clipped top and right
+P028,service number,66,full,ok,
+P029,route text,"[UNK]
+BUKIT BATOK CENTRAL",partial,field_bleed,upper line clipped
+P030,service number,965,full,ok,
+P031,destination,SENGKANG,full,ok,
+P032,service number,145,full,ok,
+P033,route text,BALESTIER RD,partial,ok,low confidence read
+P034,destination,> TOA PAYOH INT,partial,ok,defocus
+P035,service number,49,full,ok,
+P036,service number,151,full,ok,
+P037,destination,"[UNK]
+> KENT RIDGE TER",partial,field_bleed,upper line clipped
+P038,route text,BUKIT TIMAH RD,full,ok,
+P039,service number,[UNK],illegible,ok,dot matrix washed out
+P040,destination,[UNK],illegible,ok,dot matrix washed out
+P041,destination,"PUNGGOL INT
+[UNK]",partial,field_bleed,underexposed; clipped line below
+P042,route text,[UNK] SUMANG LINK,partial,ok,leading glyph clipped at left edge
+P043,route text,"[UNK]
+[UNK] SUMANG LINK",partial,field_bleed,upper line clipped; leading token of lower line unreadable
+P044,destination,[UNK] PUNGGOL INT,partial,ok,leading token unreadable
+P045,service number,19,full,ok,
+P046,service number,14[UNK],partial,ok,display mid refresh, two rows overlap
+P047,route text,"[UNK]
+[UNK] 1 (LOOP)",partial,field_bleed,upper line clipped; leading tokens unreadable
+P048,destination,"[UNK] INT
+[UNK]",partial,field_bleed,blown highlights; clipped line below
+P049,service number,46,partial,ok,could be 48
+P050,route text,[UNK] RD,partial,ok,only trailing token readable
+P051,destination,"[UNK]
+> BEDOK NTH DEPOT",partial,field_bleed,upper line clipped
+P052,service number,[UNK],illegible,ok,dot matrix washed out
+P053,service number,110,full,ok,
+P054,service number,110,full,ok,
+P055,service number,359,full,ok,
+P056,destination,[UNK],illegible,ok,defocus
+P057,route text,[UNK],illegible,ok,defocus
+P058,service number,87,full,ok,
+P059,route text,BEDOK NORTH RD,full,ok,
+P060,destination,> BEDOK INT,full,ok,
+P061,destination,[UNK],illegible,ok,defocus and underexposure
+P062,service number,965,partial,ok,defocus
+P063,destination,BUANGKOK,partial,ok,underexposed
+P064,route text,"[UNK]
+YISHUN AVE 7",partial,field_bleed,upper line clipped
+P065,service number,302,partial,ok,very low contrast
+P066,destination,"CHOA CHU KANG
+INT [UNK] MRT [UNK]",partial,ok,second line largely unreadable
+P067,route text,INT [UNK] MRT [UNK],partial,field_mismatch,content is the second line of a destination string
+P068,route text,"CHOA CHU KANG INT via
+[UNK]",partial,field_mismatch,content is destination text; lower line clipped
+P069,service number,991,full,ok,
+P070,route text,"[UNK]
+BUKIT BATOK ST 11",partial,field_bleed,upper line clipped
+P071,destination,"CHOA CHU KANG INT via
+[UNK]",partial,field_bleed,lower line clipped
+P072,destination,"[UNK]
+BUKIT BATOK ST 11",partial,field_mismatch,content is route text; upper line clipped
+P073,service number,[UNK],illegible,ok,defocus
+P074,service number,269,full,ok,
+P075,service number,187,full,ok,
+P076,service number,[UNK],illegible,ok,severe defocus
+P077,destination,[UNK],illegible,ok,severe defocus
+P078,service number,133,full,ok,
+P079,service number,518,full,ok,
+P080,destination,"[UNK]
+> SHENTON WAY TER",partial,field_bleed,upper line clipped
+P081,route text,L[UNK]ER ST,partial,ok,middle span unreadable
+P082,route text,PASIR [UNK],partial,field_mismatch,content is destination text; right half washed out
+P083,destination,"PASIR RIS
+[UNK]",partial,field_bleed,lower line unreadable
+P084,service number,195,full,ok,
+P085,route text,MARINA CTR [UNK],partial,field_mismatch,content is destination text; right edge clipped
+P086,destination,"[UNK]
+C'WEALTH AVE (LOOP)",partial,field_mismatch,content is route text; upper line clipped
+P087,route text,"[UNK]
+MARINA CTR -
+[UNK]",partial,field_mismatch,content is destination text; lines above and below clipped
+P088,route text,"[UNK]
+C'WEALTH AVE (LOOP)",partial,field_bleed,upper line clipped
+P089,service number,36T,full,field_bleed,"crop also holds adjacent destination text, [UNK]TING AT / [UNK]PORT TER 2"
+P090,service number,36T,full,ok,
+P091,route text,TERMINATING AT,full,ok,
+P092,service number,12[UNK],partial,ok,defocus
+P093,route text,[UNK],illegible,ok,defocus and bloom
+P094,destination,Pasir Ris,partial,ok,defocus
+P095,destination,[UNK],illegible,ok,blown out; three word blobs with no resolvable glyphs
+P096,service number,51A,full,ok,
+P097,route text,TERMINATE AT,full,field_mismatch,content is a status line rather than a road name
+P098,destination,PANDAN GARDENS (BLK 407),full,field_mismatch,content is route text
+P099,service number,185,full,ok,
+P100,route text,BUONA VISTA TER vi[UNK],full,field_mismatch,content is destination text; right edge clipped
+P101,destination,"[UNK]
+PIONEER RD NTH",partial,field_mismatch,content is route text; upper line clipped
+P102,service number,T[UNK],partial,ok,defocus
+P103,route text,UPPER THOMSON RD,full,ok,
+P104,destination,"[UNK]
+[UNK] CTR INT",partial,field_bleed,upper line clipped; leading token unreadable
+P105,destination,UPPER THOMSON RD,full,field_mismatch,content is route text
+P106,service number,[UNK]130,partial,field_bleed,glyph from adjacent field clipped at left edge
+P107,destination,"THOMSON RD
+> SHENTON [UNK]",partial,field_bleed,upper line is route text; lower line clipped at right
+P108,service number,130,full,field_bleed,"crop also holds TER from the adjacent destination field"
+P109,service number,3,full,ok,
+P110,route text,PUNGGOL,full,field_mismatch,content is destination text
+P111,route text,PASIR RIS DR 4 / 3 / 8 / 1,full,ok,
+P112,destination,PUNGGOL,full,ok,
+P113,service number,69,full,ok,
+P114,route text,BEDOK NORTH AVE [UNK],partial,ok,washed out; trailing token unreadable

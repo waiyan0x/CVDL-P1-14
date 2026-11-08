@@ -1,0 +1,113 @@
+review_id,crop_set,field,text,legibility,code,severity,action
+A009,annotation,front_eds_route,TELOK BLANGAH HTS,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A010,annotation,front_eds_route,CHANGI RD,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A014,annotation,front_eds_route,T. PAYOH INT - POTONG P. AVE 1,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A015,annotation,front_eds_destination,LOR 6 TOA PAYOH,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A019,annotation,front_eds_route,HENDERSON RD,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A020,annotation,front_eds_destination,> TOA PAYOH INT,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A035,annotation,front_eds_destination,> TOA PAYOH INT,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A036,annotation,front_eds_route,BALESTIER RD,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A045,annotation,front_eds_destination,PUNGGOL INT,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A046,annotation,front_eds_route,SUMANG LINK,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A058,annotation,front_eds_num,46,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A077,annotation,front_eds_num,162M,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A086,annotation,front_eds_num,965,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A088,annotation,front_eds_num,965,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A089,annotation,front_eds_destination,BUANGKOK,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A090,annotation,front_eds_route,YISHUN AVE 7,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A091,annotation,front_eds_num,302,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A109,annotation,front_eds_num,963,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A117,annotation,front_eds_destination,PASIR RIS,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A117,annotation,front_eds_destination,PASIR RIS,partial,case_variant,inspect,"Compare visible case for A117, A131, P094; mixed case may be correct. Do not auto-uppercase"
+A131,annotation,front_eds_destination,Pasir Ris,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A131,annotation,front_eds_destination,Pasir Ris,partial,case_variant,inspect,"Compare visible case for A117, A131, P094; mixed case may be correct. Do not auto-uppercase"
+A132,annotation,front_eds_num,12,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A134,annotation,front_eds_destination,> [UNK],illegible,illegible_has_readable_text,resolve,"If the visible arrow/text is reliably readable, confirm partial and retain the unknown span; otherwise use exactly [UNK]"
+A154,annotation,front_eds_route,BEDOK NORTH AVE 3,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+A155,annotation,front_eds_destination,> BEDOK INT,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+P002,prediction,front_eds_destination,"SEMBAWANG v[UNK]
+[UNK]",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P003,prediction,front_eds_route,"[UNK]BAWANG v[UNK]
+ROCHOR RD",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P005,prediction,front_eds_destination,[UNK],illegible,no_text_state,resolve,Distinguish blank/absent field from visible but unreadable text; the note currently describes unreadability
+P006,prediction,front_eds_destination,"[UNK]
+> ANG MO KIO DEPOT",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P009,prediction,front_eds_route,"[UNK]
+[UNK] TELOK BLANGAH HTS",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P010,prediction,front_eds_route,TELOK BLANGAH HTS,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+P011,prediction,front_eds_destination,TELOK BLANGAH HTS,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+P011,prediction,front_eds_destination,TELOK BLANGAH HTS,partial,field_mismatch,resolve,Review the predicted crop's field identity; keep original class and detector error evidence
+P012,prediction,front_eds_route,CHANGI RD,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+P014,prediction,front_eds_destination,"[UNK]
+> BOON LAY",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P018,prediction,front_eds_destination,T. PAYOH INT-POTONG P. AVE,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+P018,prediction,front_eds_destination,T. PAYOH INT-POTONG P. AVE,partial,field_mismatch,resolve,Review the predicted crop's field identity; keep original class and detector error evidence
+P021,prediction,front_eds_route,HENDERSON RD,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+P022,prediction,front_eds_destination,> TOA PAYOH INT,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+P024,prediction,front_eds_destination,"[UNK]
+> CLEMENTI INT",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P026,prediction,front_eds_route,"ORCHARD BOULEVARD
+> CLEMENTI INT",full,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P027,prediction,front_eds_route,"[UNK]RCHARD BOULEVA[UNK]
+> CLEMENTI INT",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P029,prediction,front_eds_route,"[UNK]
+BUKIT BATOK CENTRAL",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P033,prediction,front_eds_route,BALESTIER RD,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+P034,prediction,front_eds_destination,> TOA PAYOH INT,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+P037,prediction,front_eds_destination,"[UNK]
+> KENT RIDGE TER",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P041,prediction,front_eds_destination,"PUNGGOL INT
+[UNK]",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P043,prediction,front_eds_route,"[UNK]
+[UNK] SUMANG LINK",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P047,prediction,front_eds_route,"[UNK]
+[UNK] 1 (LOOP)",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P048,prediction,front_eds_destination,"[UNK] INT
+[UNK]",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P049,prediction,front_eds_num,46,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+P051,prediction,front_eds_destination,"[UNK]
+> BEDOK NTH DEPOT",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P062,prediction,front_eds_num,965,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+P063,prediction,front_eds_destination,BUANGKOK,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+P064,prediction,front_eds_route,"[UNK]
+YISHUN AVE 7",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P065,prediction,front_eds_num,302,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+P067,prediction,front_eds_route,INT [UNK] MRT [UNK],partial,field_mismatch,resolve,Review the predicted crop's field identity; keep original class and detector error evidence
+P068,prediction,front_eds_route,"CHOA CHU KANG INT via
+[UNK]",partial,field_mismatch,resolve,Review the predicted crop's field identity; keep original class and detector error evidence
+P070,prediction,front_eds_route,"[UNK]
+BUKIT BATOK ST 11",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P071,prediction,front_eds_destination,"CHOA CHU KANG INT via
+[UNK]",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P072,prediction,front_eds_destination,"[UNK]
+BUKIT BATOK ST 11",partial,field_mismatch,resolve,Review the predicted crop's field identity; keep original class and detector error evidence
+P080,prediction,front_eds_destination,"[UNK]
+> SHENTON WAY TER",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P082,prediction,front_eds_route,PASIR [UNK],partial,field_mismatch,resolve,Review the predicted crop's field identity; keep original class and detector error evidence
+P083,prediction,front_eds_destination,"PASIR RIS
+[UNK]",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P085,prediction,front_eds_route,MARINA CTR [UNK],partial,field_mismatch,resolve,Review the predicted crop's field identity; keep original class and detector error evidence
+P086,prediction,front_eds_destination,"[UNK]
+C'WEALTH AVE (LOOP)",partial,field_mismatch,resolve,Review the predicted crop's field identity; keep original class and detector error evidence
+P087,prediction,front_eds_route,"[UNK]
+MARINA CTR -
+[UNK]",partial,field_mismatch,resolve,Review the predicted crop's field identity; keep original class and detector error evidence
+P088,prediction,front_eds_route,"[UNK]
+C'WEALTH AVE (LOOP)",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P089,prediction,front_eds_num,36T,full,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P094,prediction,front_eds_destination,Pasir Ris,partial,partial_missing_unknown,resolve,"Mark the actual unresolved/clipped span with [UNK], or confirm that the complete field is full"
+P094,prediction,front_eds_destination,Pasir Ris,partial,case_variant,inspect,"Compare visible case for A117, A131, P094; mixed case may be correct. Do not auto-uppercase"
+P097,prediction,front_eds_route,TERMINATE AT,full,field_mismatch,resolve,Review the predicted crop's field identity; keep original class and detector error evidence
+P098,prediction,front_eds_destination,PANDAN GARDENS (BLK 407),full,field_mismatch,resolve,Review the predicted crop's field identity; keep original class and detector error evidence
+P100,prediction,front_eds_route,BUONA VISTA TER vi[UNK],full,full_contains_unknown,resolve,Resolve the unknown span or confirm partial legibility
+P100,prediction,front_eds_route,BUONA VISTA TER vi[UNK],full,field_mismatch,resolve,Review the predicted crop's field identity; keep original class and detector error evidence
+P101,prediction,front_eds_destination,"[UNK]
+PIONEER RD NTH",partial,field_mismatch,resolve,Review the predicted crop's field identity; keep original class and detector error evidence
+P104,prediction,front_eds_destination,"[UNK]
+[UNK] CTR INT",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P105,prediction,front_eds_destination,UPPER THOMSON RD,full,field_mismatch,resolve,Review the predicted crop's field identity; keep original class and detector error evidence
+P106,prediction,front_eds_num,[UNK]130,partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P107,prediction,front_eds_destination,"THOMSON RD
+> SHENTON [UNK]",partial,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P108,prediction,front_eds_num,130,full,field_bleed,resolve,Decide the intended field and treatment of adjacent text before field-specific scoring; do not silently drop visible text
+P110,prediction,front_eds_route,PUNGGOL,full,field_mismatch,resolve,Review the predicted crop's field identity; keep original class and detector error evidence
