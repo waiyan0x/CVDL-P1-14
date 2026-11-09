@@ -1,0 +1,310 @@
+{
+  "status": "pending_human_review",
+  "source_candidates_sha256": "cb03672ce79463359471d55a41c237fb81437f0d21c38158f6ddb2d39b3fe0ce",
+  "selection": "First three distinct groups/texts per field with three candidate source variants; groups not reused between fields.",
+  "limitations": "Deterministic small batch, not a representative accuracy sample. AI labels informed selection but are hidden from sheets/template. Group independence remains unresolved.",
+  "counts": {
+    "front_eds_num": 9,
+    "front_eds_destination": 9,
+    "front_eds_route": 9
+  },
+  "rows": [
+    {
+      "review_id": "T0025",
+      "crop": "ground_truth/front_eds_num/010_10964f70-bus_39_jpg.rf.6276e8054b0fadd2d089add6b1304e5c_a2240.png",
+      "crop_sha256": "d4a4cbe8b06ad00d92cd24e4db79a08bee2f3e5e6f9c8e91884d4a7c813052f1",
+      "image": "10964f70-bus_39_jpg.rf.6276e8054b0fadd2d089add6b1304e5c.jpg",
+      "source_image_sha256": "fcd89fc7ed62d05ba972ac6e4e190e60045f0f3de3cecb1f7cbe038b639b9b38",
+      "label": "front_eds_num",
+      "annotation_id": "2240",
+      "group_id": "G004",
+      "box_xyxy": "[1636, 568, 1686, 626]"
+    },
+    {
+      "review_id": "T0028",
+      "crop": "ground_truth/front_eds_num/011_10964f70-bus_39_jpg.rf.6922f88e0ce70a960cd92b5a6e9366c2_a97.png",
+      "crop_sha256": "6570664cf9f4d5ea59fe4a3bc3881f1d90e5e6521e3a17decf053a31ac6ee2ff",
+      "image": "10964f70-bus_39_jpg.rf.6922f88e0ce70a960cd92b5a6e9366c2.jpg",
+      "source_image_sha256": "5ac772a5e09b546c97b1bd7b8f53d5b0b273b825997b3f831fb08cae42c3873b",
+      "label": "front_eds_num",
+      "annotation_id": "97",
+      "group_id": "G004",
+      "box_xyxy": "[1632, 536, 1679, 592]"
+    },
+    {
+      "review_id": "T0031",
+      "crop": "ground_truth/front_eds_num/012_10964f70-bus_39_jpg.rf.dad087647bd37a83154bd2c786a95365_a866.png",
+      "crop_sha256": "0c4a48e08cbec57ef598c6c49129a4d47d617f68b12b73729cf12b1ae1408455",
+      "image": "10964f70-bus_39_jpg.rf.dad087647bd37a83154bd2c786a95365.jpg",
+      "source_image_sha256": "ec1ade5b16515e2b570e205744555774a6e1f97522ed0731821d117e84026427",
+      "label": "front_eds_num",
+      "annotation_id": "866",
+      "group_id": "G004",
+      "box_xyxy": "[1629, 524, 1678, 582]"
+    },
+    {
+      "review_id": "T0045",
+      "crop": "ground_truth/front_eds_num/016_159ee871__0cc20afd-643_jpg.rf.7122d884c06d8427e7f43afb21225b55_a2157.png",
+      "crop_sha256": "e3037e8511eb51912e3f5f458d5ea83b111987c4872a3ec32c6ffd3082c6e3f1",
+      "image": "159ee871__0cc20afd-643_jpg.rf.7122d884c06d8427e7f43afb21225b55.jpg",
+      "source_image_sha256": "30b64e744a71a79d2010b429a92dab8e4cbf62a4df8efebd2cd8a15039b0c1ec",
+      "label": "front_eds_num",
+      "annotation_id": "2157",
+      "group_id": "G006",
+      "box_xyxy": "[421, 315, 461, 352]"
+    },
+    {
+      "review_id": "T0048",
+      "crop": "ground_truth/front_eds_num/017_159ee871__0cc20afd-643_jpg.rf.9c03e16ee26fb0b508828619f9b906b8_a1510.png",
+      "crop_sha256": "deae69460e0bb45ac70dcb7360d818703e364458ab778400f37259d563e998c1",
+      "image": "159ee871__0cc20afd-643_jpg.rf.9c03e16ee26fb0b508828619f9b906b8.jpg",
+      "source_image_sha256": "ed5ade93e7ebec9330edb2a8ca72833c457cc2151138be0bd93879c331f7145f",
+      "label": "front_eds_num",
+      "annotation_id": "1510",
+      "group_id": "G006",
+      "box_xyxy": "[419, 316, 461, 354]"
+    },
+    {
+      "review_id": "T0051",
+      "crop": "ground_truth/front_eds_num/018_159ee871__0cc20afd-643_jpg.rf.ac3666e934dae885cc34d0b6c64a7134_a595.png",
+      "crop_sha256": "037b27de1f8b055dc3cb447025aeaeafb8febfa8bcc7007ed55134c4fecde4f4",
+      "image": "159ee871__0cc20afd-643_jpg.rf.ac3666e934dae885cc34d0b6c64a7134.jpg",
+      "source_image_sha256": "fa71cc5e18a932e11d2b56f5081b76195285cd62d327ae89ab8266ff38943323",
+      "label": "front_eds_num",
+      "annotation_id": "595",
+      "group_id": "G006",
+      "box_xyxy": "[421, 315, 461, 352]"
+    },
+    {
+      "review_id": "T0061",
+      "crop": "ground_truth/front_eds_num/022_1c601ef2__7bcb756c-751_jpg.rf.4bb33fcb5656a6855b86b2bf10408cef_a2587.png",
+      "crop_sha256": "d27f75a6c61f0feae77173f2f37c5bb394d3fae29b59a9e794fa53050e492af2",
+      "image": "1c601ef2__7bcb756c-751_jpg.rf.4bb33fcb5656a6855b86b2bf10408cef.jpg",
+      "source_image_sha256": "4193279d1ae71036d2a176a107bebb049a1b1e75bdf9803eb08fde2b2e520838",
+      "label": "front_eds_num",
+      "annotation_id": "2587",
+      "group_id": "G008",
+      "box_xyxy": "[897, 392, 948, 437]"
+    },
+    {
+      "review_id": "T0064",
+      "crop": "ground_truth/front_eds_num/023_1c601ef2__7bcb756c-751_jpg.rf.ccee24db52e21a30e8c56427c73200a4_a1889.png",
+      "crop_sha256": "bb5ee70b8c49921e183111304d7471c3843cf1cf26f3f00a29dba798636f60c6",
+      "image": "1c601ef2__7bcb756c-751_jpg.rf.ccee24db52e21a30e8c56427c73200a4.jpg",
+      "source_image_sha256": "91d17b23653ee94a495d41834e650d5fa37a923fdddaad3896534a0e4e07fdf5",
+      "label": "front_eds_num",
+      "annotation_id": "1889",
+      "group_id": "G008",
+      "box_xyxy": "[891, 384, 945, 431]"
+    },
+    {
+      "review_id": "T0067",
+      "crop": "ground_truth/front_eds_num/024_1c601ef2__7bcb756c-751_jpg.rf.ce8bd2de775bac173a0ec5ecbd061ab6_a1597.png",
+      "crop_sha256": "355f5e32b1f755c604e029d1b2ef47dda4dc5bd8981149ba52dfdd070f1ccdff",
+      "image": "1c601ef2__7bcb756c-751_jpg.rf.ce8bd2de775bac173a0ec5ecbd061ab6.jpg",
+      "source_image_sha256": "fc78aaad999501d6b1ab828868828bac75c5afed53748ae7e51e72af156c38d4",
+      "label": "front_eds_num",
+      "annotation_id": "1597",
+      "group_id": "G008",
+      "box_xyxy": "[897, 392, 948, 437]"
+    },
+    {
+      "review_id": "T0218",
+      "crop": "ground_truth/front_eds_destination/070_71ebc2d1__2feba792-642_jpg.rf.08207a0668248ce35e6235934d9912f4_a1322.png",
+      "crop_sha256": "6a2e10aaa2fa65a5f63336757f121af9fccf48b7da2ba858f1189a893a383ad4",
+      "image": "71ebc2d1__2feba792-642_jpg.rf.08207a0668248ce35e6235934d9912f4.jpg",
+      "source_image_sha256": "5316d3519eced115e56170530a7168783171630b913bd443bcfed9c5317d72ee",
+      "label": "front_eds_destination",
+      "annotation_id": "1322",
+      "group_id": "G024",
+      "box_xyxy": "[619, 364, 744, 387]"
+    },
+    {
+      "review_id": "T0221",
+      "crop": "ground_truth/front_eds_destination/071_71ebc2d1__2feba792-642_jpg.rf.0d487231d0cfd6bed89a245376233912_a2044.png",
+      "crop_sha256": "80eb3da68935fa96935e86280424ab02b3f1b12738519fc393ebdaf9da8c65e2",
+      "image": "71ebc2d1__2feba792-642_jpg.rf.0d487231d0cfd6bed89a245376233912.jpg",
+      "source_image_sha256": "3d3807db0684f64338176635966fef00a2258ea640b90ce7e9730e7746dd3f50",
+      "label": "front_eds_destination",
+      "annotation_id": "2044",
+      "group_id": "G024",
+      "box_xyxy": "[620, 368, 744, 388]"
+    },
+    {
+      "review_id": "T0224",
+      "crop": "ground_truth/front_eds_destination/072_71ebc2d1__2feba792-642_jpg.rf.d003b38afc8d8faf0ea6c6221c7a2635_a1809.png",
+      "crop_sha256": "258a4fefdceaa1fade87db2825930d5ac31c213731a5475317bb49ef23496362",
+      "image": "71ebc2d1__2feba792-642_jpg.rf.d003b38afc8d8faf0ea6c6221c7a2635.jpg",
+      "source_image_sha256": "b41958d9a5232e1fa4bae2cf8fcfdc4f60562d1c77f51fb8eb35c2dd08e94437",
+      "label": "front_eds_destination",
+      "annotation_id": "1809",
+      "group_id": "G024",
+      "box_xyxy": "[620, 368, 744, 388]"
+    },
+    {
+      "review_id": "T0277",
+      "crop": "ground_truth/front_eds_destination/085_8b89ab51-bus_26_jpg.rf.0cd548c81341cb5e9079c0def7791e3f_a2233.png",
+      "crop_sha256": "ae0e00ed7e9a404cb94b8d57ff5ca9b3894675bdb4d7508ded1fa4bb2327dc66",
+      "image": "8b89ab51-bus_26_jpg.rf.0cd548c81341cb5e9079c0def7791e3f.jpg",
+      "source_image_sha256": "1739d72d69cd13140bead2b6df047ab881b168549134991be03c2f204c5c7b27",
+      "label": "front_eds_destination",
+      "annotation_id": "2233",
+      "group_id": "G029",
+      "box_xyxy": "[449, 631, 565, 654]"
+    },
+    {
+      "review_id": "T0283",
+      "crop": "ground_truth/front_eds_destination/086_8b89ab51-bus_26_jpg.rf.563c4388b7f05a7d95e079e78faf9c8a_a2210.png",
+      "crop_sha256": "fce96f5aeff438ec8191c398dc9405b8d89c0b20c651bfbbf08dfbc82d32efce",
+      "image": "8b89ab51-bus_26_jpg.rf.563c4388b7f05a7d95e079e78faf9c8a.jpg",
+      "source_image_sha256": "ce6ffed3c6c54e01ffdd17e57376d3b29f964fdb5c82c0b93ceb7f46320f6c2c",
+      "label": "front_eds_destination",
+      "annotation_id": "2210",
+      "group_id": "G029",
+      "box_xyxy": "[451, 601, 569, 630]"
+    },
+    {
+      "review_id": "T0289",
+      "crop": "ground_truth/front_eds_destination/087_8b89ab51-bus_26_jpg.rf.97a2bfa42d8699dee602e033ed4b3a07_a1762.png",
+      "crop_sha256": "baedb28b391aa7a0f3d3510afef1e4eb9a49fa93c506d0e1aa8b33f111fda681",
+      "image": "8b89ab51-bus_26_jpg.rf.97a2bfa42d8699dee602e033ed4b3a07.jpg",
+      "source_image_sha256": "459da36aa24c71e5349d77f599536b63415aac983517042b5082d9f91ef7a31c",
+      "label": "front_eds_destination",
+      "annotation_id": "1762",
+      "group_id": "G029",
+      "box_xyxy": "[452, 591, 570, 622]"
+    },
+    {
+      "review_id": "T0482",
+      "crop": "ground_truth/front_eds_destination/172_IMAGE_2026-10-25_14_42_32_jpg.rf.375751f10591d1e0b5a0aba719b3cebd_a117.png",
+      "crop_sha256": "de585ad61a1965944ef0c78a11a621b918dc7829b1472f982b5c29dc691ee405",
+      "image": "IMAGE_2026-10-25_14_42_32_jpg.rf.375751f10591d1e0b5a0aba719b3cebd.jpg",
+      "source_image_sha256": "12a595f2c6b82120eefff0047cd60f48a638a2f15993a75dbcd39fa16c865fc7",
+      "label": "front_eds_destination",
+      "annotation_id": "117",
+      "group_id": "G058",
+      "box_xyxy": "[537, 63, 695, 108]"
+    },
+    {
+      "review_id": "T0484",
+      "crop": "ground_truth/front_eds_destination/173_IMAGE_2026-10-25_14_42_32_jpg.rf.928d685f24f18949b1bcf7904383e16b_a1327.png",
+      "crop_sha256": "0e8efde5a02cfee5fa2033833b78630142826e2b6fb83e8151e657c52bd9c565",
+      "image": "IMAGE_2026-10-25_14_42_32_jpg.rf.928d685f24f18949b1bcf7904383e16b.jpg",
+      "source_image_sha256": "64b22b97815bcf3af5ac5b4938f4534282feb75f254bdeae2f63fa2b8b327cc7",
+      "label": "front_eds_destination",
+      "annotation_id": "1327",
+      "group_id": "G058",
+      "box_xyxy": "[533, 60, 692, 108]"
+    },
+    {
+      "review_id": "T0486",
+      "crop": "ground_truth/front_eds_destination/174_IMAGE_2026-10-25_14_42_32_jpg.rf.bb799a1a4138a4c622513f92c62655c5_a80.png",
+      "crop_sha256": "31815542cd89ca1dea24df270b07e14fc3bc58b6564dc6bc2d47b3ba8bda669e",
+      "image": "IMAGE_2026-10-25_14_42_32_jpg.rf.bb799a1a4138a4c622513f92c62655c5.jpg",
+      "source_image_sha256": "be003c1bb25d3f060d43a16f10645acd5f71cf47cf05c29c16b1842be8839781",
+      "label": "front_eds_destination",
+      "annotation_id": "80",
+      "group_id": "G058",
+      "box_xyxy": "[537, 63, 695, 108]"
+    },
+    {
+      "review_id": "T0185",
+      "crop": "ground_truth/front_eds_route/058_5ecec72b__3af8842c-1451_jpg.rf.1456f9b0447eca988c83c5b0c88f480e_a1238.png",
+      "crop_sha256": "463bb2d295f156d6f115a0c311a0288da692b98952ec6e04833a898e5182f14d",
+      "image": "5ecec72b__3af8842c-1451_jpg.rf.1456f9b0447eca988c83c5b0c88f480e.jpg",
+      "source_image_sha256": "7ae428b8628ad5a3e7da8c23b0c5b07ec74e58976491afd028b793881a89b9c7",
+      "label": "front_eds_route",
+      "annotation_id": "1238",
+      "group_id": "G020",
+      "box_xyxy": "[742, 404, 786, 417]"
+    },
+    {
+      "review_id": "T0188",
+      "crop": "ground_truth/front_eds_route/059_5ecec72b__3af8842c-1451_jpg.rf.4bfa7253b47ac6387ed3c675b730891e_a792.png",
+      "crop_sha256": "2cd5a0b489595e39932e4a6de0c27c91c918f0e4b9b281e82ae1c0bda78459de",
+      "image": "5ecec72b__3af8842c-1451_jpg.rf.4bfa7253b47ac6387ed3c675b730891e.jpg",
+      "source_image_sha256": "5fd0b8d06636dd45fd34b2c285f00e3da525a866ff8b5023419cd423f7b6ac97",
+      "label": "front_eds_route",
+      "annotation_id": "792",
+      "group_id": "G020",
+      "box_xyxy": "[742, 409, 786, 420]"
+    },
+    {
+      "review_id": "T0191",
+      "crop": "ground_truth/front_eds_route/060_5ecec72b__3af8842c-1451_jpg.rf.96e4a64c35beecfd97ebfa314508a9ee_a2517.png",
+      "crop_sha256": "cd3b5599215aa886545aab019ca5bea699dfc47f558f7d86c041244993211ac4",
+      "image": "5ecec72b__3af8842c-1451_jpg.rf.96e4a64c35beecfd97ebfa314508a9ee.jpg",
+      "source_image_sha256": "3935de489c7420455adafd723a2a43452c00a4de1824f623218e93e43556124f",
+      "label": "front_eds_route",
+      "annotation_id": "2517",
+      "group_id": "G020",
+      "box_xyxy": "[741, 416, 786, 429]"
+    },
+    {
+      "review_id": "T0193",
+      "crop": "ground_truth/front_eds_route/061_5f70217e-b77e92ba-329_jpg.rf.1d5a94b62a3befea55448382a20147c4_a514.png",
+      "crop_sha256": "09dc57e803f99bb8111a01fc20b988af77e4ebc95ef7d9c361563375a3228bb7",
+      "image": "5f70217e-b77e92ba-329_jpg.rf.1d5a94b62a3befea55448382a20147c4.jpg",
+      "source_image_sha256": "03f330cc46954694b2da534898c6447da70f8abf644a15d4d63cfa516c0c37e8",
+      "label": "front_eds_route",
+      "annotation_id": "514",
+      "group_id": "G021",
+      "box_xyxy": "[422, 502, 696, 566]"
+    },
+    {
+      "review_id": "T0195",
+      "crop": "ground_truth/front_eds_route/062_5f70217e-b77e92ba-329_jpg.rf.2f6eabb068db3c3b02efc68cd389aeaa_a1948.png",
+      "crop_sha256": "3f81d64149a59e60f65035629220d4102086c414987abbbc1d4f8b67d2f1ea53",
+      "image": "5f70217e-b77e92ba-329_jpg.rf.2f6eabb068db3c3b02efc68cd389aeaa.jpg",
+      "source_image_sha256": "18ea7e58bb9c856b055b97e08b69ccb892dd4983ed0bd63af77249ba58740645",
+      "label": "front_eds_route",
+      "annotation_id": "1948",
+      "group_id": "G021",
+      "box_xyxy": "[422, 502, 696, 566]"
+    },
+    {
+      "review_id": "T0197",
+      "crop": "ground_truth/front_eds_route/063_5f70217e-b77e92ba-329_jpg.rf.e8949e69ac3adf7510d973437336c558_a766.png",
+      "crop_sha256": "9376b468616189ccfbd7d8bc11a3388f5ebfa46813f5e34856e6629aedc32179",
+      "image": "5f70217e-b77e92ba-329_jpg.rf.e8949e69ac3adf7510d973437336c558.jpg",
+      "source_image_sha256": "c538af3ff59317ac03dc80f9397e491d73cbfaef6555ce318fc45240521edae9",
+      "label": "front_eds_route",
+      "annotation_id": "766",
+      "group_id": "G021",
+      "box_xyxy": "[411, 525, 689, 609]"
+    },
+    {
+      "review_id": "T0200",
+      "crop": "ground_truth/front_eds_route/064_6b2ac35e-2508011c-135_jpg.rf.4f0733e44e23074c12d280b90f3215bc_a759.png",
+      "crop_sha256": "b116b41162666e0ff4878889169ce271db2c9319a1f7058d25587b8c2025f374",
+      "image": "6b2ac35e-2508011c-135_jpg.rf.4f0733e44e23074c12d280b90f3215bc.jpg",
+      "source_image_sha256": "2e8cdc302367f2b3c894a685a0746fcf9837c64be955e51a5de3ee560a0197d5",
+      "label": "front_eds_route",
+      "annotation_id": "759",
+      "group_id": "G022",
+      "box_xyxy": "[218, 346, 313, 357]"
+    },
+    {
+      "review_id": "T0203",
+      "crop": "ground_truth/front_eds_route/065_6b2ac35e-2508011c-135_jpg.rf.5aacba062816315b471fea5d460caf10_a2551.png",
+      "crop_sha256": "2a1b7d4bdcbd6ecc1a1ac95781565133b1e04bffdc8ecfb39ea58f63ba6caea2",
+      "image": "6b2ac35e-2508011c-135_jpg.rf.5aacba062816315b471fea5d460caf10.jpg",
+      "source_image_sha256": "a70d3e39f40192fb83611029bed32b5829b35c87606ca596ca8728da2f3724e8",
+      "label": "front_eds_route",
+      "annotation_id": "2551",
+      "group_id": "G022",
+      "box_xyxy": "[219, 349, 315, 364]"
+    },
+    {
+      "review_id": "T0206",
+      "crop": "ground_truth/front_eds_route/066_6b2ac35e-2508011c-135_jpg.rf.aae16371b0423496ee1026991107fbe2_a645.png",
+      "crop_sha256": "667c36e86deaf51dbe8cd572095e2bbd1fc148b0ca171f294d57f7ea83b31d6e",
+      "image": "6b2ac35e-2508011c-135_jpg.rf.aae16371b0423496ee1026991107fbe2.jpg",
+      "source_image_sha256": "dfcc3edd0da6211f9a45a9dae76702bb39c3e68f9512c0948c33ba028e879cb5",
+      "label": "front_eds_route",
+      "annotation_id": "645",
+      "group_id": "G022",
+      "box_xyxy": "[215, 332, 311, 350]"
+    }
+  ]
+}

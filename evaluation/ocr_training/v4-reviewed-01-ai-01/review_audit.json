@@ -1,0 +1,60 @@
+{
+  "status": "structurally_valid_ai_review_not_training_ready",
+  "review_date": "2026-11-09",
+  "reviewer": "Codex",
+  "reviewer_type": "AI",
+  "text_crops": 1917,
+  "training_source_images": 735,
+  "named_training_families": 245,
+  "training_groups": 244,
+  "legibility_counts": {
+    "full": 710,
+    "partial": 508,
+    "illegible": 699
+  },
+  "field_counts": {
+    "front_eds_destination": {
+      "full": 124,
+      "partial": 242,
+      "illegible": 252
+    },
+    "front_eds_num": {
+      "full": 477,
+      "partial": 48,
+      "illegible": 195
+    },
+    "front_eds_route": {
+      "full": 109,
+      "partial": 218,
+      "illegible": 252
+    }
+  },
+  "review_status_counts": {
+    "reviewed": 1911,
+    "needs_resolution": 6
+  },
+  "quarantined_source_images": 84,
+  "quarantined_groups": 28,
+  "quarantined_text_rows": 288,
+  "human_verification_candidates": 537,
+  "training_ready_rows": 0,
+  "current_validation_exact_source_hash_overlap": 0,
+  "source_archives_sha256": {
+    "v4-reviewed-01-training.zip": "eed81556629f1223529ada839dd23c0f575961315ef46ebd2878f6d719ed6bd8"
+  },
+  "artifact_sha256": {
+    "transcriptions.review.csv": "24a7503b450d640b1d8727e42ed476aecccaeccc47ef3249685659c0487922b8",
+    "human_review_queue.csv": "50193e1489f18f7a70fc7ecba5bb813f0da98c7c1fa5c0cbe45dae7578810a07",
+    "full_text.ai-candidates.csv": "cb03672ce79463359471d55a41c237fb81437f0d21c38158f6ddb2d39b3fe0ce",
+    "source_review.csv": "da264873b9f6e173e20948fbbea82436988fa9d01ea1cc665ae7d0a53d9e8a0f",
+    "source_audit.json": "712413f41bf477186feb32fe9b023fee4eedbcdc468d80b0986ab7778b42d0b7",
+    "source_groups.json": "37edb0d02ec82ea58ea69dcb7bf83ba419600b39375328a5e22e5c707ac5c6fc"
+  },
+  "limits": [
+    "Counts are annotation coverage, not OCR accuracy.",
+    "AI reinspection is not independent human review.",
+    "Historical source-name links do not establish new v4 split leakage.",
+    "Missing full dataset prevents full-photo and complete v4 test group review.",
+    "No OCR engine, route-reference matching, training or checkpoint loading was used."
+  ]
+}

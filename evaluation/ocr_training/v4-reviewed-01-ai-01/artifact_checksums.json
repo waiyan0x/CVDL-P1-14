@@ -1,0 +1,20 @@
+{
+  "README.md": "ede236070d7bb6fc92d3988bf9dada8a95bcbfe4a50a5105d94f51fd45f29619",
+  "full_text.ai-candidates.csv": "cb03672ce79463359471d55a41c237fb81437f0d21c38158f6ddb2d39b3fe0ce",
+  "human_review_queue.csv": "50193e1489f18f7a70fc7ecba5bb813f0da98c7c1fa5c0cbe45dae7578810a07",
+  "intake_audit.json": "92ee6501ab6644aa664b44843679061229661b09b2cbb753bce746f69228cff8",
+  "panel_similarity_candidates.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "reinspection_changes.json": "191860b41c8f75876e7184a52ec3164ed50917b61b286def71e6222282421afd",
+  "review_audit.json": "24102aac8af7a8dbcefc9f4857c0025033edf5bc8ba2e4c198e8c1cd5ff10698",
+  "sheet_index.json": "cde3d178437721b93995f9a9b723953f4d6cd923c6ec80cee59fa73fe76103bf",
+  "source_README.md": "641ffd5b100bc6a6a132a1d1da81cb439fc451a108939583ccbc7a9acb0b7474",
+  "source_audit.json": "712413f41bf477186feb32fe9b023fee4eedbcdc468d80b0986ab7778b42d0b7",
+  "source_groups.json": "37edb0d02ec82ea58ea69dcb7bf83ba419600b39375328a5e22e5c707ac5c6fc",
+  "source_manifest.json": "973c043dcce2a7c4171bf24d7340cda97de63d5254181874273d41307797498f",
+  "source_review.csv": "da264873b9f6e173e20948fbbea82436988fa9d01ea1cc665ae7d0a53d9e8a0f",
+  "source_transcriptions_template.csv": "37b51a76a1bbe34b4d4160d4c33406c9d328b7e329b5933891e7cb948582b665",
+  "transcriptions.first-pass.csv": "3dfc06a75d2f3e5c3157d89ed20b641341b0166ddc1b15c204136e852fabb023",
+  "transcriptions.review.csv": "24a7503b450d640b1d8727e42ed476aecccaeccc47ef3249685659c0487922b8",
+  "visual_review_log.json": "f6ccff79abaf223fb11b4fe50ca5dd9bc49a16087b1a3ff42b27e4e748eba08e",
+  "../../../scripts/audit_ocr_training_review.py": "5c15692391ecb602fb31462a39e0f01492656ec9bb1813d1056f896f0230cd70"
+}

@@ -1,0 +1,818 @@
+[
+  {
+    "review_id": "T0164",
+    "old_text": "> TSUAN TONG RD",
+    "new_text": "[UNK] RING RD",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T0168",
+    "old_text": "> TSUAN TONG RD",
+    "new_text": "[UNK] RING RD",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T0172",
+    "old_text": "> TSUAN TONG RD",
+    "new_text": "[UNK] RING RD",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T0177",
+    "old_text": "MARGARET DR\nKG BAHRU TER-GWEALTH DR",
+    "new_text": "MARGARET DR\nKG BAHRU TER-C'WEALTH DR",
+    "old_legibility": "full",
+    "new_legibility": "full",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T0183",
+    "old_text": "MARGARET DR\nKG BAHRU TER-GWEALTH DR",
+    "new_text": "MARGARET DR\nKG BAHRU TER-C'WEALTH DR",
+    "old_legibility": "full",
+    "new_legibility": "full",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T0180",
+    "old_text": "[UNK]\nKG BAHRU TER-GWEALTH DR",
+    "new_text": "[UNK]\nKG BAHRU TER-C'WEALTH DR",
+    "old_legibility": "partial",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T0209",
+    "old_text": "MARINA CTR-GWEALTH[UNK]",
+    "new_text": "MARINA CTR-C'WEALTH[UNK]",
+    "old_legibility": "partial",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T0212",
+    "old_text": "MARINA CTR-GWEALTH[UNK]",
+    "new_text": "MARINA CTR-C'WEALTH[UNK]",
+    "old_legibility": "partial",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T0215",
+    "old_text": "MARINA CTR-GWEALTH[UNK]",
+    "new_text": "MARINA CTR-C'WEALTH[UNK]",
+    "old_legibility": "partial",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T0270",
+    "old_text": "ST.MERAH INT-ST.PURMEI A[UNK]",
+    "new_text": "[UNK]MERAH INT-BT.PURMEI A.",
+    "old_legibility": "partial",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T0276",
+    "old_text": "ST.MERAH INT-ST.PURMEI A[UNK]",
+    "new_text": "[UNK]MERAH INT-BT.PURMEI A.",
+    "old_legibility": "partial",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T0273",
+    "old_text": "[UNK]\nST.MERAH INT-ST.PURMEI A[UNK]",
+    "new_text": "[UNK]\n[UNK]MERAH INT-BT.PURMEI A.",
+    "old_legibility": "partial",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T1047",
+    "old_text": "CHOA CHU KANG",
+    "new_text": "CH[UNK]A CHU KANG",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T1056",
+    "old_text": "CHUA CHU KANG",
+    "new_text": "CH[UNK]A CHU KANG",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T1059",
+    "old_text": "CHOA CHU KANG",
+    "new_text": "CH[UNK]A CHU KANG",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T1068",
+    "old_text": "CHUA CHU KANG",
+    "new_text": "CH[UNK]A CHU KANG",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T1071",
+    "old_text": "CHOA CHU KANG\n[UNK]",
+    "new_text": "CH[UNK]A CHU KANG\n[UNK]",
+    "old_legibility": "partial",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T1080",
+    "old_text": "CHUA CHU KANG\n[UNK]",
+    "new_text": "CH[UNK]A CHU KANG\n[UNK]",
+    "old_legibility": "partial",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T1707",
+    "old_text": "LEYLAND RD\nBEDOK INT-MERPATI RD",
+    "new_text": "[UNK]\nBEDOK INT-MERPATI RD",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T1710",
+    "old_text": "LEYLAND RD\nBEDOK INT-MERPATI RD",
+    "new_text": "[UNK]\nBEDOK INT-MERPATI RD",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T1713",
+    "old_text": "LEYLAND RD\nBEDOK INT-MERPATI RD",
+    "new_text": "[UNK]\nBEDOK INT-MERPATI RD",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T1706",
+    "old_text": "GEYLANG RD",
+    "new_text": "[UNK]EYLANG RD\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T1709",
+    "old_text": "GEYLANG RD",
+    "new_text": "[UNK]EYLANG RD\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T1712",
+    "old_text": "GEYLANG RD",
+    "new_text": "[UNK]EYLANG RD\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:26:09+08:00"
+  },
+  {
+    "review_id": "T0026",
+    "old_text": "PASIR PANJANG RD",
+    "new_text": "PASIR PANJANG RD\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0029",
+    "old_text": "PASIR PANJANG RD",
+    "new_text": "PASIR PANJANG RD\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0032",
+    "old_text": "PASIR PANJANG RD",
+    "new_text": "PASIR PANJANG RD\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0063",
+    "old_text": "BUKIT MERAH via\nGREAT WORLD CITY",
+    "new_text": "[UNK] via\nGREAT WORLD CITY",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0066",
+    "old_text": "BUKIT MERAH via\nGREAT WORLD CITY",
+    "new_text": "[UNK] via\nGREAT WORLD CITY",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0069",
+    "old_text": "BUKIT MERAH via\nGREAT WORLD CITY",
+    "new_text": "[UNK] via\nGREAT WORLD CITY",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0128",
+    "old_text": "> HOUGANG CTRL INT",
+    "new_text": "[UNK]\n> HOUGANG CTRL INT",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0131",
+    "old_text": "> HOUGANG CTRL INT",
+    "new_text": "[UNK]\n> HOUGANG CTRL INT",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0138",
+    "old_text": "> BUKIT MERAH INT",
+    "new_text": "> BUKIT MERAH IN[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0144",
+    "old_text": "> BUKIT MERAH INT",
+    "new_text": "> BUKIT MERAH IN[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0150",
+    "old_text": "> BUKIT MERAH INT",
+    "new_text": "> BUKIT MERAH IN[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0227",
+    "old_text": "Welcome Onboard\nTower Transit",
+    "new_text": "Welcome Onboar[UNK]\nTower Transi[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0229",
+    "old_text": "Welcome Onboard\nTower Transit",
+    "new_text": "Welcome Onboar[UNK]\nTower Transi[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0231",
+    "old_text": "Welcome Onboard\nTower Transit",
+    "new_text": "Welcome Onboar[UNK]\nTower Transi[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0278",
+    "old_text": "JURONG WEST AVE 5",
+    "new_text": "JURONG WEST AVE [UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0353",
+    "old_text": "ALEXANDRA RD\nKG BAHRU TER-TELOK BLANGAH HTS",
+    "new_text": "[UNK]\nKG BAHRU TER-TELOK BLANGAH HTS",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0359",
+    "old_text": "DUNEARN RD\n> BEDOK NTH DEPOT",
+    "new_text": "[UNK]\n> BEDOK NTH DEPOT",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0365",
+    "old_text": "DUNEARN RD\n> BEDOK NTH DEPOT",
+    "new_text": "[UNK]\n> BEDOK NTH DEPOT",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0448",
+    "old_text": "WOODLANDS TEMP INT",
+    "new_text": "WOODLANDS TEMP INT\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0451",
+    "old_text": "WOODLANDS TEMP INT",
+    "new_text": "WOODLANDS TEMP INT\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0455",
+    "old_text": "BT PANJANG INT",
+    "new_text": "BT PANJANG INT\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0458",
+    "old_text": "BT PANJANG INT",
+    "new_text": "BT PANJANG INT\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0461",
+    "old_text": "BT PANJANG INT",
+    "new_text": "BT PANJANG INT\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0476",
+    "old_text": "WOODLANDS INT via\nWDL TRAIN CHECKPOINT",
+    "new_text": "[UNK]\nWDL TRAIN CHECKPOINT",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0524",
+    "old_text": "BUKIT BATOK\nINT / MRT",
+    "new_text": "BUKIT BATOK\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0566",
+    "old_text": "VIA CHINATOWN",
+    "new_text": "via CHINATOWN",
+    "old_legibility": "full",
+    "new_legibility": "full",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0569",
+    "old_text": "[UNK]\nVIA CHINATOWN",
+    "new_text": "[UNK]\nvia CHINATOWN",
+    "old_legibility": "partial",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0572",
+    "old_text": "[UNK]\nVIA CHINATOWN",
+    "new_text": "[UNK]\nvia CHINATOWN",
+    "old_legibility": "partial",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:27:32+08:00"
+  },
+  {
+    "review_id": "T0605",
+    "old_text": "TAMPINES via\nUPP BT TIMAH RD",
+    "new_text": "[UNK]MPINES via\nUPP BT TIMAH RD",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0608",
+    "old_text": "TAMPINES via\nUPP BT TIMAH RD",
+    "new_text": "[UNK]MPINES via\nUPP BT TIMAH RD",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0611",
+    "old_text": "TAMPINES via\nUPP BT TIMAH RD",
+    "new_text": "[UNK]MPINES via\nUPP BT TIMAH RD",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0636",
+    "old_text": "MACPHERSON RD",
+    "new_text": "[UNK] RD",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0639",
+    "old_text": "MACPHERSON RD",
+    "new_text": "[UNK] RD",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0642",
+    "old_text": "MACPHERSON RD",
+    "new_text": "[UNK] RD",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0641",
+    "old_text": "CHANGI AIRPORT via",
+    "new_text": "CHANGI AIRPORT via\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0699",
+    "old_text": "> HOUGANG CTRL INT",
+    "new_text": "[UNK]\n> HOUGANG CTRL INT",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0705",
+    "old_text": "> HOUGANG CTRL INT",
+    "new_text": "[UNK]\n> HOUGANG CTRL INT",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0711",
+    "old_text": "> HOUGANG CTRL INT",
+    "new_text": "[UNK]\n> HOUGANG CTRL INT",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0731",
+    "old_text": "> ANG MO KIO INT",
+    "new_text": "[UNK]\n> ANG MO KIO INT",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0737",
+    "old_text": "> ANG MO KIO INT",
+    "new_text": "[UNK]\n> ANG MO KIO INT",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0743",
+    "old_text": "> ANG MO KIO INT",
+    "new_text": "[UNK]\n> ANG MO KIO INT",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0785",
+    "old_text": "> SENGKANG INT",
+    "new_text": "[UNK]\n> SENGKANG INT",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0798",
+    "old_text": "YIO CHU KANG RD",
+    "new_text": "YIO CHU [UNK] RD",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0801",
+    "old_text": "YIO CHU KANG RD",
+    "new_text": "YIO CHU [UNK] RD",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T0804",
+    "old_text": "YIO CHU KANG RD",
+    "new_text": "YIO CHU [UNK] RD",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1009",
+    "old_text": "C.C.K AVENUE 3",
+    "new_text": "C.C.K AV[UNK] 3",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1018",
+    "old_text": "C.C.K AVENUE 3",
+    "new_text": "C.C.K AV[UNK] 3",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1027",
+    "old_text": "C.C.K AVENUE 3",
+    "new_text": "C.C.K AV[UNK] 3",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1302",
+    "old_text": "SIMS AVE\n> PASIR RIS INT",
+    "new_text": "[UNK]\n> PASIR RIS INT",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1307",
+    "old_text": "SIMS AVE\n> PASIR RIS INT",
+    "new_text": "[UNK]\n> PASIR RIS INT",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1312",
+    "old_text": "SIMS AVE\n> PASIR RIS INT",
+    "new_text": "[UNK]\n> PASIR RIS INT",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1346",
+    "old_text": "> ST MICHAEL'S TER",
+    "new_text": "[UNK]\n> ST MICHAEL'S TER",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1349",
+    "old_text": "STAMFORD RD\n> ST MICHAEL'S TER",
+    "new_text": "[UNK]\n> ST MICHAEL'S TER",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1352",
+    "old_text": "> ST MICHAEL'S TER",
+    "new_text": "[UNK]\n> ST MICHAEL'S TER",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1462",
+    "old_text": "TELOK BLANGAH RD",
+    "new_text": "TELOK BLANGAH R[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1465",
+    "old_text": "TELOK BLANGAH RD",
+    "new_text": "TELOK BLANGAH R[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1468",
+    "old_text": "TELOK BLANGAH RD",
+    "new_text": "TELOK BLANGAH R[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1512",
+    "old_text": "ALJUNIED RD",
+    "new_text": "ALJUNIED RD\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1515",
+    "old_text": "ALJUNIED RD",
+    "new_text": "ALJUNIED RD\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1518",
+    "old_text": "ALJUNIED RD",
+    "new_text": "ALJUNIED RD\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1521",
+    "old_text": "> BUONA VISTA TER",
+    "new_text": "[UNK]\n> BUONA VISTA TER",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1524",
+    "old_text": "> BUONA VISTA TER",
+    "new_text": "[UNK]\n> BUONA VISTA TER",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:19+08:00"
+  },
+  {
+    "review_id": "T1565",
+    "old_text": "KG BAHRU RD\n> SIMS PLACE TER",
+    "new_text": "[UNK]\n> SIMS PLACE TER",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:59+08:00"
+  },
+  {
+    "review_id": "T1568",
+    "old_text": "KG BAHRU RD\n> SIMS PLACE TER",
+    "new_text": "[UNK]\n> SIMS PLACE TER",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:59+08:00"
+  },
+  {
+    "review_id": "T1584",
+    "old_text": "HOUGANG AVE 3\n> BUONA VISTA TER",
+    "new_text": "[UNK]\n> BUONA VISTA TER",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:59+08:00"
+  },
+  {
+    "review_id": "T1587",
+    "old_text": "HOUGANG AVE 3\n> BUONA VISTA TER",
+    "new_text": "[UNK]\n> BUONA VISTA TER",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:59+08:00"
+  },
+  {
+    "review_id": "T1590",
+    "old_text": "HOUGANG AVE 3\n> BUONA VISTA TER",
+    "new_text": "[UNK]\n> BUONA VISTA TER",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:59+08:00"
+  },
+  {
+    "review_id": "T1862",
+    "old_text": "> ST MICHAEL'S TER",
+    "new_text": "[UNK]\n> ST MICHAEL'S TER",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:59+08:00"
+  },
+  {
+    "review_id": "T1865",
+    "old_text": "> ST MICHAEL'S TER",
+    "new_text": "[UNK]\n> ST MICHAEL'S TER",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:59+08:00"
+  },
+  {
+    "review_id": "T1868",
+    "old_text": "> ST MICHAEL'S TER",
+    "new_text": "[UNK]\n> ST MICHAEL'S TER",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:59+08:00"
+  },
+  {
+    "review_id": "T1869",
+    "old_text": "KAMPONG BAHRU RD",
+    "new_text": "KAMPONG BAHRU RD\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:59+08:00"
+  },
+  {
+    "review_id": "T1898",
+    "old_text": "STEVENS RD",
+    "new_text": "STEVENS RD\n[UNK]",
+    "old_legibility": "full",
+    "new_legibility": "partial",
+    "at": "2026-11-09T13:28:59+08:00"
+  },
+  {
+    "review_id": "T0919",
+    "old_text": "[UNK]",
+    "new_text": "[UNK]",
+    "old_legibility": "illegible",
+    "new_legibility": "illegible",
+    "at": "2026-11-09T13:28:59+08:00"
+  },
+  {
+    "review_id": "T0921",
+    "old_text": "[UNK]",
+    "new_text": "[UNK]",
+    "old_legibility": "illegible",
+    "new_legibility": "illegible",
+    "at": "2026-11-09T13:28:59+08:00"
+  },
+  {
+    "review_id": "T0924",
+    "old_text": "[UNK]",
+    "new_text": "[UNK]",
+    "old_legibility": "illegible",
+    "new_legibility": "illegible",
+    "at": "2026-11-09T13:28:59+08:00"
+  },
+  {
+    "review_id": "T0926",
+    "old_text": "[UNK]",
+    "new_text": "[UNK]",
+    "old_legibility": "illegible",
+    "new_legibility": "illegible",
+    "at": "2026-11-09T13:28:59+08:00"
+  },
+  {
+    "review_id": "T0929",
+    "old_text": "[UNK]",
+    "new_text": "[UNK]",
+    "old_legibility": "illegible",
+    "new_legibility": "illegible",
+    "at": "2026-11-09T13:28:59+08:00"
+  },
+  {
+    "review_id": "T0931",
+    "old_text": "[UNK]",
+    "new_text": "[UNK]",
+    "old_legibility": "illegible",
+    "new_legibility": "illegible",
+    "at": "2026-11-09T13:28:59+08:00"
+  }
+]
