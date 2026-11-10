@@ -1,0 +1,47 @@
+{
+  "status": "blocked_no_checkpoint_selected",
+  "request": "Select by validation CER only; prefer earlier epoch within a small margin; record per-field CER and training configuration; establish test exclusion.",
+  "observed_artifacts": {
+    "supplied_model_path": "models/trocr-finetuned/model.safetensors",
+    "supplied_model_file_sha256": "a6e9887cc2be01911076309bb1faac2d78552ea913d94e997247b8fae86954a1",
+    "supplied_model_is_lfs_pointer": true,
+    "supplied_training_args_path": "models/trocr-finetuned/training_args.bin",
+    "supplied_training_args_sha256": "182987138951826a521f06bd6efb2bcbff8aa1010fdeaa00b4101b1c0115cba0",
+    "latest_training_review_audit_path": "evaluation/ocr_training/v4-reviewed-01-ai-01/review_audit.json",
+    "latest_training_review_audit_sha256": "24102aac8af7a8dbcefc9f4857c0025033edf5bc8ba2e4c198e8c1cd5ff10698",
+    "latest_training_review_training_ready_rows": 0,
+    "supplied_configuration_snapshot_path": "evaluation/ocr_training/checkpoint-selection-01/supplied_training_configuration.json",
+    "saved_selection_metric": "exact_match_accuracy",
+    "saved_greater_is_better": true
+  },
+  "missing": [
+    "Requested OCR training run/checkpoint paths",
+    "Checkpoint epochs",
+    "Validation CER per field on the same fixed reviewed validation set",
+    "Training configuration tied to those checkpoints",
+    "Training/validation manifests and provenance establishing test-crop exclusion"
+  ],
+  "selection_policy": {
+    "criterion": "validation CER only",
+    "proposed_aggregate": "Micro CER = total validation character edits / total reference characters across eligible fields; field CERs also recorded. This matches the existing annotation protocol.",
+    "tie_break": "Earliest epoch among checkpoints within the declared absolute CER margin of the minimum; then earliest training step if available.",
+    "proposed_absolute_cer_margin": 0.005,
+    "margin_status": "Proposed in clarification; not applied because no candidate metrics are available.",
+    "test_metrics_used": false
+  },
+  "test_boundary": {
+    "test_crops_used_for_inference_training_or_selection_in_this_task": false,
+    "historical_training_test_exclusion_confirmed": false,
+    "reason": "Historical checkpoint training manifests and actual run provenance are unavailable. Earlier OCR preparation identified unresolved legacy held-out links; these are not evidence of a particular checkpoint having trained on them."
+  },
+  "results_csv_sha256": "886fd0e782e182b92aaa8ef5e2ba5dfeb563fcc9fc65ac564300d27ed3bca4b5",
+  "saved_configuration_matches_requested_selection": false,
+  "recheck": {
+    "repository_head": "35ee0d9",
+    "local_branch_history_checked": true,
+    "finding": "Available branch histories contain detector results.csv reports but no OCR trainer_state or per-checkpoint CER reports. Detector precision/mAP reports cannot select an OCR checkpoint by CER.",
+    "test_images_opened": false
+  },
+  "discovery_audit_path": "evaluation/ocr_training/checkpoint-selection-01/discovery_audit.json",
+  "reviewed_validation_set_ready": false
+}
