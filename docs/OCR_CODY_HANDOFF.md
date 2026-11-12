@@ -37,6 +37,24 @@ The following files are on Brendan's Windows machine under `.runtime/ocr_handoff
 
 The train crop CSV contains **zero verified text labels**. A reviewer must transcribe the visible sign text and enter their own name and actual review date. The Roboflow train images include augmented variants; `source_name` helps group them but does not establish that different capture names are unrelated scenes. Do not use the 88 older photos as a substitute without reviewing their labels and overlap.
 
+For OCR tools that expect split/class directories, Brendan also prepared
+`.runtime/ocr_class_dataset/v4-reviewed-01/` and the portable
+`.runtime/ocr_class_dataset/v4-reviewed-01.zip` (SHA-256
+`0b6021641bce5dc4ff669c6f3050161e193165abdb102001e966519117301a6f`).
+It has `train/`, `valid/`, and `test/`, each containing `front_eds/`,
+`front_eds_num/`, `front_eds_route/`, and `front_eds_destination/`, plus a blank
+`transcriptions_template.csv` for that split. There are 2,754 / 221 / 171
+annotation crops respectively. This is a separate ignored OCR export; the
+verified COCO detector dataset remains unchanged. Class folders identify the
+field, **not the text to recognise**. Test crops must not be used for training
+or setting selection.
+
+Regenerate that layout from the verified v4 dataset with:
+
+```powershell
+venv\detector\Scripts\python.exe scripts\build_ocr_class_dataset.py --output .runtime\ocr_class_dataset\v4-reviewed-01-new
+```
+
 To regenerate the training crop package from the verified local dataset, run from the repo root:
 
 ```powershell

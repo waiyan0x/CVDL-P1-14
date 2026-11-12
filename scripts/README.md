@@ -55,6 +55,10 @@ supports `--split train` to export annotation crops without loading a detector.
 It verifies the reviewed-v4 manifest and refuses a nonempty destination. See
 the [OCR handoff](../docs/OCR_CODY_HANDOFF.md) for the local transfer archives
 and blank transcription template.
+For OCR consumers requiring `train/`, `valid/`, and `test/` folders with four
+class subfolders, run [`build_ocr_class_dataset.py`](build_ocr_class_dataset.py).
+It makes a separate annotation-crop export and leaves the verified detector
+COCO dataset unchanged.
 
 ```powershell
 venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11n --run-id baseline-01
