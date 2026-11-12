@@ -53,6 +53,12 @@ class TrOCRReaderTests(unittest.TestCase):
         self.assertTrue(reader.history[0]["generation_limit_reached"])
         self.assertEqual(reader.history[0]["raw_text"], " Ab. ")
 
+    def test_three_pixel_high_rgb_line_has_explicit_channel_order(self):
+        reader = self.reader([3, 2])
+        reader.recognize(np.zeros((3, 87), dtype=np.uint8))
+        self.assertEqual(self.processor_calls[0]["images"].size, (87, 3))
+        self.assertEqual(self.processor_calls[0]["input_data_format"], "channels_last")
+
     def test_eos_only_has_no_confidence_tokens(self):
         reader = self.reader([2])
         reader.recognize(np.zeros((12, 60), dtype=np.uint8))

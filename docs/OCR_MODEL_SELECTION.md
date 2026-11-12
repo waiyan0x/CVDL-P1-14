@@ -1,4 +1,4 @@
-# OCR model selection — started 8 November 2026
+# OCR model selection
 
 **Observed evidence:** EasyOCR is the working pretrained baseline. No accuracy
 winner has been selected. The current validation labels and groups do not pass

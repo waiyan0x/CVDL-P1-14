@@ -1,0 +1,1111 @@
+{
+  "status": "validation_inference_complete_accuracy_pending",
+  "models": [
+    {
+      "id": "easyocr_english_g2",
+      "title": "EasyOCR English generation-2",
+      "weight_identification": {
+        "id": "easyocr_english_g2",
+        "identity": "EasyOCR English generation-2 pretrained recognizer",
+        "software": "easyocr",
+        "installed_version": "1.7.2",
+        "role": "public_pretrained_baseline",
+        "class_specific_weights": false,
+        "benchmark_runner_supported": true,
+        "provenance": "Existing cached weight; local hash compared with saved EasyOCR run; upstream revision not independently verified in this inventory.",
+        "artifacts": [
+          {
+            "path": ".cache/easyocr/english_g2.pth",
+            "role": "recognition_weights",
+            "status": "present_not_load_tested",
+            "size_bytes": 15143997,
+            "sha256": "e2272681d9d67a04e2dff396b6e95077bc19001f8f6d3593c307b9852e1c29e8"
+          }
+        ],
+        "associated_artifacts": [
+          {
+            "path": ".cache/easyocr/craft_mlt_25k.pth",
+            "role": "text_detector_not_used_in_recognition_only_benchmark",
+            "status": "present_not_load_tested",
+            "size_bytes": 83152330,
+            "sha256": "4a5efbfb48b4081100544e75e1e2b57f8de3d84f213004b14b85fd4b3748db17"
+          }
+        ],
+        "matches_saved_baseline_weight_hash": true
+      },
+      "preferred_run": "easyocr-v4-mps-fixed-lines-20261112-01",
+      "class_split_table": [
+        {
+          "split": "train",
+          "crop_class": "front_eds",
+          "inventory_crops": 837,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "panel_context_no_text_target",
+          "note": ""
+        },
+        {
+          "split": "train",
+          "crop_class": "front_eds_num",
+          "inventory_crops": 720,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        },
+        {
+          "split": "train",
+          "crop_class": "front_eds_destination",
+          "inventory_crops": 618,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        },
+        {
+          "split": "train",
+          "crop_class": "front_eds_route",
+          "inventory_crops": 579,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        },
+        {
+          "split": "valid",
+          "crop_class": "front_eds",
+          "inventory_crops": 64,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "panel_context_no_text_target",
+          "note": "Validation recognition run uses separate frozen A/P package; only A corresponds to annotation crops here."
+        },
+        {
+          "split": "valid",
+          "crop_class": "front_eds_num",
+          "inventory_crops": 60,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "accuracy_pending_review",
+          "note": "Validation recognition run uses separate frozen A/P package; only A corresponds to annotation crops here."
+        },
+        {
+          "split": "valid",
+          "crop_class": "front_eds_destination",
+          "inventory_crops": 55,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "accuracy_pending_review",
+          "note": "Validation recognition run uses separate frozen A/P package; only A corresponds to annotation crops here."
+        },
+        {
+          "split": "valid",
+          "crop_class": "front_eds_route",
+          "inventory_crops": 42,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "accuracy_pending_review",
+          "note": "Validation recognition run uses separate frozen A/P package; only A corresponds to annotation crops here."
+        },
+        {
+          "split": "test",
+          "crop_class": "front_eds",
+          "inventory_crops": 53,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "panel_context_no_text_target",
+          "note": ""
+        },
+        {
+          "split": "test",
+          "crop_class": "front_eds_num",
+          "inventory_crops": 47,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        },
+        {
+          "split": "test",
+          "crop_class": "front_eds_destination",
+          "inventory_crops": 39,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        },
+        {
+          "split": "test",
+          "crop_class": "front_eds_route",
+          "inventory_crops": 32,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        }
+      ],
+      "measured_summary": [
+        {
+          "crop_set": "annotation",
+          "field": "front_eds_num",
+          "attempted": 60,
+          "completed": 58,
+          "errors": 2,
+          "empty_outputs": 1,
+          "multiline_candidates": 0,
+          "segmentation_status_counts": {
+            "fixed_layout_accepted": 58,
+            "fixed_layout_unresolved": 2
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 0.3345415007061092,
+          "preprocessing_ms_p95": 0.8795000012469243,
+          "recognition_ms_median": 7.021875499049202,
+          "recognition_ms_p95": 20.349297251414043,
+          "crop_total_ms_median": 7.522312998844427,
+          "crop_total_ms_p95": 20.544441149831925
+        },
+        {
+          "crop_set": "annotation",
+          "field": "front_eds_route",
+          "attempted": 42,
+          "completed": 39,
+          "errors": 3,
+          "empty_outputs": 1,
+          "multiline_candidates": 3,
+          "segmentation_status_counts": {
+            "fixed_layout_accepted": 39,
+            "fixed_layout_unresolved": 3
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 0.36979200012865476,
+          "preprocessing_ms_p95": 0.6345832975057419,
+          "recognition_ms_median": 12.512332999904174,
+          "recognition_ms_p95": 70.28554099961185,
+          "crop_total_ms_median": 12.961707998329075,
+          "crop_total_ms_p95": 70.73863689947758
+        },
+        {
+          "crop_set": "annotation",
+          "field": "front_eds_destination",
+          "attempted": 55,
+          "completed": 49,
+          "errors": 6,
+          "empty_outputs": 1,
+          "multiline_candidates": 2,
+          "segmentation_status_counts": {
+            "fixed_layout_unresolved": 6,
+            "fixed_layout_accepted": 49
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 0.3460000007180497,
+          "preprocessing_ms_p95": 0.9168666001642122,
+          "recognition_ms_median": 11.661417000141228,
+          "recognition_ms_p95": 66.69384999768222,
+          "crop_total_ms_median": 12.306999997235835,
+          "crop_total_ms_p95": 67.404774800525
+        },
+        {
+          "crop_set": "annotation",
+          "field": "all",
+          "attempted": 157,
+          "completed": 146,
+          "errors": 11,
+          "empty_outputs": 3,
+          "multiline_candidates": 5,
+          "segmentation_status_counts": {
+            "fixed_layout_accepted": 146,
+            "fixed_layout_unresolved": 11
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 0.3492915002425434,
+          "preprocessing_ms_p95": 0.8555417507523089,
+          "recognition_ms_median": 10.527354001169442,
+          "recognition_ms_p95": 65.67862549763959,
+          "crop_total_ms_median": 11.02300000275136,
+          "crop_total_ms_p95": 65.91142674915318
+        },
+        {
+          "crop_set": "prediction",
+          "field": "front_eds_num",
+          "attempted": 42,
+          "completed": 40,
+          "errors": 2,
+          "empty_outputs": 0,
+          "multiline_candidates": 0,
+          "segmentation_status_counts": {
+            "fixed_layout_accepted": 40,
+            "fixed_layout_unresolved": 2
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 1.0900210018007783,
+          "preprocessing_ms_p95": 3.173289249571098,
+          "recognition_ms_median": 6.670541501080152,
+          "recognition_ms_p95": 7.667555649459246,
+          "crop_total_ms_median": 8.27235449833097,
+          "crop_total_ms_p95": 9.802837148345134
+        },
+        {
+          "crop_set": "prediction",
+          "field": "front_eds_route",
+          "attempted": 37,
+          "completed": 35,
+          "errors": 2,
+          "empty_outputs": 0,
+          "multiline_candidates": 10,
+          "segmentation_status_counts": {
+            "fixed_layout_accepted": 35,
+            "fixed_layout_unresolved": 2
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 1.3762919988948852,
+          "preprocessing_ms_p95": 3.662183099368121,
+          "recognition_ms_median": 11.216875001991866,
+          "recognition_ms_p95": 79.49569539960066,
+          "crop_total_ms_median": 13.341082998522324,
+          "crop_total_ms_p95": 80.87704559948178
+        },
+        {
+          "crop_set": "prediction",
+          "field": "front_eds_destination",
+          "attempted": 35,
+          "completed": 30,
+          "errors": 5,
+          "empty_outputs": 0,
+          "multiline_candidates": 14,
+          "segmentation_status_counts": {
+            "fixed_layout_unresolved": 5,
+            "fixed_layout_accepted": 30
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 1.1449374997027917,
+          "preprocessing_ms_p95": 3.568412501226703,
+          "recognition_ms_median": 12.934520500493818,
+          "recognition_ms_p95": 86.92133140084478,
+          "crop_total_ms_median": 14.401729500605143,
+          "crop_total_ms_p95": 87.96645784841529
+        },
+        {
+          "crop_set": "prediction",
+          "field": "all",
+          "attempted": 114,
+          "completed": 105,
+          "errors": 9,
+          "empty_outputs": 0,
+          "multiline_candidates": 24,
+          "segmentation_status_counts": {
+            "fixed_layout_accepted": 105,
+            "fixed_layout_unresolved": 9
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 1.22324999756529,
+          "preprocessing_ms_p95": 3.544041599525371,
+          "recognition_ms_median": 9.466583000175888,
+          "recognition_ms_p95": 80.43834139825776,
+          "crop_total_ms_median": 10.47837499936577,
+          "crop_total_ms_p95": 83.78249179804696
+        }
+      ],
+      "weight_integrity_passed": true,
+      "run_report": "../easyocr-v4-mps-fixed-lines-20261112-01/report.json",
+      "run_errors": [
+        {
+          "review_id": "A002",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A028",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A048",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A052",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A055",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A057",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A070",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A074",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A094",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A120",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A121",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P002",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P005",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P029",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P041",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P046",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P048",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P087",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P089",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P105",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        }
+      ]
+    },
+    {
+      "id": "public_trocr_base_printed",
+      "title": "Public TrOCR base printed",
+      "weight_identification": {
+        "id": "public_trocr_base_printed",
+        "identity": "microsoft/trocr-base-printed",
+        "software": "transformers",
+        "installed_version": "4.57.6",
+        "role": "public_pretrained_baseline",
+        "class_specific_weights": false,
+        "benchmark_runner_supported": true,
+        "recorded_provenance": {
+          "repository": "microsoft/trocr-base-printed",
+          "revision": "93450be3f1ed40a930690d951ef3932687cc1892"
+        },
+        "provenance_note": "Revision from local provenance.json and pinned retrieval script; remote origin not reverified.",
+        "artifacts": [
+          {
+            "path": ".cache/trocr-base-printed/model.safetensors",
+            "role": "recognition_weights",
+            "status": "present_not_load_tested",
+            "size_bytes": 1333384464,
+            "sha256": "1cf4a6eedab26afaaf505f1c7f73d9634944924dbd1ed049d569db98039cd596"
+          }
+        ],
+        "associated_artifacts": [
+          {
+            "path": ".cache/trocr-base-printed/config.json",
+            "role": "processor_tokenizer_or_configuration",
+            "status": "present_not_load_tested",
+            "size_bytes": 4126,
+            "sha256": "5bda1deab455661feb3d91906656e5600e2ca520d5c00a2a03836614b850c93e"
+          },
+          {
+            "path": ".cache/trocr-base-printed/generation_config.json",
+            "role": "processor_tokenizer_or_configuration",
+            "status": "present_not_load_tested",
+            "size_bytes": 190,
+            "sha256": "41149cdcffec4d657f32dfcddd9b208037f01286c9e07945c724908c58ed0193"
+          },
+          {
+            "path": ".cache/trocr-base-printed/preprocessor_config.json",
+            "role": "processor_tokenizer_or_configuration",
+            "status": "present_not_load_tested",
+            "size_bytes": 224,
+            "sha256": "2fcc0da9466ee00be0403b26027373039e032820ebac409e207b32e52e52119d"
+          },
+          {
+            "path": ".cache/trocr-base-printed/tokenizer_config.json",
+            "role": "processor_tokenizer_or_configuration",
+            "status": "present_not_load_tested",
+            "size_bytes": 1118,
+            "sha256": "5a1356884c6ae736a621841535264ba7c5bebd52f169258add2c48fcbb32d50a"
+          },
+          {
+            "path": ".cache/trocr-base-printed/special_tokens_map.json",
+            "role": "processor_tokenizer_or_configuration",
+            "status": "present_not_load_tested",
+            "size_bytes": 772,
+            "sha256": "c611b1f7d416eb001ee4f293d903ea8c88e703463f1d403f1866a0352743fd00"
+          },
+          {
+            "path": ".cache/trocr-base-printed/merges.txt",
+            "role": "processor_tokenizer_or_configuration",
+            "status": "present_not_load_tested",
+            "size_bytes": 456318,
+            "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5"
+          },
+          {
+            "path": ".cache/trocr-base-printed/vocab.json",
+            "role": "processor_tokenizer_or_configuration",
+            "status": "present_not_load_tested",
+            "size_bytes": 898822,
+            "sha256": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab"
+          }
+        ]
+      },
+      "preferred_run": "trocr-base-printed-v4-mps-fixed-lines-20261112-02",
+      "class_split_table": [
+        {
+          "split": "train",
+          "crop_class": "front_eds",
+          "inventory_crops": 837,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "panel_context_no_text_target",
+          "note": ""
+        },
+        {
+          "split": "train",
+          "crop_class": "front_eds_num",
+          "inventory_crops": 720,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        },
+        {
+          "split": "train",
+          "crop_class": "front_eds_destination",
+          "inventory_crops": 618,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        },
+        {
+          "split": "train",
+          "crop_class": "front_eds_route",
+          "inventory_crops": 579,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        },
+        {
+          "split": "valid",
+          "crop_class": "front_eds",
+          "inventory_crops": 64,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "panel_context_no_text_target",
+          "note": "Validation recognition run uses separate frozen A/P package; only A corresponds to annotation crops here."
+        },
+        {
+          "split": "valid",
+          "crop_class": "front_eds_num",
+          "inventory_crops": 60,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "accuracy_pending_review",
+          "note": "Validation recognition run uses separate frozen A/P package; only A corresponds to annotation crops here."
+        },
+        {
+          "split": "valid",
+          "crop_class": "front_eds_destination",
+          "inventory_crops": 55,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "accuracy_pending_review",
+          "note": "Validation recognition run uses separate frozen A/P package; only A corresponds to annotation crops here."
+        },
+        {
+          "split": "valid",
+          "crop_class": "front_eds_route",
+          "inventory_crops": 42,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "accuracy_pending_review",
+          "note": "Validation recognition run uses separate frozen A/P package; only A corresponds to annotation crops here."
+        },
+        {
+          "split": "test",
+          "crop_class": "front_eds",
+          "inventory_crops": 53,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "panel_context_no_text_target",
+          "note": ""
+        },
+        {
+          "split": "test",
+          "crop_class": "front_eds_num",
+          "inventory_crops": 47,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        },
+        {
+          "split": "test",
+          "crop_class": "front_eds_destination",
+          "inventory_crops": 39,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        },
+        {
+          "split": "test",
+          "crop_class": "front_eds_route",
+          "inventory_crops": 32,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        }
+      ],
+      "measured_summary": [
+        {
+          "crop_set": "annotation",
+          "field": "front_eds_num",
+          "attempted": 60,
+          "completed": 58,
+          "errors": 2,
+          "empty_outputs": 0,
+          "multiline_candidates": 0,
+          "segmentation_status_counts": {
+            "fixed_layout_accepted": 58,
+            "fixed_layout_unresolved": 2
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 0.6578954998985864,
+          "preprocessing_ms_p95": 2.4750420519922036,
+          "recognition_ms_median": 225.9047499992448,
+          "recognition_ms_p95": 321.6375356496428,
+          "crop_total_ms_median": 227.6154579994909,
+          "crop_total_ms_p95": 323.13820180115727
+        },
+        {
+          "crop_set": "annotation",
+          "field": "front_eds_route",
+          "attempted": 42,
+          "completed": 39,
+          "errors": 3,
+          "empty_outputs": 0,
+          "multiline_candidates": 3,
+          "segmentation_status_counts": {
+            "fixed_layout_accepted": 39,
+            "fixed_layout_unresolved": 3
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 0.766332999774022,
+          "preprocessing_ms_p95": 2.5151045010716198,
+          "recognition_ms_median": 361.3724999995611,
+          "recognition_ms_p95": 562.3194294010318,
+          "crop_total_ms_median": 362.0340829984343,
+          "crop_total_ms_p95": 563.2765002999804
+        },
+        {
+          "crop_set": "annotation",
+          "field": "front_eds_destination",
+          "attempted": 55,
+          "completed": 49,
+          "errors": 6,
+          "empty_outputs": 0,
+          "multiline_candidates": 2,
+          "segmentation_status_counts": {
+            "fixed_layout_unresolved": 6,
+            "fixed_layout_accepted": 49
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 0.7834999996703118,
+          "preprocessing_ms_p95": 2.566650198423303,
+          "recognition_ms_median": 346.95308299706085,
+          "recognition_ms_p95": 602.3898911989816,
+          "crop_total_ms_median": 347.6622079979279,
+          "crop_total_ms_p95": 603.9778165999448
+        },
+        {
+          "crop_set": "annotation",
+          "field": "all",
+          "attempted": 157,
+          "completed": 146,
+          "errors": 11,
+          "empty_outputs": 0,
+          "multiline_candidates": 5,
+          "segmentation_status_counts": {
+            "fixed_layout_accepted": 146,
+            "fixed_layout_unresolved": 11
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 0.7436670002789469,
+          "preprocessing_ms_p95": 2.572750247963995,
+          "recognition_ms_median": 270.20406250085216,
+          "recognition_ms_p95": 551.3984064991746,
+          "crop_total_ms_median": 270.8260829986102,
+          "crop_total_ms_p95": 552.7194997475817
+        },
+        {
+          "crop_set": "prediction",
+          "field": "front_eds_num",
+          "attempted": 42,
+          "completed": 40,
+          "errors": 2,
+          "empty_outputs": 0,
+          "multiline_candidates": 0,
+          "segmentation_status_counts": {
+            "fixed_layout_accepted": 40,
+            "fixed_layout_unresolved": 2
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 0.6968130001041573,
+          "preprocessing_ms_p95": 2.7208702009374965,
+          "recognition_ms_median": 213.74589600054605,
+          "recognition_ms_p95": 271.84552079997957,
+          "crop_total_ms_median": 215.5143540003337,
+          "crop_total_ms_p95": 272.9305851007666
+        },
+        {
+          "crop_set": "prediction",
+          "field": "front_eds_route",
+          "attempted": 37,
+          "completed": 35,
+          "errors": 2,
+          "empty_outputs": 0,
+          "multiline_candidates": 10,
+          "segmentation_status_counts": {
+            "fixed_layout_accepted": 35,
+            "fixed_layout_unresolved": 2
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 0.6882499983476009,
+          "preprocessing_ms_p95": 3.3488999979454075,
+          "recognition_ms_median": 420.7445829997596,
+          "recognition_ms_p95": 804.7174998999253,
+          "crop_total_ms_median": 421.89308399974834,
+          "crop_total_ms_p95": 806.9717668986412
+        },
+        {
+          "crop_set": "prediction",
+          "field": "front_eds_destination",
+          "attempted": 35,
+          "completed": 29,
+          "errors": 6,
+          "empty_outputs": 0,
+          "multiline_candidates": 14,
+          "segmentation_status_counts": {
+            "fixed_layout_unresolved": 5,
+            "fixed_layout_accepted": 30
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 0.9111249964917079,
+          "preprocessing_ms_p95": 2.326575000915909,
+          "recognition_ms_median": 497.40066600134014,
+          "recognition_ms_p95": 836.3781833977554,
+          "crop_total_ms_median": 498.15208300060476,
+          "crop_total_ms_p95": 837.3921833997882
+        },
+        {
+          "crop_set": "prediction",
+          "field": "all",
+          "attempted": 114,
+          "completed": 104,
+          "errors": 10,
+          "empty_outputs": 0,
+          "multiline_candidates": 24,
+          "segmentation_status_counts": {
+            "fixed_layout_accepted": 105,
+            "fixed_layout_unresolved": 9
+          },
+          "timing_population": "successful crops only; error counts and individual error times retained",
+          "preprocessing_ms_median": 0.7140419984352775,
+          "preprocessing_ms_p95": 2.9489918511899287,
+          "recognition_ms_median": 315.4049165004835,
+          "recognition_ms_p95": 798.9558187000512,
+          "crop_total_ms_median": 316.14649999755784,
+          "crop_total_ms_p95": 799.5794356995248
+        }
+      ],
+      "weight_integrity_passed": true,
+      "run_report": "../trocr-base-printed-v4-mps-fixed-lines-20261112-02/report.json",
+      "run_errors": [
+        {
+          "review_id": "A002",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A028",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A048",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A052",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A055",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A057",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A070",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A074",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A094",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A120",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "A121",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P002",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P005",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P029",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P041",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P046",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P048",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P051",
+          "error": "RuntimeError: TrOCR did not emit EOS within 64 tokens; output retained in engine_history.json"
+        },
+        {
+          "review_id": "P087",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P089",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        },
+        {
+          "review_id": "P105",
+          "error": "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted"
+        }
+      ]
+    },
+    {
+      "id": "paddle_english_v5_mobile",
+      "title": "PaddleOCR English v5 mobile",
+      "weight_identification": {
+        "id": "paddle_english_v5_mobile",
+        "identity": "en_PP-OCRv5_mobile_rec",
+        "software": "paddleocr",
+        "installed_version": null,
+        "role": "proposed_public_pretrained_baseline",
+        "benchmark_runner_supported": false,
+        "status": "proposed_no_checkpoint_pinned_or_inventoried",
+        "artifacts": []
+      },
+      "preferred_run": null,
+      "class_split_table": [
+        {
+          "split": "train",
+          "crop_class": "front_eds",
+          "inventory_crops": 837,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "panel_context_no_text_target",
+          "note": ""
+        },
+        {
+          "split": "train",
+          "crop_class": "front_eds_num",
+          "inventory_crops": 720,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        },
+        {
+          "split": "train",
+          "crop_class": "front_eds_destination",
+          "inventory_crops": 618,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        },
+        {
+          "split": "train",
+          "crop_class": "front_eds_route",
+          "inventory_crops": 579,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        },
+        {
+          "split": "valid",
+          "crop_class": "front_eds",
+          "inventory_crops": 64,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "panel_context_no_text_target",
+          "note": "Validation recognition run uses separate frozen A/P package; only A corresponds to annotation crops here."
+        },
+        {
+          "split": "valid",
+          "crop_class": "front_eds_num",
+          "inventory_crops": 60,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": "Validation recognition run uses separate frozen A/P package; only A corresponds to annotation crops here."
+        },
+        {
+          "split": "valid",
+          "crop_class": "front_eds_destination",
+          "inventory_crops": 55,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": "Validation recognition run uses separate frozen A/P package; only A corresponds to annotation crops here."
+        },
+        {
+          "split": "valid",
+          "crop_class": "front_eds_route",
+          "inventory_crops": 42,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": "Validation recognition run uses separate frozen A/P package; only A corresponds to annotation crops here."
+        },
+        {
+          "split": "test",
+          "crop_class": "front_eds",
+          "inventory_crops": 53,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "panel_context_no_text_target",
+          "note": ""
+        },
+        {
+          "split": "test",
+          "crop_class": "front_eds_num",
+          "inventory_crops": 47,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        },
+        {
+          "split": "test",
+          "crop_class": "front_eds_destination",
+          "inventory_crops": 39,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        },
+        {
+          "split": "test",
+          "crop_class": "front_eds_route",
+          "inventory_crops": 32,
+          "eligible_scoring_crops": null,
+          "cer_percent": null,
+          "wer_percent": null,
+          "exact_match_percent": null,
+          "status": "not_run",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "scope": "Pretrained weights; validation-only inference. No training or test inference.",
+  "metric_status": "No CER, WER or exact match calculated. No reviewed eligible scoring manifest.",
+  "inventory_source": "/Users/tanyilin/Downloads/v4-reviewed-01.zip",
+  "limitations": [
+    "Inventory counts are not scoring denominators.",
+    "All three class/split accuracy tables are templates until reviewed labels and a compatible scorer exist.",
+    "EDS panels are context; no whole-panel text protocol exists."
+  ],
+  "same_inputs_and_layout_verified": true,
+  "hardware": {
+    "python": "3.14.4 (v3.14.4:23116f998f6, Apr  7 2026, 09:45:22) [Clang 17.0.0 (clang-1700.6.4.2)]",
+    "python_executable": "/Users/tanyilin/Downloads/CVDL-P1-14/.venv/bin/python",
+    "platform": "macOS-15.4-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "processor": "arm",
+    "cpu_count": 8,
+    "memory_bytes": 8589934592,
+    "requested_device": "mps",
+    "reader_device": "mps",
+    "recognizer_parameter_device": "mps:0",
+    "parameter_dtype": "torch.float32",
+    "mps_available": true,
+    "cuda_available": false,
+    "packages": {
+      "scikit-image": "0.26.0",
+      "setuptools": "84.2.1",
+      "filelock": "4.2.9",
+      "packaging": "26.3",
+      "networkx": "3.7",
+      "requests": "2.34.2",
+      "pip": "26.3",
+      "ninja": "1.13.2",
+      "certifi": "2026.10.23",
+      "numpy": "2.5.4",
+      "pillow": "13.0.0",
+      "sympy": "1.14.0",
+      "huggingface_hub": "0.36.2",
+      "safetensors": "0.8.0",
+      "lazy-loader": "0.6",
+      "tqdm": "4.70.1",
+      "urllib3": "2.8.0",
+      "mpmath": "1.3.0",
+      "PyYAML": "6.0.3",
+      "torchvision": "0.29.2",
+      "fsspec": "2026.9.0",
+      "ImageIO": "2.38.1",
+      "transformers": "4.57.6",
+      "shapely": "2.2.0",
+      "easyocr": "1.7.2",
+      "tifffile": "2026.10.15",
+      "Jinja2": "3.1.6",
+      "regex": "2026.11.7",
+      "pyclipper": "1.4.0",
+      "typing_extensions": "4.16.0",
+      "MarkupSafe": "3.0.4",
+      "hf-xet": "1.8.0",
+      "tokenizers": "0.22.2",
+      "torch": "2.15.0",
+      "charset-normalizer": "3.5.2",
+      "python-bidi": "0.6.12",
+      "scipy": "1.18.1",
+      "idna": "3.20",
+      "opencv-python-headless": "5.0.0.93"
+    },
+    "git_commit": "a540b943f2cb608edc2ef43fda1fd790fd58dde9",
+    "runner_sha256": "71ddb8c4a29f4a5c7b4834652266e2d48dbca892a120e8defc2b214b0281a107",
+    "core_sha256": "ecfb26bd68cfd089e9c2f33547b6475c91d98cba400dc841fc8a6d9236fa2cd7",
+    "mps_environment": {
+      "PYTORCH_ENABLE_MPS_FALLBACK": null,
+      "PYTORCH_MPS_FAST_MATH": null
+    },
+    "cpu_threads": 4,
+    "chip": "Apple M1"
+  },
+  "retained_attempts": [
+    "../easyocr-v4-cpu-fixed-lines-20261112-01/failure.json",
+    "../trocr-base-printed-v4-mps-fixed-lines-20261112-01/report.json"
+  ],
+  "correction": "TrOCR preferred run explicitly declares channels_last for RGB processor input; initial run had ambiguous 3-pixel-high input. Four reader tests and 24 total focused tests passed, plus real processor shape verification.",
+  "loading_warning": "TrOCR loader reported newly initialized encoder.pooler dense weights; warning retained here for provenance. No training performed."
+}

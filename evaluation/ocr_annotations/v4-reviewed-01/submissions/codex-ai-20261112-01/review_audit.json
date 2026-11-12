@@ -1,0 +1,103 @@
+{
+  "status": "77_flagged_crops_visually_reinspected_by_AI_human_adjudication_pending",
+  "review_date": "2026-11-12",
+  "reviewer": "Codex",
+  "reviewer_type": "AI",
+  "reviewed_flagged_rows": 77,
+  "total_exported_rows": 271,
+  "text_changes": 36,
+  "legibility_changes": 21,
+  "dispositions": {
+    "unknown_spans_or_illegibility_recorded": 23,
+    "full_text_candidate": 12,
+    "mixed_fields_confirmed": 26,
+    "unreadable_panel_field_presence_unresolved": 1,
+    "field_mismatch_confirmed_against_annotations": 15
+  },
+  "source_sha256": {
+    "annotation_codi.csv": "e522eb5fdf324364bb48e55f52647c77160607692278f2a8653091ce85b8a43b",
+    "prediction_codi.csv": "c6ca5913e6ba2bdf55c67ae691770400d33758cf575436e7af500e5454f91522",
+    "rows_to_resolve.csv": "1009b37ccc21823d741ba2fcd9ff1c405b72e8c661608774cf70153c7e8fb12b"
+  },
+  "source_files_unchanged": true,
+  "crop_hash_checks_passed": 77,
+  "immutable_identity_checks_passed": true,
+  "scoring_ready_rows": 0,
+  "human_adjudication_pending": 77,
+  "group_and_correspondence_review": "unchanged_pending",
+  "visual_sheets_inspected": [
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/field_context_01.png",
+      "sha256": "88a9e8608ebc79643415ad48e94dcd1a08d57655cda93d6d95ae3d7388b82cea"
+    },
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/field_context_02.png",
+      "sha256": "b37821af28a2cfff31cb1d82162e3cce9189634eeba18b4d903e9fa9fc5e7557"
+    },
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/field_context_03.png",
+      "sha256": "1f9c2ee92145eaf8f87d045a2c13193ded0beaf1b7a8d704b222d082c03db8fc"
+    },
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/flagged_01.png",
+      "sha256": "a5b4cf90552b59e132c891c1a0b747ca9342b8e01797af9a8f2677958b2c02a8"
+    },
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/flagged_02.png",
+      "sha256": "bf8b51c3366a4966f10898b631397e6b8918d1c36ea68afa6c4607ff5903b346"
+    },
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/flagged_03.png",
+      "sha256": "8ed3c2d8a28bb375abbe9f0617f874e753a885ffd68703bb902f3a34b649d8a8"
+    },
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/flagged_04.png",
+      "sha256": "74c43cd46cf7a55440e4c2c5b017f46a70b8f9f19004e7870f2a225279c5a47e"
+    },
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/flagged_05.png",
+      "sha256": "3aa7d85a1e5492e313ff8ecd21aedd63a611d88c979e81fc11cb5c099bdb88b7"
+    },
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/flagged_06.png",
+      "sha256": "05d624bc4aad597b8129152b397ff806095b8c9f9a01577bf2663821400e54ef"
+    },
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/flagged_07.png",
+      "sha256": "b4edfe8b5375ae02549669c2dd9d7b96e359957e885e0685ed4beb93b2f6184a"
+    },
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/flagged_08.png",
+      "sha256": "f25e2908e4ccf4a212e4d56bd147ba242613ea6825203d34a108defadd68c2e7"
+    },
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/flagged_09.png",
+      "sha256": "3948ac2a35098eaa9f31f9160448252e01ebd176dee270691a4ea59c4a7740b8"
+    },
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/flagged_10.png",
+      "sha256": "d38cf27f8502533095106c4537b7aef7cc255787779fb5d98243dbeba05af5d6"
+    },
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/reinspect_01.png",
+      "sha256": "6777445c5e030b0f4902c27360e461bd61dee39cad286aec52d7ae99acb8ae5b"
+    },
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/reinspect_02.png",
+      "sha256": "07517804622272f2c8a4c8141b1128fc0f61b9f8e87b289141675a89ab8a6d37"
+    },
+    {
+      "path": ".cache/ocr_review/validation-flagged-ai-20261112/reinspect_03.png",
+      "sha256": "f1b1a5456afc52551ac075b26e6564d491b96e829e0cf174633c88af176bcb8e"
+    }
+  ],
+  "training_and_test_crops_used": false,
+  "limits": [
+    "AI proposals are not human attestations.",
+    "Original Codi records remain preserved; full exports include prior values.",
+    "No OCR outputs, route references, filenames or other frames used to complete uncertain text.",
+    "Same-image panel context used only for field/crop geometry; no missing text copied from it.",
+    "Field mismatches reflect supplied annotation regions, not a claim that annotation semantics are independently certified.",
+    "Mixed-field reading order and scoring treatment still require explicit adjudication."
+  ]
+}

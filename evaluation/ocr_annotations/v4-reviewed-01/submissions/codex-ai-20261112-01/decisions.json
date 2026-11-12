@@ -1,0 +1,470 @@
+{
+  "reviewer": "Codex",
+  "reviewer_type": "AI",
+  "review_date": "2026-11-12",
+  "status": "AI_proposals_require_human_adjudication",
+  "decisions": [
+    {
+      "review_id": "A009",
+      "proposed_transcription": "TELOK BLANGAH [UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Final word remains uncertain under bloom."
+    },
+    {
+      "review_id": "A010",
+      "proposed_transcription": "CHANGI RD",
+      "proposed_legibility": "full",
+      "visual_note": "All glyphs readable; low contrast alone does not imply partial text."
+    },
+    {
+      "review_id": "A014",
+      "proposed_transcription": "T. PAYOH INT - POTONG P. AVE [UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Trailing token unresolved; do not guess its digit."
+    },
+    {
+      "review_id": "A015",
+      "proposed_transcription": "LOR 6 TOA PAYOH",
+      "proposed_legibility": "full",
+      "visual_note": "Complete visible line readable despite low contrast."
+    },
+    {
+      "review_id": "A019",
+      "proposed_transcription": "[UNK] RD",
+      "proposed_legibility": "partial",
+      "visual_note": "First word saturated; only final RD retained as reliable."
+    },
+    {
+      "review_id": "A020",
+      "proposed_transcription": "> TOA [UNK] INT",
+      "proposed_legibility": "partial",
+      "visual_note": "Middle word heavily bloomed."
+    },
+    {
+      "review_id": "A035",
+      "proposed_transcription": "> TOA PAYOH [UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Right-hand token too bloomed to establish all glyphs."
+    },
+    {
+      "review_id": "A036",
+      "proposed_transcription": "BALESTIER RD",
+      "proposed_legibility": "full",
+      "visual_note": "Complete visible line readable."
+    },
+    {
+      "review_id": "A045",
+      "proposed_transcription": "PUNGGOL INT",
+      "proposed_legibility": "full",
+      "visual_note": "All text readable despite underexposure."
+    },
+    {
+      "review_id": "A046",
+      "proposed_transcription": "SUMANG LINK",
+      "proposed_legibility": "full",
+      "visual_note": "Complete visible line readable despite underexposure."
+    },
+    {
+      "review_id": "A058",
+      "proposed_transcription": "48",
+      "proposed_legibility": "full",
+      "visual_note": "Reinspection shows closed upper and lower loops in second digit; proposal differs from submitted 46."
+    },
+    {
+      "review_id": "A077",
+      "proposed_transcription": "[UNK]",
+      "proposed_legibility": "illegible",
+      "visual_note": "Bloom prevents reliable complete identifier or individual glyphs; submitted identifier not assumed."
+    },
+    {
+      "review_id": "A086",
+      "proposed_transcription": "[UNK]65",
+      "proposed_legibility": "partial",
+      "visual_note": "Leading digit unresolved; trailing 65 remains readable."
+    },
+    {
+      "review_id": "A088",
+      "proposed_transcription": "965",
+      "proposed_legibility": "full",
+      "visual_note": "All three glyphs readable on enlarged native crop."
+    },
+    {
+      "review_id": "A089",
+      "proposed_transcription": "BU[UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Only initial BU reliably readable; dark remaining glyphs unresolved."
+    },
+    {
+      "review_id": "A090",
+      "proposed_transcription": "YISHUN AVE 7",
+      "proposed_legibility": "full",
+      "visual_note": "Complete line including final 7 readable on reinspection."
+    },
+    {
+      "review_id": "A091",
+      "proposed_transcription": "[UNK]",
+      "proposed_legibility": "illegible",
+      "visual_note": "No reliable glyphs at the supplied contrast."
+    },
+    {
+      "review_id": "A109",
+      "proposed_transcription": "[UNK]",
+      "proposed_legibility": "illegible",
+      "visual_note": "Very small blurred identifier cannot support submitted completion."
+    },
+    {
+      "review_id": "A117",
+      "proposed_transcription": "PASIR RI[UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Uppercase glyphs readable; final right-edge span unresolved/clipped."
+    },
+    {
+      "review_id": "A131",
+      "proposed_transcription": "P[UNK] R[UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Initial capitals readable; lowercase spans and case cannot be independently resolved."
+    },
+    {
+      "review_id": "A132",
+      "proposed_transcription": "12",
+      "proposed_legibility": "full",
+      "visual_note": "Both digits readable after nearest-neighbour reinspection."
+    },
+    {
+      "review_id": "A134",
+      "proposed_transcription": "> [UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Readable leading arrow means partial, not wholly illegible."
+    },
+    {
+      "review_id": "A154",
+      "proposed_transcription": "[UNK]",
+      "proposed_legibility": "illegible",
+      "visual_note": "Washed-out native glyphs do not support a reliable text span."
+    },
+    {
+      "review_id": "A155",
+      "proposed_transcription": "> [UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Leading arrow readable; following text unresolved."
+    },
+    {
+      "review_id": "P002",
+      "proposed_transcription": "SEMBAWANG v[UNK]\n[UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Destination line has unresolved suffix; second line clipped and object overlaps crop."
+    },
+    {
+      "review_id": "P003",
+      "proposed_transcription": "[UNK]\nROCHOR RD",
+      "proposed_legibility": "partial",
+      "visual_note": "Upper line cut through glyph bodies; lower line readable."
+    },
+    {
+      "review_id": "P005",
+      "proposed_transcription": "[UNK]",
+      "proposed_legibility": "illegible",
+      "visual_note": "Lit oblique panel is visible, not a blank field; intended field isolation unresolved."
+    },
+    {
+      "review_id": "P006",
+      "proposed_transcription": "[UNK]\n> ANG MO KIO DEPOT",
+      "proposed_legibility": "partial",
+      "visual_note": "Extra upper line is clipped; lower line readable."
+    },
+    {
+      "review_id": "P009",
+      "proposed_transcription": "[UNK]\n[UNK] TELOK BLANGAH [UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Upper fragments and ends of lower line unresolved."
+    },
+    {
+      "review_id": "P010",
+      "proposed_transcription": "TELOK BLANGAH [UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Final word remains uncertain under bloom."
+    },
+    {
+      "review_id": "P011",
+      "proposed_transcription": "TELOK BLANGAH [UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Crop covers annotation route region despite predicted destination label; text independently inspected."
+    },
+    {
+      "review_id": "P012",
+      "proposed_transcription": "CHANGI RD",
+      "proposed_legibility": "full",
+      "visual_note": "All glyphs readable on this crop."
+    },
+    {
+      "review_id": "P014",
+      "proposed_transcription": "[UNK]\n> BOON LAY",
+      "proposed_legibility": "partial",
+      "visual_note": "Upper clipped fragments retained separately."
+    },
+    {
+      "review_id": "P018",
+      "proposed_transcription": "T. PAYOH INT - POTONG P. AVE [UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Lower annotated route region; trailing token clipped/unresolved."
+    },
+    {
+      "review_id": "P021",
+      "proposed_transcription": "[UNK] RD",
+      "proposed_legibility": "partial",
+      "visual_note": "Saturated first word unresolved."
+    },
+    {
+      "review_id": "P022",
+      "proposed_transcription": "> TOA [UNK] INT",
+      "proposed_legibility": "partial",
+      "visual_note": "Bloom obscures middle word."
+    },
+    {
+      "review_id": "P024",
+      "proposed_transcription": "[UNK]\n> CLEMENTI INT",
+      "proposed_legibility": "partial",
+      "visual_note": "Clipped upper line retained as unknown."
+    },
+    {
+      "review_id": "P026",
+      "proposed_transcription": "ORCHARD BOULEVARD\n> CLEMENTI INT",
+      "proposed_legibility": "full",
+      "visual_note": "Both visible lines readable, but they belong to distinct fields."
+    },
+    {
+      "review_id": "P027",
+      "proposed_transcription": "[UNK]RCHARD BOULEVA[UNK]\n> CLEMENTI INT",
+      "proposed_legibility": "partial",
+      "visual_note": "Top/right clipping of upper line retained."
+    },
+    {
+      "review_id": "P029",
+      "proposed_transcription": "[UNK]\nBUKIT BATOK CENTRAL",
+      "proposed_legibility": "partial",
+      "visual_note": "Upper clipped line retained separately."
+    },
+    {
+      "review_id": "P033",
+      "proposed_transcription": "BALESTIER RD",
+      "proposed_legibility": "full",
+      "visual_note": "Complete line readable."
+    },
+    {
+      "review_id": "P034",
+      "proposed_transcription": "> TOA PAYOH [UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Last token bloomed; do not infer it from another crop."
+    },
+    {
+      "review_id": "P037",
+      "proposed_transcription": "[UNK]\n> KENT RIDGE TER",
+      "proposed_legibility": "partial",
+      "visual_note": "Extra top-line fragments retained."
+    },
+    {
+      "review_id": "P041",
+      "proposed_transcription": "PUNGGOL INT\n[UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Destination readable; cropped lower-line fragments unresolved."
+    },
+    {
+      "review_id": "P043",
+      "proposed_transcription": "[UNK]\n[UNK] SUMANG LINK",
+      "proposed_legibility": "partial",
+      "visual_note": "Upper line and lower leading text unresolved."
+    },
+    {
+      "review_id": "P047",
+      "proposed_transcription": "[UNK]\n[UNK] 1 (LOOP)",
+      "proposed_legibility": "partial",
+      "visual_note": "Multiple field fragments; lower leading words unresolved."
+    },
+    {
+      "review_id": "P048",
+      "proposed_transcription": "[UNK] INT\n[UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Bloomed leading destination and clipped lower line unresolved."
+    },
+    {
+      "review_id": "P049",
+      "proposed_transcription": "48",
+      "proposed_legibility": "full",
+      "visual_note": "Independent reinspection shows two closed loops in second digit; proposal differs from submitted 46."
+    },
+    {
+      "review_id": "P051",
+      "proposed_transcription": "[UNK]\n> BEDOK NTH DEPOT",
+      "proposed_legibility": "partial",
+      "visual_note": "Upper clipped fragments retained; lower line readable."
+    },
+    {
+      "review_id": "P062",
+      "proposed_transcription": "[UNK]65",
+      "proposed_legibility": "partial",
+      "visual_note": "Leading red digit unresolved under defocus."
+    },
+    {
+      "review_id": "P063",
+      "proposed_transcription": "BU[UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Only initial BU sufficiently readable."
+    },
+    {
+      "review_id": "P064",
+      "proposed_transcription": "[UNK]\nYISHUN AVE 7",
+      "proposed_legibility": "partial",
+      "visual_note": "Extra upper fragments retained; lower line readable."
+    },
+    {
+      "review_id": "P065",
+      "proposed_transcription": "[UNK]",
+      "proposed_legibility": "illegible",
+      "visual_note": "No reliable glyph at supplied contrast."
+    },
+    {
+      "review_id": "P067",
+      "proposed_transcription": "[UNK]",
+      "proposed_legibility": "illegible",
+      "visual_note": "Blurred lower destination region; no reliable text retained."
+    },
+    {
+      "review_id": "P068",
+      "proposed_transcription": "CHOA CHU KANG INT vi[UNK]\n[UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Destination text in predicted route crop; right suffix and lower fragments unresolved."
+    },
+    {
+      "review_id": "P070",
+      "proposed_transcription": "[UNK]\nBUKIT BATOK ST 11",
+      "proposed_legibility": "partial",
+      "visual_note": "Extra clipped upper line retained."
+    },
+    {
+      "review_id": "P071",
+      "proposed_transcription": "CHOA CHU KANG INT vi[UNK]\n[UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Upper suffix and clipped lower line unresolved."
+    },
+    {
+      "review_id": "P072",
+      "proposed_transcription": "[UNK]\nBUKIT BATOK ST 11",
+      "proposed_legibility": "partial",
+      "visual_note": "Annotated route line dominates predicted destination crop; upper fragments retained."
+    },
+    {
+      "review_id": "P080",
+      "proposed_transcription": "[UNK]\n> SHENTON WAY TER",
+      "proposed_legibility": "partial",
+      "visual_note": "Upper clipped fragments retained."
+    },
+    {
+      "review_id": "P082",
+      "proposed_transcription": "PASIR RI[UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Predicted route covers annotated destination; right-edge span uncertain."
+    },
+    {
+      "review_id": "P083",
+      "proposed_transcription": "PASIR RI[UNK]\n[UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Right span and lower line remain unresolved."
+    },
+    {
+      "review_id": "P085",
+      "proposed_transcription": "MARINA CTR [UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Destination covered by predicted route; continuation clipped at right."
+    },
+    {
+      "review_id": "P086",
+      "proposed_transcription": "[UNK]\nC'WEALTH AVE (LOOP)",
+      "proposed_legibility": "partial",
+      "visual_note": "Annotated route dominates predicted destination; clipped upper line retained."
+    },
+    {
+      "review_id": "P087",
+      "proposed_transcription": "MARINA CTR -\n[UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Destination and clipped lower line; no separate readable upper text line is established."
+    },
+    {
+      "review_id": "P088",
+      "proposed_transcription": "[UNK]\nC'WEALTH AVE (LOOP)",
+      "proposed_legibility": "partial",
+      "visual_note": "Upper fragments retained separately from readable lower line."
+    },
+    {
+      "review_id": "P089",
+      "proposed_transcription": "[UNK]TING AT\n[UNK]PORT TER 2 36T",
+      "proposed_legibility": "partial",
+      "visual_note": "Adjacent text must not be silently discarded from number crop; multicolumn reading order still needs protocol."
+    },
+    {
+      "review_id": "P094",
+      "proposed_transcription": "P[UNK] R[UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Initial capitals reliable; smaller blurred letter spans/case unresolved."
+    },
+    {
+      "review_id": "P097",
+      "proposed_transcription": "TERMINATE AT",
+      "proposed_legibility": "full",
+      "visual_note": "Text readable; supplied route prediction covers annotated destination/status line."
+    },
+    {
+      "review_id": "P098",
+      "proposed_transcription": "PANDAN GARDENS (BLK 407)",
+      "proposed_legibility": "full",
+      "visual_note": "Text readable; predicted destination covers annotated route region."
+    },
+    {
+      "review_id": "P100",
+      "proposed_transcription": "BUONA VISTA TER vi[UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Right-edge continuation visibly clipped; full label incompatible with unknown span."
+    },
+    {
+      "review_id": "P101",
+      "proposed_transcription": "[UNK]\nPIONEER RD NTH",
+      "proposed_legibility": "partial",
+      "visual_note": "Clipped upper destination fragments retained; lower annotated route readable."
+    },
+    {
+      "review_id": "P104",
+      "proposed_transcription": "[UNK]\n[UNK] CTR INT",
+      "proposed_legibility": "partial",
+      "visual_note": "Upper fragments and lower leading token unresolved."
+    },
+    {
+      "review_id": "P105",
+      "proposed_transcription": "UPPER THOMSON RD",
+      "proposed_legibility": "full",
+      "visual_note": "Text readable; predicted destination covers annotated route region."
+    },
+    {
+      "review_id": "P106",
+      "proposed_transcription": "[UNK]130",
+      "proposed_legibility": "partial",
+      "visual_note": "Clipped neighboring glyph precedes readable identifier."
+    },
+    {
+      "review_id": "P107",
+      "proposed_transcription": "THOMSON RD\n> SHENTON [UNK]",
+      "proposed_legibility": "partial",
+      "visual_note": "Route line plus clipped lower destination; preserve both."
+    },
+    {
+      "review_id": "P108",
+      "proposed_transcription": "TER 130",
+      "proposed_legibility": "full",
+      "visual_note": "Adjacent TER is visibly included; record entire visible text rather than only 130. Mixed layout needs field-target decision."
+    },
+    {
+      "review_id": "P110",
+      "proposed_transcription": "PUNGGOL",
+      "proposed_legibility": "full",
+      "visual_note": "Text readable; predicted route covers annotated destination."
+    }
+  ]
+}

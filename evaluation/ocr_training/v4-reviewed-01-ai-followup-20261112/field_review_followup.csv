@@ -1,0 +1,75 @@
+review_id,label,prior_text,proposed_text,prior_legibility,proposed_legibility,disposition,review_note,human_verification_status,training_ready
+T0022,front_eds_num,CITY DIRECT 660,CITY DIRECT 660,full,full,service_prefix_mixed_with_identifier,CITY DIRECT prefix and identifier share the supplied number crop; do not silently train only the digits from the whole crop.,pending,false
+T0023,front_eds_num,CITY DIRECT 660,CITY DIRECT 660,full,full,service_prefix_mixed_with_identifier,CITY DIRECT prefix and identifier share the supplied number crop; do not silently train only the digits from the whole crop.,pending,false
+T0024,front_eds_num,CITY DIRECT 660,CITY DIRECT 660,full,full,service_prefix_mixed_with_identifier,CITY DIRECT prefix and identifier share the supplied number crop; do not silently train only the digits from the whole crop.,pending,false
+T0164,front_eds_destination,[UNK] RING RD,[UNK] RING RD,partial,partial,road_text_field_definition_pending,Road text appears in a destination-labelled crop. A road name alone does not establish wrong class; confirm field definition/source annotation.,pending,false
+T0168,front_eds_destination,[UNK] RING RD,[UNK] RING RD,partial,partial,road_text_field_definition_pending,Road text appears in a destination-labelled crop. A road name alone does not establish wrong class; confirm field definition/source annotation.,pending,false
+T0172,front_eds_destination,[UNK] RING RD,[UNK] RING RD,partial,partial,road_text_field_definition_pending,Road text appears in a destination-labelled crop. A road name alone does not establish wrong class; confirm field definition/source annotation.,pending,false
+T0177,front_eds_destination,"MARGARET DR
+KG BAHRU TER-C'WEALTH DR","MARGARET DR
+KG BAHRU TER-C'WEALTH DR",full,full,multiline_field_ownership_pending,Multiple semantic lines are visible. Keep actual line breaks and resolve field ownership; multiline alone does not prove a wrong class.,pending,false
+T0183,front_eds_destination,"MARGARET DR
+KG BAHRU TER-C'WEALTH DR","MARGARET DR
+KG BAHRU TER-C'WEALTH DR",full,full,multiline_field_ownership_pending,Multiple semantic lines are visible. Keep actual line breaks and resolve field ownership; multiline alone does not prove a wrong class.,pending,false
+T0227,front_eds_route,"Welcome Onboar[UNK]
+Tower Transi[UNK]","Welcome Onboar[UNK]
+Tower Transi[UNK]",partial,partial,operator_greeting_field_policy_pending,"Operator greeting is visible, with clipping/low resolution. Decide explicitly whether operational messages belong in this field protocol.",pending,false
+T0229,front_eds_route,"Welcome Onboar[UNK]
+Tower Transi[UNK]","Welcome Onboar[UNK]
+Tower Transi[UNK]",partial,partial,operator_greeting_field_policy_pending,"Operator greeting is visible, with clipping/low resolution. Decide explicitly whether operational messages belong in this field protocol.",pending,false
+T0231,front_eds_route,"Welcome Onboar[UNK]
+Tower Transi[UNK]","Welcome Onboar[UNK]
+Tower Transi[UNK]",partial,partial,operator_greeting_field_policy_pending,"Operator greeting is visible, with clipping/low resolution. Decide explicitly whether operational messages belong in this field protocol.",pending,false
+T0337,front_eds_destination,SMRT STAFF FERRY [UNK],SMRT STAFF FERRY [UNK],partial,partial,staff_message_symbol_and_field_policy_pending,Staff-message text plus unresolved logo/symbol visible. Do not invent a text rendering of the symbol; field policy unresolved.,pending,false
+T0338,front_eds_destination,SMRT STAFF FERRY [UNK],SMRT STAFF FERRY [UNK],partial,partial,staff_message_symbol_and_field_policy_pending,Staff-message text plus unresolved logo/symbol visible. Do not invent a text rendering of the symbol; field policy unresolved.,pending,false
+T0339,front_eds_destination,SMRT STAFF FERRY [UNK],SMRT STAFF FERRY [UNK],partial,partial,staff_message_symbol_and_field_policy_pending,Staff-message text plus unresolved logo/symbol visible. Do not invent a text rendering of the symbol; field policy unresolved.,pending,false
+T0356,front_eds_destination,"ALEXANDRA RD
+KG BAHRU TER-TELOK BLANGAH HTS","ALEXANDRA RD
+KG BAHRU TER-TELOK BLANGAH HTS",full,full,multiline_field_ownership_pending,Multiple semantic lines are visible. Keep actual line breaks and resolve field ownership; multiline alone does not prove a wrong class.,pending,false
+T0574,front_eds_destination,OFF SERVICE,OFF SERVICE,full,full,off_service_field_policy_pending,OFF SERVICE is readable operational text. It is not automatically a label error merely because it is not a geographic destination.,pending,false
+T0575,front_eds_destination,OFF SERVICE,OFF SERVICE,full,full,off_service_field_policy_pending,OFF SERVICE is readable operational text. It is not automatically a label error merely because it is not a geographic destination.,pending,false
+T0576,front_eds_destination,OFF SERVICE,OFF SERVICE,full,full,off_service_field_policy_pending,OFF SERVICE is readable operational text. It is not automatically a label error merely because it is not a geographic destination.,pending,false
+T0577,front_eds_route,"TERMINATE AT ORCHARD RD
+(OPP SOMERSET STN)","TERMINATE AT [UNK] RD
+([UNK] STN)",full,partial,termination_message_text_and_field_policy_pending,Termination message present; defocus prevents independently certifying every place-name glyph. Unknown spans proposed; field policy unresolved.,pending,false
+T0579,front_eds_route,"TERMINATE AT ORCHARD RD
+(OPP SOMERSET STN)","TERMINATE AT [UNK] RD
+([UNK] STN)",full,partial,termination_message_text_and_field_policy_pending,Termination message present; defocus prevents independently certifying every place-name glyph. Unknown spans proposed; field policy unresolved.,pending,false
+T0581,front_eds_route,"TERMINATE AT ORCHARD RD
+(OPP SOMERSET STN)","TERMINATE AT [UNK] RD
+([UNK] STN)",full,partial,termination_message_text_and_field_policy_pending,Termination message present; defocus prevents independently certifying every place-name glyph. Unknown spans proposed; field policy unresolved.,pending,false
+T0904,front_eds_num,[UNK],[UNK],illegible,illegible,unreadable_long_text_in_number_crop,An extended blurred region is visible in the number crop; exact text and field identity cannot be established from supplied pixels.,pending,false
+T0906,front_eds_num,[UNK],[UNK],illegible,illegible,unreadable_long_text_in_number_crop,An extended blurred region is visible in the number crop; exact text and field identity cannot be established from supplied pixels.,pending,false
+T0908,front_eds_num,[UNK],[UNK],illegible,illegible,unreadable_long_text_in_number_crop,An extended blurred region is visible in the number crop; exact text and field identity cannot be established from supplied pixels.,pending,false
+T0919,front_eds_num,[UNK],[UNK],illegible,illegible,field_presence_unresolved_full_photo_required,"Crop does not establish a legible glyph or intended field presence. Keep unresolved; do not mark blank, absent or wrong-field without source context.",pending,false
+T0921,front_eds_num,[UNK],[UNK],illegible,illegible,field_presence_unresolved_full_photo_required,"Crop does not establish a legible glyph or intended field presence. Keep unresolved; do not mark blank, absent or wrong-field without source context.",pending,false
+T0924,front_eds_num,[UNK],[UNK],illegible,illegible,field_presence_unresolved_full_photo_required,"Crop does not establish a legible glyph or intended field presence. Keep unresolved; do not mark blank, absent or wrong-field without source context.",pending,false
+T0926,front_eds_num,[UNK],[UNK],illegible,illegible,field_presence_unresolved_full_photo_required,"Crop does not establish a legible glyph or intended field presence. Keep unresolved; do not mark blank, absent or wrong-field without source context.",pending,false
+T0929,front_eds_num,[UNK],[UNK],illegible,illegible,field_presence_unresolved_full_photo_required,"Crop does not establish a legible glyph or intended field presence. Keep unresolved; do not mark blank, absent or wrong-field without source context.",pending,false
+T0931,front_eds_num,[UNK],[UNK],illegible,illegible,field_presence_unresolved_full_photo_required,"Crop does not establish a legible glyph or intended field presence. Keep unresolved; do not mark blank, absent or wrong-field without source context.",pending,false
+T0935,front_eds_destination,"DTL SHUTTLE
+[UNK]","DTL SHUTTLE
+[UNK]",partial,partial,shuttle_message_with_clipped_lower_line,DTL SHUTTLE text and clipped lower line visible; unknown lower span retained and operational-field policy pending.,pending,false
+T0938,front_eds_destination,"DTL SHUTTLE
+[UNK]","DTL SHUTTLE
+[UNK]",partial,partial,shuttle_message_with_clipped_lower_line,DTL SHUTTLE text and clipped lower line visible; unknown lower span retained and operational-field policy pending.,pending,false
+T0941,front_eds_destination,"DTL SHUTTLE
+[UNK]","DTL SHUTTLE
+[UNK]",partial,partial,shuttle_message_with_clipped_lower_line,DTL SHUTTLE text and clipped lower line visible; unknown lower span retained and operational-field policy pending.,pending,false
+T1302,front_eds_destination,"[UNK]
+> PASIR RIS INT","[UNK]
+> PASIR RIS INT",partial,partial,destination_with_clipped_upper_route_line,PASIR RIS INT line and a clipped upper line are both visible; retain both lines and review class ownership.,pending,false
+T1307,front_eds_destination,"[UNK]
+> PASIR RIS INT","[UNK]
+> PASIR RIS INT",partial,partial,destination_with_clipped_upper_route_line,PASIR RIS INT line and a clipped upper line are both visible; retain both lines and review class ownership.,pending,false
+T1312,front_eds_destination,"[UNK]
+> PASIR RIS INT","[UNK]
+> PASIR RIS INT",partial,partial,destination_with_clipped_upper_route_line,PASIR RIS INT line and a clipped upper line are both visible; retain both lines and review class ownership.,pending,false
+T1342,front_eds_destination,OFF SERVICE,OFF SERVICE,full,full,off_service_field_policy_pending,OFF SERVICE is readable operational text. It is not automatically a label error merely because it is not a geographic destination.,pending,false
+T1343,front_eds_destination,OFF SERVICE,OFF SERVICE,full,full,off_service_field_policy_pending,OFF SERVICE is readable operational text. It is not automatically a label error merely because it is not a geographic destination.,pending,false
+T1344,front_eds_destination,OFF SERVICE,OFF SERVICE,full,full,off_service_field_policy_pending,OFF SERVICE is readable operational text. It is not automatically a label error merely because it is not a geographic destination.,pending,false
+T1355,front_eds_route,EXPRESS,EXPRESS,full,full,express_message_field_policy_pending,EXPRESS is readable operational text. Do not automatically relabel it as a road name or reject its supplied class from semantics alone.,pending,false
+T1365,front_eds_route,EXPRESS,EXPRESS,full,full,express_message_field_policy_pending,EXPRESS is readable operational text. Do not automatically relabel it as a road name or reject its supplied class from semantics alone.,pending,false
+T1370,front_eds_destination,EXPRESS,EXPRESS,full,full,express_message_field_policy_pending,EXPRESS is readable operational text. Do not automatically relabel it as a road name or reject its supplied class from semantics alone.,pending,false
+T1374,front_eds_destination,EXPRESS,EXPRESS,full,full,express_message_field_policy_pending,EXPRESS is readable operational text. Do not automatically relabel it as a road name or reject its supplied class from semantics alone.,pending,false
+T1378,front_eds_destination,EXPRESS,EXPRESS,full,full,express_message_field_policy_pending,EXPRESS is readable operational text. Do not automatically relabel it as a road name or reject its supplied class from semantics alone.,pending,false

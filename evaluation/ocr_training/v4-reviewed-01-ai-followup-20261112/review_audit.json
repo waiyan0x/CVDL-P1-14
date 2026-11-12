@@ -1,0 +1,70 @@
+{
+  "status": "44_training_field_flags_reinspected_by_AI_human_verification_pending",
+  "source_review_sha256": "24a7503b450d640b1d8727e42ed476aecccaeccc47ef3249685659c0487922b8",
+  "source_unchanged": true,
+  "reviewed_training_rows": 44,
+  "total_training_rows": 1917,
+  "text_and_legibility_changes": 3,
+  "dispositions": {
+    "service_prefix_mixed_with_identifier": 3,
+    "road_text_field_definition_pending": 3,
+    "multiline_field_ownership_pending": 3,
+    "operator_greeting_field_policy_pending": 3,
+    "staff_message_symbol_and_field_policy_pending": 3,
+    "off_service_field_policy_pending": 6,
+    "termination_message_text_and_field_policy_pending": 3,
+    "unreadable_long_text_in_number_crop": 3,
+    "field_presence_unresolved_full_photo_required": 6,
+    "shuttle_message_with_clipped_lower_line": 3,
+    "destination_with_clipped_upper_route_line": 3,
+    "express_message_field_policy_pending": 5
+  },
+  "working_legibility_counts": {
+    "full": 707,
+    "partial": 511,
+    "illegible": 699
+  },
+  "training_ready_rows": 0,
+  "human_verified_rows": 0,
+  "test_images_decoded_or_viewed": 0,
+  "reviewer": "Codex",
+  "reviewer_type": "AI",
+  "review_date": "2026-11-12",
+  "review_sheets": [
+    {
+      "path": ".cache/ocr_review/training-field-ai-20261112/fields_01.png",
+      "sha256": "e6e8a53100f485b1d9663c995da6d9db3cce2c835146d980d586fcfdd9818e17"
+    },
+    {
+      "path": ".cache/ocr_review/training-field-ai-20261112/fields_02.png",
+      "sha256": "caa6f2f8a88efe2cb5112359849ce3f004e68064715a8bfdd58337d53de52fc0"
+    },
+    {
+      "path": ".cache/ocr_review/training-field-ai-20261112/fields_03.png",
+      "sha256": "c9e372664b69b8ad8f14bf4e9e315f375e56e3600e182660ee4d732a295cc2c7"
+    },
+    {
+      "path": ".cache/ocr_review/training-field-ai-20261112/fields_04.png",
+      "sha256": "d24111f1f6a58b59a44f49a016dfc69007722ca54992bc978ca0dd5437b28d82"
+    },
+    {
+      "path": ".cache/ocr_review/training-field-ai-20261112/fields_05.png",
+      "sha256": "7cc4c7d324768dd2854c986195ee1c540607255dcb5a4edddcb0f080baf80db7"
+    },
+    {
+      "path": ".cache/ocr_review/training-field-ai-20261112/fields_06.png",
+      "sha256": "88aa6b8793ed6b670438c0f73605d90aa610f6fcf40cab273b166fa85080f71b"
+    }
+  ],
+  "remaining": [
+    "Human verification of text and field identity across training package.",
+    "Full-photo scene/burst grouping and holdout-link adjudication.",
+    "Explicit policy for operational messages, logos/symbols and mixed fields."
+  ],
+  "limits": [
+    "This is a focused follow-up of 44 field flags, not a new full 1917-crop review.",
+    "Same-AI reinspection is not independent human review.",
+    "All original class labels, group state and quarantine lineage remain preserved.",
+    "No training, OCR inference, scoring, reference lookup or test review performed in this follow-up."
+  ]
+}

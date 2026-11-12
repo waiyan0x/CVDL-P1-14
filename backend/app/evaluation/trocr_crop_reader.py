@@ -25,6 +25,7 @@ class TrOCRCropReader:
         # The shared method supplies a grayscale native-size rectified line.
         # Three identical channels preserve paired upstream preprocessing.
         pixels = self.processor(images=Image.fromarray(line).convert("RGB"),
+                                input_data_format="channels_last",
                                 return_tensors="pt").pixel_values.to(self.device)
         output = self.recognizer.generate(
             pixels, do_sample=False, num_beams=1, max_new_tokens=self.max_new_tokens,

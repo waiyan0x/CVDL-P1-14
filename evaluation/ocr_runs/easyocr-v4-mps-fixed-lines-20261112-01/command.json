@@ -1,0 +1,16 @@
+[
+  "/Users/tanyilin/Downloads/CVDL-P1-14/.venv/bin/python",
+  "scripts/run_easyocr_crops.py",
+  "--engine",
+  "easyocr",
+  "--device",
+  "mps",
+  "--warmup",
+  "3",
+  "--seed",
+  "0",
+  "--line-layout",
+  "evaluation/ocr_layouts/v4-lines-v1/manifest.json",
+  "--output",
+  "evaluation/ocr_runs/easyocr-v4-mps-fixed-lines-20261112-01"
+]
