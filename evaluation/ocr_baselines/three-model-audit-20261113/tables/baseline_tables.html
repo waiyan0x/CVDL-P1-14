@@ -1,0 +1,292 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Pre-training OCR baselines</title>
+<style>body{font:15px system-ui;margin:32px;max-width:1400px}table{border-collapse:collapse;width:100%;margin-bottom:28px}th,td{border:1px solid #bbb;padding:8px;text-align:left}pre{white-space:pre-wrap}</style>
+<h1>Pre-training OCR baseline deliverable</h1>
+<p>Validation crops only. Raw text before reference matching. Accuracy is pending until human eligibility review is complete. No fine-tuning has been performed.</p>
+<p>Recognition timing covers successful saved crops only; crop totals include preprocessing. Initialization and warmup are excluded. CPU and MPS latency must not be ranked as equivalent hardware.</p>
+<h2>EasyOCR</h2><p>Checkpoint: EasyOCR English generation-2 pretrained recognizer; device: mps:0</p>
+<table><tr><th>Input crops</th><th>Field</th><th>Inventory</th><th>Eligible</th><th>CER %</th><th>WER %</th><th>Exact %</th><th>Completed / attempted</th><th>Failed</th><th>Empty</th><th>Crop total median / p95 ms</th><th>Status</th></tr>
+<tr><td>annotation</td><td>front_eds_num</td><td>60</td><td>0</td><td>—</td><td>—</td><td>—</td><td>58 / 60</td><td>2</td><td>1</td><td>7.52 / 20.54</td><td>Review pending</td></tr>
+<tr><td>annotation</td><td>front_eds_destination</td><td>55</td><td>0</td><td>—</td><td>—</td><td>—</td><td>49 / 55</td><td>6</td><td>1</td><td>12.31 / 67.41</td><td>Review pending</td></tr>
+<tr><td>annotation</td><td>front_eds_route</td><td>42</td><td>0</td><td>—</td><td>—</td><td>—</td><td>39 / 42</td><td>3</td><td>1</td><td>12.96 / 70.74</td><td>Review pending</td></tr>
+<tr><td>prediction</td><td>front_eds_num</td><td>42</td><td>0</td><td>—</td><td>—</td><td>—</td><td>40 / 42</td><td>2</td><td>0</td><td>8.27 / 9.80</td><td>Review pending</td></tr>
+<tr><td>prediction</td><td>front_eds_destination</td><td>35</td><td>0</td><td>—</td><td>—</td><td>—</td><td>30 / 35</td><td>5</td><td>0</td><td>14.40 / 87.97</td><td>Review pending</td></tr>
+<tr><td>prediction</td><td>front_eds_route</td><td>37</td><td>0</td><td>—</td><td>—</td><td>—</td><td>35 / 37</td><td>2</td><td>0</td><td>13.34 / 80.88</td><td>Review pending</td></tr>
+</table>
+<h2>Public TrOCR</h2><p>Checkpoint: microsoft/trocr-base-printed (public pretrained); device: mps:0</p>
+<table><tr><th>Input crops</th><th>Field</th><th>Inventory</th><th>Eligible</th><th>CER %</th><th>WER %</th><th>Exact %</th><th>Completed / attempted</th><th>Failed</th><th>Empty</th><th>Crop total median / p95 ms</th><th>Status</th></tr>
+<tr><td>annotation</td><td>front_eds_num</td><td>60</td><td>0</td><td>—</td><td>—</td><td>—</td><td>58 / 60</td><td>2</td><td>0</td><td>195.15 / 227.47</td><td>Review pending</td></tr>
+<tr><td>annotation</td><td>front_eds_destination</td><td>55</td><td>0</td><td>—</td><td>—</td><td>—</td><td>49 / 55</td><td>6</td><td>0</td><td>295.52 / 445.60</td><td>Review pending</td></tr>
+<tr><td>annotation</td><td>front_eds_route</td><td>42</td><td>0</td><td>—</td><td>—</td><td>—</td><td>39 / 42</td><td>3</td><td>0</td><td>302.17 / 508.73</td><td>Review pending</td></tr>
+<tr><td>prediction</td><td>front_eds_num</td><td>42</td><td>0</td><td>—</td><td>—</td><td>—</td><td>40 / 42</td><td>2</td><td>0</td><td>191.17 / 545.22</td><td>Review pending</td></tr>
+<tr><td>prediction</td><td>front_eds_destination</td><td>35</td><td>0</td><td>—</td><td>—</td><td>—</td><td>29 / 35</td><td>6</td><td>0</td><td>599.79 / 1763.60</td><td>Review pending</td></tr>
+<tr><td>prediction</td><td>front_eds_route</td><td>37</td><td>0</td><td>—</td><td>—</td><td>—</td><td>35 / 37</td><td>2</td><td>0</td><td>448.84 / 1298.07</td><td>Review pending</td></tr>
+</table>
+<h2>PaddleOCR</h2><p>Checkpoint: en_PP-OCRv5_mobile_rec (public pretrained); device: cpu</p>
+<table><tr><th>Input crops</th><th>Field</th><th>Inventory</th><th>Eligible</th><th>CER %</th><th>WER %</th><th>Exact %</th><th>Completed / attempted</th><th>Failed</th><th>Empty</th><th>Crop total median / p95 ms</th><th>Status</th></tr>
+<tr><td>annotation</td><td>front_eds_num</td><td>60</td><td>0</td><td>—</td><td>—</td><td>—</td><td>58 / 60</td><td>2</td><td>1</td><td>66.24 / 71.74</td><td>Review pending</td></tr>
+<tr><td>annotation</td><td>front_eds_destination</td><td>55</td><td>0</td><td>—</td><td>—</td><td>—</td><td>49 / 55</td><td>6</td><td>2</td><td>67.47 / 137.47</td><td>Review pending</td></tr>
+<tr><td>annotation</td><td>front_eds_route</td><td>42</td><td>0</td><td>—</td><td>—</td><td>—</td><td>39 / 42</td><td>3</td><td>0</td><td>69.29 / 157.46</td><td>Review pending</td></tr>
+<tr><td>prediction</td><td>front_eds_num</td><td>42</td><td>0</td><td>—</td><td>—</td><td>—</td><td>40 / 42</td><td>2</td><td>0</td><td>66.58 / 74.63</td><td>Review pending</td></tr>
+<tr><td>prediction</td><td>front_eds_destination</td><td>35</td><td>0</td><td>—</td><td>—</td><td>—</td><td>30 / 35</td><td>5</td><td>0</td><td>92.80 / 509.65</td><td>Review pending</td></tr>
+<tr><td>prediction</td><td>front_eds_route</td><td>37</td><td>0</td><td>—</td><td>—</td><td>—</td><td>35 / 37</td><td>2</td><td>0</td><td>75.75 / 302.53</td><td>Review pending</td></tr>
+</table>
+<h2>Audit and outstanding decisions</h2><pre>{
+  &quot;classification&quot;: &quot;observed implementation and metadata audit; human decisions remain pending&quot;,
+  &quot;validation_crops&quot;: 271,
+  &quot;distinct_source_hashes_with_crops&quot;: 43,
+  &quot;eligible&quot;: 0,
+  &quot;manifest_sha256&quot;: &quot;6ceaae74d9e47188b20d7bb8254ea959c0bfb99b10df8bcd913f5f5654c2687f&quot;,
+  &quot;layout_sha256&quot;: &quot;218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd&quot;,
+  &quot;layout_human_review&quot;: false,
+  &quot;layout_status_counts&quot;: {
+    &quot;accepted&quot;: 251,
+    &quot;unresolved&quot;: 20
+  },
+  &quot;view_counts&quot;: {
+    &quot;unknown&quot;: 271
+  },
+  &quot;lighting_counts&quot;: {
+    &quot;unknown&quot;: 271
+  },
+  &quot;filename_timestamp_crops&quot;: 154,
+  &quot;timestamp_pair_candidates_within_5_seconds&quot;: 2,
+  &quot;timestamp_timezone&quot;: &quot;Not stated in filenames; do not infer camera timezone from chat settings&quot;,
+  &quot;source_handoff&quot;: {
+    &quot;manifest_sha256&quot;: &quot;c0968017273fc771bce7974c6111be7e5241161cf26109cc6efde4c7f3f0bef7&quot;,
+    &quot;split&quot;: &quot;valid&quot;,
+    &quot;source_images&quot;: 53,
+    &quot;images_without_annotation_boxes&quot;: 10,
+    &quot;images_without_predicted_boxes&quot;: 12,
+    &quot;origin_note&quot;: &quot;Supplied v4 validation handoff; not evidence of the earlier 142-image held-out set or Roboflow v2 origin.&quot;
+  },
+  &quot;duplicate_crop_hash_families&quot;: 0,
+  &quot;augmentation_original_selection&quot;: &quot;Not established by crop filenames; original/variant lineage needs source review. No crop removed automatically.&quot;,
+  &quot;quality_issue_codes&quot;: &quot;Existing review proposals, not newly verified visual diagnoses; see inventory.csv&quot;,
+  &quot;compatibility&quot;: [
+    {
+      &quot;model&quot;: &quot;easyocr&quot;,
+      &quot;run&quot;: &quot;easyocr-v4-mps-fixed-lines-20261112-01&quot;,
+      &quot;ids&quot;: 271,
+      &quot;layout_sha256&quot;: &quot;218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd&quot;,
+      &quot;geometry_matches&quot;: true,
+      &quot;prediction_sha256&quot;: &quot;af355be8728ba6512fcd95827a7d67059737ff3329e8a998bb9a25fee72e384f&quot;,
+      &quot;report_sha256&quot;: &quot;127226b31d9c44ea78467a80745afec1a9307ddc6ffefe7f7e00d14caec9ff8e&quot;
+    },
+    {
+      &quot;model&quot;: &quot;trocr&quot;,
+      &quot;run&quot;: &quot;trocr-base-printed-v4-mps-fixed-lines-20261112-01&quot;,
+      &quot;ids&quot;: 271,
+      &quot;layout_sha256&quot;: &quot;218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd&quot;,
+      &quot;geometry_matches&quot;: true,
+      &quot;prediction_sha256&quot;: &quot;1fd17b4fdd7567dd89e446685906567568fe54128720d4b32461ad72bd04cddc&quot;,
+      &quot;report_sha256&quot;: &quot;2c577fca30f3e3419e7b8918e35c995b493b8726243609b4d3d0128639be9c5a&quot;
+    },
+    {
+      &quot;model&quot;: &quot;paddleocr&quot;,
+      &quot;run&quot;: &quot;paddle-en-v5-cpu-20261113-01&quot;,
+      &quot;ids&quot;: 271,
+      &quot;layout_sha256&quot;: &quot;218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd&quot;,
+      &quot;geometry_matches&quot;: true,
+      &quot;prediction_sha256&quot;: &quot;cfdae43ed61aaa909d6f9e147f0d4b48f52ae2bbfd85e9b04492428dbdadd2bd&quot;,
+      &quot;report_sha256&quot;: &quot;f42e3ea879faeffc8306814f4381899e4396e8dca2623cabf538fad1072a8463&quot;
+    }
+  ],
+  &quot;size_distributions&quot;: [
+    {
+      &quot;input_set&quot;: &quot;annotation&quot;,
+      &quot;field&quot;: &quot;front_eds_num&quot;,
+      &quot;count&quot;: 60,
+      &quot;width&quot;: {
+        &quot;min&quot;: 8,
+        &quot;p25&quot;: 31.75,
+        &quot;median&quot;: 44.5,
+        &quot;p75&quot;: 71.25,
+        &quot;p95&quot;: 94.2,
+        &quot;max&quot;: 117
+      },
+      &quot;height&quot;: {
+        &quot;min&quot;: 12,
+        &quot;p25&quot;: 27.0,
+        &quot;median&quot;: 41.0,
+        &quot;p75&quot;: 53.0,
+        &quot;p95&quot;: 78.7,
+        &quot;max&quot;: 107
+      },
+      &quot;aspect_ratio&quot;: {
+        &quot;min&quot;: 0.24242424242424243,
+        &quot;p25&quot;: 1.0,
+        &quot;median&quot;: 1.228,
+        &quot;p75&quot;: 1.584,
+        &quot;p95&quot;: 2.0,
+        &quot;max&quot;: 2.4074074074074074
+      }
+    },
+    {
+      &quot;input_set&quot;: &quot;annotation&quot;,
+      &quot;field&quot;: &quot;front_eds_destination&quot;,
+      &quot;count&quot;: 55,
+      &quot;width&quot;: {
+        &quot;min&quot;: 19,
+        &quot;p25&quot;: 73.0,
+        &quot;median&quot;: 111.0,
+        &quot;p75&quot;: 159.5,
+        &quot;p95&quot;: 276.2,
+        &quot;max&quot;: 606
+      },
+      &quot;height&quot;: {
+        &quot;min&quot;: 9,
+        &quot;p25&quot;: 17.0,
+        &quot;median&quot;: 24.0,
+        &quot;p75&quot;: 33.0,
+        &quot;p95&quot;: 47.3,
+        &quot;max&quot;: 60
+      },
+      &quot;aspect_ratio&quot;: {
+        &quot;min&quot;: 0.8260869565217391,
+        &quot;p25&quot;: 3.617,
+        &quot;median&quot;: 4.467,
+        &quot;p75&quot;: 6.227,
+        &quot;p95&quot;: 10.289,
+        &quot;max&quot;: 11.4375
+      }
+    },
+    {
+      &quot;input_set&quot;: &quot;annotation&quot;,
+      &quot;field&quot;: &quot;front_eds_route&quot;,
+      &quot;count&quot;: 42,
+      &quot;width&quot;: {
+        &quot;min&quot;: 27,
+        &quot;p25&quot;: 73.5,
+        &quot;median&quot;: 110.5,
+        &quot;p75&quot;: 156.75,
+        &quot;p95&quot;: 238.9,
+        &quot;max&quot;: 308
+      },
+      &quot;height&quot;: {
+        &quot;min&quot;: 10,
+        &quot;p25&quot;: 16.0,
+        &quot;median&quot;: 21.0,
+        &quot;p75&quot;: 26.75,
+        &quot;p95&quot;: 40.7,
+        &quot;max&quot;: 46
+      },
+      &quot;aspect_ratio&quot;: {
+        &quot;min&quot;: 1.2857142857142858,
+        &quot;p25&quot;: 4.379,
+        &quot;median&quot;: 5.345,
+        &quot;p75&quot;: 6.464,
+        &quot;p95&quot;: 11.583,
+        &quot;max&quot;: 14.272727272727273
+      }
+    },
+    {
+      &quot;input_set&quot;: &quot;prediction&quot;,
+      &quot;field&quot;: &quot;front_eds_num&quot;,
+      &quot;count&quot;: 42,
+      &quot;width&quot;: {
+        &quot;min&quot;: 20,
+        &quot;p25&quot;: 43.5,
+        &quot;median&quot;: 63.5,
+        &quot;p75&quot;: 78.25,
+        &quot;p95&quot;: 102.85,
+        &quot;max&quot;: 222
+      },
+      &quot;height&quot;: {
+        &quot;min&quot;: 23,
+        &quot;p25&quot;: 37.25,
+        &quot;median&quot;: 46.5,
+        &quot;p75&quot;: 56.75,
+        &quot;p95&quot;: 79.5,
+        &quot;max&quot;: 102
+      },
+      &quot;aspect_ratio&quot;: {
+        &quot;min&quot;: 0.6060606060606061,
+        &quot;p25&quot;: 1.036,
+        &quot;median&quot;: 1.245,
+        &quot;p75&quot;: 1.613,
+        &quot;p95&quot;: 2.065,
+        &quot;max&quot;: 3.76271186440678
+      }
+    },
+    {
+      &quot;input_set&quot;: &quot;prediction&quot;,
+      &quot;field&quot;: &quot;front_eds_destination&quot;,
+      &quot;count&quot;: 35,
+      &quot;width&quot;: {
+        &quot;min&quot;: 73,
+        &quot;p25&quot;: 106.0,
+        &quot;median&quot;: 129.0,
+        &quot;p75&quot;: 165.5,
+        &quot;p95&quot;: 275.2,
+        &quot;max&quot;: 351
+      },
+      &quot;height&quot;: {
+        &quot;min&quot;: 14,
+        &quot;p25&quot;: 25.0,
+        &quot;median&quot;: 29.0,
+        &quot;p75&quot;: 39.0,
+        &quot;p95&quot;: 59.3,
+        &quot;max&quot;: 64
+      },
+      &quot;aspect_ratio&quot;: {
+        &quot;min&quot;: 2.34375,
+        &quot;p25&quot;: 3.57,
+        &quot;median&quot;: 4.474,
+        &quot;p75&quot;: 5.615,
+        &quot;p95&quot;: 7.531,
+        &quot;max&quot;: 10.0
+      }
+    },
+    {
+      &quot;input_set&quot;: &quot;prediction&quot;,
+      &quot;field&quot;: &quot;front_eds_route&quot;,
+      &quot;count&quot;: 37,
+      &quot;width&quot;: {
+        &quot;min&quot;: 61,
+        &quot;p25&quot;: 99.0,
+        &quot;median&quot;: 133.0,
+        &quot;p75&quot;: 167.0,
+        &quot;p95&quot;: 231.2,
+        &quot;max&quot;: 278
+      },
+      &quot;height&quot;: {
+        &quot;min&quot;: 14,
+        &quot;p25&quot;: 22.0,
+        &quot;median&quot;: 27.0,
+        &quot;p75&quot;: 35.0,
+        &quot;p95&quot;: 42.0,
+        &quot;max&quot;: 50
+      },
+      &quot;aspect_ratio&quot;: {
+        &quot;min&quot;: 3.230769230769231,
+        &quot;p25&quot;: 4.344,
+        &quot;median&quot;: 4.778,
+        &quot;p75&quot;: 5.361,
+        &quot;p95&quot;: 7.432,
+        &quot;max&quot;: 7.944444444444445
+      }
+    }
+  ],
+  &quot;blockers_overlapping&quot;: {
+    &quot;crop_target_unresolved_or_challenge&quot;: 271,
+    &quot;field_confirmation_pending&quot;: 271,
+    &quot;field_review_pending&quot;: 271,
+    &quot;group_review_pending&quot;: 271,
+    &quot;human_review_incomplete&quot;: 271,
+    &quot;text_not_full&quot;: 154,
+    &quot;correspondence_pending&quot;: 114,
+    &quot;explicit_exclusion&quot;: 26,
+    &quot;field_not_confirmed_present&quot;: 16,
+    &quot;text_or_field_conventions_unresolved&quot;: 1
+  },
+  &quot;unresolved_requirements&quot;: [
+    &quot;Human text and field adjudication; do not promote AI proposals.&quot;,
+    &quot;Human source/augmentation/burst grouping; proposed source hashes do not prove bus identity.&quot;,
+    &quot;Predicted-crop correspondence; do not copy annotation text automatically.&quot;,
+    &quot;Human line-layout confirmation and mixed-field/operational-message policy.&quot;,
+    &quot;View/lighting/source-origin evidence where unknown.&quot;,
+    &quot;GPU-equivalent timing comparison requires the same device; CPU is a separate diagnostic.&quot;
+  ],
+  &quot;reserved_test_accessed&quot;: false,
+  &quot;training_performed&quot;: false
+}</pre></html>

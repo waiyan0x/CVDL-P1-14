@@ -4,6 +4,43 @@ Status, 13 November 2026: implementation and diagnostic inference are complete
 for the current validation crop inventory. **Numerical text accuracy is pending
 human review.** This is a project deliverable, not a claim about rubric compliance.
 
+## Paired baseline audit — 13 November 2026
+
+The [refreshed baseline tables](../evaluation/ocr_baselines/three-model-audit-20261113/tables/baseline_tables.html)
+use the latest validation working snapshot and its user-approved challenge
+exclusions. All accuracy cells remain pending (zero eligible rows).
+The [paired audit](../evaluation/ocr_baselines/three-model-audit-20261113/audit.json)
+checks all three runs against the 271-ID frozen inventory: source/crop hashes,
+field/population, dimensions, quadrilaterals, line regions, line output order and
+sizes, explicit unresolved-layout failures, and saved summary counts.
+Shared crop-processing and layout source snapshots are byte-identical across
+the three runs. This verifies saved input/geometry evidence; historical in-memory
+line pixel buffers were not independently hashed.
+
+`paired_status.csv` keeps all 271 rows, including failures and empty successes.
+`failures.jsonl` preserves all 61 model-failure records (20 shared layout failures
+per engine, plus TrOCR P051). `failed_engine_history.json` retains TrOCR's failed
+generation trace, including P051 reaching its 64-token cap without EOS; this
+trace is diagnostic evidence, not a successful OCR hypothesis. Original run files
+remain unchanged and their report/prediction hashes are recorded in the audit.
+An empty successful output means empty or whitespace-only: Paddle A108 contains
+a literal space. Saved raw text is preserved.
+
+Reproduce into a new directory without running OCR or accessing test images:
+
+```sh
+.venv/bin/python scripts/audit_ocr_baseline_runs.py \
+  --review evaluation/ocr_review/human-verification-20261113/validation.source.csv \
+  --config evaluation/ocr_baselines/three-model-audit-20261113/tables/comparison.json \
+  --line-layout evaluation/ocr_layouts/v4-lines-v1/manifest.json \
+  --output /path/to/new-paired-audit
+```
+
+The saved configuration points to this machine's original run directories;
+update those paths when moving the saved evidence to another machine. Model-native
+recognition preprocessing remains distinct. This audit selects no model winner,
+does no fine-tuning or matching, and provides no CPU-versus-MPS latency ranking.
+
 ## Comparison contract
 
 | Item | Decision or evidence |
@@ -34,8 +71,9 @@ Evidence: local `report.json` and `predictions.jsonl` under
 `evaluation/ocr_runs/trocr-base-printed-v4-mps-fixed-lines-20261112-01/`, and
 `.cache/ocr-baselines/paddle-en-v5-cpu-20261113-01/`. Current model-cache files
 were checked against the run hashes before assembling the deliverable. Fifteen
-weight/config/provenance artifacts matched. Generated local evidence is not
-included in the implementation commit.
+weight/config/provenance artifacts matched during the earlier assembly. The
+original inference/model caches remain local; the refreshed audit exports above
+are available under `evaluation/ocr_baselines/`.
 
 ## Paddle preparation
 

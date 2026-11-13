@@ -1,0 +1,43 @@
+{
+  "models": [
+    {
+      "id": "easyocr",
+      "baseline": {
+        "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/easyocr-v4-mps-fixed-lines-20261112-01",
+        "splits": [
+          "valid"
+        ],
+        "input_sets": [
+          "annotation",
+          "prediction"
+        ]
+      }
+    },
+    {
+      "id": "trocr",
+      "baseline": {
+        "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/trocr-base-printed-v4-mps-fixed-lines-20261112-01",
+        "splits": [
+          "valid"
+        ],
+        "input_sets": [
+          "annotation",
+          "prediction"
+        ]
+      }
+    },
+    {
+      "id": "paddleocr",
+      "baseline": {
+        "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr-baselines/paddle-en-v5-cpu-20261113-01",
+        "splits": [
+          "valid"
+        ],
+        "input_sets": [
+          "annotation",
+          "prediction"
+        ]
+      }
+    }
+  ]
+}
