@@ -1,0 +1,24 @@
+{
+  "classification": "observed_metadata_and_byte_identity_audit",
+  "dataset": "/Users/tanyilin/Downloads/2026-11-05-roboflow-v4-reviewed",
+  "preparation_sha256": "01760a84133353028e203b0f06a4c7dd5d012be7b67c0c02f52fd3e4128180e0",
+  "source_counts": {
+    "train": 735,
+    "valid": 53,
+    "test": 53
+  },
+  "train_valid_image_hashes_checked": 788,
+  "source_hash_mismatches": [],
+  "handoff_sources_checked": 788,
+  "handoff_mismatches": [],
+  "cross_split_links": [],
+  "test_image_bytes_read": 0,
+  "test_images_decoded_or_viewed": 0,
+  "limitations": [
+    "Test image hashes are read from preparation metadata, not reverified.",
+    "No cross-split name/hash links does not establish scene/burst independence.",
+    "Metadata source names are candidate families, not human-reviewed groups.",
+    "Existing legacy-holdout quarantine must be preserved.",
+    "No text labels, human attestations or eligibility flags are changed."
+  ]
+}
