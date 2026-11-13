@@ -3,6 +3,13 @@
 Status: proposed scope for the next implementation commit, 12 November 2026.
 These are project proposals, not coursework brief or rubric requirements.
 
+Implementation update, 13 November 2026: review import is joined by the frozen
+eligibility manifest, saved-prediction scorer and three-model HTML/CSV/JSON report
+generator. See [OCR_CROP_SCORING.md](OCR_CROP_SCORING.md) for the implemented
+contract and remaining limits, including separate blank/absent scoring and
+unverified model-training lineage. Historical "remain to be implemented" wording
+below records the proposal's starting state, not the current software status.
+
 ## Problem and intended outcome
 
 OCR predictions and weight identities exist, but reviewed crop eligibility cannot

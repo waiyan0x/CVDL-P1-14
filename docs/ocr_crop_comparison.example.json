@@ -1,0 +1,7 @@
+{
+  "models": [
+    {"id": "easyocr", "baseline": null, "finetuned": null},
+    {"id": "trocr", "baseline": null, "finetuned": null},
+    {"id": "paddleocr", "baseline": {"status": "Unavailable"}, "finetuned": null}
+  ]
+}

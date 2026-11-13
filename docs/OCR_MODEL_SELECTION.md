@@ -5,6 +5,14 @@ winner has been selected. The current validation labels and groups do not pass
 the existing scoring gate. Reference matching, application post-processing and
 training remain untouched.
 
+**Status update, 13 November 2026:** saved public TrOCR MPS runs now exist under
+`evaluation/ocr_runs/trocr-base-printed-v4-mps-fixed-lines-20261112-01/` and `-02/`.
+The earlier disk failure described below is historical. The new saved-run scorer
+in [OCR_CROP_SCORING.md](OCR_CROP_SCORING.md) accepts these and the corresponding
+EasyOCR runs. The local 271-row snapshot still has zero primary-eligible rows;
+accuracy remains pending. A separate pinned Paddle CPU baseline has since
+completed the same 271 IDs; see [OCR_PRETRAINING_DELIVERABLE.md](OCR_PRETRAINING_DELIVERABLE.md).
+
 ## Candidate register
 
 These are project proposals, not coursework requirements. The model-specific
@@ -14,8 +22,8 @@ course materials. None establishes performance on these LED dot-matrix crops.
 | Candidate | Reason to compare | Current status |
 | --- | --- | --- |
 | EasyOCR 1.7.2 English generation-2 | Existing recognizer; working local MPS baseline with native variable-width line preprocessing | Completed fixed-layout runs on verified `mps:0` |
-| `microsoft/trocr-base-printed` | Different transformer recognizer; public printed single-line checkpoint, with explicit line handling | Downloaded pinned revision; loaded on `mps:0`, but disk exhaustion stopped the run before inference. User chose another machine later |
-| PaddleOCR `en_PP-OCRv5_mobile_rec` | Lightweight English text-line recognizer; useful third candidate | Proposed, not installed or benchmarked. Requires a separate supported environment for a native GPU comparison |
+| `microsoft/trocr-base-printed` | Different transformer recognizer; public printed single-line checkpoint, with explicit line handling | Saved public MPS inference runs now available; reviewed accuracy remains pending |
+| PaddleOCR `en_PP-OCRv5_mobile_rec` | Lightweight English text-line recognizer; third candidate | Pinned local Python 3.12 CPU baseline completed; GPU timing remains unmeasured |
 
 TrOCR's [model card](https://huggingface.co/microsoft/trocr-base-printed)
 specifies single-line input and printed-text SROIE training; its official
@@ -29,7 +37,8 @@ documents the proposed English recognizer. Paddle's
 [macOS installation guide](https://www.paddlepaddle.org.cn/documentation/docs/en/install/pip/macos-pip_en.html)
 currently lists Python 3.9–3.13 and CPU-only native macOS support. This repository's
 Python 3.14/MPS setup is therefore unsuitable for that native GPU benchmark.
-No alternative Paddle backend has been implemented or validated here.
+The separate Python 3.12 CPU adapter now supplies diagnostic predictions;
+it does not establish native MPS or CUDA execution.
 
 PARSeq is deferred to keep the first comparison to three engines. This is a
 scope decision, not a measured rejection. Tesseract remains an existing optional
@@ -105,8 +114,8 @@ line calls, with initialization and warmups excluded. No inference-time download
 or text correction are performed. The local failed attempt is preserved under
 `evaluation/ocr_runs/trocr-base-printed-v4-mps-fixed-lines-01/`.
 
-Paddle still needs its own recognition-only adapter using exactly these line
-regions and the same artifact/timing contract. Run all candidates on the same
+Paddle now has a recognition-only CPU adapter using these same line regions.
+Run all candidates on the same
 machine for a latency ranking; do not rank Mac MPS timings against another
 machine's CUDA timings. Freeze and hash its eventual checkpoint before running.
 
@@ -121,8 +130,10 @@ Geometry acceptance alone does not resolve those text/group gates.
 
 1. Resolve the listed labels and review related-frame groups across splits;
    adjudicate the 20 unresolved layouts. Keep all 271 A/P examples validation-only.
-2. Run public TrOCR on the other machine, then implement and run the proposed
-   Paddle recognizer. Preserve all failures and identical paired inputs.
+2. Reuse compatible saved public TrOCR output; another-machine execution remains
+   optional. Reuse the pinned Paddle CPU output for accuracy once labels qualify;
+   use a common device for any direct latency ranking.
+   Preserve all failures and identical paired inputs.
 3. Once labels pass the gate, compare raw per-field exact match and CER on the
    same eligible rows; retain engine failures in denominators. Report coverage,
    empty outputs, multiline failures and A/P results separately. Raw exact

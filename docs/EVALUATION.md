@@ -1,5 +1,13 @@
 # Evaluation evidence
 
+## Reviewed crop scoring
+
+The saved-prediction scorer and three-model table generator are documented in
+[OCR_CROP_SCORING.md](OCR_CROP_SCORING.md). They freeze human-review eligibility,
+score raw CER/WER/exact match for all three text fields, and preserve pending
+statuses where review or model runs are incomplete. This is a separate crop
+workflow; it does not change the older whole-image evaluator below.
+
 The application compares one YOLO11n detector with three OCR engines: EasyOCR,
 Tesseract and the supplied fine-tuned TrOCR. A same-image comparison runs the
 detector once and shares the resulting boxes/crops. It reports actual text,
