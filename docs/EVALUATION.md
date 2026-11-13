@@ -4,7 +4,7 @@
 
 The saved-prediction scorer and three-model table generator are documented in
 [OCR_CROP_SCORING.md](OCR_CROP_SCORING.md). They freeze human-review eligibility,
-score raw CER/WER/exact match for all three text fields, and preserve pending
+score primary raw and secondary normalised CER/WER/exact match for all three text fields, retain separate raw/normalised text exports, and preserve pending
 statuses where review or model runs are incomplete. This is a separate crop
 workflow; it does not change the older whole-image evaluator below.
 

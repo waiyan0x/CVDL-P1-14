@@ -139,6 +139,10 @@ only, before reference matching. Preserve case, punctuation and line breaks;
 apply the same declared whitespace convention to references and predictions.
 If normalized scores are also reported, label them separately. Report sample
 counts and excluded partial/illegible counts per field to expose coverage.
+Step 4 now implements the separate raw/normalised export and symmetric scoring
+rules in [OCR_CROP_SCORING.md](OCR_CROP_SCORING.md#step-4-text-normalisation).
+Raw annotations remain unchanged; secondary normalisation is NFC, Unicode
+casefold and collapsed whitespace, preserving punctuation and abbreviations.
 For v4, primary eligibility also requires `review_status=reviewed`,
 `field_status=present`, reviewer/date, no exclusion, confirmed grouping and,
 for predictions, completed correspondence review. Blank/absent cases are scored

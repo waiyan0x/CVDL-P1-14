@@ -39,21 +39,22 @@ def baseline_html(report, audit):
     parts = ['<!doctype html><html lang="en"><meta charset="utf-8"><title>Pre-training OCR baselines</title>',
              '<style>body{font:15px system-ui;margin:32px;max-width:1400px}table{border-collapse:collapse;width:100%;margin-bottom:28px}th,td{border:1px solid #bbb;padding:8px;text-align:left}pre{white-space:pre-wrap}</style>',
              '<h1>Pre-training OCR baseline deliverable</h1>',
-             '<p>Validation crops only. Raw text before reference matching. Accuracy is pending until human eligibility review is complete. No fine-tuning has been performed.</p>',
+             '<p>Validation crops only. Primary raw and secondary normalised text before reference matching. Normalisation applies NFC, Unicode casefold and collapsed whitespace equally to references and predictions; punctuation and abbreviations are preserved. Accuracy is pending until human eligibility review is complete. No fine-tuning has been performed.</p>',
              '<p>Recognition timing covers successful saved crops only; crop totals include preprocessing. Initialization and warmup are excluded. CPU and MPS latency must not be ranked as equivalent hardware.</p>']
     for model in report["models"]:
         data = model["variants"]["baseline"]
         identity = data["identity"] or {}
         parts.append('<h2>'+escape(model["name"])+ '</h2><p>Checkpoint: '+escape(str(identity.get("model", "Not run")))+
                      '; device: '+escape(str(identity.get("actual_device", "Not recorded")))+'</p>')
-        parts.append('<table><tr>'+''.join('<th>'+s+'</th>' for s in ["Input crops", "Field", "Inventory", "Eligible", "CER %", "WER %", "Exact %", "Completed / attempted", "Failed", "Empty", "Crop total median / p95 ms", "Status"])+ '</tr>')
-        for cell in data["cells"]:
+        parts.append('<table><tr>'+''.join('<th>'+s+'</th>' for s in ["Input crops", "Field", "Inventory", "Eligible", "Raw CER %", "Raw WER %", "Raw exact %", "Normalised CER %", "Normalised WER %", "Normalised exact %", "Completed / attempted", "Failed", "Empty", "Crop total median / p95 ms", "Status"])+ '</tr>')
+        for cell, normalised in zip(data["cells"], data["normalised_cells"]):
             if cell["split"] != "valid" or cell["field"] == "front_eds":
                 continue
             def number(value):
                 return '—' if value is None else f'{value:.2f}'
             values = [cell["input_set"], cell["field"], cell["inventory"], cell["eligible"],
                       *[number(None if cell[k] is None else 100*cell[k]) for k in ("cer", "wer", "exact_match")],
+                      *[number(None if normalised[k] is None else 100*normalised[k]) for k in ("cer", "wer", "exact_match")],
                       f'{cell["completed"]} / {cell["attempted"]}', cell["failed"], cell["empty"],
                       number(cell["successful_crop_total_ms_median"])+ ' / '+number(cell["successful_crop_total_ms_p95"]), cell["status"]]
             parts.append('<tr>'+''.join('<td>'+escape(str(v))+'</td>' for v in values)+'</tr>')

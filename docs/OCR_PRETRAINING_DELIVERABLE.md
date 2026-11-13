@@ -50,7 +50,7 @@ does no fine-tuning or matching, and provides no CPU-versus-MPS latency ranking.
 | Fields | `front_eds_num`, `front_eds_destination`, `front_eds_route`; keep annotation/prediction populations separate. |
 | Inputs | Same 271 IDs, crop hashes and fixed line geometry for all three models. Each model retains its native recognition resize/normalization. |
 | Layout | `v4-lines-v1`, hash `218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd`. AI-reviewed diagnostic geometry; 251 accepted and 20 unresolved. Human attestation remains pending. |
-| Accuracy | Reviewed full, present, single-field text only, with field/group/correspondence gates. Primary raw CER/WER/exact match, before reference matching. Current eligible count is zero. |
+| Accuracy | Reviewed full, present, single-field text only, with field/group/correspondence gates. Primary raw and separately labelled secondary normalised CER/WER/exact match, before reference matching. Each mode transforms predictions and references identically. Current eligible count is zero. |
 | Timing | EasyOCR/TrOCR saved MPS runs and a separate Paddle CPU run. Show device and boundaries; no direct CPU-versus-MPS latency ranking. |
 | Training/test | No training or reserved-test evaluation in this preparation. Fine-tuned columns remain unrun. |
 
@@ -135,6 +135,14 @@ Local assembled deliverable:
 `.cache/ocr-baselines/pretraining-20261113-01/deliverable-02/`.
 Read `baseline_tables.html` first, then `audit.json`. Full comparison tables retain
 the unrun fine-tuned columns for future use.
+
+Step 4 normalisation export, 13 November 2026:
+`.cache/ocr-baselines/normalisation-20261113-01/` contains the refreshed tables
+with separate raw/normalised metric columns and `text_records.csv` for all 813
+model/crop pairs, including 61 failed calls. Raw source strings are preserved;
+pending references are labelled with review provenance. Both modes retain zero
+eligible rows and null accuracy. The original inference runs and previous audit
+exports are unchanged. See [the exact text rules](OCR_CROP_SCORING.md#step-4-text-normalisation).
 
 ## Remaining manual decisions
 

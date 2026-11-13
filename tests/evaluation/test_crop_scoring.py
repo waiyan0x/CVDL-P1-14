@@ -11,6 +11,7 @@ import unittest
 
 from backend.app.evaluation.crop_scoring import (
     build_report, fingerprint, freeze_manifest, render_html, score_cell, validate_manifest, write_report,
+    canonical_text, normalise_text,
 )
 
 
@@ -153,6 +154,33 @@ class CropScoringTests(unittest.TestCase):
         self.assertIsNone(self.cell(report)["cer"])
         self.assertEqual(self.cell(report, field="front_eds_route")["status"], "No samples")
 
+    def test_population_metrics_keep_separate_eligible_denominators_for_all_models(self):
+        annotation = self.row(text="AB CD")
+        predicted = self.row("P001", text="WXYZ", crop_source="prediction",
+                             correspondence_status="same_visible_text")
+        pending = self.row("A002", text="SHOULD NOT COUNT", reviewer_type="AI")
+        manifest = self.freeze([annotation, predicted, pending])
+        config = {"models": []}
+        for engine in ("easyocr", "trocr", "paddleocr"):
+            path = self.run_dir([self.prediction(annotation), self.prediction(predicted, "WX"),
+                                 self.prediction(pending, "")], engine=engine)
+            config["models"].append({"id": engine, "baseline": {"run_dir": str(path),
+                                     "splits": ["valid"], "input_sets": ["annotation", "prediction"]}})
+        report = build_report(manifest, config, self.root)
+        for model in report["models"]:
+            for key in ("cells", "normalised_cells"):
+                cells = [c for c in model["variants"]["baseline"][key]
+                         if c["split"] == "valid" and c["field"] == annotation["label"]]
+                a = next(c for c in cells if c["input_set"] == "annotation")
+                p = next(c for c in cells if c["input_set"] == "prediction")
+                self.assertEqual((a["inventory"], a["eligible"], a["excluded"]), (2, 1, 1))
+                self.assertEqual((a["cer"], a["wer"], a["exact_match"]), (0, 0, 1))
+                self.assertEqual((p["inventory"], p["eligible"], p["excluded"]), (1, 1, 0))
+                self.assertEqual((p["cer"], p["wer"], p["exact_match"]), (.5, 1, 0))
+                self.assertEqual((a["reference_characters"], p["reference_characters"]), (5, 4))
+                self.assertEqual([o["review_id"] for o in a["outcomes"]], ["A001"])
+                self.assertEqual([o["review_id"] for o in p["outcomes"]], ["P001"])
+
     def test_bad_prediction_joins_fail(self):
         row = self.row()
         manifest = self.freeze([row])
@@ -186,13 +214,15 @@ class CropScoringTests(unittest.TestCase):
         (path/"report.json").write_text(json.dumps(meta))
         report = build_report(manifest, self.config(path), self.root)
         html = render_html(report)
-        self.assertEqual(html.count("<table>"), 3)
+        self.assertEqual(html.count("<table>"), 6)
         self.assertNotIn("<script>", html)
         output = self.root/"output"
         write_report(report, output)
         self.assertEqual(json.loads((output/"report.json").read_text()), report)
         with (output/"summary.csv").open(newline="") as handle:
-            self.assertEqual(len(list(csv.DictReader(handle))), 144)
+            summaries = list(csv.DictReader(handle))
+            self.assertEqual(len(summaries), 288)
+            self.assertEqual({r["scoring_mode"] for r in summaries}, {"raw", "normalised"})
         with self.assertRaises(FileExistsError):
             write_report(report, output)
 
@@ -207,6 +237,65 @@ class CropScoringTests(unittest.TestCase):
         subprocess.run([sys.executable, str(script), "report", "--manifest", str(manifest),
                         "--config", str(config), "--output", str(self.root/"results")], capture_output=True, check=True)
         self.assertTrue((self.root/"results/tables.html").is_file())
+
+    def test_secondary_normalisation_keeps_raw_and_same_population(self):
+        row = self.row(text="CAFÉ.\nStraße 00B")
+        prediction = self.prediction(row, "  cafe\u0301.\tSTRASSE\r\n00b  ")
+        before = deepcopy(prediction)
+        manifest = self.freeze([row])
+        report = build_report(manifest, self.config(self.run_dir([prediction])), self.root)
+        raw = self.cell(report)
+        data = report["models"][0]["variants"]["baseline"]
+        normalised = next(c for c in data["normalised_cells"] if
+                          (c["split"], c["input_set"], c["field"]) == ("valid", "annotation", row["label"]))
+        self.assertEqual(normalised["exact_match"], 1)
+        self.assertEqual((normalised["cer"], normalised["wer"]), (0, 0))
+        self.assertEqual(raw["exact_match"], 0)
+        self.assertEqual(raw["eligible"], normalised["eligible"])
+        self.assertEqual(normalised["reference_characters"], len("café. strasse 00b"))
+        self.assertEqual(normalised["reference_words"], 3)
+        record = data["text_records"][0]
+        self.assertEqual(record["raw_ocr_text"], before["raw_text"])
+        self.assertEqual(record["raw_reference_text"], row["transcription"])
+        self.assertEqual(record["normalised_ocr_text"], record["normalised_reference_text"])
+        self.assertEqual(prediction, before)
+        output = self.root / "export"
+        write_report(report, output)
+        with (output / "text_records.csv").open(newline="") as handle:
+            saved = next(csv.DictReader(handle))
+        self.assertEqual(saved["raw_ocr_text"], before["raw_text"])
+        self.assertEqual(saved["raw_reference_text"], row["transcription"])
+
+    def test_normalisation_preserves_identifiers_punctuation_and_unknown_markers(self):
+        self.assertEqual(normalise_text("  00B\u00a0RD.\nA/B-(C)  "), "00b rd. a/b-(c)")
+        self.assertEqual(normalise_text("[UNK]"), "[unk]")  # Still excluded by review gates.
+        self.assertNotEqual(normalise_text("RD."), normalise_text("ROAD"))
+        row = self.freeze([self.row(text="Ab.\nRD")])["rows"][0]
+        score = score_cell([row], {"A001": self.prediction(row, "ab RD")}, True, normalised=True)
+        self.assertEqual((score["character_errors"], score["reference_characters"]), (1, 6))
+        self.assertEqual((score["word_errors"], score["reference_words"]), (1, 2))
+        self.assertEqual(score["exact_match"], 0)
+        for text in ("É\tStraße\n00B", "\u0130", "A\u00a0B", "\t\r\n"):
+            self.assertEqual(normalise_text(normalise_text(text)), normalise_text(text))
+            self.assertEqual(canonical_text(canonical_text(text)), canonical_text(text))
+
+    def test_normalised_failures_missing_and_pending_keep_raw_gates(self):
+        rows = [self.row(), self.row("A002"), self.row("A003", reviewer_type="AI")]
+        manifest = self.freeze(rows)
+        preds = [self.prediction(rows[0], "diagnostic text", "error"), self.prediction(rows[2])]
+        report = build_report(manifest, self.config(self.run_dir(preds)), self.root)
+        data = report["models"][0]["variants"]["baseline"]
+        cell = next(c for c in data["normalised_cells"] if c["split"] == "valid"
+                    and c["input_set"] == "annotation" and c["field"] == rows[0]["label"])
+        self.assertEqual((cell["eligible"], cell["failed"], cell["missing"]), (2, 1, 1))
+        self.assertEqual((cell["cer"], cell["wer"], cell["exact_match"]), (1, 1, 0))
+        records = {r["review_id"]: r for r in data["text_records"]}
+        self.assertEqual(records["A001"]["normalised_ocr_text"], "diagnostic text")
+        self.assertEqual(records["A001"]["normalised_scoring_hypothesis"], "")
+        self.assertIsNone(records["A002"]["raw_ocr_text"])
+        self.assertFalse(records["A003"]["scoring_eligible"])
+        self.assertEqual(records["A003"]["reference_reviewer_type"], "AI")
+        self.assertFalse(report["models"][1]["variants"]["baseline"]["text_records"])
 
 
 if __name__ == "__main__":
