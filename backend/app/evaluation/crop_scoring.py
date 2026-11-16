@@ -248,23 +248,37 @@ def build_report(manifest, config, config_root):
             spec = model.get(variant)
             predictions, identity = {}, None
             availability = "Not run"
+            scopes = set()
             if spec:
                 if spec.get("status") == "Unavailable":
                     availability = "Unavailable"
-                    if spec.get("run_dir"):
+                    if spec.get("run_dir") or spec.get("runs"):
                         raise ValueError("Unavailable variant cannot also specify run_dir")
-                elif spec.get("run_dir"):
-                    predictions, identity = load_run(Path(config_root) / spec["run_dir"], inventory)
-                    if identity.get("engine", "").lower() != model["id"]:
-                        raise ValueError("Run engine does not match configured model")
-                    if (not spec.get("splits") or not spec.get("input_sets")
-                            or not set(spec["splits"]) <= {"train", "valid", "test"}
-                            or not set(spec["input_sets"]) <= {"annotation", "prediction"}):
-                        raise ValueError("Run requires explicit splits and input_sets")
-                    if any(inventory[rid]["split"] not in spec["splits"]
-                           or inventory[rid]["crop_source"] not in spec["input_sets"] for rid in predictions):
-                        raise ValueError("Predictions outside declared run scope")
-                    identity["declared_scope"] = {k: spec[k] for k in ("splits", "input_sets")}
+                elif spec.get("run_dir") or spec.get("runs"):
+                    if spec.get("run_dir") and spec.get("runs"):
+                        raise ValueError("Choose run_dir or runs, not both")
+                    runs = spec.get("runs") or [spec]
+                    identities = []
+                    for run in runs:
+                        if (not run.get("run_dir") or not run.get("splits") or not run.get("input_sets")
+                                or not set(run["splits"]) <= {"train", "valid", "test"}
+                                or not set(run["input_sets"]) <= {"annotation", "prediction"}):
+                            raise ValueError("Run requires explicit run_dir, splits and input_sets")
+                        run_scopes = {(s, p) for s in run["splits"] for p in run["input_sets"]}
+                        if scopes & run_scopes:
+                            raise ValueError("Multiple runs have overlapping split/population scopes")
+                        current, current_identity = load_run(Path(config_root) / run["run_dir"], inventory)
+                        if current_identity.get("engine", "").lower() != model["id"]:
+                            raise ValueError("Run engine does not match configured model")
+                        if any((inventory[rid]["split"], inventory[rid]["crop_source"]) not in run_scopes for rid in current):
+                            raise ValueError("Predictions outside declared run scope")
+                        if set(predictions) & set(current):
+                            raise ValueError("Duplicate prediction IDs across runs")
+                        current_identity["declared_scope"] = {k: run[k] for k in ("splits", "input_sets")}
+                        identities.append(current_identity)
+                        scopes.update(run_scopes)
+                        predictions.update(current)
+                    identity = identities[0] if len(identities) == 1 else {"runs": identities}
                     availability = "Available"
                 else:
                     raise ValueError("Variant requires run_dir or status=Unavailable")
@@ -275,8 +289,7 @@ def build_report(manifest, config, config_root):
                         rows = [r for r in inventory.values() if
                                 (r["split"], r["crop_source"], r["label"]) == (split, population, field)]
                         # A validation-only run does not imply train/test were run.
-                        population_run = (availability == "Available" and split in spec["splits"]
-                                          and population in spec["input_sets"])
+                        population_run = availability == "Available" and (split, population) in scopes
                         cell = score_cell(rows, predictions, availability == "Available" and population_run)
                         normalised_cell = score_cell(rows, predictions, availability == "Available" and population_run,
                                                      normalised=True)
@@ -290,8 +303,7 @@ def build_report(manifest, config, config_root):
                         normalised_cells.append({"split": split, "input_set": population, "field": field,
                                                  **normalised_cell})
             records = [text_record(row, predictions.get(rid)) for rid, row in inventory.items()
-                       if availability == "Available" and row["split"] in spec["splits"]
-                       and row["crop_source"] in spec["input_sets"]]
+                       if availability == "Available" and (row["split"], row["crop_source"]) in scopes]
             output["variants"][variant] = {"availability": availability, "identity": identity,
                                            "cells": cells, "normalised_cells": normalised_cells,
                                            "text_records": records}

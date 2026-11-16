@@ -1,5 +1,113 @@
 # Import human OCR review decisions
 
+## Recorded focused pairing check — 16 November 2026
+
+`.cache/ocr_review/cody-pairing-20261116-01/` preserves the unchanged uploaded
+41-row CSV, effective decisions, chat provenance, dry-run/import audits and
+file-integrity checks. cody explicitly retained P033/P109 as `needs_resolution`
+and confirmed the 13 previously blank rows were checked; those rows accept the
+same-visible-text choices displayed on their review page. This is an AI-assisted
+human check, not blind independent review. All 41 records have decisions:
+29 same text, one different coverage, one exclusion and ten unresolved.
+
+Use the cumulative `crop_pairing_decisions.current.csv` in this directory for
+later imports, together with the earlier `validation.decisions.cody.csv` text
+file and the existing group form. The cumulative form retains these 41 decisions
+and the 73 candidates outside this review. A fresh blank pairing form would
+lose the recorded pairing progress when rebuilding from original sources.
+Text decisions and the previous 37 exclusions were preserved; P028 adds the
+38th exclusion. No photo-group acceptance was inferred.
+
+## Recorded validation text check — 16 November 2026
+
+The user confirmed all validation crops on `check_my_proposals.html` looked good
+after inspection and provided reviewer name **cody**. Recorded as AI-assisted
+human checking with no reported edits, not independent blind adjudication.
+`.cache/ocr_review/cody-validation-20261116-01/validation.decisions.cody.csv`
+contains 253 accepted defaults and 18 retained unresolved field/presence decisions.
+The neighbouring provenance file records the chat attestation. All original
+exclusions and hashes remain intact. Group/pair and training review were not
+inferred from this confirmation; numerical values are unchanged and verified
+eligibility remains pending metadata review.
+
+For the integrated command below, use this recorded cody text file with the same
+original review/policy bindings when importing later group/pair decisions.
+
+## Integrated metadata import — 15 November 2026
+
+`scripts/import_ocr_metadata_decisions.py` now supports text decisions plus
+source-photo grouping and crop correspondence in one audited export. The current
+supported form set is `.cache/ocr_review/import-ready-20261115-01/`:
+
+| Form | Reviewer-entered fields |
+| --- | --- |
+| `valid.text.decisions.csv` | The existing human text schema documented below. Use `correct` and final visible text when completing the blind template; leave uncertain cases `needs_resolution`, or record partial/illegible truth without promoting it into primary scoring. |
+| `photo_group_decisions.csv` | `human_group_decision`: `confirm`, `exclude`, or `needs_resolution`; `human_group_id` for confirmed groups; `human_reviewer`, `human_reviewer_type=human`, `human_reviewed_at`, `human_notes`. |
+| `crop_pairing_decisions.csv` | `human_correspondence`: `same_visible_text`, `different_visible_text`, `no_match`, `needs_resolution`, or `exclude`; the same human identity/type/date/notes fields. |
+
+Keep immutable identities, hashes and `source_bundle_sha256` unchanged. Prefer
+the `human_*` fields; legacy final-decision aliases, if supplied, must agree.
+Blank decisions leave rows pending, and partial submissions are permitted.
+For `no_match`, leave `annotation_id`, `annotation_crop` and
+`annotation_crop_sha256` blank. The fresh template clears P005's zero-IoU
+diagnostic annotation target. A replacement accepted annotation target must have
+its correct ID, crop path and hash, originate from the same image/split and
+overlap the prediction. Annotation labels are never copied into predicted text.
+
+The bundle binds exact original review sources, policy overlays, canonical pair
+and group inventories, and the split registry. Text decisions stay bound to the
+original source review, while later policy exclusions are preserved. Human group
+decisions propagate to all crops belonging to that source photo; confirming one
+variant does not silently sign off other photos. Conflicting group IDs for the
+same source family/hash are rejected. Accepted groups spanning splits, including
+known exact source-name/hash links to test registry metadata, are excluded from
+primary scoring. Registry checks do not prove unknown related-scene or historical
+model-training independence. Group confirmation never removes existing exclusions.
+No test image bytes or model weights are loaded.
+
+Current command inputs (use unchanged paths to preserve form bindings):
+
+```sh
+.venv/bin/python scripts/import_ocr_metadata_decisions.py apply \
+  --review evaluation/ocr_review/human-verification-20261113/training.source.csv \
+  --review evaluation/ocr_review/human-verification-20261113/validation.source.csv \
+  --policy-review .cache/ocr_review/conservative-exclusions-20261115-01/training.review.csv \
+  --policy-review .cache/ocr_review/conservative-exclusions-20261115-01/validation.review.csv \
+  --source-policy .cache/ocr_review/conservative-exclusions-20261115-01/source_groups.review.csv \
+  --group-source .cache/ocr_review/closure-20261114-01/source_groups.ai.csv \
+  --pair-source .cache/ocr_review/closure-20261114-01/correspondence.ai.csv \
+  --split-registry evaluation/ocr_review/source-split-audit-20261113/sources.csv \
+  --text-decisions .cache/ocr_review/cody-validation-20261116-01/validation.decisions.cody.csv \
+  --groups .cache/ocr_review/import-ready-20261115-01/photo_group_decisions.csv \
+  --pairings .cache/ocr_review/import-ready-20261115-01/crop_pairing_decisions.csv \
+  --output .cache/ocr_review/HUMAN-REVIEW-NEW \
+  --dry-run
+```
+
+After validation, remove `--dry-run` to publish a new export. Existing outputs
+are refused; invalid later decisions publish no partial changes. The export
+contains `train.review.csv`, `valid.review.csv`, `source_groups.csv`,
+`unresolved.csv`, `audit.json` and `change_log.json`. Original sources and
+input decisions are unchanged. Each operation recomputes scoring gates and keeps
+`training_ready=false`. Use `template` with the same source flags and a fresh
+output directory to prepare new bound forms.
+
+Observed run on the inspected returns: `.cache/ocr_review/imported-20261115-01/`.
+All final decision columns were empty; zero text/group/pair decisions applied.
+2,188 rows retained, 37 validation exclusions preserved, 50 source photos retain
+policy exclusion. Validation eligibility remains zero. Saved-run raw/normalised
+baseline reports are in `baseline-status/`, with pending accuracy. The inspected
+text sidecar was identity/hash checked and contained no final decisions; no AI
+proposal was converted into a human acceptance. Its mapping audit accompanies
+the fresh text template.
+
+Synthetic verification:
+
+```sh
+.venv/bin/python -m unittest tests.evaluation.test_metadata_review \
+  tests.evaluation.test_review_decisions tests.evaluation.test_crop_scoring -q
+```
+
 This command records human review decisions in a new export, preserves the
 source review, and lists remaining scoring blockers. It does not open crop
 images, run OCR, score predictions, or make data training-ready.

@@ -32,8 +32,31 @@ def sha256(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def load_crops(workspace):
+def load_crops(workspace, *, review_manifest=None, crop_root=None, split="valid"):
     """Select identity/geometry only. Never use submitted transcription or legibility."""
+    if review_manifest is not None:
+        if split not in {"train", "valid"} or crop_root is None:
+            raise ValueError("Explicit train/valid review manifest requires a crop root")
+        from .review_decisions import load_source
+        rows = load_source(review_manifest)[1]
+        root = Path(crop_root).resolve()
+        records = []
+        for row in rows:
+            if row["split"] != split or row["label"] not in FIELDS:
+                raise ValueError("Explicit OCR inventory has an unexpected field/split")
+            crop = (root / row["crop"]).resolve()
+            if not crop.is_relative_to(root) or not crop.is_file() or sha256(crop) != row["crop_sha256"]:
+                raise ValueError(f"Invalid crop/hash: {row['review_id']}")
+            records.append(dict(review_id=row["review_id"], crop_set=row.get("crop_source") or "annotation",
+                                field=row["label"], crop_id=row["crop"], crop_path=str(crop),
+                                crop_sha256=row["crop_sha256"], source_image=row["image"],
+                                source_image_sha256=row["source_image_sha256"],
+                                input_width=int(row["crop_width"]), input_height=int(row["crop_height"])))
+        if len({r["crop_id"] for r in records}) != len(records):
+            raise ValueError("Duplicate crop paths in explicit inventory")
+        return records
+    if split != "valid" or crop_root is not None:
+        raise ValueError("Training inference requires an explicit review manifest and crop root")
     root = (workspace / "source").resolve()
     records = []
     for kind, prefix, count in (("annotation", "A", 157), ("prediction", "P", 114)):
@@ -145,7 +168,8 @@ def recognize_crop(record, reader, synchronize, layout=None):
             regions = [[min(p[0] for p in q), min(p[1] for p in q),
                         max(p[0] for p in q), max(p[1] for p in q)] for q in layout["line_quads"]]
             info = {"status": "fixed_layout_accepted" if regions else "fixed_layout_unresolved",
-                    "method": METHOD, "needs_review": not bool(regions),
+                    "method": layout.get("layout_method", METHOD),
+                    "needs_review": layout.get("reviewer_type") == "algorithm" or not bool(regions),
                     "reviewer": layout["reviewer"], "reviewer_type": layout["reviewer_type"],
                     "independent_human_review": False, "reason": layout["reason"]}
         result["preprocessing_ms"] = (perf_counter()-start)*1000

@@ -15,6 +15,7 @@ from .ocr_crop_baseline import sha256
 
 
 METHOD = "reviewed_full_width_separators_v1"
+AUTOMATIC_METHOD = "frozen_automatic_full_width_separators_v1"
 
 
 def line_quads(width, height, separators):
@@ -42,8 +43,10 @@ def validate_entry(entry, record):
             raise ValueError(f"Layout/source {key} mismatch: {record['review_id']}")
     if entry.get("review_status") not in {"accepted", "unresolved"}:
         raise ValueError("Layout must explicitly be accepted or unresolved")
-    if not entry.get("reviewer") or not entry.get("reviewed_at") or entry.get("reviewer_type") != "AI":
-        raise ValueError("This layout version requires explicit AI reviewer attribution/date")
+    automatic = entry.get("layout_method") == AUTOMATIC_METHOD
+    expected_type = "algorithm" if automatic else "AI"
+    if not entry.get("reviewer") or not entry.get("reviewed_at") or entry.get("reviewer_type") != expected_type:
+        raise ValueError("Layout attribution does not match its declared method")
     if entry["review_status"] == "unresolved":
         if entry.get("line_quads") or entry.get("separators") or not entry.get("reason"):
             raise ValueError("Unresolved layout needs a reason and no recognition regions")
@@ -58,13 +61,17 @@ def load_layout(path, records):
     if sha256(path) != expected_hash:
         raise ValueError("Frozen line-layout hash mismatch")
     manifest = json.loads(path.read_text())
-    if manifest.get("schema_version") != 1 or manifest.get("method") != METHOD or not manifest.get("frozen"):
+    if manifest.get("schema_version") != 1 or manifest.get("method") not in {METHOD, AUTOMATIC_METHOD} or not manifest.get("frozen"):
         raise ValueError("Unsupported or unfrozen layout manifest")
     entries = manifest.get("entries", [])
     by_id = {entry["review_id"]: entry for entry in entries}
     if len(entries) != len(by_id) or set(by_id) != {r["review_id"] for r in records}:
         raise ValueError("Layout has duplicate, missing or unexpected crop IDs")
     for record in records:
+        if manifest["method"] == AUTOMATIC_METHOD and by_id[record["review_id"]].get("layout_method") != AUTOMATIC_METHOD:
+            raise ValueError("Automatic manifest contains an unmarked layout entry")
+        if manifest["method"] == METHOD and by_id[record["review_id"]].get("layout_method", METHOD) != METHOD:
+            raise ValueError("Reviewed manifest contains an automatic layout entry")
         validate_entry(by_id[record["review_id"]], record)
     return manifest, by_id
 

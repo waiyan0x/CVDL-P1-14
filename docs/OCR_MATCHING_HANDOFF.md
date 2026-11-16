@@ -1,5 +1,102 @@
 # OCR → reference-matching handoff
 
+## Reviewed pairings imported — 16 November 2026
+
+cody returned the focused 41-pair review and clarified P033/P109 as unresolved.
+The 13 blank exported rows were completed from the user's explicit chat
+confirmation that all were checked, accepting their displayed same-text choices.
+The unchanged upload and the chat provenance are preserved separately.
+Outcome: 29 same-visible-text pairs, one different-coverage pair (P025), one
+exclusion (P028), and ten unresolved. The other 73 prediction candidates were
+outside this focused review and remain unreviewed. All 110 distinct crop/source
+files used by these pairs were checked against their recorded SHA-256 hashes.
+
+The current cumulative form is
+`.cache/ocr_review/cody-pairing-20261116-01/crop_pairing_decisions.current.csv`.
+Retain it and cody's earlier validation text decisions for subsequent imports.
+The latest tables are
+`.cache/ocr-baselines/three-output-tables-20261116-02/tables.html`.
+P028's exclusion changes the provisional predicted denominator from 41 to 40;
+67 annotation candidates and 522 training candidates retain their earlier scores.
+All 813 saved OCR strings remain unchanged in the handoff, with updated review
+metadata. Validation exclusions now total 38. All source-photo grouping remains
+pending, so official independent-benchmark eligibility remains zero.
+
+The latest ZIP remains `.cache/ocr-handoff/reference-matching-20261115-01.zip`;
+its `START_HERE.txt` and `review/cody_pairing/` record this update. The matching
+owner can use it for development now. Earlier dated sections below describe
+their respective snapshots; their pending-pair and 41-candidate counts are
+superseded by this update.
+
+## Training-split diagnostics added — 15 November 2026
+
+The handoff's `ocr_tables/` now includes populated Train and Validation rows for
+all three pretrained models. The training subset has 522 AI-assisted label
+candidates; all weights are unchanged, so this is training-split evaluation,
+not fine-tuning. Scores are provisional; the verified evidence view stays pending.
+Training run evidence is under `evaluation/training/`, kept apart from matcher
+inputs. The main `matching_inputs` interface remains the same 813 validation
+model/crop records. No reference matching has been applied to OCR scores.
+
+Training geometry is unreviewed automatic layout and validation geometry is the
+earlier AI-reviewed layout; devices/native CPU quantisation also differ. Do not
+treat train/validation differences as proof of learning or unseen-data accuracy.
+See `docs/OCR_CROP_SCORING.md` for sample counts, skips, failures and run settings.
+
+## Current assessed handoff — 15 November 2026
+
+The `ocr_tables/tables.html` presentation now defaults to populated provisional
+AI-label agreement cells, with raw/normalised and annotation/predicted controls.
+Its separate verified Evidence view remains pending. The diagnostic subset has
+67 annotation and 41 predicted crops; these are selected readable proposals,
+not verified ground truth or evidence for choosing matching thresholds. CSVs
+retain `score_basis` and actual `candidate_crops`. Matching inputs and raw engine
+strings are unchanged by this presentation update.
+
+Use `.cache/ocr-handoff/reference-matching-20261115-01.zip` for the latest
+handoff. This supersedes the earlier package snapshot, preserving current
+benchmark exclusions. Start with `START_HERE.txt`, then `matching_inputs.jsonl`.
+All 813 saved OCR records remain (752 successes, 61 errors); the reference CSV,
+blank matching-result template, provenance and separate evaluation tables are
+included. No matching has been performed and text accuracy remains pending.
+
+The user authorised AI assessments first, followed by their own double-check.
+`review/text_field_assessment.ai.csv` consolidates the earlier recorded visual
+review of all 271 validation crops. It preserves proposed transcriptions,
+readability, field conflicts and exclusions as **AI proposals**. Outcomes: 110
+readable candidates, 49 partial/clipped cases, 68 unreadable cases, 26 challenge
+cases, 17 field conflicts and one unresolved-presence case. These disjoint queue
+counts do not replace the overlapping benchmark eligibility/exclusion counts.
+No new human decisions are asserted; all scoring gates remain in force.
+
+For the user's double-check, open `review/check_my_proposals.html` offline.
+Each native crop is embedded beside its AI reading, with editable text/state,
+decision and reason controls. No crop or human attestation is selected by default.
+After a person enters actual name/date, selects inspected crops and explicitly
+attests inspection, the page exports a supported hash-bound human text-decision
+CSV. All unselected rows stay blank. Separate bound pairing/group forms are
+included. Eight scripted export checks and two handoff unit tests passed; full
+browser visual testing was not performed.
+
+`source_crop_index.csv` adds original image names, crop paths, original-source
+boxes and detector scores. `display_candidates.csv` inventories 110 panel boxes.
+The enriched matching records include `source_image`, `crop`, `box_xyxy`,
+`candidate_display_id` and `display_association_status`; confirmed `display_id`
+remains null. Candidate ownership uses the matching annotation/predicted panel
+population on the same original image and at least 80% field-area containment,
+with exactly one qualifying panel: 267 unique candidates, three with no enclosing
+candidate and one ambiguous. These are geometry proposals, not confirmed bus or
+display ownership. Annotation geometry is evaluation evidence, not deployment
+detector output. Do not combine fields across populations, models or unconfirmed
+displays. Whole-panel text recovery has not run in these saved baselines.
+
+The matching owner can begin per-field candidate development immediately; human
+accuracy evaluation can follow review. AI proposed reference readings remain
+under `review/` and evaluation references under `evaluation/`, never in the
+engine-only matching input strings. Preserve raw/normalised OCR and inferred or
+matched values separately. Service suffixes/leading zeros remain significant;
+no abbreviation mappings or measured matching thresholds have been added.
+
 Prepared 13 November 2026. Owner: **next person, not yet named**.
 This package supplies saved validation OCR for matching development. No reference
 matching has been run in preparing it. No model winner or OCR accuracy is claimed.

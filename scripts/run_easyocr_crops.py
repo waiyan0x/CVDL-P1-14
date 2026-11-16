@@ -40,7 +40,9 @@ def run(args):
         raise RuntimeError("Apple MPS unavailable; CPU fallback is forbidden for this run")
     if args.device == "cuda" and not torch.cuda.is_available():
         raise RuntimeError("CUDA unavailable; CPU fallback is forbidden for this run")
-    records = load_crops(workspace)
+    split = getattr(args, "split", "valid")
+    records = load_crops(workspace, review_manifest=getattr(args, "review_manifest", None),
+                         crop_root=getattr(args, "crop_root", None), split=split)
     layout_manifest, layouts, layout_hash = None, {}, None
     if args.line_layout:
         layout_manifest, layouts = load_layout(args.line_layout.resolve(), records)
@@ -98,7 +100,13 @@ def run(args):
             "cpu_threads": torch.get_num_threads(),
         }
         if sys.platform == "darwin":
-            environment["chip"] = subprocess.check_output(["sysctl", "-n", "machdep.cpu.brand_string"], text=True).strip()
+            try:
+                environment["chip"] = subprocess.check_output(
+                    ["sysctl", "-n", "machdep.cpu.brand_string"], text=True,
+                    stderr=subprocess.PIPE).strip()
+            except (OSError, subprocess.CalledProcessError) as exc:
+                environment["chip"] = None
+                environment["chip_probe_error"] = str(exc)
         (output / "environment.json").write_text(json.dumps(environment, indent=2)+"\n")
         (output / "command.json").write_text(json.dumps([sys.executable, *sys.argv], indent=2)+"\n")
         (output / "runner_source.py").write_bytes(Path(__file__).read_bytes())
@@ -176,7 +184,7 @@ def run(args):
         report = {
             "schema_version": 1, "status": "complete", "run_name": output.name,
             "started_at_utc": started, "finished_at_utc": datetime.now(timezone.utc).isoformat(),
-            "dataset": str(workspace), "split": "valid", "inputs": len(records),
+            "dataset": str(workspace), "split": split, "inputs": len(records),
             "engine": engine, "model": model_name, "model_provenance": model_provenance,
             "model_sha256_before": weight_before,
             "model_sha256_after": sha256(weight_path), "cached_weights_unchanged": True,
@@ -221,7 +229,10 @@ def run(args):
             report["confidence_method"] = "Per-line geometric mean of generated token probabilities excluding special tokens; crop character-weighted mean of line scores; not calibrated or comparable with EasyOCR confidence"
             report["timing"]["recognition_ms"] = "Sum of synchronized wall times around line processor resize/normalization, device transfer, generation, token confidence and text decode"
         if layout_manifest:
-            report["limitations"][0] = "Fixed upstream geometry was visually reviewed by AI, not independently adjudicated by a human; it is diagnostic layout information, not automatic deployment performance"
+            report["limitations"][0] = (
+                "Frozen automatic line geometry is unreviewed; shared unchanged across engines; not equivalent to the earlier AI-reviewed validation geometry"
+                if layout_manifest.get("reviewer_type") == "algorithm" else
+                "Fixed upstream geometry was visually reviewed by AI, not independently adjudicated by a human; it is diagnostic layout information, not automatic deployment performance")
         (output / "report.json").write_text(json.dumps(report, indent=2)+"\n")
         lines = [f"# {model_name} recognition-only crop run", "", f"Actual recognizer device: **{actual_device}**. All {len(records)} crop IDs attempted.", "",
                  "| Set | Field | Completed | Errors | Empty | Multi-line candidates | Recognition median / p95 ms | Crop median / p95 ms |",
@@ -232,7 +243,7 @@ def run(args):
         lines += ["", "Frozen weights and source/transcription hashes passed before/after checks. No reference matching, training or accuracy scoring was performed.",
                   "", "Inspect `segmentation_previews/` and `predictions.jsonl` before trusting line layout. `predictions.csv` is the compact raw export.",
                   "`report.json` contains complete settings/timing boundaries/limitations. `environment.json` records the actual device and versions.",
-                  "", "Fixed layouts, when supplied, are AI-reviewed diagnostic geometry; automatic layouts remain unverified candidates. No independent human review or dataset independence is claimed.",
+                  "", "Fixed layouts retain explicit AI or algorithm attribution. Automatic layouts are unreviewed; no independent human review or dataset independence is claimed.",
                   "Median/p95 describe one pass across successful heterogeneous crops, not repeated measurements of a fixed input or application throughput.", ""]
         (output / "README.md").write_text("\n".join(lines))
         print(json.dumps(summary, indent=2), flush=True)
@@ -249,6 +260,9 @@ def run(args):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--workspace", type=Path, default=ROOT / "evaluation/ocr_annotations/v4-reviewed-01")
+    parser.add_argument("--review-manifest", type=Path, help="Explicit train/valid crop identity inventory; labels are not used for inference")
+    parser.add_argument("--crop-root", type=Path, help="Immutable crop root for the explicit inventory")
+    parser.add_argument("--split", choices=("train", "valid"), default="valid")
     parser.add_argument("--engine", choices=("easyocr", "trocr"), default="easyocr")
     parser.add_argument("--cache", type=Path, help="Defaults to the selected engine cache under .cache/")
     parser.add_argument("--max-new-tokens", type=int, default=64, help="TrOCR per-line generation cap; missing EOS is an error")

@@ -1,5 +1,85 @@
 # Saved crop scoring and three-model tables
 
+## Train and validation rows populated — 15 November 2026
+
+Latest presentation:
+`.cache/ocr-baselines/three-output-tables-20261115-04/tables.html`.
+The provisional view now includes Train scores for all three pretrained OCR
+models, alongside the previous validation scores. This is recognition/evaluation
+on the training split, **not fine-tuning**. Test remains reserved, panel text N/A,
+and the human-verified evidence view remains pending.
+
+All 1,917 training crop IDs are retained. In accordance with existing exclusions,
+1,395 records are skipped before OCR. The scored subset is 522 full-text AI label
+candidates: 381 numbers, 74 destinations and 67 route crops. Each engine successfully
+recognised 521 candidates; the same one unresolved layout is retained as an empty
+hypothesis in the 522-crop denominator. Do not interpret all 1,396 stored error
+statuses as OCR failures: 1,395 are policy/readability skips outside the scored
+subset. All 24 training aggregate rows reconcile to per-crop edit/exact totals.
+
+Training inference sources/settings and predictions are retained in
+`.cache/ocr_runs/easyocr-train-cpu-20261115-02/`,
+`.cache/ocr_runs/trocr-train-mps-20261115-01/`, and
+`.cache/ocr_runs/paddle-train-cpu-20261115-01/`.
+Sources and pretrained cache weights passed before/after hash checks. Training
+geometry is automatically frozen once with `scripts/freeze_automatic_ocr_layout.py`
+and reused unchanged across models. It is explicitly unreviewed algorithm output;
+validation's earlier AI-reviewed geometry differs. Native devices and CPU
+quantisation settings also vary, so these split results are not a controlled
+learning/preprocessing ablation or comparable latency ranking.
+
+`scripts/run_easyocr_crops.py` (EasyOCR/public TrOCR) and
+`scripts/run_paddle_crops.py` accept `--split train --review-manifest ...
+--crop-root ...`. The explicit inventory prevents implicit discovery of test
+data. Exact run commands are retained beside each run. The first EasyOCR attempt
+failed before inference at a sandbox-restricted optional chip probe; a retry
+records unavailable chip metadata rather than failing recognition. The incomplete
+CPU TrOCR attempt was superseded by the complete GPU run; its predictions were
+not mixed into the final run.
+
+`scripts/score_ocr_training_split.py` verifies all three training runs, checkpoint
+identity against validation, candidate denominators and shared training layout;
+it produces raw/normalised training diagnostics, a combined scoped configuration,
+official pending reports and three-table presentation. Output/evidence:
+`.cache/ocr_training/train-split-evaluation-20261115-01/`.
+The scorer supports `baseline.runs` for disjoint split/population scopes with
+separate device/layout identities; overlapping scopes or duplicate predictions
+are rejected. The older single-`run_dir` configuration remains supported.
+
+## Populated provisional cells — 15 November 2026
+
+`.cache/ocr-baselines/three-output-tables-20261115-02/tables.html` is the current
+three-table presentation. It defaults to numerical **provisional AI-label
+agreement**, with selectable raw/Step 4-normalised and annotation/predicted views.
+Validation cells contain the calculated per-field CER/WER/exact match from the
+108-crop diagnostic subset (67 annotation, 41 predicted). `Crops (n)` shows actual
+compared subset counts, with inventory counts underneath. No train/test/panel
+text metrics are invented.
+
+The Evidence selector also provides the separate human-verified benchmark view,
+whose metrics remain pending at zero eligible crops. Provisional values do not
+change source labels, review gates or verified report cells. CSV exports include
+`score_basis` and `candidate_crops` to retain that distinction.
+
+Reproduce using `scripts/prepare_ocr_template_tables.py` with the original
+training/validation inventory manifests, current verified `--report`, and
+`--diagnostic-summary .cache/ocr_metrics/diagnostic-20261115-01/diagnostic_summary.csv`.
+Existing directories are refused. This supersedes the earlier presentation below
+as the latest user-facing view. The handoff ZIP includes it under `ocr_tables/`.
+
+## Three-table presentation — 15 November 2026
+
+The requested six-column presentation now has **one visible table per model**:
+`.cache/ocr-baselines/three-output-tables-20261115-01/tables.html`. Choose raw or
+Step 4-normalised scoring and annotation or predicted crops using the controls;
+populations/modes are never pooled. Each inventory count includes its eligible
+scoring denominator beneath it. Individual model CSVs retain both modes and
+populations as labelled rows. Values in CSV are fractions; HTML shows percentages.
+The current matching ZIP includes the same presentation under `ocr_tables/`.
+Current eligible count remains zero, so numerical accuracy is Review pending.
+Train is not run, test is reserved, whole-panel text is N/A. The separate scorer's
+full baseline/fine-tuned comparison report remains available as described below.
+
 Observed implementation, 13 November 2026: `scripts/score_ocr_crops.py` freezes
 crop-review eligibility and scores saved raw predictions. It produces separate
 raw and normalised HTML tables for EasyOCR, public TrOCR and PaddleOCR, with baseline and fine-tuned columns

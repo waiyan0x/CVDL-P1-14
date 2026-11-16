@@ -79,6 +79,27 @@ class CropScoringTests(unittest.TestCase):
         self.assertAlmostEqual(cell["wer"], 2/3)
         self.assertEqual(cell["exact_match"], 0)
 
+    def test_disjoint_train_and_validation_runs_keep_split_scopes_and_identities(self):
+        train = self.row('T001', text='TRAIN', split='train')
+        valid = self.row('A001', text='VALID')
+        manifest = self.freeze([train, valid])
+        root = self.run_dir([self.prediction(train, 'TRAIX')])
+        train_dir = self.root/'train-run'
+        root.rename(train_dir)
+        valid_dir = self.run_dir([self.prediction(valid)])
+        config = self.config()
+        config['models'][0]['baseline'] = {'runs':[
+            {'run_dir':str(train_dir),'splits':['train'],'input_sets':['annotation']},
+            {'run_dir':str(valid_dir),'splits':['valid'],'input_sets':['annotation']}]}
+        report = build_report(manifest, config, self.root)
+        self.assertEqual(self.cell(report,split='valid')['exact_match'],1)
+        self.assertEqual(self.cell(report,split='train')['character_errors'],1)
+        identities=report['models'][0]['variants']['baseline']['identity']['runs']
+        self.assertEqual(len(identities),2)
+        config['models'][0]['baseline']['runs'][1]['splits']=['train','valid']
+        with self.assertRaisesRegex(ValueError,'overlapping'):
+            build_report(manifest,config,self.root)
+
     def test_perfect_case_punctuation_and_multiline(self):
         row = self.freeze([self.row(text="Ab.\nRD")])["rows"][0]
         cell = score_cell([row], {"A001": self.prediction(row)}, True)

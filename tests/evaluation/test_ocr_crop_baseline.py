@@ -1,6 +1,7 @@
 """Line layout, error retention, input integrity and timing-population contracts."""
 
 import hashlib
+import csv
 from pathlib import Path
 import tempfile
 import unittest
@@ -134,6 +135,24 @@ class OCRCropBaselineTests(unittest.TestCase):
             self.assertNotIn("transcription", row)
             self.assertNotIn("legibility", row)
             self.assertNotIn("group_id", row)
+
+    def test_explicit_training_inventory_does_not_use_transcription(self):
+        manifest = Path(self.temporary.name)/'review.csv'
+        row = dict(review_id='T0001',crop='crop.png',image='source.jpg',label='front_eds_destination',
+                   class_id='3',annotation_id='1',source_image_sha256='a'*64,
+                   box_xyxy='[0,0,120,40]',split='train',crop_sha256=self.record['crop_sha256'],
+                   crop_width='120',crop_height='40',transcription='SECRET LABEL',legibility='full',field_status='present')
+        with manifest.open('w',newline='') as f:
+            w=csv.DictWriter(f,fieldnames=list(row));w.writeheader();w.writerow(row)
+        records=load_crops(Path(self.temporary.name),review_manifest=manifest,
+                           crop_root=Path(self.temporary.name),split='train')
+        self.assertEqual(records[0]['review_id'],'T0001')
+        self.assertNotIn('transcription',records[0])
+        with self.assertRaisesRegex(ValueError,'field/split'):
+            load_crops(Path(self.temporary.name),review_manifest=manifest,
+                       crop_root=Path(self.temporary.name),split='valid')
+        with self.assertRaisesRegex(ValueError,'explicit'):
+            load_crops(Path(self.temporary.name),split='train')
 
 
 if __name__ == "__main__":

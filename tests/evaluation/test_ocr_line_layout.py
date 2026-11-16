@@ -10,7 +10,7 @@ from unittest.mock import patch
 import numpy as np
 
 from backend.app.evaluation.ocr_crop_baseline import load_crops, recognize_crop
-from backend.app.evaluation.ocr_line_layout import extract_region, line_quads, load_layout, validate_entry
+from backend.app.evaluation.ocr_line_layout import extract_region, line_quads, load_layout, validate_entry, AUTOMATIC_METHOD
 from scripts.freeze_ocr_line_layout import freeze
 
 
@@ -43,6 +43,17 @@ class OCRLineLayoutTests(unittest.TestCase):
         for entry in self.entries.values():
             self.assertEqual(entry["reviewer_type"], "AI")
             self.assertFalse(entry["independent_human_review"])
+
+    def test_automatic_layout_cannot_claim_ai_visual_review(self):
+        entry=copy.deepcopy(next(e for e in self.entries.values() if e['review_status']=='accepted'))
+        record=self.by_id[entry['review_id']]
+        entry.update(layout_method=AUTOMATIC_METHOD,reviewer_type='algorithm')
+        validate_entry(entry,record)
+        result=recognize_crop(record,ReaderStub(),lambda:None,entry)
+        self.assertTrue(result['segmentation']['needs_review'])
+        entry['reviewer_type']='AI'
+        with self.assertRaisesRegex(ValueError,'attribution'):
+            validate_entry(entry,record)
 
     def test_horizontal_bands_are_exact_slices_with_no_lost_pixels(self):
         image = np.arange(40*100, dtype=np.uint16).reshape(40, 100)

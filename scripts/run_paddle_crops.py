@@ -35,7 +35,9 @@ def run(args):
     hashes = {p.name: sha256(p) for p in model_dir.iterdir() if p.is_file()}
     if any(hashes.get(k) != v for k, v in provenance["files_sha256"].items()):
         raise ValueError("Model hash differs from download provenance")
-    records = load_crops(workspace)
+    split = getattr(args, "split", "valid")
+    records = load_crops(workspace, review_manifest=getattr(args, "review_manifest", None),
+                         crop_root=getattr(args, "crop_root", None), split=split)
     manifest, layouts = load_layout(args.line_layout.resolve(), records)
     layout_hash = sha256(args.line_layout)
     # Retain source metadata/bytes unchanged; no test dataset is discovered.
@@ -76,7 +78,7 @@ def run(args):
               "model_provenance": provenance, "model_files_sha256": hashes,
               "model_sha256_before": hashes["inference.pdiparams"], "model_sha256_after": hashes["inference.pdiparams"],
               "cached_weights_unchanged": True, "source_workspace_unchanged": True,
-              "split": "valid", "inputs": len(records), "actual_device": "cpu",
+              "split": split, "inputs": len(records), "actual_device": "cpu",
               "frozen_line_layout": {"sha256": layout_hash, "version": manifest["version"],
                                      "reviewer_type": manifest["reviewer_type"]},
               "recognition_settings": {"batch_size": 1, "cpu_threads": 2, "enable_mkldnn": False, "seed": 0},
@@ -88,7 +90,7 @@ def run(args):
                          "excluded": "Model loading, warmups, preflight hashing and output writes"},
               "summary": summarize(results), "accuracy_calculated": False, "reference_matching_used": False,
               "limitations": ["CPU diagnostic baseline; do not rank latency against MPS or CUDA runs.",
-                              "Shared layouts are AI-reviewed diagnostic geometry, not independently reviewed deployable detection."]}
+                              "Shared layouts retain AI/algorithm attribution; frozen automatic geometry is unreviewed and not equivalent to AI-reviewed validation layout."]}
     (output/"report.json").write_text(json.dumps(report, indent=2, allow_nan=False)+'\n')
     environment = {"python": sys.version, "platform": platform.platform(), "machine": platform.machine(),
                    "processor": platform.processor(), "packages": {d.metadata["Name"]:d.version for d in importlib.metadata.distributions() if d.metadata.get("Name")}}
@@ -102,6 +104,9 @@ def run(args):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--workspace", type=Path, required=True)
+    parser.add_argument("--review-manifest", type=Path)
+    parser.add_argument("--crop-root", type=Path)
+    parser.add_argument("--split", choices=("train", "valid"), default="valid")
     parser.add_argument("--model-dir", type=Path, required=True)
     parser.add_argument("--line-layout", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

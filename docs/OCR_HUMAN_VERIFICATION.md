@@ -1,5 +1,92 @@
 # Prepare and return OCR verification
 
+## Current import-ready form set — 15 November 2026
+
+Use `.cache/ocr_review/import-ready-20261115-01/` for the next submission:
+`valid.text.decisions.csv`, `crop_pairing_decisions.csv`, and
+`photo_group_decisions.csv`. The text template retains its original source
+binding; metadata forms now include explicit bundle hashes and human reviewer
+type fields. The portable image pages below and the separate labelled AI
+evidence report remain available for inspection. Do not copy AI identity or
+candidate statuses into the human decision fields.
+
+The missing grouping/correspondence import is now implemented, with the accepted
+values and exact validation/import command in
+[OCR_REVIEW_DECISIONS.md](OCR_REVIEW_DECISIONS.md#integrated-metadata-import--15-november-2026).
+This supersedes the earlier notes that a metadata importer was still missing.
+The run on the inspected returns preserves all unresolved cases and policy
+exclusions; no final decisions were supplied and no eligibility was promoted.
+
+## AI review follow-through — 14 November 2026
+
+The current AI evidence package is
+`.cache/ocr_review/closure-20261114-01.zip`; its embedded-image `review.html`
+contains the validation crops, annotation/prediction comparisons and source-scene
+contexts. It is separate from the blind human package below and contains AI
+proposals. Do not use it as evidence that independent human review occurred.
+
+All 271 validation crops were visually reinspected and all 114 predicted crops
+compared against same-image annotation candidates. Two additional **AI field-target
+flags**, P016 and P019, concern route-labelled predictions corresponding to
+destination-labelled annotations A015 and A016. Supplied classes and labels were
+preserved. Other class differences may reflect mixed/clipped crops, so a best-IoU
+class difference alone does not authorise relabelling. P005 is an oblique side
+display with no overlapping annotation; it is not thereby a false detection or
+blank field.
+
+Three conservative source-scene proposals span train/valid, affecting 66 training
+and 13 validation text rows. The validation rows are A042–A048 and P039–P044.
+Original photos show shared interchange or related road-sequence context despite
+different file hashes. These are AI split-risk proposals, not accepted split
+changes or proof of model contamination. Scene/session identity needs source-owner
+adjudication. Screenshot capture timestamps alone were not accepted: adjacent
+timestamps can show unrelated daytime/nighttime photographs.
+
+The sidecars `validation_field_decisions.ai.csv`, `correspondence.ai.csv`,
+`scene_links.ai.csv` and `source_groups.ai.csv` retain the evidence and unresolved
+decisions. Working CSVs append AI closure metadata while preserving every original
+column, transcription, class, exclusion and review gate. Training labels were
+checked against the text conventions and preserved, not visually re-reviewed in
+this pass. All 788 train/valid source hashes and 271 validation crop hashes matched;
+package CRC/checksums and immutable-column checks passed. Test pixels were not read.
+
+**Still required for completion:** actual human text/field decisions using the
+original hash-bound template, source-group/held-out-lineage adjudication, and
+predicted-crop correspondence confirmation. The sidecars do not bypass the human
+importer; group/correspondence decisions still need a separately validated metadata
+import. Zero scoring-ready or training-ready rows are asserted by this pass.
+
+## Portable package and reviewer provenance — 14 November 2026
+
+The earlier review pages used paths to repository/cache images and were not
+portable. Uploading those HTML pages alone did not transfer their crops.
+Use `.cache/ocr-review/portable-human-review-20261114-01.zip` instead. Extract it
+and open `training.html` or `validation.html`: all 2,188 crops are embedded, with
+original PNGs also included under neutral IDs. If another service cannot render
+embedded HTML images, it can access the included PNGs after receiving the ZIP.
+No remote desktop connection to the producer's computer is needed.
+
+The bundle contains blank decision templates and crop metadata, without prior AI
+transcriptions, OCR predictions or source-review CSVs. Template hashes still bind
+the original maintainer snapshots below; use those original sources for import.
+Do not edit the source hashes or ship the AI-labelled snapshots to a blind reviewer.
+
+Only an actual human who inspected the crops may fill `human_reviewer_type=human`.
+Claude/Codex readings must be recorded separately as `reviewer_type=AI` proposals
+and remain ineligible for human-reviewed scoring. An AI must not impersonate the
+user, prefill human attestations or treat hidden AI text as proof of independence.
+No human review has been added by packaging these files. Source grouping,
+correspondence, field adjudication and held-out independence still need review.
+
+Rebuild with new output paths:
+
+```sh
+.venv/bin/python scripts/package_ocr_review.py \
+  --workspace evaluation/ocr_review/human-verification-20261113 \
+  --validation-root evaluation/ocr_annotations/v4-reviewed-01/source \
+  --output .cache/ocr-review/portable-human-review-NEW
+```
+
 ## Current working package
 
 **Project decision, user instruction, 13 November 2026:** mixed-field crops and
@@ -18,7 +105,7 @@ flagged rows, including field mismatches and unreadable fields, remain unresolve
 
 ## What the human reviewer does
 
-1. Open [training.html](../evaluation/ocr_review/human-verification-20261113/training.html).
+1. Open `training.html` from the extracted portable package.
    Each ID shows its crop and supplied field without AI text. Click for native
    viewing. Read each variant independently; do not complete it from other
    variants, route data, filenames or model predictions.
