@@ -1,0 +1,19 @@
+{
+  "source": "evaluation/ocr_review/human-verification-20261113/training.source.csv",
+  "source_sha256": "1c3e7eefac1a40eaa541fc2f4cc3831da5d2bcf887bf7d9bb56c7fd50905f19e",
+  "filter_order": "full/no UNK/nonchallenge; group source_name,label; exactly 3 distinct images with identical literal text",
+  "selected_crops": 387,
+  "selected_groups": 129,
+  "field_counts": {
+    "bus_number": 282,
+    "destination": 63,
+    "route_text": 42
+  },
+  "consistent_quarantined_crops_held": 117,
+  "quarantine_confirmation": "pending Brendan",
+  "label_source": "Codex AI",
+  "spotcheck_seed": 20261116,
+  "spotcheck_n": 50,
+  "human_spotcheck_status": "pending",
+  "human_spotcheck_correct_pct": null
+}

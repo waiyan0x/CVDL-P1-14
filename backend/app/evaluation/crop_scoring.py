@@ -1,9 +1,8 @@
-"""Frozen, review-gated raw and normalised scoring; no model loading or images."""
+"""Normalised project-ground-truth scoring; no model loading or images."""
 
 from collections import Counter
 import csv
 import hashlib
-from html import escape
 import json
 import math
 from pathlib import Path
@@ -11,26 +10,27 @@ import tempfile
 import unicodedata
 
 from .metrics import edit_distance, percentile
-from .review_decisions import blockers, digest, load_source
+from .review_decisions import digest, load_source
 
 
 FIELDS = ("front_eds_num", "front_eds_destination", "front_eds_route", "front_eds")
 MODELS = {"easyocr": "EasyOCR", "trocr": "Public TrOCR", "paddleocr": "PaddleOCR"}
 PROTOCOL = {
-    "id": "eds-crop-raw-v1", "unicode": "NFC",
-    "whitespace": "one ASCII word space; trim per-line padding; preserve nonempty line breaks",
-    "case_and_punctuation": "preserved", "wer": "Unicode whitespace tokens",
-    "aggregation": "micro edit counts/reference counts; exact per eligible crop",
-    "failures": "empty hypothesis on eligible rows; unavailable runs unscored",
-    "partial_illegible": "excluded from primary metrics", "reference_matching": False,
-}
-NORMALISED_PROTOCOL = {
-    **PROTOCOL, "id": "eds-crop-normalised-v1",
+    "id": "eds-crop-normalised-v2",
     "unicode": "NFC, Unicode casefold, NFC",
-    "whitespace": "collapse all Unicode whitespace, including line breaks, to one ASCII space; trim ends",
+    "whitespace": "collapse all Unicode whitespace to one ASCII space; trim ends",
     "case_and_punctuation": "Unicode casefold; punctuation and abbreviations preserved",
-    "role": "secondary score; same eligible IDs and failure policy as primary raw scoring",
+    "wer": "Unicode whitespace tokens",
+    "aggregation": "micro edit counts/reference counts; exact per scored crop",
+    "failures": "failed or missing predictions are empty hypotheses",
+    "exclusions": ["legibility_not_full", "unknown_text", "blank", "wrong_field", "challenge_only",
+                   "validation_train_scene_overlap"],
+    "reference_matching": False,
 }
+# Import compatibility for handoff code: there is only one scoring protocol.
+NORMALISED_PROTOCOL = PROTOCOL
+VALIDATION_OVERLAP_IDS = {*(f"A{i:03d}" for i in range(42, 49)),
+                          *(f"P{i:03d}" for i in range(39, 45))}
 TEXT_RECORD_COLUMNS = (
     "review_id", "split", "input_set", "field", "crop_sha256", "source_image_sha256",
     "prediction_status", "scoring_eligible", "reference_reviewer_type", "reference_review_status",
@@ -52,7 +52,7 @@ def canonical_text(text):
 
 
 def normalise_text(text):
-    """Secondary text policy; never expand abbreviations or match route references."""
+    """Casefold and collapse spaces; never expand abbreviations or match references."""
     folded = unicodedata.normalize("NFC", unicodedata.normalize("NFC", text).casefold())
     return " ".join(folded.split())
 
@@ -102,28 +102,34 @@ def freeze_manifest(sources):
     set_eligibility(rows)
     payload = {"schema_version": 1, "protocol": PROTOCOL, "review_inputs": inputs,
                "rows": sorted(rows, key=lambda r: r["review_id"]),
-               "limitations": ["Human attestations recorded, not independently authenticated.",
+               "limitations": ["Label provenance is retained; human review is not a scoring gate.",
                                "Declared hashes checked for correspondence; image bytes are not opened.",
                                "Exact overlap checks do not establish absence of near-duplicate leakage."]}
     return {**payload, "manifest_sha256": fingerprint(payload)}
 
 
 def set_eligibility(rows):
-    # Known split overlap blocks affected rows, including otherwise pending rows.
-    memberships = {}
+    """Apply the user's project scoring policy, independently of review metadata."""
     for row in rows:
-        for key in ("group_id", "crop_sha256", "source_image_sha256"):
-            if row.get(key):
-                memberships.setdefault((key, row[key]), set()).add(row["split"])
-    for row in rows:
-        reasons = blockers(row)
-        if row.get("field_review_status") != "reviewed":
-            reasons.append("field_review_pending")
-        for key in ("group_id", "crop_sha256", "source_image_sha256"):
-            if len(memberships.get((key, row.get(key)), ())) > 1:
-                reasons.append(f"cross_split_{key}")
+        reasons = []
+        text = row.get("transcription", "")
+        if row.get("legibility") != "full":
+            reasons.append("legibility_not_full")
+        if "[unk]" in text.casefold():
+            reasons.append("unknown_text")
+        if not text.strip() or row.get("field_status") in {"blank", "absent"}:
+            reasons.append("blank")
+        if row.get("field_status") == "wrong_field":
+            reasons.append("wrong_field")
+        if (row.get("user_scope_policy") == "challenge_only"
+                or row.get("training_disposition") == "challenge_only"
+                or row.get("human_crop_treatment") in {"challenge", "challenge_only"}
+                or str(row.get("challenge_only", "")).lower() in {"true", "1", "yes"}):
+            reasons.append("challenge_only")
+        if row.get("split") in {"valid", "val"} and row["review_id"] in VALIDATION_OVERLAP_IDS:
+            reasons.append("validation_train_scene_overlap")
         row["scoring_eligible"] = not reasons
-        row["scoring_blockers"] = sorted(set(reasons))
+        row["scoring_blockers"] = reasons
 
 
 def validate_manifest(manifest):
@@ -181,8 +187,8 @@ def load_run(run_dir, inventory):
     return predictions, {**hashes, **{k: report[k] for k in identity_keys if k in report}}
 
 
-def score_cell(rows, predictions, available, *, normalised=False):
-    transform = normalise_text if normalised else canonical_text
+def score_cell(rows, predictions, available):
+    transform = normalise_text
     eligible = [r for r in rows if r["scoring_eligible"]]
     reasons = Counter(reason for row in rows for reason in row["scoring_blockers"])
     coverage = {"inventory": len(rows), "eligible": len(eligible), "excluded": len(rows)-len(eligible),
@@ -191,7 +197,7 @@ def score_cell(rows, predictions, available, *, normalised=False):
                 "field_status_counts": dict(Counter(r.get("field_status", "") for r in rows))}
     panel = bool(rows) and rows[0]["label"] == "front_eds"
     status = ("Not applicable" if panel else "Not run" if not available else
-              "No samples" if not rows else "Review pending" if not eligible else "Scored")
+              "No samples" if not rows else "No scorable crops" if not eligible else "Scored")
     result = {**coverage, "status": status, "cer": None, "wer": None, "exact_match": None,
               "character_errors": 0, "reference_characters": 0, "word_errors": 0,
               "reference_words": 0, "exact_count": 0, "outcomes": [],
@@ -236,7 +242,7 @@ def build_report(manifest, config, config_root):
     models = config.get("models", [])
     if set(m["id"] for m in models) != set(MODELS) or len(models) != 3:
         raise ValueError("Config requires exactly easyocr, trocr and paddleocr model entries")
-    result = {"schema_version": 2, "protocol": PROTOCOL, "normalised_protocol": NORMALISED_PROTOCOL,
+    result = {"schema_version": 3, "protocol": PROTOCOL, "normalised_protocol": NORMALISED_PROTOCOL,
               "manifest_sha256": manifest["manifest_sha256"], "config_sha256": fingerprint(config),
               "crop_pixels_accessed": False, "models": [],
               "limitations": manifest["limitations"] + ["Crop-conditional accuracy, not end-to-end detection accuracy.",
@@ -282,63 +288,53 @@ def build_report(manifest, config, config_root):
                     availability = "Available"
                 else:
                     raise ValueError("Variant requires run_dir or status=Unavailable")
-            cells, normalised_cells = [], []
+            cells = []
             for split in ("train", "valid", "test"):
                 for population in ("annotation", "prediction"):
-                    for field in FIELDS:
+                    for field in (*FIELDS, "all"):
                         rows = [r for r in inventory.values() if
-                                (r["split"], r["crop_source"], r["label"]) == (split, population, field)]
+                                (r["split"], r["crop_source"]) == (split, population)
+                                and (r["label"] == field or (field == "all" and r["label"] != "front_eds"))]
                         # A validation-only run does not imply train/test were run.
                         population_run = availability == "Available" and (split, population) in scopes
                         cell = score_cell(rows, predictions, availability == "Available" and population_run)
-                        normalised_cell = score_cell(rows, predictions, availability == "Available" and population_run,
-                                                     normalised=True)
                         if availability == "Unavailable" and field != "front_eds":
                             cell["status"] = "Unavailable"
-                            normalised_cell["status"] = "Unavailable"
                         if field == "front_eds":
                             cell["status"] = "Not applicable"
-                            normalised_cell["status"] = "Not applicable"
                         cells.append({"split": split, "input_set": population, "field": field, **cell})
-                        normalised_cells.append({"split": split, "input_set": population, "field": field,
-                                                 **normalised_cell})
             records = [text_record(row, predictions.get(rid)) for rid, row in inventory.items()
                        if availability == "Available" and (row["split"], row["crop_source"]) in scopes]
             output["variants"][variant] = {"availability": availability, "identity": identity,
-                                           "cells": cells, "normalised_cells": normalised_cells,
+                                           "cells": cells,
                                            "text_records": records}
         result["models"].append(output)
     return result
 
 
-def render_html(report):
-    def metric(cell, key):
-        return "—" if cell[key] is None else f"{100*cell[key]:.2f}"
-    parts = ['<!doctype html><html lang="en"><meta charset="utf-8"><title>EDS OCR results</title>',
-             '<style>body{font:15px system-ui;margin:32px}table{border-collapse:collapse;margin-bottom:32px}th,td{border:1px solid #bbb;padding:7px}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style>',
-             '<h1>EDS OCR results</h1><p>Primary raw and secondary normalised scores are separate. Both apply the same text transformation to predictions and references, before reference matching. Annotation and predicted crops have separate denominators.</p>',
-             '<details><summary>Text rules</summary><pre>'+escape(json.dumps(
-                 {"raw": report["protocol"], "normalised": report["normalised_protocol"]}, indent=2))+'</pre></details>',
-             '<p>Manifest: '+escape(report["manifest_sha256"])+ '</p>']
-    for model in report["models"]:
-        parts.append('<h2>'+escape(model["name"])+ '</h2><details><summary>Model identities and timing evidence</summary><pre>'+
-                     escape(json.dumps({v: d["identity"] for v, d in model["variants"].items()}, indent=2))+'</pre></details>')
-        for mode, key in (("Primary raw", "cells"), ("Secondary normalised", "normalised_cells")):
-            parts.append('<h3>'+mode+'</h3>')
-            parts.append('<table><thead><tr><th rowspan="2">Split</th><th rowspan="2">Input set</th><th rowspan="2">Field</th><th rowspan="2">Inventory</th><th rowspan="2">Eligible</th><th colspan="4">Baseline</th><th colspan="4">Fine-tuned</th></tr><tr>'+ '<th>CER %</th><th>WER %</th><th>Exact %</th><th>Status</th>'*2+'</tr></thead><tbody>')
-            for a, b in zip(model["variants"]["baseline"][key], model["variants"]["finetuned"][key]):
-                values = [a["split"], a["input_set"], a["field"], a["inventory"], a["eligible"]]
-                for c in (a, b):
-                    values += [metric(c, k) for k in ("cer", "wer", "exact_match")] + [c["status"]]
-                parts.append('<tr>'+''.join('<td>'+escape(str(v))+'</td>' for v in values)+'</tr>')
-            parts.append('</tbody></table>')
-        stats = {v: {key: [{k: value for k, value in c.items() if k != "outcomes"}
-                          for c in d[key]] for key in ("cells", "normalised_cells")}
-                 for v, d in model["variants"].items()}
-        parts.append('<details><summary>Coverage, failures, edit counts and latency</summary><pre>'+
-                     escape(json.dumps(stats, indent=2))+'</pre></details>')
-    parts.append('<h2>Limits</h2><ul>'+''.join('<li>'+escape(s)+'</li>' for s in report["limitations"])+ '</ul></html>')
-    return '\n'.join(parts)
+def render_markdown(report):
+    fields = {"front_eds_num": "number", "front_eds_destination": "destination",
+              "front_eds_route": "route", "all": "all"}
+    parts = ["# OCR results", "", "Scoring: normalised (casefold, whitespace collapsed).",
+             "Failed/missing predictions count as empty strings.", ""]
+    for population, title in (("annotation", "Table 1: annotation crops"),
+                              ("prediction", "Table 2: detector crops")):
+        parts += ["## " + title, "",
+                  "| Model | Version | Split | Field | Crops (n) | CER (%) | WER (%) | Exact match (%) |",
+                  "| --- | --- | --- | --- | ---: | ---: | ---: | ---: |"]
+        for model in report["models"]:
+            for variant, data in model["variants"].items():
+                for cell in data["cells"]:
+                    if (cell["input_set"] != population or cell["field"] not in fields
+                            or (population == "prediction" and cell["split"] == "train")):
+                        continue
+                    values = [f"{100*cell[k]:.1f}" if cell[k] is not None else cell["status"]
+                              for k in ("cer", "wer", "exact_match")]
+                    version = "pretrained" if variant == "baseline" else "finetuned"
+                    parts.append("| " + " | ".join([model["name"], version, cell["split"],
+                                 fields[cell["field"]], str(cell["eligible"]), *values]) + " |")
+        parts.append("")
+    return "\n".join(parts).rstrip() + "\n"
 
 
 def write_report(report, output):
@@ -350,22 +346,22 @@ def write_report(report, output):
         staging = Path(tmp) / "report"
         staging.mkdir()
         (staging / "report.json").write_text(json.dumps(report, indent=2, ensure_ascii=False, allow_nan=False)+'\n', encoding="utf-8")
-        (staging / "tables.html").write_text(render_html(report), encoding="utf-8")
+        (staging / "OCR_RESULTS.md").write_text(render_markdown(report), encoding="utf-8")
         columns = ["model", "variant", "scoring_mode", "split", "input_set", "field", "inventory", "eligible",
                    "cer", "wer", "exact_match", "status", "attempted", "completed", "failed", "missing",
                    "empty", "successful_crop_total_ms_median", "successful_crop_total_ms_p95"]
         with (staging / "summary.csv").open("x", encoding="utf-8", newline="") as handle:
-            writer = csv.DictWriter(handle, fieldnames=columns)
+            writer = csv.DictWriter(handle, fieldnames=columns, lineterminator="\n")
             writer.writeheader()
             for model in report["models"]:
                 for variant, data in model["variants"].items():
-                    for mode, key in (("raw", "cells"), ("normalised", "normalised_cells")):
+                    for mode, key in (("normalised", "cells"),):
                         for cell in data[key]:
                             writer.writerow({"model": model["id"], "variant": variant, "scoring_mode": mode,
                                              **{k: cell[k] for k in columns[3:]}})
         text_columns = ["model", "variant", *TEXT_RECORD_COLUMNS]
         with (staging / "text_records.csv").open("x", encoding="utf-8", newline="") as handle:
-            writer = csv.DictWriter(handle, fieldnames=text_columns)
+            writer = csv.DictWriter(handle, fieldnames=text_columns, lineterminator="\n")
             writer.writeheader()
             for model in report["models"]:
                 for variant, data in model["variants"].items():

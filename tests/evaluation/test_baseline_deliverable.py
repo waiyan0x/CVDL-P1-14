@@ -48,7 +48,7 @@ class BaselineDeliverableTests(unittest.TestCase):
     def test_bundle_counts_unknowns_and_keeps_human_decisions_blank(self):
         audit=self.prepare()
         self.assertEqual(audit["validation_crops"],1)
-        self.assertEqual(audit["eligible"],0)
+        self.assertEqual(audit["eligible"],1)
         self.assertEqual(audit["view_counts"],{"unknown":1})
         self.assertFalse(audit["reserved_test_accessed"])
         html=(self.output/"baseline_tables.html").read_text()

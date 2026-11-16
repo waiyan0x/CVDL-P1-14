@@ -106,7 +106,7 @@ def main():
     parser.add_argument("--workspace", type=Path, required=True)
     parser.add_argument("--review-manifest", type=Path)
     parser.add_argument("--crop-root", type=Path)
-    parser.add_argument("--split", choices=("train", "valid"), default="valid")
+    parser.add_argument("--split", choices=("train", "valid", "test"), default="valid")
     parser.add_argument("--model-dir", type=Path, required=True)
     parser.add_argument("--line-layout", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

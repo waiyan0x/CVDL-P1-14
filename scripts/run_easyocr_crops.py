@@ -262,7 +262,7 @@ def main():
     parser.add_argument("--workspace", type=Path, default=ROOT / "evaluation/ocr_annotations/v4-reviewed-01")
     parser.add_argument("--review-manifest", type=Path, help="Explicit train/valid crop identity inventory; labels are not used for inference")
     parser.add_argument("--crop-root", type=Path, help="Immutable crop root for the explicit inventory")
-    parser.add_argument("--split", choices=("train", "valid"), default="valid")
+    parser.add_argument("--split", choices=("train", "valid", "test"), default="valid")
     parser.add_argument("--engine", choices=("easyocr", "trocr"), default="easyocr")
     parser.add_argument("--cache", type=Path, help="Defaults to the selected engine cache under .cache/")
     parser.add_argument("--max-new-tokens", type=int, default=64, help="TrOCR per-line generation cap; missing EOS is an error")

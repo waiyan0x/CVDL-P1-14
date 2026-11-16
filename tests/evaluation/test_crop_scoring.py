@@ -1,4 +1,4 @@
-"""Synthetic-only crop metrics, review gates, run joins and table exports."""
+"""Synthetic-only crop metrics, project exclusion rules, run joins and table exports."""
 
 import csv
 from copy import deepcopy
@@ -10,7 +10,7 @@ import tempfile
 import unittest
 
 from backend.app.evaluation.crop_scoring import (
-    build_report, fingerprint, freeze_manifest, render_html, score_cell, validate_manifest, write_report,
+    build_report, fingerprint, freeze_manifest, render_markdown, score_cell, validate_manifest, write_report,
     canonical_text, normalise_text,
 )
 
@@ -105,7 +105,7 @@ class CropScoringTests(unittest.TestCase):
         cell = score_cell([row], {"A001": self.prediction(row)}, True)
         self.assertEqual((cell["cer"], cell["wer"], cell["exact_match"]), (0, 0, 1))
         cell = score_cell([row], {"A001": self.prediction(row, "ab RD")}, True)
-        self.assertEqual(cell["character_errors"], 3)  # case, period deletion, newline->space
+        self.assertEqual(cell["character_errors"], 1)  # period deletion
         self.assertEqual(cell["word_errors"], 1)
         self.assertEqual(cell["exact_match"], 0)
         cell = score_cell([row], {"A001": self.prediction(row, "  Ab.  \n RD ")}, True)
@@ -117,27 +117,35 @@ class CropScoringTests(unittest.TestCase):
         self.assertEqual(cell["cer"], 6)
         self.assertEqual(cell["wer"], 3)
 
-    def test_gates_ai_partial_group_field_and_correspondence(self):
-        changes = [{"reviewer_type": "AI"}, {"text": "A[UNK]", "legibility": "partial"},
-                   {"text": "[UNK]", "legibility": "illegible"}, {"group_id": ""},
-                   {"field_review_status": "pending"}, {"human_crop_treatment": "challenge"},
-                   {"crop_source": "prediction", "correspondence_status": "pending"},
-                   {"field_status": "blank", "text": "", "legibility": "not_applicable"},
-                   {"field_status": "absent", "text": "", "legibility": "not_applicable"},
-                   {"field_status": "wrong_field"}]
-        for change in changes:
+    def test_only_requested_exclusions_block_scoring(self):
+        excluded = [{"text": "A[UNK]"}, {"legibility": "partial"},
+                    {"legibility": "illegible"}, {"human_crop_treatment": "challenge"},
+                    {"training_disposition": "challenge_only"}, {"text": "  "},
+                    {"field_status": "blank"}, {"field_status": "wrong_field"},
+                    {"rid": "A042"}, {"rid": "P044", "crop_source": "prediction"}]
+        for change in excluded:
             with self.subTest(change=change):
-                manifest = self.freeze([self.row(**change)])
-                self.assertFalse(manifest["rows"][0]["scoring_eligible"])
-                self.assertIsNone(score_cell(manifest["rows"], {}, True)["cer"])
+                rows = self.freeze([self.row(**change)])["rows"]
+                self.assertFalse(rows[0]["scoring_eligible"])
+                self.assertEqual(score_cell(rows, {}, True)["status"], "No scorable crops")
+        allowed = [{"reviewer_type": "AI"}, {"group_id": ""},
+                   {"field_review_status": "pending"}, {"human_verification_status": "pending"},
+                   {"crop_source": "prediction", "correspondence_status": "pending"},
+                   {"reviewer": "", "reviewed_at": "", "review_status": "pending"},
+                   {"human_field_confirmation": "", "group_review_status": "pending"},
+                   {"exclusion_reason": "historical review gate"}]
+        for change in allowed:
+            with self.subTest(change=change):
+                rows = self.freeze([self.row(**change)])["rows"]
+                self.assertTrue(rows[0]["scoring_eligible"])
+                self.assertEqual(score_cell(rows, {}, True)["cer"], 1)
 
-    def test_cross_split_group_and_source_hash_overlap_block_both(self):
+    def test_overlap_metadata_is_not_an_implicit_review_gate(self):
         for key in ("group_id", "source_image_sha256", "crop_sha256"):
             a, b = self.row(), self.row("A002", split="train")
             b[key] = a[key]
             rows = self.freeze([a, b])["rows"]
-            self.assertTrue(all(not r["scoring_eligible"] for r in rows))
-            self.assertTrue(all(f"cross_split_{key}" in r["scoring_blockers"] for r in rows))
+            self.assertTrue(all(r["scoring_eligible"] for r in rows))
 
     def test_failed_and_all_missing_predictions_stay_in_denominator(self):
         manifest = self.freeze([self.row(), self.row("A002")])
@@ -168,10 +176,10 @@ class CropScoringTests(unittest.TestCase):
         self.assertEqual(self.cell(report, field="front_eds")["status"], "Not applicable")
 
     def test_pending_and_no_samples_are_not_zero_accuracy(self):
-        row = self.row(reviewer_type="AI")
+        row = self.row(legibility="partial")
         manifest = self.freeze([row])
         report = build_report(manifest, self.config(self.run_dir([self.prediction(row)])), self.root)
-        self.assertEqual(self.cell(report)["status"], "Review pending")
+        self.assertEqual(self.cell(report)["status"], "No scorable crops")
         self.assertIsNone(self.cell(report)["cer"])
         self.assertEqual(self.cell(report, field="front_eds_route")["status"], "No samples")
 
@@ -179,7 +187,7 @@ class CropScoringTests(unittest.TestCase):
         annotation = self.row(text="AB CD")
         predicted = self.row("P001", text="WXYZ", crop_source="prediction",
                              correspondence_status="same_visible_text")
-        pending = self.row("A002", text="SHOULD NOT COUNT", reviewer_type="AI")
+        pending = self.row("A002", text="SHOULD NOT COUNT", legibility="partial")
         manifest = self.freeze([annotation, predicted, pending])
         config = {"models": []}
         for engine in ("easyocr", "trocr", "paddleocr"):
@@ -189,7 +197,7 @@ class CropScoringTests(unittest.TestCase):
                                      "splits": ["valid"], "input_sets": ["annotation", "prediction"]}})
         report = build_report(manifest, config, self.root)
         for model in report["models"]:
-            for key in ("cells", "normalised_cells"):
+            for key in ("cells",):
                 cells = [c for c in model["variants"]["baseline"][key]
                          if c["split"] == "valid" and c["field"] == annotation["label"]]
                 a = next(c for c in cells if c["input_set"] == "annotation")
@@ -217,7 +225,7 @@ class CropScoringTests(unittest.TestCase):
             build_report(manifest, self.config(self.run_dir([pred, pred])), self.root)
 
     def test_manifest_tampering_and_duplicate_reviews_fail(self):
-        manifest = self.freeze([self.row(reviewer_type="AI")])
+        manifest = self.freeze([self.row(legibility="partial")])
         manifest["rows"][0]["scoring_eligible"] = True
         with self.assertRaisesRegex(ValueError, "hash"):
             validate_manifest(manifest)
@@ -227,23 +235,23 @@ class CropScoringTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "duplicate"):
             self.freeze([self.row(), self.row()])
 
-    def test_html_escapes_run_metadata_and_exports_without_overwrite(self):
+    def test_markdown_normalised_export_without_overwrite(self):
         manifest = self.freeze([self.row()])
         path = self.run_dir([self.prediction(self.row())])
         meta = json.loads((path/"report.json").read_text())
         meta["model"] = "<script>bad</script>"
         (path/"report.json").write_text(json.dumps(meta))
         report = build_report(manifest, self.config(path), self.root)
-        html = render_html(report)
-        self.assertEqual(html.count("<table>"), 6)
-        self.assertNotIn("<script>", html)
+        markdown = render_markdown(report)
+        self.assertIn("Table 1: annotation crops", markdown)
+        self.assertIn("Table 2: detector crops", markdown)
         output = self.root/"output"
         write_report(report, output)
         self.assertEqual(json.loads((output/"report.json").read_text()), report)
         with (output/"summary.csv").open(newline="") as handle:
             summaries = list(csv.DictReader(handle))
-            self.assertEqual(len(summaries), 288)
-            self.assertEqual({r["scoring_mode"] for r in summaries}, {"raw", "normalised"})
+            self.assertEqual(len(summaries), 180)
+            self.assertEqual({r["scoring_mode"] for r in summaries}, {"normalised"})
         with self.assertRaises(FileExistsError):
             write_report(report, output)
 
@@ -257,22 +265,20 @@ class CropScoringTests(unittest.TestCase):
         config.write_text(json.dumps(self.config()))
         subprocess.run([sys.executable, str(script), "report", "--manifest", str(manifest),
                         "--config", str(config), "--output", str(self.root/"results")], capture_output=True, check=True)
-        self.assertTrue((self.root/"results/tables.html").is_file())
+        self.assertTrue((self.root/"results/OCR_RESULTS.md").is_file())
 
-    def test_secondary_normalisation_keeps_raw_and_same_population(self):
+    def test_normalised_only_scoring_preserves_raw_evidence(self):
         row = self.row(text="CAFÉ.\nStraße 00B")
         prediction = self.prediction(row, "  cafe\u0301.\tSTRASSE\r\n00b  ")
         before = deepcopy(prediction)
         manifest = self.freeze([row])
         report = build_report(manifest, self.config(self.run_dir([prediction])), self.root)
-        raw = self.cell(report)
         data = report["models"][0]["variants"]["baseline"]
-        normalised = next(c for c in data["normalised_cells"] if
+        normalised = next(c for c in data["cells"] if
                           (c["split"], c["input_set"], c["field"]) == ("valid", "annotation", row["label"]))
         self.assertEqual(normalised["exact_match"], 1)
         self.assertEqual((normalised["cer"], normalised["wer"]), (0, 0))
-        self.assertEqual(raw["exact_match"], 0)
-        self.assertEqual(raw["eligible"], normalised["eligible"])
+        self.assertNotIn("normalised_cells", data)
         self.assertEqual(normalised["reference_characters"], len("café. strasse 00b"))
         self.assertEqual(normalised["reference_words"], 3)
         record = data["text_records"][0]
@@ -289,10 +295,10 @@ class CropScoringTests(unittest.TestCase):
 
     def test_normalisation_preserves_identifiers_punctuation_and_unknown_markers(self):
         self.assertEqual(normalise_text("  00B\u00a0RD.\nA/B-(C)  "), "00b rd. a/b-(c)")
-        self.assertEqual(normalise_text("[UNK]"), "[unk]")  # Still excluded by review gates.
+        self.assertEqual(normalise_text("[UNK]"), "[unk]")  # Still excluded by project exclusion rules.
         self.assertNotEqual(normalise_text("RD."), normalise_text("ROAD"))
         row = self.freeze([self.row(text="Ab.\nRD")])["rows"][0]
-        score = score_cell([row], {"A001": self.prediction(row, "ab RD")}, True, normalised=True)
+        score = score_cell([row], {"A001": self.prediction(row, "ab RD")}, True)
         self.assertEqual((score["character_errors"], score["reference_characters"]), (1, 6))
         self.assertEqual((score["word_errors"], score["reference_words"]), (1, 2))
         self.assertEqual(score["exact_match"], 0)
@@ -301,12 +307,12 @@ class CropScoringTests(unittest.TestCase):
             self.assertEqual(canonical_text(canonical_text(text)), canonical_text(text))
 
     def test_normalised_failures_missing_and_pending_keep_raw_gates(self):
-        rows = [self.row(), self.row("A002"), self.row("A003", reviewer_type="AI")]
+        rows = [self.row(), self.row("A002"), self.row("A003", reviewer_type="AI", legibility="partial")]
         manifest = self.freeze(rows)
         preds = [self.prediction(rows[0], "diagnostic text", "error"), self.prediction(rows[2])]
         report = build_report(manifest, self.config(self.run_dir(preds)), self.root)
         data = report["models"][0]["variants"]["baseline"]
-        cell = next(c for c in data["normalised_cells"] if c["split"] == "valid"
+        cell = next(c for c in data["cells"] if c["split"] == "valid"
                     and c["input_set"] == "annotation" and c["field"] == rows[0]["label"])
         self.assertEqual((cell["eligible"], cell["failed"], cell["missing"]), (2, 1, 1))
         self.assertEqual((cell["cer"], cell["wer"], cell["exact_match"]), (1, 1, 0))

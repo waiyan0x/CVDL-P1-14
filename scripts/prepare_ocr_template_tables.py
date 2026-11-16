@@ -123,7 +123,7 @@ def prepare(training_manifest, validation_manifest, report_path, output, diagnos
         raise ValueError("Unexpected manifest splits")
     records = []
     for model in report["models"]:
-        for mode, key in (("raw", "cells"), ("normalised", "normalised_cells")):
+        for mode, key in (("normalised", "cells"),):
             cells = model["variants"]["baseline"][key]
             for population, title in (("annotation", "Annotation-box crops"), ("prediction", "Detector-predicted validation crops")):
                 for split in (("train", "valid", "test") if population == "annotation" else ("valid",)):

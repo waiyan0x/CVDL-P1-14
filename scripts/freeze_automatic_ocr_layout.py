@@ -74,7 +74,7 @@ if __name__ == '__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--review',type=Path,required=True)
     parser.add_argument('--crop-root',type=Path,required=True)
-    parser.add_argument('--split',choices=('train','valid'),required=True)
+    parser.add_argument('--split',choices=('train','valid','test'),required=True)
     parser.add_argument('--output',type=Path,required=True)
     args=parser.parse_args()
     print(json.dumps(freeze(args.review,args.crop_root,args.split,args.output),indent=2))

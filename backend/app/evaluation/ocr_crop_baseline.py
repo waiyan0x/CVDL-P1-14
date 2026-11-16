@@ -35,8 +35,8 @@ def sha256(path):
 def load_crops(workspace, *, review_manifest=None, crop_root=None, split="valid"):
     """Select identity/geometry only. Never use submitted transcription or legibility."""
     if review_manifest is not None:
-        if split not in {"train", "valid"} or crop_root is None:
-            raise ValueError("Explicit train/valid review manifest requires a crop root")
+        if split not in {"train", "valid", "test"} or crop_root is None:
+            raise ValueError("Explicit train/valid/test review manifest requires a crop root")
         from .review_decisions import load_source
         rows = load_source(review_manifest)[1]
         root = Path(crop_root).resolve()

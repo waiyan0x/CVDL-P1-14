@@ -103,7 +103,7 @@ def prepare(report_dir, config_path, reference, guide, output):
         shutil.copyfile(reference, stage / "reference/bus_information.csv")
         (stage / "reference/audit.json").write_text(json.dumps(reference_audit, indent=2) + '\n')
         (stage / "evaluation").mkdir()
-        for name in ("report.json", "manifest.json", "summary.csv", "text_records.csv", "tables.html"):
+        for name in ("report.json", "manifest.json", "summary.csv", "text_records.csv", "OCR_RESULTS.md"):
             shutil.copyfile(report_dir / name, stage / "evaluation" / name)
         shutil.copyfile(guide, stage / "README.md")
         summary = dict(schema_version=1, purpose="diagnostic reference-matching handoff; matching not run",

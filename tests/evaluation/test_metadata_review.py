@@ -80,7 +80,7 @@ class MetadataReviewTests(unittest.TestCase):
     def test_blank_templates_preserve_pending_without_promotion(self):
         before = self.source.read_bytes()
         result = self.run_import()
-        self.assertEqual(result["validation_eligible"], 0)
+        self.assertEqual(result["validation_eligible"], 2)
         self.assertEqual(result["decisions_applied"], {})
         self.assertEqual(self.source.read_bytes(), before)
         self.assertEqual(result["training_ready_rows"], 0)
@@ -94,11 +94,11 @@ class MetadataReviewTests(unittest.TestCase):
         self.assertEqual(rr[1]["transcription"], "00A")
         self.assertTrue(all(r["training_ready"] == "false" for r in rr))
 
-    def test_cross_split_group_is_imported_but_excluded(self):
+    def test_cross_split_group_is_recorded_without_gating_project_scores(self):
         self.confirm(cross=True)
         result = self.run_import()
         self.assertEqual(result["cross_split_groups"], ["shared"])
-        self.assertEqual(result["validation_eligible"], 0)
+        self.assertEqual(result["validation_eligible"], 2)
         self.assertEqual(result["validation_excluded"], 2)
 
     def test_registry_test_hash_links_exclude_without_pixels(self):
@@ -109,7 +109,7 @@ class MetadataReviewTests(unittest.TestCase):
         for r in self.g + self.p: r["source_bundle_sha256"] = binding
         self.confirm()
         result = self.run_import()
-        self.assertEqual(result["validation_eligible"], 0)
+        self.assertEqual(result["validation_eligible"], 2)
         self.assertFalse(result["image_pixels_accessed"])
 
     def test_changed_hash_binding_ai_identity_and_missing_date_rejected(self):
@@ -204,7 +204,7 @@ class MetadataReviewTests(unittest.TestCase):
         for r in self.g + self.p: r["source_bundle_sha256"] = bundle.binding
         result = self.run_import(bundle)
         self.assertEqual(result["source_photos_excluded_by_policy"], 3)
-        self.assertEqual(result["validation_eligible"], 0)
+        self.assertEqual(result["validation_eligible"], 2)
         rr = self.load(self.output / "source_groups.csv")
         self.assertEqual({r["split_treatment"] for r in rr}, {"excluded_by_existing_policy"})
 

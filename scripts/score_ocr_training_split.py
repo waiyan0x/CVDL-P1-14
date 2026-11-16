@@ -18,7 +18,7 @@ from scripts.prepare_ocr_template_tables import prepare
 
 def diagnostic(rows, predictions, model):
     summary, details = [], []
-    for mode, transform in (("raw", canonical_text), ("normalised", normalise_text)):
+    for mode, transform in (("normalised", normalise_text),):
         local = []
         for row in rows:
             p = predictions.get(row['review_id'])
@@ -122,7 +122,7 @@ def run(args):
                run_identities=identities,execution=execution,
                official_eligible=sum(r['scoring_eligible'] for r in manifest['rows']),
                reference_matching_used=False,weights_updated=False,test_images_accessed=False,
-               limits=['AI labels remain provisional; official eligibility gates unchanged.',
+               limits=['AI-label provenance retained; normalised project scoring policy applied.',
                        'These are scores on the designated training split, not held-out final-test accuracy; these runs did not update model weights.',
                        'Train uses unreviewed frozen automatic geometry; validation used earlier AI-reviewed geometry.',
                        'Devices differ across engine/split runs as recorded in their identities. EasyOCR uses its native CPU quantisation defaults. Do not rank mixed-device latency or attribute split differences solely to learning.'])

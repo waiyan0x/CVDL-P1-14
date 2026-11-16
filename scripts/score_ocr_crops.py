@@ -1,4 +1,4 @@
-"""Freeze reviewed crop eligibility or score saved predictions; never run OCR."""
+"""Freeze project scoring eligibility or score saved predictions; never run OCR."""
 
 import argparse
 import json
@@ -33,7 +33,7 @@ def main():
             config = json.loads(args.config.read_text(encoding="utf-8"))
             report = build_report(manifest, config, args.config.resolve().parent)
             write_report(report, args.output)
-            print(f"Created {args.output / 'tables.html'} and report.json; no images opened.")
+            print(f"Created {args.output / 'OCR_RESULTS.md'} and report.json; no images opened.")
     except (ValueError, OSError, KeyError, TypeError) as exc:
         parser.exit(2, f"error: {exc}\n")
 
