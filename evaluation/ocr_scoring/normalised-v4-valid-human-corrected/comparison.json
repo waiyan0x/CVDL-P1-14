@@ -1,0 +1,43 @@
+{
+  "models": [
+    {
+      "id": "easyocr",
+      "baseline": {
+        "run_dir": "../../ocr_runs/easyocr-pretrained-valid",
+        "splits": [
+          "valid"
+        ],
+        "input_sets": [
+          "annotation",
+          "prediction"
+        ]
+      }
+    },
+    {
+      "id": "trocr",
+      "baseline": {
+        "run_dir": "../../ocr_runs/trocr-pretrained-valid",
+        "splits": [
+          "valid"
+        ],
+        "input_sets": [
+          "annotation",
+          "prediction"
+        ]
+      }
+    },
+    {
+      "id": "paddleocr",
+      "baseline": {
+        "run_dir": "../../ocr_runs/paddleocr-pretrained-valid",
+        "splits": [
+          "valid"
+        ],
+        "input_sets": [
+          "annotation",
+          "prediction"
+        ]
+      }
+    }
+  ]
+}

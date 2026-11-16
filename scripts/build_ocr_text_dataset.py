@@ -46,16 +46,23 @@ for r in csv.DictReader(open(os.path.join(repo, 'evaluation/ocr_training/train_l
 # ---- valid: 258 rows (194 user-typed + 77 Codex, minus 13 train-scene overlaps) ----
 vsrc = {r['review_id']: r for r in csv.DictReader(open(os.path.join(pkg, 'labels/validation.source.csv')))}
 origin = {'Codi': 'human_typed_by_team', 'Codex': 'codex_ai'}
+review_path = os.path.join(repo, 'evaluation/ocr_review/human-verification-20261116/validation.source.corrected-P065.csv')
+reviewed = {r['review_id']: r for r in csv.DictReader(open(review_path))} if os.path.isfile(review_path) else {}
 for r in csv.DictReader(open(os.path.join(pkg, 'labels/validation_labels.proposals.csv'))):
     s = vsrc[r['review_id']]
+    h = reviewed.get(r['review_id'])
+    if h and h.get('reviewer_type') == 'human':
+        r = dict(r, text=h['transcription'], legibility=h['legibility'], field_status=h['field_status'])
     p = os.path.join(pkg, r['crop'])
     ok, why = eligibility(r['text'], r['legibility'], r['field_status'], s['user_scope_policy'] == 'challenge_only')
     sub = os.path.join('ground_truth' if r['input_set'] == 'annotation' else 'predicted', s['label'])
     rows.append(dict(review_id=r['review_id'], split='valid', input_set=r['input_set'], field=r['field'],
                      crop=copy(p, 'valid', sub), crop_sha256=sha(p), text=r['text'], legibility=r['legibility'],
                      field_status=r['field_status'], label_source=origin[r['label_origin']],
-                     human_check_status='pending', scoring_eligible=str(ok), exclusion_reason=why,
-                     source_name=os.path.basename(s['image']), note=''))
+                     human_check_status='human_verified' if h and h.get('reviewer_type') == 'human' else 'pending',
+                     scoring_eligible=str(ok), exclusion_reason=why,
+                     source_name=os.path.basename(s['image']),
+                     note=('Human reviewer: ' + h['reviewer'] + '; prior text: ' + h.get('prior_transcription', '') + '; prior field: ' + h.get('prior_field_status', '')) if h and h.get('reviewer_type') == 'human' else ''))
 
 # ---- test: 118 annotation crops, Claude AI proposals ----
 prop = {r['review_id']: r for r in csv.DictReader(open(test_tsv), delimiter='\t')}

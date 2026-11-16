@@ -1,3 +1,21 @@
+CURRENT UPDATE — human return and correction, 16 November 2026
+258 validation human returns are now recorded (original export says cods;
+user explicitly confirmed the name cody). Original export is preserved.
+A091 remains wrong_field. P065 (302) was explicitly corrected to wrong_field.
+Current source: evaluation/ocr_review/human-verification-20261116/validation.source.corrected-P065.csv
+Current scores: evaluation/ocr_scoring/normalised-v4-valid-human-corrected/
+Scored: 79 annotation + 51 detector = 130. Annotation all-field CER/EM:
+PaddleOCR 13.5% / 73.4%; TrOCR 19.7% / 54.4%; EasyOCR 43.0% / 32.9%.
+Paddle's pretrained validation rank is diagnostic, not the selected app model.
+Four scored crops still have unresolved line layouts and empty hypotheses:
+A052, A094, P046, P087. No new inference or layout changes were made.
+Train 50-crop HUMAN spot-check remains pending. Test now has AI proposals
+in the consolidated dataset (Claude provenance); test HUMAN checks remain pending.
+P089 wrong_field and P107 second-line suggestions need human confirmation.
+Nothing in this update completes training, test inference or final model handoff.
+The remainder below is the EARLIER audit snapshot, retained as history; its
+zero validation-return count and older scores are superseded by this update.
+
 OCR AUDIT AND HUMAN REVIEW RECORD
 Updated: 16 November 2026, Asia/Singapore
 Evidence snapshot: commit a36a774 plus the locally gathered task files.

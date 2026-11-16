@@ -213,3 +213,5 @@ Decision rules:
 - [ ] Consolidate the 11 docs/OCR_*.md documents into one short README.
 
 User audit follow-up, 16 November 2026: class-export ZIP received and verified (3,146 PNGs match cache). Full source-photo ZIP and YOLO11s weights remain absent. Current Paddle recommendation withdrawn; unrun metric rows now n=0. Human forms have local draft recovery, distinct filenames and incomplete-row warnings. Spot-check coverage verified as 50 crops / 44 label groups / 41 photos. Human returns remain pending.
+
+Observed human-return update, 16 November 2026: 258 validation returns imported; reviewer cody confirmed by user (original cods export preserved). User explicitly sets P065 wrong_field, with A091 unchanged. Corrected snapshot normalised-v4-valid-human-corrected scores 79 annotation / 51 detector crops. P089/P107 remain suggestions. Train/test human checks remain pending; test Claude AI proposals exist and retain AI provenance.

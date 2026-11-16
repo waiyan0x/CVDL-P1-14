@@ -11,7 +11,7 @@ images can be verified.
 | Split | Crops | Scorable | Label source | Human check |
 | --- | ---: | ---: | --- | --- |
 | train | 387 annotation | 387 | Codex, kept only where all 3 augmented copies got the same text | 50-crop spot-check pending |
-| valid | 150 annotation + 108 detector | 67 + 42 | 185 typed by the team, 73 Codex | in progress |
+| valid | 150 annotation + 108 detector | 79 + 51 | 185 typed by the team, 73 Codex; all 258 then checked by eye | done 16 Nov 2026 (`ocr_review/human-verification-20261116/`) |
 | test | 118 annotation | 60 | Claude AI proposals, read from the crop pixels only (no OCR engine output) | pending (`test_confirm` page) |
 
 ## Columns
@@ -26,5 +26,7 @@ images can be verified.
 
 - Never use test for training, tuning or matching cutoffs.
 - Test detector crops do not exist yet. They need `yolo11s-best.pt` and the full v4 photos from Brendan.
-- Validation labels are refreshed from the human review once it finishes.
+- Validation rows carry the human-reviewed text. Where the review changed a label, `note` keeps the pre-review value.
 - Final test labels come from `scripts/finalize_test_labels.py` after a human confirms each row.
+
+Validation correction: P065 is wrong_field by explicit user instruction, matching A091. Current scores use normalised-v4-valid-human-corrected. Reviewer cody was confirmed in chat; the original export says cods and remains unchanged. P089/P107 suggestions are unresolved, not silently applied.
