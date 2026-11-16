@@ -1,5 +1,24 @@
 # OCR → reference-matching handoff
 
+The concise next-owner checklist is `docs/INFERENCE_MATCHING_PREP.md`, included
+at the ZIP root as `INFERENCE_MATCHING_PREP.md` and linked from `START_HERE.txt`.
+
+## OCR recommendation and actual weights included — 16 November 2026
+
+Start matching development with PaddleOCR `en_PP-OCRv5_mobile_rec`, retaining
+EasyOCR and public TrOCR outputs for comparison. This is a provisional choice
+from the current readable validation subsets: Paddle has the lowest CER and
+highest exact match; public TrOCR has lower WER on predicted crops. Grouping
+remains pending, so this does not establish a final independent accuracy winner.
+
+The ZIP now includes all three original pretrained model directories under
+`weights/`, plus a hash/settings lock and `verify_weights.py`. No weights were
+fine-tuned. Read packaged `OCR_MODELS.md` or `docs/OCR_MODEL_HANDOFF.md` for
+checkpoint revisions, scores, rerun instructions and limitations. Matching saved
+outputs needs no model loading. New OCR inference needs the repository/runtime,
+input data and appropriate preprocessing; source/layout snapshots are included
+as evidence. The package is not a complete standalone application environment.
+
 ## Reviewed pairings imported — 16 November 2026
 
 cody returned the focused 41-pair review and clarified P033/P109 as unresolved.
