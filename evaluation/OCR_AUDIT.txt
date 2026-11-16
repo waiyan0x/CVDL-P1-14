@@ -1,0 +1,335 @@
+OCR AUDIT AND HUMAN REVIEW RECORD
+Updated: 16 November 2026, Asia/Singapore
+Evidence snapshot: commit a36a774 plus the locally gathered task files.
+Authority: the user's three task lists and subsequent clarifications.
+This records project decisions and observed work, not coursework rubric claims.
+
+CURRENT POSITION
+Step 1 scoring is implemented. Step 2 label preparation is incomplete.
+Some Step 3/4 preparation exists. No model has been fine-tuned in this work.
+There is no selected fine-tuned model and no completed final matching handoff.
+Preparing files, checking hashes, running tests and AI inspection do not count
+as manual human review. AI provenance must remain visible even though the user
+adopts the selected AI labels as project ground truth.
+
+WHERE TO FIND THE FILES
+Paths below are relative to the repository root.
+
+Full task checklist:
+  OCR_HANDOFF_TASKS.md
+Current incomplete results:
+  evaluation/OCR_RESULTS.md
+Gathered inputs folder (local, ignored by Git):
+  .runtime/ocr-task-files-20261116/
+Package guide:
+  .runtime/ocr-task-files-20261116/README.txt
+Package file hashes and source hashes:
+  .runtime/ocr-task-files-20261116/manifest.json
+Missing external files and unfinished agent work:
+  .runtime/ocr-task-files-20261116/missing_files.csv
+Portable human-review ZIP:
+  .runtime/ocr-human-review-20261116.zip
+
+The full folder contains crops, portable source CSVs, label proposals, blank
+human forms, public pretrained weights, saved runs, layouts, existing scripts,
+current results and the bus_information.csv snapshot. It is an inputs package,
+not a completed model delivery. Its static copies will not update themselves.
+This audit is the ongoing review record; date later changes explicitly.
+
+MANUAL HUMAN WORK: REQUESTED PASS
+
+Set                    Prepared     Completed returns recorded    Still needed
+Training spot-check    50 crops     0 / 50                        50
+Validation check       258 crops    0 / 258 in this requested pass 258
+Test annotation check  118 crops    0 / 118                       118
+Test detector check    Not exported Not available                 Count unknown
+
+Earlier validation human submissions/checks exist. The zero above means no
+new completed returns for this requested pass are recorded, not that the
+dataset has never received human input. Do not count those earlier records
+again without identifying exactly which requested checks they satisfy.
+
+Training human page:
+  .runtime/ocr-task-files-20261116/human_review/train_spotcheck/review.html
+Validation human page:
+  .runtime/ocr-task-files-20261116/human_review/validation/review.html
+Test human page:
+  .runtime/ocr-task-files-20261116/human_review/test/review.html
+
+After extracting the ZIP, the same human_review/ paths apply.
+Each folder has a blank checks.csv as an alternative to the page.
+The 50 training crops also have five contact sheets in that folder.
+
+Human review procedure:
+1. Read each actual crop, independently of AI/OCR guesses and route references.
+2. Enter visible text, legibility and field status. Preserve case, punctuation,
+   leading zeros and real line breaks. Do not complete a route from memory.
+3. Use [UNK] for unresolved spans; partial text includes [UNK], wholly illegible
+   text is [UNK]. Blank/absent fields have empty text and not_applicable state.
+4. Enter the actual human name and actual review date. No AI may attest for them.
+5. Drafts save locally when browser storage permits; export CSV to submit.
+   Storage failure is shown explicitly. Export before closing if saving fails.
+   Exports now include the review set, reviewer and date in the filename.
+   Incomplete touched rows block export and list their IDs; no silent omission.
+6. Record row IDs, corrections, unresolved items and the saved return path in
+   the log at the end of this file. Blank or untouched rows remain pending.
+
+No proposed answers are embedded in the human forms. Validation proposals
+are separate. Test forms are blank preparation: Codex's test transcription
+has NOT been done yet. The intended task order remains Codex labels followed
+by human checking; preparing a test form does not fulfil either task.
+
+LABEL PROVENANCE AND COUNTS
+
+Training:
+- Original training.source.csv has 1,917 text-crop rows.
+- Source: evaluation/ocr_review/human-verification-20261113/training.source.csv
+- Filter: full legibility, nonempty text, no [UNK], not challenge_only.
+- Then group by (source_name, label); require exactly three retained rows from
+  three distinct image variants and identical literal transcription.
+- Result: 387 AI-labelled crops in 129 triplets: 282 number, 63 destination,
+  42 route text. This differs from the user's approximate 345 estimate; the
+  count was computed, not adjusted to the estimate. Review the filter/group
+  interpretation if the intended grouping differs.
+- Saved: evaluation/ocr_training/train_labels_final.csv
+- Provenance: evaluation/ocr_training/train_labels_final.audit.json
+- Despite its requested filename, this CSV is not human-verified.
+- Spot-check seed: 20261116. Sample size: 50 crops from 44 label groups /
+  41 source photos; six groups occur twice as augmented copies. These are not
+  50 independent group checks. The frozen sample is preserved, not resampled.
+  Correctness percentage: UNMEASURED. Report crop-level and group coverage.
+  Do not use AI self-review to populate the human spot-check percentage.
+- Original quarantine: 288 crops. Of these, 117 satisfy the current triplet
+  rule and remain held; they have not been added to the selected 387.
+- Cached v4 test metadata shows zero exact source-name/hash matches for the
+  quarantine. This does not resolve differently named related photos.
+  Brendan's confirmation remains outstanding. No message has been sent to him.
+
+Validation:
+- Original 271 proposals: 194 typed labels attributed to Codi and 77 Codex labels.
+- Source: evaluation/ocr_review/human-verification-20261113/validation.source.csv
+- Drop A042-A048 and P039-P044 for train scene overlap: 13 rows.
+- Human-review packet: 258 rows, comprising 185 Codi and 73 Codex proposals.
+- Packaged proposal file: labels/validation_labels.proposals.csv
+- The later Codex re-read must not be used as the answer key.
+- Human-review population is larger than the scoreable population: excluded,
+  partial and challenge cases remain visible so their states can be checked.
+
+Test:
+- Cached class dataset: .cache/ocr_datasets/v4-reviewed-01/
+- Test contains 53 source images' annotation crops: 118 text and 53 panels.
+  Source full photos themselves are not in the gathered crop package.
+- Text review IDs use TEST_A plus the annotation ID, avoiding training IDs.
+- Packaged labels/test_labels.csv has blank text and legibility: NOT ground truth.
+- Packaged metadata/test_text_inventory.csv and test_panel_inventory.csv link
+  crops to source names, image hashes, annotation IDs and box coordinates.
+- Codex labelling and human checks remain outstanding. No recogniser's output
+  may prefill test ground truth. Test detector crops do not yet exist here.
+- TEST must not be used for training, checkpoint choice or setting changes.
+
+SCORING: WHAT HAS ACTUALLY CHANGED
+
+Code: backend/app/evaluation/crop_scoring.py and scripts/score_ocr_crops.py
+Normalised only: Unicode casefold and collapsed whitespace (NFC maintained).
+Punctuation, abbreviations, number suffixes and leading zeros are preserved.
+Failed/missing prediction records count as empty hypotheses in the denominator.
+An entire unrun model/split is still Not run, not an achieved score.
+
+Removed scoring prerequisites: second-review, grouping review, correspondence
+review, human attestation and field_review_status=reviewed. Their absence must
+not silently suppress numerical scores. Provenance remains recorded separately.
+
+Content exclusions: legibility other than full, [UNK], blank text/blank or absent
+fields, wrong_field and challenge_only. Apply the 13 explicit validation scene
+removals too. Do not introduce unrelated review gates into numerical scoring.
+
+Validation inventory: 271; unique exclusions: 162; scored: 109.
+Separate scored populations: 67 annotation and 42 detector crops.
+Exclusion counts overlap: non-full legibility 154; [UNK] 154; challenge_only 26;
+wrong_field 15; explicit train scene overlap 13. These must not be added together.
+
+Existing pretrained validation results, normalised percentages:
+Model       Input         n    CER     WER     Exact match
+EasyOCR     Annotation    67   34.2    64.3       40.3
+EasyOCR     Detector      42   24.7    51.5       59.5
+TrOCR       Annotation    67   11.2    31.0       65.7
+TrOCR       Detector      42    9.6    17.6       81.0
+PaddleOCR   Annotation    67    7.7    24.8       79.1
+PaddleOCR   Detector      42    7.2    23.5       85.7
+
+Combined-population sanity check only: TrOCR CER 10.7%; EasyOCR CER 31.5%.
+The deliverable tables keep annotation and detector populations separate.
+These are scores against the current selected references, whose requested
+human checking is incomplete. They are not final independently verified results.
+
+Saved runs: evaluation/ocr_runs/{easyocr,trocr,paddleocr}-pretrained-valid/
+Each has predictions.jsonl and report.json; laptop Paddle validation is included.
+Earlier training diagnostic runs are gathered under runs/historical_train/.
+They are not reruns on the final selected 387-crop training set.
+
+EXTERNAL FILES AND DECISIONS STILL NEEDED
+
+1. Full v4 source dataset ZIP, last documented on Brendan's machine:
+   2026-11-05-roboflow-v4-reviewed-full.zip
+   SHA-256: e76f9cfaf1b1b502a38085111dec56bb851116ffc9d22062a27251d2f355c88f
+   Needed for detector test crops and source-photo checks.
+
+2. Selected v4 YOLO11s checkpoint:
+   yolo11s-best.pt
+   SHA-256: 97150601de39a999754015648cad2ef930842d52e8e37eb77d7576ffe2da33b5
+   Needed for test export at confidence 0.50, NMS IoU 0.70, size 640.
+   A different detector checkpoint is not a substitute.
+
+3. Original class-export archive:
+   .runtime/ocr_class_dataset/v4-reviewed-01.zip
+   SHA-256: 0b6021641bce5dc4ff669c6f3050161e193165abdb102001e966519117301a6f
+   RECEIVED 16 November 2026 from the user. SHA-256 matches the recorded value,
+   CRC passed, and all 3,146 PNGs match the cached export byte-for-byte.
+   Installed at .runtime/ocr_class_dataset/v4-reviewed-01.zip. This is a crop
+   export, not the full source-photo ZIP; it contains no detector weights.
+
+4. Brendan's answer on quarantine/test photo identity; team Drive destination
+   for eventual trained weights. Neither has been supplied.
+
+Search evidence: latest fetched bren-object-detection was 762a93e and
+bren-data-preparation f2e4ef0. The handoff docs say the full ZIP/checkpoint
+are ignored local Windows files, not committed assets. Connected Drive
+searches for v4-reviewed, yolo11s, CVDL and roboflow returned no matches.
+That describes the searches performed, not proof the files exist nowhere.
+
+REMAINING AGENT WORK: STEPS 1-9
+
+[DONE] 1. Normalised scoring policy, failed/missing handling and existing-run
+         sanity check. Human verification is still a separate unfinished task.
+[PART] 2. Training selection and human spot-check preparation. Complete human
+         returns, validation verification, quarantine decision and label fixes.
+[PART] 3. Cached annotation test inputs gathered; exporter/runners/layout CLI
+         accept test. Still label, human-check, export detector crops at the
+         specified settings, map overlap at IoU >=0.5, freeze one shared layout.
+[PART] 4. Existing pretrained validation runs gathered. Still run all three
+         models on the required final train/valid/test crops and shared layouts;
+         retain predictions.jsonl and report.json in the requested directories.
+[TODO] 5. Implement and execute all three fine-tuning pipelines. There is no
+         completed training setup or trained weight from this work.
+         Match line-level training to line-level inference inputs.
+         TrOCR: trocr-base-printed, HF VisionEncoderDecoderModel/Seq2SeqTrainer,
+         lr 5e-5, batch 8, <=20 epochs, per-epoch validation CER, patience 3.
+         EasyOCR: official trainer from english_g2; custom network .pth/config.
+         Paddle: official trainer, v5 mobile English recognition config and
+         training-format pretrained weights; image_path<TAB>text labels.
+         Select lowest validation CER per model. Save seed, settings, epoch
+         loss/CER logs; trained weights to team Drive, not Git.
+[TODO] 6. Evaluate three fine-tuned versions on the same crops/layout as their
+         pretrained versions. Score all six versions using the new scorer.
+[TODO] 7. User selection rule: fine-tuned models, TEST annotation, all fields;
+         best on >=2 of CER lower / WER lower / exact higher wins; three-way
+         disagreement uses lowest CER. Report if worse than pretrained.
+         This rule uses TEST for model selection, so its winning score is not
+         an independent final estimate. Do not tune settings against TEST.
+[PART] 8. OCR_RESULTS.md exists but is incomplete. Finish annotation/detector
+         tables, actual scored n, one-decimal metrics, label sources, human
+         spot-check percent, exclusions, selected model and trained-weight link.
+[TODO] 9. Selected fine-tuned model's matching handoff: validation plus test,
+         annotation plus prediction, whole-display OCR, complete display IDs,
+         separate labels with shared IDs, reference snapshot, weights link and
+         exact new-crop command. The current packaging script still needs work
+         to meet this final contract; its presence is not proof of readiness.
+
+MATCHING CONTRACT AND USER-OWNED WORK
+
+Final matching_inputs.jsonl: one crop/model record, no ground-truth labels.
+Required: record_id; split valid/test; input_set annotation/prediction;
+field bus_number/destination/route_text/front_eds; source_image; crop;
+box_xyxy; candidate_display_id; exact raw_ocr_text; normalised_ocr_text;
+prediction_status success/error/missing; OCR and detector confidence separately.
+Every crop needs a display ID identifying its actual display. A filename or
+photo alone is not proof that two crops belong to the same display.
+Keep validation/test labels in separate CSVs with review_id and a documented
+record_id join. No final selected-model JSONL has been produced.
+
+The user will implement reference matching, not Codex in this task:
+- Keep successful inputs, group by display, normalise for matching while
+  preserving raw OCR. Service numbers match exactly: 97E differs from 97;
+  leading zeros remain. Destinations use fuzzy matching and a margin rule.
+- Number only: accept valid exact service; infer destination only if reference
+  and direction identify one. Destination only: require cutoff and clear lead;
+  infer number only for a unique service.
+- Number plus destination: number narrows search; below cutoff unresolved;
+  strong evidence for a different service flags conflict.
+- Route-only: preserve OCR, service unresolved; CSV has no road-name coverage.
+- Whole-display text may supply number plus destination. Crop/panel agreement
+  keeps one value and logs both; disagreement requires other-field/reference
+  evidence or remains unresolved. Resolve ties with same-display evidence;
+  retain a value shared by tied candidates. Record reasons for no usable fields.
+- The app displays only accepted matches, withholding guesses/conflicts/ties.
+- Tune cutoffs 25/50/75 and margin on VAL only, freeze, then run matching TEST
+  once. Per field and crop population, compare raw/matched exactness, accepted
+  rate and accepted accuracy, rescued and harmful corrections, valid-but-wrong
+  numbers (97 for 97E), and unresolved count.
+
+VERIFICATION PERFORMED, WITH LIMITS
+- 68 focused automated tests passed for the scoring/preparation changes.
+  The earlier full evaluation suite was not green: FastAPI and pytest imports were
+  unavailable in the checked .venv. Do not report all repository tests passed.
+- 2,188 original training/validation crop hashes checked in the gathered packet.
+- All 15 packaged pretrained model/config files match their pinned hashes.
+- All 3,961 package payload file hashes verified (plus manifest.json itself).
+- Human ZIP integrity checked; all 426 referenced crop images included.
+  Review-page JavaScript syntax and local image paths checked.
+- None of these checks establishes transcription correctness or human review.
+- Full folder is approximately 1.51 GB; human ZIP approximately 4.07 MB.
+- No inference, fine-tuning, human attestation or external message was performed
+  while gathering these files. No final trained weights have been uploaded.
+
+NONBLOCKING TIDY-UP BEFORE SUBMISSION
+Remove segmentation_previews and superseded runs while preserving required
+model/version/split evidence; remove machine-specific CSV paths; consolidate
+the old OCR docs into one short README. This tidy-up is not completed.
+Portable CSVs in the gathered package have been checked for crop existence and
+removal of /Users/tanyilin/ paths. This does not certify every repository CSV.
+
+AUDIT CORRECTIONS — 16 November 2026
++- Withdrawn the current PaddleOCR recommendation in all three matching/model
++  preparation docs. Historical commit 16ddee0 is superseded, not rewritten.
++  Old reference-matching ZIPs are historical and must not be delivered as the
++  requested final selected-model handoff.
++- Crops (n) now uses actual scored outcomes. Unrun fine-tuned rows show 0;
++  eligible reference inventory is not misreported as crops scored.
++- Validation numbers remain provisional pending requested human checks.
++  Correct denominator: 67 annotation + 42 detector crops scored from 271
++  original rows, with 162 unique exclusions. The 258-row review set includes
++  BOTH annotation and detector crops, not 258 annotation crops.
++- Updated review pages support browser-local draft recovery, unique filenames
++  and blocking warnings for incomplete entered rows. Browser storage is not
++  a submitted human review; no human completion count has changed.
++- New regression checks cover scoring counts and form draft/export behaviour:
++  18 focused tests passed. Checks ran on synthetic input, not human attestations.
++- Receipt of the class crop ZIP resolves one external-file item only. Source
++  photos, selected detector checkpoint and quarantine confirmation remain open.
++
++ONGOING HUMAN AUDIT LOG — ADD ONE ENTRY PER ACTUAL RETURN/DECISION
+Leave blank until someone does the work. Preserve original returned files.
+
+Review date/time:
+Human reviewer:
+Set and reviewed IDs (or attached list):
+Number actually inspected:
+Returned CSV / evidence path:
+Corrections and reasons:
+Unresolved IDs and reasons:
+Training spot-check correct / inspected / percent (if applicable):
+Ground-truth changes accepted by:
+Affected scores/runs requiring refresh:
+Next action / responsible person:
+
+Review date/time:
+Human reviewer:
+Set and reviewed IDs (or attached list):
+Number actually inspected:
+Returned CSV / evidence path:
+Corrections and reasons:
+Unresolved IDs and reasons:
+Training spot-check correct / inspected / percent (if applicable):
+Ground-truth changes accepted by:
+Affected scores/runs requiring refresh:
+Next action / responsible person:

@@ -245,6 +245,7 @@ class CropScoringTests(unittest.TestCase):
         markdown = render_markdown(report)
         self.assertIn("Table 1: annotation crops", markdown)
         self.assertIn("Table 2: detector crops", markdown)
+        self.assertIn("| EasyOCR | finetuned | valid | destination | 0 | Not run", markdown)
         output = self.root/"output"
         write_report(report, output)
         self.assertEqual(json.loads((output/"report.json").read_text()), report)

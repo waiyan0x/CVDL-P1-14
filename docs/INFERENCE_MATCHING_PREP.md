@@ -1,3 +1,5 @@
+> Current status: no OCR model has been selected. The earlier pretrained PaddleOCR recommendation is withdrawn. Follow OCR_HANDOFF_TASKS.md: select among fine-tuned models using TEST annotation crops, all fields, under the specified CER/WER/exact-match rule. This document contains historical preparation evidence, not the final handoff.
+
 # Inference matching handoff
 
 Prepared 16 November 2026 for the reference-matching owner.
@@ -17,7 +19,7 @@ pending. All package paths below are relative to the unzipped handoff folder.
 | `reference/audit.json` | Reference blanks, duplicates and source hash |
 | `matching_outputs.template.csv` | Copy this to a new file for your results |
 | `source_crop_index.csv`, `display_candidates.csv` | Image/crop provenance and proposed display ownership |
-| `OCR_MODELS.md` | OCR recommendation, checkpoints and rerun instructions |
+| `OCR_MODELS.md` | Historical pretrained checkpoints and rerun instructions |
 | `ocr_tables/tables.html` | Three-model Train/Validation comparison, before matching |
 
 **Observed package:** 813 validation records = three models × 271 crops per
@@ -29,12 +31,9 @@ review gates are incomplete; this does not prevent development on saved outputs.
 The Train rows in the tables are separate training-split evaluation evidence.
 The main matching input file contains validation outputs only.
 
-## 2. Start with PaddleOCR
+## 2. Model selection pending
 
-**Provisional recommendation:** select `model == "paddleocr"` first. PaddleOCR
-has the lowest CER and highest exact match on both selected validation subsets.
-Public TrOCR has lower WER on predicted crops; retain it and EasyOCR for comparison.
-This is a local development choice, not a final independently verified winner.
+No pretrained engine is the selected app or handoff model. Fine-tuning and the required TEST comparison remain outstanding. Existing saved outputs are historical development inputs only.
 
 The exact pretrained weights for all three engines are included under `weights/`.
 No weights were fine-tuned. Saved-output matching does not require loading them.

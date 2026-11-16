@@ -332,7 +332,7 @@ def render_markdown(report):
                               for k in ("cer", "wer", "exact_match")]
                     version = "pretrained" if variant == "baseline" else "finetuned"
                     parts.append("| " + " | ".join([model["name"], version, cell["split"],
-                                 fields[cell["field"]], str(cell["eligible"]), *values]) + " |")
+                                 fields[cell["field"]], str(len(cell["outcomes"])), *values]) + " |")
         parts.append("")
     return "\n".join(parts).rstrip() + "\n"
 

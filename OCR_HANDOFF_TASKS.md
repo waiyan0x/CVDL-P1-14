@@ -211,3 +211,5 @@ Decision rules:
   and supporting evidence.
 - [ ] Remove /Users/tanyilin/... paths from CSVs.
 - [ ] Consolidate the 11 docs/OCR_*.md documents into one short README.
+
+User audit follow-up, 16 November 2026: class-export ZIP received and verified (3,146 PNGs match cache). Full source-photo ZIP and YOLO11s weights remain absent. Current Paddle recommendation withdrawn; unrun metric rows now n=0. Human forms have local draft recovery, distinct filenames and incomplete-row warnings. Spot-check coverage verified as 50 crops / 44 label groups / 41 photos. Human returns remain pending.

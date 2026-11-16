@@ -1,15 +1,13 @@
+> Current status: no OCR model has been selected. The earlier pretrained PaddleOCR recommendation is withdrawn. Follow OCR_HANDOFF_TASKS.md: select among fine-tuned models using TEST annotation crops, all fields, under the specified CER/WER/exact-match rule. This document contains historical preparation evidence, not the final handoff.
+
 # OCR → reference-matching handoff
 
 The concise next-owner checklist is `docs/INFERENCE_MATCHING_PREP.md`, included
 at the ZIP root as `INFERENCE_MATCHING_PREP.md` and linked from `START_HERE.txt`.
 
-## OCR recommendation and actual weights included — 16 November 2026
+## Historical pretrained package — superseded
 
-Start matching development with PaddleOCR `en_PP-OCRv5_mobile_rec`, retaining
-EasyOCR and public TrOCR outputs for comparison. This is a provisional choice
-from the current readable validation subsets: Paddle has the lowest CER and
-highest exact match; public TrOCR has lower WER on predicted crops. Grouping
-remains pending, so this does not establish a final independent accuracy winner.
+The earlier PaddleOCR starting-engine recommendation is withdrawn. No model should be treated as the final handoff until fine-tuning and the specified selection are complete.
 
 The ZIP now includes all three original pretrained model directories under
 `weights/`, plus a hash/settings lock and `verify_weights.py`. No weights were

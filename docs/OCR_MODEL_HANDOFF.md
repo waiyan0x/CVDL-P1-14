@@ -1,22 +1,8 @@
-# OCR model recommendation and weights
+> Current status: no OCR model has been selected. The earlier pretrained PaddleOCR recommendation is withdrawn. Follow OCR_HANDOFF_TASKS.md: select among fine-tuned models using TEST annotation crops, all fields, under the specified CER/WER/exact-match rule. This document contains historical preparation evidence, not the final handoff.
 
-Updated 16 November 2026. Start matching development with **PaddleOCR
-`en_PP-OCRv5_mobile_rec`**, keeping the other two engines for comparison.
-On the selected validation subsets it has the lowest CER and highest exact
-match. Public TrOCR has lower WER on predicted crops. This is a **provisional
-project choice from local diagnostics**: photo grouping is pending and official
-independent-benchmark eligibility remains zero. Train scores use AI-assisted
-labels; this handoff contains no fine-tuned OCR weights.
+# Historical pretrained weights and diagnostics
 
-## Start with saved OCR outputs
-
-Read `matching_inputs.jsonl` and select `model == "paddleocr"` (271 saved records,
-including failures and exclusions). Retain raw and normalised OCR separately and
-respect `prediction_status`. Error records are not usable recognition text.
-Keep annotation and detector-predicted populations separate; annotation crops
-are evaluation evidence. Respect exclusions when evaluating. Preserve the
-other engines' records for comparison. Confirm display ownership before
-combining fields. Weights are unnecessary for matching these saved outputs.
+No fine-tuned model is selected. Existing saved validation outputs and public checkpoints can support development, but do not fulfil the final selected-model handoff.
 
 ## Actual weights included
 
@@ -81,7 +67,7 @@ TrOCR use `scripts/run_easyocr_crops.py` with `--engine easyocr|trocr`, the matc
 does not reproduce the scored baseline. Device differences mean the saved
 timings are unsuitable for ranking deployment speed.
 
-## Local diagnostic evidence for the recommendation
+## Historical pretrained diagnostic evidence
 
 Step 4-normalised scores below transform predictions and references identically.
 These are selected readable crops; P028 is excluded. The populations are scored

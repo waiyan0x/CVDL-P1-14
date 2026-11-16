@@ -23,10 +23,10 @@ Failed/missing predictions count as empty strings.
 | EasyOCR | finetuned | train | destination | 0 | Not run | Not run | Not run |
 | EasyOCR | finetuned | train | route | 0 | Not run | Not run | Not run |
 | EasyOCR | finetuned | train | all | 0 | Not run | Not run | Not run |
-| EasyOCR | finetuned | valid | number | 37 | Not run | Not run | Not run |
-| EasyOCR | finetuned | valid | destination | 16 | Not run | Not run | Not run |
-| EasyOCR | finetuned | valid | route | 14 | Not run | Not run | Not run |
-| EasyOCR | finetuned | valid | all | 67 | Not run | Not run | Not run |
+| EasyOCR | finetuned | valid | number | 0 | Not run | Not run | Not run |
+| EasyOCR | finetuned | valid | destination | 0 | Not run | Not run | Not run |
+| EasyOCR | finetuned | valid | route | 0 | Not run | Not run | Not run |
+| EasyOCR | finetuned | valid | all | 0 | Not run | Not run | Not run |
 | EasyOCR | finetuned | test | number | 0 | Not run | Not run | Not run |
 | EasyOCR | finetuned | test | destination | 0 | Not run | Not run | Not run |
 | EasyOCR | finetuned | test | route | 0 | Not run | Not run | Not run |
@@ -47,10 +47,10 @@ Failed/missing predictions count as empty strings.
 | Public TrOCR | finetuned | train | destination | 0 | Not run | Not run | Not run |
 | Public TrOCR | finetuned | train | route | 0 | Not run | Not run | Not run |
 | Public TrOCR | finetuned | train | all | 0 | Not run | Not run | Not run |
-| Public TrOCR | finetuned | valid | number | 37 | Not run | Not run | Not run |
-| Public TrOCR | finetuned | valid | destination | 16 | Not run | Not run | Not run |
-| Public TrOCR | finetuned | valid | route | 14 | Not run | Not run | Not run |
-| Public TrOCR | finetuned | valid | all | 67 | Not run | Not run | Not run |
+| Public TrOCR | finetuned | valid | number | 0 | Not run | Not run | Not run |
+| Public TrOCR | finetuned | valid | destination | 0 | Not run | Not run | Not run |
+| Public TrOCR | finetuned | valid | route | 0 | Not run | Not run | Not run |
+| Public TrOCR | finetuned | valid | all | 0 | Not run | Not run | Not run |
 | Public TrOCR | finetuned | test | number | 0 | Not run | Not run | Not run |
 | Public TrOCR | finetuned | test | destination | 0 | Not run | Not run | Not run |
 | Public TrOCR | finetuned | test | route | 0 | Not run | Not run | Not run |
@@ -71,10 +71,10 @@ Failed/missing predictions count as empty strings.
 | PaddleOCR | finetuned | train | destination | 0 | Not run | Not run | Not run |
 | PaddleOCR | finetuned | train | route | 0 | Not run | Not run | Not run |
 | PaddleOCR | finetuned | train | all | 0 | Not run | Not run | Not run |
-| PaddleOCR | finetuned | valid | number | 37 | Not run | Not run | Not run |
-| PaddleOCR | finetuned | valid | destination | 16 | Not run | Not run | Not run |
-| PaddleOCR | finetuned | valid | route | 14 | Not run | Not run | Not run |
-| PaddleOCR | finetuned | valid | all | 67 | Not run | Not run | Not run |
+| PaddleOCR | finetuned | valid | number | 0 | Not run | Not run | Not run |
+| PaddleOCR | finetuned | valid | destination | 0 | Not run | Not run | Not run |
+| PaddleOCR | finetuned | valid | route | 0 | Not run | Not run | Not run |
+| PaddleOCR | finetuned | valid | all | 0 | Not run | Not run | Not run |
 | PaddleOCR | finetuned | test | number | 0 | Not run | Not run | Not run |
 | PaddleOCR | finetuned | test | destination | 0 | Not run | Not run | Not run |
 | PaddleOCR | finetuned | test | route | 0 | Not run | Not run | Not run |
@@ -92,10 +92,10 @@ Failed/missing predictions count as empty strings.
 | EasyOCR | pretrained | test | destination | 0 | Not run | Not run | Not run |
 | EasyOCR | pretrained | test | route | 0 | Not run | Not run | Not run |
 | EasyOCR | pretrained | test | all | 0 | Not run | Not run | Not run |
-| EasyOCR | finetuned | valid | number | 29 | Not run | Not run | Not run |
-| EasyOCR | finetuned | valid | destination | 3 | Not run | Not run | Not run |
-| EasyOCR | finetuned | valid | route | 10 | Not run | Not run | Not run |
-| EasyOCR | finetuned | valid | all | 42 | Not run | Not run | Not run |
+| EasyOCR | finetuned | valid | number | 0 | Not run | Not run | Not run |
+| EasyOCR | finetuned | valid | destination | 0 | Not run | Not run | Not run |
+| EasyOCR | finetuned | valid | route | 0 | Not run | Not run | Not run |
+| EasyOCR | finetuned | valid | all | 0 | Not run | Not run | Not run |
 | EasyOCR | finetuned | test | number | 0 | Not run | Not run | Not run |
 | EasyOCR | finetuned | test | destination | 0 | Not run | Not run | Not run |
 | EasyOCR | finetuned | test | route | 0 | Not run | Not run | Not run |
@@ -108,10 +108,10 @@ Failed/missing predictions count as empty strings.
 | Public TrOCR | pretrained | test | destination | 0 | Not run | Not run | Not run |
 | Public TrOCR | pretrained | test | route | 0 | Not run | Not run | Not run |
 | Public TrOCR | pretrained | test | all | 0 | Not run | Not run | Not run |
-| Public TrOCR | finetuned | valid | number | 29 | Not run | Not run | Not run |
-| Public TrOCR | finetuned | valid | destination | 3 | Not run | Not run | Not run |
-| Public TrOCR | finetuned | valid | route | 10 | Not run | Not run | Not run |
-| Public TrOCR | finetuned | valid | all | 42 | Not run | Not run | Not run |
+| Public TrOCR | finetuned | valid | number | 0 | Not run | Not run | Not run |
+| Public TrOCR | finetuned | valid | destination | 0 | Not run | Not run | Not run |
+| Public TrOCR | finetuned | valid | route | 0 | Not run | Not run | Not run |
+| Public TrOCR | finetuned | valid | all | 0 | Not run | Not run | Not run |
 | Public TrOCR | finetuned | test | number | 0 | Not run | Not run | Not run |
 | Public TrOCR | finetuned | test | destination | 0 | Not run | Not run | Not run |
 | Public TrOCR | finetuned | test | route | 0 | Not run | Not run | Not run |
@@ -124,10 +124,10 @@ Failed/missing predictions count as empty strings.
 | PaddleOCR | pretrained | test | destination | 0 | Not run | Not run | Not run |
 | PaddleOCR | pretrained | test | route | 0 | Not run | Not run | Not run |
 | PaddleOCR | pretrained | test | all | 0 | Not run | Not run | Not run |
-| PaddleOCR | finetuned | valid | number | 29 | Not run | Not run | Not run |
-| PaddleOCR | finetuned | valid | destination | 3 | Not run | Not run | Not run |
-| PaddleOCR | finetuned | valid | route | 10 | Not run | Not run | Not run |
-| PaddleOCR | finetuned | valid | all | 42 | Not run | Not run | Not run |
+| PaddleOCR | finetuned | valid | number | 0 | Not run | Not run | Not run |
+| PaddleOCR | finetuned | valid | destination | 0 | Not run | Not run | Not run |
+| PaddleOCR | finetuned | valid | route | 0 | Not run | Not run | Not run |
+| PaddleOCR | finetuned | valid | all | 0 | Not run | Not run | Not run |
 | PaddleOCR | finetuned | test | number | 0 | Not run | Not run | Not run |
 | PaddleOCR | finetuned | test | destination | 0 | Not run | Not run | Not run |
 | PaddleOCR | finetuned | test | route | 0 | Not run | Not run | Not run |
