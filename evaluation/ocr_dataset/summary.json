@@ -1,0 +1,27 @@
+{
+ "rows": 763,
+ "counts": {
+  "test/annotation/bus_number/eligible=False": 17,
+  "test/annotation/bus_number/eligible=True": 30,
+  "test/annotation/destination/eligible=False": 19,
+  "test/annotation/destination/eligible=True": 20,
+  "test/annotation/route_text/eligible=False": 22,
+  "test/annotation/route_text/eligible=True": 10,
+  "train/annotation/bus_number/eligible=True": 282,
+  "train/annotation/destination/eligible=True": 63,
+  "train/annotation/route_text/eligible=True": 42,
+  "valid/annotation/bus_number/eligible=False": 20,
+  "valid/annotation/bus_number/eligible=True": 37,
+  "valid/annotation/destination/eligible=False": 36,
+  "valid/annotation/destination/eligible=True": 16,
+  "valid/annotation/route_text/eligible=False": 27,
+  "valid/annotation/route_text/eligible=True": 14,
+  "valid/prediction/bus_number/eligible=False": 12,
+  "valid/prediction/bus_number/eligible=True": 29,
+  "valid/prediction/destination/eligible=False": 29,
+  "valid/prediction/destination/eligible=True": 3,
+  "valid/prediction/route_text/eligible=False": 25,
+  "valid/prediction/route_text/eligible=True": 10
+ },
+ "valid_eligibility_mismatch_vs_repo_scorer": []
+}
