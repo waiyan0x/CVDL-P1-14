@@ -1,5 +1,20 @@
 # OCR results
 
+## Headline result (test, official)
+
+Test annotation crops, all fields, 45 human-confirmed crops. pre = pretrained
+public model, fine = fine-tuned. CER and WER: lower is better; Exact: higher is
+better. All in %.
+
+| Model | Field | n | CER pre | CER fine | WER pre | WER fine | Exact pre | Exact fine |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| PaddleOCR | all fields | 45 | 11.6 | **8.2** | 30.9 | **19.1** | 64.4 | **82.2** |
+| TrOCR | all fields | 45 | 17.9 | 17.4 | 37.2 | 38.3 | 64.4 | 62.2 |
+| EasyOCR | all fields | 45 | 32.7 | 21.6 | 57.4 | 45.7 | 53.3 | 60.0 |
+
+**Selected app model: fine-tuned PaddleOCR**, best on all three rates. Per-field
+results, validation and train are in Tables 1–2 below.
+
 **How to read the tables.** Each rate is shown twice, side by side: **pre** =
 the untouched public (pretrained) model, **fine** = the same model fine-tuned on
 our training labels (Colab run `20261117-031848`). Both columns score exactly
