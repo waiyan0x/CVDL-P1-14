@@ -81,7 +81,10 @@ def run(a):
         config[split]=dict(dataset=dict(name='SimpleDataSet',data_dir=str(a.data),
             label_file_list=[str(file)],transforms=transforms),
             loader=dict(shuffle=split=='Train',drop_last=False,batch_size_per_card=4 if a.dry_run else a.batch,num_workers=0))
-    if a.dry_run:config['Eval']=None
+    if a.dry_run:
+        # No eval in the 2-step smoke test. PaddleOCR v3.3.2 calls len(valid_dataloader)
+        # whenever eval_batch_step is a list, so use a plain, never-reached step instead.
+        config['Eval']=None;g['eval_batch_step']=10**9;g['eval_batch_epoch']=None
     config['Metric']=dict(name='RecMetric',main_indicator='cer_score')
     saved=json.loads((a.output/'config.json').read_text());saved['effective_paddle_config']=config
     (a.output/'config.json').write_text(json.dumps(saved,indent=2)+'\n')
