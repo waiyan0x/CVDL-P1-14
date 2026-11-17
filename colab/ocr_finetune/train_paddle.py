@@ -36,11 +36,27 @@ def run(a):
     # changed head, fail explicitly rather than silently dropping or reindexing.
     coverage=check_charset((a.data/'charset.txt').read_text(),characters,'English Paddle v5')
     for r in train:check_charset(r['text'],characters,'English Paddle v5')
-    if max(len(r['text']) for r in train)>config['Global']['max_text_length']:
-        raise ValueError('Training labels exceed the original max_text_length; no silent filtering')
+    # 5 training lines (up to 39 chars) exceed the config's 25. Raise the limit to the
+    # CTC output length rather than drop labels. At 48x320 input the CTC branch emits
+    # 40 timesteps; a label needs len + adjacent repeats <= 40. The limit only sets
+    # label padding and the auxiliary NRTR decode length (no learned weights).
+    ctc_steps=40
+    def ctc_need(t):return len(t)+sum(x==y for x,y in zip(t,t[1:]))
+    longest=max(ctc_need(r['text']) for r in train)
+    if longest>ctc_steps:
+        raise ValueError(f'A training label needs {longest} CTC steps > {ctc_steps}; no silent filtering')
+    original_max=config['Global']['max_text_length']
+    if max(len(r['text']) for r in train)>original_max:
+        config['Global']['max_text_length']=ctc_steps
+        for head in config['Architecture']['Head']['head_list']:
+            if 'NRTRHead' in head:head['NRTRHead']['max_text_length']=ctc_steps
+    max_text_length_change=dict(original=original_max,used=config['Global']['max_text_length'],
+        longest_train_label=max(len(r['text']) for r in train),
+        labels_over_original=sum(len(r['text'])>original_max for r in train))
     record_config(a,dict(initial_checkpoint_url=PADDLE_WEIGHTS_URL,initial_checkpoint_sha256=sha(weights),
                         upstream_tag='v3.3.2',upstream_commit=PADDLE_COMMIT,charset=coverage,
                         dictionary_sha256=sha(dictionary),base_config_sha256=sha(config_path),
+                        max_text_length=max_text_length_change,
                         selection='max 1/(1+val_crop_CER), exactly equivalent to minimum CER'))
     run_dictionary=a.output/'dictionary.txt';run_dictionary.write_bytes(dictionary.read_bytes())
     (a.output/'dictionary_check.json').write_text(json.dumps(coverage,indent=2)+'\n')
