@@ -16,7 +16,7 @@ class Detector:
         if not settings.detector_path.is_file():
             raise RuntimeError('YOLO checkpoint is missing.')
         if settings.detector_weights is None:
-            config_path = settings.root / 'evaluation/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json'
+            config_path = settings.root / 'Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json'
             expected = json.loads(config_path.read_text(encoding='utf-8'))['checkpoint_sha256']
             digest = hashlib.sha256()
             with settings.detector_path.open('rb') as stream:

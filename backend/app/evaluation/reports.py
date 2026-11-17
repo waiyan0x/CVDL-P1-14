@@ -61,7 +61,7 @@ def verify_evidence(report: dict, root: Path) -> None:
 
 
 def load_reports(root: Path) -> tuple[list[dict], list[str]]:
-    candidates = set((root / "evaluation/reports").glob("*.json"))
+    candidates = set((root / "Obj-Dect-OCR/reports").glob("*.json"))
     runtime_report = root / ".runtime/evaluation/detection.json"
     if runtime_report.is_file():
         candidates.add(runtime_report)

@@ -10,7 +10,7 @@ remaining integration work.
 
 ## Current v4 detector verification
 
-The newer [v4 detector configuration](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json)
+The newer [v4 detector configuration](../Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json)
 records YOLO11s confidence `0.50`, NMS IoU `0.70` and the local checkpoint hash.
 On a machine with the Git LFS v4 handoff ZIP, extract it first. Use its
 `source_coco/` directory as the reviewed dataset, then install the checkpoint
@@ -22,10 +22,10 @@ venv\detector\Scripts\python.exe scripts\install_selected_detector.py --verify-o
 venv\detector\Scripts\python.exe scripts\verify_v4_detector_handoff.py
 ```
 
-The app reads `evaluation/object_detection/01760a841333/runs/v4-reviewed-01/checkpoints/yolo11s-best.pt`.
+The app reads `Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/checkpoints/yolo11s-best.pt`.
 The installer checks the saved SHA-256 before and after copying; use
 `--source PATH` when transferring weights from another machine. The reviewed-v4
-full-photo archive and selected checkpoint are in the [OCR handoff](../evaluation/ocr_handoff/v4-reviewed-01/README.md)
+full-photo archive and selected checkpoint are in the [OCR handoff](../Obj-Dect-OCR/ocr_handoff/v4-reviewed-01/README.md)
 through Git LFS. At startup,
 the default detector rejects a checkpoint with the wrong SHA-256. The smoke
 test checks that the app's default path and threshold match v4, then verifies
@@ -39,11 +39,11 @@ confidence in Advanced settings.
 ## Historical baseline checkpoint
 
 The earlier baseline checkpoint, results and deployment configuration remain
-under `evaluation/object_detection/bf938f526d2c/runs/baseline-01/`. It is not
+under `Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/`. It is not
 the app default. To verify that its local file is still intact:
 
 ```powershell
-venv\detector\Scripts\python.exe scripts\install_selected_detector.py --config evaluation\object_detection\bf938f526d2c\runs\baseline-01\deployment\detector_config.json --verify-only
+venv\detector\Scripts\python.exe scripts\install_selected_detector.py --config Obj-Dect-OCR\object_detection\bf938f526d2c\runs\baseline-01\deployment\detector_config.json --verify-only
 ```
 
 The baseline SHA-256 is

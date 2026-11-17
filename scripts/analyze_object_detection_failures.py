@@ -172,7 +172,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dataset", type=Path, default=ROOT / "data/training/2026-10-30-torchvision")
     parser.add_argument("--checkpoint", type=Path, default=ROOT / ".runtime/object_detection_benchmark/bf938f526d2c/runs/baseline-01/yolo11s/weights/best.pt")
-    parser.add_argument("--output", type=Path, default=ROOT / "evaluation/object_detection/bf938f526d2c/runs/baseline-01/yolo11s/qualitative_validation")
+    parser.add_argument("--output", type=Path, default=ROOT / "Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/yolo11s/qualitative_validation")
     parser.add_argument("--confidence", type=float, default=0.20)
     parser.add_argument("--nms-iou", type=float, default=0.70)
     parser.add_argument("--image-size", type=int, default=640)

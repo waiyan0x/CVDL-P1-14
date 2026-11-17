@@ -1,6 +1,13 @@
 # OCR handoff for Cody
 
-Start with the single [reviewed-v4 OCR package](../evaluation/ocr_handoff/v4-reviewed-01/README.md) on `bren-object-detection`. Pull its Git LFS ZIP and extract it. The ZIP contains `train/`, `valid/`, and `test/` annotation crops in four class folders, the original full-photo COCO export, the selected YOLO11s checkpoint, validation detector-predicted crops, and CSV/Excel transcription templates. Do not substitute Jy's v5 export for this run.
+Start with the single [reviewed-v4 OCR package](../Obj-Dect-OCR/ocr_handoff/v4-reviewed-01/README.md) on `bren-object-detection`. Pull its Git LFS ZIP and extract it. The ZIP contains `train/`, `valid/`, and `test/` annotation crops in four class folders, the original full-photo COCO export, the selected YOLO11s checkpoint, validation detector-predicted crops, and CSV/Excel transcription templates. Do not substitute Jy's v5 export for this run.
+
+## Related project documentation
+
+- [Evaluation](EVALUATION.md): benchmark metrics, reporting, and ground-truth requirements.
+- [Development contract](DEVELOPMENT_CONTRACT.md): application modules, API behavior, and integration conventions.
+- [Object detection deployment](OBJECT_DETECTION_DEPLOYMENT.md): install and verify the selected YOLO11s detector for end-to-end tests.
+- [Object detection handoff](OBJECT_DETECTION_HANDOFF.md): detector results, class rules, and remaining integration work.
 
 ## What is in the package
 
@@ -20,7 +27,7 @@ There are 735/53/53 source images and 2,754/221/171 annotation crops in train/va
 
 ## Cody's starting sequence
 
-1. Pull `bren-object-detection` with Git LFS enabled. Verify and extract the one ZIP in the [package folder](../evaluation/ocr_handoff/v4-reviewed-01/README.md). It contains both full photos and crops; a tiny LFS pointer file is not the package.
+1. Pull `bren-object-detection` with Git LFS enabled. Verify and extract the one ZIP in the [package folder](../Obj-Dect-OCR/ocr_handoff/v4-reviewed-01/README.md). It contains both full photos and crops; a tiny LFS pointer file is not the package.
 2. Review the crop and image provenance. Have humans fill copies of the split transcription templates. Keep test truth closed while selecting models and preprocessing.
 3. Install the three OCR engines. The adapters are under [`backend/app/services/ocr/`](../backend/app/services/ocr/). EasyOCR assets use [`install_easyocr_assets.py`](../scripts/install_easyocr_assets.py); Tesseract requires its system executable and English data; TrOCR requires hydrated model weights via [`fetch_trocr.py`](../scripts/fetch_trocr.py). Check `/models` for availability.
 4. Compare EasyOCR, Tesseract, and TrOCR on the **same validation predicted crops**. Also compare annotation crops separately to isolate detector-crop errors. Record raw text, field-level exact and normalized accuracy, character error rate, unreadable/empty/error counts, and median/p95 latency. Keep OCR confidence separate from detection confidence and reference similarity.
@@ -43,4 +50,4 @@ In another terminal, once the image-level truth is reviewed:
 venv\detector\Scripts\python.exe scripts\evaluate.py --manifest C:\path\to\reviewed-v4-ocr-validation.json --detection 0.50
 ```
 
-Reports go to `evaluation/reports/` by default. Save each new experiment under a new run name; preserve historical detector results and do not overwrite the supplied dataset.
+Reports go to `Obj-Dect-OCR/reports/` by default. Save each new experiment under a new run name; preserve historical detector results and do not overwrite the supplied dataset.

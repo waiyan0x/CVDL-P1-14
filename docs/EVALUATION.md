@@ -15,7 +15,7 @@ models have training and validation records, and validation-selected YOLO11s has
 a final held-out test. Its validation mAP50:95 is `0.3510`; test mAP50:95 is
 `0.3270` at confidence `0.50` and NMS IoU `0.70`. The complete table, per-class
 AP, run settings and evidence paths are in
-[`RESULTS.md`](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
+[`RESULTS.md`](../Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
 This checkpoint is now installed as the application default; the earlier
 baseline is preserved as historical evidence. The human v4 annotation review
 and real moving-bus evaluation remain open.
@@ -23,7 +23,7 @@ and real moving-bus evaluation remain open.
 ## Earlier application detector measurement
 
 The earlier application detector benchmark is recorded under
-`evaluation/object_detection/bf938f526d2c/runs/baseline-01/`. YOLO11s was selected
+`Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/`. YOLO11s was selected
 using validation mAP50:95 (`0.4274`) with 640-pixel input, confidence `0.20` and NMS
 IoU `0.70`. It detects panel, number, route and destination classes. See
 `docs/OBJECT_DETECTION_DEPLOYMENT.md` for installation and the application contract,
@@ -37,7 +37,7 @@ Reproduce the committed report:
 .venv/bin/python scripts/evaluate_detector.py
 ```
 
-`evaluation/reports/detection.json` records the exact checkpoint SHA256,
+`Obj-Dect-OCR/reports/detection.json` records the exact checkpoint SHA256,
 image/annotation hashes, exclusions, library versions, CPU details and settings.
 The run uses 13 labelled images from the bundled test split after removing exact
 training overlaps, repeated test content and the unlabelled annotated example.
@@ -80,7 +80,7 @@ case/whitespace-normalized accuracy, character error rate and median/p95 latency
 Engine confidence values do not determine accuracy rankings. Reports retain
 successes/failures, settings, hardware, errors, hashes and limitations.
 
-Reports are loaded from `evaluation/reports/`. The interface shows whether their
+Reports are loaded from `Obj-Dect-OCR/reports/`. The interface shows whether their
 evidence still matches the available artifacts; a reviewed manifest is a human
 attestation and does not itself prove independent annotation quality.
 

@@ -18,7 +18,7 @@ from backend.app.services.detection import Detector
 from backend.app.services.pipeline import Pipeline
 
 
-RUN = ROOT / "evaluation/object_detection/01760a841333/runs/v4-reviewed-01"
+RUN = ROOT / "Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01"
 DATASET = ROOT / "data/training/2026-11-05-roboflow-v4-reviewed/valid"
 OUTPUT = RUN / "validation_review/integration_verification.json"
 SAMPLES = {

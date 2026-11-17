@@ -38,5 +38,5 @@ def evaluation(request: Request):
         ],
         "benchmark": {"command": ".venv/bin/python scripts/evaluate.py --manifest PATH_TO_REVIEWED_MANIFEST.json",
                       "manifest_format": "backend/app/evaluation/MANIFEST_FORMAT.md",
-                      "report_directory": "evaluation/reports"},
+                      "report_directory": "Obj-Dect-OCR/reports"},
     }

@@ -17,7 +17,7 @@ separate runs.
 The benchmark defaults to the local manifest-backed
 `data/training/2026-11-05-roboflow-v4-reviewed/` export. Its completed
 `v4-reviewed-01` run has a [saved three-model validation comparison and selected
-YOLO11s final test](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
+YOLO11s final test](../Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
 The older `2026-10-30-torchvision` dataset and `baseline-01` results are
 preserved. Separate model dependencies are needed before training.
 The curated `data/samples/` gallery is for qualitative inspection and cannot
@@ -34,7 +34,7 @@ The v4 notebook has saved outputs, but its older written `baseline-01` table is
 historical. Read the v4 `RESULTS.md` and archived JSON reports for the new
 measurements. Both final-test reports are complete; avoid running either test
 again for threshold selection. Use a new run ID for future experiments.
-The later [v4 validation NMS/crop review](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
+The later [v4 validation NMS/crop review](../Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
 compares `0.50` and `0.70` without reopening the test. The tested v4
 configuration remains NMS `0.70`.
 
@@ -92,8 +92,8 @@ The human data review remains a prerequisite for declaring the dataset final. If
 it changes labels or split groups, publish a new dataset version and rerun all
 three models under a new run ID; otherwise preserve `baseline-01` without rerunning
 the held-out test. See the [Cody handoff](../docs/OBJECT_DETECTION_HANDOFF.md),
-[saved results](../evaluation/object_detection/bf938f526d2c/runs/baseline-01/RESULTS.md)
-and [review packet](../evaluation/object_detection/bf938f526d2c/runs/baseline-01/data_review/REVIEW.md).
+[saved results](../Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/RESULTS.md)
+and [review packet](../Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/data_review/REVIEW.md).
 
 The historical 13-image field-detector report and sample gallery are useful
 references, but they do not replace this four-class, held-out evaluation.

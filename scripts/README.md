@@ -22,7 +22,7 @@ venv\detector\Scripts\python.exe scripts\install_selected_detector.py --verify-o
 ```
 
 The earlier baseline checkpoint and its config remain under
-`evaluation/object_detection/bf938f526d2c/runs/baseline-01/`; pass that
+`Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/`; pass that
 configuration with `--config` to verify or reinstall it without changing the
 application default.
 
@@ -32,7 +32,7 @@ new run ID for a new attempt of the same model; existing model folders are not
 overwritten:
 
 The completed reviewed-v4 experiment is
-[`v4-reviewed-01`](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
+[`v4-reviewed-01`](../Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
 It used `--dataset data/training/2026-11-05-roboflow-v4-reviewed --epochs 60`
 for all three models, with image size 640, batch size 4 and seed 42. YOLO used
 patience 15. Validation reports exist for all three models; only selected
@@ -42,7 +42,7 @@ For the completed v4 validation-only NMS comparison and the application crop
 smoke test, the reproducible commands are:
 
 ```powershell
-venv\detector\Scripts\python.exe scripts\review_v4_detector_validation.py --output evaluation\object_detection\01760a841333\runs\v4-reviewed-01\validation_review_new
+venv\detector\Scripts\python.exe scripts\review_v4_detector_validation.py --output Obj-Dect-OCR\object_detection\01760a841333\runs\v4-reviewed-01\validation_review_new
 venv\detector\Scripts\python.exe scripts\verify_v4_detector_handoff.py
 ```
 
@@ -77,7 +77,7 @@ The default dataset is `data/training/2026-10-30-torchvision`, with 30 epochs,
 640-pixel input and YOLO batch size 4. Use `--dataset`, `--epochs`,
 `--image-size` or `--batch-size` to change them. New outputs are stored under
 `.runtime/object_detection_benchmark/<dataset-id>/runs/<run-id>/<model>/` and
-mirrored to `evaluation/object_detection/<dataset-id>/runs/<run-id>/<model>/`.
+mirrored to `Obj-Dect-OCR/object_detection/<dataset-id>/runs/<run-id>/<model>/`.
 Set the same `RUN_ID` and model selection in the benchmark notebook for
 validation and test.
 

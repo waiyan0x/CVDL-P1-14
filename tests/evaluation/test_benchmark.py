@@ -49,7 +49,7 @@ def test_benchmark_records_warmup_failures_identity_and_missing_engine_without_i
     assert report["engines"]["trocr"]["metrics"] is None
     assert report["engines"]["trocr"]["failure_count"] == 0
     assert report["engines"]["easyocr"]["metrics"]["latency_ms"]["count"] == 1
-    directory = tmp_path / "evaluation/reports"
+    directory = tmp_path / "Obj-Dect-OCR/reports"
     directory.mkdir(parents=True)
     (directory / "reviewed.json").write_text(json.dumps(report))
     loaded, warnings = load_reports(tmp_path)

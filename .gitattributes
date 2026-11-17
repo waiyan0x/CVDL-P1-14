@@ -1,3 +1,7 @@
 # Frozen recipe reference: preserve the bytes recorded in export manifests.
 /docs/data_preparation/recipes/* -text
-/evaluation/ocr_handoff/v4-reviewed-01/*.zip filter=lfs diff=lfs merge=lfs -text
+/Obj-Dect-OCR/**/*.zip filter=lfs diff=lfs merge=lfs -text
+/Obj-Dect-OCR/**/*.pt filter=lfs diff=lfs merge=lfs -text
+/Obj-Dect-OCR/**/*.safetensors filter=lfs diff=lfs merge=lfs -text
+/Obj-Dect-OCR/**/*.bin filter=lfs diff=lfs merge=lfs -text
+/YOLO_Weights/*.pt filter=lfs diff=lfs merge=lfs -text
