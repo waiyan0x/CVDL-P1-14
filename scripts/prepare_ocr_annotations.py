@@ -174,8 +174,8 @@ def prepare(source, output, provenance):
     (output / "README.md").write_text(
         "# V4 OCR review workspace\n\n"
         "Status: unreviewed preparation; no OCR truth or accuracy is asserted.\n\n"
-        "Read repository-root `docs/OCR_ANNOTATION_PACKAGE.md` and "
-        "`docs/OCR_TRANSCRIPTION_RULES.md` before review.\n\n"
+        "Read repository-root `docs/archive/ocr/OCR_ANNOTATION_PACKAGE.md` and "
+        "`docs/archive/ocr/OCR_TRANSCRIPTION_RULES.md` before review.\n\n"
         "- `annotation_review.csv`: supplied annotation text-crop template plus metadata.\n"
         "- `prediction_review.csv`: independent predicted text-crop review.\n"
         "- `image_review.csv`: all source images, including source zero-box negatives.\n"

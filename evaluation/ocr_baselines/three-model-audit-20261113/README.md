@@ -26,4 +26,4 @@ fallback or omitted IDs. Failed eligible examples later count as empty hypothese
 under the scorer. No test images, OCR inference, fine-tuning or matching were used
 in this audit. CPU and MPS timings cannot support a direct latency ranking.
 
-See [the protocol and reproduction command](../../../docs/OCR_PRETRAINING_DELIVERABLE.md).
+See [the protocol and reproduction command](../../../docs/archive/ocr/OCR_PRETRAINING_DELIVERABLE.md).

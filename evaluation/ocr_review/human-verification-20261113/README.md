@@ -1,6 +1,6 @@
 # Human verification files
 
-Start with [the instructions](../../../docs/OCR_HUMAN_VERIFICATION.md).
+Start with [the instructions](../../../docs/archive/ocr/OCR_HUMAN_VERIFICATION.md).
 
 - Open `training.html` to inspect the 1,917 training crops without AI text.
 - Copy `training.decisions.template.csv` to a reviewer-named file and fill only

@@ -259,11 +259,12 @@ Decision rules:
 
 ## Nonblocking tidy-up before submission
 
-- [ ] Delete segmentation_previews folders (approximately 1,900 PNGs); keep
+- [x] Delete segmentation_previews folders (approximately 1,900 PNGs); keep
   latest run per model. Preserve required pretrained/fine-tuned split outputs
   and supporting evidence.
-- [ ] Remove /Users/tanyilin/... paths from CSVs.
-- [ ] Consolidate the 11 docs/OCR_*.md documents into one short README.
+- [x] Remove /Users/tanyilin/... paths from CSVs.
+- [x] Consolidate the 11 docs/OCR_*.md documents into one short README.
+  Done 17 November 2026: docs/OCR_README.md; details in evaluation/tidyup-20261117/.
 
 Historical audit follow-up (superseded above), 16 November 2026: class-export ZIP received and verified (3,146 PNGs match cache). Full source-photo ZIP and YOLO11s weights remain absent. Current Paddle recommendation withdrawn; unrun metric rows now n=0. Human forms have local draft recovery, distinct filenames and incomplete-row warnings. Spot-check coverage verified as 50 crops / 44 label groups / 41 photos. Human returns remain pending.
 

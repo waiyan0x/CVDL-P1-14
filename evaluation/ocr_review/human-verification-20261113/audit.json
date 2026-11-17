@@ -1,6 +1,6 @@
 {
   "source_sha256": {
-    "evaluation/ocr_training/v4-reviewed-01-ai-followup-20261112/transcriptions.ai-followup.csv": "1f93d2cf043fe37386c375ecb083116322945b98d9a02f4ddcaf25e976727cb1",
+    "evaluation/ocr_training/v4-reviewed-01-ai-followup-20261112/transcriptions.ai-followup.csv": "6b30ba0cf1d165e3f9c4db5004a399506f9d8929f79ee9d0f91113bf6934f3ce",
     "evaluation/ocr_annotations/v4-reviewed-01/submissions/codex-ai-20261112-01/annotation_ai.review.csv": "74b670e072ab1f58429be41f1e78feaf148b0b8584f090be7d246aa445b925f1",
     "evaluation/ocr_annotations/v4-reviewed-01/submissions/codex-ai-20261112-01/prediction_ai.review.csv": "b662069ae8b81f5ec825bb9cdf8f8deb5ef78d3584ed98d0b0860aba84678771"
   },

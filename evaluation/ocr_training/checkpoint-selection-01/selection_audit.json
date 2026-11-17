@@ -8,7 +8,7 @@
     "supplied_training_args_path": "models/trocr-finetuned/training_args.bin",
     "supplied_training_args_sha256": "182987138951826a521f06bd6efb2bcbff8aa1010fdeaa00b4101b1c0115cba0",
     "latest_training_review_audit_path": "evaluation/ocr_training/v4-reviewed-01-ai-01/review_audit.json",
-    "latest_training_review_audit_sha256": "24102aac8af7a8dbcefc9f4857c0025033edf5bc8ba2e4c198e8c1cd5ff10698",
+    "latest_training_review_audit_sha256": "1ff0524f6ed407d007214bb318384006ed8c97a2f59b89e359de9b983d092039",
     "latest_training_review_training_ready_rows": 0,
     "supplied_configuration_snapshot_path": "evaluation/ocr_training/checkpoint-selection-01/supplied_training_configuration.json",
     "saved_selection_metric": "exact_match_accuracy",

@@ -15,9 +15,9 @@
   public checkpoint reached MPS, but disk exhaustion prevented inference.
   No predictions or benchmark timings exist for this attempt.
 
-See [model selection status and portable next steps](../../docs/OCR_MODEL_SELECTION.md).
+See [model selection status and portable next steps](../../docs/archive/ocr/OCR_MODEL_SELECTION.md).
 
-See [the protocol and known limitations](../../docs/OCR_CROP_BASELINE.md).
+See [the protocol and known limitations](../../docs/archive/ocr/OCR_CROP_BASELINE.md).
 Do not overwrite runs. Both preserve exact runner/core source snapshots and
 environment/input/model evidence. Timing differences between runs are not an
 accuracy ranking or a controlled performance comparison.

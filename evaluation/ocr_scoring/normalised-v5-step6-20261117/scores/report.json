@@ -36,7 +36,7 @@
     ],
     "reference_matching": false
   },
-  "manifest_sha256": "f1c4c8ef63e0cfa9b6fd543c6ded4e95c163b773db949e081ab31cfda4dadf8c",
+  "manifest_sha256": "8c7bf76637da89e4acc98a88f0d12b375de83ef97a3a078a8fd5911d3c4ab415",
   "config_sha256": "1b7aaa0deba592e46d7328c27db7b9964d19aaea2cc6bc9e10ef793970387171",
   "crop_pixels_accessed": false,
   "models": [

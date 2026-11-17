@@ -43,9 +43,9 @@
     "v4-reviewed-01-training.zip": "eed81556629f1223529ada839dd23c0f575961315ef46ebd2878f6d719ed6bd8"
   },
   "artifact_sha256": {
-    "transcriptions.review.csv": "24a7503b450d640b1d8727e42ed476aecccaeccc47ef3249685659c0487922b8",
-    "human_review_queue.csv": "50193e1489f18f7a70fc7ecba5bb813f0da98c7c1fa5c0cbe45dae7578810a07",
-    "full_text.ai-candidates.csv": "cb03672ce79463359471d55a41c237fb81437f0d21c38158f6ddb2d39b3fe0ce",
+    "transcriptions.review.csv": "262002fef345ae05b998de16744c828738d7f59b3ec155d33310bfe6ba04be9c",
+    "human_review_queue.csv": "be6854fd3d5b5358897f5478bdf2fc562e2a07de42227a20c5e6ccec026172b0",
+    "full_text.ai-candidates.csv": "d2139018d155ad4a5dd6b79a358080318d046f63479b3b0acf757696fdd1bef7",
     "source_review.csv": "da264873b9f6e173e20948fbbea82436988fa9d01ea1cc665ae7d0a53d9e8a0f",
     "source_audit.json": "712413f41bf477186feb32fe9b023fee4eedbcdc468d80b0986ab7778b42d0b7",
     "source_groups.json": "37edb0d02ec82ea58ea69dcb7bf83ba419600b39375328a5e22e5c707ac5c6fc"

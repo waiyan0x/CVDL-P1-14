@@ -247,7 +247,7 @@ def prepare(repo, output):
             "There is no legacy route-text class: no route crops have been invented. New route geometry "
             "must come from visible training-photo content. Keep panel/bus-front boxes as context, not text targets.\n\n"
             "Next: inspect candidate source groups and native crops; add/correct route and destination geometry; "
-            "transcribe visible text using `docs/OCR_TRANSCRIPTION_RULES.md`; validate labels. "
+            "transcribe visible text using `docs/archive/ocr/OCR_TRANSCRIPTION_RULES.md`; validate labels. "
             "Assistant-authored labels must identify reviewer_type=AI and must not claim human review. "
             "Use the actual review date, not the export date. Blank cells remain unannotated. "
             "Partial/illegible text and [UNK] syntax are not literal whole-string training targets.\n\n"

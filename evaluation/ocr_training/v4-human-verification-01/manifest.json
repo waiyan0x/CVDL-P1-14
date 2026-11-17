@@ -1,6 +1,6 @@
 {
   "status": "pending_human_review",
-  "source_candidates_sha256": "cb03672ce79463359471d55a41c237fb81437f0d21c38158f6ddb2d39b3fe0ce",
+  "source_candidates_sha256": "d2139018d155ad4a5dd6b79a358080318d046f63479b3b0acf757696fdd1bef7",
   "selection": "First three distinct groups/texts per field with three candidate source variants; groups not reused between fields.",
   "limitations": "Deterministic small batch, not a representative accuracy sample. AI labels informed selection but are hidden from sheets/template. Group independence remains unresolved.",
   "counts": {

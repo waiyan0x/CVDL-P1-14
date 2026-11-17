@@ -2,7 +2,7 @@
 
 Status: unreviewed preparation; no OCR truth or accuracy is asserted.
 
-Read repository-root `docs/OCR_ANNOTATION_PACKAGE.md` and `docs/OCR_TRANSCRIPTION_RULES.md` before review.
+Read repository-root `docs/archive/ocr/OCR_ANNOTATION_PACKAGE.md` and `docs/archive/ocr/OCR_TRANSCRIPTION_RULES.md` before review.
 
 - `annotation_review.csv`: supplied annotation text-crop template plus metadata.
 - `prediction_review.csv`: independent predicted text-crop review.

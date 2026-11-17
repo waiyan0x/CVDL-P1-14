@@ -12,7 +12,7 @@ Status: **AI first pass complete; human verification and source-scene grouping u
 | Observed metadata/candidate links | 75 training variants share names with legacy validation/test sources. Nine additional variants link to previously quarantined legacy groups. All 84 source variants / 28 groups / 288 text crops are conservatively quarantined. | `source_audit.json` §§legacy_holdout_direct_links / legacy_holdout_matches |
 | Not established | These historical links do not prove leakage in the new v4 train/valid/test split. No related-scene independence or human ground truth is claimed. | `source_audit.json` §limitations |
 | Observed limitation | Full dataset ZIP was missing when this task started and remained unavailable. Full photos and complete v4 test grouping could not be reviewed. | `intake_audit.json`; supplied train manifest contains producer Windows paths, not available local originals |
-| Project decision | Preserve visible text, case, punctuation, abbreviations and actual line breaks; use `[UNK]` for unresolved spans; no guessed completion or literal `[UNK]` training. | `docs/OCR_TRANSCRIPTION_RULES.md` §Transcription conventions; `docs/OCR_ANNOTATION_PACKAGE.md` §Text states and scoring policy |
+| Project decision | Preserve visible text, case, punctuation, abbreviations and actual line breaks; use `[UNK]` for unresolved spans; no guessed completion or literal `[UNK]` training. | `docs/archive/ocr/OCR_TRANSCRIPTION_RULES.md` §Transcription conventions; `docs/archive/ocr/OCR_ANNOTATION_PACKAGE.md` §Text states and scoring policy |
 | Not stated | Coursework requirements/weights, a closed character alphabet, human verification, and approval to train. | No additional brief/rubric or human review supplied in this task |
 
 ## Files to use

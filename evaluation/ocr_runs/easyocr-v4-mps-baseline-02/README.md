@@ -20,3 +20,5 @@ Inspect `segmentation_previews/` and `predictions.jsonl` before trusting line la
 
 All line regions—including single-band cases—are unverified candidates. No claim of correct segmentation or dataset independence is made.
 Median/p95 describe one pass across successful heterogeneous crops, not repeated measurements of a fixed input or application throughput.
+
+Tidy-up 17 November 2026: `segmentation_previews/` (271 PNGs) removed from this superseded run. Recover with `git checkout 63f80ba -- evaluation/ocr_runs/easyocr-v4-mps-baseline-02/segmentation_previews`.

@@ -1,6 +1,6 @@
 {
   "source": "evaluation/ocr_review/human-verification-20261113/training.source.csv",
-  "source_sha256": "1c3e7eefac1a40eaa541fc2f4cc3831da5d2bcf887bf7d9bb56c7fd50905f19e",
+  "source_sha256": "f35dcfbd5fa26012927d1903813aaf95187a1a88f960788305c8a3e2fda49ae4",
   "filter_order": "full/no UNK/nonchallenge; group source_name,label; exactly 3 distinct images with identical literal text",
   "selected_crops": 387,
   "selected_groups": 129,

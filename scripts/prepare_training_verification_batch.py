@@ -121,7 +121,7 @@ def prepare(workspace, output):
             "(yes/no/uncertain), legibility (full/partial/illegible/not_applicable), "
             "review_status (reviewed/needs_resolution), your actual reviewer identity, "
             "reviewer_type=human, actual ISO review date, and any notes.\n\n"
-            "Follow repository docs/OCR_TRANSCRIPTION_RULES.md: preserve case, punctuation "
+            "Follow repository docs/archive/ocr/OCR_TRANSCRIPTION_RULES.md: preserve case, punctuation "
             "and abbreviations; one word space; actual line breaks. Read only this crop. "
             "Do not complete text using another variant, filenames, route knowledge or AI/OCR "
             "suggestions. Use [UNK] for each unresolved span: partial requires readable text "

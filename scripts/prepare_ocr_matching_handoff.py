@@ -129,7 +129,7 @@ if __name__ == "__main__":
     parser.add_argument("--report-dir", type=Path)
     parser.add_argument("--config", type=Path)
     parser.add_argument("--reference", type=Path, default=Path("data/bus_information.csv"))
-    parser.add_argument("--guide", type=Path, default=Path("docs/OCR_MATCHING_HANDOFF.md"))
+    parser.add_argument("--guide", type=Path, default=Path("docs/archive/ocr/OCR_MATCHING_HANDOFF.md"))
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.selected:
