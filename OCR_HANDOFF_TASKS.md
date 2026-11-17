@@ -7,14 +7,25 @@ No task below is marked complete merely because this checklist exists.
 
 ## Status and dependencies
 
-- [ ] Complete steps 1–9 below; report blockers directly to the user.
+Current audit — 17 November 2026: steps 2–8 are complete for the agreed scope
+(test annotation crops only). All 18 saved runs have identical crop identities
+and layouts within each split; all six model scores reproduce exactly.
+Final matching package: `.runtime/ocr-matching-final-20261117.zip`.
+It includes 389 text-field records and 163 whole-display records, separate
+validation/test labels, reference data, source photos, selected weights and a
+new-crop command. Matching implementation belongs to the user.
+
+- [ ] Complete step 9 display-ownership confirmation where fields will be combined.
+  The package is ready for matching development with candidate IDs; human-confirmed
+  ownership is not claimed. Prioritise P005/P035/P074/P094 in
+  `review/display_ownership.html`; uncertain cases may remain unresolved.
 - User clarification: requested visual checks require a human. Codex inspection
   does not satisfy them. Prepare review material and record actual human returns;
   never mark these checks complete from AI inspection.
-- [ ] Obtain Brendan's test archive and clarification about the 288 quarantined
-  crops. The user authorised asking Brendan; establish the intended contact
-  before messaging anyone.
-- [ ] Identify team Drive destination for trained weights.
+- [x] Obtain Brendan's archive. Quarantine question dropped by user; no additions.
+- [x] Identify team Drive destination: `DRIVE/CVDL-OCR-finetune/`.
+  A shareable URL remains unavailable; the final package includes the selected
+  weights directly, so downloading them is not a matching dependency.
 - Preserve actual AI/human provenance even though the user adopts the selected
   AI labels as project ground truth. Prior human-review gates must not silently
   prevent the newly requested scoring.
@@ -24,7 +35,7 @@ No task below is marked complete merely because this checklist exists.
   uses TEST for model selection, not as an independent final estimate. Do not
   use TEST to tune settings, train, or choose checkpoints.
 
-## Progress — 16 November 2026
+## Historical progress — 16 November 2026 (superseded by current audit above)
 
 - Step 1 implemented: validation sanity-check CER 10.7% TrOCR / 31.5% EasyOCR
   when combining populations for this check; published tables keep them separate.
@@ -145,7 +156,7 @@ Degenerate validation line images: A095_00 (144x4 px), P034_00 (87x3 px).
   ZIP CRC checks passed, Paddle provenance hashes verified. Local file hashes
   and source mappings: `.cache/finetuned/import_manifest.json`.
 - [x] Add custom EasyOCR network loading and fine-tuned run labels to the runners
-  (committed in `bea9837`). Model reload and inference remain to be run.
+  (committed in `bea9837`). All model reloads and split inference runs completed.
 - [x] Run all three fine-tuned models on the same train/validation/test crops
   and layouts as their pretrained versions.
 - [x] Save evaluation/ocr_runs/<model>-finetuned-<split>/.
@@ -162,30 +173,38 @@ Degenerate validation line images: A095_00 (144x4 px), P034_00 (87x3 px).
 ## 8. Results
 
 - [x] Write evaluation/OCR_RESULTS.md, not HTML.
-- [x] Table 1: annotation crops. Table 2: detector crops (validation and test).
+- [x] Table 1: annotation crops. Table 2: detector crops (validation only;
+  test detector crops dropped by the user).
   Include the requested train results in the applicable annotation table.
 - [x] Columns: Model | Version | Split | Field (number/destination/route/all) |
   Crops (n) | CER (%) | WER (%) | Exact match (%).
 - [x] One decimal place; n is crops actually scored.
 - [x] Below tables state label sources by split, spot-check percentage,
   exclusions with counts and normalised scoring.
-- [ ] Identify selected model and Drive link to weights. Selected: fine-tuned
+- [x] Identify selected model and provide weights. Selected: fine-tuned
   PaddleOCR (test All fields CER 8.2 / WER 19.1 / exact 82.2, n=45; best of the
-  fine-tuned models on all three and better than pretrained). Shareable Drive
-  link still to add.
+  fine-tuned models on all three and better than pretrained). Drive folder recorded;
+  weights included directly in the final ZIP. Shareable URL is an optional follow-up.
 
 ## 9. OCR handoff to matching owner (the user)
 
-- [ ] Produce matching_inputs.jsonl using prepare_ocr_matching_handoff.py from
+- [x] Produce matching_inputs.jsonl using prepare_ocr_matching_handoff.py --selected from
   the selected fine-tuned model, validation/test, annotation/detector crops.
 - [ ] Every crop has candidate_display_id identifying its actual display, so
   number and destination can be paired from the same bus.
-- [ ] Run raw OCR on whole-display front_eds crops too. Preserve these outputs
+  Candidate IDs are present for all 552 records. Geometry proposes 385 text-field
+  assignments; 3 have no covering panel and 1 has competing panels. Ownership
+  review is separate from completed text labels. No AI check is called human review.
+- [x] Run raw OCR on whole-display front_eds crops too. Preserve these outputs
   and display links; use field=front_eds, explicitly confirmed by the user.
-- [ ] Provide validation/test labels separately as CSV using the same review_id;
+  Completed 163 panels (64 validation annotation, 46 validation detector, 53 test
+  annotation); automatic pixel-only segmentation, no panel accuracy claim.
+- [x] Provide validation/test labels separately as CSV using the same review_id;
   document the review_id/record_id join. Labels never enter matching JSONL.
-- [ ] Include the bus_information.csv snapshot, OCR_RESULTS.md, weights link
+- [x] Include the bus_information.csv snapshot, OCR_RESULTS.md, weights files
   and exact command to run the selected model on a new crop.
+  ZIP includes `weights/paddleocr/`, provenance, portable inference source and
+  successful-run environment versions. No matching implementation is included.
 
 ### Matching input contract
 
@@ -246,11 +265,11 @@ Decision rules:
 - [ ] Remove /Users/tanyilin/... paths from CSVs.
 - [ ] Consolidate the 11 docs/OCR_*.md documents into one short README.
 
-User audit follow-up, 16 November 2026: class-export ZIP received and verified (3,146 PNGs match cache). Full source-photo ZIP and YOLO11s weights remain absent. Current Paddle recommendation withdrawn; unrun metric rows now n=0. Human forms have local draft recovery, distinct filenames and incomplete-row warnings. Spot-check coverage verified as 50 crops / 44 label groups / 41 photos. Human returns remain pending.
+Historical audit follow-up (superseded above), 16 November 2026: class-export ZIP received and verified (3,146 PNGs match cache). Full source-photo ZIP and YOLO11s weights remain absent. Current Paddle recommendation withdrawn; unrun metric rows now n=0. Human forms have local draft recovery, distinct filenames and incomplete-row warnings. Spot-check coverage verified as 50 crops / 44 label groups / 41 photos. Human returns remain pending.
 
-Observed human-return update, 16 November 2026: 258 validation returns imported; reviewer cody confirmed by user (original cods export preserved). User explicitly sets P065 wrong_field, with A091 unchanged. Corrected snapshot normalised-v4-valid-human-corrected scores 79 annotation / 51 detector crops. P089/P107 remain suggestions. Train/test human checks remain pending; test Claude AI proposals exist and retain AI provenance.
+Historical human-return update (superseded above), 16 November 2026: 258 validation returns imported; reviewer cody confirmed by user (original cods export preserved). User explicitly sets P065 wrong_field, with A091 unchanged. Corrected snapshot normalised-v4-valid-human-corrected scores 79 annotation / 51 detector crops. P089/P107 remain suggestions. Train/test human checks remain pending; test Claude AI proposals exist and retain AI provenance.
 
-Training preparation update — 17 November 2026
+Historical training preparation — 17 November 2026 (later runs/reviews complete above)
 Validation merge committed as 0e8b3d6; cody confirmed; A091/P065 wrong_field.
 Fine-tuning code: colab/ocr_finetune/ (TrOCR, EasyOCR and PaddleOCR trainers plus
 Colab notebook). Bundle: scripts/export_ocr_finetune_bundle.py ->
@@ -271,6 +290,6 @@ Pretrained runs added: easyocr-pretrained-test (118 crops) and
 easyocr-pretrained-train (1,917 crops; 521 inferred), both on MPS. TrOCR and
 PaddleOCR train/test runs are packaged for Colab
 (.runtime/ocr_pretrained_test_runs.zip, .runtime/ocr_pretrained_train_runs.zip).
-Test outputs are not scored until the 118 test labels are human-confirmed.
-Human training spot-check and test confirmations still require human returns.
+Later update: all 118 test labels and the 50-crop spot-check have human returns.
+All six model variants are scored in normalised-v5-step6-20261117.
 Test detector crops are deferred: test results cover annotation crops only.

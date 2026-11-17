@@ -125,12 +125,20 @@ def prepare(report_dir, config_path, reference, guide, output):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--report-dir", type=Path, required=True)
-    parser.add_argument("--config", type=Path, required=True)
+    parser.add_argument("--selected", action="store_true", help="Build the final selected PaddleOCR valid/test handoff, including panel OCR")
+    parser.add_argument("--report-dir", type=Path)
+    parser.add_argument("--config", type=Path)
     parser.add_argument("--reference", type=Path, default=Path("data/bus_information.csv"))
     parser.add_argument("--guide", type=Path, default=Path("docs/OCR_MATCHING_HANDOFF.md"))
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
+    if args.selected:
+        from selected_ocr_handoff import prepare as prepare_selected
+        summary = prepare_selected(args.output)
+        print(json.dumps({k: summary[k] for k in ("records", "counts", "statuses", "display_assignments")}, indent=2))
+        sys.exit(0)
+    if args.report_dir is None or args.config is None:
+        parser.error("Historical mode requires --report-dir and --config; use --selected for the final handoff")
     summary = prepare(args.report_dir, args.config, args.reference, args.guide, args.output)
     print(json.dumps({k: summary[k] for k in ("records", "unique_crops", "statuses", "challenge_records",
                                              "scoring_eligible_records")}, indent=2))

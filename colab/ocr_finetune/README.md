@@ -1,8 +1,9 @@
 # Colab OCR fine-tuning
 
-Preparation only: no local training, model-loading dry run, GPU run or training
-result is claimed. These are new files; existing files/runners were not edited.
-No commit or push is part of this task. **TEST was not read or used.**
+GPU training completed for all three models in Colab run `20261117-031848`;
+results and checkpoint-selection limits are recorded below. The training code,
+results and fine-tuned runner support are committed in `bea9837`.
+**TEST was not used for training or checkpoint selection.**
 
 ## Build and upload
 
@@ -183,6 +184,11 @@ Without these flags the runners behave as before, so pretrained runs reproduce.
 
 1. Download each `DRIVE/CVDL-OCR-finetune/<model>/20261117-031848/best/` folder
    to `.cache/finetuned/<model>/` (`easyocr`, `trocr`, `paddleocr`). Not Git.
+   Completed 17 November 2026 from the three user-supplied Drive ZIPs: 4
+   EasyOCR files, 10 TrOCR files and 4 PaddleOCR files, directly inside each
+   model directory. ZIP CRC checks passed; Paddle's exported file hashes match
+   its provenance. Local SHA-256 inventory and source archive/folder mappings:
+   `.cache/finetuned/import_manifest.json`. Extraction does not verify model reload.
 2. Run `scripts/run_finetuned_ocr.sh` (all three) or name models, e.g.
    `scripts/run_finetuned_ocr.sh paddleocr`. Each model runs train, valid and
    test with the same crops, frozen layouts, seed and warmup as its pretrained

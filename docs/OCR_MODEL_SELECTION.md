@@ -1,3 +1,5 @@
+> Current status — 17 November 2026: steps 2–8 are complete. Fine-tuned PaddleOCR is selected (test n=45: CER 8.2%, WER 19.1%, exact 82.2%). Use `.runtime/ocr-matching-final-20261117/README.md` and its ZIP for the final handoff, including weights. Display ownership remains a geometry proposal until confirmed. The material below is historical.
+
 # OCR model selection
 
 **Observed evidence:** EasyOCR is the working pretrained baseline. No accuracy

@@ -1,0 +1,151 @@
+{
+  "scoring_reproduced_exactly": true,
+  "runs": [
+    {
+      "run": "easyocr-pretrained-train",
+      "crops": 1917,
+      "crop_identity_equal": true,
+      "layout_sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+      "report_sha256": "f8e4e338d7ec272b514b7e3287e57d4d7c9907f9cd6fa924923df8ca18a842d9",
+      "predictions_sha256": "303f46ed15113f97f3250df9d484347d71de66b1c2f73d307b4e2991c57dccd0"
+    },
+    {
+      "run": "easyocr-finetuned-train",
+      "crops": 1917,
+      "crop_identity_equal": true,
+      "layout_sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+      "report_sha256": "5a3b0044573e4b23acedef397289f5fc1c56761531dc6541466cd4108357c670",
+      "predictions_sha256": "7d78d33d784da5e2540c63a77bc64762d12bcb323ed7e4606e457f1b541197da"
+    },
+    {
+      "run": "trocr-pretrained-train",
+      "crops": 1917,
+      "crop_identity_equal": true,
+      "layout_sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+      "report_sha256": "0ce618d573860bd212f863eab94fe1733955c9502103f7f4926a8f92b320d414",
+      "predictions_sha256": "fe9da989f0ad78e4acbb54eba6a33604db5c729dfca96c3fbab8ddf7b47c808f"
+    },
+    {
+      "run": "trocr-finetuned-train",
+      "crops": 1917,
+      "crop_identity_equal": true,
+      "layout_sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+      "report_sha256": "3d3c294d1fdd59a5608a7b92a0786175e24fda743b3f21215d0780e7ab3258a3",
+      "predictions_sha256": "3011e6f3427afb63d38c5fa56eb2c15bf85dc54ec5417da8e0dbf76cd6178ece"
+    },
+    {
+      "run": "paddleocr-pretrained-train",
+      "crops": 1917,
+      "crop_identity_equal": true,
+      "layout_sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+      "report_sha256": "de7f1c2e582f4a583a9f25ccf3dc349405aa5702c7ba5c56900afaa549fa0374",
+      "predictions_sha256": "a99482eebd28b134141cb3719e39672ec45783f6facb2b8e36428a7086a574b0"
+    },
+    {
+      "run": "paddleocr-finetuned-train",
+      "crops": 1917,
+      "crop_identity_equal": true,
+      "layout_sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+      "report_sha256": "22ed16a6478b720be3ed46e104646ae98de172db275252050cbfa6d8158ad60a",
+      "predictions_sha256": "b7794c581cc31b62395f1c4e9efcaed803368ca8d4ee38f7fc6cb04dc65be821"
+    },
+    {
+      "run": "easyocr-pretrained-valid",
+      "crops": 271,
+      "crop_identity_equal": true,
+      "layout_sha256": "218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd",
+      "report_sha256": "127226b31d9c44ea78467a80745afec1a9307ddc6ffefe7f7e00d14caec9ff8e",
+      "predictions_sha256": "af355be8728ba6512fcd95827a7d67059737ff3329e8a998bb9a25fee72e384f"
+    },
+    {
+      "run": "easyocr-finetuned-valid",
+      "crops": 271,
+      "crop_identity_equal": true,
+      "layout_sha256": "218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd",
+      "report_sha256": "8a74c38f1f191819b0d7119344839ccc741b4645372edcc658a7dee22e58394b",
+      "predictions_sha256": "538226d7d34df924cafb3a8477231ee849475156ba42f0bd56ba7be215c4ae0e"
+    },
+    {
+      "run": "trocr-pretrained-valid",
+      "crops": 271,
+      "crop_identity_equal": true,
+      "layout_sha256": "218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd",
+      "report_sha256": "2c577fca30f3e3419e7b8918e35c995b493b8726243609b4d3d0128639be9c5a",
+      "predictions_sha256": "1fd17b4fdd7567dd89e446685906567568fe54128720d4b32461ad72bd04cddc"
+    },
+    {
+      "run": "trocr-finetuned-valid",
+      "crops": 271,
+      "crop_identity_equal": true,
+      "layout_sha256": "218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd",
+      "report_sha256": "b72e451ca10458825ee692dd4c1753a67a88f7269f2b170ae7a26888414a2283",
+      "predictions_sha256": "aba6a2d1570bc3f6ffcd4fd9166f46868278263656e6f24a39526e0ababc1e5a"
+    },
+    {
+      "run": "paddleocr-pretrained-valid",
+      "crops": 271,
+      "crop_identity_equal": true,
+      "layout_sha256": "218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd",
+      "report_sha256": "f42e3ea879faeffc8306814f4381899e4396e8dca2623cabf538fad1072a8463",
+      "predictions_sha256": "cfdae43ed61aaa909d6f9e147f0d4b48f52ae2bbfd85e9b04492428dbdadd2bd"
+    },
+    {
+      "run": "paddleocr-finetuned-valid",
+      "crops": 271,
+      "crop_identity_equal": true,
+      "layout_sha256": "218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd",
+      "report_sha256": "6157dd4497b83b71019ba69576fcbba141cfaa6978a248fb375265595220d25d",
+      "predictions_sha256": "cc9a100d6c00fbe5d85428fb2434a8e307d3a72fda4ee2b937334c4c5931a163"
+    },
+    {
+      "run": "easyocr-pretrained-test",
+      "crops": 118,
+      "crop_identity_equal": true,
+      "layout_sha256": "094a31b1ec45e12bb94597201a8a6452c1463391bf6a349eb28f43f71c66ea41",
+      "report_sha256": "6f7b4be3a7f03b762d910638c112d7f6a2a876817093c36dee8354ba74d3073a",
+      "predictions_sha256": "6e4ff26694533d3ff5fbda7df6d67ab436c305bca45dc264d22952e236fde1d9"
+    },
+    {
+      "run": "easyocr-finetuned-test",
+      "crops": 118,
+      "crop_identity_equal": true,
+      "layout_sha256": "094a31b1ec45e12bb94597201a8a6452c1463391bf6a349eb28f43f71c66ea41",
+      "report_sha256": "14f467750c773cb4413b329bd1087d2eb85e89a1bf9f923e4b5912f0fdcb5321",
+      "predictions_sha256": "df170117fb425e31c4422ea1098237a571a2d890c72d5687da202388c4bf9a93"
+    },
+    {
+      "run": "trocr-pretrained-test",
+      "crops": 118,
+      "crop_identity_equal": true,
+      "layout_sha256": "094a31b1ec45e12bb94597201a8a6452c1463391bf6a349eb28f43f71c66ea41",
+      "report_sha256": "ce658c571c3d810f9def545507c5787ce1b85c4658d0cd82520483178c0e720e",
+      "predictions_sha256": "31e5984f02b5241fa7930027f6e9b472069c6504e95c9a33c0e2a7e9a923fda1"
+    },
+    {
+      "run": "trocr-finetuned-test",
+      "crops": 118,
+      "crop_identity_equal": true,
+      "layout_sha256": "094a31b1ec45e12bb94597201a8a6452c1463391bf6a349eb28f43f71c66ea41",
+      "report_sha256": "ba105e84b09714dceccefbf2703522f1fe88fda7e6ee35a4c96f254f61f0f647",
+      "predictions_sha256": "61586d2d1f4fcf974ff271077019dc97df63ac6345b4a859e86db4e3bfa42feb"
+    },
+    {
+      "run": "paddleocr-pretrained-test",
+      "crops": 118,
+      "crop_identity_equal": true,
+      "layout_sha256": "094a31b1ec45e12bb94597201a8a6452c1463391bf6a349eb28f43f71c66ea41",
+      "report_sha256": "4f2a874f37bef4afcb6d340dbdd8a3b5c69cb2427c5e6be03569fa91cf8d26f6",
+      "predictions_sha256": "42d25c6934cea87edc1738ce77741ed1c80b11db3246733870e59eb843aba03c"
+    },
+    {
+      "run": "paddleocr-finetuned-test",
+      "crops": 118,
+      "crop_identity_equal": true,
+      "layout_sha256": "094a31b1ec45e12bb94597201a8a6452c1463391bf6a349eb28f43f71c66ea41",
+      "report_sha256": "98c922ab420b9b0b3c2368e32971a4af4b848f7f92aa76675e04c707cf58c37e",
+      "predictions_sha256": "b24ce719c522f5399e175c4261c6bacb0282a3098885bc6cc3435b63223f46ad"
+    }
+  ],
+  "train_scores": "diagnostic; unchanged AI labels and final human spot-check limitations",
+  "test_selection": "User-specified model selection on TEST; not independent final assessment"
+}

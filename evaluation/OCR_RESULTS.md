@@ -166,8 +166,10 @@ model better on at least two of CER (lower), WER (lower) and exact match
 `20261117-031848`)**, best on all three measures. It is also better than its own
 pretrained version on test (11.6 / 30.9 / 64.4) and than every pretrained model,
 so no "worse than pretrained" caveat applies. Weights: team Drive
-`DRIVE/CVDL-OCR-finetune/paddleocr/20261117-031848/best/` (shareable link still
-to add); local copy `.cache/finetuned/paddleocr/` (not in Git). Its test lead is
+`DRIVE/CVDL-OCR-finetune/paddleocr/20261117-031848/best/`; local copy
+`.cache/finetuned/paddleocr/` (not in Git). The final matching handoff ZIP
+`.runtime/ocr-matching-final-20261117.zip` includes these weights directly;
+a shareable Drive URL remains an optional follow-up. Its test lead is
 mainly destinations (exact 70.6% vs 41.2% pretrained, n=17) and bus numbers
 (24/24 exact).
 
@@ -234,7 +236,7 @@ Test: all 118 annotation text crops were checked by eye by a human reviewer (cod
 
 Validation exclusions (counts overlap): `challenge_only`: 26, `legibility_not_full`: 112, `unknown_text`: 112, `validation_train_scene_overlap`: 13, `wrong_field`: 20. Unique excluded crops: 141. Scored: 79 annotation + 51 detector crops. Four scored crops (A052, A094, P046, P087) have an unresolved validation line layout, so no model ran on them; they count as empty predictions for all three models.
 
-Fine-tuning (step 5), fine-tuned runs and scoring (step 6) and model selection (step 7) are complete: the selected app model is fine-tuned PaddleOCR. Still to do: shareable Drive link to its weights and the step 9 matching handoff.
+Fine-tuning (step 5), fine-tuned runs and scoring (step 6) and model selection (step 7) are complete: the selected app model is fine-tuned PaddleOCR. Matching handoff prepared in `.runtime/ocr-matching-final-20261117.zip`, including weights and whole-display OCR. Display ownership remains a geometry proposal pending confirmation before combining fields; prioritise P005/P035/P074/P094.
 
 User correction: A091 remains wrong_field; P065 (302) is now wrong_field too. The original human export is preserved; the corrected scoring snapshot is `ocr_scoring/normalised-v4-valid-human-corrected/`. Reviewer identity is cody, explicitly confirmed in chat; the original cods export is preserved. P089/P107 suggestions were not applied. Annotation scores are unchanged; detector scored n decreases from 52 to 51.
 
