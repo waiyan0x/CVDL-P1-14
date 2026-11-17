@@ -10,7 +10,7 @@ images can be verified.
 
 | Split | Crops | Scorable | Label source | Human check |
 | --- | ---: | ---: | --- | --- |
-| train | 387 annotation | 387 | Codex, kept only where all 3 augmented copies got the same text | 50-crop spot-check pending |
+| train | 387 annotation | 387 | Codex, kept only where all 3 augmented copies got the same text | 50-crop spot-check done 17 Nov 2026: no label text shown wrong; 42% judged partial/illegible by the human; labels unchanged (`ocr_review/train-spotcheck-20261117/`) |
 | valid | 150 annotation + 108 detector | 79 + 51 | 185 typed by the team, 73 Codex; all 258 then checked by eye | done 16 Nov 2026 (`ocr_review/human-verification-20261116/`) |
 | test | 118 annotation | 60 | Claude AI proposals, read from the crop pixels only (no OCR engine output) | pending (`test_confirm` page) |
 

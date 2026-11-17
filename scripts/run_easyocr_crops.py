@@ -132,8 +132,10 @@ def run(args):
         (output / "environment_requirements.txt").write_text("\n".join(f"{k}=={v}" for k, v in sorted(environment["packages"].items()))+"\n")
         warmups = []
         for field in FIELDS:
-            representative = next(r for r in records if r["field"] == field and (
-                not layouts or layouts[r["review_id"]]["review_status"] == "accepted"))
+            representative = next((r for r in records if r["field"] == field and (
+                not layouts or layouts[r["review_id"]]["review_status"] == "accepted")), None)
+            if representative is None:  # field absent from this inventory (e.g. route-only hold-out)
+                continue
             for index in range(args.warmup):
                 with torch.inference_mode():
                     result = recognize_crop(representative, reader, sync, layouts.get(representative["review_id"]))

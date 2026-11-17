@@ -52,7 +52,9 @@ def run(args):
     reader = PaddleCropReader(model)
     warmups = []
     for field in FIELDS:
-        record = next(r for r in records if r["field"] == field and layouts[r["review_id"]]["line_quads"])
+        record = next((r for r in records if r["field"] == field and layouts[r["review_id"]]["line_quads"]), None)
+        if record is None:  # field absent from this inventory (e.g. route-only hold-out)
+            continue
         for _ in range(args.warmup):
             warm = recognize_crop(record, reader, lambda: None, layouts[record["review_id"]])
             if warm["status"] != "success":
