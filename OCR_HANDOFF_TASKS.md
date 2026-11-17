@@ -63,8 +63,8 @@ No task below is marked complete merely because this checklist exists.
   all three augmented copies (expected approximately 345 crops).
 - [x] Prepare 50 randomly sampled crops for human spot-check; record sample seed,
   actual human decisions and percent correct in results, with reviewer provenance.
-  Returned 17 November 2026 (cody, revised v2 export): text consistent with label
-  on 39/50, 6 conflicts, 28/50 rated partial/illegible although labelled full.
+  Returned 17 November 2026 (cody, final v3 export): text consistent with label
+  on 41/50, 4 conflicts, 27/50 rated partial/illegible although labelled full.
   Train scores are therefore diagnostic only. See
   evaluation/ocr_review/train-spotcheck-20261117/README.md.
 - [x] ~~Ask Brendan whether the 288 quarantined crops share photos with v4 TEST.~~

@@ -1,31 +1,32 @@
 # Training-label spot-check, 17 November 2026
 
-## Revised review (v2), 17 November 2026 — current result
+## Final review (v3), 17 November 2026 — current result
 
-cody re-exported the spot-check with 11 rows revised (mostly adding a leading
-`[UNK]` and reading more text). The v2 files supersede the v1 result below:
-`spotcheck_export.v2.raw.csv` (the export as received), `comparison.v2.csv`,
-`summary.v2.json`. **No training label was changed.**
+cody settled the spot-check in a third export. Compared with v2, S004 is now
+`S43` (full), S018 `RIVER VALLEY DR / JALAN KAYU` (full) and S029
+`[UNK] Tomlinson Road` (partial). Final files: `spotcheck_export.v3.final.raw.csv`
+(the export as received), `comparison.v3.final.csv`, `summary.v3.final.json`.
+v1 and v2 files are kept for the record. **No training label was changed.**
 
 | Category | Crops | Meaning |
 | --- | ---: | --- |
-| match | 21 | Same text after normalisation. |
-| label_text_ok_extra_cut_off_part | 18 | Same text plus a cut-off part marked `[UNK]` (`80` vs `80 [UNK]`). |
+| match | 22 | Same text after normalisation. |
+| label_text_ok_extra_cut_off_part | 19 | Same text plus a cut-off part marked `[UNK]` (`80` vs `80 [UNK]`). |
 | human_reads_only_part_consistent | 3 | The human reads part of the label; that part agrees (S003, S014, S043). |
 | human_illegible | 2 | The human cannot read the crop (S012, S031). |
-| conflicting_reading | 6 | S004, S018, S029, S041, S046, S050. |
+| conflicting_reading | 4 | S018, S041, S046, S050. |
 
-- **Text:** the human reading agrees with the label on 39/50 (78%, Wilson 95%
-  65–87%) once cut-off parts are ignored; exact agreement is 21/50.
-- **Conflicts:** for S004 (`S43`), S018 (`RIVERVALE DR`) and S029
-  (`Tomlinson Road`) a Claude visual check reads the crop as the label says;
-  the human reading differs. S041, S046 and S050 are too blurred to settle.
-  These are recorded as disagreements; neither reading overrides the other.
-- **Legibility:** every training label says `full`, but the human rated 28/50
-  (56%, 95% CI 42–69%) partial or illegible.
-- **Consequence:** training-split scores computed against these labels are
-  **diagnostic only**, not official results. Labels and the fine-tuned models
-  are unchanged; validation and test use human-verified labels only.
+- **Text:** the human reading agrees with the label on 41/50 (82%, Wilson 95%
+  69–90%) once cut-off parts are ignored; exact agreement is 22/50.
+- **Conflicts:** S018 (label `RIVERVALE DR`, human `RIVER VALLEY DR`; a Claude
+  visual check reads RIVERVALE). S041, S046 and S050 are too blurred to settle.
+  Recorded as disagreements; neither reading overrides the other.
+- **Legibility:** all 387 training labels have `legibility=full` in the
+  fine-tuning bundle's `labels.csv` (selection required it). The human rated
+  27/50 of the sampled crops (54%, 95% CI 40–67%) partial or illegible.
+- **Consequence:** training-split scores against these labels are
+  **diagnostic only**. Labels and fine-tuned models are unchanged; validation
+  and test use human-verified labels only.
 
 ## v1 result (superseded)
 
