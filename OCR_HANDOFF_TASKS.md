@@ -78,12 +78,12 @@ No task below is marked complete merely because this checklist exists.
   --split. Export YOLO11s crops with confidence 0.50, IoU 0.70, size 640.
 - [ ] Freeze test layouts once with freeze_automatic_ocr_layout.py and reuse
   the exact crops/layout for all models.
-- [ ] Label test text crops with Codex, then have a human check every crop
+- [x] Label test text crops with Codex, then have a human check every crop
   (approximately 120 expected). Do not prefill labels from EasyOCR, TrOCR or
   Paddle predictions.
 - [ ] Detector crops receive the text of the overlapping annotation box at
   IoU >= 0.5. Flag ambiguous overlap cases rather than inventing assignments.
-- [ ] Save evaluation/ocr_review/test_labels.csv with review_id, crop, field,
+- [x] Save evaluation/ocr_review/test_labels.csv with review_id, crop, field,
   input_set, text, legibility.
 - [ ] Keep TEST out of training and all setting/checkpoint choices.
 
@@ -131,6 +131,12 @@ Degenerate validation line images: A095_00 (144x4 px), P034_00 (87x3 px).
 
 ## 6. Fine-tuned evaluation
 
+- [x] Import all three Drive `best/` folders to `.cache/finetuned/<model>/`.
+  Imported from user-supplied ZIPs on 17 November 2026; 18 files total,
+  ZIP CRC checks passed, Paddle provenance hashes verified. Local file hashes
+  and source mappings: `.cache/finetuned/import_manifest.json`.
+- [x] Add custom EasyOCR network loading and fine-tuned run labels to the runners
+  (committed in `bea9837`). Model reload and inference remain to be run.
 - [ ] Run all three fine-tuned models on the same train/validation/test crops
   and layouts as their pretrained versions.
 - [ ] Save evaluation/ocr_runs/<model>-finetuned-<split>/.
@@ -243,7 +249,8 @@ one-region/two-line labels are joined with a space. Validation: 124 line pairs,
 130 crops in crop CER. Each model keeps its lowest validation crop-CER checkpoint.
 TEST is not used. TrOCR per-epoch checkpoints stay on Colab local disk
 (save_only_model); only best/ goes to Drive.
-Status: Colab T4 environment being set up; no trained weights exist yet.
+Status update, 17 November 2026: all three Colab runs completed (step 5).
+Their `best/` exports are now imported under `.cache/finetuned/` (step 6).
 An earlier parallel attempt (scripts/train_*.py, notebooks/OCR_Finetuning.ipynb,
 evaluation/ocr_training/line-inputs-20261116/) was superseded and moved out of
 the repository to .cache/superseded-training-20261116/.
