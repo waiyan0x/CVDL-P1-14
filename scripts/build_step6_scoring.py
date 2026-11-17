@@ -12,6 +12,12 @@ Usage: .venv/bin/python scripts/build_step6_scoring.py OUTPUT_DIR
   predictions filtered to those 387 crops; nothing else is changed.
 
 Uses the existing scorer (backend/app/evaluation/crop_scoring.py) unchanged.
+
+Since normalised-v6: validation uses the `-valid-layoutv2` runs (layout
+v4-lines-v2, fixing A095/P034), and the reviewer's final spot-check readings in
+TRAIN_OVERRIDES replace four training labels for diagnostic scoring only.
+Snapshot normalised-v5-step6-20261117 was built by the earlier version of this
+script (layout v4-lines-v1, no overrides).
 """
 import csv
 import json
@@ -27,6 +33,8 @@ VALID = ROOT / "evaluation/ocr_review/human-verification-20261116/validation.sou
 TEST = ROOT / "evaluation/ocr_review/test-confirmation-20261117/test.source.confirmed.csv"
 TRAIN_SOURCE = ROOT / "evaluation/ocr_review/human-verification-20261113/training.source.csv"
 TRAIN_LABELS = ROOT / ".runtime/ocr-text-dataset-20261116/labels.csv"
+TRAIN_OVERRIDES = ROOT / "evaluation/ocr_review/train-spotcheck-20261117/train_label_overrides.csv"
+VALID_RUN_SUFFIX = "-valid-layoutv2"
 RUNS = ROOT / "evaluation/ocr_runs"
 MODELS = {"easyocr": "easyocr", "trocr": "trocr", "paddleocr": "paddleocr"}
 
@@ -43,10 +51,17 @@ def main(out):
         rows = [r for r in reader if r["review_id"] in labels]
     if len(rows) != len(labels):
         raise SystemExit("Training source is missing selected label IDs")
+    overrides = {o["training_review_id"]: o for o in csv.DictReader(open(TRAIN_OVERRIDES, encoding="utf-8"))}
     for r in rows:
         if r["transcription"] != labels[r["review_id"]]["text"]:
             raise SystemExit(f"Label text differs for {r['review_id']}")
         r.update(crop_source="annotation", label_source="codex_ai_3copy_consensus (diagnostic)")
+        if r["review_id"] in overrides:
+            o = overrides[r["review_id"]]
+            if o["original_text"] != r["transcription"]:
+                raise SystemExit(f"Override does not match label for {r['review_id']}")
+            r.update(transcription=o["text"], legibility=o["legibility"],
+                     label_source=f"human spot-check {o['spotcheck_id']} (diagnostic)")
     train_source = out / "train.selected387.source.csv"
     with open(train_source, "x", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, columns, lineterminator="\n")
@@ -73,7 +88,7 @@ def main(out):
             (dst / "predictions.jsonl").write_text("\n".join(kept) + "\n", encoding="utf-8")
             variants[variant] = {"runs": [
                 {"run_dir": f"train_runs_filtered/{src.name}", "splits": ["train"], "input_sets": ["annotation"]},
-                {"run_dir": f"../../ocr_runs/{model}-{tag}-valid", "splits": ["valid"],
+                {"run_dir": f"../../ocr_runs/{model}-{tag}{VALID_RUN_SUFFIX}", "splits": ["valid"],
                  "input_sets": ["annotation", "prediction"]},
                 {"run_dir": f"../../ocr_runs/{model}-{tag}-test", "splits": ["test"], "input_sets": ["annotation"]},
             ]}

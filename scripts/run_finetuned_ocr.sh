@@ -25,7 +25,7 @@ split_args() {
              --review-manifest evaluation/ocr_review/human-verification-20261113/training.source.csv \
              --split train --line-layout .cache/ocr_layouts/train-auto-20261115-01/manifest.json ;;
     valid) echo --workspace "$ANNOTATIONS" --split valid \
-             --line-layout evaluation/ocr_layouts/v4-lines-v1/manifest.json ;;
+             --line-layout evaluation/ocr_layouts/v4-lines-v2/manifest.json ;;
     test)  echo --workspace "$ANNOTATIONS" --crop-root .runtime/ocr-text-dataset-20261116 \
              --review-manifest evaluation/ocr_review/test-20261116/test.source.csv \
              --split test --line-layout evaluation/ocr_layouts/v4-test-automatic-v1/manifest.json ;;

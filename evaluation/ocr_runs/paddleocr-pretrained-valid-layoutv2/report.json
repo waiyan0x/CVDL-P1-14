@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "run_name": "paddleocr-pretrained-valid-layoutv2",
+  "started_at_utc": "2026-11-17T07:31:47.775244+00:00",
+  "finished_at_utc": "2026-11-17T07:32:12.008971+00:00",
+  "engine": "paddleocr",
+  "model": "en_PP-OCRv5_mobile_rec (public pretrained)",
+  "fine_tuned": false,
+  "finetuned_from": null,
+  "model_provenance": {
+    "repository": "PaddlePaddle/en_PP-OCRv5_mobile_rec",
+    "revision": "267c36e24c331595590fe7bd72bde2436fd286f2",
+    "files_sha256": {
+      "inference.json": "fd1b6ec722ea841a72d3ba43e527df1d1066d5d7808e0503ee3eec7265188753",
+      "inference.pdiparams": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b",
+      "inference.yml": "27e91d0582f40168aa218303c76e184bc78fa7a5d105aad0cfbad8458b441067"
+    },
+    "role": "public_pretrained_baseline"
+  },
+  "model_files_sha256": {
+    "provenance.json": "58dc4c6444318f18f814ac98b2c157fcc33af6c948e0ca2a78118f081813bd41",
+    "inference.json": "fd1b6ec722ea841a72d3ba43e527df1d1066d5d7808e0503ee3eec7265188753",
+    "inference.pdiparams": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b",
+    "inference.yml": "27e91d0582f40168aa218303c76e184bc78fa7a5d105aad0cfbad8458b441067"
+  },
+  "model_sha256_before": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b",
+  "model_sha256_after": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b",
+  "cached_weights_unchanged": true,
+  "source_workspace_unchanged": true,
+  "split": "valid",
+  "inputs": 271,
+  "actual_device": "cpu",
+  "frozen_line_layout": {
+    "sha256": "d1dd79be9e2b8a4599c86d0c2021a8fb049427b4dc5ca16122bf862b92435b7c",
+    "version": "v4-lines-v2",
+    "reviewer_type": "AI"
+  },
+  "recognition_settings": {
+    "batch_size": 1,
+    "cpu_threads": 2,
+    "enable_mkldnn": false,
+    "seed": 0
+  },
+  "preprocessing": "Shared frozen grayscale line extraction; RGB replication; native Paddle resize/normalization",
+  "warmup_policy": "First accepted crop per field; discarded before measured pass",
+  "warmup_runs_per_field": 3,
+  "timing": {
+    "crop_total_ms": "Wall time for file/hash/decode, shared layout extraction, CPU prediction and assembly",
+    "recognition_ms": "Sum of wall times around adapter line calls, including native processor and decode",
+    "excluded": "Model loading, warmups, preflight hashing and output writes"
+  },
+  "summary": [
+    {
+      "crop_set": "annotation",
+      "field": "front_eds_num",
+      "attempted": 60,
+      "completed": 58,
+      "errors": 2,
+      "empty_outputs": 1,
+      "multiline_candidates": 0,
+      "segmentation_status_counts": {
+        "fixed_layout_accepted": 58,
+        "fixed_layout_unresolved": 2
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.3390420006326167,
+      "preprocessing_ms_p95": 1.1304277492854453,
+      "recognition_ms_median": 64.39235450034175,
+      "recognition_ms_p95": 79.85548755023046,
+      "crop_total_ms_median": 64.83012549961131,
+      "crop_total_ms_p95": 80.29968565006129
+    },
+    {
+      "crop_set": "annotation",
+      "field": "front_eds_route",
+      "attempted": 42,
+      "completed": 39,
+      "errors": 3,
+      "empty_outputs": 0,
+      "multiline_candidates": 2,
+      "segmentation_status_counts": {
+        "fixed_layout_accepted": 39,
+        "fixed_layout_unresolved": 3
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.32870799986994825,
+      "preprocessing_ms_p95": 1.2268875005247537,
+      "recognition_ms_median": 66.46112499947776,
+      "recognition_ms_p95": 141.71427049968773,
+      "crop_total_ms_median": 66.73583299925667,
+      "crop_total_ms_p95": 142.0607082987772
+    },
+    {
+      "crop_set": "annotation",
+      "field": "front_eds_destination",
+      "attempted": 55,
+      "completed": 49,
+      "errors": 6,
+      "empty_outputs": 2,
+      "multiline_candidates": 2,
+      "segmentation_status_counts": {
+        "fixed_layout_unresolved": 6,
+        "fixed_layout_accepted": 49
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.406082999688806,
+      "preprocessing_ms_p95": 1.1294414001895345,
+      "recognition_ms_median": 65.58599999880244,
+      "recognition_ms_p95": 127.51400880079007,
+      "crop_total_ms_median": 65.97804199918755,
+      "crop_total_ms_p95": 128.42960839989235
+    },
+    {
+      "crop_set": "annotation",
+      "field": "all",
+      "attempted": 157,
+      "completed": 146,
+      "errors": 11,
+      "empty_outputs": 3,
+      "multiline_candidates": 4,
+      "segmentation_status_counts": {
+        "fixed_layout_accepted": 146,
+        "fixed_layout_unresolved": 11
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.35185399974579923,
+      "preprocessing_ms_p95": 1.1650629994619521,
+      "recognition_ms_median": 64.67137500021636,
+      "recognition_ms_p95": 114.37183399993955,
+      "crop_total_ms_median": 65.20662499951868,
+      "crop_total_ms_p95": 115.0126669990641
+    },
+    {
+      "crop_set": "prediction",
+      "field": "front_eds_num",
+      "attempted": 42,
+      "completed": 40,
+      "errors": 2,
+      "empty_outputs": 0,
+      "multiline_candidates": 0,
+      "segmentation_status_counts": {
+        "fixed_layout_accepted": 40,
+        "fixed_layout_unresolved": 2
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.6954585005587433,
+      "preprocessing_ms_p95": 2.9392104494945666,
+      "recognition_ms_median": 64.5584375006365,
+      "recognition_ms_p95": 77.43060625043653,
+      "crop_total_ms_median": 65.54012499964301,
+      "crop_total_ms_p95": 78.07388364872165
+    },
+    {
+      "crop_set": "prediction",
+      "field": "front_eds_route",
+      "attempted": 37,
+      "completed": 35,
+      "errors": 2,
+      "empty_outputs": 0,
+      "multiline_candidates": 10,
+      "segmentation_status_counts": {
+        "fixed_layout_accepted": 35,
+        "fixed_layout_unresolved": 2
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 1.1718340010702377,
+      "preprocessing_ms_p95": 3.1704000988611365,
+      "recognition_ms_median": 67.65337499928137,
+      "recognition_ms_p95": 308.93201240160124,
+      "crop_total_ms_median": 68.32433300041885,
+      "crop_total_ms_p95": 310.43342140073946
+    },
+    {
+      "crop_set": "prediction",
+      "field": "front_eds_destination",
+      "attempted": 35,
+      "completed": 30,
+      "errors": 5,
+      "empty_outputs": 0,
+      "multiline_candidates": 13,
+      "segmentation_status_counts": {
+        "fixed_layout_unresolved": 5,
+        "fixed_layout_accepted": 30
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.8970414992290898,
+      "preprocessing_ms_p95": 2.432020649666808,
+      "recognition_ms_median": 67.41247900026792,
+      "recognition_ms_p95": 474.61484634986834,
+      "crop_total_ms_median": 69.34068699956697,
+      "crop_total_ms_p95": 475.72395814922845
+    },
+    {
+      "crop_set": "prediction",
+      "field": "all",
+      "attempted": 114,
+      "completed": 105,
+      "errors": 9,
+      "empty_outputs": 0,
+      "multiline_candidates": 23,
+      "segmentation_status_counts": {
+        "fixed_layout_accepted": 105,
+        "fixed_layout_unresolved": 9
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.8957079990068451,
+      "preprocessing_ms_p95": 3.040866399533115,
+      "recognition_ms_median": 65.30304199986858,
+      "recognition_ms_p95": 385.83320780162467,
+      "crop_total_ms_median": 66.63320799998473,
+      "crop_total_ms_p95": 386.3965755990648
+    }
+  ],
+  "accuracy_calculated": false,
+  "reference_matching_used": false,
+  "limitations": [
+    "CPU diagnostic baseline; do not rank latency against MPS or CUDA runs.",
+    "Shared layouts retain AI/algorithm attribution; frozen automatic geometry is unreviewed and not equivalent to AI-reviewed validation layout."
+  ]
+}
