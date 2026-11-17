@@ -55,7 +55,10 @@ def run(args):
     # This operational margin is not a model requirement or performance target.
     if engine == "trocr" and shutil.disk_usage(ROOT).free < 3 * 1024**3:
         raise RuntimeError("TrOCR run blocked: free at least 3 GiB on the workspace volume before loading; a previous load exhausted disk space")
-    weight_path = cache / ("english_g2.pth" if engine == "easyocr" else "model.safetensors")
+    finetuned_from = getattr(args, "finetuned_from", None)
+    recog_network = getattr(args, "recog_network", None)
+    weight_path = cache / ((f"{recog_network}.pth" if recog_network else "english_g2.pth")
+                           if engine == "easyocr" else "model.safetensors")
     weight_before = sha256(weight_path)
     cached_files = sorted(p for p in cache.iterdir() if p.is_file())
     cached_weights_before = {p.name: sha256(p) for p in cached_files}
@@ -67,19 +70,27 @@ def run(args):
     try:
         if engine == "easyocr":
             import easyocr
+            # A fine-tuned custom network keeps .pth/.yaml/.py together in one best/ directory.
+            network = {"recog_network": recog_network, "user_network_directory": str(cache)} if recog_network else \
+                {"user_network_directory": str(cache / "user_network")}
             reader = easyocr.Reader(["en"], gpu=False if args.device == "cpu" else args.device,
                                     detector=False, recognizer=True, model_storage_directory=str(cache),
-                                    user_network_directory=str(cache / "user_network"),
-                                    download_enabled=False, verbose=False)
-            model_name = "EasyOCR English generation-2 pretrained recognizer"
-            model_provenance = {"easyocr_version": easyocr.__version__}
+                                    download_enabled=False, verbose=False, **network)
+            model_name = (f"EasyOCR {recog_network} fine-tuned recognizer" if finetuned_from
+                          else "EasyOCR English generation-2 pretrained recognizer")
+            model_provenance = {"easyocr_version": easyocr.__version__, "recog_network": recog_network or "standard",
+                                "fine_tuned": bool(finetuned_from), "finetuned_from": finetuned_from}
         else:
             from backend.app.evaluation.trocr_crop_reader import TrOCRCropReader
             model_provenance = json.loads((cache / "provenance.json").read_text())
             if model_provenance.get("repository") != "microsoft/trocr-base-printed":
-                raise ValueError("Expected public pretrained TrOCR provenance")
+                raise ValueError("Expected microsoft/trocr-base-printed provenance")
+            if bool(model_provenance.get("fine_tuned")) != bool(finetuned_from):
+                raise ValueError("TrOCR provenance fine_tuned flag disagrees with --finetuned-from")
             reader = TrOCRCropReader(cache, args.device, args.max_new_tokens)
-            model_name = "microsoft/trocr-base-printed (public pretrained)"
+            model_name = ("microsoft/trocr-base-printed (fine-tuned)" if finetuned_from
+                          else "microsoft/trocr-base-printed (public pretrained)")
+            model_provenance = {**model_provenance, "finetuned_from": finetuned_from}
         reader.recognizer.eval()
         actual_device = str(next(reader.recognizer.parameters()).device)
         if actual_device.split(":")[0] != args.device:
@@ -186,6 +197,7 @@ def run(args):
             "started_at_utc": started, "finished_at_utc": datetime.now(timezone.utc).isoformat(),
             "dataset": str(workspace), "split": split, "inputs": len(records),
             "engine": engine, "model": model_name, "model_provenance": model_provenance,
+            "fine_tuned": bool(finetuned_from), "finetuned_from": finetuned_from,
             "model_sha256_before": weight_before,
             "model_sha256_after": sha256(weight_path), "cached_weights_unchanged": True,
             "model_files_sha256": cached_weights_before,
@@ -271,7 +283,15 @@ def main():
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--line-layout", type=Path, help="Optional frozen manifest.json with adjacent manifest.sha256; unresolved rows never fall back")
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--recog-network", help="EasyOCR custom network name in --cache (e.g. eds_english_g2); default is the standard english_g2")
+    parser.add_argument("--finetuned-from", help="Fine-tuning run that produced --cache (e.g. Drive CVDL-OCR-finetune/easyocr/20261117-031848); labels the run fine-tuned")
     args = parser.parse_args()
+    if args.engine == "easyocr" and bool(args.recog_network) != bool(args.finetuned_from):
+        parser.error("EasyOCR fine-tuned runs need both --recog-network and --finetuned-from")
+    if args.engine == "trocr" and args.recog_network:
+        parser.error("--recog-network applies to EasyOCR only")
+    if args.finetuned_from and args.cache is None:
+        parser.error("Fine-tuned runs need an explicit --cache pointing at the best/ directory")
     if args.cache is None:
         args.cache = ROOT / ".cache" / ("easyocr" if args.engine == "easyocr" else "trocr-base-printed")
     if not 1 <= args.max_new_tokens <= 256:

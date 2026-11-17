@@ -41,30 +41,42 @@ def run(a):
             if len(ids)>64:raise ValueError('Label exceeds fixed 64-token limit: '+r['image'])
             return dict(pixel_values=pixels,labels=torch.tensor(ids+[-100]*(64-len(ids))))
 
+    def predict(model):
+        previous=model.training;model.eval();predictions=[];errors=[]
+        with torch.no_grad():
+            for r in valid:
+                try:
+                    with Image.open(a.data/r['image']) as im:
+                        pixel=processor(images=im.convert('RGB'),return_tensors='pt').pixel_values.to(model.device)
+                    output=model.generate(pixel,do_sample=False,num_beams=1,max_new_tokens=64,
+                                          forced_eos_token_id=None)[0]
+                    eos=model.generation_config.eos_token_id;eos=set(eos if isinstance(eos,list) else [eos])
+                    if not any(int(i) in eos for i in output[1:]):raise ValueError('No EOS before generation cap')
+                    text=processor.tokenizer.decode(output,skip_special_tokens=True,clean_up_tokenization_spaces=False)
+                except Exception as exc:
+                    text='';errors.append(dict(image=r['image'],error=str(exc)))
+                predictions.append(text)
+        model.train(previous);return predictions,errors
+
+    def record(epoch,predictions,errors,seconds,loss):
+        result=metrics(refs,valid,predictions);log_epoch(a.output,epoch,loss,result)
+        with (a.output/'validation_events.jsonl').open('a') as f:
+            f.write(json.dumps(dict(epoch=epoch,seconds=seconds,errors=errors))+'\n')
+        # Every validation line prediction, so failures can be inspected (validation only).
+        with (a.output/'validation_predictions.jsonl').open('a') as f:
+            for r,text in zip(valid,predictions):
+                f.write(json.dumps(dict(epoch=epoch,image=r['image'],review_id=r['review_id'],
+                                        line_index=r['line_index'],target=r['text'],prediction=text),ensure_ascii=False)+'\n')
+        return result
+
     class Trainer(Seq2SeqTrainer):
         def evaluate(self,eval_dataset=None,ignore_keys=None,metric_key_prefix='eval'):
-            previous=self.model.training;self.model.eval();predictions=[];errors=[];start=time.perf_counter()
-            with torch.no_grad():
-                for r in valid:
-                    try:
-                        with Image.open(a.data/r['image']) as im:
-                            pixel=processor(images=im.convert('RGB'),return_tensors='pt').pixel_values.to(self.model.device)
-                        output=self.model.generate(pixel,do_sample=False,num_beams=1,max_new_tokens=64,
-                                                   forced_eos_token_id=None)[0]
-                        eos=self.model.generation_config.eos_token_id;eos=set(eos if isinstance(eos,list) else [eos])
-                        if not any(int(i) in eos for i in output[1:]):raise ValueError('No EOS before generation cap')
-                        text=processor.tokenizer.decode(output,skip_special_tokens=True,clean_up_tokenization_spaces=False)
-                    except Exception as exc:
-                        text='';errors.append(dict(image=r['image'],error=str(exc)))
-                    predictions.append(text)
-            result=metrics(refs,valid,predictions)
-            values={'eval_cer':result['cer'],**{'eval_'+k:v for k,v in result.items() if k!='cer'}}
+            start=time.perf_counter();predictions,errors=predict(self.model)
             loss=next((v['loss'] for v in reversed(self.state.log_history) if 'loss' in v),None)
-            log_epoch(a.output,self.state.epoch,loss,result)
-            with (a.output/'validation_events.jsonl').open('a') as f:
-                f.write(json.dumps(dict(epoch=self.state.epoch,seconds=time.perf_counter()-start,errors=errors))+'\n')
+            result=record(self.state.epoch,predictions,errors,time.perf_counter()-start,loss)
+            values={'eval_cer':result['cer'],**{'eval_'+k:v for k,v in result.items() if k!='cer'}}
             self.log(values);self.control=self.callback_handler.on_evaluate(self.args,self.state,self.control,values)
-            self.model.train(previous);return values
+            return values
 
     # Per-epoch checkpoints (~1.3 GB each, model only) go to Colab's local disk,
     # not Drive: a free Drive (15 GB) cannot hold several. Only best/ is saved to
@@ -74,7 +86,7 @@ def run(a):
     checkpoint_dir=(local_root/a.output.name) if local_root.parent.is_dir() else a.output/'checkpoints'
     params=Seq2SeqTrainingArguments(output_dir=str(checkpoint_dir),save_only_model=True,learning_rate=a.lr,
         per_device_train_batch_size=4 if a.dry_run else a.batch,per_device_eval_batch_size=a.batch,
-        max_steps=2 if a.dry_run else -1,num_train_epochs=a.epochs,
+        max_steps=2 if a.dry_run else -1,num_train_epochs=a.epochs,warmup_ratio=0 if a.dry_run else 0.1,
         eval_strategy='no' if a.dry_run else 'epoch',save_strategy='no' if a.dry_run else 'epoch',
         logging_strategy='steps' if a.dry_run else 'epoch',logging_steps=1,
         metric_for_best_model='cer',greater_is_better=False,predict_with_generate=True,
@@ -86,6 +98,12 @@ def run(a):
     (a.output/'config.json').write_text(json.dumps(config,indent=2)+'\n')
     trainer=Trainer(model=model,args=params,train_dataset=Lines(),eval_dataset=Lines(),
                     processing_class=processor,callbacks=callbacks)
+    if not a.dry_run:
+        # Epoch 0: the untouched pretrained model through this exact validation pass,
+        # so fine-tuned epochs are compared with a same-code baseline.
+        model.to('cuda');start=time.perf_counter();predictions,errors=predict(model)
+        baseline=record(0,predictions,errors,time.perf_counter()-start,None)
+        print('epoch 0 (pretrained) val_crop_CER',baseline['cer'],'exact',baseline['val_crop_exact'],'no-EOS',len(errors),flush=True)
     start=time.perf_counter();trainer.train()
     if a.dry_run:
         loss=next((r['loss'] for r in reversed(trainer.state.log_history) if 'loss' in r),None)

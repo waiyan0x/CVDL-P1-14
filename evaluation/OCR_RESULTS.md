@@ -133,6 +133,45 @@ Failed/missing predictions count as empty strings.
 | PaddleOCR | finetuned | test | route | 0 | Not run | Not run | Not run |
 | PaddleOCR | finetuned | test | all | 0 | Not run | Not run | Not run |
 
+## Table 3: fine-tuning checkpoint selection, validation (step 5)
+
+Interim comparison until the step 6 runs fill the `finetuned` rows above. Both
+columns use the same 130 scored validation crops (79 annotation + 51 detector,
+combined), frozen line layouts and normalised scoring. Pretrained values are
+recomputed from `ocr_scoring/normalised-v4-valid-human-corrected/scores/text_records.csv`.
+Fine-tuned values are the selected checkpoint's validation score from the
+Colab training logs, run `20261117-031848`.
+
+| Model | Pretrained crop CER (%) | Fine-tuned crop CER (%) | Change (pts) | Pretrained exact (%) | Fine-tuned exact (%) | Selected epoch |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| EasyOCR | 43.2 | 29.0 | −14.3 | 40.0 | 60.0 | 10 of 13 (early stop) |
+| Public TrOCR | 21.1 | 20.2 | −1.0 | 59.2 | 68.5 | 2 of 5 (early stop) |
+| PaddleOCR | 15.0 | 15.2 | +0.2 | 73.1 | 77.7 | 19 of 20 (tied with epoch 4) |
+
+Notes:
+
+- These validation scores also chose each checkpoint, so the fine-tuned
+  figures are optimistic. They are not test results and do not select the app
+  model; step 7 uses test annotation crops.
+- Fine-tuning clearly helped only EasyOCR. TrOCR's CER gain is about one point
+  on 130 crops; validation CER rose again after epoch 2 while training loss
+  kept falling. **Fine-tuned PaddleOCR is not better than pretrained PaddleOCR on
+  CER** (15.2 vs 15.0), though exact match rose from 95 to 101 crops.
+- Check of comparability: the TrOCR training script's epoch-0 pass on the
+  untouched model gave 21.25% CER / 59.2% exact versus 21.14% / 59.2% here. The
+  0.1-point gap is consistent with one 3 px-tall line image (`P034_00`) being
+  read channels-first in training but channels-last by the evaluation runner.
+- Per-field rows, WER and detector/annotation splits for the fine-tuned models
+  require the step 6 runs.
+- Validation crops `A095_00` (4 px) and `P034_00` (3 px) are degenerate layout
+  regions and count against every model.
+- Fine-tuned weights (team Drive, not Git): `DRIVE/CVDL-OCR-finetune/<model>/20261117-031848/best/`
+  for `paddleocr`, `trocr` and `easyocr`. An earlier TrOCR run in the same
+  folder (no warmup, 65.6% validation CER) was overwritten by this run; only
+  its console log survives.
+- Training on Colab T4: 366 frozen-layout training line pairs, seed 0, batch 8,
+  learning rate 5e-5, at most 20 epochs, no augmentation. TrOCR used 10% warmup.
+
 ## Label sources and work remaining
 
 Validation source: all 258 validation crops were checked by eye by a human reviewer on 16 November 2026 (`ocr_review/human-verification-20261116/`, applied to `validation.source.corrected-P065.csv` with `scripts/apply_validation_human_review.py`). Of the 111 crops that were full and present under the earlier labels, the reviewer gave identical text for 109; 7 of the 111 were reclassified `wrong_field` and A090 was downgraded to partial. 38 crops became newly full and present. Earlier scores used the pre-review labels (`ocr_scoring/normalised-v2-valid`); the tables above replace them.
@@ -143,8 +182,8 @@ Test: cached annotation export contains 118 text crops and 53 whole-display crop
 
 Validation exclusions (counts overlap): `challenge_only`: 26, `legibility_not_full`: 112, `unknown_text`: 112, `validation_train_scene_overlap`: 13, `wrong_field`: 20. Unique excluded crops: 141. Scored: 79 annotation + 51 detector crops. Four scored crops (A052, A094, P046, P087) have an unresolved validation line layout, so no model ran on them; they count as empty predictions for all three models.
 
-Fine-tuning and model selection: not run. Selected fine-tuned model, trained weights Drive link and new-crop command: not yet available.
+Fine-tuning: complete for all three models (Table 3). Fine-tuned train/valid/test runs (step 6) and model selection (step 7): not run. Selected fine-tuned model and new-crop command: not yet available.
 
 User correction: A091 remains wrong_field; P065 (302) is now wrong_field too. The original human export is preserved; the corrected scoring snapshot is `ocr_scoring/normalised-v4-valid-human-corrected/`. Reviewer identity is cody, explicitly confirmed in chat; the original cods export is preserved. P089/P107 suggestions were not applied. Annotation scores are unchanged; detector scored n decreases from 52 to 51.
 
-Training preparation: fine-tuning runs on Colab from `colab/ocr_finetune/` on 366 frozen-layout training line pairs (24 of 387 crops skipped and logged). Each model keeps its lowest validation crop-CER checkpoint; test is not used. No fine-tuned model exists yet. Test results will cover annotation crops only (detector checkpoint not received). The human training spot-check and test-label confirmation are pending.
+Training preparation: fine-tuning runs on Colab from `colab/ocr_finetune/` on 366 frozen-layout training line pairs (24 of 387 crops skipped and logged). Each model keeps its lowest validation crop-CER checkpoint; test is not used. Fine-tuned checkpoints now exist (Table 3). Test results will cover annotation crops only (detector checkpoint not received). The human training spot-check and test-label confirmation are pending.

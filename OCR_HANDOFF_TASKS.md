@@ -100,19 +100,34 @@ No task below is marked complete merely because this checklist exists.
 
 ## 5. Fine-tune all three models
 
-- [ ] Train on train_labels_final.csv; validate on the step 2 validation set.
-- [ ] Match evaluation input format: where inference splits crops into lines,
+- [x] Train on train_labels_final.csv; validate on the step 2 validation set.
+- [x] Match evaluation input format: where inference splits crops into lines,
   train on line images with one text line each.
-- [ ] TrOCR: HF VisionEncoderDecoderModel + Seq2SeqTrainer from
+- [x] TrOCR: HF VisionEncoderDecoderModel + Seq2SeqTrainer from
   trocr-base-printed; start lr 5e-5, batch 8, <=20 epochs, evaluation each epoch,
   metric_for_best_model=cer, greater_is_better=False, patience 3.
-- [ ] EasyOCR: repo trainer/ from english_g2; export .pth plus .yaml/.py as a
+- [x] EasyOCR: repo trainer/ from english_g2; export .pth plus .yaml/.py as a
   custom recog_network.
-- [ ] Paddle: PaddleOCR tools/train.py with en_PP-OCRv5_mobile_rec config and
+- [x] Paddle: PaddleOCR tools/train.py with en_PP-OCRv5_mobile_rec config and
   pretrained weights; labels formatted image_path<TAB>text.
-- [ ] Retain lowest-validation-CER checkpoint per model. Save weights, config,
+- [x] Retain lowest-validation-CER checkpoint per model. Save weights, config,
   seed and per-epoch loss/validation CER logs.
-- [ ] Upload trained weights to team Drive, not Git; put links in results.
+- [x] Upload trained weights to team Drive, not Git; Drive folder paths are in
+  evaluation/OCR_RESULTS.md Table 3 (shareable links still to add).
+
+Step 5 record — 17 November 2026 (Colab T4, run 20261117-031848; folders
+DRIVE/CVDL-OCR-finetune/<model>/20261117-031848/, each with config.json,
+epoch_log.csv, selection.json and populated best/):
+
+| Model | Best val crop CER | Exact | Epoch | Notes |
+| --- | ---: | ---: | ---: | --- |
+| PaddleOCR | 0.1522 | 0.777 | 19 | Tied with epoch 4; exported epoch 19. Pretrained 0.1501, so no CER gain. |
+| TrOCR | 0.2019 | 0.685 | 2 | Pretrained (epoch 0) 0.2125. Reload verified. Warmup 0.1. An earlier run (0.656, no warmup) was overwritten in this folder. |
+| EasyOCR | 0.2896 | 0.600 | 10 | Early stop at 13. Pretrained 0.4323. |
+
+Validation figures selected the checkpoints; they are not test results.
+Degenerate validation line images: A095_00 (144x4 px), P034_00 (87x3 px).
+
 
 ## 6. Fine-tuned evaluation
 

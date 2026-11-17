@@ -111,9 +111,38 @@ those labels and reads actual line/crop references from the bundle. The
 placeholders never enter `train.tsv`, `valid.tsv` or scoring truth.
 
 Pinned direct package versions are in the notebook. Actual resolved versions
-are saved with each runtime and each run. Notebook setup has been attempted in Colab, but successful model dry runs and
-full GPU training have not been confirmed. GPU kernels, Paddle training-head
-loading and checkpoint export still need checks on the target runtime.
+are saved with each runtime and each run.
+
+## Completed GPU runs — 17 November 2026
+
+Full training completed on a Colab T4 (compute capability 7.5) for all three
+models, run ID `20261117-031848`, outputs under
+`DRIVE/CVDL-OCR-finetune/<model>/20261117-031848/`. Each folder was checked for
+`config.json`, `epoch_log.csv`, `selection.json` and a populated `best/`.
+
+| Model | Lowest val crop CER | Exact | Selected epoch | Epochs run |
+| --- | ---: | ---: | ---: | ---: |
+| PaddleOCR | 0.1522 | 0.777 | 19 (tied with epoch 4; upstream keeps the later) | 20 |
+| TrOCR | 0.2019 | 0.685 | 2 | 5 (early stop) |
+| EasyOCR | 0.2896 | 0.600 | 10 | 13 (early stop) |
+
+- TrOCR untouched-model baseline (epoch 0, same validation pass): crop CER
+  0.2125, exact 0.592. Reloading `best/` reproduced 0.2019 / 0.685 exactly.
+  The `missing keys: decoder.output_projection.weight` warning is harmless:
+  that weight is tied to `embed_tokens` and is not stored separately.
+- The TrOCR run in this folder used the current `train_trocr.py` (10% warmup,
+  epoch-0 baseline, `validation_predictions.jsonl`). An earlier TrOCR run with
+  the previous script (no warmup; best crop CER 0.656 at epoch 3) wrote to the
+  same folder and was overwritten. Only its console log survives.
+- Validation line images `lines/valid/A095_00.png` (144×4) and
+  `lines/valid/P034_00.png` (87×3) are degenerate layout regions. In training
+  validation, P034_00 triggers an ambiguous-channel warning and is read
+  channels-first.
+- Measured training seconds on the T4: Paddle 313, TrOCR 450 (from
+  `selection.json`). EasyOCR time was not recorded here.
+- These validation scores chose the checkpoints, so they are optimistic. They
+  are not test results; see `evaluation/OCR_RESULTS.md` Table 3 for the
+  comparison with pretrained models.
 
 ## CPU smoke checks
 
@@ -136,33 +165,37 @@ are not substitutes for these pending smoke checks.
 
 ## T4 runtime
 
-There is no measured T4 runtime. As an **unverified planning allowance**, reserve
+Measured training times for run `20261117-031848` are listed above. Setup and
+downloads were not timed. The original planning allowance was: reserve
 roughly 1–3 hours for setup/downloads and the three runs, with substantial
 variation from early stopping, Drive speed and GPU memory. This is not a
 benchmark, deadline or achieved result. Use the notebook's timers and first
 epoch to replace this allowance with measured timing. A successful two-step
 CPU smoke test does not establish GPU speed or model accuracy.
 
-## Step 6 runner mapping — changes proposed, not applied
+## Step 6 runs (runner changes applied)
 
-- TrOCR HF `best/` maps to `run_easyocr_crops.py --engine trocr --cache BEST`.
-  Keep the same crop/layout arguments. Its baseline-only provenance/model-name
-  checks/report wording must recognise `fine_tuned=true` rather than call the
-  new weights public pretrained. Verify weight hashes and model reload first.
-- Paddle inference `best/` maps to `run_paddle_crops.py --model-dir BEST` with
-  identical crop/layout arguments. Exported provenance provides its new hashes.
-  The runner's baseline-only model/report wording must likewise identify the
-  fine-tuned variant. Existence of filenames alone is not a recognition test.
-- EasyOCR currently has no custom-network loading flag. Minimal proposed
-  change: add `--recog-network` (default `standard`) and
-  `--user-network-directory`, pass them to `easyocr.Reader`, and make the
-  weight/provenance path choose `<recog_network>.pth` for custom networks.
-  Use `eds_english_g2` plus `best/` for both model and user-network directories.
-  Preserve the current defaults for pretrained runs. **No runner was edited.**
+`scripts/run_easyocr_crops.py` and `scripts/run_paddle_crops.py` accept
+`--finetuned-from <Drive run folder>`, which labels the report `fine_tuned: true`
+and checks that `best/provenance.json` agrees (TrOCR, Paddle). EasyOCR also takes
+`--recog-network eds_english_g2`, loading `.pth/.yaml/.py` from `--cache best/`.
+Without these flags the runners behave as before, so pretrained runs reproduce.
 
-Do not select the app model or claim Step 6 results from this preparation.
-The user-owned later comparison uses fine-tuned TEST annotation metrics;
-neither TEST data nor TEST settings were accessed here.
+1. Download each `DRIVE/CVDL-OCR-finetune/<model>/20261117-031848/best/` folder
+   to `.cache/finetuned/<model>/` (`easyocr`, `trocr`, `paddleocr`). Not Git.
+2. Run `scripts/run_finetuned_ocr.sh` (all three) or name models, e.g.
+   `scripts/run_finetuned_ocr.sh paddleocr`. Each model runs train, valid and
+   test with the same crops, frozen layouts, seed and warmup as its pretrained
+   runs; full outputs go to `.cache/ocr_runs/<model>-finetuned-<split>/` and
+   `predictions.jsonl` + `report.json` are copied to `evaluation/ocr_runs/`.
+3. `scripts/run_finetuned_ocr.sh pretrained-test` produces the missing
+   pretrained TrOCR and Paddle test runs.
+4. Score train/valid now. Score test only after the 118 test labels are
+   human-confirmed. Test predictions do not read labels.
+
+The local Paddle environment (paddle 3.2.2, paddleocr 3.3.2) has not yet loaded
+the Colab-exported fine-tuned `inference.json`; the first Paddle run is that check.
+Do not select the app model from validation; step 7 uses TEST annotation crops.
 
 ## Official implementation references
 

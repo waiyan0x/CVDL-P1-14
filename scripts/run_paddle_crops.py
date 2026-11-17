@@ -32,6 +32,8 @@ def run(args):
     provenance = json.loads((model_dir/"provenance.json").read_text())
     if provenance.get("repository") != "PaddlePaddle/en_PP-OCRv5_mobile_rec":
         raise ValueError("Expected pinned public English PaddleOCR v5 model")
+    if bool(provenance.get("fine_tuned")) != bool(args.finetuned_from):
+        raise ValueError("Paddle provenance fine_tuned flag disagrees with --finetuned-from")
     hashes = {p.name: sha256(p) for p in model_dir.iterdir() if p.is_file()}
     if any(hashes.get(k) != v for k, v in provenance["files_sha256"].items()):
         raise ValueError("Model hash differs from download provenance")
@@ -74,7 +76,9 @@ def run(args):
         raise RuntimeError("Model/layout changed during inference")
     report = {"schema_version": 1, "status": "complete", "run_name": output.name,
               "started_at_utc": started, "finished_at_utc": datetime.now(timezone.utc).isoformat(),
-              "engine": "paddleocr", "model": "en_PP-OCRv5_mobile_rec (public pretrained)",
+              "engine": "paddleocr",
+              "model": "en_PP-OCRv5_mobile_rec (" + ("fine-tuned" if args.finetuned_from else "public pretrained") + ")",
+              "fine_tuned": bool(args.finetuned_from), "finetuned_from": args.finetuned_from,
               "model_provenance": provenance, "model_files_sha256": hashes,
               "model_sha256_before": hashes["inference.pdiparams"], "model_sha256_after": hashes["inference.pdiparams"],
               "cached_weights_unchanged": True, "source_workspace_unchanged": True,
@@ -111,6 +115,7 @@ def main():
     parser.add_argument("--line-layout", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--warmup", type=int, default=3)
+    parser.add_argument("--finetuned-from", help="Fine-tuning run that produced --model-dir (e.g. Drive CVDL-OCR-finetune/paddleocr/20261117-031848); labels the run fine-tuned")
     args = parser.parse_args()
     if args.warmup < 1:
         parser.error("At least one warmup per field required")
