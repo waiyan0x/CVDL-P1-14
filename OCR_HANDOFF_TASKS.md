@@ -149,26 +149,30 @@ Degenerate validation line images: A095_00 (144x4 px), P034_00 (87x3 px).
 - [x] Run all three fine-tuned models on the same train/validation/test crops
   and layouts as their pretrained versions.
 - [x] Save evaluation/ocr_runs/<model>-finetuned-<split>/.
-- [ ] Score all six model versions with step 1 scoring.
+- [x] Score all six model versions with step 1 scoring.
 
 ## 7. App model selection
 
-- [ ] Compare fine-tuned models only, TEST annotation crops, All fields row.
-- [ ] Rank CER lower, WER lower, exact match higher. Winning at least two of
+- [x] Compare fine-tuned models only, TEST annotation crops, All fields row.
+- [x] Rank CER lower, WER lower, exact match higher. Winning at least two of
   three wins; if all different, use lowest CER.
-- [ ] State explicitly if selected fine-tuned model is worse than pretrained.
+- [x] State explicitly if selected fine-tuned model is worse than pretrained.
+  It is not (pretrained Paddle test: 11.6 / 30.9 / 64.4).
 
 ## 8. Results
 
-- [ ] Write evaluation/OCR_RESULTS.md, not HTML.
-- [ ] Table 1: annotation crops. Table 2: detector crops (validation and test).
+- [x] Write evaluation/OCR_RESULTS.md, not HTML.
+- [x] Table 1: annotation crops. Table 2: detector crops (validation and test).
   Include the requested train results in the applicable annotation table.
-- [ ] Columns: Model | Version | Split | Field (number/destination/route/all) |
+- [x] Columns: Model | Version | Split | Field (number/destination/route/all) |
   Crops (n) | CER (%) | WER (%) | Exact match (%).
-- [ ] One decimal place; n is crops actually scored.
-- [ ] Below tables state label sources by split, spot-check percentage,
+- [x] One decimal place; n is crops actually scored.
+- [x] Below tables state label sources by split, spot-check percentage,
   exclusions with counts and normalised scoring.
-- [ ] Identify selected model and Drive link to weights.
+- [ ] Identify selected model and Drive link to weights. Selected: fine-tuned
+  PaddleOCR (test All fields CER 8.2 / WER 19.1 / exact 82.2, n=45; best of the
+  fine-tuned models on all three and better than pretrained). Shareable Drive
+  link still to add.
 
 ## 9. OCR handoff to matching owner (the user)
 

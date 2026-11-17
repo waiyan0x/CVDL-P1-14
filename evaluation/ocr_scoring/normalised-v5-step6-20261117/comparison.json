@@ -1,0 +1,205 @@
+{
+  "models": [
+    {
+      "id": "easyocr",
+      "baseline": {
+        "runs": [
+          {
+            "run_dir": "train_runs_filtered/easyocr-pretrained-train",
+            "splits": [
+              "train"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          },
+          {
+            "run_dir": "../../ocr_runs/easyocr-pretrained-valid",
+            "splits": [
+              "valid"
+            ],
+            "input_sets": [
+              "annotation",
+              "prediction"
+            ]
+          },
+          {
+            "run_dir": "../../ocr_runs/easyocr-pretrained-test",
+            "splits": [
+              "test"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          }
+        ]
+      },
+      "finetuned": {
+        "runs": [
+          {
+            "run_dir": "train_runs_filtered/easyocr-finetuned-train",
+            "splits": [
+              "train"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          },
+          {
+            "run_dir": "../../ocr_runs/easyocr-finetuned-valid",
+            "splits": [
+              "valid"
+            ],
+            "input_sets": [
+              "annotation",
+              "prediction"
+            ]
+          },
+          {
+            "run_dir": "../../ocr_runs/easyocr-finetuned-test",
+            "splits": [
+              "test"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "trocr",
+      "baseline": {
+        "runs": [
+          {
+            "run_dir": "train_runs_filtered/trocr-pretrained-train",
+            "splits": [
+              "train"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          },
+          {
+            "run_dir": "../../ocr_runs/trocr-pretrained-valid",
+            "splits": [
+              "valid"
+            ],
+            "input_sets": [
+              "annotation",
+              "prediction"
+            ]
+          },
+          {
+            "run_dir": "../../ocr_runs/trocr-pretrained-test",
+            "splits": [
+              "test"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          }
+        ]
+      },
+      "finetuned": {
+        "runs": [
+          {
+            "run_dir": "train_runs_filtered/trocr-finetuned-train",
+            "splits": [
+              "train"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          },
+          {
+            "run_dir": "../../ocr_runs/trocr-finetuned-valid",
+            "splits": [
+              "valid"
+            ],
+            "input_sets": [
+              "annotation",
+              "prediction"
+            ]
+          },
+          {
+            "run_dir": "../../ocr_runs/trocr-finetuned-test",
+            "splits": [
+              "test"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "paddleocr",
+      "baseline": {
+        "runs": [
+          {
+            "run_dir": "train_runs_filtered/paddleocr-pretrained-train",
+            "splits": [
+              "train"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          },
+          {
+            "run_dir": "../../ocr_runs/paddleocr-pretrained-valid",
+            "splits": [
+              "valid"
+            ],
+            "input_sets": [
+              "annotation",
+              "prediction"
+            ]
+          },
+          {
+            "run_dir": "../../ocr_runs/paddleocr-pretrained-test",
+            "splits": [
+              "test"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          }
+        ]
+      },
+      "finetuned": {
+        "runs": [
+          {
+            "run_dir": "train_runs_filtered/paddleocr-finetuned-train",
+            "splits": [
+              "train"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          },
+          {
+            "run_dir": "../../ocr_runs/paddleocr-finetuned-valid",
+            "splits": [
+              "valid"
+            ],
+            "input_sets": [
+              "annotation",
+              "prediction"
+            ]
+          },
+          {
+            "run_dir": "../../ocr_runs/paddleocr-finetuned-test",
+            "splits": [
+              "test"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

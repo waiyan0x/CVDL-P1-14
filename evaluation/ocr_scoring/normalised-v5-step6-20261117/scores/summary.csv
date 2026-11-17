@@ -1,0 +1,181 @@
+model,variant,scoring_mode,split,input_set,field,inventory,eligible,cer,wer,exact_match,status,attempted,completed,failed,missing,empty,successful_crop_total_ms_median,successful_crop_total_ms_p95
+easyocr,baseline,normalised,train,annotation,front_eds_num,282,282,0.3427041499330656,0.475177304964539,0.5602836879432624,Scored,282,270,12,0,2,7.209,11.947
+easyocr,baseline,normalised,train,annotation,front_eds_destination,63,63,0.5559481743227326,0.8444444444444444,0.09523809523809523,Scored,63,60,3,0,0,11.908,18.454
+easyocr,baseline,normalised,train,annotation,front_eds_route,42,42,0.4858490566037736,0.9,0.023809523809523808,Scored,42,41,1,0,0,12.144,45.387
+easyocr,baseline,normalised,train,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+easyocr,baseline,normalised,train,annotation,all,387,387,0.4646057347670251,0.6769759450171822,0.4263565891472868,Scored,387,371,16,0,2,7.802,16.488
+easyocr,baseline,normalised,train,prediction,front_eds_num,0,0,,,,Not run,0,0,0,0,0,,
+easyocr,baseline,normalised,train,prediction,front_eds_destination,0,0,,,,Not run,0,0,0,0,0,,
+easyocr,baseline,normalised,train,prediction,front_eds_route,0,0,,,,Not run,0,0,0,0,0,,
+easyocr,baseline,normalised,train,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+easyocr,baseline,normalised,train,prediction,all,0,0,,,,Not run,0,0,0,0,0,,
+easyocr,baseline,normalised,valid,annotation,front_eds_num,60,43,0.23684210526315788,0.3953488372093023,0.6046511627906976,Scored,60,58,2,0,1,7.522,20.544
+easyocr,baseline,normalised,valid,annotation,front_eds_destination,55,19,0.4541984732824427,0.7741935483870968,0.0,Scored,55,49,6,0,1,12.307,67.405
+easyocr,baseline,normalised,valid,annotation,front_eds_route,42,17,0.4939271255060729,0.8823529411764706,0.0,Scored,42,39,3,0,1,12.962,70.739
+easyocr,baseline,normalised,valid,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+easyocr,baseline,normalised,valid,annotation,all,157,79,0.4301765650080257,0.7051282051282052,0.3291139240506329,Scored,157,146,11,0,3,11.023,65.911
+easyocr,baseline,normalised,valid,prediction,front_eds_num,42,33,0.16091954022988506,0.24242424242424243,0.7575757575757576,Scored,42,40,2,0,0,8.272,9.803
+easyocr,baseline,normalised,valid,prediction,front_eds_destination,35,6,0.5915492957746479,0.8125,0.16666666666666666,Scored,35,30,5,0,0,14.402,87.966
+easyocr,baseline,normalised,valid,prediction,front_eds_route,37,12,0.5151515151515151,0.8918918918918919,0.0,Scored,37,35,2,0,0,13.341,80.877
+easyocr,baseline,normalised,valid,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+easyocr,baseline,normalised,valid,prediction,all,114,51,0.43653250773993807,0.627906976744186,0.5098039215686274,Scored,114,105,9,0,0,10.478,83.782
+easyocr,baseline,normalised,test,annotation,front_eds_num,47,24,0.07462686567164178,0.16666666666666666,0.8333333333333334,Scored,47,47,0,0,0,6.98,14.933
+easyocr,baseline,normalised,test,annotation,front_eds_destination,39,17,0.38626609442060084,0.6730769230769231,0.23529411764705882,Scored,39,39,0,0,1,12.187,43.992
+easyocr,baseline,normalised,test,annotation,front_eds_route,32,4,0.3670886075949367,0.8333333333333334,0.0,Scored,32,32,0,0,1,13.033,46.323
+easyocr,baseline,normalised,test,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+easyocr,baseline,normalised,test,annotation,all,118,45,0.32717678100263853,0.574468085106383,0.5333333333333333,Scored,118,118,0,0,2,10.524,41.667
+easyocr,baseline,normalised,test,prediction,front_eds_num,0,0,,,,Not run,0,0,0,0,0,,
+easyocr,baseline,normalised,test,prediction,front_eds_destination,0,0,,,,Not run,0,0,0,0,0,,
+easyocr,baseline,normalised,test,prediction,front_eds_route,0,0,,,,Not run,0,0,0,0,0,,
+easyocr,baseline,normalised,test,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+easyocr,baseline,normalised,test,prediction,all,0,0,,,,Not run,0,0,0,0,0,,
+easyocr,finetuned,normalised,train,annotation,front_eds_num,282,282,0.10307898259705489,0.1099290780141844,0.9219858156028369,Scored,282,270,12,0,0,6.915,8.747
+easyocr,finetuned,normalised,train,annotation,front_eds_destination,63,63,0.23792697290930506,0.4722222222222222,0.47619047619047616,Scored,63,60,3,0,0,11.325,19.245
+easyocr,finetuned,normalised,train,annotation,front_eds_route,42,42,0.20440251572327045,0.45,0.47619047619047616,Scored,42,41,1,0,0,11.009,35.91
+easyocr,finetuned,normalised,train,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+easyocr,finetuned,normalised,train,annotation,all,387,387,0.1832437275985663,0.2920962199312715,0.8010335917312662,Scored,387,371,16,0,0,7.119,16.014
+easyocr,finetuned,normalised,train,prediction,front_eds_num,0,0,,,,Not run,0,0,0,0,0,,
+easyocr,finetuned,normalised,train,prediction,front_eds_destination,0,0,,,,Not run,0,0,0,0,0,,
+easyocr,finetuned,normalised,train,prediction,front_eds_route,0,0,,,,Not run,0,0,0,0,0,,
+easyocr,finetuned,normalised,train,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+easyocr,finetuned,normalised,train,prediction,all,0,0,,,,Not run,0,0,0,0,0,,
+easyocr,finetuned,normalised,valid,annotation,front_eds_num,60,43,0.10526315789473684,0.18604651162790697,0.813953488372093,Scored,60,58,2,0,0,6.519,9.806
+easyocr,finetuned,normalised,valid,annotation,front_eds_destination,55,19,0.2748091603053435,0.43548387096774194,0.42105263157894735,Scored,55,49,6,0,0,11.572,39.768
+easyocr,finetuned,normalised,valid,annotation,front_eds_route,42,17,0.3441295546558704,0.7647058823529411,0.11764705882352941,Scored,42,39,3,0,0,12.815,53.273
+easyocr,finetuned,normalised,valid,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+easyocr,finetuned,normalised,valid,annotation,all,157,79,0.2712680577849117,0.47435897435897434,0.569620253164557,Scored,157,146,11,0,0,9.518,40.376
+easyocr,finetuned,normalised,valid,prediction,front_eds_num,42,33,0.09195402298850575,0.12121212121212122,0.8787878787878788,Scored,42,40,2,0,1,6.409,7.779
+easyocr,finetuned,normalised,valid,prediction,front_eds_destination,35,6,0.5492957746478874,0.8125,0.3333333333333333,Scored,35,30,5,0,0,12.766,87.196
+easyocr,finetuned,normalised,valid,prediction,front_eds_route,37,12,0.3696969696969697,0.7567567567567568,0.16666666666666666,Scored,37,35,2,0,0,11.616,76.709
+easyocr,finetuned,normalised,valid,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+easyocr,finetuned,normalised,valid,prediction,all,114,51,0.33436532507739936,0.5232558139534884,0.6470588235294118,Scored,114,105,9,0,1,9.749,79.699
+easyocr,finetuned,normalised,test,annotation,front_eds_num,47,24,0.029850746268656716,0.08333333333333333,0.9166666666666666,Scored,47,47,0,0,1,6.661,7.776
+easyocr,finetuned,normalised,test,annotation,front_eds_destination,39,17,0.22746781115879827,0.5192307692307693,0.29411764705882354,Scored,39,39,0,0,0,11.399,41.387
+easyocr,finetuned,normalised,test,annotation,front_eds_route,32,4,0.34177215189873417,0.7777777777777778,0.0,Scored,32,32,0,0,0,12.829,37.073
+easyocr,finetuned,normalised,test,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+easyocr,finetuned,normalised,test,annotation,all,118,45,0.21635883905013192,0.4574468085106383,0.6,Scored,118,118,0,0,1,9.592,36.626
+easyocr,finetuned,normalised,test,prediction,front_eds_num,0,0,,,,Not run,0,0,0,0,0,,
+easyocr,finetuned,normalised,test,prediction,front_eds_destination,0,0,,,,Not run,0,0,0,0,0,,
+easyocr,finetuned,normalised,test,prediction,front_eds_route,0,0,,,,Not run,0,0,0,0,0,,
+easyocr,finetuned,normalised,test,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+easyocr,finetuned,normalised,test,prediction,all,0,0,,,,Not run,0,0,0,0,0,,
+trocr,baseline,normalised,train,annotation,front_eds_num,282,282,0.2583668005354752,0.3546099290780142,0.6737588652482269,Scored,282,270,12,0,0,180.194,230.017
+trocr,baseline,normalised,train,annotation,front_eds_destination,63,63,0.4110718492343934,0.7833333333333333,0.1111111111111111,Scored,63,60,3,0,0,292.742,404.959
+trocr,baseline,normalised,train,annotation,front_eds_route,42,42,0.300314465408805,0.6333333333333333,0.2857142857142857,Scored,42,41,1,0,0,319.53,589.223
+trocr,baseline,normalised,train,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+trocr,baseline,normalised,train,annotation,all,387,387,0.32840501792114696,0.5446735395189003,0.5400516795865633,Scored,387,371,16,0,0,190.635,403.196
+trocr,baseline,normalised,train,prediction,front_eds_num,0,0,,,,Not run,0,0,0,0,0,,
+trocr,baseline,normalised,train,prediction,front_eds_destination,0,0,,,,Not run,0,0,0,0,0,,
+trocr,baseline,normalised,train,prediction,front_eds_route,0,0,,,,Not run,0,0,0,0,0,,
+trocr,baseline,normalised,train,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+trocr,baseline,normalised,train,prediction,all,0,0,,,,Not run,0,0,0,0,0,,
+trocr,baseline,normalised,valid,annotation,front_eds_num,60,43,0.13157894736842105,0.2558139534883721,0.7441860465116279,Scored,60,58,2,0,0,195.148,227.474
+trocr,baseline,normalised,valid,annotation,front_eds_destination,55,19,0.19083969465648856,0.4838709677419355,0.3157894736842105,Scored,55,49,6,0,0,295.521,445.598
+trocr,baseline,normalised,valid,annotation,front_eds_route,42,17,0.23481781376518218,0.49019607843137253,0.29411764705882354,Scored,42,39,3,0,0,302.17,508.725
+trocr,baseline,normalised,valid,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+trocr,baseline,normalised,valid,annotation,all,157,79,0.19743178170144463,0.4230769230769231,0.5443037974683544,Scored,157,146,11,0,0,224.612,438.679
+trocr,baseline,normalised,valid,prediction,front_eds_num,42,33,0.11494252873563218,0.18181818181818182,0.8181818181818182,Scored,42,40,2,0,0,191.171,545.223
+trocr,baseline,normalised,valid,prediction,front_eds_destination,35,6,0.36619718309859156,0.6875,0.5,Scored,35,29,6,0,0,599.787,1763.603
+trocr,baseline,normalised,valid,prediction,front_eds_route,37,12,0.24848484848484848,0.3783783783783784,0.3333333333333333,Scored,37,35,2,0,0,448.839,1298.07
+trocr,baseline,normalised,valid,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+trocr,baseline,normalised,valid,prediction,all,114,51,0.23839009287925697,0.36046511627906974,0.6666666666666666,Scored,114,104,10,0,0,350.334,1323.676
+trocr,baseline,normalised,test,annotation,front_eds_num,47,24,0.029850746268656716,0.041666666666666664,0.9583333333333334,Scored,47,47,0,0,0,176.803,218.149
+trocr,baseline,normalised,test,annotation,front_eds_destination,39,17,0.15450643776824036,0.40384615384615385,0.29411764705882354,Scored,39,39,0,0,0,282.527,381.992
+trocr,baseline,normalised,test,annotation,front_eds_route,32,4,0.379746835443038,0.7222222222222222,0.25,Scored,32,32,0,0,0,285.743,449.759
+trocr,baseline,normalised,test,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+trocr,baseline,normalised,test,annotation,all,118,45,0.17941952506596306,0.3723404255319149,0.6444444444444445,Scored,118,118,0,0,0,209.095,385.406
+trocr,baseline,normalised,test,prediction,front_eds_num,0,0,,,,Not run,0,0,0,0,0,,
+trocr,baseline,normalised,test,prediction,front_eds_destination,0,0,,,,Not run,0,0,0,0,0,,
+trocr,baseline,normalised,test,prediction,front_eds_route,0,0,,,,Not run,0,0,0,0,0,,
+trocr,baseline,normalised,test,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+trocr,baseline,normalised,test,prediction,all,0,0,,,,Not run,0,0,0,0,0,,
+trocr,finetuned,normalised,train,annotation,front_eds_num,282,282,0.10977242302543508,0.09929078014184398,0.9326241134751773,Scored,282,270,12,0,0,178.754,346.008
+trocr,finetuned,normalised,train,annotation,front_eds_destination,63,63,0.24734982332155478,0.5333333333333333,0.31746031746031744,Scored,63,60,3,0,0,289.018,799.134
+trocr,finetuned,normalised,train,annotation,front_eds_route,42,42,0.20125786163522014,0.375,0.6428571428571429,Scored,42,41,1,0,0,341.302,593.302
+trocr,finetuned,normalised,train,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+trocr,finetuned,normalised,train,annotation,all,387,387,0.1881720430107527,0.29037800687285226,0.8010335917312662,Scored,387,371,16,0,0,188.721,492.526
+trocr,finetuned,normalised,train,prediction,front_eds_num,0,0,,,,Not run,0,0,0,0,0,,
+trocr,finetuned,normalised,train,prediction,front_eds_destination,0,0,,,,Not run,0,0,0,0,0,,
+trocr,finetuned,normalised,train,prediction,front_eds_route,0,0,,,,Not run,0,0,0,0,0,,
+trocr,finetuned,normalised,train,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+trocr,finetuned,normalised,train,prediction,all,0,0,,,,Not run,0,0,0,0,0,,
+trocr,finetuned,normalised,valid,annotation,front_eds_num,60,43,0.07017543859649122,0.09302325581395349,0.9069767441860465,Scored,60,58,2,0,0,193.279,318.37
+trocr,finetuned,normalised,valid,annotation,front_eds_destination,55,19,0.17938931297709923,0.45161290322580644,0.3684210526315789,Scored,55,49,6,0,0,299.991,569.68
+trocr,finetuned,normalised,valid,annotation,front_eds_route,42,17,0.21862348178137653,0.4117647058823529,0.35294117647058826,Scored,42,39,3,0,0,327.208,616.148
+trocr,finetuned,normalised,valid,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+trocr,finetuned,normalised,valid,annotation,all,157,79,0.17495987158908508,0.33974358974358976,0.6582278481012658,Scored,157,146,11,0,0,249.445,519.204
+trocr,finetuned,normalised,valid,prediction,front_eds_num,42,33,0.05747126436781609,0.06060606060606061,0.9393939393939394,Scored,42,40,2,0,0,185.216,222.707
+trocr,finetuned,normalised,valid,prediction,front_eds_destination,35,6,0.4507042253521127,0.5,0.5,Scored,35,30,5,0,0,499.455,858.896
+trocr,finetuned,normalised,valid,prediction,front_eds_route,37,12,0.2909090909090909,0.40540540540540543,0.25,Scored,37,35,2,0,0,380.399,752.285
+trocr,finetuned,normalised,valid,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+trocr,finetuned,normalised,valid,prediction,all,114,51,0.2631578947368421,0.29069767441860467,0.7254901960784313,Scored,114,105,9,0,0,281.077,772.762
+trocr,finetuned,normalised,test,annotation,front_eds_num,47,24,0.04477611940298507,0.08333333333333333,0.9166666666666666,Scored,47,47,0,0,0,173.443,221.172
+trocr,finetuned,normalised,test,annotation,front_eds_destination,39,17,0.15450643776824036,0.4423076923076923,0.29411764705882354,Scored,39,39,0,0,0,278.945,350.788
+trocr,finetuned,normalised,test,annotation,front_eds_route,32,4,0.34177215189873417,0.6111111111111112,0.25,Scored,32,32,0,0,0,268.619,424.386
+trocr,finetuned,normalised,test,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+trocr,finetuned,normalised,test,annotation,all,118,45,0.1741424802110818,0.3829787234042553,0.6222222222222222,Scored,118,118,0,0,0,207.496,355.811
+trocr,finetuned,normalised,test,prediction,front_eds_num,0,0,,,,Not run,0,0,0,0,0,,
+trocr,finetuned,normalised,test,prediction,front_eds_destination,0,0,,,,Not run,0,0,0,0,0,,
+trocr,finetuned,normalised,test,prediction,front_eds_route,0,0,,,,Not run,0,0,0,0,0,,
+trocr,finetuned,normalised,test,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+trocr,finetuned,normalised,test,prediction,all,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,baseline,normalised,train,annotation,front_eds_num,282,282,0.12048192771084337,0.16666666666666666,0.8439716312056738,Scored,282,270,12,0,0,67.143,109.046
+paddleocr,baseline,normalised,train,annotation,front_eds_destination,63,63,0.31095406360424027,0.7055555555555556,0.19047619047619047,Scored,63,60,3,0,0,70.09,110.129
+paddleocr,baseline,normalised,train,annotation,front_eds_route,42,42,0.23113207547169812,0.5916666666666667,0.30952380952380953,Scored,42,41,1,0,0,68.036,139.686
+paddleocr,baseline,normalised,train,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+paddleocr,baseline,normalised,train,annotation,all,387,387,0.22446236559139784,0.4209621993127148,0.6795865633074936,Scored,387,371,16,0,0,67.592,121.614
+paddleocr,baseline,normalised,train,prediction,front_eds_num,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,baseline,normalised,train,prediction,front_eds_destination,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,baseline,normalised,train,prediction,front_eds_route,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,baseline,normalised,train,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+paddleocr,baseline,normalised,train,prediction,all,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,baseline,normalised,valid,annotation,front_eds_num,60,43,0.02631578947368421,0.023255813953488372,0.9767441860465116,Scored,60,58,2,0,1,66.236,71.736
+paddleocr,baseline,normalised,valid,annotation,front_eds_destination,55,19,0.14885496183206107,0.3387096774193548,0.5789473684210527,Scored,55,49,6,0,2,67.467,137.473
+paddleocr,baseline,normalised,valid,annotation,front_eds_route,42,17,0.1700404858299595,0.5490196078431373,0.29411764705882354,Scored,42,39,3,0,0,69.291,157.461
+paddleocr,baseline,normalised,valid,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+paddleocr,baseline,normalised,valid,annotation,all,157,79,0.1348314606741573,0.32051282051282054,0.7341772151898734,Scored,157,146,11,0,3,66.887,130.556
+paddleocr,baseline,normalised,valid,prediction,front_eds_num,42,33,0.034482758620689655,0.030303030303030304,0.9696969696969697,Scored,42,40,2,0,0,66.576,74.63
+paddleocr,baseline,normalised,valid,prediction,front_eds_destination,35,6,0.28169014084507044,0.625,0.3333333333333333,Scored,35,30,5,0,0,92.802,509.65
+paddleocr,baseline,normalised,valid,prediction,front_eds_route,37,12,0.21212121212121213,0.5945945945945946,0.25,Scored,37,35,2,0,0,75.751,302.534
+paddleocr,baseline,normalised,valid,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+paddleocr,baseline,normalised,valid,prediction,all,114,51,0.17956656346749225,0.38372093023255816,0.7254901960784313,Scored,114,105,9,0,0,67.611,386.489
+paddleocr,baseline,normalised,test,annotation,front_eds_num,47,24,0.029850746268656716,0.08333333333333333,0.9166666666666666,Scored,47,47,0,0,1,65.094,68.538
+paddleocr,baseline,normalised,test,annotation,front_eds_destination,39,17,0.0815450643776824,0.2692307692307692,0.4117647058823529,Scored,39,39,0,0,3,65.711,84.747
+paddleocr,baseline,normalised,test,annotation,front_eds_route,32,4,0.2911392405063291,0.7222222222222222,0.0,Scored,32,32,0,0,3,66.303,80.8
+paddleocr,baseline,normalised,test,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+paddleocr,baseline,normalised,test,annotation,all,118,45,0.11609498680738786,0.30851063829787234,0.6444444444444445,Scored,118,118,0,0,7,65.469,82.271
+paddleocr,baseline,normalised,test,prediction,front_eds_num,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,baseline,normalised,test,prediction,front_eds_destination,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,baseline,normalised,test,prediction,front_eds_route,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,baseline,normalised,test,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+paddleocr,baseline,normalised,test,prediction,all,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,finetuned,normalised,train,annotation,front_eds_num,282,282,0.08835341365461848,0.09219858156028368,0.9326241134751773,Scored,282,270,12,0,0,64.756,68.056
+paddleocr,finetuned,normalised,train,annotation,front_eds_destination,63,63,0.09069493521790342,0.16111111111111112,0.8253968253968254,Scored,63,60,3,0,0,65.25,78.761
+paddleocr,finetuned,normalised,train,annotation,front_eds_route,42,42,0.12735849056603774,0.20833333333333334,0.8333333333333334,Scored,42,41,1,0,0,65.112,129.195
+paddleocr,finetuned,normalised,train,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+paddleocr,finetuned,normalised,train,annotation,all,387,387,0.1003584229390681,0.13745704467353953,0.9043927648578811,Scored,387,371,16,0,0,64.83,80.389
+paddleocr,finetuned,normalised,train,prediction,front_eds_num,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,finetuned,normalised,train,prediction,front_eds_destination,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,finetuned,normalised,train,prediction,front_eds_route,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,finetuned,normalised,train,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+paddleocr,finetuned,normalised,train,prediction,all,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,finetuned,normalised,valid,annotation,front_eds_num,60,43,0.02631578947368421,0.023255813953488372,0.9767441860465116,Scored,60,58,2,0,0,64.318,65.273
+paddleocr,finetuned,normalised,valid,annotation,front_eds_destination,55,19,0.12213740458015267,0.22580645161290322,0.5789473684210527,Scored,55,49,6,0,0,64.442,107.637
+paddleocr,finetuned,normalised,valid,annotation,front_eds_route,42,17,0.11336032388663968,0.2549019607843137,0.5294117647058824,Scored,42,39,3,0,0,64.958,153.924
+paddleocr,finetuned,normalised,valid,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+paddleocr,finetuned,normalised,valid,annotation,all,157,79,0.10112359550561797,0.1794871794871795,0.7848101265822784,Scored,157,146,11,0,0,64.383,110.57
+paddleocr,finetuned,normalised,valid,prediction,front_eds_num,42,33,0.04597701149425287,0.06060606060606061,0.9393939393939394,Scored,42,40,2,0,0,64.994,65.61
+paddleocr,finetuned,normalised,valid,prediction,front_eds_destination,35,6,0.2676056338028169,0.625,0.5,Scored,35,30,5,0,0,67.432,472.921
+paddleocr,finetuned,normalised,valid,prediction,front_eds_route,37,12,0.14545454545454545,0.2702702702702703,0.5,Scored,37,35,2,0,0,65.423,294.304
+paddleocr,finetuned,normalised,valid,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+paddleocr,finetuned,normalised,valid,prediction,all,114,51,0.14551083591331268,0.2558139534883721,0.7843137254901961,Scored,114,105,9,0,0,65.18,367.944
+paddleocr,finetuned,normalised,test,annotation,front_eds_num,47,24,0.0,0.0,1.0,Scored,47,47,0,0,0,64.458,74.733
+paddleocr,finetuned,normalised,test,annotation,front_eds_destination,39,17,0.05150214592274678,0.15384615384615385,0.7058823529411765,Scored,39,39,0,0,0,64.707,83.381
+paddleocr,finetuned,normalised,test,annotation,front_eds_route,32,4,0.24050632911392406,0.5555555555555556,0.25,Scored,32,32,0,0,0,64.995,79.281
+paddleocr,finetuned,normalised,test,annotation,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+paddleocr,finetuned,normalised,test,annotation,all,118,45,0.08179419525065963,0.19148936170212766,0.8222222222222222,Scored,118,118,0,0,0,64.536,81.745
+paddleocr,finetuned,normalised,test,prediction,front_eds_num,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,finetuned,normalised,test,prediction,front_eds_destination,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,finetuned,normalised,test,prediction,front_eds_route,0,0,,,,Not run,0,0,0,0,0,,
+paddleocr,finetuned,normalised,test,prediction,front_eds,0,0,,,,Not applicable,0,0,0,0,0,,
+paddleocr,finetuned,normalised,test,prediction,all,0,0,,,,Not run,0,0,0,0,0,,
