@@ -1,0 +1,260 @@
+{
+  "status": "preparation; no training result",
+  "counts": {
+    "train_crops": 387,
+    "train_groups": 129,
+    "train_pairs": 366,
+    "valid_crops": 130,
+    "valid_pairs": 124,
+    "valid_images": 128,
+    "test_files": 0
+  },
+  "skipped": [
+    {
+      "review_id": "T0129",
+      "split": "train",
+      "reason": "region_text_count_mismatch"
+    },
+    {
+      "review_id": "T0132",
+      "split": "train",
+      "reason": "region_text_count_mismatch"
+    },
+    {
+      "review_id": "T0135",
+      "split": "train",
+      "reason": "region_text_count_mismatch"
+    },
+    {
+      "review_id": "T0230",
+      "split": "train",
+      "reason": "region_text_count_mismatch"
+    },
+    {
+      "review_id": "T0367",
+      "split": "train",
+      "reason": "region_text_count_mismatch"
+    },
+    {
+      "review_id": "T0371",
+      "split": "train",
+      "reason": "region_text_count_mismatch"
+    },
+    {
+      "review_id": "T0379",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T0380",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T0381",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T0403",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T0408",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T0413",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T0418",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T0419",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T0420",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T0505",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T0506",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T0507",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T0508",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T0509",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T0510",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T0539",
+      "split": "train",
+      "reason": "region_text_count_mismatch"
+    },
+    {
+      "review_id": "T0879",
+      "split": "train",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "T1165",
+      "split": "train",
+      "reason": "region_text_count_mismatch"
+    },
+    {
+      "review_id": "A052",
+      "split": "valid",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "A094",
+      "split": "valid",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "A095",
+      "split": "valid",
+      "reason": "region_text_count_mismatch"
+    },
+    {
+      "review_id": "P034",
+      "split": "valid",
+      "reason": "region_text_count_mismatch"
+    },
+    {
+      "review_id": "P046",
+      "split": "valid",
+      "reason": "no_frozen_regions"
+    },
+    {
+      "review_id": "P087",
+      "split": "valid",
+      "reason": "no_frozen_regions"
+    }
+  ],
+  "joined": [
+    {
+      "review_id": "T0193",
+      "split": "train",
+      "reason": "two_text_lines_joined_for_one_region"
+    },
+    {
+      "review_id": "T0195",
+      "split": "train",
+      "reason": "two_text_lines_joined_for_one_region"
+    },
+    {
+      "review_id": "T0482",
+      "split": "train",
+      "reason": "two_text_lines_joined_for_one_region"
+    },
+    {
+      "review_id": "T0484",
+      "split": "train",
+      "reason": "two_text_lines_joined_for_one_region"
+    },
+    {
+      "review_id": "T0486",
+      "split": "train",
+      "reason": "two_text_lines_joined_for_one_region"
+    },
+    {
+      "review_id": "T0806",
+      "split": "train",
+      "reason": "two_text_lines_joined_for_one_region"
+    },
+    {
+      "review_id": "T1742",
+      "split": "train",
+      "reason": "two_text_lines_joined_for_one_region"
+    },
+    {
+      "review_id": "T1745",
+      "split": "train",
+      "reason": "two_text_lines_joined_for_one_region"
+    },
+    {
+      "review_id": "T1748",
+      "split": "train",
+      "reason": "two_text_lines_joined_for_one_region"
+    }
+  ],
+  "pixel_check": {
+    "passed": true,
+    "sampled_crop_ids": [
+      "A111",
+      "A117",
+      "P038",
+      "P069",
+      "P079"
+    ],
+    "comparison": "decoded grayscale array bytes"
+  },
+  "charset_checks": {
+    "charset": " '(),-/0123456789>ABCDEFGHIJKLMNOPRSTUVWXYadegilmnostuv",
+    "easyocr_missing": [],
+    "paddle_missing": [],
+    "trocr_missing": [],
+    "trocr_check": "Base-vocab ASCII byte-token coverage; full tokenizer round trips run on Colab.",
+    "sources": {
+      "easyocr": "https://raw.githubusercontent.com/JaidedAI/EasyOCR/v1.7.2/easyocr/config.py",
+      "paddle": "https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/v3.3.2/ppocr/utils/dict/ppocrv5_en_dict.txt"
+    },
+    "source_sha256": {
+      "easyocr_config": "9c36d6c674fe32b05bda27192211ff6b63bf22f00b8439d40d33b35e3e2c1f8d",
+      "paddle_dictionary": "e025a66d31f327ba0c232e03f407ae8d105e1e709e7ccb3f408aa778c24e70d6",
+      "trocr_vocab": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab"
+    },
+    "extensions": {
+      "easyocr": [],
+      "paddleocr": [],
+      "trocr": []
+    }
+  },
+  "normalisation_compared_to_repo": true,
+  "local_framework_availability": {
+    "torch": false,
+    "transformers": false,
+    "paddle": false
+  },
+  "model_dry_runs": {
+    "trocr": "not run locally: no installed Torch/Transformers environment; see exact Colab command",
+    "easyocr": "not run locally: no installed Torch environment; see exact Colab command",
+    "paddleocr": "not run locally: no installed Paddle in checked environment and no training-format checkpoint; see exact Colab command"
+  },
+  "gpu_smoke_tested": false,
+  "model_weights_written": false,
+  "test_data_read": false,
+  "existing_files_edited_by_this_task": false,
+  "committed": false,
+  "pushed": false
+}

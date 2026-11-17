@@ -146,3 +146,5 @@ Validation exclusions (counts overlap): `challenge_only`: 26, `legibility_not_fu
 Fine-tuning and model selection: not run. Selected fine-tuned model, trained weights Drive link and new-crop command: not yet available.
 
 User correction: A091 remains wrong_field; P065 (302) is now wrong_field too. The original human export is preserved; the corrected scoring snapshot is `ocr_scoring/normalised-v4-valid-human-corrected/`. Reviewer identity is cody, explicitly confirmed in chat; the original cods export is preserved. P089/P107 suggestions were not applied. Annotation scores are unchanged; detector scored n decreases from 52 to 51.
+
+Training preparation: fine-tuning runs on Colab from `colab/ocr_finetune/` on 366 frozen-layout training line pairs (24 of 387 crops skipped and logged). Each model keeps its lowest validation crop-CER checkpoint; test is not used. No fine-tuned model exists yet. Test results will cover annotation crops only (detector checkpoint not received). The human training spot-check and test-label confirmation are pending.

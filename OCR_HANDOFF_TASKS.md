@@ -215,3 +215,27 @@ Decision rules:
 User audit follow-up, 16 November 2026: class-export ZIP received and verified (3,146 PNGs match cache). Full source-photo ZIP and YOLO11s weights remain absent. Current Paddle recommendation withdrawn; unrun metric rows now n=0. Human forms have local draft recovery, distinct filenames and incomplete-row warnings. Spot-check coverage verified as 50 crops / 44 label groups / 41 photos. Human returns remain pending.
 
 Observed human-return update, 16 November 2026: 258 validation returns imported; reviewer cody confirmed by user (original cods export preserved). User explicitly sets P065 wrong_field, with A091 unchanged. Corrected snapshot normalised-v4-valid-human-corrected scores 79 annotation / 51 detector crops. P089/P107 remain suggestions. Train/test human checks remain pending; test Claude AI proposals exist and retain AI provenance.
+
+Training preparation update — 17 November 2026
+Validation merge committed as 0e8b3d6; cody confirmed; A091/P065 wrong_field.
+Fine-tuning code: colab/ocr_finetune/ (TrOCR, EasyOCR and PaddleOCR trainers plus
+Colab notebook). Bundle: scripts/export_ocr_finetune_bundle.py ->
+.runtime/ocr_finetune_bundle-20261117.zip (SHA-256 7db8ff38...).
+Inputs are frozen-layout grayscale line images, as in evaluation: 366 training
+line pairs from 387 crops. 24 crops are skipped and listed in skipped.csv
+(16 with no layout region, 8 with two regions but one label line); 9
+one-region/two-line labels are joined with a space. Validation: 124 line pairs,
+130 crops in crop CER. Each model keeps its lowest validation crop-CER checkpoint.
+TEST is not used. TrOCR per-epoch checkpoints stay on Colab local disk
+(save_only_model); only best/ goes to Drive.
+Status: Colab T4 environment being set up; no trained weights exist yet.
+An earlier parallel attempt (scripts/train_*.py, notebooks/OCR_Finetuning.ipynb,
+evaluation/ocr_training/line-inputs-20261116/) was superseded and moved out of
+the repository to .cache/superseded-training-20261116/.
+Pretrained runs added: easyocr-pretrained-test (118 crops) and
+easyocr-pretrained-train (1,917 crops; 521 inferred), both on MPS. TrOCR and
+PaddleOCR train/test runs are packaged for Colab
+(.runtime/ocr_pretrained_test_runs.zip, .runtime/ocr_pretrained_train_runs.zip).
+Test outputs are not scored until the 118 test labels are human-confirmed.
+Human training spot-check and test confirmations still require human returns.
+Test detector crops are deferred: test results cover annotation crops only.
