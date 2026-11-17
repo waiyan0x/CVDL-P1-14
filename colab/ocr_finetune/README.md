@@ -11,8 +11,20 @@ From the repository root:
 
 ```sh
 .venv/bin/python scripts/export_ocr_finetune_bundle.py --output .runtime/ocr_finetune_bundle-20261117.zip
+# Optional: add synthetic training crops (train split only) -> the bundle the notebook now expects
+.venv/bin/python scripts/generate_synthetic_eds_crops.py          # .runtime/synthetic-eds-20261117/
+.venv/bin/python scripts/add_synthetic_to_bundle.py               # .runtime/ocr_finetune_bundle-20261117-syn.zip
 python3 -m zipfile -c .runtime/ocr_finetune_code.zip colab/ocr_finetune
 ```
+
+The notebook's `EXPECTED_BUNDLE_SHA256` pins `ocr_finetune_bundle-20261117-syn.zip`
+(366 real + 2,178 synthetic train line pairs; validation unchanged). Synthetic
+lines are `lines/train/SYN*`; their labels come from the synthetic `labels.csv`,
+paired per line with automatic segmentation (3 crops skipped, 267 two-line crops
+read as one region and labelled with the lines joined, as for real crops). To
+train on real data only, revert that hash to
+`7db8ff380c56737e979b2d269d1d3eeff1c31d950d2bd886be7558694d80ab46` and upload
+the original bundle.
 
 The exporter refuses an existing output. Use a new name for another export;
 do not overwrite a previously reviewed bundle. Upload both ZIPs to `My Drive/DRIVE`. Rename the data ZIP to
@@ -73,7 +85,8 @@ before the ZIP is completed to detect concurrent input edits.
 ## Training and exports
 
 All three use seed 0, batch 8, initial learning rate 5e-5, at most 20 epochs,
-no synthetic text and **no augmentation**, consistently across frameworks.
+**no augmentation**, consistently across frameworks. Run `20261117-031848` used
+no synthetic text; the `-syn` bundle adds synthetic training lines (see above).
 Deterministic operations are requested where supported. Native optimisers and
 schedules differ and are recorded: HF AdamW/linear, EasyOCR Adam/constant,
 Paddle Adam/cosine. Do not call these identical optimisation algorithms.

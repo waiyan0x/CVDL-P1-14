@@ -35,6 +35,7 @@ the same crops, so each pair is a like-for-like comparison.
 | **Test** | Checked by eye by a human (118 crops; 45 scored) | **Official** | Final comparison and model selection |
 | **Validation** | Checked by eye by a human (258 crops; 79 annotation + 51 detector scored) | **Official** | Comparison; was also used to pick each model's best training epoch |
 | **Train** | AI-generated (Codex), not human-verified (387 crops) | **Diagnostic only** | Checking that fine-tuning learned the training labels; **not** an accuracy result |
+| **Route hold-out** | Typed blind by one human (139 route crops; 27 scored) | **Supplementary** | Comparing models on route text, where test has only 4 crops (Table 4) |
 
 Train results are **diagnostic** for two reasons. (1) The fine-tuned models were
 trained on these very crops and labels, so their train scores measure how well
@@ -68,7 +69,8 @@ results measure OCR given a correctly drawn box.
 | EasyOCR | **all fields** | 45 | **32.7** | **21.6** | **57.4** | **45.7** | **53.3** | **60.0** |
 
 † Test route text has only **4** scorable crops: too few to compare models on
-their own. They are still included in "all fields".
+their own. They are still included in "all fields". For route text, see the
+27-crop route hold-out in Table 4.
 
 ### Table 1b: validation (official)
 
@@ -125,6 +127,74 @@ imperfect boxes. Test detector crops were not produced (user decision,
 | EasyOCR | destination | 6 | 59.2 | 54.9 | 81.2 | 81.2 | 16.7 | 33.3 |
 | EasyOCR | route | 12 | 51.5 | 37.0 | 89.2 | 75.7 | 0.0 | 16.7 |
 | EasyOCR | **all fields** | 51 | **43.7** | **33.4** | **62.8** | **52.3** | **51.0** | **64.7** |
+
+## Table 4: route hold-out (supplementary)
+
+Test has only 4 scorable route crops, so a separate route set was labelled. It
+is **not** the official test set and does not change the step 7 selection; it
+confirms it for route text.
+
+- **Crops:** 139 route crops, one per train photo whose route crop was never
+  labelled (the AI labelling could not agree on it). Their route text never
+  entered fine-tuning.
+- **Labels:** typed blind (no AI or OCR suggestion) by one human reviewer (cody),
+  17 November 2026, with no second review. Legibility: 27 full, 49 partial, 63 illegible.
+- **Runs:** same weights, settings and frozen automatic line layout as the test
+  runs, with no prediction failures.
+- **95% range:** crop-level bootstrap, 5,000 resamples, seed 0.
+
+### Table 4a: full-legibility crops (normalised scoring, n = 27)
+
+| Model | CER pre | CER fine | WER pre | WER fine | Exact pre | Exact fine |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| PaddleOCR | 12.6 | **10.7** | 34.7 | **25.3** | 48.1 | **59.3** |
+| TrOCR | 24.9 | 23.9 | 56.0 | 48.0 | 18.5 | 29.6 |
+| EasyOCR | 33.2 | 22.5 | 80.0 | 54.7 | 3.7 | 25.9 |
+
+95% ranges for CER: PaddleOCR 5.0–21.7 (pre), 3.5–19.1 (fine); TrOCR 13.8–37.0,
+12.6–35.6; EasyOCR 22.3–44.8, 12.9–33.1.
+
+Paired CER differences on the same crops (95% range):
+
+| Comparison | Difference (pts) | 95% range | Distinguishable? |
+| --- | ---: | --- | --- |
+| PaddleOCR fine − EasyOCR fine | −11.8 | −17.0 to −7.0 | Yes |
+| PaddleOCR fine − TrOCR fine | −13.1 | −21.2 to −6.2 | Yes |
+| PaddleOCR pre − TrOCR pre | −12.3 | −20.6 to −5.5 | Yes |
+| EasyOCR fine − EasyOCR pre | −10.7 | −15.1 to −6.6 | Yes |
+| PaddleOCR fine − PaddleOCR pre | −1.9 | −3.6 to −0.3 | Yes (small) |
+| TrOCR fine − TrOCR pre | −1.1 | −4.5 to +2.1 | No |
+
+### Table 4b: partial-legibility crops, readable text only (diagnostic, n = 49)
+
+Not an official metric: official scoring excludes every crop containing `[UNK]`.
+Each `[UNK]` is treated as a wildcard that matches any text at no cost, so only
+the 578 readable characters are scored. "All readable" = every readable
+character correct.
+
+| Model | Readable-text CER pre | Readable-text CER fine | All readable pre | All readable fine |
+| --- | ---: | ---: | ---: | ---: |
+| PaddleOCR | 33.0 | **31.3** | 22.4 | **22.4** |
+| TrOCR | 41.3 | 38.9 | 12.2 | 16.3 |
+| EasyOCR | 56.7 | 45.0 | 4.1 | 8.2 |
+
+Paired differences: PaddleOCR fine is lower than TrOCR fine by 7.6 points
+(95% range −11.6 to −3.6) and EasyOCR fine by 13.7 (−18.6 to −8.6). Fine-tuning
+helps EasyOCR (−11.8, −17.1 to −7.0). For TrOCR (−2.4) and PaddleOCR (−1.7) the
+fine-tuning effect cannot be told apart from zero here. The wildcard can absorb
+made-up text next to an `[UNK]`, so these values flatter every model; only the
+ranking is meaningful.
+
+**Reading Table 4:** PaddleOCR is clearly the best on route text, consistent with
+validation (Table 1b). The 4-crop test route row had EasyOCR roughly level with
+the others; on 27 crops it is clearly worse than PaddleOCR.
+
+**Limitations:** single reviewer; these buses' number and destination crops were
+in fine-tuning (route text was not); likely harder than average because they are
+crops the AI labelling could not agree on; one crop per photo, so 32 photos with
+two or more route boxes contribute only their largest. Scores, method and
+per-crop outputs: `ocr_scoring/route-holdout-20261117/` (README, `scores/`,
+`partial/`); labels: `ocr_review/route-holdout-20261117/`.
 
 ## App model selection (step 7)
 
@@ -216,5 +286,9 @@ Validation exclusions (counts overlap): `challenge_only`: 26, `legibility_not_fu
 Fine-tuning (step 5), fine-tuned runs and scoring (step 6) and model selection (step 7) are complete: the selected app model is fine-tuned PaddleOCR. Matching handoff prepared in `.runtime/ocr-matching-final-20261117.zip`, including weights and whole-display OCR. Display ownership remains a geometry proposal pending confirmation before combining fields; prioritise P005/P035/P074/P094.
 
 User correction: A091 remains wrong_field; P065 (302) is now wrong_field too. The original human export is preserved; the corrected scoring snapshot is `ocr_scoring/normalised-v4-valid-human-corrected/`. Reviewer identity is cody, explicitly confirmed in chat; the original cods export is preserved. P089/P107 suggestions were not applied. Annotation scores are unchanged; detector scored n decreases from 52 to 51.
+
+Route hold-out (Table 4): 139 route crops from train photos never route-labelled (`scripts/build_route_holdout_batch.py`), typed blind by cody on 17 November 2026 and scored without a second review (user decision). Runs: `.cache/ocr_runs/*-routeholdout` and `*-routeholdout-partial` (not in Git). The two crop runners now skip warm-up for fields absent from an inventory, which these route-only runs needed.
+
+Synthetic training data (not yet trained): 2,000 rendered dot-matrix crops with ground truth in `labels.csv` format (`scripts/generate_synthetic_eds_crops.py`, `.runtime/synthetic-eds-20261117/`). Text comes from train labels plus combinations of train-only words, excluding every validation, test and route hold-out string. `scripts/add_synthetic_to_bundle.py` adds them to `.runtime/ocr_finetune_bundle-20261117-syn.zip` (366 real + 2,178 synthetic train line pairs; validation unchanged), which the Colab notebook now expects. No model has been trained on it yet, so no table reports synthetic-data results. Once trained, score on the same test and route hold-out sets for comparison with the run above.
 
 Training preparation: fine-tuning runs on Colab from `colab/ocr_finetune/` on 366 frozen-layout training line pairs (24 of 387 crops skipped and logged). Each model keeps its lowest validation crop-CER checkpoint; test is not used. Fine-tuned checkpoints now exist (Table 3). Test results cover annotation crops only (no test detector crops, by decision). Test labels are confirmed and the training spot-check is returned.
