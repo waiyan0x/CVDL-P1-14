@@ -64,9 +64,9 @@ Only the validation-selected YOLO11s was tested. The test included 53 images,
 
 Selected YOLO11s `best.pt` SHA-256:
 `97150601de39a999754015648cad2ef930842d52e8e37eb77d7576ffe2da33b5`.
-The checkpoint is a local ignored artifact, not part of the Git commit. Keep a
-separate backup before moving machines; the previous `baseline-01` weights are
-still present and unchanged.
+The original training checkpoint remains local; a verified copy of the selected
+weight is distributed in the OCR handoff through Git LFS. The previous
+`baseline-01` weights are still present and unchanged.
 
 The [v4 detector configuration](detector_config.json) records the tested
 confidence `0.50`, NMS `0.70`, class mapping and checkpoint hash. A
@@ -99,8 +99,8 @@ verification.
 
 ## Saved evidence
 
-The [OCR crop handoff](OCR_HANDOFF.md) documents the committed validation
-annotation and predicted-box crops for Cody.
+The [OCR crop handoff](../../../../../docs/OCR_HANDOFF.md) documents the consolidated
+train/valid/test annotation crops, validation predictions, and source assets for Cody.
 
 - Combined validation:
   `.runtime/object_detection_benchmark/01760a841333/runs/v4-reviewed-01/benchmark_yolo11n_yolo11s_detr-resnet-50_validation.json`

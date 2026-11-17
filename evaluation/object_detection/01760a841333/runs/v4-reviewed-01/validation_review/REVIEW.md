@@ -57,7 +57,7 @@ box-matching observation; text readability and OCR correctness are unmeasured.
 | [5](overlays/case_05.jpg), [6](overlays/case_06.jpg), [8](overlays/case_08.jpg) | Night displays with glare, reflections, or small side signs | Number and some front text boxes survive, but side-sign and route/destination coverage is incomplete; small or saturated crops may be difficult for OCR. |
 | [11](overlays/case_11.jpg), [12](overlays/case_12.jpg) | Daylight buses with visible front text | Major panels and numbers are detected; overlapping route/destination boxes and missed text still require a crop-level check. |
 
-The committed [OCR handoff](../ocr_handoff/README.md) contains all 160
+The committed [OCR handoff](../../../../../ocr_handoff/v4-reviewed-01/README.md) contains all 160
 predicted-box crops at the recorded `0.50` confidence / `0.70` NMS setting and
 221 annotation-box crops. It does not provide verified transcriptions or OCR
 accuracy. Visual inspection of these examples suggests **small/distant signs,

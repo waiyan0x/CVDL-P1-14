@@ -2,9 +2,10 @@
 
 The latest result is the [reviewed Roboflow v4 run](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md),
 with three trained models, three validation reports and one final YOLO11s test.
-The new YOLO11s checkpoint and dataset payload are local Git-ignored artifacts.
-The [v4 validation crop handoff](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/OCR_HANDOFF.md)
-is committed as individual annotation and detector-predicted crop files.
+The selected YOLO11s checkpoint and reviewed-v4 source archive are distributed
+through Git LFS in the OCR handoff; other training artifacts remain local.
+The [reviewed-v4 OCR handoff](OCR_HANDOFF.md)
+links the single split/class crop package, full source archive, and detector checkpoint.
 The [validation NMS/failure review](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
 and [tested v4 detector configuration](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json)
 are also saved. The v4 checkpoint is now installed as the application default
@@ -55,7 +56,7 @@ If a future revision selects `0.50`, use a new independent held-out set.
 
 ## Application and OCR continuation for Cody
 
-Cody should start with the [OCR handoff README](OCR_CODY_HANDOFF.md) for the
+Cody should start with the [OCR handoff README](OCR_HANDOFF.md) for the
 committed crop package, reviewed-text workflow and three-engine comparison steps.
 
 The committed detector integration covers model loading, stable four-class API

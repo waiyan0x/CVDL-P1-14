@@ -53,7 +53,7 @@ detection/grouping/crop path without changing the app's default model.
 For Cody's OCR training handoff, [`export_ocr_handoff_crops.py`](export_ocr_handoff_crops.py)
 supports `--split train` to export annotation crops without loading a detector.
 It verifies the reviewed-v4 manifest and refuses a nonempty destination. See
-the [OCR handoff](../docs/OCR_CODY_HANDOFF.md) for the local transfer archives
+the [OCR handoff](../docs/OCR_HANDOFF.md) for the source archive
 and blank transcription template.
 For OCR consumers requiring `train/`, `valid/`, and `test/` folders with four
 class subfolders, run [`build_ocr_class_dataset.py`](build_ocr_class_dataset.py).

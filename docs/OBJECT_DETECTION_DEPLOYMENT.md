@@ -12,19 +12,21 @@ remaining integration work.
 
 The newer [v4 detector configuration](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json)
 records YOLO11s confidence `0.50`, NMS IoU `0.70` and the local checkpoint hash.
-On a machine with the ignored v4 checkpoint and reviewed validation dataset,
-install the checkpoint and run the application-path smoke test:
+On a machine with the Git LFS v4 handoff ZIP, extract it first. Use its
+`source_coco/` directory as the reviewed dataset, then install the checkpoint
+and run the application-path smoke test:
 
 ```powershell
-venv\detector\Scripts\python.exe scripts\install_selected_detector.py
+venv\detector\Scripts\python.exe scripts\install_selected_detector.py --source C:\path\to\extracted\detector\yolo11s-best.pt
 venv\detector\Scripts\python.exe scripts\install_selected_detector.py --verify-only
 venv\detector\Scripts\python.exe scripts\verify_v4_detector_handoff.py
 ```
 
 The app reads `evaluation/object_detection/01760a841333/runs/v4-reviewed-01/checkpoints/yolo11s-best.pt`.
 The installer checks the saved SHA-256 before and after copying; use
-`--source PATH` when transferring weights from another machine. Git contains
-the configuration and results, not the checkpoint or full dataset. At startup,
+`--source PATH` when transferring weights from another machine. The reviewed-v4
+full-photo archive and selected checkpoint are in the [OCR handoff](../evaluation/ocr_handoff/v4-reviewed-01/README.md)
+through Git LFS. At startup,
 the default detector rejects a checkpoint with the wrong SHA-256. The smoke
 test checks that the app's default path and threshold match v4, then verifies
 detection, grouping and nonempty crops on validation stills;
