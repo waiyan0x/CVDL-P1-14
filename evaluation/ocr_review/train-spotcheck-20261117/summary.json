@@ -1,0 +1,53 @@
+{
+  "sample": 50,
+  "population": "387 scoring-eligible training labels (codex_ai_3copy_consensus)",
+  "reviewer": "cody",
+  "reviewed_at": "2026-11-17",
+  "export_file": "training-50crop-review-20261117.checks.cody.2026-11-17.csv",
+  "export_sha256": "6690da445e6209e29d03486e88cea71053ce71e0fe36ef9a58399705731442e0",
+  "crop_hashes_verified": 50,
+  "categories": {
+    "match": 26,
+    "label_not_verifiable_by_eye": 9,
+    "label_correct_reviewer_misread": 3,
+    "label_text_ok_extra_cut_off_part": 10,
+    "conflicting_reading": 2
+  },
+  "raw_text_agreement": {
+    "k": 26,
+    "n": 50,
+    "rate": 0.52,
+    "wilson95": [
+      0.385,
+      0.652
+    ]
+  },
+  "human_read_whole_crop": {
+    "n": 29,
+    "label_text_correct_after_visual_check": 29
+  },
+  "label_text_confirmed_correct": {
+    "k": 29,
+    "n": 50,
+    "rate": 0.58,
+    "wilson95": [
+      0.442,
+      0.706
+    ]
+  },
+  "confirmed_wrong_label_text": 0,
+  "disputed": [
+    "S046",
+    "S050"
+  ],
+  "label_full_but_human_partial_or_illegible": {
+    "k": 21,
+    "n": 50,
+    "rate": 0.42,
+    "wilson95": [
+      0.294,
+      0.558
+    ]
+  },
+  "labels_changed": false
+}

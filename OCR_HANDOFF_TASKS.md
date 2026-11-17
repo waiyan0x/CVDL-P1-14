@@ -58,42 +58,52 @@ No task below is marked complete merely because this checklist exists.
 
 ## 2. Labels
 
-- [ ] From training.source.csv retain full-legibility, no-[UNK], non-challenge
+- [x] From training.source.csv retain full-legibility, no-[UNK], non-challenge
   rows. Group by (source_name, label); keep groups with the same Codex text on
   all three augmented copies (expected approximately 345 crops).
-- [ ] Prepare 50 randomly sampled crops for human spot-check; record sample seed,
+- [x] Prepare 50 randomly sampled crops for human spot-check; record sample seed,
   actual human decisions and percent correct in results, with reviewer provenance.
-- [ ] Ask Brendan whether the 288 quarantined crops share photos with v4 TEST.
-  If not, apply the same filters and add eligible crops; do not assume clearance.
-- [ ] Save evaluation/ocr_training/train_labels_final.csv with crop, field,
+  Returned 17 November 2026 (cody, revised v2 export): text consistent with label
+  on 39/50, 6 conflicts, 28/50 rated partial/illegible although labelled full.
+  Train scores are therefore diagnostic only. See
+  evaluation/ocr_review/train-spotcheck-20261117/README.md.
+- [x] ~~Ask Brendan whether the 288 quarantined crops share photos with v4 TEST.~~
+  Dropped by the user, 17 November 2026: no question to Brendan needed; training
+  uses the 387 selected crops from his package. The 288 quarantined crops are
+  not added.
+- [x] Save evaluation/ocr_training/train_labels_final.csv with crop, field,
   text, source_name.
-- [ ] Validation: use the user's 194 typed labels plus 77 Codex labels; visually
+- [x] Validation: use the user's 194 typed labels plus 77 Codex labels; visually
   confirm each by human review. Do not use the Codex re-read as the answer key.
-- [ ] Remove A042–A048 and P039–P044 from validation for train scene overlap.
+  Done 16 November 2026 (258 crops, reviewer cody; P065 correction).
+- [x] Remove A042–A048 and P039–P044 from validation for train scene overlap.
 
 ## 3. Test set
 
-- [ ] Obtain Brendan's .runtime/ocr_class_dataset/v4-reviewed-01.zip, test/.
-- [ ] Use export_ocr_handoff_crops.py from bren-object-detection; add test to
-  --split. Export YOLO11s crops with confidence 0.50, IoU 0.70, size 640.
-- [ ] Freeze test layouts once with freeze_automatic_ocr_layout.py and reuse
+- [x] Obtain Brendan's .runtime/ocr_class_dataset/v4-reviewed-01.zip, test/.
+- [x] ~~Export YOLO11s test detector crops.~~ Not required (user decision,
+  17 November 2026). Test uses Brendan's 118 test annotation-box text crops
+  only; detector-crop results (Table 2) are validation only. The checkpoint and
+  test photos are in the handoff ZIP if this is ever revisited.
+- [x] Freeze test layouts once with freeze_automatic_ocr_layout.py and reuse
   the exact crops/layout for all models.
 - [x] Label test text crops with Codex, then have a human check every crop
   (approximately 120 expected). Do not prefill labels from EasyOCR, TrOCR or
   Paddle predictions.
-- [ ] Detector crops receive the text of the overlapping annotation box at
-  IoU >= 0.5. Flag ambiguous overlap cases rather than inventing assignments.
+- [x] ~~Detector crops receive the text of the overlapping annotation box.~~
+  Not required: no test detector crops (see above).
 - [x] Save evaluation/ocr_review/test_labels.csv with review_id, crop, field,
   input_set, text, legibility.
-- [ ] Keep TEST out of training and all setting/checkpoint choices.
+- [x] Keep TEST out of training and all setting/checkpoint choices.
 
 ## 4. Pretrained baselines
 
 - [ ] Run EasyOCR, TrOCR trocr-base-printed and Paddle en_PP-OCRv5_mobile_rec
-  on train, validation and test, with annotation and detector crop populations.
-- [ ] Use run_easyocr_crops.py (--engine easyocr / trocr) and
+  on train, validation and test (detector crops: validation only). Remaining:
+  TrOCR pretrained test, blocked by under 3 GiB free disk.
+- [x] Use run_easyocr_crops.py (--engine easyocr / trocr) and
   run_paddle_crops.py, supporting --split and --crop-root.
-- [ ] Use identical crops and frozen layouts for every model.
+- [x] Use identical crops and frozen layouts for every model.
 - [ ] Commit predictions.jsonl and report.json under
   evaluation/ocr_runs/<model>-pretrained-<split>/, including the existing
   laptop-only Paddle validation run.
