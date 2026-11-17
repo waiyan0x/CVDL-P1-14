@@ -178,6 +178,9 @@ Degenerate validation line images: A095_00 (144x4 px), P034_00 (87x3 px).
   Include the requested train results in the applicable annotation table.
 - [x] Columns: Model | Version | Split | Field (number/destination/route/all) |
   Crops (n) | CER (%) | WER (%) | Exact match (%).
+  User change, 17 November 2026: pretrained and fine-tuned shown side by side
+  per rate (CER/WER/Exact pre | fine); Table 1 split into test, validation and
+  train (diagnostic) sub-tables.
 - [x] One decimal place; n is crops actually scored.
 - [x] Below tables state label sources by split, spot-check percentage,
   exclusions with counts and normalised scoring.

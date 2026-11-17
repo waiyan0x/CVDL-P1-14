@@ -1,153 +1,115 @@
 # OCR results
 
-Scoring: normalised (casefold, whitespace collapsed).
-Failed/missing predictions count as empty strings.
-"pretrained" = untouched public model; "finetuned" = Colab run `20261117-031848`.
+**How to read the tables.** Each rate is shown twice, side by side: **pre** =
+the untouched public (pretrained) model, **fine** = the same model fine-tuned on
+our training labels (Colab run `20261117-031848`). Both columns score exactly
+the same crops, so each pair is a like-for-like comparison.
+
+- **CER** (character error rate) and **WER** (word error rate): lower is better.
+  **Exact**: share of crops read completely correctly; higher is better. All in %.
+- Text is normalised before comparison (Unicode NFC, casefold, whitespace
+  collapsed; punctuation kept). A failed or missing prediction counts as empty text.
+- Only crops whose label is fully legible (no `[UNK]`) are scored; n is the number scored.
+- Models are PaddleOCR (`en_PP-OCRv5_mobile_rec`), TrOCR (`microsoft/trocr-base-printed`)
+  and EasyOCR (English generation 2).
+
+### Official vs diagnostic results
+
+| Split | Labels | Status | Use it for |
+| --- | --- | --- | --- |
+| **Test** | Checked by eye by a human (118 crops; 45 scored) | **Official** | Final comparison and model selection |
+| **Validation** | Checked by eye by a human (258 crops; 79 annotation + 51 detector scored) | **Official** | Comparison; was also used to pick each model's best training epoch |
+| **Train** | AI-generated (Codex), not human-verified (387 crops) | **Diagnostic only** | Checking that fine-tuning learned the training labels; **not** an accuracy result |
+
+Train results are **diagnostic** for two reasons. (1) The fine-tuned models were
+trained on these very crops and labels, so their train scores measure how well
+they fit what they were taught, not how well they read unseen signs; a large
+pre → fine gain on train is expected and proves little. (2) The labels are AI
+readings, and a human spot-check of 50 found the text consistent on 41 but rated
+27 of the 50 as not fully legible, so the "correct answer" itself is uncertain.
+Step 8 asks for train results to be included, so they are shown in Table 1c,
+separately, and must not be quoted as model accuracy or used to choose a model.
 
 ## Table 1: annotation crops
 
-| Model | Version | Split | Field | Crops (n) | CER (%) | WER (%) | Exact match (%) |
-| --- | --- | --- | --- | ---: | ---: | ---: | ---: |
-| EasyOCR | pretrained (diagnostic) | train | number | 282 | 34.3 | 47.5 | 56.0 |
-| EasyOCR | pretrained (diagnostic) | train | destination | 63 | 55.6 | 84.4 | 9.5 |
-| EasyOCR | pretrained (diagnostic) | train | route | 42 | 48.6 | 90.0 | 2.4 |
-| EasyOCR | pretrained (diagnostic) | train | all | 387 | 46.5 | 67.7 | 42.6 |
-| EasyOCR | pretrained | valid | number | 43 | 23.7 | 39.5 | 60.5 |
-| EasyOCR | pretrained | valid | destination | 19 | 45.4 | 77.4 | 0.0 |
-| EasyOCR | pretrained | valid | route | 17 | 49.4 | 88.2 | 0.0 |
-| EasyOCR | pretrained | valid | all | 79 | 43.0 | 70.5 | 32.9 |
-| EasyOCR | pretrained | test | number | 24 | 7.5 | 16.7 | 83.3 |
-| EasyOCR | pretrained | test | destination | 17 | 38.6 | 67.3 | 23.5 |
-| EasyOCR | pretrained | test | route † | 4 | 36.7 | 83.3 | 0.0 |
-| EasyOCR | pretrained | test | all | 45 | 32.7 | 57.4 | 53.3 |
-| EasyOCR | finetuned (diagnostic) | train | number | 282 | 10.3 | 11.0 | 92.2 |
-| EasyOCR | finetuned (diagnostic) | train | destination | 63 | 23.8 | 47.2 | 47.6 |
-| EasyOCR | finetuned (diagnostic) | train | route | 42 | 20.4 | 45.0 | 47.6 |
-| EasyOCR | finetuned (diagnostic) | train | all | 387 | 18.3 | 29.2 | 80.1 |
-| EasyOCR | finetuned | valid | number | 43 | 10.5 | 18.6 | 81.4 |
-| EasyOCR | finetuned | valid | destination | 19 | 27.5 | 43.5 | 42.1 |
-| EasyOCR | finetuned | valid | route | 17 | 34.4 | 76.5 | 11.8 |
-| EasyOCR | finetuned | valid | all | 79 | 27.1 | 47.4 | 57.0 |
-| EasyOCR | finetuned | test | number | 24 | 3.0 | 8.3 | 91.7 |
-| EasyOCR | finetuned | test | destination | 17 | 22.7 | 51.9 | 29.4 |
-| EasyOCR | finetuned | test | route † | 4 | 34.2 | 77.8 | 0.0 |
-| EasyOCR | finetuned | test | all | 45 | 21.6 | 45.7 | 60.0 |
-| Public TrOCR | pretrained (diagnostic) | train | number | 282 | 25.8 | 35.5 | 67.4 |
-| Public TrOCR | pretrained (diagnostic) | train | destination | 63 | 41.1 | 78.3 | 11.1 |
-| Public TrOCR | pretrained (diagnostic) | train | route | 42 | 30.0 | 63.3 | 28.6 |
-| Public TrOCR | pretrained (diagnostic) | train | all | 387 | 32.8 | 54.5 | 54.0 |
-| Public TrOCR | pretrained | valid | number | 43 | 13.2 | 25.6 | 74.4 |
-| Public TrOCR | pretrained | valid | destination | 19 | 19.1 | 48.4 | 31.6 |
-| Public TrOCR | pretrained | valid | route | 17 | 23.5 | 49.0 | 29.4 |
-| Public TrOCR | pretrained | valid | all | 79 | 19.7 | 42.3 | 54.4 |
-| Public TrOCR | pretrained | test | number | 24 | 3.0 | 4.2 | 95.8 |
-| Public TrOCR | pretrained | test | destination | 17 | 15.5 | 40.4 | 29.4 |
-| Public TrOCR | pretrained | test | route † | 4 | 38.0 | 72.2 | 25.0 |
-| Public TrOCR | pretrained | test | all | 45 | 17.9 | 37.2 | 64.4 |
-| Public TrOCR | finetuned (diagnostic) | train | number | 282 | 11.0 | 9.9 | 93.3 |
-| Public TrOCR | finetuned (diagnostic) | train | destination | 63 | 24.7 | 53.3 | 31.7 |
-| Public TrOCR | finetuned (diagnostic) | train | route | 42 | 20.1 | 37.5 | 64.3 |
-| Public TrOCR | finetuned (diagnostic) | train | all | 387 | 18.8 | 29.0 | 80.1 |
-| Public TrOCR | finetuned | valid | number | 43 | 7.0 | 9.3 | 90.7 |
-| Public TrOCR | finetuned | valid | destination | 19 | 17.9 | 45.2 | 36.8 |
-| Public TrOCR | finetuned | valid | route | 17 | 21.9 | 41.2 | 35.3 |
-| Public TrOCR | finetuned | valid | all | 79 | 17.5 | 34.0 | 65.8 |
-| Public TrOCR | finetuned | test | number | 24 | 4.5 | 8.3 | 91.7 |
-| Public TrOCR | finetuned | test | destination | 17 | 15.5 | 44.2 | 29.4 |
-| Public TrOCR | finetuned | test | route † | 4 | 34.2 | 61.1 | 25.0 |
-| Public TrOCR | finetuned | test | all | 45 | 17.4 | 38.3 | 62.2 |
-| PaddleOCR | pretrained (diagnostic) | train | number | 282 | 12.0 | 16.7 | 84.4 |
-| PaddleOCR | pretrained (diagnostic) | train | destination | 63 | 31.1 | 70.6 | 19.0 |
-| PaddleOCR | pretrained (diagnostic) | train | route | 42 | 23.1 | 59.2 | 31.0 |
-| PaddleOCR | pretrained (diagnostic) | train | all | 387 | 22.4 | 42.1 | 68.0 |
-| PaddleOCR | pretrained | valid | number | 43 | 2.6 | 2.3 | 97.7 |
-| PaddleOCR | pretrained | valid | destination | 19 | 14.9 | 33.9 | 57.9 |
-| PaddleOCR | pretrained | valid | route | 17 | 17.0 | 54.9 | 29.4 |
-| PaddleOCR | pretrained | valid | all | 79 | 13.5 | 32.1 | 73.4 |
-| PaddleOCR | pretrained | test | number | 24 | 3.0 | 8.3 | 91.7 |
-| PaddleOCR | pretrained | test | destination | 17 | 8.2 | 26.9 | 41.2 |
-| PaddleOCR | pretrained | test | route † | 4 | 29.1 | 72.2 | 0.0 |
-| PaddleOCR | pretrained | test | all | 45 | 11.6 | 30.9 | 64.4 |
-| PaddleOCR | finetuned (diagnostic) | train | number | 282 | 8.8 | 9.2 | 93.3 |
-| PaddleOCR | finetuned (diagnostic) | train | destination | 63 | 9.1 | 16.1 | 82.5 |
-| PaddleOCR | finetuned (diagnostic) | train | route | 42 | 12.7 | 20.8 | 83.3 |
-| PaddleOCR | finetuned (diagnostic) | train | all | 387 | 10.0 | 13.7 | 90.4 |
-| PaddleOCR | finetuned | valid | number | 43 | 2.6 | 2.3 | 97.7 |
-| PaddleOCR | finetuned | valid | destination | 19 | 12.2 | 22.6 | 57.9 |
-| PaddleOCR | finetuned | valid | route | 17 | 11.3 | 25.5 | 52.9 |
-| PaddleOCR | finetuned | valid | all | 79 | 10.1 | 17.9 | 78.5 |
-| PaddleOCR | finetuned | test | number | 24 | 0.0 | 0.0 | 100.0 |
-| PaddleOCR | finetuned | test | destination | 17 | 5.2 | 15.4 | 70.6 |
-| PaddleOCR | finetuned | test | route † | 4 | 24.1 | 55.6 | 25.0 |
-| PaddleOCR | finetuned | test | all | 45 | 8.2 | 19.1 | 82.2 |
+Annotation crops are cut from the dataset's hand-labelled boxes, so these
+results measure OCR given a correctly drawn box.
 
-- Train rows are **diagnostic only**: they score against the 387 AI (Codex)
-  training labels that the models were fine-tuned on, and a human spot-check
-  rated 27/50 of those labels not fully legible. They show fit to the training
-  labels, not accuracy.
-- Validation and test rows use human-verified labels only. Test covers 45
-  fully legible annotation crops; validation 79.
-- † Test route results rest on **4 crops** and cannot separate the models.
-  They are still included in the test "all" rows.
-- Annotation crops are cut from the dataset's labelled boxes: these rows measure
-  OCR given a correctly drawn box, not the full detector-plus-OCR pipeline.
+### Table 1a: test (official)
 
-## Table 2: detector crops
+| Model | Field | Crops (n) | CER pre | CER fine | WER pre | WER fine | Exact pre | Exact fine |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| PaddleOCR | number | 24 | 3.0 | 0.0 | 8.3 | 0.0 | 91.7 | 100.0 |
+| PaddleOCR | destination | 17 | 8.2 | 5.2 | 26.9 | 15.4 | 41.2 | 70.6 |
+| PaddleOCR | route † | 4 | 29.1 | 24.1 | 72.2 | 55.6 | 0.0 | 25.0 |
+| PaddleOCR | **all fields** | 45 | **11.6** | **8.2** | **30.9** | **19.1** | **64.4** | **82.2** |
+| TrOCR | number | 24 | 3.0 | 4.5 | 4.2 | 8.3 | 95.8 | 91.7 |
+| TrOCR | destination | 17 | 15.5 | 15.5 | 40.4 | 44.2 | 29.4 | 29.4 |
+| TrOCR | route † | 4 | 38.0 | 34.2 | 72.2 | 61.1 | 25.0 | 25.0 |
+| TrOCR | **all fields** | 45 | **17.9** | **17.4** | **37.2** | **38.3** | **64.4** | **62.2** |
+| EasyOCR | number | 24 | 7.5 | 3.0 | 16.7 | 8.3 | 83.3 | 91.7 |
+| EasyOCR | destination | 17 | 38.6 | 22.7 | 67.3 | 51.9 | 23.5 | 29.4 |
+| EasyOCR | route † | 4 | 36.7 | 34.2 | 83.3 | 77.8 | 0.0 | 0.0 |
+| EasyOCR | **all fields** | 45 | **32.7** | **21.6** | **57.4** | **45.7** | **53.3** | **60.0** |
 
-| Model | Version | Split | Field | Crops (n) | CER (%) | WER (%) | Exact match (%) |
-| --- | --- | --- | --- | ---: | ---: | ---: | ---: |
-| EasyOCR | pretrained | valid | number | 33 | 16.1 | 24.2 | 75.8 |
-| EasyOCR | pretrained | valid | destination | 6 | 59.2 | 81.2 | 16.7 |
-| EasyOCR | pretrained | valid | route | 12 | 51.5 | 89.2 | 0.0 |
-| EasyOCR | pretrained | valid | all | 51 | 43.7 | 62.8 | 51.0 |
-| EasyOCR | pretrained | test | number | – | Not required | Not required | Not required |
-| EasyOCR | pretrained | test | destination | – | Not required | Not required | Not required |
-| EasyOCR | pretrained | test | route | – | Not required | Not required | Not required |
-| EasyOCR | pretrained | test | all | – | Not required | Not required | Not required |
-| EasyOCR | finetuned | valid | number | 33 | 9.2 | 12.1 | 87.9 |
-| EasyOCR | finetuned | valid | destination | 6 | 54.9 | 81.2 | 33.3 |
-| EasyOCR | finetuned | valid | route | 12 | 37.0 | 75.7 | 16.7 |
-| EasyOCR | finetuned | valid | all | 51 | 33.4 | 52.3 | 64.7 |
-| EasyOCR | finetuned | test | number | – | Not required | Not required | Not required |
-| EasyOCR | finetuned | test | destination | – | Not required | Not required | Not required |
-| EasyOCR | finetuned | test | route | – | Not required | Not required | Not required |
-| EasyOCR | finetuned | test | all | – | Not required | Not required | Not required |
-| Public TrOCR | pretrained | valid | number | 33 | 11.5 | 18.2 | 81.8 |
-| Public TrOCR | pretrained | valid | destination | 6 | 36.6 | 68.8 | 50.0 |
-| Public TrOCR | pretrained | valid | route | 12 | 24.8 | 37.8 | 33.3 |
-| Public TrOCR | pretrained | valid | all | 51 | 23.8 | 36.0 | 66.7 |
-| Public TrOCR | pretrained | test | number | – | Not required | Not required | Not required |
-| Public TrOCR | pretrained | test | destination | – | Not required | Not required | Not required |
-| Public TrOCR | pretrained | test | route | – | Not required | Not required | Not required |
-| Public TrOCR | pretrained | test | all | – | Not required | Not required | Not required |
-| Public TrOCR | finetuned | valid | number | 33 | 5.7 | 6.1 | 93.9 |
-| Public TrOCR | finetuned | valid | destination | 6 | 45.1 | 50.0 | 50.0 |
-| Public TrOCR | finetuned | valid | route | 12 | 29.1 | 40.5 | 25.0 |
-| Public TrOCR | finetuned | valid | all | 51 | 26.3 | 29.1 | 72.5 |
-| Public TrOCR | finetuned | test | number | – | Not required | Not required | Not required |
-| Public TrOCR | finetuned | test | destination | – | Not required | Not required | Not required |
-| Public TrOCR | finetuned | test | route | – | Not required | Not required | Not required |
-| Public TrOCR | finetuned | test | all | – | Not required | Not required | Not required |
-| PaddleOCR | pretrained | valid | number | 33 | 3.4 | 3.0 | 97.0 |
-| PaddleOCR | pretrained | valid | destination | 6 | 28.2 | 62.5 | 33.3 |
-| PaddleOCR | pretrained | valid | route | 12 | 21.2 | 59.5 | 25.0 |
-| PaddleOCR | pretrained | valid | all | 51 | 18.0 | 38.4 | 72.5 |
-| PaddleOCR | pretrained | test | number | – | Not required | Not required | Not required |
-| PaddleOCR | pretrained | test | destination | – | Not required | Not required | Not required |
-| PaddleOCR | pretrained | test | route | – | Not required | Not required | Not required |
-| PaddleOCR | pretrained | test | all | – | Not required | Not required | Not required |
-| PaddleOCR | finetuned | valid | number | 33 | 4.6 | 6.1 | 93.9 |
-| PaddleOCR | finetuned | valid | destination | 6 | 26.8 | 62.5 | 50.0 |
-| PaddleOCR | finetuned | valid | route | 12 | 14.5 | 27.0 | 50.0 |
-| PaddleOCR | finetuned | valid | all | 51 | 14.6 | 25.6 | 78.4 |
-| PaddleOCR | finetuned | test | number | – | Not required | Not required | Not required |
-| PaddleOCR | finetuned | test | destination | – | Not required | Not required | Not required |
-| PaddleOCR | finetuned | test | route | – | Not required | Not required | Not required |
-| PaddleOCR | finetuned | test | all | – | Not required | Not required | Not required |
+† Test route text has only **4** scorable crops: too few to compare models on
+their own. They are still included in "all fields".
 
-- Detector crops are the YOLO11s validation crops from Brendan's package.
-  Test detector crops were not produced (user decision, 17 November 2026), so
-  test rows are marked *Not required*.
+### Table 1b: validation (official)
+
+| Model | Field | Crops (n) | CER pre | CER fine | WER pre | WER fine | Exact pre | Exact fine |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| PaddleOCR | number | 43 | 2.6 | 2.6 | 2.3 | 2.3 | 97.7 | 97.7 |
+| PaddleOCR | destination | 19 | 14.9 | 12.2 | 33.9 | 22.6 | 57.9 | 57.9 |
+| PaddleOCR | route | 17 | 17.0 | 11.3 | 54.9 | 25.5 | 29.4 | 52.9 |
+| PaddleOCR | **all fields** | 79 | **13.5** | **10.1** | **32.1** | **17.9** | **73.4** | **78.5** |
+| TrOCR | number | 43 | 13.2 | 7.0 | 25.6 | 9.3 | 74.4 | 90.7 |
+| TrOCR | destination | 19 | 19.1 | 17.9 | 48.4 | 45.2 | 31.6 | 36.8 |
+| TrOCR | route | 17 | 23.5 | 21.9 | 49.0 | 41.2 | 29.4 | 35.3 |
+| TrOCR | **all fields** | 79 | **19.7** | **17.5** | **42.3** | **34.0** | **54.4** | **65.8** |
+| EasyOCR | number | 43 | 23.7 | 10.5 | 39.5 | 18.6 | 60.5 | 81.4 |
+| EasyOCR | destination | 19 | 45.4 | 27.5 | 77.4 | 43.5 | 0.0 | 42.1 |
+| EasyOCR | route | 17 | 49.4 | 34.4 | 88.2 | 76.5 | 0.0 | 11.8 |
+| EasyOCR | **all fields** | 79 | **43.0** | **27.1** | **70.5** | **47.4** | **32.9** | **57.0** |
+
+### Table 1c: train (diagnostic only — see "Official vs diagnostic results")
+
+| Model | Field | Crops (n) | CER pre | CER fine | WER pre | WER fine | Exact pre | Exact fine |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| PaddleOCR | number | 282 | 12.0 | 8.8 | 16.7 | 9.2 | 84.4 | 93.3 |
+| PaddleOCR | destination | 63 | 31.1 | 9.1 | 70.6 | 16.1 | 19.0 | 82.5 |
+| PaddleOCR | route | 42 | 23.1 | 12.7 | 59.2 | 20.8 | 31.0 | 83.3 |
+| PaddleOCR | **all fields** | 387 | **22.4** | **10.0** | **42.1** | **13.7** | **68.0** | **90.4** |
+| TrOCR | number | 282 | 25.8 | 11.0 | 35.5 | 9.9 | 67.4 | 93.3 |
+| TrOCR | destination | 63 | 41.1 | 24.7 | 78.3 | 53.3 | 11.1 | 31.7 |
+| TrOCR | route | 42 | 30.0 | 20.1 | 63.3 | 37.5 | 28.6 | 64.3 |
+| TrOCR | **all fields** | 387 | **32.8** | **18.8** | **54.5** | **29.0** | **54.0** | **80.1** |
+| EasyOCR | number | 282 | 34.3 | 10.3 | 47.5 | 11.0 | 56.0 | 92.2 |
+| EasyOCR | destination | 63 | 55.6 | 23.8 | 84.4 | 47.2 | 9.5 | 47.6 |
+| EasyOCR | route | 42 | 48.6 | 20.4 | 90.0 | 45.0 | 2.4 | 47.6 |
+| EasyOCR | **all fields** | 387 | **46.5** | **18.3** | **67.7** | **29.2** | **42.6** | **80.1** |
+
+## Table 2: detector crops (validation, official)
+
+Detector crops are the YOLO11s validation crops from Brendan's package: the
+boxes the detector actually produced, so these results include the effect of
+imperfect boxes. Test detector crops were not produced (user decision,
+17 November 2026), so there is no test row.
+
+| Model | Field | Crops (n) | CER pre | CER fine | WER pre | WER fine | Exact pre | Exact fine |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| PaddleOCR | number | 33 | 3.4 | 4.6 | 3.0 | 6.1 | 97.0 | 93.9 |
+| PaddleOCR | destination | 6 | 28.2 | 26.8 | 62.5 | 62.5 | 33.3 | 50.0 |
+| PaddleOCR | route | 12 | 21.2 | 14.5 | 59.5 | 27.0 | 25.0 | 50.0 |
+| PaddleOCR | **all fields** | 51 | **18.0** | **14.6** | **38.4** | **25.6** | **72.5** | **78.4** |
+| TrOCR | number | 33 | 11.5 | 5.7 | 18.2 | 6.1 | 81.8 | 93.9 |
+| TrOCR | destination | 6 | 36.6 | 45.1 | 68.8 | 50.0 | 50.0 | 50.0 |
+| TrOCR | route | 12 | 24.8 | 29.1 | 37.8 | 40.5 | 33.3 | 25.0 |
+| TrOCR | **all fields** | 51 | **23.8** | **26.3** | **36.0** | **29.1** | **66.7** | **72.5** |
+| EasyOCR | number | 33 | 16.1 | 9.2 | 24.2 | 12.1 | 75.8 | 87.9 |
+| EasyOCR | destination | 6 | 59.2 | 54.9 | 81.2 | 81.2 | 16.7 | 33.3 |
+| EasyOCR | route | 12 | 51.5 | 37.0 | 89.2 | 75.7 | 0.0 | 16.7 |
+| EasyOCR | **all fields** | 51 | **43.7** | **33.4** | **62.8** | **52.3** | **51.0** | **64.7** |
 
 ## App model selection (step 7)
 
