@@ -98,13 +98,12 @@ No task below is marked complete merely because this checklist exists.
 
 ## 4. Pretrained baselines
 
-- [ ] Run EasyOCR, TrOCR trocr-base-printed and Paddle en_PP-OCRv5_mobile_rec
-  on train, validation and test (detector crops: validation only). Remaining:
-  TrOCR pretrained test, blocked by under 3 GiB free disk.
+- [x] Run EasyOCR, TrOCR trocr-base-printed and Paddle en_PP-OCRv5_mobile_rec
+  on train, validation and test (detector crops: validation only).
 - [x] Use run_easyocr_crops.py (--engine easyocr / trocr) and
   run_paddle_crops.py, supporting --split and --crop-root.
 - [x] Use identical crops and frozen layouts for every model.
-- [ ] Commit predictions.jsonl and report.json under
+- [x] Commit predictions.jsonl and report.json under
   evaluation/ocr_runs/<model>-pretrained-<split>/, including the existing
   laptop-only Paddle validation run.
 
@@ -147,9 +146,9 @@ Degenerate validation line images: A095_00 (144x4 px), P034_00 (87x3 px).
   and source mappings: `.cache/finetuned/import_manifest.json`.
 - [x] Add custom EasyOCR network loading and fine-tuned run labels to the runners
   (committed in `bea9837`). Model reload and inference remain to be run.
-- [ ] Run all three fine-tuned models on the same train/validation/test crops
+- [x] Run all three fine-tuned models on the same train/validation/test crops
   and layouts as their pretrained versions.
-- [ ] Save evaluation/ocr_runs/<model>-finetuned-<split>/.
+- [x] Save evaluation/ocr_runs/<model>-finetuned-<split>/.
 - [ ] Score all six model versions with step 1 scoring.
 
 ## 7. App model selection
