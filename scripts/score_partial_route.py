@@ -9,7 +9,8 @@ project's normalised scoring (casefold, whitespace collapsed).
   all-readable-correct = wildcard edit distance is 0
 
 This is NOT the official metric: official scoring excludes partial crops.
-Usage: python3 scripts/score_partial_route.py SOURCE_CSV RUNS_DIR SUFFIX OUT_DIR
+Usage: python3 scripts/score_partial_route.py SOURCE_CSV RUNS_DIR SUFFIX OUT_DIR [VARIANTS]
+  VARIANTS: comma list, default pretrained,finetuned (add finetunedsyn for round 2)
 """
 import csv
 import json
@@ -23,7 +24,7 @@ from backend.app.evaluation.crop_scoring import normalise_text  # noqa: E402
 
 WILD = None
 MODELS = (('easyocr', 'EasyOCR'), ('trocr', 'TrOCR'), ('paddleocr', 'PaddleOCR'))
-VARIANTS = (('pretrained', 'pretrained'), ('finetuned', 'fine-tuned'))
+VARIANT_NAMES = {'pretrained': 'pretrained', 'finetuned': 'fine-tuned', 'finetunedsyn': 'fine-tuned+syn'}
 
 
 def pattern(reference):
@@ -49,7 +50,8 @@ def wildcard_distance(pat, hyp):
     return prev[-1]
 
 
-def main(source, runs, suffix, out):
+def main(source, runs, suffix, out, variants='pretrained,finetuned'):
+    VARIANTS = [(v, VARIANT_NAMES[v]) for v in variants.split(',')]
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
     rows = [r for r in csv.DictReader(open(source, encoding='utf-8')) if r['legibility'] == 'partial']
@@ -101,6 +103,9 @@ def main(source, runs, suffix, out):
              ('paddleocr-pretrained', 'easyocr-pretrained'), ('paddleocr-pretrained', 'trocr-pretrained'),
              ('easyocr-finetuned', 'easyocr-pretrained'), ('trocr-finetuned', 'trocr-pretrained'),
              ('paddleocr-finetuned', 'paddleocr-pretrained')]
+    pairs = [(a, b) for a, b in pairs if a in per and b in per]
+    if 'finetunedsyn' in variants:
+        pairs += [(f'{m}-finetunedsyn', f'{m}-finetuned') for m, _ in MODELS]
     diffs = []
     for a, b in pairs:
         lo, hi = ci([cer(a, s) - cer(b, s) for s in boots])
@@ -115,4 +120,4 @@ def main(source, runs, suffix, out):
 
 
 if __name__ == '__main__':
-    main(*sys.argv[1:5])
+    main(*sys.argv[1:6])
