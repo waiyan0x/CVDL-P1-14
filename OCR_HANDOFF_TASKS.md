@@ -62,7 +62,8 @@ Decisions confirmed by the user, 18 November 2026 (fixed before any round 2 resu
 Current audit — 17 November 2026: steps 2–8 are complete for the agreed scope
 (test annotation crops only). All 18 saved runs have identical crop identities
 and layouts within each split; all six model scores reproduce exactly.
-Final matching package: `.runtime/ocr-matching-final-20261117.zip`.
+Final matching package: `.runtime/ocr-matching-final-20261119.zip` (rebuilt 19 November
+2026 with validation layout v4-lines-v3; supersedes `-20261117`, which used v4-lines-v1).
 It includes 389 text-field records and 163 whole-display records, separate
 validation/test labels, reference data, source photos, selected weights and a
 new-crop command. Matching implementation belongs to the user.

@@ -1,4 +1,10 @@
-"""Final selected-model handoff implementation; invoked by prepare_ocr_matching_handoff.py."""
+"""Final selected-model handoff implementation; invoked by prepare_ocr_matching_handoff.py.
+
+Since 19 November 2026 validation OCR comes from the frozen layout v4-lines-v3
+runs (-valid-layoutv3) scored in normalised-v8-layoutv3. The 17 November package
+(.runtime/ocr-matching-final-20261117) used normalised-v5-step6-20261117 and the
+v4-lines-v1 validation runs; see git history for that version of this script.
+"""
 import csv
 import hashlib
 import html
@@ -16,7 +22,9 @@ sys.path.insert(0, str(ROOT))
 from backend.app.evaluation.crop_scoring import build_report, normalise_text
 from export_provisional_matching_inputs import covered, panel_ref
 
-SNAPSHOT = ROOT / 'evaluation/ocr_scoring/normalised-v5-step6-20261117'
+SNAPSHOT = ROOT / 'evaluation/ocr_scoring/normalised-v8-layoutv3'
+VALID_SUFFIX = '-valid-layoutv3'  # frozen layout v4-lines-v3
+RUN_DIR = {'train': '-train', 'valid': VALID_SUFFIX, 'test': '-test'}
 VALID_METADATA = ROOT / '.runtime/ocr-task-files-20261116/metadata/validation_detector_manifest.json'
 CLASS_ZIP = ROOT / '.runtime/ocr_class_dataset/v4-reviewed-01.zip'
 FULL_ZIP = ROOT / '.runtime/brendan-ocr-handoff/ocr_handoff_v4-reviewed-01.zip'
@@ -49,7 +57,7 @@ def audit():
         layout = None
         for model in ('easyocr', 'trocr', 'paddleocr'):
             for version in ('pretrained', 'finetuned'):
-                root = ROOT / f'evaluation/ocr_runs/{model}-{version}-{split}'
+                root = ROOT / f'evaluation/ocr_runs/{model}-{version}{RUN_DIR[split]}'
                 report = json.loads((root / 'report.json').read_text())
                 preds = [json.loads(line) for line in (root / 'predictions.jsonl').read_text().splitlines()]
                 identity = {p['review_id']: p['crop_sha256'] for p in preds}
@@ -130,7 +138,7 @@ def prepare(output):
     records, labels, review_rows = [], [], []
     run_hashes = {}
     for split in ('valid', 'test'):
-        run = ROOT / f'evaluation/ocr_runs/paddleocr-finetuned-{split}'
+        run = ROOT / f'evaluation/ocr_runs/paddleocr-finetuned{RUN_DIR[split]}'
         run_hashes[split] = dict(predictions_sha256=sha(run / 'predictions.jsonl'), report_sha256=sha(run / 'report.json'))
         predictions = [json.loads(line) for line in (run / 'predictions.jsonl').read_text().splitlines()]
         expected = {rid for rid, r in inventory.items() if r['split'] == split}
@@ -200,6 +208,7 @@ def prepare(output):
               matching_policy_id='', reason='') for r in records])
     shutil.copyfile(ROOT / 'data/bus_information.csv', output / 'reference/bus_information.csv')
     shutil.copyfile(ROOT / 'evaluation/OCR_RESULTS.md', output / 'evaluation/OCR_RESULTS.md')
+    shutil.copyfile(ROOT / 'evaluation/OCR_RESULTS_SYNTHETIC.md', output / 'evaluation/OCR_RESULTS_SYNTHETIC.md')
     shutil.copyfile(ROOT / 'OCR_HANDOFF_TASKS.md', output / 'evaluation/OCR_HANDOFF_TASKS.md')
     shutil.copyfile(ROOT / 'scripts/verify_ocr_matching_handoff.py', output / 'verify_handoff.py')
     (output / 'evaluation/steps2-8_audit.json').write_text(json.dumps(audit_result, indent=2) + '\n')
@@ -213,7 +222,7 @@ def prepare(output):
         shutil.copyfile(ROOT / 'backend/app/evaluation' / name, target)
     for name in ('backend/__init__.py', 'backend/app/__init__.py', 'backend/app/evaluation/__init__.py'):
         (output / name).write_text('')
-    environment = ROOT / '.cache/ocr_runs/paddleocr-finetuned-valid/environment.json'
+    environment = ROOT / f'.cache/ocr_runs/paddleocr-finetuned{VALID_SUFFIX}/environment.json'
     if environment.exists(): shutil.copyfile(environment, output / 'inference/environment.json')
     for source, dest in [('evaluation/ocr_review/train-spotcheck-20261117/summary.v3.final.json', 'evaluation/training_spotcheck.json'),
                          ('evaluation/ocr_review/test-confirmation-20261117/test_confirm.cody.2026-11-17.csv', 'evaluation/test_human_return.csv')]:
@@ -233,6 +242,9 @@ def prepare(output):
     (output / 'inference/panel_inventory.json').write_text(json.dumps(panel_records, indent=2) + '\n')
     summary['files_sha256'] = {p.relative_to(output).as_posix(): sha(p) for p in sorted(output.rglob('*')) if p.is_file()}
     (output / 'handoff_manifest.json').write_text(json.dumps(summary, indent=2) + '\n')
+    junk = [p for p in output.rglob('*') if p.name in ('__pycache__', '.DS_Store', '.cache') or p.suffix == '.pyc']
+    if junk:
+        raise ValueError(f'Unexpected files in package: {junk[:5]}')
     shutil.make_archive(str(output), 'zip', output.parent, output.name)
     with ZipFile(output.with_suffix('.zip')) as z:
         if z.testzip(): raise ValueError('Archive CRC failed')
@@ -245,6 +257,13 @@ def readme(summary):
 Fine-tuned PaddleOCR, run `20261117-031848`. This replaces the provisional pretrained handoff.
 Selected on 45 human-reviewed test annotation crops: CER 8.2%, WER 19.1%, exact 82.2%.
 This is TEST-based model selection under the user's rule, not an independent final estimate.
+Round 2 (real + synthetic training lines, run `20261118-084149`) did not meet the replacement rule,
+so this model is unchanged; see `evaluation/OCR_RESULTS_SYNTHETIC.md`.
+
+Rebuilt 19 November 2026. Validation OCR uses frozen layout `v4-lines-v3`: A095/P034 (v2) and
+A052/A094/P046/P087 (v3) now have one line each instead of a clipped fragment or no layout.
+16 validation crops remain deliberately unresolved and appear as `prediction_status=error`.
+Test OCR and model weights are the same as in the 17 November package.
 
 Start with `matching_inputs.jsonl` ({summary['records']} records), `reference/bus_information.csv`,
 and `matching_outputs.template.csv`. Labels are separate in `validation_labels.csv` and `test_labels.csv`;
@@ -263,7 +282,7 @@ Keep individual field matching usable while ownership is unresolved. Photos and 
 
 Manual text reviews are already returned: validation 258, test 118, training spot-check 50.
 Four training readings conflict (S018/S041/S046/S050); training labels remain unchanged and train scores diagnostic.
-The historical split/group limitations and two degenerate validation regions are recorded in `evaluation/OCR_RESULTS.md`.
+The historical split/group limitations are recorded in `evaluation/OCR_RESULTS.md`; layout fixes in `evaluation/OCR_RESULTS_SYNTHETIC.md`.
 No new compulsory review of 387 training labels is introduced by this handoff.
 
 Weights are included in `weights/paddleocr/` with original hash provenance; no Drive link is needed to run this package.
@@ -288,6 +307,14 @@ conflict/tie handling, and abstention. Road text stays separate because the refe
 Use same-display evidence only after resolving ownership. Tune cutoffs 25/50/75 and margin on validation,
 freeze the policy, then evaluate matching on test once. Report raw versus matched exact match, acceptance,
 accepted accuracy, rescued errors, harmful changes, valid-but-wrong service IDs and unresolved counts separately.
+
+Observed cases to handle in matching (from validation OCR; proposals, not implemented here):
+- Destination text often starts with a `>` arrow; strip it before comparing.
+- Displays abbreviate (`INT`, `TER`, `MRT`, `NTH`, `AVE`, `RD`); the reference uses longer names such as
+  "Choa Chu Kang Bus Interchange". Expand or normalise both sides before fuzzy scoring.
+- A052/P046 show `14E` but OCR reads `148`, which is a different real service in the reference. A number
+  that conflicts with the same display's destination must be flagged, not accepted on the number alone.
+- PaddleOCR confidence is not a reliable gate on its own: some wrong readings score above 0.99.
 
 `evaluation/steps2-8_audit.json` confirms all 18 runs share input hashes/layouts within each split and that
 all six model scores reproduce the saved report exactly. `handoff_manifest.json` hashes every packaged file.
