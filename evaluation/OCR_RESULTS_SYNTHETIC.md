@@ -169,6 +169,39 @@ AI labels; models were trained on these crops. Not an accuracy result.
 
 With 45 test crops one crop moves exact match by 2.2 points; choosing among more candidates on the same test set makes the winner look better than it is.
 
+## Validation layout v4-lines-v3 (19 November 2026, after round 2 selection)
+
+**Observed:** v2 left four scored validation crops without any line layout, so
+every model returned empty text for them: A052 and P046 (both `14E`, same
+display), A094 (`choa chu kang int`) and P087 (`marina ctr -`). Each image shows
+one main text row. In `v4-lines-v3` each of the four is one full-height line, as in
+the automatic proposal and the v2 fix for A095/P034; the other 267 entries are
+unchanged (`scripts/make_layout_v4_lines_v3.py`, AI visual review, no human
+review). All nine model versions were re-run (`scripts/run_valid_layoutv3.sh`).
+In every run only these four predictions changed.
+
+Validation, all fields, normalised scoring (%), v2 → v3:
+
+| Model | Annotation CER fine | Annotation CER fine+syn | Detector CER fine | Detector CER fine+syn | Exact fine (annot. / det.) |
+| --- | --- | --- | --- | --- | --- |
+| PaddleOCR | 10.1 → 7.2 | 9.3 → 6.4 | 13.3 → 9.6 | 13.0 → 9.3 | 78.5 / 78.4, unchanged |
+| TrOCR | 14.9 → 12.0 | 43.8 → 41.9 | 22.0 → 19.5 | 43.3 → 41.8 | 65.8 / 72.5, unchanged |
+| EasyOCR | 27.0 → 25.4 | 20.1 → 18.3 | 31.3 → 28.2 | 23.5 → 19.8 | 57.0 / 64.7, unchanged |
+
+Empty output counted as 100% CER for these crops; they now get partial credit.
+Fine-tuned PaddleOCR reads none of the four exactly: `148` for `14E` (twice),
+`CHOR CHU KANG INT`, `MARINA CTR`. `148` is a different real service in
+`data/bus_information.csv`, so number-only matching would accept a wrong bus.
+Test, route hold-out and train are unaffected. The step 7 selection check gives
+the same outcome under v3 (round 1 PaddleOCR stays). The tables above remain the
+v2 values on which round 2 selection was decided.
+
+Scoring: `ocr_scoring/normalised-v8-layoutv3/` (built with
+`OCR_VALID_RUN_SUFFIX=-valid-layoutv3 scripts/build_round2_scoring.py`); runs:
+`ocr_runs/*-valid-layoutv3/`. Neither is in Git. The app uses automatic
+segmentation on new images, not this frozen layout, so v3 changes the
+benchmark only, not app behaviour. 16 validation entries remain unresolved.
+
 ## Round 2 checkpoint selection (step 5, training validation only)
 
 Observed uploaded configs/logs, run `20261118-084149`:
@@ -280,6 +313,16 @@ from 1,988 of the 2,000 synthetic crops; 12 skipped: 9 whose joined labels excee
 PaddleOCR's 40 CTC steps and 3 with a region/text-count mismatch). These checkpoints are evaluated
 once under the previously fixed rules; improvements or regressions cannot alone
 establish a general effect of synthetic data.
+
+Text-overlap check (19 November 2026, after evaluation): round 2 excluded
+held-out strings by whole label after NFC, casefold and whitespace collapse.
+Under the stricter key in `scripts/synthetic_heldout.py` (letters/digits only,
+per line, partial-label fragments of 4+ characters), 61 of the 2,000 synthetic
+labels match held-out text as whole labels and 132 match on at least one line or
+fragment (113 destination, 19 route). This is shared text, not shared images, but
+it may slightly flatter fine+syn validation and hold-out scores. Selection is
+unaffected because no synthetic-trained model met the replacement rule. Future
+batches use the stricter check (`scripts/intake_synthetic_batch.py`).
 
 Partial-crop diagnostics treat `[UNK]` as a wildcard and score readable text only;
 the wildcard can absorb extra text. The 95% ranges use seeded crop bootstrap

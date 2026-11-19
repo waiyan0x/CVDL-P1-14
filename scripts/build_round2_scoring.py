@@ -40,7 +40,7 @@ COLS = ('pre', 'fine', 'fine+syn')
 
 
 def syn_available(model):
-    return all(p.is_dir() for p in (RUNS / f'{model}-finetunedsyn-valid-layoutv2',
+    return all(p.is_dir() for p in (RUNS / f'{model}-finetunedsyn{build_step6_scoring.VALID_RUN_SUFFIX}',
                                     RUNS / f'{model}-finetunedsyn-test', CACHE / f'{model}-finetunedsyn-train'))
 
 
@@ -104,7 +104,7 @@ def main(out):
             filtered_train(CACHE / f'{model}-finetunedsyn-train', syn_dir / f'train_runs_filtered/{model}-finetunedsyn-train', keep)
             fine = {'runs': [
                 {'run_dir': str(syn_dir / f'train_runs_filtered/{model}-finetunedsyn-train'), 'splits': ['train'], 'input_sets': ['annotation']},
-                {'run_dir': str(RUNS / f'{model}-finetunedsyn-valid-layoutv2'), 'splits': ['valid'], 'input_sets': ['annotation', 'prediction']},
+                {'run_dir': str(RUNS / f'{model}-finetunedsyn{build_step6_scoring.VALID_RUN_SUFFIX}'), 'splits': ['valid'], 'input_sets': ['annotation', 'prediction']},
                 {'run_dir': str(RUNS / f'{model}-finetunedsyn-test'), 'splits': ['test'], 'input_sets': ['annotation']}]}
         else:
             fine = {'status': 'Unavailable'}

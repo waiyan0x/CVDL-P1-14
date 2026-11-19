@@ -21,6 +21,7 @@ script (layout v4-lines-v1, no overrides).
 """
 import csv
 import json
+import os
 import shutil
 import sys
 from pathlib import Path
@@ -34,7 +35,8 @@ TEST = ROOT / "evaluation/ocr_review/test-confirmation-20261117/test.source.conf
 TRAIN_SOURCE = ROOT / "evaluation/ocr_review/human-verification-20261113/training.source.csv"
 TRAIN_LABELS = ROOT / ".runtime/ocr-text-dataset-20261116/labels.csv"
 TRAIN_OVERRIDES = ROOT / "evaluation/ocr_review/train-spotcheck-20261117/train_label_overrides.csv"
-VALID_RUN_SUFFIX = "-valid-layoutv2"
+# Override with OCR_VALID_RUN_SUFFIX=-valid-layoutv3 to score layout v4-lines-v3 runs.
+VALID_RUN_SUFFIX = os.environ.get("OCR_VALID_RUN_SUFFIX", "-valid-layoutv2")
 RUNS = ROOT / "evaluation/ocr_runs"
 MODELS = {"easyocr": "easyocr", "trocr": "trocr", "paddleocr": "paddleocr"}
 
