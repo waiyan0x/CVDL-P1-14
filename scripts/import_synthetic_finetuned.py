@@ -51,7 +51,7 @@ def main(run_id, *archives):
             print(f'WARNING: {model} provenance.json does not mention run {run_id}; check the ZIP is from that run')
         manifest[model] = dict(archive=str(archive), run_id=run_id,
                                source_drive_folder=f'DRIVE/CVDL-OCR-finetune/{model}/{run_id}/best',
-                               training_bundle='ocr_finetune_bundle-20261117-syn.zip', files_sha256=hashes)
+                               training_bundle='ocr_finetune_bundle-20261118-syn.zip', files_sha256=hashes)
         print(f'Imported {model} -> {target} ({len(hashes)} files)')
     manifest_path.write_text(json.dumps(manifest, indent=1) + '\n')
 

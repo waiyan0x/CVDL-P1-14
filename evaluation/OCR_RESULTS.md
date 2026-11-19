@@ -1,5 +1,10 @@
 # OCR results
 
+> This file preserves the previous round 1 benchmark. The new real-plus-synthetic
+> benchmark is in [OCR_RESULTS_SYNTHETIC.md](OCR_RESULTS_SYNTHETIC.md), with the
+> same model/field/population tables and pre / fine / fine+syn columns. It also
+> documents the validation-layout and train-diagnostic scoring changes.
+
 ## Headline result (test, official)
 
 Test annotation crops, all fields, 45 human-confirmed crops. pre = pretrained
@@ -289,6 +294,6 @@ User correction: A091 remains wrong_field; P065 (302) is now wrong_field too. Th
 
 Route hold-out (Table 4): 139 route crops from train photos never route-labelled (`scripts/build_route_holdout_batch.py`), typed blind by cody on 17 November 2026 and scored without a second review (user decision). Runs: `.cache/ocr_runs/*-routeholdout` and `*-routeholdout-partial` (not in Git). The two crop runners now skip warm-up for fields absent from an inventory, which these route-only runs needed.
 
-Synthetic training data (not yet trained): 2,000 rendered dot-matrix crops with ground truth in `labels.csv` format (`scripts/generate_synthetic_eds_crops.py`, `.runtime/synthetic-eds-20261117/`). Text comes from train labels plus combinations of train-only words, excluding every validation, test and route hold-out string. `scripts/add_synthetic_to_bundle.py` adds them to `.runtime/ocr_finetune_bundle-20261117-syn.zip` (366 real + 2,178 synthetic train line pairs; validation unchanged), which the Colab notebook now expects. No model has been trained on it yet, so no table reports synthetic-data results. Once trained, score on the same test and route hold-out sets for comparison with the run above.
+Historical synthetic-data preparation note (before round 2 evaluation): 2,000 rendered dot-matrix crops with ground truth in `labels.csv` format (`scripts/generate_synthetic_eds_crops.py`, `.runtime/synthetic-eds-20261117/`). Text comes from train labels plus combinations of train-only words, excluding every validation, test and route hold-out string. `scripts/add_synthetic_to_bundle.py` adds them to `.runtime/ocr_finetune_bundle-20261118-syn.zip` (366 real + 2,169 synthetic train line pairs; validation unchanged; 1,988 of 2,000 synthetic crops used, 12 skipped: 9 whose joined labels exceed PaddleOCR's 40 CTC steps and 3 with a region/text-count mismatch), which the Colab notebook now expects. At the time of this round 1 report it had not been trained. Round 2 training and evaluation are now recorded separately in `OCR_RESULTS_SYNTHETIC.md`.
 
 Training preparation: fine-tuning runs on Colab from `colab/ocr_finetune/` on 366 frozen-layout training line pairs (24 of 387 crops skipped and logged). Each model keeps its lowest validation crop-CER checkpoint; test is not used. Fine-tuned checkpoints now exist (Table 3). Test results cover annotation crops only (no test detector crops, by decision). Test labels are confirmed and the training spot-check is returned.

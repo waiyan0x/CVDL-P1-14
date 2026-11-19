@@ -1,0 +1,5 @@
+{
+  "metric": "minimum val_crop_CER",
+  "upstream_selected_prefix": "/content/drive/MyDrive/DRIVE/CVDL-OCR-finetune/paddleocr/20261118-084149/checkpoints/best_accuracy",
+  "seconds": 1832.1766673150014
+}

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Round 2 step 6: run models fine-tuned on the synthetic bundle
-# (ocr_finetune_bundle-20261117-syn.zip) on exactly the same crops and frozen
+# (ocr_finetune_bundle-20261118-syn.zip) on exactly the same crops and frozen
 # layouts as the round 1 models, so only the training data differs.
 #
 # Usage: scripts/run_synthetic_finetuned_ocr.sh RUN_ID [easyocr|trocr|paddleocr ...]

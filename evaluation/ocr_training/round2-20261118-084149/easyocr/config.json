@@ -1,0 +1,65 @@
+{
+  "arguments": {
+    "data": "/content/ocr-finetune/data",
+    "output": "/content/drive/MyDrive/DRIVE/CVDL-OCR-finetune/easyocr/20261118-084149",
+    "pretrained": "/content/drive/MyDrive/DRIVE/CVDL-OCR-inputs/weights/easyocr/english_g2.pth",
+    "epochs": 20,
+    "batch": 8,
+    "lr": 5e-05,
+    "seed": 0,
+    "dry_run": false,
+    "repo": "/content/EasyOCR"
+  },
+  "versions": {
+    "torch": "2.5.1+cu124",
+    "torchvision": "0.20.1+cu124",
+    "transformers": "4.57.1",
+    "accelerate": "1.11.0",
+    "easyocr": "1.7.2",
+    "numpy": "1.26.4",
+    "Pillow": "11.3.0"
+  },
+  "dry_run": false,
+  "test_used": false,
+  "normalisation": "NFC -> Unicode casefold -> NFC -> collapse whitespace",
+  "augmentation": "none, consistently for all three models",
+  "initial_sha256": {
+    "english_g2.pth": "e2272681d9d67a04e2dff396b6e95077bc19001f8f6d3593c307b9852e1c29e8"
+  },
+  "architecture": {
+    "Transformation": "None",
+    "FeatureExtraction": "VGG",
+    "SequenceModeling": "BiLSTM",
+    "Prediction": "CTC",
+    "num_fiducial": 20,
+    "input_channel": 1,
+    "output_channel": 256,
+    "hidden_size": 256,
+    "num_class": 97,
+    "imgH": 64,
+    "imgW": 600,
+    "batch_max_length": 128
+  },
+  "character_list": "0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ \u20acABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+  "charset": {
+    "model": "english_g2",
+    "missing": [],
+    "extended": []
+  },
+  "trainer_commit": "c4f3cd7225efd4f85451bd8b4a7646ae9a092420",
+  "optimizer_defaults": {
+    "lr": 5e-05,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false,
+    "maximize": false,
+    "foreach": null,
+    "capturable": false,
+    "differentiable": false,
+    "fused": null
+  }
+}

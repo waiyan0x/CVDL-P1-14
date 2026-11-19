@@ -1,0 +1,106 @@
+{
+  "run_id": "20261118-084149",
+  "run_id_evidence": "arguments.output in each uploaded training config",
+  "synthetic_bundle_verified": false,
+  "note": "Uploaded configs identify run and model but do not record input bundle hash. EasyOCR logs assigned using trainer format and prior user attachment context. Checkpoint-to-log identity not yet verified.",
+  "files": [
+    {
+      "model": "easyocr",
+      "file": "easyocr/config.json",
+      "source_filename": "config (1).json",
+      "sha256": "d270ce0cf2a0a2791bde3363bde3c3cb9cc6279faf0d93d26bdbe21607904eff"
+    },
+    {
+      "model": "easyocr",
+      "file": "easyocr/epoch_log.csv",
+      "source_filename": "epoch_log.csv",
+      "sha256": "51885ed70930d2dd34a4b4b37fa1eec3bd05249176afd428a832319189bd5bd2"
+    },
+    {
+      "model": "easyocr",
+      "file": "easyocr/selection.json",
+      "source_filename": "selection.json",
+      "sha256": "3453dd933a5295ae2f96cdd1765f8302b2fdd3190e236e5284f5409d6005a8c7"
+    },
+    {
+      "model": "easyocr",
+      "file": "easyocr/validation_events.jsonl",
+      "source_filename": "validation_events.jsonl",
+      "sha256": "89b3ab6aef0da5478b753c72cd37816254ed69c1607326a37dc7161eb3196da7"
+    },
+    {
+      "model": "paddleocr",
+      "file": "paddleocr/config.json",
+      "source_filename": "config.json",
+      "sha256": "0f22eaad2029aa2656e2e3aa210e0abe707d02959c62cabf3a98b5b11b99596e"
+    },
+    {
+      "model": "paddleocr",
+      "file": "paddleocr/epoch_log.csv",
+      "source_filename": "epoch_log (1).csv",
+      "sha256": "4239b4abeb303520e7fe4c5086379347a69c75f7978220b7baaa1b8db5ecb54f"
+    },
+    {
+      "model": "paddleocr",
+      "file": "paddleocr/selection.json",
+      "source_filename": "selection (1).json",
+      "sha256": "7cb733fe6234c2b9677934bfe4e299cc291e2053cef7f3bb560d7ac06852c6d0"
+    },
+    {
+      "model": "trocr",
+      "file": "trocr/config.json",
+      "source_filename": "config (2).json",
+      "sha256": "5f65304b53fe311a18e6721d231abc205ea8a6afbb3a755526122cef0eb21695"
+    },
+    {
+      "model": "trocr",
+      "file": "trocr/epoch_log.csv",
+      "source_filename": "epoch_log (2).csv",
+      "sha256": "bb629df03f975ef359870c34b3890fd043e83256b548c57c3139a55c1a10baea"
+    },
+    {
+      "model": "trocr",
+      "file": "trocr/selection.json",
+      "source_filename": "selection (2).json",
+      "sha256": "ea813d23592dfe89cd759fe317959b6ede894d437e42221d421d1274f7f54388"
+    }
+  ],
+  "synthetic_training_evidence": "TrOCR config effective_train_pairs=2535 matches the prepared 366 real + 2169 synthetic bundle. Uploaded configs do not record the bundle hash.",
+  "checkpoint_archives": {
+    "easyocr": {
+      "archive": "best-20261118T144226Z-1-001.zip",
+      "files_sha256": {
+        "README.txt": "eda262c820d04b6e3c4b02ea0d5effe0f6aff5db63f78078d35c005784a15e8b",
+        "eds_english_g2.pth": "569716552038ee4c80d680117529697fda602374bc20a16fcd95310cb119fbee",
+        "eds_english_g2.py": "3309a51f8dab9df3e4665181ae0e77443d7fe7d3f1b94c3552e3534402284bcf",
+        "eds_english_g2.yaml": "9550e122e4a395fe66300202c85974da54a68b2544acc51f54049e098a325ba5"
+      }
+    },
+    "paddleocr": {
+      "archive": "best-20261118T144236Z-1-001.zip",
+      "files_sha256": {
+        "inference.json": "35f4f35169126745e8ad1de97fdebd7211165839cb3733a59ada9e4c07e5ac8b",
+        "inference.pdiparams": "6a35875b16d0a375dac9c35d2d8e4b4242567a6169b832de56bb5818e48d16ab",
+        "inference.yml": "27e91d0582f40168aa218303c76e184bc78fa7a5d105aad0cfbad8458b441067",
+        "provenance.json": "4e60dfbc200451f822acebefe98069e5f27ea3428b33a8c46c605bd55d152953"
+      }
+    },
+    "trocr": {
+      "archive": "best-20261118T144640Z-1-001.zip",
+      "files_sha256": {
+        "config.json": "bd6071030c1e1e9fff502aee543a7d9e8cbce3960750178bee64eba082d2af5f",
+        "generation_config.json": "5a57df37f0f961d9749112028fc0ce47b10f85065a1195882ceee9898198cffd",
+        "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+        "model.safetensors": "7a0882986488eb22eaff67fc21438e77e834534f0f0a978035a5de78104fa7f0",
+        "preprocessor_config.json": "96fd208e04b8eb30aace1a1d9188a82fdc0001281f4032788f8e357a52d1a847",
+        "provenance.json": "904eec7b06ead2eec25f2a476d47d020350d86ce5e639727ce79096559780200",
+        "special_tokens_map.json": "8293ae960b0a0852d4d3813118030a1149a3ed9fe37bc2e1e7b3c2e62eb2d4b7",
+        "tokenizer_config.json": "ce86b739c63fc036e97ab3c456d950ea4e483cae52f45a485dafeb26b3f69ec4",
+        "training_args.bin": "9af663ee840b5042fc5227f4c8025d8e034fab03d67123f5bdd44b3374d8951c",
+        "vocab.json": "32b29acf82d3333462eb4b13416760f2aef956052e8fea1749fe5b20f866a4bf"
+      }
+    }
+  },
+  "checkpoint_archive_crc": "all three passed",
+  "paddle_export_hashes": "all three inference files match uploaded provenance.json"
+}

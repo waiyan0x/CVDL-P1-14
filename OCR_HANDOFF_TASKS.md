@@ -5,38 +5,57 @@ project decisions, not observed results or coursework rubric requirements.
 This checklist supersedes earlier conflicting OCR scoring/handoff proposals.
 No task below is marked complete merely because this checklist exists.
 
-## Round 2: synthetic training data (started 18 November 2026)
+## Round 2: synthetic training data (evaluated 18 November 2026)
+
+Observed evaluation: run `20261118-084149` configs/logs and all three best/ ZIPs
+are registered in `evaluation/ocr_training/round2-20261118-084149/`.
+All 15 new inference runs completed; 45 comparison runs share exact crop
+identities/layouts within each population. Results/audit:
+`evaluation/ocr_scoring/normalised-v7-round2-syn/` and `evaluation/OCR_RESULTS_SYNTHETIC.md`.
+Round 1 PaddleOCR remains selected; no synthetic-trained model meets the agreed
+replacement rule. TrOCR's 2,535 training pairs match the prepared synthetic
+bundle count; the uploaded configs do not contain an input-bundle hash.
 
 Only the training data changes. Test, validation, route hold-out, frozen layouts
 and scoring stay as in round 1, so differences come from the synthetic lines.
-Provisional decisions (user to confirm or change): train PaddleOCR first on the
-full `-syn` bundle; the round 1 app model stays unless a synthetic-trained model
-wins 2 of 3 test measures against every other fine-tuned model and is no worse
-in CER on validation and the route hold-out.
+Decisions confirmed by the user, 18 November 2026 (fixed before any round 2 results):
+- Training: full `-syn` bundle, PaddleOCR first, same settings as round 1.
+- Validation: fixed layout `v4-lines-v2` for all three columns (pre / fine /
+  fine+syn). Round 1 validation figures therefore shift slightly from the
+  published v5 tables; the write-up states why. Test is unaffected.
+- Selection (strict): the round 1 app model stays unless a synthetic-trained
+  model wins 2 of 3 test measures (all fields) against every other fine-tuned
+  model AND is no worse in CER on validation and the route hold-out.
+- Hand-back: the three `best-*.zip` downloads, the RUN_ID and, ideally, the three
+  `epoch_log.csv` files. The weights are needed for test and hold-out scoring.
 
 - [x] Step 2: synthetic labels (`.runtime/synthetic-eds-20261117/labels.csv`, 2,000
   crops; validation/test/hold-out strings excluded). Real labels unchanged.
 - [x] Step 3: unchanged (118 test crops, frozen layouts); route hold-out fixed.
 - [x] Step 4: unchanged; pretrained runs reused.
-- [x] Step 5 prep: bundle `.runtime/ocr_finetune_bundle-20261117-syn.zip`
-  (366 real + 2,178 synthetic train pairs); notebook pins its SHA-256.
-- [ ] **Step 5 (user, Colab):** train PaddleOCR, TrOCR, EasyOCR on the `-syn`
+- [x] Step 5 prep: bundle `.runtime/ocr_finetune_bundle-20261118-syn.zip`
+  (366 real + 2,169 synthetic train pairs; SHA `ca6d3604…`); notebook pins it.
+  Replaces the 17 November `-syn` bundle, whose 9 joined synthetic labels exceeded
+  PaddleOCR's 40 CTC steps and stopped the dry run; those crops are now skipped.
+  A further 3 synthetic crops are skipped for a region/text-count mismatch, so
+  12 of 2,000 are skipped in total (1,988 used; `bundle_manifest.json`).
+- [x] **Step 5 (user, Colab):** train PaddleOCR, TrOCR, EasyOCR on the `-syn`
   bundle; download each `best/` folder; note the run ID.
-- [ ] **Disk (user):** free at least ~5 GB. TrOCR needs 3 GB free to load, and the
+- [x] **Disk (user):** free at least ~5 GB. TrOCR needs 3 GB free to load, and the
   synthetic-trained TrOCR adds about 1.3 GB. On 18 November only 2.6 GB was free,
   which blocked `trocr-finetuned-valid-layoutv2`.
-- [ ] Round 1 completion: run `trocr-finetuned-valid-layoutv2` (pretrained done
+- [x] Round 1 completion: run `trocr-finetuned-valid-layoutv2` (pretrained done
   18 November), so all validation runs use layout `v4-lines-v2`.
-- [ ] Step 6: `scripts/import_synthetic_finetuned.py RUN_ID best-*.zip`, then
+- [x] Step 6: `scripts/import_synthetic_finetuned.py RUN_ID best-*.zip`, then
   `scripts/run_synthetic_finetuned_ocr.sh RUN_ID` (valid layout v2, test, hold-out
   full + partial, train; never overwrites round 1 runs).
-- [ ] Steps 6–7: `scripts/build_round2_scoring.py evaluation/ocr_scoring/normalised-v7-round2-syn`
+- [x] Steps 6–7: `scripts/build_round2_scoring.py evaluation/ocr_scoring/normalised-v7-round2-syn`
   writes the round 1 v6 snapshot plus `syn/`, `holdout/`, `partial/` and
   `ROUND2_RESULTS.md` (three-way tables and the selection check). Dry-run
   verified 18 November with stand-in runs; missing models show `pending`.
-- [ ] Step 8: copy the three-way tables into `evaluation/OCR_RESULTS.md` and record
+- [x] Step 8: save the three-way tables separately in `evaluation/OCR_RESULTS_SYNTHETIC.md` (linked from `evaluation/OCR_RESULTS.md`) and record
   synthetic provenance and limits.
-- [ ] Step 9 only if the app model changes: rebuild the matching handoff ZIP.
+- Step 9: no rebuild required; the selected model is unchanged.
 
 ## Status and dependencies
 

@@ -13,15 +13,18 @@ From the repository root:
 .venv/bin/python scripts/export_ocr_finetune_bundle.py --output .runtime/ocr_finetune_bundle-20261117.zip
 # Optional: add synthetic training crops (train split only) -> the bundle the notebook now expects
 .venv/bin/python scripts/generate_synthetic_eds_crops.py          # .runtime/synthetic-eds-20261117/
-.venv/bin/python scripts/add_synthetic_to_bundle.py               # .runtime/ocr_finetune_bundle-20261117-syn.zip
+.venv/bin/python scripts/add_synthetic_to_bundle.py               # .runtime/ocr_finetune_bundle-20261118-syn.zip
 python3 -m zipfile -c .runtime/ocr_finetune_code.zip colab/ocr_finetune
 ```
 
-The notebook's `EXPECTED_BUNDLE_SHA256` pins `ocr_finetune_bundle-20261117-syn.zip`
-(366 real + 2,178 synthetic train line pairs; validation unchanged). Synthetic
+The notebook's `EXPECTED_BUNDLE_SHA256` pins `ocr_finetune_bundle-20261118-syn.zip`
+(366 real + 2,169 synthetic train line pairs; validation unchanged). Synthetic
 lines are `lines/train/SYN*`; their labels come from the synthetic `labels.csv`,
-paired per line with automatic segmentation (3 crops skipped, 267 two-line crops
-read as one region and labelled with the lines joined, as for real crops). To
+paired per line with automatic segmentation (12 crops skipped: 3 region/text
+mismatches and 9 whose joined label needs more than the 40 CTC steps PaddleOCR
+emits at 48x320, see `skipped.csv`; 258 two-line crops read as one region and
+labelled with the lines joined, as for real crops). The 17 November `-syn`
+bundle (SHA `7a8b86ae…`) failed the PaddleOCR dry run on those 9 labels. To
 train on real data only, revert that hash to
 `7db8ff380c56737e979b2d269d1d3eeff1c31d950d2bd886be7558694d80ab46` and upload
 the original bundle.

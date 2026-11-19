@@ -35,6 +35,13 @@ from export_ocr_finetune_bundle import pairing  # noqa: E402
 CHANGED = ('train.tsv', 'charset.txt', 'skipped.csv', 'joined.csv', 'bundle_manifest.json')
 
 
+PADDLE_CTC_STEPS = 40  # must match ctc_steps in colab/ocr_finetune/train_paddle.py
+
+
+def ctc_need(text):
+    return len(text) + sum(x == y for x, y in zip(text, text[1:]))
+
+
 def digest(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -43,7 +50,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--bundle', type=Path, default=ROOT / '.runtime/ocr_finetune_bundle-20261117.zip')
     ap.add_argument('--synthetic', type=Path, default=ROOT / '.runtime/synthetic-eds-20261117')
-    ap.add_argument('--output', type=Path, default=ROOT / '.runtime/ocr_finetune_bundle-20261117-syn.zip')
+    ap.add_argument('--output', type=Path, default=ROOT / '.runtime/ocr_finetune_bundle-20261118-syn.zip')
     ap.add_argument('--limit', type=int, help='Use at most N synthetic crops (seeded sample); default all')
     a = ap.parse_args()
     if a.output.exists():
@@ -83,6 +90,11 @@ def main():
         labels, reason = pairing(text, len(quads))
         if labels is None:
             skipped.append(dict(review_id=rid, split='train', reason=reason))
+            continue
+        too_long = [t for t in labels if ctc_need(t) > PADDLE_CTC_STEPS]
+        if too_long:  # train_paddle.py refuses labels the 48x320 CTC head cannot emit
+            skipped.append(dict(review_id=rid, split='train',
+                                reason=f'label needs {max(map(ctc_need, too_long))} CTC steps > {PADDLE_CTC_STEPS}'))
             continue
         if reason:
             joined.append(dict(review_id=rid, split='train', reason=reason))

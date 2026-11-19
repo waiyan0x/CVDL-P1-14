@@ -11,7 +11,7 @@ Usage: .venv/bin/python scripts/build_round2_scoring.py OUTPUT_DIR
 4. partial/   route hold-out partial crops, readable text only (diagnostic).
 5. ROUND2_RESULTS.md: three-way tables plus the round 2 selection check.
 
-Selection rule (provisional, user to confirm): the round 1 app model stays unless
+Selection rule (user-confirmed in OCR_HANDOFF_TASKS.md): the round 1 app model stays unless
 a synthetic-trained model wins at least two of CER/WER/exact on test (all fields)
 against every other fine-tuned model AND is no worse in CER on validation
 (annotation, all fields) and the route hold-out.
@@ -139,7 +139,7 @@ def main(out):
     hreal, hsyn = cells(hold_reports['real']), cells(hold_reports['syn'])
     parts = ['# OCR results — round 2 (synthetic training data)', '',
              'pre = pretrained; fine = fine-tuned on real labels (run 20261117-031848); '
-             'fine+syn = fine-tuned on real + synthetic lines (`ocr_finetune_bundle-20261117-syn.zip`). '
+             'fine+syn = fine-tuned on real + synthetic lines (`ocr_finetune_bundle-20261118-syn.zip`). '
              '`pending` = synthetic-trained run not available yet. Normalised scoring; all values %.', '',
              table('Test annotation crops (official)', real, syn, 'test', 'annotation'),
              table('Validation annotation crops (official)', real, syn, 'valid', 'annotation',
@@ -168,7 +168,7 @@ def selection(real, syn, hreal, hsyn):
         c = syn[model, 'finetuned'].get(key)
         if c and c['status'] == 'Scored':
             cands[f'{name} fine+syn'] = c
-    lines = ['### Round 2 app-model check (provisional rule)', '',
+    lines = ['### Round 2 app-model check (agreed rule)', '',
              '| Fine-tuned model | Test CER | Test WER | Test exact |', '| --- | ---: | ---: | ---: |']
     lines += [f"| {n} | {100*c['cer']:.1f} | {100*c['wer']:.1f} | {100*c['exact_match']:.1f} |" for n, c in cands.items()]
     syn_names = [n for n in cands if n.endswith('fine+syn')]
