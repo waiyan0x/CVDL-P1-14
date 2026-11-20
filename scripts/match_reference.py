@@ -111,7 +111,15 @@ def run_photo(photo, detector_path, reader, save_dir=None, conf=0.5, iou=0.7, im
             texts[field] = text
             crops[field] = {"box": item["box"], "detector_confidence": item.get("confidence"),
                             "ocr_confidence": confidence, "crop": str(path)}
-        displays.append({"display_id": group["display_id"], "texts": texts, "crops": crops})
+        if group["screen"]:
+            box = group["screen"]["box"]
+        else:
+            fb = [f["box"] for f in group["fields"].values()]
+            box = [min(b[0] for b in fb), min(b[1] for b in fb), max(b[2] for b in fb), max(b[3] for b in fb)]
+        displays.append({"display_id": group["display_id"], "texts": texts, "crops": crops, "box": box,
+                         "area": (box[2] - box[0]) * (box[3] - box[1])})
+    # Nearest bus first: its display appears largest in the photo.
+    displays.sort(key=lambda d: -d["area"])
     if save:
         draw = ImageDraw.Draw(image)
         colours = {"eds": "yellow", "bus_number": "red", "destination": "lime", "route": "cyan"}
@@ -210,6 +218,8 @@ def main(argv=None):
     photo.add_argument("--photo", type=Path, help="bus photo")
     photo.add_argument("--detector", type=Path, default=DEFAULT_DETECTOR, help="YOLO11s weights (.pt)")
     photo.add_argument("--save-dir", type=Path, help="write crops and an annotated detections.png here")
+    photo.add_argument("--closest-only", action="store_true",
+                       help="report only the largest display (the nearest bus); others are listed by size")
     data = parser.add_argument_group("use dataset crops (Cody's fine-tuned PaddleOCR readings)")
     data.add_argument("--review-id", help="crop id such as A001, P034 or TEST_A0169")
     data.add_argument("--image", help="source photo file name: shows every display on it")
@@ -235,10 +245,16 @@ def main(argv=None):
         print(f"Detected boxes: " + ", ".join(f"{b['label']} {b['confidence']:.2f}" for b in boxes) if boxes else "Detected boxes: none")
         if not displays:
             show(matcher.match(detected=False), title=f"{args.photo.name}: no display found")
-        for d in displays:
+        if len(displays) > 1:
+            print("Displays by size (largest = nearest bus): " + ", ".join(
+                f"{d['display_id']} ({d['area']} px², number {d['texts'].get('number') or d['texts'].get('panel') or '?'!r})"
+                for d in displays))
+        for rank, d in enumerate(displays[:1] if args.closest_only else displays, 1):
             result = matcher.match(**{k: d["texts"].get(k) for k in ("number", "destination", "route", "panel")})
-            print(json.dumps({**result, "crops": d["crops"]}, indent=2, ensure_ascii=False)) if args.json \
-                else show(result, title=f"{args.photo.name} display {d['display_id']}")
+            label = "nearest bus" if rank == 1 and len(displays) > 1 else f"size rank {rank}"
+            print(json.dumps({**result, "crops": d["crops"], "display_box": d["box"], "size_rank": rank}, indent=2,
+                             ensure_ascii=False)) if args.json \
+                else show(result, title=f"{args.photo.name} display {d['display_id']} ({label})")
         if args.save_dir:
             print(f"\nCrops and detections.png saved in {Path(args.save_dir) / args.photo.stem}")
         return

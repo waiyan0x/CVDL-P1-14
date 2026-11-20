@@ -101,13 +101,15 @@ Options:
 | `--crop-dir` | folder of `display-N_<number/destination/route/panel>.png` crops; reads all, grouped by display |
 | `--photo` | bus photo for the full chain |
 | `--save-dir` | with `--photo`: write each crop and an annotated `detections.png` to `<dir>/<photo name>/` |
+| `--closest-only` | with `--photo`: report only the largest display (the nearest bus); all displays are still listed by size |
 | `--detector` | YOLO11s weights (default `models/local/yolo/best.pt`) |
 | `--ocr-model-dir` | PaddleOCR weights folder (default: see `models/local/` above) |
 | `--cutoff`, `--margin`, `--scorer`, `--conflict` | matching settings (default: chosen on validation, `results/selected_setting.json`) |
 | `--reference` | route CSV (default `data/reference/bus_information.cleaned.csv`) |
 | `--json` | print the full result as JSON |
 
-Photo mode runs YOLO11s at conf 0.50, NMS IoU 0.70, size 640, groups boxes into displays with the app's
+Photo mode handles several buses: each display is matched separately and listed largest first, because the
+nearest bus's display appears largest. `--closest-only` reports just that one. Photo mode runs YOLO11s at conf 0.50, NMS IoU 0.70, size 640, groups boxes into displays with the app's
 association code, and drops a second display box that overlaps a more confident one by IoU ≥ 0.5. Each
 crop is read as one line, so two-line signs read worse than in Cody's line-split evaluation.
 
