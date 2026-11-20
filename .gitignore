@@ -30,3 +30,7 @@ test-results/
 playwright-report/
 /agents.md
 /skills.md
+
+# Local model weights and test photos (never committed)
+models/local/
+runs/

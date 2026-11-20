@@ -159,7 +159,21 @@ def test_cli_reads_crops_before_matching(monkeypatch, capsys, tmp_path):
     spec.loader.exec_module(cli)
     fake = {"num.png": ("983", 0.99), "dest.png": ("CHOA CHU KANG INT", 0.95)}
     monkeypatch.setattr(cli, "make_reader", lambda model_dir=None: lambda path: fake[Path(path).name])
+    monkeypatch.setattr(cli, "resolve_ocr_dir", lambda model_dir: None)   # ignore weights in models/local
     cli.main(["--number-crop", str(tmp_path / "num.png"), "--destination-crop", str(tmp_path / "dest.png")])
     out = capsys.readouterr().out
     assert "public pretrained" in out and "'983'" in out
     assert "MATCHED" in out and "Choa Chu Kang Bus Interchange" in out
+
+
+def test_photo_mode_drops_duplicate_display_boxes():
+    import importlib.util
+    from pathlib import Path
+    spec = importlib.util.spec_from_file_location("match_reference", Path(__file__).resolve().parents[1] / "scripts/match_reference.py")
+    cli = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cli)
+    boxes = [{"label": "eds", "confidence": 0.9, "box": [488, 677, 649, 722]},
+             {"label": "eds", "confidence": 0.53, "box": [432, 687, 636, 719]},
+             {"label": "bus_number", "confidence": 0.8, "box": [490, 683, 531, 718]}]
+    kept = cli.drop_duplicate_panels(boxes)
+    assert [b["confidence"] for b in kept] == [0.9, 0.8]
