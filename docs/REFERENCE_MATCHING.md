@@ -85,6 +85,7 @@ then the overall result and the reason. Add `--json` for the full result.
 | Input | Command |
 | --- | --- |
 | Full chain on a photo (YOLO11s → PaddleOCR → matching) | `python scripts/match_reference.py --photo models/local/photos/bus_374.png --save-dir runs/matching` |
+| Every crop saved by `--photo --save-dir`, OCR shown per crop | `python scripts/match_reference.py --crop-dir runs/matching/bus_374` |
 | Crop images (PaddleOCR → matching) | `python scripts/match_reference.py --number-crop num.png --destination-crop dest.png` |
 | Typed OCR text | `python scripts/match_reference.py --number 14E --destination "> TAMP1NES INT"` |
 | Whole-display text only | `python scripts/match_reference.py --panel "65 TAMPINES INT"` |
@@ -97,6 +98,7 @@ Options:
 | --- | --- |
 | `--number`, `--destination`, `--route`, `--panel` | OCR text for each field (`--panel` = whole display) |
 | `--number-crop`, `--destination-crop`, `--route-crop`, `--panel-crop` | crop images to read with PaddleOCR first |
+| `--crop-dir` | folder of `display-N_<number/destination/route/panel>.png` crops; reads all, grouped by display |
 | `--photo` | bus photo for the full chain |
 | `--save-dir` | with `--photo`: write each crop and an annotated `detections.png` to `<dir>/<photo name>/` |
 | `--detector` | YOLO11s weights (default `models/local/yolo/best.pt`) |

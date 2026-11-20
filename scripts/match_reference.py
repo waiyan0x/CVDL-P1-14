@@ -12,6 +12,9 @@ Or run the full chain on a photo: YOLO11s finds the display boxes, PaddleOCR rea
 then every display is matched (needs: pip install ultralytics paddlepaddle paddleocr):
     python scripts/match_reference.py --photo models/local/photos/bus_374.png --save-dir runs/matching
 
+Or read every crop saved by --photo --save-dir (display-N_<field>.png), grouped by display:
+    python scripts/match_reference.py --crop-dir runs/matching/bus_374
+
 Or read crop images with PaddleOCR first (needs: pip install paddlepaddle paddleocr):
     python scripts/match_reference.py --number-crop num.png --destination-crop dest.png
     python scripts/match_reference.py --destination-crop dest.png --ocr-model-dir path/to/paddleocr/best
@@ -199,6 +202,8 @@ def main(argv=None):
     crops = parser.add_argument_group("read crop images with PaddleOCR first")
     for field in ("number", "destination", "route", "panel"):
         crops.add_argument(f"--{field}-crop", type=Path, help=f"image of the {field} crop")
+    crops.add_argument("--crop-dir", type=Path,
+                       help="folder of display-N_<number|destination|route|panel>.png crops; reads all of them")
     crops.add_argument("--ocr-model-dir", type=Path,
                        help="folder with inference.pdiparams/.json/.yml (e.g. Cody's best/)")
     photo = parser.add_argument_group("run the full chain on a photo (YOLO11s -> PaddleOCR -> matching)")
@@ -236,6 +241,31 @@ def main(argv=None):
                 else show(result, title=f"{args.photo.name} display {d['display_id']}")
         if args.save_dir:
             print(f"\nCrops and detections.png saved in {Path(args.save_dir) / args.photo.stem}")
+        return
+    if args.crop_dir:
+        import re
+        model_dir = resolve_ocr_dir(args.ocr_model_dir)
+        print(f"OCR model: {model_dir or PUBLIC_MODEL + ' (public pretrained, downloaded)'}")
+        reader, groups = make_reader(model_dir), {}
+        for path in sorted(Path(args.crop_dir).glob("*.png")):
+            found = re.fullmatch(r"(.+)_(number|destination|route|panel)", path.stem)
+            if found:
+                groups.setdefault(found.group(1), {})[found.group(2)] = path
+        if not groups:
+            parser.error(f"no display-N_<field>.png crops in {args.crop_dir}")
+        for display, files in groups.items():
+            texts = {}
+            print(f"\n== {args.crop_dir.name} {display}: OCR of every crop")
+            for field in ("number", "destination", "route", "panel"):
+                if field in files:
+                    text, confidence = reader(files[field])
+                    texts[field] = text
+                    print(f"OCR:    {field:<11} {files[field].name:<28} -> {text!r}"
+                          + (f" (confidence {confidence:.2f})" if confidence is not None else ""))
+                else:
+                    print(f"OCR:    {field:<11} (no crop detected)")
+            result = matcher.match(**{k: texts.get(k) for k in ("number", "destination", "route", "panel")})
+            print(json.dumps(result, indent=2, ensure_ascii=False)) if args.json else show(result)
         return
     if args.review_id or args.image:
         path = OUT / "displays.jsonl"
