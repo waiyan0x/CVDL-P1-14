@@ -32,6 +32,13 @@ CSV name  ───────────────────────�
 | Route text only | Kept as read; service unresolved (the CSV has no road names). |
 | No usable fields | Reason recorded: no fields detected, OCR returned nothing, or nothing matched. |
 
+**Route crop as destination evidence** (setting `route_as_destination`). The detector sometimes labels the
+destination as route. When a display has no destination crop, the route crop and the whole-display text
+are both tried. `off`: route crop ignored. `check` (selected): the route crop may only flag a number it
+does not fit (e.g. `13` read where the route crop reads Ang Mo Kio Int, an endpoint of 133); it is never
+shown as the destination. `use`: it may also be shown. On validation `use` showed one wrong destination
+(991: route text `BUKIT BATOK ST 11` matched the opposite endpoint) and gained one; `check` showed none wrong.
+
 **Whole-display (panel) OCR.** Used for a field only when the dedicated crop is missing. Service-number
 tokens in the panel text count only if they are reference services and only one is present. If crop and
 panel numbers agree, both sources are logged. A panel number that is part of the crop number (`10` vs
@@ -47,7 +54,8 @@ values are withheld; raw OCR is always kept.
 ## Settings and evaluation
 
 - Similarity: RapidFuzz 0–100. Grid on validation: scorers `ratio`, `token_sort_ratio`, `token_set_ratio`,
-  `WRatio` × cutoffs 25, 50, 60, 70, 75, 80, 90 × margins 0, 5, 10 × both conflict policies.
+  `WRatio` × cutoffs 25, 50, 60, 70, 75, 80, 90 × margins 0, 5, 10 × both conflict policies × route fallback
+  `off`/`check`/`use` (`off` excluded from selection by project decision).
 - Selection rule (validation only): most correct outputs minus wrong outputs; then higher precision; then
   the stricter cutoff and margin. Test runs once with the chosen setting.
 - Destination gold needs the answer key (sign text → reference endpoint), see below.
@@ -104,6 +112,7 @@ Options:
 | `--closest-only` | with `--photo`: report only the largest display (the nearest bus); all displays are still listed by size |
 | `--detector` | YOLO11s weights (default `models/local/yolo/best.pt`) |
 | `--ocr-model-dir` | PaddleOCR weights folder (default: see `models/local/` above) |
+| `--route-as-destination off/check/use` | route crop fallback when there is no destination crop |
 | `--cutoff`, `--margin`, `--scorer`, `--conflict` | matching settings (default: chosen on validation, `results/selected_setting.json`) |
 | `--reference` | route CSV (default `data/reference/bus_information.cleaned.csv`) |
 | `--json` | print the full result as JSON |

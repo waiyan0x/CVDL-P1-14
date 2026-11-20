@@ -42,7 +42,8 @@ def default_settings():
     path = OUT / "results/selected_setting.json"
     if path.is_file():
         s = json.loads(path.read_text())
-        return Settings(s["cutoff"], s["margin"], s["scorer"], s.get("conflict", "withhold_both"))
+        return Settings(s["cutoff"], s["margin"], s["scorer"], s.get("conflict", "withhold_both"),
+                        s.get("route_as_destination", "off"))
     return Settings()
 
 
@@ -176,7 +177,8 @@ def show(result, labels=None, title=None):
     rows = [("Service number", raw["number"], result["service"], None, result["service_status"]),
             ("Destination", raw["destination"], result["destination"],
              f"{result['destination_score']:.1f}%" if result["destination_score"] is not None else None,
-             result["destination_status"] + (" (from whole display)" if result["sources"].get("destination") == ["panel"] else "")),
+             result["destination_status"] + {("panel",): " (from whole display)", ("route",): " (from route crop)"}.get(
+                 tuple(result["sources"].get("destination", [])), "")),
             ("Route text", raw["route"], result["route_text"], None, "kept as read" if result["route_text"] else None),
             ("Whole display", raw["panel"], None, None, None)]
     head = ["Field", "Raw OCR", "Matched reference", "Similarity", "Decision"] + (["Human label"] if labels else [])
@@ -226,6 +228,9 @@ def main(argv=None):
     tune = parser.add_argument_group("settings (default: chosen on validation)")
     tune.add_argument("--cutoff", type=float), tune.add_argument("--margin", type=float)
     tune.add_argument("--scorer", choices=list(SCORERS)), tune.add_argument("--conflict", choices=["withhold_both", "keep_number"])
+    tune.add_argument("--route-as-destination", choices=["off", "check", "use"],
+                      help="no destination crop: off = ignore route crop; check = only flag a number it does not fit; "
+                           "use = may show it as the destination")
     parser.add_argument("--reference", type=Path, default=ROOT / "data/reference/bus_information.cleaned.csv")
     parser.add_argument("--json", action="store_true", help="print the full result as JSON")
     args = parser.parse_args(argv)
@@ -234,8 +239,11 @@ def main(argv=None):
     for name in ("cutoff", "margin", "scorer", "conflict"):
         if getattr(args, name) is not None:
             setattr(settings, name, getattr(args, name))
+    if args.route_as_destination:
+        settings.route_as_destination = args.route_as_destination
     matcher = DisplayMatcher(Reference(args.reference), settings)
-    print(f"Settings: scorer={settings.scorer} cutoff={settings.cutoff:g} margin={settings.margin:g} conflict={settings.conflict}")
+    print(f"Settings: scorer={settings.scorer} cutoff={settings.cutoff:g} margin={settings.margin:g} "
+          f"conflict={settings.conflict} route_as_destination={settings.route_as_destination}")
 
     if args.photo:
         model_dir = resolve_ocr_dir(args.ocr_model_dir)

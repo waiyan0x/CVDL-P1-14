@@ -177,3 +177,33 @@ def test_photo_mode_drops_duplicate_display_boxes():
              {"label": "bus_number", "confidence": 0.8, "box": [490, 683, 531, 718]}]
     kept = cli.drop_duplicate_panels(boxes)
     assert [b["confidence"] for b in kept] == [0.9, 0.8]
+
+
+def test_route_crop_as_destination_fallback(tmp_path):
+    path = tmp_path / "routes.csv"
+    path.write_text(CSV)
+    off = DisplayMatcher(Reference(path), Settings(cutoff=70, margin=5, scorer="ratio"))
+    on = DisplayMatcher(Reference(path), Settings(cutoff=70, margin=5, scorer="ratio", route_as_destination="use"))
+    check = DisplayMatcher(Reference(path), Settings(cutoff=70, margin=5, scorer="ratio", route_as_destination="check"))
+    assert check.match(number="65", route="TAMPINES INT")["destination"] is None      # never shown in check mode
+    assert check.match(number="148", route="CLEMENTI INT")["status"] == "conflict"    # but still flags the number
+    assert check.match(number="65", route="TAMPINES INT")["status"] == "service_only"
+    assert off.match(number="65", route="TAMPINES INT")["destination"] is None
+    r = on.match(number="65", route="TAMPINES INT")
+    assert r["destination"] == "Tampines Bus Interchange" and r["sources"]["destination"] == ["route"]
+    assert r["route_text"] == "TAMPINES INT"
+    # A wrong but valid number is now caught by the route-crop destination.
+    assert on.match(number="148", route="CLEMENTI INT")["status"] == "conflict"
+    # A real destination crop always wins over the route crop.
+    assert on.match(number="65", destination="TAMPINES INT", route="UPP THOMSON RD")["sources"]["destination"] == ["crop"]
+
+
+def test_route_text_that_is_another_endpoint_does_not_block_the_panel(tmp_path):
+    # Real route text can name another service's endpoint (374 photo: ANCHORVALE RD);
+    # the whole display still gives this service's destination.
+    path = tmp_path / "routes.csv"
+    path.write_text(CSV)
+    on = DisplayMatcher(Reference(path), Settings(cutoff=70, margin=5, scorer="ratio", route_as_destination=True))
+    r = on.match(number="65", route="CLEMENTI INT", panel="65 TAMPINES INT")
+    assert r["status"] == "matched" and r["destination"] == "Tampines Bus Interchange"
+    assert r["sources"]["destination"] == ["panel"]

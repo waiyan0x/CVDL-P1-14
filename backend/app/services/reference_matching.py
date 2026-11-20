@@ -161,6 +161,13 @@ class Settings:
     margin: float = 5.0           # lead over the next distinct endpoint
     scorer: str = "ratio"
     conflict: str = "withhold_both"   # or "keep_number": keep an exact service, withhold only the destination
+    # No destination crop: "off" ignores the route crop; "check" uses it only to flag a number that does not
+    # fit (never shown as the destination); "use" may also show it as the destination.
+    route_as_destination: str = "off"
+
+    def __post_init__(self):
+        if isinstance(self.route_as_destination, bool):
+            self.route_as_destination = "use" if self.route_as_destination else "off"
 
 
 def score_candidates(text: str, keys, reference: Reference, scorer: str) -> list[tuple[float, str]]:
@@ -253,19 +260,31 @@ class DisplayMatcher:
             log.append(f"crop number {crop_number} is not a reference service; whole-display number {panel_number} not substituted")
         not_in_reference = bool(crop_number) and not valid_crop
 
-        # ---- destination text: dedicated crop first, whole display as fallback
-        dest_text, dest_source = (destination, "crop") if (destination or "").strip() else (None, None)
-        if dest_text is None and panel_rest.strip():
-            dest_text, dest_source = panel_rest, "panel"
-        if dest_text and NOT_IN_SERVICE.search(strip_display_clutter(dest_text)):
-            out["destination_status"] = "not_in_service"
-            return self._finish(out, "not_in_service", "depot / not-in-service message")
+        # ---- destination evidence: the dedicated crop if there is one; otherwise the route crop
+        #      (the detector sometimes labels the destination as route) and the whole display
+        options = []
+        if (destination or "").strip():
+            options.append((destination, "crop"))
+        else:
+            if self.settings.route_as_destination in ("check", "use") and (route or "").strip():
+                options.append((route, "route"))
+                log.append(f"no destination crop; route crop used ({self.settings.route_as_destination})")
+            if panel_rest.strip():
+                options.append((panel_rest, "panel"))
+        for text, _ in options:
+            if NOT_IN_SERVICE.search(strip_display_clutter(text)):
+                out["destination_status"] = "not_in_service"
+                return self._finish(out, "not_in_service", "depot / not-in-service message")
 
         all_keys = list(ref.endpoints)
-        if candidates_numbers and dest_text:
+        if candidates_numbers and options:
             # Number and destination: number narrows the search.
-            decisions = {s: self._destination(dest_text, ref.service_endpoints[s]) for s in candidates_numbers}
-            accepted = [s for s, d in decisions.items() if d["status"] == "accepted"]
+            tried = []
+            for text, source in options:
+                decisions = {s: self._destination(text, ref.service_endpoints[s]) for s in candidates_numbers}
+                tried.append((text, source, decisions))
+            accepted = sorted({s for _, src, d in tried for s, x in d.items() if x["status"] == "accepted"
+                               and (src != "route" or self.settings.route_as_destination == "use")})
             if len(candidates_numbers) > 1:
                 if len(accepted) == 1:
                     service = accepted[0]
@@ -275,12 +294,28 @@ class DisplayMatcher:
                     return self._finish(out, "unresolved", "crop and whole-display numbers disagree; destination did not resolve it")
             else:
                 service = candidates_numbers[0]
-            restricted = decisions[service]
-            overall = self._destination(dest_text, all_keys)
+            route_shown = self.settings.route_as_destination == "use"
+            hits = sorted([(text, source, d[service]) for text, source, d in tried
+                           if d[service]["status"] == "accepted" and (source != "route" or route_shown)],
+                          key=lambda h: -h[2]["score"])
+            if len({h[2]["key"] for h in hits}) > 1:
+                out.update(service=service, service_status="accepted", destination_status="tie",
+                           sources={**out["sources"], "destination": [h[1] for h in hits]})
+                log.append("route crop and whole display point to different endpoints of this service")
+                return self._finish(out, "service_only", "destination sources disagree")
+            if hits:
+                text, source, restricted = hits[0]
+                if len(hits) > 1:
+                    source = [h[1] for h in hits]
+            else:
+                text, source, restricted = tried[0][0], tried[0][1], tried[0][2][service]
+                if source == "route" and not route_shown and restricted["status"] == "accepted":
+                    restricted = {**restricted, "status": "checked_only"}   # route fits this service: no conflict, not shown
+            overall = self._destination(text, all_keys)
             other = overall["key"] and service not in ref.endpoints[overall["key"]].services
-            strong_other = (other and overall["score"] is not None and overall["score"] >= self.settings.cutoff
+            strong_other = (not hits and restricted["status"] != "checked_only" and other and overall["score"] is not None and overall["score"] >= self.settings.cutoff
                             and overall["score"] - (restricted["score"] or 0) >= self.settings.margin)
-            out["sources"]["destination"] = [dest_source]
+            out["sources"]["destination"] = source if isinstance(source, list) else [source]
             if strong_other and self.settings.conflict == "keep_number":
                 out.update(service=service, service_status="accepted", destination_status="conflict",
                            runner_up=self._name(overall["key"]), runner_up_score=overall["score"],
@@ -314,10 +349,19 @@ class DisplayMatcher:
                 log.append("route text kept as read; reference has no road names")
             return self._finish(out, "service_only", "service has more than one endpoint; direction unknown")
 
-        if dest_text:
+        if options:
             # Destination only (no number, or a number missing from the reference).
-            overall = self._destination(dest_text, all_keys)
-            out["sources"]["destination"] = [dest_source]
+            results = [(source, self._destination(text, all_keys)) for text, source in options
+                       if source != "route" or self.settings.route_as_destination == "use"]
+            if not results:
+                return self._finish(out, "route_text_only", "route text kept; reference has no road names")
+            hits = sorted([(source, d) for source, d in results if d["status"] == "accepted"], key=lambda h: -h[1]["score"])
+            if len({d["key"] for _, d in hits}) > 1:
+                out["destination_status"] = "tie"
+                out["sources"]["destination"] = [source for source, _ in hits]
+                return self._finish(out, "unresolved", "route crop and whole display point to different destinations")
+            source, overall = hits[0] if hits else results[0]
+            out["sources"]["destination"] = [source for source, _ in hits] if hits else [source]
             self._apply_destination(out, overall)
             if not_in_reference:
                 out["service_status"] = "not_in_reference"
