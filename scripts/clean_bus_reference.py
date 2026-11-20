@@ -40,6 +40,8 @@ def clean_name(text: str) -> tuple[str, list[str]]:
 
 
 def main(argv=None):
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # Windows consoles
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--source", type=Path, default=ROOT / "data/bus_information.csv")
     parser.add_argument("--output", type=Path, default=ROOT / "data/reference/bus_information.cleaned.csv")

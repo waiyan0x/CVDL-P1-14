@@ -1,6 +1,6 @@
 # Reference matching results
 
-OCR input: Cody's fine-tuned PaddleOCR (`20261117-031848`) readings from the OCR branch (validation layout v2). Reference: `data/reference/bus_information.cleaned.csv`. Destination gold: answer key is a DRAFT: 0 of 37 entries confirmed by a person yet.
+OCR input: Cody's fine-tuned PaddleOCR (`20261117-031848`) readings from the OCR branch (validation layout v2). Reference: `data/reference/bus_information.cleaned.csv`. Destination gold: `evaluation/reference_matching/answer_key.csv`, 37 entries; reviewed by: Claude (at user request, 20 Nov 2026) (37).
 
 ## Selected setting (chosen on validation only)
 
@@ -21,21 +21,21 @@ Raw OCR exact = OCR text equals the human label. Shown = the matcher outputs a v
 | Service: label not in reference (withheld = correct) | 1/1 | 0/0 | 2/2 |
 | Service: misread as another real service | 0 | 1 | 0 |
 | Service: rescued / harmful | 0 / 0 | 0 / 0 | 0 / 0 |
-| Destination: displays with an answer-key entry | 18 | 11 | 17 |
-| Destination: raw OCR exact (vs sign text) | 61.1% (11/18) | 36.4% (4/11) | 70.6% (12/17) |
-| Destination: shown and correct | 88.9% (16/18) | 63.6% (7/11) | 76.5% (13/17) |
-| Destination: shown but wrong | 0 | 0 | 1 |
-| Destination: withheld | 2 | 4 | 3 |
-| Destination: rescued / harmful | 6 / 0 | 4 / 0 | 3 / 1 |
+| Destination: displays with an answer-key entry | 17 | 10 | 16 |
+| Destination: raw OCR exact (vs sign text) | 58.8% (10/17) | 40.0% (4/10) | 68.8% (11/16) |
+| Destination: shown and correct | 94.1% (16/17) | 70.0% (7/10) | 87.5% (14/16) |
+| Destination: shown but wrong | 0 | 0 | 0 |
+| Destination: withheld | 1 | 3 | 2 |
+| Destination: rescued / harmful | 6 / 0 | 4 / 0 | 3 / 0 |
 | Depot / not-in-service caught | 2/2 | 2/2 | 0/0 |
 
 ## Your 25 / 50 / 75 cutoffs (validation, same scorer and margin)
 
 | Cutoff | Net correct | Shown precision | Service correct / wrong | Destination correct / wrong / withheld |
 | ---: | ---: | ---: | ---: | ---: |
-| 25 | 87 | 98.9% | 66 / 1 | 22 / 0 / 7 |
-| 50 | 90 | 98.9% | 68 / 1 | 23 / 0 / 6 |
-| 75 | 88 | 98.9% | 68 / 1 | 21 / 0 / 8 |
+| 25 | 87 | 98.9% | 66 / 1 | 22 / 0 / 5 |
+| 50 | 90 | 98.9% | 68 / 1 | 23 / 0 / 4 |
+| 75 | 88 | 98.9% | 68 / 1 | 21 / 0 / 6 |
 
 ## Best setting per similarity measure (validation)
 

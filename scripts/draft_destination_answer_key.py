@@ -34,6 +34,8 @@ def gold_number(display, reference):
 
 
 def main(argv=None):
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # Windows consoles
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--displays", type=Path, default=ROOT / "evaluation/reference_matching/displays.jsonl")
     parser.add_argument("--reference", type=Path, default=ROOT / "data/reference/bus_information.cleaned.csv")

@@ -35,14 +35,18 @@ def read_displays(path):
 
 
 def load_key(path, reference):
-    key, confirmed = {}, 0
+    """answer_key.csv (endpoint, confirmed_by) or the draft (confirmed_endpoint / proposed_endpoint)."""
+    key, reviewers = {}, Counter()
     with path.open(newline="", encoding="utf-8") as stream:
         for row in csv.DictReader(stream):
-            endpoint = row["confirmed_endpoint"].strip() or row["proposed_endpoint"].strip()
-            confirmed += bool(row["confirmed_endpoint"].strip())
-            norm = normalise_place(row["destination_label"], reference.abbreviations)
-            key[(row["gold_number"], norm)] = endpoint
-    return key, confirmed
+            if "endpoint" in row:
+                endpoint, who = row["endpoint"].strip(), row.get("confirmed_by", "").strip() or "unrecorded"
+            else:
+                endpoint = row["confirmed_endpoint"].strip() or row["proposed_endpoint"].strip()
+                who = "person" if row["confirmed_endpoint"].strip() else "draft only"
+            reviewers[who] += 1
+            key[(row["gold_number"], normalise_place(row["destination_label"], reference.abbreviations))] = endpoint
+    return key, reviewers
 
 
 def ocr_text(field):
@@ -172,13 +176,16 @@ def write_csv(path, rows):
 
 
 def main(argv=None):
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # Windows consoles
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--displays", type=Path, default=OUT / "displays.jsonl")
-    parser.add_argument("--key", type=Path, default=OUT / "answer_key.draft.csv")
+    parser.add_argument("--key", type=Path, default=OUT / "answer_key.csv" if (OUT / "answer_key.csv").is_file()
+                        else OUT / "answer_key.draft.csv")
     parser.add_argument("--reference", type=Path, default=ROOT / "data/reference/bus_information.cleaned.csv")
     args = parser.parse_args(argv)
     reference = Reference(args.reference)
-    key, confirmed = load_key(args.key, reference)
+    key, reviewers = load_key(args.key, reference)
     displays = read_displays(args.displays)
     valid = [d for d in displays if d["split"] == "valid"]
     test = [d for d in displays if d["split"] == "test"]
@@ -205,8 +212,8 @@ def main(argv=None):
              and g["scorer"] == best["scorer"] and g["conflict"] == best["conflict"]]
     policy = [max((g for g in grid if g["conflict"] == c), key=lambda g: (g["net_correct"], g["shown_precision"] or 0)) for c in CONFLICT]
     by_scorer = [max((g for g in grid if g["scorer"] == s), key=lambda g: (g["net_correct"], g["shown_precision"] or 0)) for s in SCORERS]
-    key_note = (f"{confirmed} of {len(key)} answer-key entries confirmed by a person" if confirmed
-                else f"answer key is a DRAFT: 0 of {len(key)} entries confirmed by a person yet")
+    key_note = f"`{args.key.relative_to(ROOT)}`, {len(key)} entries; reviewed by: " + ", ".join(
+        f"{who} ({n})" for who, n in reviewers.items())
     md = [
         "# Reference matching results",
         "",
@@ -264,7 +271,7 @@ def main(argv=None):
             for name, m in groups.items()),
     ]
     (OUT / "REFERENCE_MATCHING_RESULTS.md").write_text("\n".join(md) + "\n", encoding="utf-8")
-    (OUT / "results/selected_setting.json").write_text(json.dumps({**best, "answer_key_confirmed_entries": confirmed,
+    (OUT / "results/selected_setting.json").write_text(json.dumps({**best, "answer_key": str(args.key.relative_to(ROOT)), "answer_key_reviewers": dict(reviewers),
                                                                    "answer_key_entries": len(key)}, indent=2) + "\n")
     print(json.dumps(best, indent=2))
     print(table(groups))

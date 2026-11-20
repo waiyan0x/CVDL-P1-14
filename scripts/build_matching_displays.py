@@ -88,6 +88,8 @@ def build(split, files):
 
 
 def main(argv=None):
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # Windows consoles
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--output", type=Path, default=ROOT / "evaluation/reference_matching/displays.jsonl")
     args = parser.parse_args(argv)

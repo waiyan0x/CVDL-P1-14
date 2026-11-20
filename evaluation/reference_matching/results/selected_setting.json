@@ -9,9 +9,12 @@
   "svc_wrong": 1,
   "dest_correct": 23,
   "dest_wrong": 0,
-  "dest_withheld": 6,
-  "dest_gold": 29,
+  "dest_withheld": 4,
+  "dest_gold": 27,
   "svc_gold": 76,
-  "answer_key_confirmed_entries": 0,
+  "answer_key": "evaluation/reference_matching/answer_key.csv",
+  "answer_key_reviewers": {
+    "Claude (at user request, 20 Nov 2026)": 37
+  },
   "answer_key_entries": 37
 }

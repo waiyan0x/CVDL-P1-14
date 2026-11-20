@@ -63,10 +63,12 @@ python scripts/match_reference.py --number 14E --destination "> TAMP1NES INT"   
 python scripts/match_reference.py --review-id A001                             # dataset crop
 ```
 
-## Answer key: how to check it
+## Answer key
 
-`evaluation/reference_matching/answer_key.draft.csv` has one row per distinct (number label, destination
-label). For each row, put the correct reference name in `confirmed_endpoint`: copy `proposed_endpoint`
-if it is right, type the right CSV name if not, or write `NONE` (not a destination, e.g. route text) or
-`NOT_IN_SERVICE`. Rows marked `check` need the closest look. Then re-run the evaluation; the results
-file reports how many entries a person confirmed.
+`evaluation/reference_matching/answer_key.csv` is the confirmed key used for scoring: one row per distinct
+(number label, destination label) with the correct reference `endpoint`, `NONE` (not a destination, e.g.
+route text, or no fitting endpoint in the reference) or `NOT_IN_SERVICE`, and who confirmed it
+(`confirmed_by`). It was confirmed by Claude at the user's request on 20 November 2026: the closest
+reference endpoint, or `NONE` where none fits. `answer_key.draft.csv` is the automatic draft it started
+from; re-running the draft script never overwrites the confirmed key. To change an entry, edit
+`endpoint` and `confirmed_by`, then re-run the evaluation.
