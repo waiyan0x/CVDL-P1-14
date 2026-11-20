@@ -1,0 +1,17 @@
+{
+  "scorer": "ratio",
+  "cutoff": 70,
+  "margin": 10,
+  "conflict": "keep_number",
+  "net_correct": 90,
+  "shown_precision": 98.9,
+  "svc_correct": 68,
+  "svc_wrong": 1,
+  "dest_correct": 23,
+  "dest_wrong": 0,
+  "dest_withheld": 6,
+  "dest_gold": 29,
+  "svc_gold": 76,
+  "answer_key_confirmed_entries": 0,
+  "answer_key_entries": 37
+}
