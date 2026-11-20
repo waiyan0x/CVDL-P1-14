@@ -139,11 +139,15 @@ def summary(m):
 # Project decision (20 Nov 2026): try the route crop as the destination when no destination crop exists.
 # Validation cannot measure it (scored destinations always have a destination crop) and showed no harm.
 ROUTE_ALLOWED = ("check", "use")
+# Project decision (20 Nov 2026): cutoff fixed at 70 for robustness on unseen signs. On validation it shows
+# one fewer destination than 50 (23 vs 24 of 27, both 0 wrong) and about half the conflict flags.
+# Made after test had been inspected at 50 and 70; reported as such in the results file.
+FIXED_CUTOFF = 70
 
 
 def choose_setting(grid):
     """Most correct outputs minus wrong outputs; then higher precision; then stricter cutoff/margin."""
-    grid = [g for g in grid if g["route_as_destination"] in ROUTE_ALLOWED]
+    grid = [g for g in grid if g["route_as_destination"] in ROUTE_ALLOWED and g["cutoff"] == FIXED_CUTOFF]
     return max(grid, key=lambda g: (g["net_correct"], g["shown_precision"] or 0, g["cutoff"], g["margin"],
                                     g["conflict"] == "withhold_both", g["route_as_destination"] == "check"))
 
@@ -234,7 +238,11 @@ def main(argv=None):
         "",
         f"**Scorer `{best['scorer']}`, cutoff {best['cutoff']}, margin {best['margin']}, conflict policy `{best['conflict']}`, "
         f"route crop fallback `{best['route_as_destination']}`.** "
-        "The route crop fallback is required by project decision (`check` or `use`, never `off`); `check` wins ties. "
+        "Project decisions: the route crop fallback is required (`check` or `use`, never `off`; `check` wins ties) and "
+        "the cutoff is fixed at 70. Cutoff 50 scored best on validation (24 vs 23 of 27 destinations, both 0 wrong) "
+        "but was judged too loose for unseen signs and raised about twice as many conflict flags. The change was "
+        "made after test had been inspected at both cutoffs (test at 50: 15/16 destinations, at 70: 14/16, 0 wrong "
+        "at both), so test is no longer a single untouched run. "
         "Other settings: most correct outputs minus wrong outputs (services + destinations) on validation; "
         "ties go to higher precision, then the stricter cutoff and margin. Test was run once with this setting.",
         "",

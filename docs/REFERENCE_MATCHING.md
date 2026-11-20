@@ -1,6 +1,11 @@
 # Reference matching
 
 Matches OCR text from one bus display to `bus_information.csv`, and keeps the raw OCR next to every result.
+
+**Settings in use (app and terminal tool):** `ratio` scoring, **cutoff 70**, **margin 10**, conflict policy
+`keep_number`, route crop fallback `check`. A destination is shown only if its similarity is at least 70 of
+100 and it leads the next distinct reference endpoint by at least 10 points; a service number only if it
+exactly equals a reference service. In the app the cutoff is the `similarity` option (default .7 = 70).
 Code: `backend/app/services/reference_matching.py` (the app's `RouteMatcher` in `matching.py` calls it).
 
 ## How text reaches the fuzzy scorer
@@ -57,7 +62,13 @@ values are withheld; raw OCR is always kept.
   `WRatio` × cutoffs 25, 50, 60, 70, 75, 80, 90 × margins 0, 5, 10 × both conflict policies × route fallback
   `off`/`check`/`use` (`off` excluded from selection by project decision).
 - Selection rule (validation only): most correct outputs minus wrong outputs; then higher precision; then
-  the stricter cutoff and margin. Test runs once with the chosen setting.
+  the stricter cutoff and margin.
+- Project decisions on top of that rule (20 Nov 2026):
+  - Route crop fallback must be `check` or `use` (`check` was chosen: `use` showed one wrong destination).
+  - Cutoff fixed at **70**. Cutoff 50 scored best on validation (24 vs 23 of 27 destinations, 0 wrong at both)
+    but accepts text that is only half similar and raised about twice as many conflict flags (24 vs 11), so
+    70 was chosen for unseen signs. This was decided after test had been inspected at 50 and 70 (test
+    destinations 15/16 and 14/16, 0 wrong at both), so the test result is not a single untouched run.
 - Destination gold needs the answer key (sign text → reference endpoint), see below.
 
 ## Running it

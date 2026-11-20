@@ -229,9 +229,35 @@ duration, count and expiry.
 
 Detection confidence, OCR confidence and reference similarity remain separate.
 OCR scores use different definitions across engines and are not calibrated
-accuracy. Matching requires an exact recognised service and adequate endpoint
-similarity; it does not infer travel direction or verify every road name.
+accuracy. Matching requires an exact recognised service (a number missing from
+the reference gives "unable to detect") and a destination that reaches the
+similarity cutoff (default 70 of 100, the `similarity` option .7) while leading
+the next distinct reference endpoint by 10 points; otherwise the value is
+withheld and the raw OCR is kept. Both text sides pass through
+`data/reference/abbreviations.csv` before scoring. If a destination fits another
+service better than the number read, the number is kept and the result is
+flagged as a conflict. Matching does not infer travel direction or verify road
+names. Rules, settings and results: `docs/REFERENCE_MATCHING.md`.
 Processing FPS is reciprocal inference time, not sustained camera/display FPS.
+
+## Reference matching
+
+Matching code: `backend/app/services/reference_matching.py` (used by
+`matching.py`). Reference: `data/reference/bus_information.cleaned.csv`, a cleaned
+copy of `data/bus_information.csv` (`data/reference/README.md`). Try it from a
+terminal without the web app:
+
+```sh
+python scripts/match_reference.py --number 14E --destination "> TAMP1NES INT"
+python scripts/match_reference.py --crop-dir runs/matching/bus_374
+python scripts/match_reference.py --photo models/local/photos/bus_374.png --save-dir runs/matching
+python scripts/evaluate_reference_matching.py
+```
+
+Settings in use: `ratio` scoring, cutoff 70, margin 10, conflict policy
+`keep_number`, route crop fallback `check`. Full usage, decision rules and
+validation/test results: `docs/REFERENCE_MATCHING.md` and
+`evaluation/reference_matching/REFERENCE_MATCHING_RESULTS.md`.
 
 ## Configuration
 
