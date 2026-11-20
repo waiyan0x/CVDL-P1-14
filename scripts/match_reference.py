@@ -8,6 +8,11 @@ Or look up Cody's fine-tuned PaddleOCR reading for a dataset crop / photo:
     python scripts/match_reference.py --review-id A001
     python scripts/match_reference.py --image 14488614-bus_8_jpg.rf.f42edf43192002dc5ef10238a21c7e38.jpg
 
+Or read crop images with PaddleOCR first (needs: pip install paddlepaddle paddleocr):
+    python scripts/match_reference.py --number-crop num.png --destination-crop dest.png
+    python scripts/match_reference.py --destination-crop dest.png --ocr-model-dir path/to/paddleocr/best
+Without --ocr-model-dir the public pretrained en_PP-OCRv5_mobile_rec is downloaded on first use.
+
 Settings default to the ones chosen on validation (results/selected_setting.json).
 """
 from __future__ import annotations
@@ -30,6 +35,42 @@ def default_settings():
         s = json.loads(path.read_text())
         return Settings(s["cutoff"], s["margin"], s["scorer"], s.get("conflict", "withhold_both"))
     return Settings()
+
+
+PUBLIC_MODEL = "en_PP-OCRv5_mobile_rec"
+
+
+def make_reader(model_dir=None):
+    """Return read(path) -> (text, confidence) using PaddleOCR text recognition."""
+    try:
+        from paddleocr import TextRecognition
+    except ImportError:
+        sys.exit("Reading crop images needs PaddleOCR: pip install paddlepaddle paddleocr")
+    model = (TextRecognition(model_name=PUBLIC_MODEL, model_dir=str(model_dir)) if model_dir
+             else TextRecognition(model_name=PUBLIC_MODEL))
+
+    def read(path):
+        if not Path(path).is_file():
+            sys.exit(f"Crop image not found: {path}")
+        results = list(model.predict(str(path)))
+        if not results:
+            return "", None
+        return results[0]["rec_text"], float(results[0]["rec_score"])
+    return read
+
+
+def read_crops(args, reader):
+    """OCR every crop given on the command line; typed text is used for fields without a crop."""
+    texts, notes = {}, []
+    for field in ("number", "destination", "route", "panel"):
+        path = getattr(args, f"{field}_crop")
+        if path:
+            text, confidence = reader(path)
+            texts[field] = text
+            notes.append(f"{field}: {path} -> {text!r}" + (f" (OCR confidence {confidence:.2f})" if confidence is not None else ""))
+        else:
+            texts[field] = getattr(args, field)
+    return texts, notes
 
 
 def ocr(field):
@@ -76,6 +117,11 @@ def main(argv=None):
     text = parser.add_argument_group("type the OCR text")
     text.add_argument("--number"), text.add_argument("--destination"), text.add_argument("--route")
     text.add_argument("--panel", help="OCR text of the whole display crop")
+    crops = parser.add_argument_group("read crop images with PaddleOCR first")
+    for field in ("number", "destination", "route", "panel"):
+        crops.add_argument(f"--{field}-crop", type=Path, help=f"image of the {field} crop")
+    crops.add_argument("--ocr-model-dir", type=Path,
+                       help="folder with inference.pdiparams/.json/.yml (e.g. Cody's best/); default: public pretrained")
     data = parser.add_argument_group("use dataset crops (Cody's fine-tuned PaddleOCR readings)")
     data.add_argument("--review-id", help="crop id such as A001, P034 or TEST_A0169")
     data.add_argument("--image", help="source photo file name: shows every display on it")
@@ -111,9 +157,16 @@ def main(argv=None):
                       "Route text": (f.get("route") or {}).get("label_text")}
             print(json.dumps(result, indent=2, ensure_ascii=False)) if args.json else show(result, labels, d["display_key"])
         return
-    if all(v is None for v in (args.number, args.destination, args.route, args.panel)):
-        parser.error("give OCR text (--number/--destination/--route/--panel) or --review-id / --image")
-    result = matcher.match(number=args.number, destination=args.destination, route=args.route, panel=args.panel)
+    texts = {f: getattr(args, f) for f in ("number", "destination", "route", "panel")}
+    if any(getattr(args, f"{f}_crop") for f in texts):
+        print(f"OCR model: {args.ocr_model_dir or PUBLIC_MODEL + ' (public pretrained)'}")
+        texts, notes = read_crops(args, make_reader(args.ocr_model_dir))
+        for line in notes:
+            print(f"OCR:    {line}")
+    if all(v is None for v in texts.values()):
+        parser.error("give OCR text (--number/--destination/--route/--panel), crop images (--number-crop ...) "
+                     "or --review-id / --image")
+    result = matcher.match(**texts)
     print(json.dumps(result, indent=2, ensure_ascii=False)) if args.json else show(result)
 
 

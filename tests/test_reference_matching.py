@@ -148,3 +148,18 @@ def test_conflict_policy_keep_number(tmp_path):
     m = DisplayMatcher(Reference(path), Settings(cutoff=70, margin=5, scorer="ratio", conflict="keep_number"))
     r = m.match(number="148", destination="CLEMENTI INT")
     assert r["status"] == "conflict" and r["service"] == "148" and r["destination"] is None
+
+
+def test_cli_reads_crops_before_matching(monkeypatch, capsys, tmp_path):
+    import importlib.util, sys
+    from pathlib import Path
+    root = Path(__file__).resolve().parents[1]
+    spec = importlib.util.spec_from_file_location("match_reference", root / "scripts/match_reference.py")
+    cli = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cli)
+    fake = {"num.png": ("983", 0.99), "dest.png": ("CHOA CHU KANG INT", 0.95)}
+    monkeypatch.setattr(cli, "make_reader", lambda model_dir=None: lambda path: fake[Path(path).name])
+    cli.main(["--number-crop", str(tmp_path / "num.png"), "--destination-crop", str(tmp_path / "dest.png")])
+    out = capsys.readouterr().out
+    assert "public pretrained" in out and "'983'" in out
+    assert "MATCHED" in out and "Choa Chu Kang Bus Interchange" in out
