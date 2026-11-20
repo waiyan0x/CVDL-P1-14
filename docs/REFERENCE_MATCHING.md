@@ -129,7 +129,9 @@ Options:
 | `--json` | print the full result as JSON |
 
 Photo mode handles several buses: each display is matched separately and listed largest first, because the
-nearest bus's display appears largest. `--closest-only` reports just that one. Photo mode runs YOLO11s at conf 0.50, NMS IoU 0.70, size 640, groups boxes into displays with the app's
+nearest bus's display appears largest. `--closest-only` reports just that one. When YOLO11s draws no display box, a lone line (no display box, no number) is attached to the display it
+sits directly above or below (horizontal overlap, gap under one line height), so a bus is not split into
+two displays. Photo mode runs YOLO11s at conf 0.50, NMS IoU 0.70, size 640, groups boxes into displays with the app's
 association code, and drops a second display box that overlaps a more confident one by IoU ≥ 0.5. Each
 crop is read as one line, so two-line signs read worse than in Cody's line-split evaluation.
 
@@ -143,6 +145,8 @@ Measured on a 2-core cloud CPU with no GPU (Brendan's YOLO11s, public pretrained
 | bus_983 (1 display) | 204 ms | 154 ms (2) | 0.3 ms | 359 ms |
 | bus_374 (1 display) | 196 ms | 208 ms (3) | 3.5 ms | 408 ms |
 | three_buses (3 displays) | 210 ms | 385 ms (7) | 1.4 ms | 596 ms |
+| bus_42 (1 display) | 196 ms | 355 ms (4) | 4.3 ms | 555 ms |
+| bus_170X (1 display) | 193 ms | 205 ms (3) | 1.3 ms | 399 ms |
 
 OCR grows with the number of crops (about 55–75 ms each here); detection is roughly constant; matching is
 under 4 ms. A GPU mainly shortens detection. Cody's OCR runs measured about 65 ms per crop for PaddleOCR on

@@ -78,6 +78,33 @@ def drop_duplicate_panels(boxes, threshold=0.5):
     return kept
 
 
+def merge_orphan_lines(groups):
+    """Attach a display that has no display box and no number (e.g. a lone route line) to the display it
+    sits directly above or below: horizontal overlap and a vertical gap under one line height."""
+    def box_of(group):
+        if group["screen"]:
+            return group["screen"]["box"]
+        fb = [f["box"] for f in group["fields"].values()]
+        return [min(b[0] for b in fb), min(b[1] for b in fb), max(b[2] for b in fb), max(b[3] for b in fb)]
+    kept = [g for g in groups if g["screen"] or "bus_number" in g["fields"]]
+    for orphan in [g for g in groups if g not in kept]:
+        ob = box_of(orphan)
+        line = ob[3] - ob[1]
+        candidates = []
+        for g in kept:
+            gb = box_of(g)
+            overlap = min(ob[2], gb[2]) - max(ob[0], gb[0])
+            gap = max(gb[1] - ob[3], ob[1] - gb[3], 0)
+            if overlap > 0 and gap <= line and not (set(orphan["fields"]) & set(g["fields"])):
+                candidates.append((gap, id(g), g))
+        best = min(candidates, key=lambda c: c[:2]) if candidates else None
+        if best:
+            best[2]["fields"].update(orphan["fields"])
+        else:
+            kept.append(orphan)
+    return kept
+
+
 def run_photo(photo, detector_path, reader, save_dir=None, conf=0.5, iou=0.7, imgsz=640):
     """YOLO11s boxes -> displays (app association) -> PaddleOCR per crop. Returns (displays, image size)."""
     try:
@@ -101,6 +128,7 @@ def run_photo(photo, detector_path, reader, save_dir=None, conf=0.5, iou=0.7, im
     boxes = drop_duplicate_panels(boxes)
     start = time.perf_counter()
     groups, _ = associate_displays(boxes, *image.size)
+    groups = merge_orphan_lines(groups)
     timing["association_ms"] = (time.perf_counter() - start) * 1000
     timing["ocr_ms"], timing["ocr_crops"] = 0.0, 0
     save = Path(save_dir) / Path(photo).stem if save_dir else None

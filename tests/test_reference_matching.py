@@ -207,3 +207,18 @@ def test_route_text_that_is_another_endpoint_does_not_block_the_panel(tmp_path):
     r = on.match(number="65", route="CLEMENTI INT", panel="65 TAMPINES INT")
     assert r["status"] == "matched" and r["destination"] == "Tampines Bus Interchange"
     assert r["sources"]["destination"] == ["panel"]
+
+
+def test_photo_mode_attaches_a_lone_line_to_the_display_below_it():
+    import importlib.util
+    from pathlib import Path
+    spec = importlib.util.spec_from_file_location("match_reference", Path(__file__).resolve().parents[1] / "scripts/match_reference.py")
+    cli = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cli)
+    main = {"screen": None, "display_id": "display-1",
+            "fields": {"bus_number": {"box": [280, 30, 360, 75]}, "destination": {"box": [95, 60, 270, 80]}}}
+    lone = {"screen": None, "display_id": "display-2", "fields": {"route": {"box": [95, 38, 265, 58]}}}
+    far = {"screen": None, "display_id": "display-3", "fields": {"route": {"box": [95, 400, 265, 420]}}}
+    kept = cli.merge_orphan_lines([main, lone, far])
+    assert set(kept[0]["fields"]) == {"bus_number", "destination", "route"}
+    assert far in kept and lone not in kept
