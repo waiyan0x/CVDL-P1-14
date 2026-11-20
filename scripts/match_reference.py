@@ -88,13 +88,21 @@ def run_photo(photo, detector_path, reader, save_dir=None, conf=0.5, iou=0.7, im
     from backend.app.services.association import associate_displays
     if not Path(detector_path).is_file():
         sys.exit(f"Detector weights not found: {detector_path}")
+    import time
+    timing = {}
     image = Image.open(photo).convert("RGB")
     model = YOLO(str(detector_path))
-    result = model.predict(str(photo), conf=conf, iou=iou, imgsz=imgsz, verbose=False)[0]
+    model.predict(image, conf=conf, iou=iou, imgsz=imgsz, verbose=False)            # warm-up, not timed
+    start = time.perf_counter()
+    result = model.predict(image, conf=conf, iou=iou, imgsz=imgsz, verbose=False)[0]
+    timing["detection_ms"] = (time.perf_counter() - start) * 1000
     boxes = [{"label": DETECTOR_LABELS[model.names[int(b.cls)]], "confidence": round(float(b.conf), 3),
               "box": [round(v) for v in b.xyxy[0].tolist()]} for b in result.boxes]
     boxes = drop_duplicate_panels(boxes)
+    start = time.perf_counter()
     groups, _ = associate_displays(boxes, *image.size)
+    timing["association_ms"] = (time.perf_counter() - start) * 1000
+    timing["ocr_ms"], timing["ocr_crops"] = 0.0, 0
     save = Path(save_dir) / Path(photo).stem if save_dir else None
     if save:
         save.mkdir(parents=True, exist_ok=True)
@@ -108,7 +116,10 @@ def run_photo(photo, detector_path, reader, save_dir=None, conf=0.5, iou=0.7, im
             crop = image.crop((max(0, x1), max(0, y1), min(image.size[0], x2), min(image.size[1], y2)))
             path = (save / f"{group['display_id']}_{field}.png") if save else Path(f"/tmp/_crop_{group['display_id']}_{field}.png")
             crop.save(path)
+            start = time.perf_counter()
             text, confidence = reader(path)
+            timing["ocr_ms"] += (time.perf_counter() - start) * 1000
+            timing["ocr_crops"] += 1
             texts[field] = text
             crops[field] = {"box": item["box"], "detector_confidence": item.get("confidence"),
                             "ocr_confidence": confidence, "crop": str(path)}
@@ -128,7 +139,7 @@ def run_photo(photo, detector_path, reader, save_dir=None, conf=0.5, iou=0.7, im
             draw.rectangle(b["box"], outline=colours[b["label"]], width=3)
             draw.text((b["box"][0], max(0, b["box"][1] - 12)), f"{b['label']} {b['confidence']:.2f}", fill=colours[b["label"]])
         image.save(save / "detections.png")
-    return displays, boxes
+    return displays, boxes, timing
 
 
 def make_reader(model_dir=None):
@@ -140,7 +151,12 @@ def make_reader(model_dir=None):
     model = (TextRecognition(model_name=PUBLIC_MODEL, model_dir=str(model_dir)) if model_dir
              else TextRecognition(model_name=PUBLIC_MODEL))
 
+    warmed = []
+
     def read(path):
+        if not warmed:                       # first call loads the model; keep it out of the timings
+            warmed.append(True)
+            list(model.predict(str(path)))
         if not Path(path).is_file():
             sys.exit(f"Crop image not found: {path}")
         results = list(model.predict(str(path)))
@@ -249,7 +265,8 @@ def main(argv=None):
         model_dir = resolve_ocr_dir(args.ocr_model_dir)
         print(f"Detector:  {args.detector}")
         print(f"OCR model: {model_dir or PUBLIC_MODEL + ' (public, downloaded)'}")
-        displays, boxes = run_photo(args.photo, args.detector, make_reader(model_dir), args.save_dir)
+        import time
+        displays, boxes, timing = run_photo(args.photo, args.detector, make_reader(model_dir), args.save_dir)
         print(f"Detected boxes: " + ", ".join(f"{b['label']} {b['confidence']:.2f}" for b in boxes) if boxes else "Detected boxes: none")
         if not displays:
             show(matcher.match(detected=False), title=f"{args.photo.name}: no display found")
@@ -257,14 +274,21 @@ def main(argv=None):
             print("Displays by size (largest = nearest bus): " + ", ".join(
                 f"{d['display_id']} ({d['area']} px², number {d['texts'].get('number') or d['texts'].get('panel') or '?'!r})"
                 for d in displays))
+        timing["matching_ms"] = 0.0
         for rank, d in enumerate(displays[:1] if args.closest_only else displays, 1):
+            start = time.perf_counter()
             result = matcher.match(**{k: d["texts"].get(k) for k in ("number", "destination", "route", "panel")})
+            timing["matching_ms"] += (time.perf_counter() - start) * 1000
             label = "nearest bus" if rank == 1 and len(displays) > 1 else f"size rank {rank}"
             print(json.dumps({**result, "crops": d["crops"], "display_box": d["box"], "size_rank": rank}, indent=2,
                              ensure_ascii=False)) if args.json \
                 else show(result, title=f"{args.photo.name} display {d['display_id']} ({label})")
+        total = timing["detection_ms"] + timing["association_ms"] + timing["ocr_ms"] + timing["matching_ms"]
+        print(f"\nTiming (this machine, models already loaded): detection {timing['detection_ms']:.0f} ms | "
+              f"grouping {timing['association_ms']:.1f} ms | OCR {timing['ocr_ms']:.0f} ms for {timing['ocr_crops']} crops | "
+              f"matching {timing['matching_ms']:.1f} ms | total {total:.0f} ms per frame")
         if args.save_dir:
-            print(f"\nCrops and detections.png saved in {Path(args.save_dir) / args.photo.stem}")
+            print(f"Crops and detections.png saved in {Path(args.save_dir) / args.photo.stem}")
         return
     if args.crop_dir:
         import re

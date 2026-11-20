@@ -133,6 +133,21 @@ nearest bus's display appears largest. `--closest-only` reports just that one. P
 association code, and drops a second display box that overlaps a more confident one by IoU ≥ 0.5. Each
 crop is read as one line, so two-line signs read worse than in Cody's line-split evaluation.
 
+Photo mode also prints the time per stage for that frame (models loaded and warmed up first, so start-up
+is excluded): detection, grouping, OCR (total over all crops), matching and the total.
+
+Measured on a 2-core cloud CPU with no GPU (Brendan's YOLO11s, public pretrained PaddleOCR), 20 Nov 2026:
+
+| Photo | Detection | OCR (crops) | Matching | Total per frame |
+| --- | ---: | ---: | ---: | ---: |
+| bus_983 (1 display) | 204 ms | 154 ms (2) | 0.3 ms | 359 ms |
+| bus_374 (1 display) | 196 ms | 208 ms (3) | 3.5 ms | 408 ms |
+| three_buses (3 displays) | 210 ms | 385 ms (7) | 1.4 ms | 596 ms |
+
+OCR grows with the number of crops (about 55–75 ms each here); detection is roughly constant; matching is
+under 4 ms. A GPU mainly shortens detection. Cody's OCR runs measured about 65 ms per crop for PaddleOCR on
+a Mac CPU (`evaluation/ocr_runs/*/predictions.jsonl` on the OCR branch).
+
 Example cases worth trying:
 
 ```sh
