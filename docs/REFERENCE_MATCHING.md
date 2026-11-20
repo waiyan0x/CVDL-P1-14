@@ -54,14 +54,83 @@ values are withheld; raw OCR is always kept.
 
 ## Running it
 
+All commands run from the repo root. On Windows use the same commands in a normal terminal.
+
+### Setup (once)
+
+```sh
+pip install rapidfuzz                                   # matching only
+pip install ultralytics paddlepaddle paddleocr          # photo and crop-image options
+```
+
+Local weights and test photos go in `models/local/` (gitignored, never committed):
+
+```
+models/local/
+├── paddleocr/              Cody's fine-tuned PaddleOCR (inference.pdiparams/.json/.yml), used first if present
+├── paddleocr-pretrained/   public en_PP-OCRv5_mobile_rec, used when paddleocr/ is empty
+├── yolo/best.pt            Brendan's fine-tuned YOLO11s (4 EDS classes)
+└── photos/                 bus photos to try
+```
+
+With neither PaddleOCR folder filled, the public model is downloaded on first use. Check the weights
+before use: Cody's fine-tuned `inference.pdiparams` SHA-256 starts `bff74048`; the public pretrained one
+starts `3ec8a97e`.
+
+### Try one display: `scripts/match_reference.py`
+
+Every run prints raw OCR, the matched reference text, the similarity and the decision for each field,
+then the overall result and the reason. Add `--json` for the full result.
+
+| Input | Command |
+| --- | --- |
+| Full chain on a photo (YOLO11s → PaddleOCR → matching) | `python scripts/match_reference.py --photo models/local/photos/bus_374.png --save-dir runs/matching` |
+| Crop images (PaddleOCR → matching) | `python scripts/match_reference.py --number-crop num.png --destination-crop dest.png` |
+| Typed OCR text | `python scripts/match_reference.py --number 14E --destination "> TAMP1NES INT"` |
+| Whole-display text only | `python scripts/match_reference.py --panel "65 TAMPINES INT"` |
+| Dataset crop (with human label) | `python scripts/match_reference.py --review-id A001` |
+| Every display on a dataset photo | `python scripts/match_reference.py --image <source photo file name>` |
+
+Options:
+
+| Option | Meaning |
+| --- | --- |
+| `--number`, `--destination`, `--route`, `--panel` | OCR text for each field (`--panel` = whole display) |
+| `--number-crop`, `--destination-crop`, `--route-crop`, `--panel-crop` | crop images to read with PaddleOCR first |
+| `--photo` | bus photo for the full chain |
+| `--save-dir` | with `--photo`: write each crop and an annotated `detections.png` to `<dir>/<photo name>/` |
+| `--detector` | YOLO11s weights (default `models/local/yolo/best.pt`) |
+| `--ocr-model-dir` | PaddleOCR weights folder (default: see `models/local/` above) |
+| `--cutoff`, `--margin`, `--scorer`, `--conflict` | matching settings (default: chosen on validation, `results/selected_setting.json`) |
+| `--reference` | route CSV (default `data/reference/bus_information.cleaned.csv`) |
+| `--json` | print the full result as JSON |
+
+Photo mode runs YOLO11s at conf 0.50, NMS IoU 0.70, size 640, groups boxes into displays with the app's
+association code, and drops a second display box that overlaps a more confident one by IoU ≥ 0.5. Each
+crop is read as one line, so two-line signs read worse than in Cody's line-split evaluation.
+
+Example cases worth trying:
+
+```sh
+python scripts/match_reference.py --number 148 --destination "CLEMENTI INT"        # conflict: 148 vs 14E
+python scripts/match_reference.py --destination "WDL INT/MRT"                      # place short form
+python scripts/match_reference.py --number 147E                                    # not in reference
+python scripts/match_reference.py --number 30 --destination "> BEDOK NTH DEPOT"    # not in service
+python scripts/match_reference.py --number 30 --destination "> BOON LAY" --cutoff 50 --margin 5
+```
+
+### Rebuild and evaluate
+
 ```sh
 python scripts/clean_bus_reference.py              # cleaned CSV + cleaning report
-python scripts/build_matching_displays.py          # group crops into displays
-python scripts/draft_destination_answer_key.py     # draft answer key (needs a human check)
+python scripts/build_matching_displays.py          # group dataset crops into displays
+python scripts/draft_destination_answer_key.py     # automatic draft key (never overwrites answer_key.csv)
 python scripts/evaluate_reference_matching.py      # grid on validation, test once, results .md
-python scripts/match_reference.py --number 14E --destination "> TAMP1NES INT"   # try one display
-python scripts/match_reference.py --review-id A001                             # dataset crop
+python -m pytest -q tests/test_reference_matching.py tests/test_matching.py
 ```
+
+Outputs: `evaluation/reference_matching/REFERENCE_MATCHING_RESULTS.md` and `results/` (grid, selected
+setting, per-display decisions).
 
 ## Answer key
 
