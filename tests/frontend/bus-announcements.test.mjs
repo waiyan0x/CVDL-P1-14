@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import test from 'node:test';
-import {AnnouncementGate, busAnnouncement, cameraObservation, estimateMetres} from '../../frontend/assets/js/core/bus-announcements.js';
+import {AnnouncementGate, busAnnouncement, cameraObservation, estimateMetres, spokenPlace} from '../../frontend/assets/js/core/bus-announcements.js';
 
 const captured = Date.parse('2026-11-21T00:00:00Z');
 function result({panel = [120, 110, 300, 146], source = 'camera'} = {}) {
@@ -24,6 +25,38 @@ test('speaks service codes distinctly, with only matched destinations', () => {
   assert.equal(busAnnouncement(frame, .95), null);
   frame.results[0].fields.bus_number.raw = 'unknown';
   assert.equal(busAnnouncement(frame, .25), null);
+});
+
+test('reads reference destinations as a commuter would say them', () => {
+  const cases = {
+    'Pasir Ris Drive 12 (Blk 747A)': 'Pasir Ris Drive 12, Block 7 4 7 A',
+    'Yishun Ave 5 (Opp Yishun Stn Exit B)': 'Yishun Avenue 5, Opposite Yishun Station Exit B',
+    'Upper Changi MRT station / SUTD': 'Upper Changi M R T station and S U T D',
+    'Choa Chu Kang MRT/LRT station': 'Choa Chu Kang M R T and L R T station',
+    'Kovan Hub (Hougang Street 21) (loop)': 'Kovan Hub, Hougang Street 21, loop service',
+    'Siglap Road (Bef Seaside Residences) via Tomlinson Road': 'Siglap Road, Before Seaside Residences, via Tomlinson Road',
+    'Yishun Avenue 6 (Bet Blk 318A/318B)': 'Yishun Avenue 6, Between Block 3 1 8 A and 3 1 8 B',
+    'Tampines Avenue 10 (IKEA Tampines)': 'Tampines Avenue 10, IKEA Tampines',
+    'St. Wilfred Road (loop)': 'Saint Wilfred Road, loop service',
+    'Woodlands St 83': 'Woodlands Street 83',
+    'Senoko Road/Loop': 'Senoko Road, loop service',
+    'Kranji Reservoir Park B (loop)': 'Kranji Reservoir Park B, loop service',
+    'Ghim Moh Terminal': 'Ghim Moh Terminal',
+  };
+  for (const [place, spoken] of Object.entries(cases)) assert.equal(spokenPlace(place), spoken, place);
+  const frame = result();
+  frame.results[0].match.endpoint = 'Pasir Ris Drive 12 (Blk 747A)';
+  assert.equal(busAnnouncement(frame, .25), 'Bus service 9 2 B. Reference destination: Pasir Ris Drive 12, Block 7 4 7 A.');
+});
+
+test('leaves no symbols, unspelled acronyms or known abbreviations in any reference place', () => {
+  const csv = readFileSync(new URL('../../data/bus_information.csv', import.meta.url), 'utf8');
+  const places = new Set(csv.trim().split(/\r?\n/).slice(1).flatMap(row => row.split(',').slice(1)));
+  for (const place of places) {
+    const spoken = spokenPlace(place);
+    assert.doesNotMatch(spoken, /[/()]|\b(?!IKEA\b|ALPS\b)[A-Z]{2,}\b/, place);
+    assert.doesNotMatch(spoken, /\b(?:Aft|Ave|Bef|Bet|Bldg|Blk|Opp|Pk|Rd|St|Stn|Ctrl|Nth|Int|Ter)\b/, place);
+  }
 });
 
 test('uses projected sign width and withholds estimates across camera changes', () => {

@@ -1,5 +1,38 @@
 const SERVICE = /^[0-9]{1,3}[A-Z]{0,2}$/;
 
+// Abbreviations found in the route reference table (data/bus_information.csv).
+// Single letters are left alone: "Exit B" and "Park B" are names, not abbreviations.
+const ABBREVIATIONS = {
+  Aft: 'After', Ave: 'Avenue', Bef: 'Before', Bet: 'Between', Bldg: 'Building', Blk: 'Block',
+  Checkpt: 'Checkpoint', Coll: 'College', Corp: 'Corporation', Ctrl: 'Central', Dr: 'Drive',
+  Hosp: 'Hospital', Int: 'Interchange', Intl: 'International', Lor: 'Lorong', Nth: 'North',
+  Opp: 'Opposite', Pk: 'Park', Pl: 'Place', Pri: 'Primary', Rd: 'Road', Sch: 'School',
+  Sq: 'Square', St: 'Street', Stn: 'Station', Ter: 'Terminal',
+};
+// Capitalised names that are said as words; other capitals (MRT, SUTD) are spelled out.
+const SPOKEN_AS_WORDS = new Set(['ALPS', 'IKEA']);
+
+const spell = code => [...code].join(' ');
+
+// Rewrite a reference place name so speech synthesis reads it as a commuter would say it.
+export function spokenPlace(value) {
+  return String(value ?? '')
+    .replace(/\bSt\.(?=\s+[A-Z])/g, 'Saint')
+    // Block numbers are read digit by digit: "Blk 318A/318B" -> "Block 3 1 8 A and 3 1 8 B".
+    .replace(/\b(?:Blk|Block)\s+(\d+[A-Z]?(?:\s*\/\s*\d+[A-Z]?)*)\b/g,
+      (_, codes) => `Block ${codes.split('/').map(code => spell(code.trim())).join(' and ')}`)
+    .replace(/\b([A-Z][a-z]+)\b\.?/g, (word, stem) => ABBREVIATIONS[stem] ?? word)
+    .replace(/\b[A-Z]{2,5}\b/g, word => SPOKEN_AS_WORDS.has(word) ? word : spell(word))
+    .replace(/\s*\/\s*loop\s*$/i, ' (loop)')
+    .replace(/\(\s*loop\s*\)/gi, '(loop service)')
+    .replace(/\s*\(([^)]*)\)\s*/g, ', $1, ')
+    .replace(/\s*\/\s*/g, ' and ')
+    .replace(/\s*,(\s*,)+/g, ',')
+    .replace(/[\s,]+$/, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 // Recognise only service-shaped OCR that meets the threshold used for this frame.
 function serviceId(value) {
   const code = String(value ?? '').toUpperCase().replace(/\s+/g, '');
@@ -17,7 +50,7 @@ export function busAnnouncement(data, threshold, distance = null) {
     if (!service) continue;
     const number = [...service].join(' ');
     const estimate = distance !== null && data.results.length === 1 ? `, about ${distance} metres away` : '';
-    const endpoint = result.match?.status === 'matched' ? result.match.endpoint?.trim() : '';
+    const endpoint = result.match?.status === 'matched' ? spokenPlace(result.match.endpoint) : '';
     phrases.add(`${matchedService ? 'Bus service' : 'Possible bus service'} ${number}${estimate}.`
       + (endpoint ? ` Reference destination: ${endpoint}.` : ''));
   }
