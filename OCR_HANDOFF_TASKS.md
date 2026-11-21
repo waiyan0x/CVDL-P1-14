@@ -5,6 +5,65 @@ project decisions, not observed results or coursework rubric requirements.
 This checklist supersedes earlier conflicting OCR scoring/handoff proposals.
 No task below is marked complete merely because this checklist exists.
 
+## Current 5k split — 20 November 2026
+
+User requests train/validation/test from the same 5,000-pair pool. Prepared
+exact 80/10/10: 4,000 training, 500 validation, 500 test, grouping repeated text,
+original crop/photo and identical PNGs to avoid cross-split reuse. See
+`evaluation/ocr_dataset/5k-split-20261120/README.md` for counts, origins and limits.
+Use `colab/ocr_finetune/ocr_finetune_5k_split.ipynb`; only the separate
+train-valid ZIP and metadata-only review receipt go into training. Test stays
+in a separate archive. Batch 32, max 20 epochs, patience 3, max 2,500 steps/model.
+New training starts from original public weights. Old fine-tuned models may
+have seen the new held-out examples; do not copy their scores into this benchmark.
+Local split/hash/loader checks passed. Colab run `ocr5k-split-b32-e20-20261120-084105`
+(validation only, 500 lines, scores also used for checkpoint selection):
+
+| Model | Batch | Selected epoch | Val crop CER | Val exact |
+| --- | ---: | ---: | ---: | ---: |
+| PaddleOCR | 32 | 9 (early stop at 12) | 0.0097 | 0.972 |
+| EasyOCR | 32 | 20 (maximum reached) | 0.0263 | 0.918 |
+| TrOCR (run `…-123420`) | 16 (batch 32 out of memory on T4) | 5 (early stop at 8) | 0.410 | 0.258 |
+
+TrOCR pretrained epoch-0 baseline: CER 0.0761, exact 0.632, better than every
+fine-tuned TrOCR epoch. The fine-tuned TrOCR is not usable: with only 302
+distinct training texts, its decoder memorised them and substitutes them for
+unseen validation text (e.g. `195` → `145`). Details and caveats are in the split README. Test-set inference, scoring and final selection are
+pending. Current round 1 matching handoff remains unchanged.
+
+## Previous all-training 5k bundle — superseded for the new split
+
+User requested a 5,000-example total. Prepared `.runtime/ocr_finetune_bundle-20261120-5k.zip`
+and `colab/ocr_finetune/ocr_finetune_5k.ipynb`: exactly 366 real + 4,634 added
+exported training image/text pairs. Validation remains unchanged; this is 5,000
+model inputs, not 5,000 original field boxes. All 100 reviewed source examples
+are retained. Trainer loader verifies 5,000 train and 130 validation rows.
+T4, batch 32, max 20 epochs, patience-3 validation-CER early stopping; max 3,140
+steps/model. No new 5k training or accuracy exists. See
+`evaluation/ocr_training/5k-20261120/README.md` for frozen IDs/counts/hashes.
+The existing 10k bundle and notebook are preserved as historical alternatives.
+Current verified inference matching delivery remains round 1 PaddleOCR,
+`20261117-031848`; no push has been performed.
+
+## Proposed synthetic v2 experiment — 19 November 2026
+
+New 10,000-crop ZIP is a training-only candidate, not the already evaluated
+2,000-crop synthetic run. Local audit, benchmark reproduction, candidate inputs
+and unrun Colab notebook: `evaluation/ocr_training/synthetic-v2-audit-20261119/README.md`.
+
+- [x] Steps 2–4 preparation: verify crop hashes, held-out exclusions, current
+  real text references and existing saved benchmark; preserve fixed real splits.
+- [x] Step 2 human work: user confirmed all 100 sampled image/text pairs in chat
+  on 19 November 2026; bulk attestation preserved in human_review_provenance.json.
+  This does not establish review of every crop. Original v2 generator source is absent.
+- [x] Step 5 local preparation: separate full-data candidate (366 real + 10,196
+  synthetic lines), explicit validation v3 export, hash-pinned notebook/code ZIP.
+- [ ] Step 5 Colab: CPU smoke checks, GPU training, selected checkpoint and reload.
+- [ ] Steps 6–7: evaluate the returned v2 weights in separate run folders and
+  apply the existing replacement rule. No new v2 accuracy is available yet.
+- [ ] Step 8: publish separate v2 results after actual scoring. Selected model
+  remains real-only PaddleOCR; matching handoff is unchanged.
+
 ## Round 2: synthetic training data (evaluated 18 November 2026)
 
 Observed evaluation: run `20261118-084149` configs/logs and all three best/ ZIPs

@@ -28,6 +28,16 @@ to the matching owner. The detailed earlier documents are in
 
 ## Labels
 
+Current crop-to-text reference export:
+[`evaluation/ocr_dataset/reviewed-20261119/`](../evaluation/ocr_dataset/reviewed-20261119/README.md).
+It includes manual corrections and preserves unreadable/excluded rows with
+their status. Use its `evaluation_labels.csv` (130 validation + 45 test rows)
+for both pretrained and fine-tuned evaluation. The older top-level dataset CSV
+contains superseded test proposals; it remains a historical training artifact.
+Text-only handoff: `.runtime/ocr-text-labels-reviewed-20261119.zip`.
+Matching handoff: `.runtime/ocr-matching-final-20261119.zip` (verified locally;
+includes separate final labels, raw OCR, images, route reference and weights).
+
 | Split | Source | Status |
 | --- | --- | --- |
 | Train | 387 AI (Codex) labels, 3-copy consensus, `.runtime/ocr-text-dataset-20261116/labels.csv` | Used for fine-tuning; scores **diagnostic only** (spot-check: text consistent on 41/50, 27/50 not fully legible to a human) |
