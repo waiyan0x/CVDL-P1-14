@@ -6,7 +6,7 @@ Run the application, then run:
 .venv/bin/python scripts/evaluate.py --manifest /absolute/path/to/reviewed.json
 ```
 
-The CLI compares YOLO + EasyOCR, Tesseract and TrOCR through `/api/comparisons`.
+The CLI compares YOLO + EasyOCR, fine-tuned PaddleOCR and TrOCR through `/api/comparisons`.
 Each image is detected once and identical crops are shared. Default one warmup
 comparison is excluded from timing. Use a dedicated idle server for measurements.
 

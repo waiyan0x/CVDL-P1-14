@@ -21,7 +21,7 @@ responsibility rather than arbitrary line counts.
 ## API contract (snake_case JSON)
 
 - `GET /api/health`: `{ready,error,backends,default_backend,limits}`. `backends`
-  is a list of available IDs: `easyocr`, `tesseract`, `trocr`. Limits include
+  is a list of available IDs: `easyocr`, `paddleocr`, `trocr`. Limits include
   image/video upload bytes, maximum video duration and default/minimum sampling
   interval. Missing engines do not disable otherwise usable engines.
 - `GET /api/samples`: `[{id,name,url,source}]`; image URL returns original image.
@@ -103,7 +103,7 @@ confidence; field IDs/numbers link boxes to their single result panel.
 
 ## Evaluation
 
-Compare YOLO + EasyOCR, YOLO + Tesseract and YOLO + supplied fine-tuned TrOCR.
+Compare YOLO + EasyOCR, YOLO + fine-tuned PaddleOCR and YOLO + supplied fine-tuned TrOCR.
 Same-frame comparison measures behaviour/timing, not accuracy without ground
 truth. Verified reports require reviewed transcriptions, split/hash provenance,
 hardware/settings, exact accuracy/CER and latency protocol. Report known split

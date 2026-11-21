@@ -5,14 +5,16 @@ import time
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import get_args
 
 from PIL import Image, ImageOps
 
+from ..schemas.analysis import Backend
 from .manifest import select_images
 from .metrics import aggregate_engine, percentile, score_image, screen_detection_counts
 from .provenance import dataset_audit
 
-ENGINE_IDS = ("easyocr", "tesseract", "trocr")
+ENGINE_IDS = get_args(Backend)
 
 
 def _scaled_truth(image: dict, width: int, height: int) -> list:

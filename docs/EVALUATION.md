@@ -9,7 +9,7 @@ statuses where review or model runs are incomplete. This is a separate crop
 workflow; it does not change the older whole-image evaluator below.
 
 The application compares one YOLO11n detector with three OCR engines: EasyOCR,
-Tesseract and the supplied fine-tuned TrOCR. A same-image comparison runs the
+the selected fine-tuned PaddleOCR and the supplied fine-tuned TrOCR. A same-image comparison runs the
 detector once and shares the resulting boxes/crops. It reports actual text,
 reference matches, engine-specific confidence and processing time. This is a
 functional comparison, not accuracy measurement without reviewed transcriptions.

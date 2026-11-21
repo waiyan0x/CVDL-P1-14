@@ -2,9 +2,6 @@
 import importlib.metadata
 import os
 import platform
-import shutil
-import subprocess
-from functools import lru_cache
 from pathlib import Path
 
 from .provenance import file_hash
@@ -24,17 +21,6 @@ def _display_path(path: Path, root: Path) -> str:
         return str(path)
 
 
-@lru_cache(maxsize=4)
-def _tesseract_version(executable: str | None) -> str | None:
-    if not executable:
-        return None
-    try:
-        return subprocess.run([executable, "--version"], capture_output=True, text=True,
-                              timeout=5, check=True).stdout.splitlines()[0]
-    except (OSError, subprocess.SubprocessError, IndexError):
-        return None
-
-
 def _artifacts(path: Path, root: Path) -> dict:
     files = [path] if path.is_file() else sorted(p for p in path.glob("*") if p.is_file())
     return {_display_path(file, root): file_hash(file) for file in files}
@@ -51,11 +37,20 @@ def model_catalog(settings, pipeline=None) -> dict:
          "version": _version("easyocr"), "description": "English OCR baseline on detected text-field crops; CPU inference.",
          "confidence_definition": "Character-count-weighted mean of EasyOCR text confidence. " + common,
          "limitations": ["Small LED characters, glare and blur can reduce recognition quality."]},
-        {"id": "tesseract", "name": "YOLO + Tesseract", "path": shutil.which("tesseract"),
-         "version": _tesseract_version(shutil.which("tesseract")),
-         "description": "Installed English Tesseract baseline; single-line service and block destination recognition.",
-         "confidence_definition": "Character-count-weighted mean of nonnegative Tesseract word confidence, scaled to 0–1. " + common,
-         "limitations": ["LED dot patterns and mixed line layouts may produce empty or incorrect text."]},
+        {"id": "paddleocr", "name": "YOLO + fine-tuned PaddleOCR", "path": _display_path(settings.paddle_model_dir, root),
+         "version": "en_PP-OCRv5_mobile_rec, fine-tuned (Colab run 20261117-031848)",
+         "description": "Selected OCR model. Runs on CPU in a separate Paddle Python process; crops are split into lines "
+                        "top to bottom with the same automatic segmentation as the saved benchmark for new crops. "
+                        "When a display has no usable number or destination crop, the pretrained PaddleOCR "
+                        f"({_display_path(settings.paddle_pretrained_dir, root)}) reads the whole display instead, and the "
+                        "first service-shaped token is taken as the number.",
+         "confidence_definition": "Character-count-weighted mean of Paddle line scores. Some wrong readings score above 0.99. "
+                                  "Whole-display fallback fields carry the whole display's score. " + common,
+         "limitations": ["Saved test accuracy used frozen line layouts; automatic segmentation in the app can differ.",
+                         "If line segmentation is unresolved, the crop returns no text rather than a whole-crop reading.",
+                         "Whole-display fallback is a last resort: on 41 labelled displays it matched 11 (pretrained) "
+                         "against 5 (fine-tuned), far below separate field crops.",
+                         "First use includes worker start-up and model loading; the fallback worker starts on first use."]},
         {"id": "trocr", "name": "YOLO + fine-tuned TrOCR", "path": _display_path(settings.trocr_dir, root),
          "source_path": "models/trocr-finetuned", "version": _version("transformers"),
          "description": "Supplied VisionEncoderDecoder checkpoint, loaded lazily from hydrated local Git LFS weights; no runtime downloads.",
@@ -68,8 +63,7 @@ def model_catalog(settings, pipeline=None) -> dict:
         engine["unavailable_reason"] = errors.get(engine["id"]) if not engine["available"] else None
         if not engine["available"] and not engine["unavailable_reason"]:
             engine["unavailable_reason"] = "Engine is not loaded or its required local weights/executable are unavailable."
-        engine["artifact_files"] = _artifacts(Path(engine["path"]), root) if engine["id"] == "tesseract" and engine["path"] else (
-            _artifacts(root / engine["path"], root) if engine["path"] else {})
+        engine["artifact_files"] = _artifacts(root / engine["path"], root) if engine["path"] else {}
     return {
         "detector": {"id": "supplied-yolo11n", "name": "Supplied fine-tuned YOLO11n", "path": _display_path(detector, root),
                      "available": detector.is_file(), "version": _version("ultralytics"),

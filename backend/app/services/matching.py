@@ -5,6 +5,8 @@ from pathlib import Path
 
 from rapidfuzz import fuzz
 
+SERVICE_ID = re.compile(r"[0-9]{1,3}[A-Z]{0,2}")
+
 
 def normalise(text: str) -> str:
     text = re.sub(r"[^A-Z0-9 ]", " ", text.upper())
@@ -18,6 +20,22 @@ class RouteMatcher:
     def __init__(self, csv_path: Path):
         with csv_path.open(newline="", encoding="utf-8-sig") as stream:
             self.rows = list(csv.DictReader(stream))
+        self.services = {r["Route number"].upper() for r in self.rows}
+
+    def split_display(self, text: str) -> tuple[str, str]:
+        """Split whole-display OCR into (service, remaining text).
+
+        The service is the first token shaped like a service ID, preferring one in the
+        reference; the remaining text keeps its lines so road names stay separable.
+        Nothing is corrected: an unknown token is returned as read.
+        """
+        tokens = re.findall(r"[A-Za-z0-9]+", text)
+        candidates = [t for t in tokens if SERVICE_ID.fullmatch(t.upper())]
+        service = next((t for t in candidates if t.upper() in self.services), candidates[0] if candidates else "")
+        if not service:
+            return "", text.strip()
+        rest = re.sub(rf"(?<![A-Za-z0-9]){re.escape(service)}(?![A-Za-z0-9])", " ", text, count=1)
+        return service.upper(), "\n".join(" ".join(line.split()) for line in rest.splitlines() if line.strip())
 
     def match(self, service: str, destination: str, threshold: float = .7) -> dict:
         service = re.sub(r"\s+", "", service.upper())

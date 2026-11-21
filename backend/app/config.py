@@ -4,6 +4,8 @@ from pathlib import Path
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
+from .schemas.analysis import Backend
+
 ROOT = Path(__file__).resolve().parents[2]
 
 
@@ -14,6 +16,9 @@ class Settings(BaseModel):
     detector_weights: Path | None = None
     trocr_cache: Path | None = None
     easyocr_cache: Path | None = None
+    paddle_python: Path | None = None
+    paddle_model: Path | None = None
+    paddle_pretrained_model: Path | None = None
     detector_image_size: int = Field(640, ge=320, le=1920)
     torch_threads: int = Field(4, ge=1, le=32)
     max_image_bytes: int = Field(16 * 1024 * 1024, ge=1024)
@@ -25,7 +30,7 @@ class Settings(BaseModel):
     max_video_uploads: int = Field(5, ge=1, le=100)
     default_interval_ms: int = Field(500, ge=100)
     min_interval_ms: int = Field(100, ge=50)
-    default_backend: str = 'easyocr'
+    default_backend: Backend = 'easyocr'
 
     @field_validator('root')
     @classmethod
@@ -41,8 +46,6 @@ class Settings(BaseModel):
     def validate_defaults(self):
         if self.default_interval_ms < self.min_interval_ms:
             raise ValueError('Default sampling interval must be at least the minimum interval.')
-        if self.default_backend not in ('easyocr', 'tesseract', 'trocr'):
-            raise ValueError('Default backend must be easyocr, tesseract or trocr.')
         return self
 
     @property
@@ -56,6 +59,21 @@ class Settings(BaseModel):
     @property
     def easyocr_dir(self):
         return self._path(self.easyocr_cache, '.cache/easyocr')
+
+    @property
+    def paddle_python_path(self):
+        # PaddlePaddle needs its own Python (3.12); the app's interpreter is newer than Paddle supports.
+        return self._path(self.paddle_python, '.cache/paddle-baseline-env/bin/python')
+
+    @property
+    def paddle_model_dir(self):
+        # Selected model: round 1 fine-tuned en_PP-OCRv5_mobile_rec, Colab run 20261117-031848.
+        return self._path(self.paddle_model, 'models/paddleocr-finetuned')
+
+    @property
+    def paddle_pretrained_dir(self):
+        # Public en_PP-OCRv5_mobile_rec; reads whole-display crops when field crops are unusable.
+        return self._path(self.paddle_pretrained_model, 'models/paddleocr-pretrained')
 
     @property
     def upload_dir(self):

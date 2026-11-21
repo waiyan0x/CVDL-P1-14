@@ -1,0 +1,46 @@
+[
+  {
+    "model": "finetuned",
+    "split": "test",
+    "panels": 53,
+    "no_text": 0,
+    "number_labelled": 24,
+    "number_correct": 16,
+    "matchable_displays": 13,
+    "matched_correct": 2,
+    "matched_wrong": 0
+  },
+  {
+    "model": "finetuned",
+    "split": "valid",
+    "panels": 110,
+    "no_text": 2,
+    "number_labelled": 76,
+    "number_correct": 40,
+    "matchable_displays": 28,
+    "matched_correct": 3,
+    "matched_wrong": 0
+  },
+  {
+    "model": "pretrained",
+    "split": "test",
+    "panels": 53,
+    "no_text": 8,
+    "number_labelled": 24,
+    "number_correct": 16,
+    "matchable_displays": 13,
+    "matched_correct": 4,
+    "matched_wrong": 0
+  },
+  {
+    "model": "pretrained",
+    "split": "valid",
+    "panels": 110,
+    "no_text": 1,
+    "number_labelled": 76,
+    "number_correct": 39,
+    "matchable_displays": 28,
+    "matched_correct": 7,
+    "matched_wrong": 0
+  }
+]

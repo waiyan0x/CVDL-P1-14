@@ -37,3 +37,16 @@ def test_csv_route_identifiers_preserve_letters(tmp_path):
 def test_multiline_road_text_does_not_hide_endpoint(tmp_path):
     r = matcher(tmp_path).match('65', 'PUNGGOL RD\nTAMPINES INT')
     assert r['status'] == 'matched' and r['endpoint'] == 'Tampines Int'
+
+
+def test_split_display_prefers_reference_service_and_keeps_lines(tmp_path):
+    service, rest = matcher(tmp_path).split_display('PUNGGOL RD 65\n> Tamp1nes Int')
+    assert service == '65' and rest == 'PUNGGOL RD\n> Tamp1nes Int'
+
+
+def test_split_display_returns_unknown_service_as_read(tmp_path):
+    assert matcher(tmp_path).split_display('980 SEMBAWANG') == ('980', 'SEMBAWANG')
+
+
+def test_split_display_without_service_keeps_all_text(tmp_path):
+    assert matcher(tmp_path).split_display('OFF SERVICE') == ('', 'OFF SERVICE')

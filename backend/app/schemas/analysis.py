@@ -5,7 +5,8 @@ from uuid import uuid4
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
-Backend = Literal['easyocr', 'tesseract', 'trocr']
+# Single source of OCR engine IDs, in display order.
+Backend = Literal['easyocr', 'paddleocr', 'trocr']
 AnalysisStatus = Literal['no_eds', 'unreadable', 'partial', 'unknown_match', 'matched']
 
 
@@ -55,6 +56,9 @@ class FieldResult(Detection):
     raw: str
     ocr_confidence: float | None = Field(None, ge=0, le=1)
     ocr_confidence_method: str
+    # whole_display_fallback: no usable field crop, so this text was split from the
+    # pretrained PaddleOCR reading of the whole display; its box and crop are the display's.
+    ocr_source: Literal['field_crop', 'whole_display_fallback'] = 'field_crop'
     crop: str
 
 

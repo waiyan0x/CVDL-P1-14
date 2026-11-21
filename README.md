@@ -21,8 +21,29 @@ For a fresh Python environment:
 bash scripts/setup.sh
 ```
 
-Tesseract is optional and must be installed separately with English language
-data. The supplied TrOCR weight in Git is an LFS pointer; retrieve the real
+The selected OCR model, fine-tuned PaddleOCR, is in `models/paddleocr-finetuned/`
+(hash-checked against its `provenance.json` at start-up). PaddlePaddle does not
+support the app's Python version, so it runs in a separate Python 3.12
+environment that the app starts as a worker process. It defaults to
+`.cache/paddle-baseline-env/bin/python`; set `EDS_PADDLE_PYTHON` (and optionally
+`EDS_PADDLE_MODEL`) to use another one. Create it with:
+
+```sh
+python3.12 -m venv .cache/paddle-baseline-env
+.cache/paddle-baseline-env/bin/pip install paddlepaddle==3.2.2 paddleocr==3.3.2
+```
+
+With the `paddleocr` engine, if a display has no usable number or destination
+crop (none detected, or no text read), the public pretrained PaddleOCR in
+`models/paddleocr-pretrained/` reads the whole display instead. The first
+service-shaped token becomes the number and the rest the destination. These
+fields are marked `ocr_source: whole_display_fallback` in the response. On whole
+displays the pretrained model matched 11 of 41 displays and the fine-tuned model 5,
+both far below field crops; see
+`evaluation/ocr_scoring/whole-display-fallback-20261121/`. The fallback worker
+starts on first use. Worker messages go to `.runtime/logs/paddle_worker.log`. If the environment or
+weights are missing, PaddleOCR is reported as unavailable and the other engines
+still work. The supplied TrOCR weight in Git is an LFS pointer; retrieve the real
 checkpoint using authenticated GitHub CLI access:
 
 ```sh

@@ -9,7 +9,9 @@ function confidence(label, value) { return el('div', {}, el('dt', {}, label), el
 function fieldCard(field, label, result, number, idPrefix = '') {
   const card = el('article', {class: 'panel field-card', id: `result-${idPrefix}${field.id}`, tabindex: '-1'},
     el('div', {class: 'field-label'}, el('span', {class: 'field-number'}, String(number)), roles[label]));
-  if (field.crop) card.append(el('img', {class: 'crop', src: field.crop, alt: `${roles[label]} crop`}));
+  const fromDisplay = field.ocr_source === 'whole_display_fallback';
+  if (fromDisplay) card.append(el('p', {class: 'small muted'}, 'No usable field crop: read from the whole display with pretrained PaddleOCR (less accurate).'));
+  if (field.crop) card.append(el('img', {class: 'crop', src: field.crop, alt: fromDisplay ? 'Whole display crop' : `${roles[label]} crop`}));
   const text = el('div', {class: 'field-text'}, el('div', {class: 'raw-text'}, field.raw?.trim() ? `OCR reads ${field.raw}` : 'OCR could not read this region'));
   const match = result.match || {};
   const matched = label === 'bus_number' ? match.service : match.status === 'matched' ? match.endpoint : null;

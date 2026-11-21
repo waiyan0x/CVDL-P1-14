@@ -1,0 +1,12 @@
+{
+  "repository": "PaddlePaddle/en_PP-OCRv5_mobile_rec",
+  "fine_tuned": true,
+  "upstream_tag": "v3.3.2",
+  "initial_checkpoint_url": "https://paddle-model-ecology.bj.bcebos.com/paddlex/official_pretrained_model/en_PP-OCRv5_mobile_rec_pretrained.pdparams",
+  "initial_checkpoint_sha256": "e25c9536f39791dfbd2f005f7e0fbbc2652d35b79bae999740059d93fec8e950",
+  "files_sha256": {
+    "inference.yml": "27e91d0582f40168aa218303c76e184bc78fa7a5d105aad0cfbad8458b441067",
+    "inference.json": "35f4f35169126745e8ad1de97fdebd7211165839cb3733a59ada9e4c07e5ac8b",
+    "inference.pdiparams": "bff740481388e5cfec374d7c53893099f489e80bec0cdf8a789f9123075641cd"
+  }
+}

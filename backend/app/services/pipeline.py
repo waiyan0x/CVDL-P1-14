@@ -5,8 +5,10 @@ from datetime import datetime, timezone
 
 from ..media.images import jpeg_data, resize_frame
 from .association import associate_displays
-from .ocr.registry import ENGINE_IDS
+from .ocr.registry import DISPLAY_FALLBACK_BACKEND, ENGINE_IDS
 from .results import MESSAGES, frame_status, match_fields
+
+MATCHED_FIELDS = ('bus_number', 'destination')
 
 
 class Pipeline:
@@ -45,10 +47,15 @@ class Pipeline:
                 ocr_ms += (time.perf_counter() - started) * 1000
                 fields[label] = {**field, 'raw': raw, 'ocr_confidence': round(confidence, 4) if confidence is not None else None,
                                  'ocr_confidence_method': method, 'crop': encoded}
+            screen = group['screen']
+            missing = [label for label in MATCHED_FIELDS if not fields.get(label, {}).get('raw', '').strip()]
+            if backend == DISPLAY_FALLBACK_BACKEND and missing and screen:
+                started = time.perf_counter()
+                fields.update(self._display_fallback(prepared['crops'][screen['id']], screen, missing))
+                ocr_ms += (time.perf_counter() - started) * 1000
             started = time.perf_counter()
             status, match = match_fields(fields, self.matcher, options)
             matching_ms += (time.perf_counter() - started) * 1000
-            screen = group['screen']
             results.append({'display_id': group['display_id'], 'status': status, 'message': MESSAGES[status],
                 'screen': {**screen, 'crop': prepared['crops'][screen['id']][1]} if screen else None,
                 'fields': fields, 'match': match})
@@ -62,6 +69,19 @@ class Pipeline:
                 **{key: prepared[key] for key in ('image', 'width', 'height', 'detections')},
                 'results': results, 'timings': {key: round(value, 3) for key, value in timings.items()},
                 'processing_fps': round(1000 / max(total_ms, .001), 2)}
+
+    def _display_fallback(self, screen_crop, screen, missing):
+        """Fill missing number/destination fields from a pretrained whole-display reading."""
+        crop, encoded = screen_crop
+        reading = self.ocr.read_display(crop)
+        if reading is None:
+            return {}
+        raw, confidence, method = reading
+        values = dict(zip(MATCHED_FIELDS, self.matcher.split_display(raw)))
+        return {label: {**screen, 'id': f"{screen['id']}-{label}", 'label': label, 'raw': values[label],
+                        'ocr_confidence': round(confidence, 4) if confidence is not None else None,
+                        'ocr_confidence_method': method, 'ocr_source': 'whole_display_fallback', 'crop': encoded}
+                for label in missing if values[label]}
 
     def analyse(self, image, options, started=None):
         return self.recognise(self.prepare(image, options, started), options, options.backend)

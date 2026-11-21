@@ -6,7 +6,7 @@ export class Options {
   constructor(container, onChange = () => {}, {comparison = false} = {}) {
     this.values = {...defaults};
     try { Object.assign(this.values, JSON.parse(localStorage.getItem('eds-options') || '{}')); } catch {}
-    if (!['easyocr', 'tesseract', 'trocr'].includes(this.values.backend)) this.values.backend = defaults.backend;
+    if (!['easyocr', 'paddleocr', 'trocr'].includes(this.values.backend)) this.values.backend = defaults.backend;
     for (const key of ['detection', 'ocr_threshold', 'similarity']) {
       const value = Number(this.values[key]);
       this.values[key] = Number.isFinite(value) ? Math.max(key === 'detection' ? .05 : 0, Math.min(key === 'detection' ? .95 : 1, value)) : defaults[key];
@@ -15,7 +15,7 @@ export class Options {
     const grid = el('div', {class: 'options-grid'});
     if (!comparison) {
       this.engine = el('select', {'aria-label': 'OCR engine'});
-      [['easyocr', 'EasyOCR'], ['tesseract', 'Tesseract'], ['trocr', 'Fine-tuned TrOCR']].forEach(([id, name]) => this.engine.append(el('option', {value: id}, name)));
+      [['easyocr', 'EasyOCR'], ['paddleocr', 'Fine-tuned PaddleOCR'], ['trocr', 'Fine-tuned TrOCR']].forEach(([id, name]) => this.engine.append(el('option', {value: id}, name)));
       this.engine.value = this.values.backend;
       this.engine.addEventListener('change', () => this.change('backend', this.engine.value, onChange));
       grid.append(el('label', {class: 'control'}, 'OCR engine', this.engine));
