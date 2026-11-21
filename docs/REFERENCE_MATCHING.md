@@ -21,6 +21,14 @@ CSV name  ───────────────────────�
   `BUS` before `INT`/`TER` and the `(loop)` note are dropped. The short form is the standard because
   long generic words make different places look alike: `WOODLANDS INTERCHANGE` vs `TAMPINES INTERCHANGE`
   scores 73, `WOODLANDS INT` vs `TAMPINES INT` scores 56.
+  Added 21 Nov 2026 (short forms seen on Singapore EDS and in the reference's notes): `BUSINESS`→`BIZ`,
+  `BUILDING`→`BLDG`, `BEFORE`/`AFTER`→`BEF`/`AFT`, `INTERNATIONAL`→`INTL`, `TECHNOLOGICAL`/`TECHNOLOGY`→`TECH`,
+  `POLYTECHNIC`→`POLY`, `UNIVERSITY`→`UNI`, `PRIMARY`/`SECONDARY`/`SCHOOL`→`PRI`/`SEC`/`SCH`, `HOSPITAL`→`HOSP`,
+  `BUKIT`/`BKT`→`BT`, `TANJONG`→`TG`, `KAMPONG`→`KG`, `MOUNT`→`MT`, `PLACE`→`PL`, `CLOSE`→`CL`, `LANE`→`LN`,
+  `SQUARE`→`SQ`, `JUNCTION`→`JCT`, `ESTATE`→`EST`; places `CBP`→`CHANGI BIZ PK`, `NTU`→`NANYANG TECH UNI`.
+  Re-running the evaluation changed similarity values only: no display changed status on validation or
+  test at the cutoff in use (70), and the selected setting is unchanged. (`TERRACE` and `SAINT` are not
+  added: their short forms `TER` and `ST` already mean terminal and street.)
 - **Service numbers never go through the table**: upper case and space removal only, so `14E`, `70M`,
   `913T` and leading zeros are kept.
 - The CSV stays one row per route. The matcher returns the reference spelling (`Toa Payoh Bus Interchange`).
@@ -130,9 +138,10 @@ hybrid = round 1 for field crops, pretrained for whole-display crops (the settin
 
 Matched destinations: pretrained 4 of 11 photos, fine-tuned 3, hybrid 4. Wrong results shown as accepted:
 pretrained 0, fine-tuned 1, hybrid 0. On these photos hybrid ties pretrained; its field-crop advantage
-comes from Cody's test set, not from these photos. Note on bus_20: the display says `TAMPINES-CHANGI BIZ PK`; even typed exactly, it
-scores 58.8% against the reference endpoint `Changi Business Park Avenue 3 (loop)`, so this is a gap in
-`abbreviations.csv` (no `BUSINESS` → `BIZ`), not an OCR error.
+comes from Cody's test set, not from these photos. Note on bus_20: the display says `TAMPINES-CHANGI BIZ PK`
+(origin-destination of a loop service). Even typed exactly it scored 58.8% against the reference endpoint
+`Changi Business Park Avenue 3 (loop)`; with `BUSINESS`→`BIZ` added it scores 63.4%, still below 70,
+because the origin `TAMPINES-` is part of the text. `CHANGI BIZ PK` alone with service 20 is accepted.
 
 Latency, per frame (median): detection 125–180 ms; OCR 31 ms per crop for both models, 80–226 ms per frame
 (2–7 crops); matching under 3 ms; total about 0.2–0.4 s. Loading the second model adds about 7 MB and

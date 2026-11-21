@@ -33,18 +33,18 @@ Raw OCR exact = OCR text equals the human label. Shown = the matcher outputs a v
 
 | Cutoff | Net correct | Shown precision | Service correct / wrong | Destination correct / wrong / withheld |
 | ---: | ---: | ---: | ---: | ---: |
-| 25 | 88 | 98.9% | 66 / 1 | 23 / 0 / 4 |
-| 50 | 91 | 98.9% | 68 / 1 | 24 / 0 / 3 |
+| 25 | 89 | 98.9% | 66 / 1 | 24 / 0 / 3 |
+| 50 | 92 | 98.9% | 68 / 1 | 25 / 0 / 2 |
 | 75 | 88 | 98.9% | 68 / 1 | 21 / 0 / 6 |
 
 ## Best setting per similarity measure (validation)
 
 | Scorer | Cutoff | Margin | Net correct | Shown precision | Destination correct / wrong |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| ratio | 50 | 10 | 91 | 98.9% | 24 / 0 |
+| ratio | 50 | 10 | 92 | 98.9% | 25 / 0 |
 | token_sort_ratio | 25 | 10 | 91 | 98.9% | 24 / 0 |
 | token_set_ratio | 25 | 10 | 90 | 98.9% | 23 / 0 |
-| WRatio | 70 | 0 | 89 | 98.9% | 23 / 0 |
+| WRatio | 25 | 10 | 90 | 98.9% | 24 / 0 |
 
 ## Conflict policy (validation, best setting of each)
 
@@ -52,8 +52,8 @@ When the destination fits a different service better than the number read: `with
 
 | Policy | Scorer | Cutoff | Margin | Net correct | Shown precision | Service correct / wrong |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| withhold_both | ratio | 25 | 0 | 86 | 98.9% | 63 / 1 |
-| keep_number | ratio | 50 | 10 | 91 | 98.9% | 68 / 1 |
+| withhold_both | WRatio | 25 | 0 | 87 | 97.8% | 66 / 1 |
+| keep_number | ratio | 50 | 10 | 92 | 98.9% | 68 / 1 |
 
 ## Route crop as destination fallback (validation, best setting of each)
 
@@ -61,8 +61,8 @@ When a display has no destination crop: `off` ignores the route crop; `check` us
 
 | Fallback | Scorer | Cutoff | Margin | Net correct | Shown precision | Service correct / wrong | Destination correct / wrong |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| off | ratio | 50 | 10 | 91 | 98.9% | 68 / 1 | 24 / 0 |
-| check | ratio | 50 | 10 | 91 | 98.9% | 68 / 1 | 24 / 0 |
+| off | ratio | 50 | 10 | 92 | 98.9% | 68 / 1 | 25 / 0 |
+| check | ratio | 50 | 10 | 92 | 98.9% | 68 / 1 | 25 / 0 |
 | use | ratio | 50 | 0 | 91 | 97.9% | 68 / 1 | 25 / 1 |
 
 Full grid: `results/validation_grid.csv`. Per-display decisions with raw OCR, matched text, similarity and reasons: `results/per_display_validation.csv`, `results/per_display_test.csv`.
