@@ -57,6 +57,11 @@ input[type="range"] { accent-color: var(--ink); width: 100%; }
 .display-title { font-size: 13px; font-weight: 500; color: var(--muted); }
 .live-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; }
 .live-controls .control { margin-left: auto; width: 140px; }
+.speech-toggle { display: flex; align-items: center; gap: 8px; min-height: 44px; width: fit-content; }
+.speech-toggle input { width: 18px; height: 18px; accent-color: var(--ink); }
+.speech-status:empty { min-height: 0; }
+.distance-form { align-items: end; }
+.distance-form .control { flex: 1 1 160px; }
 @media (max-width: 420px) {
   .samples { gap: 6px; }
   .sample { padding: 3px 3px 8px; gap: 6px; border-radius: 10px; }

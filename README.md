@@ -67,6 +67,21 @@ The interface follows the supplied Detect design with native Apple system fonts
 and grayscale controls. Photographs and cropped regions retain their original
 colours. Results come from inference; design-mockup predictions are not used.
 
+## Spoken bus announcements
+
+On Detect or Live, choose **Read result aloud** to hear the latest bus service
+and any matched reference destination. On Live, enable **Automatic announcements**
+to hear new readings after two consistent frames. The app uses the browser's
+speech synthesis and prefers an installed English voice.
+
+For a distance estimate, start a Live camera session. With the camera fixed and
+one bus facing it, open **Calibrate distance** and set the measured distance to
+the sign. The app compares the current sign width with the reference width and
+rounds the result to five metres. Use the same bus, camera position and zoom.
+The estimate requires a fresh frame with a single, fully visible model-detected
+sign and the same recognised service. Stopping the camera clears calibration.
+This estimate is for demonstration. Use station guidance when boarding.
+
 ## Structure
 
 ```text

@@ -52,6 +52,13 @@
         <div id="options"></div>
       </section>
       <section class="stack tight" aria-label="Results" id="results-column">
+        <div class="stack tight" role="group" aria-label="Speech">
+          <div class="toolbar">
+            <button type="button" class="button" id="speech-read" disabled>Read result aloud</button>
+            <button type="button" class="button" id="speech-stop" disabled>Stop speech</button>
+          </div>
+          <p id="speech-status" class="notice speech-status" role="status"></p>
+        </div>
         <div id="results" class="stack tight"><div class="message">Choose an image to start.</div></div>
         <p class="caption">Results are replaced on each new image. Reset or switching input clears them.</p>
       </section>
