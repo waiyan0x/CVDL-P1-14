@@ -73,10 +73,18 @@ values are withheld; raw OCR is always kept.
   the stricter cutoff and margin.
 - Project decisions on top of that rule (20 Nov 2026):
   - Route crop fallback must be `check` or `use` (`check` was chosen: `use` showed one wrong destination).
-  - Cutoff fixed at **70**. Cutoff 50 scored best on validation (24 vs 23 of 27 destinations, 0 wrong at both)
+  - Cutoff fixed at **70**. Cutoff 50 scored best on validation (24 vs 23 of 27 destinations on 20 Nov; 25 vs 23
+    after the 21 Nov abbreviation additions; 0 wrong at both; current figures in `REFERENCE_MATCHING_RESULTS.md`)
     but accepts text that is only half similar and raised about twice as many conflict flags (24 vs 11), so
     70 was chosen for unseen signs. This was decided after test had been inspected at 50 and 70 (test
     destinations 15/16 and 14/16, 0 wrong at both), so the test result is not a single untouched run.
+  - Photo check (21 Nov 2026, 18 photos, not labelled independently, not used to choose the cutoff): every
+    best destination candidate scoring 47–64% was correct or plausible (42 Kembangan MRT station 63.4%, 20
+    Changi Business Park Ave 3 51.3%, 19 Changi Airfreight Centre 48.6%, 10 Tampines Bus Interchange 47.1%);
+    wrong candidates scored 35–36% (157, 983, the misread `61` bus). So 70 gives up some correct destinations
+    for safety, which matches validation. A clear close-up display scores 75–100% (170X, 145, 359, 151), so
+    the cutoff does not change the demo case. To compare 50 and 70 properly, label 30–50 unused photos first
+    and run both once.
 - Destination gold needs the answer key (sign text → reference endpoint), see below.
 
 ## Running it

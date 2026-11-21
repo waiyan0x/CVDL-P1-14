@@ -4,7 +4,7 @@ OCR input: Cody's fine-tuned PaddleOCR (`20261117-031848`) readings from the OCR
 
 ## Selected setting (chosen on validation only)
 
-**Scorer `ratio`, cutoff 70, margin 10, conflict policy `keep_number`, route crop fallback `check`.** Project decisions: the route crop fallback is required (`check` or `use`, never `off`; `check` wins ties) and the cutoff is fixed at 70. Cutoff 50 scored best on validation (24 vs 23 of 27 destinations, both 0 wrong) but was judged too loose for unseen signs and raised about twice as many conflict flags. The change was made after test had been inspected at both cutoffs (test at 50: 15/16 destinations, at 70: 14/16, 0 wrong at both), so test is no longer a single untouched run. Other settings: most correct outputs minus wrong outputs (services + destinations) on validation; ties go to higher precision, then the stricter cutoff and margin. Test was run once with this setting.
+**Scorer `ratio`, cutoff 70, margin 10, conflict policy `keep_number`, route crop fallback `check`.** Project decisions: the route crop fallback is required (`check` or `use`, never `off`; `check` wins ties) and the cutoff is fixed at 70. Cutoff 50 scored best on validation (25 vs 23 of 27 destinations, 0 and 0 wrong; net correct 92 vs 90) but was judged too loose for unseen signs and raised about twice as many conflict flags. The change was made after test had been inspected at both cutoffs (20 Nov 2026: test at 50: 15/16 destinations, at 70: 14/16, 0 wrong at both), so test is no longer a single untouched run. Other settings: most correct outputs minus wrong outputs (services + destinations) on validation; ties go to higher precision, then the stricter cutoff and margin. Test was run once with this setting.
 
 ## Results with the selected setting
 
