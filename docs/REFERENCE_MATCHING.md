@@ -99,16 +99,27 @@ the same for all fine-tuned runs: `35f4f351…`, `27e91d05…`):
 
 | Weights | `inference.pdiparams` | Status |
 | --- | --- | --- |
-| Round 1 fine-tuned, run `20261117-031848` | `bff74048…` | Cody's **selected** model; all OCR and matching scores in this repo use its readings |
+| Round 1 fine-tuned, run `20261117-031848` | `bff74048…` | Cody's **selected** model; all OCR and matching scores in this repo use its readings; **installed in `models/local/paddleocr/` (21 Nov 2026)** |
 | Round 2 fine-tuned + synthetic, `20261118-084149` | `6a35875b…` | not selected |
-| Uploaded 21 Nov 2026, now in `models/local/paddleocr/` | `d717aa26…` | fine-tuned, but **not in Cody's records**; most likely the 5k-split run `ocr5k-split-b32-e20-20261120-084105` (validation only, test unopened, not selected) |
+| First upload of 21 Nov 2026, replaced the same day | `d717aa26…` | fine-tuned, but not in Cody's records; most likely the 5k-split run `ocr5k-split-b32-e20-20261120-084105` (validation only, test unopened, not selected); do not use |
 | Public pretrained `en_PP-OCRv5_mobile_rec` | `3ec8a97e…` | in `models/local/paddleocr-pretrained/` |
 
-Same crops, both local models (21 Nov 2026, YOLO11s crops from 7 photos): identical readings on every clear
-crop (`170X`, `> JB SENTRAL`, `374`, `42`, `157`, `LORNIE HWY`, `983`, `82`, `851`). On small, distant
-crops the uploaded weights read worse: `51` → `61` (a different real service) and `13` → `1` (pretrained:
-`51`, `13`), and whole-display (two-line) crops pick up stray characters (`157 LORNIE HY`, `J 983`). Seven
-photos are too few to rank the models; confirm with Cody which weights are final before the demo.
+End-to-end check with the round 1 weights (21 Nov 2026, `--photo` on 7 photos, 2-core CPU): every photo
+runs; 245–489 ms per frame. Results:
+
+| Photo | Service | Destination / result |
+| --- | --- | --- |
+| bus_170X | 170X | JB Sentral Bus Terminal, 75.0% (read `> JD SENTRAL`) |
+| bus_374 | 374 | conflict: route crop `ANCHORVALE RD` fits Anchorvale Road (100%), not service 374; destination withheld |
+| bus_42 | 42 | service only; `JLN KEMBANGAN-FIDELID ST` best fits Kembangan MRT station at 63.4%, below 70 |
+| bus_157 | 157 | service only; `LORNIE HWY` is road text, 36.4% |
+| bus_983 | 983 | service only; whole-display text below cutoff |
+| bus_82 | 82 | service only (two endpoints, no destination read); two side boxes give `T` and `AVE 2` (unable to detect) |
+| three_buses | 13, 61, 851 | the distant `51` bus is read as `61`, a different real service, so it is shown as accepted |
+
+Same crops with the public pretrained model: the same service numbers except the distant bus (`51`, read
+correctly). Seven photos are too few to rank the two models; the scores in `REFERENCE_MATCHING_RESULTS.md`
+and Cody's OCR results are the comparison to use.
 
 ### Try one display: `scripts/match_reference.py`
 
