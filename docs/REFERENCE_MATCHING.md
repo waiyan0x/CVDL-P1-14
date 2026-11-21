@@ -92,9 +92,23 @@ models/local/
 └── photos/                 bus photos to try
 ```
 
-With neither PaddleOCR folder filled, the public model is downloaded on first use. Check the weights
-before use: Cody's fine-tuned `inference.pdiparams` SHA-256 starts `bff74048`; the public pretrained one
-starts `3ec8a97e`.
+With neither PaddleOCR folder filled, the public model is downloaded on first use.
+
+PaddleOCR weights seen so far (SHA-256 of `inference.pdiparams`; `inference.json` and `inference.yml` are
+the same for all fine-tuned runs: `35f4f351…`, `27e91d05…`):
+
+| Weights | `inference.pdiparams` | Status |
+| --- | --- | --- |
+| Round 1 fine-tuned, run `20261117-031848` | `bff74048…` | Cody's **selected** model; all OCR and matching scores in this repo use its readings |
+| Round 2 fine-tuned + synthetic, `20261118-084149` | `6a35875b…` | not selected |
+| Uploaded 21 Nov 2026, now in `models/local/paddleocr/` | `d717aa26…` | fine-tuned, but **not in Cody's records**; most likely the 5k-split run `ocr5k-split-b32-e20-20261120-084105` (validation only, test unopened, not selected) |
+| Public pretrained `en_PP-OCRv5_mobile_rec` | `3ec8a97e…` | in `models/local/paddleocr-pretrained/` |
+
+Same crops, both local models (21 Nov 2026, YOLO11s crops from 7 photos): identical readings on every clear
+crop (`170X`, `> JB SENTRAL`, `374`, `42`, `157`, `LORNIE HWY`, `983`, `82`, `851`). On small, distant
+crops the uploaded weights read worse: `51` → `61` (a different real service) and `13` → `1` (pretrained:
+`51`, `13`), and whole-display (two-line) crops pick up stray characters (`157 LORNIE HY`, `J 983`). Seven
+photos are too few to rank the models; confirm with Cody which weights are final before the demo.
 
 ### Try one display: `scripts/match_reference.py`
 

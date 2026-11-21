@@ -354,6 +354,9 @@ class DisplayMatcher:
             results = [(source, self._destination(text, all_keys)) for text, source in options
                        if source != "route" or self.settings.route_as_destination == "use"]
             if not results:
+                if not_in_reference:
+                    out["service_status"] = "not_in_reference"
+                    return self._finish(out, "unable_to_detect", f"service {crop_number} not in reference")
                 return self._finish(out, "route_text_only", "route text kept; reference has no road names")
             hits = sorted([(source, d) for source, d in results if d["status"] == "accepted"], key=lambda h: -h[1]["score"])
             if len({d["key"] for _, d in hits}) > 1:

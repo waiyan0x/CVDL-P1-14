@@ -222,3 +222,12 @@ def test_photo_mode_attaches_a_lone_line_to_the_display_below_it():
     kept = cli.merge_orphan_lines([main, lone, far])
     assert set(kept[0]["fields"]) == {"bus_number", "destination", "route"}
     assert far in kept and lone not in kept
+
+
+def test_number_missing_from_reference_with_route_text_is_unable_to_detect(tmp_path):
+    path = tmp_path / "routes.csv"
+    path.write_text(CSV)
+    m = DisplayMatcher(Reference(path), Settings(cutoff=70, margin=10, scorer="ratio", route_as_destination="check"))
+    r = m.match(number="1", route="ANG ND KIG TT")
+    assert r["status"] == "unable_to_detect" and r["service_status"] == "not_in_reference"
+    assert r["route_text"] == "ANG ND KIG TT"
