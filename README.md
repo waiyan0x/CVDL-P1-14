@@ -231,7 +231,7 @@ Detection confidence, OCR confidence and reference similarity remain separate.
 OCR scores use different definitions across engines and are not calibrated
 accuracy. Matching requires an exact recognised service (a number missing from
 the reference gives "unable to detect") and a destination that reaches the
-similarity cutoff (default 70 of 100, the `similarity` option .7) while leading
+similarity cutoff (default 65 of 100, the `similarity` option .65) while leading
 the next distinct reference endpoint by 10 points; otherwise the value is
 withheld and the raw OCR is kept. Both text sides pass through
 `data/reference/abbreviations.csv` before scoring. If a destination fits another
@@ -257,10 +257,10 @@ python scripts/evaluate_reference_matching.py
 Model weights for the terminal tool live in `models/local/` (gitignored): `paddleocr/` (fine-tuned
 PaddleOCR, reads number, destination and route crops), `paddleocr-pretrained/` (reads whole-display
 crops), `yolo/best.pt` (fine-tuned YOLO11s). Check which
-PaddleOCR weights are installed in `docs/REFERENCE_MATCHING.md` (hash table). Cutoff benchmark on 40
+PaddleOCR weights are installed in `docs/REFERENCE_MATCHING.md` (hash table). Cutoff and line-swap benchmark on 40
 labelled photos: `evaluation/photo_benchmark/PHOTO_BENCHMARK.md` (`scripts/benchmark_photo_threshold.py`).
 
-Settings in use: `ratio` scoring, cutoff 70, margin 10, conflict policy
+Settings in use: `ratio` scoring, cutoff 65, margin 10, line swap on, conflict policy
 `keep_number`, route crop fallback `check`. Full usage, decision rules and
 validation/test results: `docs/REFERENCE_MATCHING.md` and
 `evaluation/reference_matching/REFERENCE_MATCHING_RESULTS.md`.

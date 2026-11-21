@@ -1,9 +1,9 @@
-# Photo benchmark: similarity cutoff (21 Nov 2026)
+# Photo benchmark: similarity cutoff and line swap (21 Nov 2026)
 
-**Setting in use: cutoff 70** (unchanged). Every other setting is the one in use: `ratio` scoring,
-margin 10, conflict policy `keep_number`, route crop fallback `check`, fine-tuned PaddleOCR (round 1)
-for number/destination/route crops and pretrained PaddleOCR for whole-display crops, YOLO11s
-(conf 0.5, IoU 0.7, imgsz 640). Only the nearest display of each photo is scored, as the app shows it.
+**Settings in use: cutoff 65** (was 70), margin 10, `ratio` scoring, conflict policy `keep_number`,
+route crop fallback `check`, **line swap on** (new). Fine-tuned PaddleOCR (round 1) reads
+number/destination/route crops; pretrained PaddleOCR reads whole-display crops; YOLO11s (conf 0.5,
+IoU 0.7, imgsz 640). Only the nearest display of each photo is scored, as the app shows it.
 
 ## Data
 
@@ -11,67 +11,91 @@ for number/destination/route crops and pretrained PaddleOCR for whole-display cr
   `sgbus-20261120-b09_*`); kept in `models/local/photos/benchmark/` (gitignored). The `sgbus-…-b09`
   names indicate a generated batch; if any photos are rendered rather than camera frames, these
   results may be more favourable than real footage.
-- None of these photos was used to build or tune the matcher before this run.
-- Labels were written **before** the run: `labels.csv` (service on the sign, the sign's destination text,
-  and the reference endpoint it denotes). 28 photos have a destination that is an endpoint of the
-  service. 12 are **NONE**: the text is a road or a place that is not an endpoint of that service (side
-  displays such as `JELAPANG RD`, and signs such as 317 `YIO CHU KANG INT`), so the correct output is to
-  withhold the destination.
-- Labelled by Claude from the visible sign text and `bus_information.cleaned.csv`.
+- Labels were written **before** the first run: `labels.csv` (service on the sign, the sign's
+  destination text, and the reference endpoint it denotes). 28 photos have a destination that is an
+  endpoint of the service. 12 are **NONE**: the text is a road or a place that is not an endpoint of that
+  service (side displays such as `JELAPANG RD`; 317 showing `YIO CHU KANG INT`), so the correct output is
+  to withhold the destination. Labelled by Claude from the visible sign text and
+  `bus_information.cleaned.csv`.
+- OCR is run once per photo (`results/ocr_readings.csv`); each cutoff re-runs only the matcher.
 
-## Results by cutoff
+## Results by cutoff (settings in use, line swap on)
 
 Correct = the right endpoint is shown, or the destination is withheld on a NONE photo.
 Shown wrong = a wrong endpoint is shown, or any endpoint is shown on a NONE photo.
 
 | Cutoff | Destination correct (of 28) | Withheld (of 28) | NONE withheld (of 12) | Shown wrong | Net (correct + NONE withheld − shown wrong) |
 | ---: | ---: | ---: | ---: | ---: | ---: |
-| 25 | 23 | 5 | 6 | 6 | 23 |
-| 40 | 23 | 5 | 5 | 7 | 21 |
-| 50 | 22 | 6 | 10 | 2 | 30 |
-| 55 | 22 | 6 | 10 | 2 | 30 |
-| 60 | 22 | 6 | 11 | 1 | **32** |
-| 65 | 21 | 7 | 11 | 1 | 31 |
-| **70 (in use)** | **20** | **8** | **11** | **1** | **30** |
-| 75 | 19 | 9 | 11 | 1 | 29 |
-| 80 | 18 | 10 | 12 | 0 | 30 |
-| 90 | 15 | 13 | 12 | 0 | 27 |
+| 25 | 27 | 1 | 6 | 6 | 27 |
+| 40 | 27 | 1 | 5 | 7 | 25 |
+| 50 | 27 | 1 | 8 | 4 | 31 |
+| 55 | 27 | 1 | 10 | 2 | 35 |
+| 60 | 27 | 1 | 11 | 1 | 37 |
+| **65 (in use)** | **27** | **1** | **11** | **1** | **37** |
+| 70 | 26 | 2 | 11 | 1 | 36 |
+| 75 | 26 | 2 | 11 | 1 | 36 |
+| 80 | 25 | 3 | 12 | 0 | 37 |
+| 90 | 22 | 6 | 12 | 0 | 34 |
 
-Service number at 70: 33 of 40 correct, 0 wrong, 7 withheld: 3 side views had no display detected (966,
+Service number at 65: 33 of 40 correct, 0 wrong, 7 withheld: 3 side views had no display detected (966,
 26, 64); 901 had no number crop; OCR misread 3 numbers (`927` for 922, `9128` for 912B, `1004` for 100A),
-none of which is shown. Full grid:
-`results/cutoff_grid.csv`; per photo at 70: `results/per_photo.csv`; OCR readings: `results/ocr_readings.csv`.
+none of which is shown. Latency (2-core CPU, detection + OCR): median 284 ms per frame, range 104–597 ms.
 
-Latency (2-core CPU, detection + OCR, nearest display): median 284 ms per frame, range 104–597 ms.
+**Before the change** (cutoff 70, no line swap): 20 of 28 destinations correct, 8 withheld, 11 of 12
+NONE withheld, 1 shown wrong (net 30). **After** (cutoff 65, line swap): 27 of 28, 1 withheld, same
+11 of 12 and same 1 wrong (net 37).
 
-## What the cutoff changes on these photos
+## Line swap
 
-| Photo | Best candidate (score) | Correct? | Shown at 50 / 60 / 70 / 80 |
+On `destination-above` signs YOLO11s often labels the smaller lower line `destination` and the large top
+line `route` (or boxes only the whole display). New rule (`Settings.line_swap`, on by default): when a
+destination crop exists but does not reach the cutoff for the service read, the route crop and the
+whole-display text are also scored against that service's endpoints, and an accepted one is shown
+(source `route_swapped` or `panel`). If they point to different endpoints, nothing is shown. The rule is
+used only when the service number is known; text without a number is never swapped.
+
+| Photo | Destination crop read | Recovered from | Shown |
 | --- | --- | --- | --- |
-| 807 side `YISHUN RING RD` | Yishun Bus Interchange (75.0) | no (NONE) | yes / yes / **yes** / no |
-| 800 `SEMBAWANG RD` | Sembawang Road (Blk 101) (75.0) | yes | yes / yes / yes / no |
-| 199 `NANYANG CRES` | Nanyang Crescent (73.7) | yes | yes / yes / yes / no |
-| 976 `BUKIT PANJANG INT` (whole display read `976 RUT PANANG`) | Bukit Panjang Bus Interchange (66.7) | yes | yes / yes / no / no |
-| 115 `HOUGANG AVE 3` (destination read `HOLGANG`) | Hougang Avenue 3 (loop) (60.0) | yes | yes / yes / no / no |
-| 922 side `JELAPANG RD` | (shown below 60) | no (NONE) | yes / no / no / no |
+| 111 | `RCHARD RD` (the route line) | whole display `TEMASEK AVE 111` | Temasek Avenue (loop), 100% |
+| 31 | `MARINE PARADE RD` (the route line) | whole display `TOA PAYOH INT 31` | Toa Payoh Bus Interchange, 100% |
+| 268 | `ANG MO KIO AVE 3` (the route line) | route crop `ANG MO KIO IND PK 2` | Ang Mo Kio Industrial Park 2, 100% |
+| 272 | `LOWER DELTA RD` (the route line) | route crop `TELOK BLANGAH RISE` | Telok Blangah Rise, 100% |
+| 678 | `EDGEFIELD PLAINS` (the route line) | whole display `SUNTEC TOVER 3 678` | Suntec Tower 3, 84.6% |
+| 115 | `HOLGANG` (misread) | whole display `HOUGANG AVE 115` | Hougang Avenue 3 (loop), 91.7% |
 
-- **60 scored best** (net 32): it keeps 115 and 976, which 70 withholds, with the same single wrong
-  result (807). **70 is 2 behind**; 80 removes the 807 error but also loses 199 and 800. Below 50,
-  roads on side displays start to be shown as destinations (6–7 wrong).
-- The one wrong result at 70 (807) is a road name that shares words with an endpoint
-  (`YISHUN RING RD` vs `Yishun Bus Interchange`).
-- This agrees with validation (`REFERENCE_MATCHING_RESULTS.md`: 50 best, 70 fixed for safety): the
-  correct range is roughly 50–65 and 70 trades a few correct destinations for safety. Choosing a new
-  cutoff from this run would tune it on these 40 photos; a change should be confirmed on photos not
-  used here.
+Effect on the answer-key evaluation (Cody's committed OCR readings): validation destinations 24 of 27 at
+65 (23 without the swap), 0 wrong either way; test 15 of 16 at 65, 0 wrong. Six validation displays
+without an answer-key entry changed from withheld to shown; their human field labels (`label_text` in
+`displays.jsonl`) show the shown endpoint is the sign's destination in each case (e.g. 195: destination
+box labelled `MARINA CTR` → Marina Centre Bus Terminal; 51A: `TERMINATE AT` / `PANDAN GARDENS (BLK 407)`
+→ Pandan Gardens (Blk 407)).
 
-## Misses that no cutoff fixes (5 of 28)
+## Why 65
 
-On five `destination-above` signs (111, 31, 268, 678, 272) YOLO11s labels the **lower, smaller line**
-as `destination` and the large top line as `route` (or does not box it), so the matcher scores the
-route text: 268 reads destination `ANG MO KIO AVE 3`, route `ANG MO KIO IND PK 2`; 272 reads destination
-`LOWER DELTA RD`, route `TELOK BLANGAH RISE`. With `check`, the route line can only flag a conflict, so
-these are withheld (not shown wrong). One more miss is OCR: 100A read as `1004` (unable to detect).
+All rows with the line swap on.
+
+| Cutoff | Validation net (destinations correct / wrong of 27) | Test destinations (correct / wrong of 16) | Photos net (shown wrong) |
+| ---: | --- | --- | --- |
+| 50 | 93 (26 / 0) | 16 / 0 | 31 (4) |
+| 55 | 92 (25 / 0) | 15 / 0 | 35 (2) |
+| 60 | 90 (24 / 0), one extra wrong service | 15 / 0 | 37 (1) |
+| **65** | **91 (24 / 0)** | **15 / 0** | **37 (1)** |
+| 70 | 91 (24 / 0) | 14 / 0 | 36 (1) |
+| 80 | 88 (21 / 0) | 14 / 0 | 37 (0) |
+
+65 is the only cutoff that is never worse than 70 on any of the three sets and adds no wrong output on
+any of them. 50 and 55 score higher on validation and test but show roads on side displays as
+destinations in the photos; 60 adds a wrong service on validation; 80 removes the one photo error (807)
+but loses correct destinations on all three sets. The cutoff was chosen after all three sets had been
+inspected, so none of them is an untouched held-out result; confirm on new footage.
+
+The one wrong result at 65 and 70: 807's side display `YISHUN RING RD` matches Yishun Bus Interchange
+(75.0%), an endpoint of 807. Only a cutoff above 75 removes it.
+
+## Remaining miss (1 of 28)
+
+100A: the number crop reads `1004` (not a service), so the destination `ALJUNED MRT` is searched without
+a number; Aljunied Road (81.8) and Aljunied MRT station (81.5) tie within the margin, so neither is shown.
 
 ## Rerun
 

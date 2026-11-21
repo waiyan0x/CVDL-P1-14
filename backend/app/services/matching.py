@@ -23,8 +23,8 @@ class RouteMatcher:
         self.margin, self.scorer = margin, scorer
         self.conflict, self.route_as_destination = conflict, route_as_destination
 
-    def match(self, service: str, destination: str, threshold: float = .7) -> dict:
-        """threshold is 0-1 here (app setting `similarity`, default .7 = cutoff 70); the matcher works on 0-100.
+    def match(self, service: str, destination: str, threshold: float = .65) -> dict:
+        """threshold is 0-1 here (app setting `similarity`, default .65 = cutoff 65); the matcher works on 0-100.
         Margin 10, ratio scoring, keep_number and route check are the settings chosen in
         evaluation/reference_matching (docs/REFERENCE_MATCHING.md)."""
         matcher = DisplayMatcher(self.reference, Settings(cutoff=threshold * 100, margin=self.margin, scorer=self.scorer,

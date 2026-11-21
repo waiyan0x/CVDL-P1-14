@@ -240,3 +240,34 @@ def test_panel_ocr_model_defaults_to_pretrained_and_same_uses_field_model(tmp_pa
     assert mr.resolve_panel_ocr_dir(str(tmp_path / "x"), field) == tmp_path / "x"
     expected = mr.ROOT / "models/local/paddleocr-pretrained"
     assert mr.resolve_panel_ocr_dir(None, field) == (expected if (expected / "inference.pdiparams").is_file() else None)
+
+
+SWAP_CSV = "Route number,Origin,Destination\n268,Ang Mo Kio Street 65,Ang Mo Kio Industrial Park 2\n24,Ang Mo Kio Bus Interchange,Ang Mo Kio Avenue 3\n"
+
+
+def test_swapped_lines_route_crop_used_when_destination_crop_does_not_fit(tmp_path):
+    path = tmp_path / "routes.csv"; path.write_text(SWAP_CSV)
+    m = DisplayMatcher(Reference(path), Settings(cutoff=65, margin=10, scorer="ratio", conflict="keep_number",
+                                                 route_as_destination="check"))
+    r = m.match(number="268", destination="ANG MO KIO AVE 3", route="ANG MO KIO IND PK 2")
+    assert r["status"] == "matched" and r["destination"] == "Ang Mo Kio Industrial Park 2"
+    assert r["sources"]["destination"] == ["route_swapped"]
+    off = DisplayMatcher(Reference(path), Settings(cutoff=65, margin=10, scorer="ratio", conflict="keep_number",
+                                                   route_as_destination="check", line_swap=False))
+    assert off.match(number="268", destination="ANG MO KIO AVE 3", route="ANG MO KIO IND PK 2")["destination"] is None
+
+
+def test_swapped_lines_not_used_when_destination_crop_fits(tmp_path):
+    path = tmp_path / "routes.csv"; path.write_text(SWAP_CSV)
+    m = DisplayMatcher(Reference(path), Settings(cutoff=65, margin=10, scorer="ratio", conflict="keep_number",
+                                                 route_as_destination="check"))
+    r = m.match(number="268", destination="ANG MO KIO ST 65", route="ANG MO KIO IND PK 2")
+    assert r["destination"] == "Ang Mo Kio Street 65" and r["sources"]["destination"] == ["crop"]
+
+
+def test_whole_display_tried_when_destination_crop_does_not_fit(tmp_path):
+    path = tmp_path / "routes.csv"; path.write_text(SWAP_CSV)
+    m = DisplayMatcher(Reference(path), Settings(cutoff=65, margin=10, scorer="ratio", conflict="keep_number",
+                                                 route_as_destination="check"))
+    r = m.match(number="268", destination="EDGEFIELD PLAINS", panel="ANG MO KIO IND PK 2 268")
+    assert r["destination"] == "Ang Mo Kio Industrial Park 2" and r["sources"]["destination"] == ["panel"]

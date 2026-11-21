@@ -2,10 +2,11 @@
 
 Matches OCR text from one bus display to `bus_information.csv`, and keeps the raw OCR next to every result.
 
-**Settings in use (app and terminal tool):** `ratio` scoring, **cutoff 70**, **margin 10**, conflict policy
-`keep_number`, route crop fallback `check`. A destination is shown only if its similarity is at least 70 of
-100 and it leads the next distinct reference endpoint by at least 10 points; a service number only if it
-exactly equals a reference service. In the app the cutoff is the `similarity` option (default .7 = 70).
+**Settings in use (app and terminal tool):** `ratio` scoring, **cutoff 65** (70 until 21 Nov 2026), **margin 10**,
+conflict policy `keep_number`, route crop fallback `check`, **line swap on**. A destination is shown only if
+its similarity is at least 65 of 100 and it leads the next distinct reference endpoint by at least 10
+points; a service number only if it exactly equals a reference service. In the app the cutoff is the
+`similarity` option (default .65 = 65).
 Code: `backend/app/services/reference_matching.py` (the app's `RouteMatcher` in `matching.py` calls it).
 
 ## How text reaches the fuzzy scorer
@@ -39,7 +40,7 @@ CSV name  ───────────────────────�
 | --- | --- |
 | Number only | Accept if it exactly equals a reference service. Infer the destination only if that service has a single endpoint in the reference (the CSV has no direction, so most services stay "service only"). |
 | Destination only | Score every distinct endpoint. Accept the best if it reaches the cutoff **and** leads the next distinct endpoint by the margin. Infer the number only if that endpoint belongs to one service. If tied candidates all share one service, that service is kept. |
-| Number and destination | The exact service narrows the search to its endpoints. Below cutoff or tied → destination unresolved. If the destination matches another service's endpoint at least `margin` better, it is a **conflict** (see policy below). |
+| Number and destination | The exact service narrows the search to its endpoints. If the destination crop does not reach the cutoff, the route crop and the whole display are tried against the same endpoints (**line swap**, below). Still below cutoff or tied → destination unresolved. If the destination matches another service's endpoint at least `margin` better, it is a **conflict** (see policy below). |
 | Number read but not in the reference | Service = **unable to detect** (e.g. `147E`, `74E`, `350`). A whole-display number is never substituted. |
 | Depot / not-in-service text | Not matched (`DEPOT`, `NOT IN SERVICE`, `OFF SERVICE`). |
 | Route text only | Kept as read; service unresolved (the CSV has no road names). |
@@ -51,6 +52,14 @@ are both tried. `off`: route crop ignored. `check` (selected): the route crop ma
 does not fit (e.g. `13` read where the route crop reads Ang Mo Kio Int, an endpoint of 133); it is never
 shown as the destination. `use`: it may also be shown. On validation `use` showed one wrong destination
 (991: route text `BUKIT BATOK ST 11` matched the opposite endpoint) and gained one; `check` showed none wrong.
+
+**Line swap** (setting `line_swap`, on; added 21 Nov 2026). On `destination-above` signs YOLO11s often labels
+the smaller lower line `destination` and the large top line `route`. When the service number is known, a
+destination crop exists and it does not reach the cutoff for that service, the route crop and the
+whole-display text are scored against that service's endpoints; an accepted one is shown (source
+`route_swapped` or `panel`; the terminal tool prints "from route crop: lines swapped"). If they point to
+different endpoints, nothing is shown. Effect: photo benchmark 20 → 27 of 28 destinations with no new wrong
+result; validation 23 → 24 of 27, test unchanged, 0 wrong (`evaluation/photo_benchmark/PHOTO_BENCHMARK.md`).
 
 **Whole-display (panel) OCR.** Used for a field only when the dedicated crop is missing. Service-number
 tokens in the panel text count only if they are reference services and only one is present. If crop and
@@ -67,13 +76,14 @@ values are withheld; raw OCR is always kept.
 ## Settings and evaluation
 
 - Similarity: RapidFuzz 0–100. Grid on validation: scorers `ratio`, `token_sort_ratio`, `token_set_ratio`,
-  `WRatio` × cutoffs 25, 50, 60, 70, 75, 80, 90 × margins 0, 5, 10 × both conflict policies × route fallback
+  `WRatio` × cutoffs 25, 50, 55, 60, 65, 70, 75, 80, 90 × margins 0, 5, 10 × both conflict policies × route fallback
   `off`/`check`/`use` (`off` excluded from selection by project decision).
 - Selection rule (validation only): most correct outputs minus wrong outputs; then higher precision; then
   the stricter cutoff and margin.
 - Project decisions on top of that rule (20 Nov 2026):
   - Route crop fallback must be `check` or `use` (`check` was chosen: `use` showed one wrong destination).
-  - Cutoff fixed at **70**. Cutoff 50 scored best on validation (24 vs 23 of 27 destinations on 20 Nov; 25 vs 23
+  - Cutoff fixed at **65** (21 Nov 2026, with the line swap; see the photo benchmark below). Until then it was
+    fixed at **70**: cutoff 50 scored best on validation (24 vs 23 of 27 destinations on 20 Nov; 25 vs 23
     after the 21 Nov abbreviation additions; 0 wrong at both; current figures in `REFERENCE_MATCHING_RESULTS.md`)
     but accepts text that is only half similar and raised about twice as many conflict flags (24 vs 11), so
     70 was chosen for unseen signs. This was decided after test had been inspected at 50 and 70 (test
@@ -88,8 +98,14 @@ values are withheld; raw OCR is always kept.
     full chain with the settings in use): at **70**, 20 of 28 destinations correct, 11 of 12 non-endpoint
     signs withheld, **1 shown wrong** (807 side `YISHUN RING RD` → Yishun Bus Interchange, 75%); services
     33 of 40 correct, 0 wrong. Cutoff 60 scored best (22 correct, same 1 wrong); 80 removes that wrong but
-    loses 2 correct; below 50 side-display roads are shown as destinations. Cutoff kept at 70. Five misses
-    no cutoff fixes: on `destination-above` signs YOLO11s labels the smaller lower line `destination`.
+    loses 2 correct; below 50 side-display roads are shown as destinations. Five misses no cutoff fixed:
+    on `destination-above` signs YOLO11s labels the smaller lower line `destination`.
+  - After adding the line swap (same photos, OCR not re-run): at **65**, 27 of 28 destinations correct, 11 of
+    12 withheld, 1 shown wrong (the same 807). 65 is the only cutoff never worse than 70 on validation
+    (91 vs 91 net), test (15 vs 14 of 16) and the photos (37 vs 36), with no added wrong output; 50–55 show
+    side-display roads as destinations, 60 adds a wrong service on validation, 80 loses correct destinations
+    everywhere. **Cutoff set to 65.** Chosen after validation, test and the photos had all been inspected, so
+    no untouched held-out result exists; confirm on new footage.
 - Destination gold needs the answer key (sign text → reference endpoint), see below.
 
 ## Running it

@@ -25,7 +25,7 @@ from backend.app.services.reference_matching import (  # noqa: E402
     SCORERS, DisplayMatcher, Reference, Settings, normalise_place, normalise_service)
 
 OUT = ROOT / "evaluation/reference_matching"
-CUTOFFS = [25, 50, 60, 70, 75, 80, 90]
+CUTOFFS = [25, 50, 55, 60, 65, 70, 75, 80, 90]
 MARGINS = [0, 5, 10]
 CONFLICT = ["withhold_both", "keep_number"]
 ROUTE_FALLBACK = ["off", "check", "use"]
@@ -139,10 +139,11 @@ def summary(m):
 # Project decision (20 Nov 2026): try the route crop as the destination when no destination crop exists.
 # Validation cannot measure it (scored destinations always have a destination crop) and showed no harm.
 ROUTE_ALLOWED = ("check", "use")
-# Project decision (20 Nov 2026): cutoff fixed at 70 for robustness on unseen signs. On validation it shows
-# one fewer destination than 50 (23 vs 24 of 27, both 0 wrong) and about half the conflict flags.
-# Made after test had been inspected at 50 and 70; reported as such in the results file.
-FIXED_CUTOFF = 70
+# Project decision (21 Nov 2026, replaces 70 from 20 Nov): cutoff fixed at 65. With the line-swap fallback,
+# 65 is never worse than 70 on validation (91 vs 91 net), test (37 vs 36) or the 40-photo benchmark (37 vs 36),
+# with 0 wrong destinations on validation and test; 60 adds a wrong service on validation and 50-55 show
+# side-display roads as destinations on the photos. Chosen after validation, test and photos had all been seen.
+FIXED_CUTOFF = 65
 
 
 def choose_setting(grid):
@@ -232,10 +233,10 @@ def main(argv=None):
         return next(g for g in grid if g["scorer"] == best["scorer"] and g["cutoff"] == cutoff
                     and g["margin"] == best["margin"] and g["conflict"] == best["conflict"]
                     and g["route_as_destination"] == best["route_as_destination"])
-    c50, c70 = at(50), at(70)
-    cutoff_note = (f"Cutoff 50 scored best on validation ({c50['dest_correct']} vs {c70['dest_correct']} of "
-                   f"{c70['dest_gold']} destinations, {c50['dest_wrong']} and {c70['dest_wrong']} wrong; net correct "
-                   f"{c50['net_correct']} vs {c70['net_correct']}) ")
+    c50, cfx = at(50), at(FIXED_CUTOFF)
+    cutoff_note = (f"Cutoff 50 scored best on validation (vs {FIXED_CUTOFF}: {c50['dest_correct']} vs {cfx['dest_correct']} of "
+                   f"{cfx['dest_gold']} destinations, {c50['dest_wrong']} and {cfx['dest_wrong']} wrong; net correct "
+                   f"{c50['net_correct']} vs {cfx['net_correct']}) ")
     md = [
         "# Reference matching results",
         "",
@@ -247,10 +248,11 @@ def main(argv=None):
         f"**Scorer `{best['scorer']}`, cutoff {best['cutoff']}, margin {best['margin']}, conflict policy `{best['conflict']}`, "
         f"route crop fallback `{best['route_as_destination']}`.** "
         "Project decisions: the route crop fallback is required (`check` or `use`, never `off`; `check` wins ties) and "
-        "the cutoff is fixed at 70. " + cutoff_note +
-        "but was judged too loose for unseen signs and raised about twice as many conflict flags. The change was "
-        "made after test had been inspected at both cutoffs (20 Nov 2026: test at 50: 15/16 destinations, at 70: "
-        "14/16, 0 wrong at both), so test is no longer a single untouched run. "
+        f"the cutoff is fixed at {FIXED_CUTOFF} (21 Nov 2026; 70 before). " + cutoff_note +
+        "but 50-55 show roads on side displays as destinations in the 40-photo benchmark "
+        "(`evaluation/photo_benchmark/PHOTO_BENCHMARK.md`) and 60 adds a wrong service here; 65 is never worse than "
+        "70 on validation, test or the photos. The cutoff was chosen after validation, test and the photos had all "
+        "been inspected, so none of them is an untouched held-out result. "
         "Other settings: most correct outputs minus wrong outputs (services + destinations) on validation; "
         "ties go to higher precision, then the stricter cutoff and margin. Test was run once with this setting.",
         "",

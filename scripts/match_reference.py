@@ -246,7 +246,10 @@ def show(result, labels=None, title=None):
     rows = [("Service number", raw["number"], result["service"], None, result["service_status"]),
             ("Destination", raw["destination"], result["destination"],
              f"{result['destination_score']:.1f}%" if result["destination_score"] is not None else None,
-             result["destination_status"] + {("panel",): " (from whole display)", ("route",): " (from route crop)"}.get(
+             result["destination_status"] + {("panel",): " (from whole display)", ("route",): " (from route crop)",
+                                                ("route_swapped",): " (from route crop: lines swapped)",
+                                                ("route_swapped", "panel"): " (route crop + whole display)",
+                                                ("panel", "route_swapped"): " (whole display + route crop)"}.get(
                  tuple(result["sources"].get("destination", [])), "")),
             ("Route text", raw["route"], result["route_text"], None, "kept as read" if result["route_text"] else None),
             ("Whole display", raw["panel"], None, None, None)]

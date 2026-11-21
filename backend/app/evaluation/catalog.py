@@ -112,7 +112,7 @@ def model_catalog(settings, pipeline=None) -> dict:
         "preprocessing": {"detector": f"Images are bounded before inference and letterboxed by YOLO to size {settings.detector_image_size}.",
                           "ocr": "Small service-number crops may be enlarged; destination fields preserve their line layout. Each engine applies its own documented image preparation."},
         "matching": {"service": "Exact recognised service lookup; no nearest-number guessing.",
-                     "destination": "Normalised text/line similarity (abbreviation table, ratio score) against that service's origin and destination; accepted at the cutoff (default 70) with a 10-point lead over the next endpoint, otherwise withheld.",
+                     "destination": "Normalised text/line similarity (abbreviation table, ratio score) against that service's origin and destination; accepted at the cutoff (default 65) with a 10-point lead over the next endpoint; if the destination crop does not fit, the route crop and whole display are tried (line swap); otherwise withheld.",
                      "score_definition": "Reference string similarity, not an OCR or detection confidence and not calibrated accuracy.",
                      "limitations": "The CSV lacks verified road-name and direction coverage. A route endpoint match does not establish travel direction."},
         "estimated_screen": {"source": "field_union", "confidence": None,

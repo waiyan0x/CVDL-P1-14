@@ -28,7 +28,7 @@ responsibility rather than arbitrary line counts.
   interval. Missing engines do not disable otherwise usable engines.
 - `GET /api/samples`: `[{id,name,url,source}]`; image URL returns original image.
 - `POST /api/analysis`: multipart `file` or `sample_id`, plus `backend`,
-  `detection` (default .3), `ocr_threshold` (.25), `similarity` (.7 = reference-matching cutoff 70 of 100;
+  `detection` (default .3), `ocr_threshold` (.25), `similarity` (.65 = reference-matching cutoff 65 of 100;
   margin 10 and the other matching settings are fixed, see `docs/REFERENCE_MATCHING.md`),
   `session_id`, `frame_id` (nonnegative monotonic integer), `source`
   (`image|sample|camera|video`), `source_timestamp_ms` (nonnegative media time),

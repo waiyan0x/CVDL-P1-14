@@ -157,13 +157,16 @@ class Reference:
 
 @dataclass
 class Settings:
-    cutoff: float = 70.0          # 0-100 similarity needed to accept
+    cutoff: float = 65.0          # 0-100 similarity needed to accept
     margin: float = 5.0           # lead over the next distinct endpoint
     scorer: str = "ratio"
     conflict: str = "withhold_both"   # or "keep_number": keep an exact service, withhold only the destination
     # No destination crop: "off" ignores the route crop; "check" uses it only to flag a number that does not
     # fit (never shown as the destination); "use" may also show it as the destination.
     route_as_destination: str = "off"
+    # Destination crop present but it does not fit the service read: also try the route crop (the detector
+    # sometimes swaps the two lines) and the whole display; either may then be shown.
+    line_swap: bool = True
 
     def __post_init__(self):
         if isinstance(self.route_as_destination, bool):
@@ -262,16 +265,21 @@ class DisplayMatcher:
 
         # ---- destination evidence: the dedicated crop if there is one; otherwise the route crop
         #      (the detector sometimes labels the destination as route) and the whole display
-        options = []
+        options, fallbacks = [], []
         if (destination or "").strip():
             options.append((destination, "crop"))
+            if self.settings.line_swap:
+                if (route or "").strip():
+                    fallbacks.append((route, "route_swapped"))
+                if panel_rest.strip():
+                    fallbacks.append((panel_rest, "panel"))
         else:
             if self.settings.route_as_destination in ("check", "use") and (route or "").strip():
                 options.append((route, "route"))
                 log.append(f"no destination crop; route crop used ({self.settings.route_as_destination})")
             if panel_rest.strip():
                 options.append((panel_rest, "panel"))
-        for text, _ in options:
+        for text, _ in options + fallbacks:
             if NOT_IN_SERVICE.search(strip_display_clutter(text)):
                 out["destination_status"] = "not_in_service"
                 return self._finish(out, "not_in_service", "depot / not-in-service message")
@@ -279,12 +287,22 @@ class DisplayMatcher:
         all_keys = list(ref.endpoints)
         if candidates_numbers and options:
             # Number and destination: number narrows the search.
-            tried = []
-            for text, source in options:
-                decisions = {s: self._destination(text, ref.service_endpoints[s]) for s in candidates_numbers}
-                tried.append((text, source, decisions))
-            accepted = sorted({s for _, src, d in tried for s, x in d.items() if x["status"] == "accepted"
-                               and (src != "route" or self.settings.route_as_destination == "use")})
+            def evaluate(items):
+                return [(text, source, {s: self._destination(text, ref.service_endpoints[s]) for s in candidates_numbers})
+                        for text, source in items]
+
+            def showable(source):
+                return source != "route" or self.settings.route_as_destination == "use"
+
+            tried = evaluate(options)
+            accepted = sorted({s for _, src, d in tried for s, x in d.items() if x["status"] == "accepted" and showable(src)})
+            if not accepted and fallbacks:
+                extra = evaluate(fallbacks)
+                if any(x["status"] == "accepted" for _, _, d in extra for x in d.values()):
+                    log.append("destination crop does not fit the service read; route crop / whole display tried "
+                               "(detector may have swapped the lines)")
+                    tried += extra
+                    accepted = sorted({s for _, src, d in tried for s, x in d.items() if x["status"] == "accepted" and showable(src)})
             if len(candidates_numbers) > 1:
                 if len(accepted) == 1:
                     service = accepted[0]
@@ -296,7 +314,7 @@ class DisplayMatcher:
                 service = candidates_numbers[0]
             route_shown = self.settings.route_as_destination == "use"
             hits = sorted([(text, source, d[service]) for text, source, d in tried
-                           if d[service]["status"] == "accepted" and (source != "route" or route_shown)],
+                           if d[service]["status"] == "accepted" and showable(source)],
                           key=lambda h: -h[2]["score"])
             if len({h[2]["key"] for h in hits}) > 1:
                 out.update(service=service, service_status="accepted", destination_status="tie",

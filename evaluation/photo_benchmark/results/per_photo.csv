@@ -1,5 +1,5 @@
 photo,gold_service,gold_destination,service,destination,score,candidate,status,verdict
-017_elevated-right_9_destination-above_111,111,Temasek Avenue (loop),111,,28.57,Shipyard Road,conflict,withheld
+017_elevated-right_9_destination-above_111,111,Temasek Avenue (loop),111,Temasek Avenue (loop),100.0,Ghim Moh Bus Terminal,matched,correct
 019_head-on_10_route-above_199,199,Nanyang Crescent,199,Nanyang Crescent,73.68,Boon Lay Bus Interchange,matched,correct
 001_head-on_1_destination-above_26,26,Toa Payoh Bus Interchange,26,Toa Payoh Bus Interchange,91.67,Bedok Bus Interchange,matched,correct
 003_front-right_2_route-above_298,298,Tampines Avenue 5,298,Tampines Avenue 5,100.0,Tampines North Bus Interchange,matched,correct
@@ -7,16 +7,16 @@ photo,gold_service,gold_destination,service,destination,score,candidate,status,v
 007_head-on_4_route-above_90,90,Airport Road (loop),90,Airport Road (loop),81.82,Toa Payoh Bus Interchange,matched,correct
 009_front-right_5_destination-above_174,174,Kampong Bahru Bus Terminal,174,Kampong Bahru Bus Terminal,86.96,Boon Lay Bus Interchange,matched,correct
 011_elevated-right_6_route-above_979,979,Choa Chu Kang Crescent,979,Choa Chu Kang Crescent,100.0,Bukit Panjang Bus Interchange,matched,correct
-013_head-on_7_destination-above_31,31,Toa Payoh Bus Interchange,31,,35.71,Marine Parade Road,conflict,withheld
+013_head-on_7_destination-above_31,31,Toa Payoh Bus Interchange,31,Toa Payoh Bus Interchange,100.0,Tampines Bus Interchange,matched,correct
 015_front-right_8_route-above_81,81,Serangoon MRT station (loop),81,Serangoon MRT station (loop),86.67,Tampines Bus Interchange,matched,correct
 094_side-left_10_side-compact_966,966,NONE,,,,,no_fields,correct (withheld)
-096_front-left_1_destination-above_268,268,Ang Mo Kio Industrial Park 2,268,,75.0,Ang Mo Kio Avenue 2,conflict,withheld
-098_low-front_2_route-above_115,115,Hougang Avenue 3 (loop),115,,60.0,Hougang Avenue 3 (loop),service_only,withheld
+096_front-left_1_destination-above_268,268,Ang Mo Kio Industrial Park 2,268,Ang Mo Kio Industrial Park 2,100.0,Ang Mo Kio Street 65,matched,correct
+098_low-front_2_route-above_115,115,Hougang Avenue 3 (loop),115,Hougang Avenue 3 (loop),91.67,Kovan Hub (Hougang Street 21),matched,correct
 100_side-left_3_side-compact_901,901,NONE,,,93.33,Woodlands Avenue 5,unresolved,correct (withheld)
 082_elevated-right_4_route-above_251,251,Shipyard Road,251,Shipyard Road,100.0,Boon Lay Bus Interchange,matched,correct
-084_head-on_5_destination-above_678,678,Suntec Tower 3,678,,28.57,Edgefield Plains,conflict,withheld
+084_head-on_5_destination-above_678,678,Suntec Tower 3,678,Suntec Tower 3,84.62,Punggol Central,matched,correct
 086_low-front_6_route-above_165,165,Clementi Bus Interchange,165,Clementi Bus Interchange,91.67,Hougang Central Bus Interchange,matched,correct
-088_side-left_7_side-compact_241,241,NONE,241,,46.15,Boon Lay Bus Interchange,service_only,correct (withheld)
+088_side-left_7_side-compact_241,241,NONE,241,,46.15,Pioneer Sector 2,conflict,correct (withheld)
 090_head-on_8_destination-above_800,800,Sembawang Road (Blk 101),800,Sembawang Road (Blk 101),75.0,Yishun Bus Interchange,matched,correct
 092_low-front_9_route-above_98,98,Jurong Pier Way (loop),98,Jurong Pier Way (loop),100.0,Jurong East Bus Interchange,matched,correct
 sgbus-20261120-b09_019_front_light-drizzle_315,315,Serangoon North Avenue 5,315,Serangoon North Avenue 5,100.0,Serangoon Bus Interchange,matched,correct
@@ -24,13 +24,13 @@ sgbus-20261120-b09_020_side_heavy-rain_922,922,NONE,,,,,unresolved,correct (with
 sgbus-20261120-b09_001_front_overcast_912B,912B,Woodlands Centre Road,,Woodlands Centre Road,93.75,Woodlands Crescent,destination_only,correct
 sgbus-20261120-b09_002_side_light-drizzle_26,26,NONE,,,,,no_fields,correct (withheld)
 sgbus-20261120-b09_003_front_heavy-rain_154B,154B,Clementi Road,154B,Clementi Road,100.0,Boon Lay Bus Interchange,matched,correct
-sgbus-20261120-b09_004_side_post-rain_976,976,Bukit Panjang Bus Interchange,976,,66.67,Bukit Panjang Bus Interchange,service_only,withheld
-sgbus-20261120-b09_005_front_haze_272,272,Telok Blangah Rise,272,,43.75,Telok Blangah Rise,service_only,withheld
-sgbus-20261120-b09_006_side_mist-dawn_195,195,NONE,195,,35.29,Commonwealth MRT station,service_only,correct (withheld)
+sgbus-20261120-b09_004_side_post-rain_976,976,Bukit Panjang Bus Interchange,976,Bukit Panjang Bus Interchange,66.67,Choa Chu Kang Bus Interchange,matched,correct
+sgbus-20261120-b09_005_front_haze_272,272,Telok Blangah Rise,272,Telok Blangah Rise,100.0,Bukit Merah Bus Interchange,matched,correct
+sgbus-20261120-b09_006_side_mist-dawn_195,195,NONE,195,,35.29,Buona Vista Bus Terminal,conflict,correct (withheld)
 sgbus-20261120-b09_007_front_sunset_38,38,Bedok Bus Interchange,38,Bedok Bus Interchange,100.0,Tampines Bus Interchange,matched,correct
 sgbus-20261120-b09_008_side_night-dry_807,807,NONE,807,Yishun Bus Interchange,75.0,Yishun Avenue 5 (Blk 701),matched,wrong (shown)
 sgbus-20261120-b09_009_front_night-rain_145,145,Buona Vista Bus Terminal,145,Buona Vista Bus Terminal,100.0,Toa Payoh Bus Interchange,matched,correct
-sgbus-20261120-b09_010_side_sunny-morning_100,100,NONE,100,,43.48,Serangoon Bus Interchange,service_only,correct (withheld)
+sgbus-20261120-b09_010_side_sunny-morning_100,100,NONE,100,,43.48,Lorong 1 Geylang Bus Terminal,conflict,correct (withheld)
 sgbus-20261120-b09_011_front_post-rain_100A,100A,Aljunied MRT station,,,81.82,Aljunied Road,unable_to_detect,withheld
 sgbus-20261120-b09_012_side_haze_90,90,NONE,90,,46.15,MacPherson Road,conflict,correct (withheld)
 sgbus-20261120-b09_013_front_mist-dawn_89E,89E,Airport Cargo Road,89E,Airport Cargo Road,100.0,Hougang Central Bus Interchange,matched,correct
