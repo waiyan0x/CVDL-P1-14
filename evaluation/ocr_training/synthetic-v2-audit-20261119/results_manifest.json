@@ -1,0 +1,13 @@
+{
+  "v2_status": "not_trained_or_evaluated",
+  "sources_sha256": {
+    "evaluation/ocr_scoring/normalised-v8-layoutv3/scores/report.json": "a54a1d9fd1e3d292ee1682321c6aea454001e3e5e632171e61d41b52d1b66370",
+    "evaluation/ocr_scoring/normalised-v8-layoutv3/syn/scores/report.json": "3e68dbd477b9e3bc50be1682daab53179d23bf92206408bc6add4985f52e4a6a",
+    "evaluation/ocr_scoring/normalised-v8-layoutv3/holdout/real/report.json": "fb12bff6c6cf9ab5dc085e40811d246dbe41681855b8d50e663154db42ba378d",
+    "evaluation/ocr_scoring/normalised-v8-layoutv3/holdout/syn/report.json": "9bc2e41bde47c761ef28981feaaa8d9dfe5ed15360bb982b7e65095e30af21b9",
+    "evaluation/ocr_scoring/normalised-v8-layoutv3/partial/summary.csv": "e57d61300f15eb11781fe1ce70befadc8f331dd88e49a6f8f823d4c596ba742a",
+    "evaluation/ocr_training/synthetic-v2-audit-20261119/audit.json": "b74aaf014ddb560ef3de895fd59f189770bb2d907a655f4da527111c4a6e1ad3"
+  },
+  "report": "evaluation/OCR_RESULTS_SYNTHETIC_V2.md",
+  "report_sha256": "086c5c1b18b4cff504982e80de18b0775659002f1a8c698903d10bf1207cdd8b"
+}

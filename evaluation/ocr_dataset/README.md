@@ -1,32 +1,47 @@
-# OCR text-label dataset — 16 November 2026
+# OCR text-label dataset
 
-`labels.csv` holds one row per crop, giving the text visible in that crop. It
-covers train, valid and test. This is not Brendan's crop/box dataset.
+New experiment: [5k train/validation/test split](5k-split-20261120/README.md),
+4,000/500/500 exported image/text pairs. This is a separate benchmark from the
+reviewed real-photo references below; no new trained-model scores exist yet.
 
-The crop images are not in git. `crop` paths are relative to
-`.runtime/ocr-text-dataset-20261116/`. Rebuild that folder with
-`scripts/build_ocr_text_dataset.py`; every row carries `crop_sha256` so the
-images can be verified.
 
-| Split | Crops | Scorable | Label source | Human check |
-| --- | ---: | ---: | --- | --- |
-| train | 387 annotation | 387 | Codex, kept only where all 3 augmented copies got the same text | 50-crop spot-check done 17 Nov 2026: no label text shown wrong; 42% judged partial/illegible by the human; labels unchanged (`ocr_review/train-spotcheck-20261117/`) |
-| valid | 150 annotation + 108 detector | 79 + 51 | 185 typed by the team, 73 Codex; all 258 then checked by eye | done 16 Nov 2026 (`ocr_review/human-verification-20261116/`) |
-| test | 118 annotation | 60 | Claude AI proposals, read from the crop pixels only (no OCR engine output) | pending (`test_confirm` page) |
+The current reviewed benchmark references are in
+[`reviewed-20261119/`](reviewed-20261119/README.md). This is a dataset of the
+**text visible in each identified crop**, separate from Brendan's crop/box dataset.
 
-## Columns
+| Split | Reference rows retained | Scorable rows | Provenance/use |
+| --- | ---: | ---: | --- |
+| Train | 387 | 384 | Primarily AI labels; human spot-check overrides retained; diagnostic only |
+| Validation | 271 | 130 (79 annotation + 51 detector) | Human-reviewed text; excluded/overlap rows retained with reasons |
+| Test | 118 | 45 annotation | Human-confirmed/corrected AI proposals |
 
-- `text`: the visible text. Case and punctuation are kept, a real line break is kept as a newline, and `[UNK]` marks an unreadable span.
-- `legibility`: full / partial / illegible.
-- `label_source`: `human_typed_by_team`, `codex_ai`, `codex_ai_3copy_consensus`, or `claude_ai_proposal`.
-- `scoring_eligible`: True only when legibility is full, the text has no `[UNK]`, the field is present, and the crop is not a challenge-only case. For validation this matches the repo scorer row for row.
-- `exclusion_reason`: why a row is not scored.
+- [`reviewed-20261119/labels.csv`](reviewed-20261119/labels.csv): every benchmark
+  row with text, crop identity/hash, split, field, legibility, eligibility and provenance.
+- [`reviewed-20261119/evaluation_labels.csv`](reviewed-20261119/evaluation_labels.csv):
+  the 175 eligible validation/test references, identical for pretrained and
+  fine-tuned evaluation. Synthetic crops are not evaluation references.
+- [`reviewed-20261119/manifest.json`](reviewed-20261119/manifest.json): source
+  hashes, counts and verification evidence.
 
-## Rules
+Text-only handoff ZIP: `.runtime/ocr-text-labels-reviewed-20261119.zip`.
+Selected-model matching handoff: `.runtime/ocr-matching-final-20261119.zip`.
+The latter includes raw OCR, separate labels, route reference, images, weights
+and inference code. `review_id` and `matching_record_id` provide explicit joins.
+Display ownership still requires human confirmation before combining fields.
 
-- Never use test for training, tuning or matching cutoffs.
-- Test detector crops do not exist yet. They need `yolo11s-best.pt` and the full v4 photos from Brendan.
-- Validation rows carry the human-reviewed text. Where the review changed a label, `note` keeps the pre-review value.
-- Final test labels come from `scripts/finalize_test_labels.py` after a human confirms each row.
+The top-level `labels.csv` and `summary.json` are historical 16 November
+snapshots, retained because earlier training and synthetic-data preparation used
+them. In particular, their test rows are AI proposals (60 eligible), superseded
+by the reviewed export above (45 eligible). They are not the current test answer
+key. No historical training labels or evaluation source documents were changed.
 
-Validation correction: P065 is wrong_field by explicit user instruction, matching A091. Current scores use normalised-v4-valid-human-corrected. Reviewer cody was confirmed in chat; the original export says cods and remains unchanged. P089/P107 suggestions are unresolved, not silently applied.
+Reproduce the reviewed export into new destinations with:
+
+```sh
+python3 scripts/export_reviewed_ocr_labels.py --manifest evaluation/ocr_scoring/normalised-v8-layoutv3/manifest.json --matching .runtime/ocr-matching-final-20261119 --output evaluation/ocr_dataset/NEW_EXPORT --zip .runtime/NEW_EXPORT.zip
+```
+
+The export uses the existing frozen benchmark text, retains the manual
+corrections and exclusions, verifies the 389 validation/test crop hashes and
+checks their texts against the matching package. It performs no OCR or new
+human review. See the exported README for normalization and scoring rules.

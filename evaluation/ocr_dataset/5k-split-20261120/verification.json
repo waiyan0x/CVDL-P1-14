@@ -1,0 +1,27 @@
+{
+  "total_pairs": 5000,
+  "split_counts": {
+    "train": 4000,
+    "valid": 500,
+    "test": 500
+  },
+  "all_parent_pairs_retained_once": true,
+  "image_bytes_and_text_preserved": true,
+  "cross_split_exact_text_and_source_checks_passed": true,
+  "training_loader_verified": true,
+  "heldout_test_absent_from_training": true,
+  "review_receipt_contains_no_text_or_images": true,
+  "notebook_code_cells_parse": true,
+  "files_sha256": {
+    "labels.csv": "51a87ce17de1317639e5ff2e2a24463dc1785332d65c704060e3858f4f9e5a45",
+    "train_labels.csv": "145c423427bbee8131d3a02dc7e1bc001bd0c4dc5779be3d798cb42512ad96ec",
+    "ocr_5k_split_review.csv": "727651bbc95ae58b5898b9338762a06f84c7dfe76f4c5e2e07fcf5f66b32ba19",
+    "test_labels.csv": "25d96598d9a436656812859ea57eb363e5b31627828966910f87fdb130eb54aa",
+    "archives.lock.json": "c3e5317ec1c4056f2d29a1d4afbe5320952c2707b7b9e6f8fd41092229363602",
+    "README.md": "3602cd28116523ef76bd8aa93020bb990dc78d3e1648d81fc74e3b7711737575",
+    "valid_labels.csv": "4a2c4f65c042a0ae59af90d54c6c45d9a76327d649509add88f935dc614b1074",
+    "split_manifest.json": "62b1e6820fd361255ec3392f6fa3f3c10f6dc9e8d1d11c0ad9c516c812796cfa",
+    "notebook.lock.json": "2839cd39879d3df328a34107814330fd1f08a9deb3fe0a6e66da8fe5a7684788"
+  },
+  "no_training_or_new_accuracy_claimed": true
+}

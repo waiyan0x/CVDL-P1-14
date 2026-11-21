@@ -28,7 +28,8 @@ def run(a):
         obj.eos_token_id=processor.tokenizer.sep_token_id;obj.pad_token_id=processor.tokenizer.pad_token_id
     record_config(a,dict(initial_sha256=initial,charset=dict(missing=[],extended=[]),
                         effective_train_pairs=8 if a.dry_run else len(train),
-                        validation_crops=len(refs),validation_regions=len(valid)))
+                        validation_crops=len(refs),validation_regions=len(valid),
+                        early_stopping=dict(monitor='val_crop_CER',mode='min',patience=3,min_delta=0)))
     source=dry_pairs(train) if a.dry_run else train
 
     class Lines(torch.utils.data.Dataset):

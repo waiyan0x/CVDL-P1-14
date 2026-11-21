@@ -4,6 +4,7 @@ import csv
 import hashlib
 from importlib import metadata
 import json
+import math
 import os
 from pathlib import Path
 import random
@@ -14,6 +15,24 @@ PADDLE_TAG='v3.3.2'
 PADDLE_COMMIT='95dc316a8490a350c1d1fcf3bc80bf83d4e52450'
 EASY_TAG='v1.7.2'
 EASY_COMMIT='c4f3cd7225efd4f85451bd8b4a7646ae9a092420'
+
+
+class CropCEREarlyStopping:
+    """Stop after three consecutive validations without a strictly lower CER."""
+    def __init__(self, patience=3):
+        self.patience = patience
+        self.best = float('inf')
+        self.best_epoch = None
+        self.stale = 0
+
+    def update(self, cer, epoch):
+        if not math.isfinite(cer) or cer < 0:
+            raise ValueError('Validation CER must be finite and nonnegative')
+        if cer < self.best:
+            self.best, self.best_epoch, self.stale = cer, epoch, 0
+        else:
+            self.stale += 1
+        return self.stale >= self.patience
 PADDLE_WEIGHTS_URL='https://paddle-model-ecology.bj.bcebos.com/paddlex/official_pretrained_model/en_PP-OCRv5_mobile_rec_pretrained.pdparams'
 
 
@@ -143,6 +162,11 @@ def record_config(a,extra=None):
                 versions=versions,dry_run=a.dry_run,test_used=False,
                 normalisation='NFC -> Unicode casefold -> NFC -> collapse whitespace',
                 augmentation='none, consistently for all three models',**(extra or {}))
+    config['data_provenance'] = {
+        'bundle_manifest_sha256': sha(a.data/'bundle_manifest.json'),
+        'train_tsv_sha256': sha(a.data/'train.tsv'),
+        'valid_tsv_sha256': sha(a.data/'valid.tsv'),
+    }
     (a.output/'config.json').write_text(json.dumps(config,indent=2,ensure_ascii=False)+'\n')
 
 

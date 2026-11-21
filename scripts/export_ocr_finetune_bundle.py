@@ -42,7 +42,7 @@ def pairing(text, count):
     return None, 'region_text_count_mismatch'
 
 
-def build(output, root=ROOT, training=None, valid_manifest=None):
+def build(output, root=ROOT, training=None, valid_manifest=None, valid_layout=None):
     root = Path(root).resolve()
     output = Path(output)
     if output.exists():
@@ -53,7 +53,7 @@ def build(output, root=ROOT, training=None, valid_manifest=None):
     inputs = [Path(training), Path(valid_manifest), packet/'labels/training.source.csv',
               packet/'labels/validation_labels.proposals.csv',
               packet/'layouts/training_existing/manifest.json',
-              root/'evaluation/ocr_layouts/v4-lines-v1/manifest.json',
+              Path(valid_layout).resolve() if valid_layout else root/'evaluation/ocr_layouts/v4-lines-v1/manifest.json',
               packet/'weights/models.lock.json']
     before = {str(p.relative_to(root)):sha(p) for p in inputs}
     train = csv_rows(training)
@@ -206,5 +206,6 @@ def build(output, root=ROOT, training=None, valid_manifest=None):
 if __name__ == '__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--output',type=Path,default=ROOT/'.runtime/ocr_finetune_bundle.zip')
-    a=p.parse_args();r=build(a.output);print(json.dumps(dict(output=str(a.output),counts=r['counts'],
+    p.add_argument('--valid-layout', type=Path, help='Explicit frozen validation layout; default preserves historical v1')
+    a=p.parse_args();r=build(a.output,valid_layout=a.valid_layout);print(json.dumps(dict(output=str(a.output),counts=r['counts'],
                                          skipped=len(r['skipped']),joined=len(r['joined'])),indent=2))

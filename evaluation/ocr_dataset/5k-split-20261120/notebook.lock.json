@@ -1,0 +1,7 @@
+{
+  "notebook": "colab/ocr_finetune/ocr_finetune_5k_split.ipynb",
+  "sha256": "65acb607172ae5a27cb2d77236e5a7733e852ccd54d9a1673c05eec1c2739dd3",
+  "trainer_loader_check": "4000 train, 500 validation; hashes verified",
+  "test_archive_check": "500 test; hashes verified; absent from training bundle and notebook code",
+  "colab_run_completed": false
+}

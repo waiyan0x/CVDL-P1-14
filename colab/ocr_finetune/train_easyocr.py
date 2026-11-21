@@ -32,7 +32,8 @@ def run(a):
     state=torch.load(a.pretrained,map_location='cpu',weights_only=True)
     model.load_state_dict({k.removeprefix('module.'):v for k,v in state.items()},strict=True)
     record_config(a,dict(initial_sha256=initial,architecture=config,character_list=chars,
-                        charset=coverage,trainer_commit=EASY_COMMIT))
+                        charset=coverage,trainer_commit=EASY_COMMIT,
+                        early_stopping=dict(monitor='val_crop_CER',mode='min',patience=3,min_delta=0)))
     ids={c:i+1 for i,c in enumerate(chars)}
 
     def images(rows):

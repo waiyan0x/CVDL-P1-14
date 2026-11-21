@@ -8,7 +8,8 @@ import runpy
 import sys
 import time
 from common import (args_for,load_data,metrics,seed_all,record_config,log_epoch,sha,
-                    check_charset,dry_pairs,require_revision,PADDLE_COMMIT,PADDLE_WEIGHTS_URL)
+                    check_charset,dry_pairs,require_revision,PADDLE_COMMIT,PADDLE_WEIGHTS_URL,
+                    CropCEREarlyStopping)
 
 
 def run(a):
@@ -57,7 +58,8 @@ def run(a):
                         upstream_tag='v3.3.2',upstream_commit=PADDLE_COMMIT,charset=coverage,
                         dictionary_sha256=sha(dictionary),base_config_sha256=sha(config_path),
                         max_text_length=max_text_length_change,
-                        selection='max 1/(1+val_crop_CER), exactly equivalent to minimum CER'))
+                        selection='max 1/(1+val_crop_CER), exactly equivalent to minimum CER',
+                        early_stopping=dict(monitor='val_crop_CER',mode='min',patience=3,min_delta=0)))
     run_dictionary=a.output/'dictionary.txt';run_dictionary.write_bytes(dictionary.read_bytes())
     (a.output/'dictionary_check.json').write_text(json.dumps(coverage,indent=2)+'\n')
     source=dry_pairs(train) if a.dry_run else train
@@ -102,6 +104,12 @@ def run(a):
     if mismatch:raise ValueError('Pretrained training-head mismatch (not silently reinitialised): '+repr(mismatch))
     del expected,stored
     epoch_losses={};epoch_number=[0];step_count=[0]
+    stopping = CropCEREarlyStopping(patience=3)
+    stopped_early = False
+    upstream_selected_epoch = [None]
+
+    class ValidationPlateau(Exception):
+        pass
 
     class LossRecorder(logging.Handler):
         def emit(self,record):
@@ -122,6 +130,12 @@ def run(a):
             losses=epoch_losses.get(self.epoch,[])
             log_epoch(a.output,self.epoch,sum(losses)/len(losses) if losses else None,result)
             self.reset()
+            if not a.dry_run and stopping.update(result['cer'], self.epoch):
+                raise ValidationPlateau(f'Validation CER did not improve for {stopping.patience} epochs; stopping at epoch {self.epoch}')
+            # Upstream replaces its best checkpoint on ties (>= cer_score).
+            # A plateau-stop exception above prevents saving the stopping epoch.
+            if result['cer'] <= stopping.best:
+                upstream_selected_epoch[0] = self.epoch
             return dict(cer_score=1/(1+result['cer']),val_crop_CER=result['cer'],
                         val_line_CER=result['val_line_CER'],val_crop_exact=result['val_crop_exact'])
 
@@ -136,6 +150,9 @@ def run(a):
     sys.argv=['tools/train.py','-c',str(effective)]
     try:
         os.chdir(repo);runpy.run_path(str(repo/'tools/train.py'),run_name='__main__')
+    except ValidationPlateau as exc:
+        stopped_early = True
+        print(str(exc), flush=True)
     finally:
         sys.argv=previous_argv;os.chdir(previous_dir)
     if a.dry_run:
@@ -158,7 +175,10 @@ def run(a):
                     initial_checkpoint_sha256=sha(weights),files_sha256={p.name:sha(p) for p in best.iterdir() if p.is_file()})
     (best/'provenance.json').write_text(json.dumps(provenance,indent=2)+'\n')
     (a.output/'selection.json').write_text(json.dumps(dict(metric='minimum val_crop_CER',
-                    upstream_selected_prefix=str(selected),seconds=time.perf_counter()-start),indent=2)+'\n')
+                    upstream_selected_prefix=str(selected),seconds=time.perf_counter()-start,
+                    best_val_crop_CER=stopping.best,best_epoch=upstream_selected_epoch[0],
+                    stopped_early=stopped_early,early_stopping_patience=stopping.patience,
+                    validation_epochs=stopping.best_epoch + stopping.stale),indent=2)+'\n')
 
 
 if __name__=='__main__':

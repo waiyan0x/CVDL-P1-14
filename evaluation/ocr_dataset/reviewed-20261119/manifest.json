@@ -1,0 +1,41 @@
+{
+  "source_benchmark_manifest": "evaluation/ocr_scoring/normalised-v8-layoutv3/manifest.json",
+  "source_benchmark_manifest_sha256": "561666845eeb34a74902daa76fd9df42a70a1f6c60384aca22b5f3036b4f684a",
+  "review_inputs": [
+    {
+      "name": "validation.source.corrected-P065.csv",
+      "sha256": "88ad565d3211047307f1b7cb58eeb3fd96c195c55b8757b61dabc2daf39e40dc"
+    },
+    {
+      "name": "test.source.confirmed.csv",
+      "sha256": "0a16c8768effd0d14ca58684ed78504b18c2b83019aa89298cdf288b0738afbd"
+    },
+    {
+      "name": "train.selected387.source.csv",
+      "sha256": "3154c4767a3372f50374cab8bfc8d0693c9f7f1aa5beded2c92b16346ac783ff"
+    }
+  ],
+  "counts": {
+    "train": {
+      "rows": 387,
+      "scorable": 384
+    },
+    "valid": {
+      "rows": 271,
+      "scorable": 130
+    },
+    "test": {
+      "rows": 118,
+      "scorable": 45
+    }
+  },
+  "held_out_eligible_rows": 175,
+  "matching_handoff_manifest_sha256": "246d537ed7c7932a4b556a02526e88848df390c3cbb512a4fa4b922d593da99b",
+  "validation_test_crop_hashes_verified": 389,
+  "validation_test_texts_equal_matching_handoff": true,
+  "files_sha256": {
+    "README.md": "06a9184d13849fb9482aeb598398d1a0cae3e158203ecdf0e9879ea38a476dd9",
+    "evaluation_labels.csv": "bdfd718c3c1a9dd37787ddbc623316b6cfd2f113379f8783a913ac6d56a5dbdb",
+    "labels.csv": "f00da4f4c558d9cd2d180f0265b924a61511c23d583a18401d324cad93740ede"
+  }
+}

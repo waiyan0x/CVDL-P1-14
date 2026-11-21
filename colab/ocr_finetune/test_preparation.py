@@ -17,6 +17,22 @@ from scripts.export_ocr_finetune_bundle import build,pairing,sha
 
 
 class PreparationTests(unittest.TestCase):
+    def test_early_stopping_plateau_counts_ties_and_keeps_best_epoch(self):
+        stopping = common.CropCEREarlyStopping()
+        decisions = [stopping.update(cer, epoch) for epoch, cer in enumerate([.3, .2, .21, .2, .22], 1)]
+        self.assertEqual(decisions, [False, False, False, False, True])
+        self.assertEqual(stopping.best_epoch, 2)
+        self.assertEqual(stopping.best, .2)
+
+    def test_early_stopping_improvement_resets_patience_and_rejects_nan(self):
+        stopping = common.CropCEREarlyStopping()
+        for epoch, cer in enumerate([.3, .3, .3, .2, .2, .2], 1):
+            self.assertFalse(stopping.update(cer, epoch))
+        self.assertTrue(stopping.update(.21, 7))
+        self.assertEqual(stopping.best_epoch, 4)
+        with self.assertRaises(ValueError):
+            stopping.update(float('nan'), 8)
+
     def test_pairing_policy_preserves_punctuation_case_and_spaces(self):
         self.assertEqual(pairing('> A/B\nMixed case',1),(['> A/B Mixed case'],'two_text_lines_joined_for_one_region'))
         self.assertEqual(pairing('A\nB',2),(['A','B'],None))

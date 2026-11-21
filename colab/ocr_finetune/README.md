@@ -1,5 +1,26 @@
 # Colab OCR fine-tuning
 
+Latest training entry point: **ocr_finetune_5k_split.ipynb**. The 5,000 pairs
+are now divided into 4,000 train / 500 validation / 500 test, with exact-text
+and known source groups kept together. Upload `ocr_dataset-20261120-5k-train-valid.zip`,
+`ocr_finetune_code-20261120-earlystop.zip`, and `ocr_5k_split_review.csv` to
+My Drive/DRIVE. Keep `ocr_dataset-20261120-5k-test.zip` separate until testing.
+T4, batch 32, max 20 epochs, patience 3; up to 2,500 steps per model.
+[Split files and policy](../../evaluation/ocr_dataset/5k-split-20261120/README.md).
+Earlier all-training 5k/full-10k notebooks and bundles are preserved as different experiments.
+
+
+## Proposed synthetic v2 run — 19 November 2026
+
+Use the separate `ocr_finetune_synthetic_v2.ipynb` for the new 10,000-crop
+reference archive. It pins uniquely named candidate data/code ZIPs and uses
+validation layout v4-lines-v3. Preparation checks passed; Colab training has
+not been run. The notebook requires the supplied 100-crop human spot-check.
+Full audit, fixed benchmark comparison, step 2–8 status and upload instructions:
+[`synthetic-v2-audit-20261119`](../../evaluation/ocr_training/synthetic-v2-audit-20261119/README.md).
+The notebook below remains the historical old-synthetic workflow.
+
+
 GPU training completed for all three models in Colab run `20261117-031848`;
 results and checkpoint-selection limits are recorded below. The training code,
 results and fine-tuned runner support are committed in `bea9837`.
@@ -238,3 +259,5 @@ Do not select the app model from validation; step 7 uses TEST annotation crops.
 - Do not blanket-ignore newly initialised/missing-weight warnings; inspect their parameter names first.
 - Check each completed run for config.json, epoch_log.csv, selection.json and a populated best/, then reload the model. Record its lowest val_crop_CER and Drive folder. Dry-run folders are separate and are not trained models.
 - When all three are complete and verified, disconnect/delete the Colab runtime to release it. Files on Drive remain. No TEST data is used in this notebook.
+
+Update — 20 November 2026: batch size 32, maximum 20 epochs, and validation crop-CER early stopping (patience 3) for all three models. The updated notebook requires `ocr_finetune_code-20261120-earlystop.zip`; the data ZIP is unchanged. Seven local preparation tests pass. Paddle early-stop/export integration still needs Colab verification.
