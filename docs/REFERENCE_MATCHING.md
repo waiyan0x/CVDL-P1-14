@@ -86,13 +86,22 @@ Local weights and test photos go in `models/local/` (gitignored, never committed
 
 ```
 models/local/
-├── paddleocr/              Cody's fine-tuned PaddleOCR (inference.pdiparams/.json/.yml), used first if present
-├── paddleocr-pretrained/   public en_PP-OCRv5_mobile_rec, used when paddleocr/ is empty
+├── paddleocr/              Cody's fine-tuned PaddleOCR (inference.pdiparams/.json/.yml): number, destination, route crops
+├── paddleocr-pretrained/   public en_PP-OCRv5_mobile_rec: whole-display crops (and field crops if paddleocr/ is empty)
 ├── yolo/best.pt            Brendan's fine-tuned YOLO11s (4 EDS classes)
 └── photos/                 bus photos to try
 ```
 
 With neither PaddleOCR folder filled, the public model is downloaded on first use.
+
+**Two OCR models (since 21 Nov 2026).** Number, destination and route crops are read by the fine-tuned
+model; whole-display crops (the panel fallback) by the pretrained model. The fine-tuned model was trained
+on single-field crops only and misreads whole displays (`FERNVALE RD 374` → `KEAMALE "D 374`,
+`51` → `AWIRS ST`), which made the panel fallback useless. On Cody's test set the fine-tuned model is
+better on field crops (CER 8.2% vs 11.6%, exact match 82.2% vs 64.4%), so field crops keep it. Both models
+are loaded once; each crop is read by one of them, so OCR time per crop does not change (about 31 ms).
+`--panel-ocr-model-dir same` reads every crop with one model. No labelled whole-display set exists, so the
+panel choice rests on the 11 photos below, not on a scored evaluation.
 
 PaddleOCR weights seen so far (SHA-256 of `inference.pdiparams`; `inference.json` and `inference.yml` are
 the same for all fine-tuned runs: `35f4f351…`, `27e91d05…`):
@@ -104,22 +113,30 @@ the same for all fine-tuned runs: `35f4f351…`, `27e91d05…`):
 | First upload of 21 Nov 2026, replaced the same day | `d717aa26…` | fine-tuned, but not in Cody's records; most likely the 5k-split run `ocr5k-split-b32-e20-20261120-084105` (validation only, test unopened, not selected); do not use |
 | Public pretrained `en_PP-OCRv5_mobile_rec` | `3ec8a97e…` | in `models/local/paddleocr-pretrained/` |
 
-End-to-end check with the round 1 weights (21 Nov 2026, `--photo` on 7 photos, 2-core CPU): every photo
-runs; 245–489 ms per frame. Results:
+End-to-end check, 21 Nov 2026 (`--photo`, YOLO11s boxes shared by all three setups, 2-core CPU,
+median of 3 runs). Pretrained = public model for every crop; fine-tuned = round 1 for every crop;
+hybrid = round 1 for field crops, pretrained for whole-display crops (the setting in use).
 
-| Photo | Service | Destination / result |
-| --- | --- | --- |
-| bus_170X | 170X | JB Sentral Bus Terminal, 75.0% (read `> JD SENTRAL`) |
-| bus_374 | 374 | conflict: route crop `ANCHORVALE RD` fits Anchorvale Road (100%), not service 374; destination withheld |
-| bus_42 | 42 | service only; `JLN KEMBANGAN-FIDELID ST` best fits Kembangan MRT station at 63.4%, below 70 |
-| bus_157 | 157 | service only; `LORNIE HWY` is road text, 36.4% |
-| bus_983 | 983 | service only; whole-display text below cutoff |
-| bus_82 | 82 | service only (two endpoints, no destination read); two side boxes give `T` and `AVE 2` (unable to detect) |
-| three_buses | 13, 61, 851 | the distant `51` bus is read as `61`, a different real service, so it is shown as accepted |
+| Photo | Pretrained | Fine-tuned | Hybrid (in use) |
+| --- | --- | --- | --- |
+| bus_145 | Toa Payoh Bus Interchange, 85.7% | Toa Payoh Bus Interchange, 92.3% | Toa Payoh Bus Interchange, 92.3% |
+| bus_359 | Pasir Ris Bus Interchange, 81.8% | Pasir Ris Bus Interchange, 81.8% | Pasir Ris Bus Interchange, 81.8% |
+| bus_170X | JB Sentral Bus Terminal, 83.3% | JB Sentral Bus Terminal, 75.0% | JB Sentral Bus Terminal, 75.0% |
+| bus_374 | Fernvale Road, 100% (whole display) | conflict, no destination | Fernvale Road, 100% (whole display) |
+| three_buses, distant `51` bus | 51, service only | **61 shown as accepted** (wrong) | 61 disputed by whole display `51`; withheld |
+| bus_20 | service only | service only | service only (see note) |
+| bus_143 | service only (destination unread) | service only | service only |
+| bus_42, bus_157, bus_82, bus_983 | service only | service only | service only |
 
-Same crops with the public pretrained model: the same service numbers except the distant bus (`51`, read
-correctly). Seven photos are too few to rank the two models; the scores in `REFERENCE_MATCHING_RESULTS.md`
-and Cody's OCR results are the comparison to use.
+Matched destinations: pretrained 4 of 11 photos, fine-tuned 3, hybrid 4. Wrong results shown as accepted:
+pretrained 0, fine-tuned 1, hybrid 0. On these photos hybrid ties pretrained; its field-crop advantage
+comes from Cody's test set, not from these photos. Note on bus_20: the display says `TAMPINES-CHANGI BIZ PK`; even typed exactly, it
+scores 58.8% against the reference endpoint `Changi Business Park Avenue 3 (loop)`, so this is a gap in
+`abbreviations.csv` (no `BUSINESS` → `BIZ`), not an OCR error.
+
+Latency, per frame (median): detection 125–180 ms; OCR 31 ms per crop for both models, 80–226 ms per frame
+(2–7 crops); matching under 3 ms; total about 0.2–0.4 s. Loading the second model adds about 7 MB and
+start-up time only.
 
 ### Try one display: `scripts/match_reference.py`
 
@@ -147,7 +164,8 @@ Options:
 | `--save-dir` | with `--photo`: write each crop and an annotated `detections.png` to `<dir>/<photo name>/` |
 | `--closest-only` | with `--photo`: report only the largest display (the nearest bus); all displays are still listed by size |
 | `--detector` | YOLO11s weights (default `models/local/yolo/best.pt`) |
-| `--ocr-model-dir` | PaddleOCR weights folder (default: see `models/local/` above) |
+| `--ocr-model-dir` | PaddleOCR weights for number, destination and route crops (default `models/local/paddleocr/`) |
+| `--panel-ocr-model-dir` | PaddleOCR weights for whole-display crops (default `models/local/paddleocr-pretrained/`); `same` = use `--ocr-model-dir` for every crop |
 | `--route-as-destination off/check/use` | route crop fallback when there is no destination crop |
 | `--cutoff`, `--margin`, `--scorer`, `--conflict` | matching settings (default: chosen on validation, `results/selected_setting.json`) |
 | `--reference` | route CSV (default `data/reference/bus_information.cleaned.csv`) |

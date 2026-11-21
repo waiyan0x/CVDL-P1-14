@@ -18,8 +18,11 @@ Or read every crop saved by --photo --save-dir (display-N_<field>.png), grouped 
 Or read crop images with PaddleOCR first (needs: pip install paddlepaddle paddleocr):
     python scripts/match_reference.py --number-crop num.png --destination-crop dest.png
     python scripts/match_reference.py --destination-crop dest.png --ocr-model-dir path/to/paddleocr/best
-OCR weights: --ocr-model-dir, else models/local/paddleocr (fine-tuned), else
-models/local/paddleocr-pretrained, else the public en_PP-OCRv5_mobile_rec (downloaded on first use).
+OCR weights: two models. Number, destination and route crops use --ocr-model-dir, else
+models/local/paddleocr (fine-tuned), else models/local/paddleocr-pretrained, else the public
+en_PP-OCRv5_mobile_rec (downloaded on first use). Whole-display (panel) crops use --panel-ocr-model-dir,
+else models/local/paddleocr-pretrained, else the public model: the fine-tuned model was trained on
+single-field crops only and misreads whole displays. --panel-ocr-model-dir same = one model for all crops.
 Detector weights: --detector, default models/local/yolo/best.pt (Brendan's fine-tuned YOLO11s).
 
 Settings default to the ones chosen on validation (results/selected_setting.json).
@@ -58,6 +61,28 @@ def resolve_ocr_dir(model_dir):
     if model_dir:
         return Path(model_dir)
     return next((d for d in LOCAL_OCR_DIRS if (d / "inference.pdiparams").is_file()), None)
+
+
+def resolve_panel_ocr_dir(panel_dir, field_dir):
+    """Whole-display crops: pretrained model by default (None = public model)."""
+    if panel_dir == "same":
+        return field_dir
+    if panel_dir:
+        return Path(panel_dir)
+    pretrained = ROOT / "models/local/paddleocr-pretrained"
+    return pretrained if (pretrained / "inference.pdiparams").is_file() else None
+
+
+def make_readers(args):
+    """Return read(path, field) -> (text, confidence): panel crops use the panel model, others the field model."""
+    field_dir = resolve_ocr_dir(args.ocr_model_dir)
+    panel_dir = resolve_panel_ocr_dir(args.panel_ocr_model_dir, field_dir)
+    name = lambda d: str(d) if d else PUBLIC_MODEL + " (public pretrained, downloaded)"
+    print(f"OCR model (number/destination/route crops): {name(field_dir)}")
+    print(f"OCR model (whole-display crops):            {name(panel_dir)}")
+    field_reader = make_reader(field_dir)
+    panel_reader = field_reader if panel_dir == field_dir else make_reader(panel_dir)
+    return lambda path, field: (panel_reader if field == "panel" else field_reader)(path)
 
 
 def iou(a, b):
@@ -145,7 +170,7 @@ def run_photo(photo, detector_path, reader, save_dir=None, conf=0.5, iou=0.7, im
             path = (save / f"{group['display_id']}_{field}.png") if save else Path(f"/tmp/_crop_{group['display_id']}_{field}.png")
             crop.save(path)
             start = time.perf_counter()
-            text, confidence = reader(path)
+            text, confidence = reader(path, field)
             timing["ocr_ms"] += (time.perf_counter() - start) * 1000
             timing["ocr_crops"] += 1
             texts[field] = text
@@ -200,7 +225,7 @@ def read_crops(args, reader):
     for field in ("number", "destination", "route", "panel"):
         path = getattr(args, f"{field}_crop")
         if path:
-            text, confidence = reader(path)
+            text, confidence = reader(path, field)
             texts[field] = text
             notes.append(f"{field}: {path} -> {text!r}" + (f" (OCR confidence {confidence:.2f})" if confidence is not None else ""))
         else:
@@ -259,7 +284,10 @@ def main(argv=None):
     crops.add_argument("--crop-dir", type=Path,
                        help="folder of display-N_<number|destination|route|panel>.png crops; reads all of them")
     crops.add_argument("--ocr-model-dir", type=Path,
-                       help="folder with inference.pdiparams/.json/.yml (e.g. Cody's best/)")
+                       help="model for number/destination/route crops: folder with inference.pdiparams/.json/.yml")
+    crops.add_argument("--panel-ocr-model-dir",
+                       help="model for whole-display crops (default models/local/paddleocr-pretrained); "
+                            "'same' = use --ocr-model-dir for every crop")
     photo = parser.add_argument_group("run the full chain on a photo (YOLO11s -> PaddleOCR -> matching)")
     photo.add_argument("--photo", type=Path, help="bus photo")
     photo.add_argument("--detector", type=Path, default=DEFAULT_DETECTOR, help="YOLO11s weights (.pt)")
@@ -290,11 +318,9 @@ def main(argv=None):
           f"conflict={settings.conflict} route_as_destination={settings.route_as_destination}")
 
     if args.photo:
-        model_dir = resolve_ocr_dir(args.ocr_model_dir)
         print(f"Detector:  {args.detector}")
-        print(f"OCR model: {model_dir or PUBLIC_MODEL + ' (public, downloaded)'}")
         import time
-        displays, boxes, timing = run_photo(args.photo, args.detector, make_reader(model_dir), args.save_dir)
+        displays, boxes, timing = run_photo(args.photo, args.detector, make_readers(args), args.save_dir)
         print(f"Detected boxes: " + ", ".join(f"{b['label']} {b['confidence']:.2f}" for b in boxes) if boxes else "Detected boxes: none")
         if not displays:
             show(matcher.match(detected=False), title=f"{args.photo.name}: no display found")
@@ -320,9 +346,7 @@ def main(argv=None):
         return
     if args.crop_dir:
         import re
-        model_dir = resolve_ocr_dir(args.ocr_model_dir)
-        print(f"OCR model: {model_dir or PUBLIC_MODEL + ' (public pretrained, downloaded)'}")
-        reader, groups = make_reader(model_dir), {}
+        reader, groups = make_readers(args), {}
         for path in sorted(Path(args.crop_dir).glob("*.png")):
             found = re.fullmatch(r"(.+)_(number|destination|route|panel)", path.stem)
             if found:
@@ -334,7 +358,7 @@ def main(argv=None):
             print(f"\n== {args.crop_dir.name} {display}: OCR of every crop")
             for field in ("number", "destination", "route", "panel"):
                 if field in files:
-                    text, confidence = reader(files[field])
+                    text, confidence = reader(files[field], field)
                     texts[field] = text
                     print(f"OCR:    {field:<11} {files[field].name:<28} -> {text!r}"
                           + (f" (confidence {confidence:.2f})" if confidence is not None else ""))
@@ -363,9 +387,7 @@ def main(argv=None):
         return
     texts = {f: getattr(args, f) for f in ("number", "destination", "route", "panel")}
     if any(getattr(args, f"{f}_crop") for f in texts):
-        model_dir = resolve_ocr_dir(args.ocr_model_dir)
-        print(f"OCR model: {model_dir or PUBLIC_MODEL + ' (public pretrained, downloaded)'}")
-        texts, notes = read_crops(args, make_reader(model_dir))
+        texts, notes = read_crops(args, make_readers(args))
         for line in notes:
             print(f"OCR:    {line}")
     if all(v is None for v in texts.values()):

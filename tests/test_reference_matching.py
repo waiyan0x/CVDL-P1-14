@@ -231,3 +231,12 @@ def test_number_missing_from_reference_with_route_text_is_unable_to_detect(tmp_p
     r = m.match(number="1", route="ANG ND KIG TT")
     assert r["status"] == "unable_to_detect" and r["service_status"] == "not_in_reference"
     assert r["route_text"] == "ANG ND KIG TT"
+
+
+def test_panel_ocr_model_defaults_to_pretrained_and_same_uses_field_model(tmp_path):
+    import scripts.match_reference as mr
+    field = tmp_path / "ft"
+    assert mr.resolve_panel_ocr_dir("same", field) == field
+    assert mr.resolve_panel_ocr_dir(str(tmp_path / "x"), field) == tmp_path / "x"
+    expected = mr.ROOT / "models/local/paddleocr-pretrained"
+    assert mr.resolve_panel_ocr_dir(None, field) == (expected if (expected / "inference.pdiparams").is_file() else None)
