@@ -257,7 +257,8 @@ python scripts/evaluate_reference_matching.py
 Model weights for the terminal tool live in `models/local/` (gitignored): `paddleocr/` (fine-tuned
 PaddleOCR, reads number, destination and route crops), `paddleocr-pretrained/` (reads whole-display
 crops), `yolo/best.pt` (fine-tuned YOLO11s). Check which
-PaddleOCR weights are installed in `docs/REFERENCE_MATCHING.md` (hash table).
+PaddleOCR weights are installed in `docs/REFERENCE_MATCHING.md` (hash table). Cutoff benchmark on 40
+labelled photos: `evaluation/photo_benchmark/PHOTO_BENCHMARK.md` (`scripts/benchmark_photo_threshold.py`).
 
 Settings in use: `ratio` scoring, cutoff 70, margin 10, conflict policy
 `keep_number`, route crop fallback `check`. Full usage, decision rules and

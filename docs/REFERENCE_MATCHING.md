@@ -83,8 +83,13 @@ values are withheld; raw OCR is always kept.
     Changi Business Park Ave 3 51.3%, 19 Changi Airfreight Centre 48.6%, 10 Tampines Bus Interchange 47.1%);
     wrong candidates scored 35–36% (157, 983, the misread `61` bus). So 70 gives up some correct destinations
     for safety, which matches validation. A clear close-up display scores 75–100% (170X, 145, 359, 151), so
-    the cutoff does not change the demo case. To compare 50 and 70 properly, label 30–50 unused photos first
-    and run both once.
+    the cutoff does not change the demo case.
+  - Photo benchmark (21 Nov 2026, 40 photos labelled before the run, `evaluation/photo_benchmark/PHOTO_BENCHMARK.md`,
+    full chain with the settings in use): at **70**, 20 of 28 destinations correct, 11 of 12 non-endpoint
+    signs withheld, **1 shown wrong** (807 side `YISHUN RING RD` → Yishun Bus Interchange, 75%); services
+    33 of 40 correct, 0 wrong. Cutoff 60 scored best (22 correct, same 1 wrong); 80 removes that wrong but
+    loses 2 correct; below 50 side-display roads are shown as destinations. Cutoff kept at 70. Five misses
+    no cutoff fixes: on `destination-above` signs YOLO11s labels the smaller lower line `destination`.
 - Destination gold needs the answer key (sign text → reference endpoint), see below.
 
 ## Running it
