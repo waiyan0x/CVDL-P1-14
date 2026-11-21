@@ -1,5 +1,9 @@
 # OCR results — synthetic-data benchmark
 
+The separate [synthetic v2 consolidation](OCR_RESULTS_SYNTHETIC_V2.md) covers
+the newly supplied 10,000-crop candidate. This file documents the older
+2,000-crop experiment; its scores must not be attributed to v2.
+
 **Observed evaluation — 18 November 2026:** round 2 is complete. Keep the
 round 1 fine-tuned **PaddleOCR**, run `20261117-031848`: test CER **8.2%**,
 WER **19.1%**, exact **82.2%**, on 45 human-confirmed annotation crops.

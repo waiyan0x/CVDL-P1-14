@@ -1,0 +1,205 @@
+{
+  "models": [
+    {
+      "id": "easyocr",
+      "baseline": {
+        "runs": [
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_scoring/normalised-v8-layoutv3/train_runs_filtered/easyocr-pretrained-train",
+            "splits": [
+              "train"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          },
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/easyocr-pretrained-valid-layoutv3",
+            "splits": [
+              "valid"
+            ],
+            "input_sets": [
+              "annotation",
+              "prediction"
+            ]
+          },
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/easyocr-pretrained-test",
+            "splits": [
+              "test"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          }
+        ]
+      },
+      "finetuned": {
+        "runs": [
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_scoring/normalised-v8-layoutv3/syn/train_runs_filtered/easyocr-finetunedsyn-train",
+            "splits": [
+              "train"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          },
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/easyocr-finetunedsyn-valid-layoutv3",
+            "splits": [
+              "valid"
+            ],
+            "input_sets": [
+              "annotation",
+              "prediction"
+            ]
+          },
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/easyocr-finetunedsyn-test",
+            "splits": [
+              "test"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "trocr",
+      "baseline": {
+        "runs": [
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_scoring/normalised-v8-layoutv3/train_runs_filtered/trocr-pretrained-train",
+            "splits": [
+              "train"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          },
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/trocr-pretrained-valid-layoutv3",
+            "splits": [
+              "valid"
+            ],
+            "input_sets": [
+              "annotation",
+              "prediction"
+            ]
+          },
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/trocr-pretrained-test",
+            "splits": [
+              "test"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          }
+        ]
+      },
+      "finetuned": {
+        "runs": [
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_scoring/normalised-v8-layoutv3/syn/train_runs_filtered/trocr-finetunedsyn-train",
+            "splits": [
+              "train"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          },
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/trocr-finetunedsyn-valid-layoutv3",
+            "splits": [
+              "valid"
+            ],
+            "input_sets": [
+              "annotation",
+              "prediction"
+            ]
+          },
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/trocr-finetunedsyn-test",
+            "splits": [
+              "test"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "paddleocr",
+      "baseline": {
+        "runs": [
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_scoring/normalised-v8-layoutv3/train_runs_filtered/paddleocr-pretrained-train",
+            "splits": [
+              "train"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          },
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/paddleocr-pretrained-valid-layoutv3",
+            "splits": [
+              "valid"
+            ],
+            "input_sets": [
+              "annotation",
+              "prediction"
+            ]
+          },
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/paddleocr-pretrained-test",
+            "splits": [
+              "test"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          }
+        ]
+      },
+      "finetuned": {
+        "runs": [
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_scoring/normalised-v8-layoutv3/syn/train_runs_filtered/paddleocr-finetunedsyn-train",
+            "splits": [
+              "train"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          },
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/paddleocr-finetunedsyn-valid-layoutv3",
+            "splits": [
+              "valid"
+            ],
+            "input_sets": [
+              "annotation",
+              "prediction"
+            ]
+          },
+          {
+            "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/paddleocr-finetunedsyn-test",
+            "splits": [
+              "test"
+            ],
+            "input_sets": [
+              "annotation"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

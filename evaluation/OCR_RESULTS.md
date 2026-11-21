@@ -1,5 +1,8 @@
 # OCR results
 
+New 10,000-crop candidate consolidation: [OCR_RESULTS_SYNTHETIC_V2.md](OCR_RESULTS_SYNTHETIC_V2.md).
+Its v2 model scores are pending training/evaluation; earlier measured results are retained.
+
 > This file preserves the previous round 1 benchmark. The new real-plus-synthetic
 > benchmark is in [OCR_RESULTS_SYNTHETIC.md](OCR_RESULTS_SYNTHETIC.md), with the
 > same model/field/population tables and pre / fine / fine+syn columns. It also

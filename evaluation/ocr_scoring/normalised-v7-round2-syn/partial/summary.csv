@@ -1,0 +1,10 @@
+model,version,crops,readable_chars,known_text_cer,ci_low,ci_high,all_readable_correct_pct,failed
+EasyOCR,pretrained,49,578,56.7,48.2,65.1,4.1,0
+EasyOCR,fine-tuned,49,578,45.0,36.3,53.5,8.2,0
+EasyOCR,fine-tuned+syn,49,578,40.1,31.7,48.9,6.1,0
+TrOCR,pretrained,49,578,41.3,32.9,50.1,12.2,0
+TrOCR,fine-tuned,49,578,38.9,30.0,48.1,16.3,0
+TrOCR,fine-tuned+syn,49,578,59.9,54.2,65.1,2.0,0
+PaddleOCR,pretrained,49,578,33.0,24.0,42.5,22.4,0
+PaddleOCR,fine-tuned,49,578,31.3,22.8,40.1,22.4,0
+PaddleOCR,fine-tuned+syn,49,578,28.5,20.7,36.5,24.5,0
