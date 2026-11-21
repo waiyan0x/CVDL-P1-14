@@ -25,7 +25,7 @@ CSV name  ───────────────────────�
   `BUILDING`→`BLDG`, `BEFORE`/`AFTER`→`BEF`/`AFT`, `INTERNATIONAL`→`INTL`, `TECHNOLOGICAL`/`TECHNOLOGY`→`TECH`,
   `POLYTECHNIC`→`POLY`, `UNIVERSITY`→`UNI`, `PRIMARY`/`SECONDARY`/`SCHOOL`→`PRI`/`SEC`/`SCH`, `HOSPITAL`→`HOSP`,
   `BUKIT`/`BKT`→`BT`, `TANJONG`→`TG`, `KAMPONG`→`KG`, `MOUNT`→`MT`, `PLACE`→`PL`, `CLOSE`→`CL`, `LANE`→`LN`,
-  `SQUARE`→`SQ`, `JUNCTION`→`JCT`, `ESTATE`→`EST`; places `CBP`→`CHANGI BIZ PK`, `NTU`→`NANYANG TECH UNI`.
+  `SQUARE`→`SQ`, `JUNCTION`→`JCT`, `ESTATE`→`EST`, `CENTRAL`→`CTRL` (`HOUGANG CTRL INT`); places `CBP`→`CHANGI BIZ PK`, `NTU`→`NANYANG TECH UNI`.
   Re-running the evaluation changed similarity values only: no display changed status on validation or
   test at the cutoff in use (70), and the selected setting is unchanged. (`TERRACE` and `SAINT` are not
   added: their short forms `TER` and `ST` already mean terminal and street.)
@@ -142,6 +142,23 @@ comes from Cody's test set, not from these photos. Note on bus_20: the display s
 (origin-destination of a loop service). Even typed exactly it scored 58.8% against the reference endpoint
 `Changi Business Park Avenue 3 (loop)`; with `BUSINESS`→`BIZ` added it scores 63.4%, still below 70,
 because the origin `TAMPINES-` is part of the text. `CHANGI BIZ PK` alone with service 20 is accepted.
+
+Second batch, 21 Nov 2026 (hybrid OCR, web photos about 550–710 px wide):
+
+| Photo | Result | Cause |
+| --- | --- | --- |
+| bus_151 | **151, Hougang Central Bus Interchange, 88.2%** | number crop read `11`; whole display read `151`; destination picked 151 (dispute rule) |
+| bus_307 | 307, service only | destination text 9 px high, unreadable |
+| bus_19 | 19, service only | destination text 11 px high (`SMMG ARTSSNT CTR`) |
+| bus_10 | unable to detect | number crop 20 px high read `1` (shows `10`); the side display is found but ranked second by size |
+| neg_sign_orchard, neg_sign_94009 (bus stop signs) | no display found | correctly ignored |
+| neg_back_48 (rear of a bus) | no display found | correctly ignored |
+
+All 3 negatives produce no detection, so nothing is matched. The misses come from text 8–14 px high in
+low-resolution photos; padding the crops does not fix it consistently (tested 0, 15%, 30% of box height:
+`51` became correct, `151` became `161`, destinations got worse), so padding is not used. Use
+frames where the display is at least about 30 px high (the photos that matched have 15–68 px digits and
+legible destination text).
 
 Latency, per frame (median): detection 125–180 ms; OCR 31 ms per crop for both models, 80–226 ms per frame
 (2–7 crops); matching under 3 ms; total about 0.2–0.4 s. Loading the second model adds about 7 MB and

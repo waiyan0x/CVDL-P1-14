@@ -52,7 +52,7 @@ When the destination fits a different service better than the number read: `with
 
 | Policy | Scorer | Cutoff | Margin | Net correct | Shown precision | Service correct / wrong |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| withhold_both | WRatio | 25 | 0 | 87 | 97.8% | 66 / 1 |
+| withhold_both | ratio | 25 | 0 | 86 | 98.9% | 63 / 1 |
 | keep_number | ratio | 50 | 10 | 92 | 98.9% | 68 / 1 |
 
 ## Route crop as destination fallback (validation, best setting of each)
