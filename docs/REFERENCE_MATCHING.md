@@ -189,9 +189,8 @@ low-resolution photos; padding the crops does not fix it consistently (tested 0,
 frames where the display is at least about 30 px high (the photos that matched have 15–68 px digits and
 legible destination text).
 
-Latency, per frame (median): detection 125–180 ms; OCR 31 ms per crop for both models, 80–226 ms per frame
-(2–7 crops); matching under 3 ms; total about 0.2–0.4 s. Loading the second model adds about 7 MB and
-start-up time only.
+Latency: see "Latency per frame" below (median 250 ms, p95 351 ms). Loading the second OCR model adds about
+7 MB and start-up time only.
 
 ### Try one display: `scripts/match_reference.py`
 
@@ -236,19 +235,27 @@ crop is read as one line, so two-line signs read worse than in Cody's line-split
 Photo mode also prints the time per stage for that frame (models loaded and warmed up first, so start-up
 is excluded): detection, grouping, OCR (total over all crops), matching and the total.
 
-Measured on a 2-core cloud CPU with no GPU (Brendan's YOLO11s, public pretrained PaddleOCR), 20 Nov 2026:
+**Latency per frame** (21 Nov 2026): 58 photos in `models/local/photos/` × 3 passes = 174 frames; 2-core
+Intel Xeon 2.3 GHz cloud CPU, no GPU; batch size 1; models loaded and warmed up first (start-up excluded);
+settings in use (YOLO11s 640 px, fine-tuned PaddleOCR for field crops, pretrained for whole-display crops,
+matcher at cutoff 65). Median is the typical frame; p95 is the frame time that 95% of frames stay under.
 
-| Photo | Detection | OCR (crops) | Matching | Total per frame |
+| Stage | Median | p95 | Mean | Max |
 | --- | ---: | ---: | ---: | ---: |
-| bus_983 (1 display) | 204 ms | 154 ms (2) | 0.3 ms | 359 ms |
-| bus_374 (1 display) | 196 ms | 208 ms (3) | 3.5 ms | 408 ms |
-| three_buses (3 displays) | 210 ms | 385 ms (7) | 1.4 ms | 596 ms |
-| bus_42 (1 display) | 196 ms | 355 ms (4) | 4.3 ms | 555 ms |
-| bus_170X (1 display) | 193 ms | 205 ms (3) | 1.3 ms | 399 ms |
+| Detection (YOLO11s) | 136 ms | 187 ms | 135 ms | 218 ms |
+| Grouping boxes into displays | 0.1 ms | 0.1 ms | 0.1 ms | 0.1 ms |
+| OCR, all crops in the frame | 109 ms | 182 ms | 105 ms | 245 ms |
+| — per crop | 32 ms | 39 ms | 32 ms | 106 ms |
+| — crops per frame | 4 | 5.3 | 3.2 | 7 |
+| Reference matching, all displays | 0.8 ms | 1.1 ms | 0.8 ms | 4.6 ms |
+| **Total** | **250 ms** | **351 ms** | **241 ms** | **456 ms** |
 
-OCR grows with the number of crops (about 55–75 ms each here); detection is roughly constant; matching is
-under 4 ms. A GPU mainly shortens detection. Cody's OCR runs measured about 65 ms per crop for PaddleOCR on
-a Mac CPU (`evaluation/ocr_runs/*/predictions.jsonl` on the OCR branch).
+The total's p95 is measured on whole frames, so it is lower than the sum of the stage p95s (a frame is rarely
+slow in every stage at once). OCR time grows with the number of crops (about 32 ms each); detection is
+roughly constant; matching is negligible. At p95 a frame takes 0.35 s on this CPU, so sampling one frame
+every 0.5–1 s leaves headroom. A GPU mainly shortens detection (Brendan measured YOLO11s at 26 ms median,
+37 ms p95 on his GPU). Cody's OCR runs measured about 65 ms per crop for PaddleOCR on a Mac CPU
+(`evaluation/ocr_runs/*/predictions.jsonl` on the OCR branch).
 
 Example cases worth trying:
 
