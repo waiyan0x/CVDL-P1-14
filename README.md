@@ -258,7 +258,9 @@ Model weights for the terminal tool live in `models/local/` (gitignored): `paddl
 PaddleOCR, reads number, destination and route crops), `paddleocr-pretrained/` (reads whole-display
 crops), `yolo/best.pt` (fine-tuned YOLO11s). Check which
 PaddleOCR weights are installed in `docs/REFERENCE_MATCHING.md` (hash table). Cutoff and line-swap benchmark on 40
-labelled photos: `evaluation/photo_benchmark/PHOTO_BENCHMARK.md` (`scripts/benchmark_photo_threshold.py`).
+labelled photos: `evaluation/photo_benchmark/PHOTO_BENCHMARK.md` (`scripts/benchmark_photo_threshold.py`,
+`scripts/benchmark_crop_confidence.py`). Each result also carries a one-line `announcement`, e.g.
+`Bus 174 to Kampong Bahru Bus Terminal, via Corporation Rd.` (rules in `docs/REFERENCE_MATCHING.md`).
 
 Settings in use: `ratio` scoring, cutoff 65, margin 10, line swap on, conflict policy
 `keep_number`, route crop fallback `check`. Full usage, decision rules and

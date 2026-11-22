@@ -46,4 +46,4 @@ class RouteMatcher:
         return {"status": status, "service": result["service"] if accepted else None,
                 "endpoint": result["destination"] if status == "matched" else None,
                 "similarity": round(score / 100, 3) if score is not None else None,
-                "reason": reason, "routes": routes, "detail": result}
+                "reason": reason, "routes": routes, "announcement": result.get("announcement"), "detail": result}

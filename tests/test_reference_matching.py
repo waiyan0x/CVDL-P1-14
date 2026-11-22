@@ -271,3 +271,45 @@ def test_whole_display_tried_when_destination_crop_does_not_fit(tmp_path):
                                                  route_as_destination="check"))
     r = m.match(number="268", destination="EDGEFIELD PLAINS", panel="ANG MO KIO IND PK 2 268")
     assert r["destination"] == "Ang Mo Kio Industrial Park 2" and r["sources"]["destination"] == ["panel"]
+
+
+ANN_CSV = ("Route number,Origin,Destination\n174,Boon Lay Bus Interchange,Kampong Bahru Bus Terminal\n"
+           "64,Mei Ling Street,Ang Mo Kio Bus Interchange\n")
+
+
+def _ann_matcher(tmp_path):
+    from backend.app.services.reference_matching import DisplayMatcher, Reference, Settings
+    path = tmp_path / "routes.csv"; path.write_text(ANN_CSV)
+    return DisplayMatcher(Reference(path), Settings(cutoff=65, margin=10, scorer="ratio", conflict="keep_number",
+                                                    route_as_destination="check"))
+
+
+def test_announcement_number_destination_and_route(tmp_path):
+    m = _ann_matcher(tmp_path)
+    r = m.match(number="174", destination="KAMPONG BAHRU TER", route="CORPORATION RD")
+    assert r["announcement"] == "Bus 174 to Kampong Bahru Bus Terminal, via Corporation Rd."
+    assert m.match(number="174", destination="KAMPONG BAHRU TER")["announcement"] == "Bus 174 to Kampong Bahru Bus Terminal."
+
+
+def test_announcement_skips_route_text_that_is_not_a_road(tmp_path):
+    r = _ann_matcher(tmp_path).match(number="174", destination="KAMPONG BAHRU TER", route="LFF SERANGOON ED")
+    assert r["announcement"] == "Bus 174 to Kampong Bahru Bus Terminal."
+
+
+def test_announcement_number_only_and_unconfirmed_cases(tmp_path):
+    m = _ann_matcher(tmp_path)
+    assert m.match(number="64")["announcement"] == "Bus 64 is approaching. Destination could not be read."
+    assert m.match(number="1004")["announcement"].startswith("A bus is approaching. Bus number")
+    assert m.match(destination="NOT IN SERVICE")["announcement"] == "Bus not in service."
+    assert m.match(detected=False)["announcement"] is None
+
+
+def test_route_phrase_rules():
+    from backend.app.services.announcement import route_phrase
+    assert route_phrase("UPP SERANGOON RD") == "Upp Serangoon Rd"
+    assert route_phrase("ANG MO KIO AVE 3") == "Ang Mo Kio Ave 3"
+    assert route_phrase("VIA JLN BESAR") == "Jln Besar"
+    assert route_phrase("LFF SERANGOON ED") is None
+    assert route_phrase("T") is None
+    assert route_phrase("SIME 1 RD") is None
+    assert route_phrase("PASIR RIS DR 1") == "Pasir Ris Dr 1"

@@ -70,7 +70,8 @@ Analysis response:
       "confidence":0.9,"raw":"3","ocr_confidence":0.8,
       "crop":"data:image/jpeg;base64,..."}},
     "match":{"status":"matched","service":"3","endpoint":"Tampines Bus Interchange",
-      "similarity":0.9,"reason":"...","routes":[]}}],
+      "similarity":0.9,"reason":"...","routes":[],
+      "announcement":"Bus 3 to Tampines Bus Interchange."}}],
   "timings":{"detection_ms":1,"preprocessing_ms":1,"ocr_ms":1,
     "matching_ms":1,"total_ms":4},
   "processing_fps":250

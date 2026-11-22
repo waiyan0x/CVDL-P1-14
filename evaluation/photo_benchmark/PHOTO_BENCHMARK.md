@@ -92,6 +92,34 @@ inspected, so none of them is an untouched held-out result; confirm on new foota
 The one wrong result at 65 and 70: 807's side display `YISHUN RING RD` matches Yishun Bus Interchange
 (75.0%), an endpoint of 807. Only a cutoff above 75 removes it.
 
+## Detector-confidence rule for destination/route crops (22 Nov 2026)
+
+Rule tested: read a destination or route crop only if YOLO11s gave its box a confidence of at least T;
+otherwise drop it and use the whole-display text (number tokens removed). The number crop is always kept.
+T = 0.50 is today's behaviour (the detector's own filter). Same 40 photos, settings in use, one OCR pass
+(`results/crop_readings.csv`); script `scripts/benchmark_crop_confidence.py`; grid
+`results/crop_confidence_grid.csv`.
+
+| T | Crops dropped (of 51) | Destination correct (of 28) | NONE withheld (of 12) | Shown wrong | Net |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+| **0.50 (in use)** | 0 | **27** | 11 | 1 | **37** |
+| 0.60 | 3 | 27 | 11 | 1 | 37 |
+| 0.70 | 7 | 27 | 11 | 1 | 37 |
+| 0.75 | 10 | 26 | 11 | 1 | 36 |
+| 0.80 | 12 | 26 | 11 | 1 | 36 |
+| 0.85 | 14 | 26 | 11 | 1 | 36 |
+| 0.90 | 23 | 25 | 11 | 1 | 35 |
+| whole display only | 51 | 22 | 12 | 1 (100A → Aljunied Road) | 33 |
+
+No threshold improved the result; from 0.75 up it removed correct readings, and reading only the whole
+display was worst (22 of 28; 100A was then shown wrongly as Aljunied Road). The low-confidence
+boxes (0.51–0.71) were read correctly by OCR (OCR confidence 0.95–1.00) but had the **wrong class**: e.g.
+0.51 `RCHARD RD` labelled destination on a sign whose destination is `TEMASEK AVE`; 0.65 `MARINE PARADE RD`
+labelled destination on `TOA PAYOH INT`. Low detector confidence here means "unsure which line this is",
+not "unreadable"; the line swap already tries the other line and the whole display in that case. The
+whole display reads worse because it is read as one line (`TAPIPIS NS AVE 298` vs the destination crop
+`TAMPINES AVE 5`). Decision: keep T = 0.50; `--field-min-conf` in `scripts/match_reference.py` exposes it.
+
 ## Remaining miss (1 of 28)
 
 100A: the number crop reads `1004` (not a service), so the destination `ALJUNED MRT` is searched without

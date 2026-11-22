@@ -22,6 +22,8 @@ from __future__ import annotations
 
 import csv
 import re
+
+from backend.app.services.announcement import build_announcement
 import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -426,4 +428,5 @@ class DisplayMatcher:
     @staticmethod
     def _finish(out, status, reason):
         out.update(status=status, message=MESSAGES[status], reason=reason)
+        out["announcement"] = build_announcement(out)
         return out

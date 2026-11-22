@@ -73,6 +73,34 @@ destination; `withhold_both` hides both.
 **The app shows accepted or inferred values only.** Below-cutoff, tied, conflicting and not-in-reference
 values are withheld; raw OCR is always kept.
 
+## Announcement (message for each display)
+
+Every match result carries `announcement`, a one-line message built only from what was confirmed
+(`backend/app/services/announcement.py`; the app's `RouteMatcher` returns it at the top level, the terminal
+tool prints it as `Message:`). The service number and destination are stated only when the matcher accepted
+them; route text cannot be checked against the reference (it has no road names), so it is added as "via …"
+only when it reads like a road name: at least two words, no single-letter word, no number except at the end,
+and the last word a road or place ending (`RD`, `AVE`, `ST`, `DR`, `CRES`, `WAY`, `INT`, `MRT`, …) or the
+first word `JLN`/`LOR`/`UPP`. With swapped lines (the destination came from the route crop), the destination
+crop's text is used as the "via" text.
+
+| What was confirmed | Message |
+| --- | --- |
+| Service + destination + road-like route | `Bus 174 to Kampong Bahru Bus Terminal, via Corporation Rd.` |
+| Service + destination | `Bus 174 to Kampong Bahru Bus Terminal.` |
+| Service; destination not read | `Bus 64 is approaching. Destination could not be read.` |
+| Service; destination read but withheld (conflict, tie, below cutoff) | `Bus 148 is approaching. Destination could not be confirmed.` |
+| Destination; service not confirmed (shared by several services, or number not in the reference) | `A bus to Toa Payoh Bus Interchange is approaching. Bus number could not be confirmed.` |
+| Number read but not a service, no destination | `A bus is approaching. Bus number and destination could not be confirmed.` |
+| Route text only | `A bus is approaching, via Jln Besar. Bus number and destination could not be read.` |
+| Depot / not-in-service text | `Bus not in service.` |
+| No display detected | no message |
+
+Destination names are the reference names as written (`Temasek Avenue (loop)`). Route text is tidied for
+reading (`UPP SERANGOON RD` → `Upp Serangoon Rd`) but not corrected, so an OCR error that still looks like a
+road name (e.g. `RCHARD RD`) can appear. Known risk: a whole-display-only read of a side display such as
+`JLN BESAR` scores 72 against `Jalan Loyang Besar`, which is then announced as `Bus 354 to Jalan Loyang Besar.`
+
 ## Settings and evaluation
 
 - Similarity: RapidFuzz 0–100. Grid on validation: scorers `ratio`, `token_sort_ratio`, `token_set_ratio`,
@@ -100,6 +128,10 @@ values are withheld; raw OCR is always kept.
     33 of 40 correct, 0 wrong. Cutoff 60 scored best (22 correct, same 1 wrong); 80 removes that wrong but
     loses 2 correct; below 50 side-display roads are shown as destinations. Five misses no cutoff fixed:
     on `destination-above` signs YOLO11s labels the smaller lower line `destination`.
+  - Detector-confidence rule for destination/route crops (22 Nov 2026, same 40 photos): dropping boxes below
+    0.60–0.70 changed nothing; 0.75 and above lost correct destinations (0.90: 25 of 28; whole display only:
+    22 of 28 and 1 wrong). Boxes below about 0.72 were mostly the right text with the wrong class, which the
+    line swap already handles. Kept at 0.50 (every detected box); `--field-min-conf` exposes the option.
   - After adding the line swap (same photos, OCR not re-run): at **65**, 27 of 28 destinations correct, 11 of
     12 withheld, 1 shown wrong (the same 807). 65 is the only cutoff never worse than 70 on validation
     (91 vs 91 net), test (15 vs 14 of 16) and the photos (37 vs 36), with no added wrong output; 50–55 show
@@ -216,6 +248,7 @@ Options:
 | `--crop-dir` | folder of `display-N_<number/destination/route/panel>.png` crops; reads all, grouped by display |
 | `--photo` | bus photo for the full chain |
 | `--save-dir` | with `--photo`: write each crop and an annotated `detections.png` to `<dir>/<photo name>/` |
+| `--field-min-conf` | with `--photo`: read a destination/route box only if its detector confidence is at least this; below it the whole display is used (default 0.50 = every detected box; higher values lost correct destinations in the photo benchmark) |
 | `--closest-only` | with `--photo`: report only the largest display (the nearest bus); all displays are still listed by size |
 | `--detector` | YOLO11s weights (default `models/local/yolo/best.pt`) |
 | `--ocr-model-dir` | PaddleOCR weights for number, destination and route crops (default `models/local/paddleocr/`) |
