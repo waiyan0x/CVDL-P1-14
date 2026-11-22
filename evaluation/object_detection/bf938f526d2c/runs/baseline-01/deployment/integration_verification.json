@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-02T21:32:48+0800",
+  "checkpoint": "evaluation/object_detection/bf938f526d2c/runs/baseline-01/checkpoints/yolo11s-best.pt",
+  "checkpoint_sha256": "01d832cb6eda71dcf4a88e6ebbafc080f9dc299be8161c76ab15c75f7c60c2e3",
+  "device": "cuda",
+  "settings": {
+    "image_size": 640,
+    "confidence": 0.2,
+    "nms_iou": 0.7
+  },
+  "image_evidence": {
+    "multiple_displays": {
+      "path": "data/training/2026-10-30-torchvision/valid/4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5.jpg",
+      "sha256": "cdc7414f6df953b79dce15290cb8e0bc033dc27f723e964703f8fd7004dffc19",
+      "status": "unreadable",
+      "detections": 8,
+      "labels": {
+        "eds": 2,
+        "bus_number": 2,
+        "route": 2,
+        "destination": 2
+      },
+      "displays": 2,
+      "display_fields": [
+        [
+          "bus_number",
+          "destination",
+          "route"
+        ],
+        [
+          "bus_number",
+          "route"
+        ]
+      ],
+      "timings": {
+        "preprocessing_ms": 2.467,
+        "detection_ms": 33.34,
+        "ocr_ms": 0.002,
+        "matching_ms": 0.02,
+        "total_ms": 35.829
+      },
+      "warmed_detection_latency": {
+        "runs": 5,
+        "median_ms": 35.249,
+        "p95_ms": 252.003,
+        "values_ms": [
+          252.003,
+          35.249,
+          39.498,
+          29.073,
+          33.34
+        ]
+      }
+    },
+    "single_display": {
+      "path": "data/training/2026-10-30-torchvision/valid/IMAGE_2026-10-23_22_04_04_jpg.rf.0cb9ed676b55ae03ba0719f27edc5177.jpg",
+      "sha256": "81f60492ca664090e0e7340be5499fb150c410ec345c196f3dd5b817bc86cc1d",
+      "status": "unreadable",
+      "detections": 5,
+      "labels": {
+        "eds": 1,
+        "bus_number": 0,
+        "route": 3,
+        "destination": 1
+      },
+      "displays": 1,
+      "display_fields": [
+        [
+          "destination",
+          "route"
+        ]
+      ],
+      "timings": {
+        "preprocessing_ms": 2.399,
+        "detection_ms": 21.762,
+        "ocr_ms": 0.001,
+        "matching_ms": 0.014,
+        "total_ms": 24.176
+      },
+      "warmed_detection_latency": {
+        "runs": 5,
+        "median_ms": 23.818,
+        "p95_ms": 111.82,
+        "values_ms": [
+          111.82,
+          35.651,
+          23.818,
+          19.991,
+          21.762
+        ]
+      }
+    },
+    "negative": {
+      "path": "data/training/2026-10-30-torchvision/valid/IMAGE_2026-10-23_21_56_09_jpg.rf.b74dd5352c689be9c7dcc6a048280656.jpg",
+      "sha256": "a372a87e3f7cffbadc4b4e415d117db37edac36fff2f5359d0c165be2c5903e9",
+      "status": "no_eds",
+      "detections": 0,
+      "labels": {
+        "eds": 0,
+        "bus_number": 0,
+        "route": 0,
+        "destination": 0
+      },
+      "displays": 0,
+      "display_fields": [],
+      "timings": {
+        "preprocessing_ms": 9.128,
+        "detection_ms": 26.179,
+        "ocr_ms": 0.0,
+        "matching_ms": 0.0,
+        "total_ms": 35.307
+      },
+      "warmed_detection_latency": {
+        "runs": 5,
+        "median_ms": 28.485,
+        "p95_ms": 67.646,
+        "values_ms": [
+          67.646,
+          29.005,
+          25.724,
+          28.485,
+          26.179
+        ]
+      }
+    }
+  },
+  "simulated_camera": {
+    "status": "unreadable",
+    "detections": 8,
+    "labels": {
+      "eds": 2,
+      "bus_number": 2,
+      "route": 2,
+      "destination": 2
+    },
+    "displays": 2,
+    "display_fields": [
+      [
+        "bus_number",
+        "destination",
+        "route"
+      ],
+      [
+        "bus_number",
+        "route"
+      ]
+    ],
+    "timings": {
+      "preprocessing_ms": 5.113,
+      "detection_ms": 23.467,
+      "ocr_ms": 0.005,
+      "matching_ms": 0.04,
+      "total_ms": 28.625
+    },
+    "limitation": "Uses a labelled still image through the camera response path; no physical camera or moving-bus claim."
+  },
+  "uploaded_video": {
+    "metadata": {
+      "width": 800,
+      "height": 534,
+      "duration_ms": 2000.0,
+      "fps": 2.0,
+      "video_id": "0bd36bc78a5b439682f66568761086e1",
+      "name": "integration_fixture.avi",
+      "url": "/api/videos/0bd36bc78a5b439682f66568761086e1/content"
+    },
+    "frames": [
+      {
+        "requested_ms": 0,
+        "decoded_ms": 0.0,
+        "status": "unreadable",
+        "detections": 7,
+        "labels": {
+          "eds": 3,
+          "bus_number": 1,
+          "route": 2,
+          "destination": 1
+        },
+        "displays": 3,
+        "display_fields": [
+          [],
+          [
+            "bus_number",
+            "destination",
+            "route"
+          ],
+          [
+            "route"
+          ]
+        ],
+        "timings": {
+          "preprocessing_ms": 29.691,
+          "detection_ms": 26.858,
+          "ocr_ms": 0.004,
+          "matching_ms": 0.051,
+          "total_ms": 56.604
+        }
+      },
+      {
+        "requested_ms": 500,
+        "decoded_ms": 500.0,
+        "status": "unreadable",
+        "detections": 1,
+        "labels": {
+          "eds": 1,
+          "bus_number": 0,
+          "route": 0,
+          "destination": 0
+        },
+        "displays": 1,
+        "display_fields": [
+          []
+        ],
+        "timings": {
+          "preprocessing_ms": 25.217,
+          "detection_ms": 120.518,
+          "ocr_ms": 0.0,
+          "matching_ms": 0.023,
+          "total_ms": 145.758
+        }
+      },
+      {
+        "requested_ms": 1000,
+        "decoded_ms": 1000.0,
+        "status": "no_eds",
+        "detections": 0,
+        "labels": {
+          "eds": 0,
+          "bus_number": 0,
+          "route": 0,
+          "destination": 0
+        },
+        "displays": 0,
+        "display_fields": [],
+        "timings": {
+          "preprocessing_ms": 38.56,
+          "detection_ms": 31.949,
+          "ocr_ms": 0.0,
+          "matching_ms": 0.0,
+          "total_ms": 70.509
+        }
+      },
+      {
+        "requested_ms": 1500,
+        "decoded_ms": 1500.0,
+        "status": "unreadable",
+        "detections": 8,
+        "labels": {
+          "eds": 2,
+          "bus_number": 3,
+          "route": 2,
+          "destination": 1
+        },
+        "displays": 2,
+        "display_fields": [
+          [
+            "bus_number",
+            "destination",
+            "route"
+          ],
+          [
+            "bus_number",
+            "route"
+          ]
+        ],
+        "timings": {
+          "preprocessing_ms": 44.181,
+          "detection_ms": 32.681,
+          "ocr_ms": 0.004,
+          "matching_ms": 0.036,
+          "total_ms": 76.902
+        }
+      }
+    ],
+    "total_latency": {
+      "runs": 4,
+      "median_ms": 73.706,
+      "p95_ms": 145.758,
+      "values_ms": [
+        56.604,
+        145.758,
+        70.509,
+        76.902
+      ]
+    },
+    "limitation": "Local MJPG fixture built from labelled stills verifies upload/decode/frame identity and detector flow, not field-video generalisation."
+  },
+  "ocr": {
+    "status": "not_verified",
+    "reason": "No local EasyOCR/TrOCR assets or Tesseract executable were available. A no-text adapter exercised crop dispatch only; OCR accuracy and latency are not reported."
+  },
+  "reference_matching": {
+    "status": "not_verified",
+    "reason": "data/bus_information.csv was unavailable."
+  },
+  "physical_camera": {
+    "status": "not_verified",
+    "reason": "Requires user-approved browser permission and real camera hardware/field scenes."
+  }
+}

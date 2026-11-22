@@ -1,7 +1,7 @@
 import {el} from '../core/dom.js';
 
 export function section(title, ...children) {
-  return el('section', {class: 'stack', 'aria-label': title}, el('h2', {}, title), ...children);
+  return el('section', {class: 'doc-section', 'aria-label': title}, el('h2', {}, title), ...children);
 }
 
 export function facts(entries) {

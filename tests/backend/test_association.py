@@ -24,6 +24,18 @@ def test_screen_only_detection_remains_a_group():
     assert groups[0]['screen']['source'] == 'model'
 
 
+def test_route_field_is_preserved_with_its_screen_owner():
+    groups, detections = associate_displays([
+        field('eds', [0, 0, 150, 60]),
+        field('route', [10, 8, 100, 25]),
+        field('destination', [10, 28, 110, 50]),
+        field('bus_number', [115, 10, 145, 45]),
+    ], 160, 70)
+    assert len(groups) == 1
+    assert set(groups[0]['fields']) == {'route', 'destination', 'bus_number'}
+    assert {item['label'] for item in detections} == {'eds', 'route', 'destination', 'bus_number'}
+
+
 def test_unowned_paired_fields_create_estimate_without_confidence():
     groups, detections = associate_displays([
         field('destination', [0, 0, 70, 25]), field('bus_number', [75, 0, 100, 30])

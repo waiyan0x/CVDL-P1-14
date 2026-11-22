@@ -2,7 +2,7 @@ import {el, message, milliseconds, percent} from '../core/dom.js';
 import {fieldNumbers} from './viewer.js';
 
 const titles = {matched: 'Reference endpoint matched', partial: 'Incomplete reading', unreadable: 'Unreadable text', unknown_match: 'Unknown route', no_eds: 'No EDS found'};
-const roles = {bus_number: 'Service number', destination: 'Destination'};
+const roles = {bus_number: 'Service number', route: 'Route / landmark', destination: 'Destination'};
 
 function confidence(label, value) { return el('div', {}, el('dt', {}, label), el('dd', {}, percent(value))); }
 
@@ -12,9 +12,10 @@ function fieldCard(field, label, result, number, idPrefix = '') {
   const fromDisplay = field.ocr_source === 'whole_display_fallback';
   if (fromDisplay) card.append(el('p', {class: 'small muted'}, 'No usable field crop: read from the whole display with pretrained PaddleOCR (less accurate).'));
   if (field.crop) card.append(el('img', {class: 'crop', src: field.crop, alt: fromDisplay ? 'Whole display crop' : `${roles[label]} crop`}));
-  const text = el('div', {class: 'field-text'}, el('div', {class: 'raw-text'}, field.raw?.trim() ? `OCR reads ${field.raw}` : 'OCR could not read this region'));
+  const reading = field.raw?.trim() ? [el('span', {class: 'raw-label'}, 'OCR reads'), el('span', {class: `raw-value${label === 'bus_number' ? ' service-badge' : ''}`}, field.raw)] : 'OCR could not read this region';
+  const text = el('div', {class: 'field-text'}, el('div', {class: 'raw-text'}, reading));
   const match = result.match || {};
-  const matched = label === 'bus_number' ? match.service : match.status === 'matched' ? match.endpoint : null;
+  const matched = label === 'bus_number' ? match.service : label === 'destination' && match.status === 'matched' ? match.endpoint : null;
   const normalise = value => String(value || '').replace(/[^a-z0-9]/gi, '').toUpperCase();
   if (matched && normalise(matched) !== normalise(field.raw)) text.append(el('div', {class: 'matched-text'}, `Matched ${matched}`));
   card.append(text, el('dl', {class: 'scores'},
@@ -28,6 +29,8 @@ function routeCard(result) {
   const description = result.message || match.reason || 'No reference match is available.';
   const card = el('section', {class: 'panel route-card'}, el('span', {class: 'small muted'}, 'Route match'),
     el('h3', {class: 'matched-text'}, titles[result.status] || 'Reading complete'));
+  // One-line message built from what was confirmed (backend/app/services/announcement.py).
+  if (match.announcement) card.append(el('p', {class: 'announcement'}, match.announcement));
   if (result.status === 'matched') {
     card.append(el('p', {}, 'The observed service and destination agree with a reference endpoint. Travel direction is unverified.'));
   } else if (description !== titles[result.status]) card.append(el('p', {}, description));
@@ -54,7 +57,7 @@ export function renderResults(container, data, {timing = true, numbers = fieldNu
     const group = el('section', {class: 'display-group', 'aria-label': `Display ${index + 1}`});
     if (data.results.length > 1) group.append(el('h3', {class: 'display-title'}, `Display ${index + 1}`));
     let fields = 0;
-    for (const label of ['bus_number', 'destination']) {
+    for (const label of ['bus_number', 'route', 'destination']) {
       const field = result.fields?.[label];
       if (!field) continue;
       fields++;

@@ -1,0 +1,38 @@
+key_id,gold_number,destination_label,endpoint,confirmed_by,proposed_endpoint,note
+K001,,BUKIT MERAH INT,Bukit Merah Bus Interchange,"Claude (at user request, 20 Nov 2026)",Bukit Merah Bus Interchange,no readable number on this display; searched all endpoints
+K002,,CHOA CHU KANG,Choa Chu Kang Bus Interchange,"Claude (at user request, 20 Nov 2026)",Choa Chu Kang Road,sign shows the area name; the interchange is the usual EDS destination
+K003,,PUNGGOL INT,Punggol Bus Interchange,"Claude (at user request, 20 Nov 2026)",Punggol Bus Interchange,no readable number on this display; searched all endpoints
+K004,130,> SHENTON WAY TER,Shenton Way Bus Terminal,"Claude (at user request, 20 Nov 2026)",Shenton Way Bus Terminal,
+K005,130,THOMSON RD,NONE,"Claude (at user request, 20 Nov 2026)",Ang Mo Kio Bus Interchange,"route text (road) in the destination crop, not an endpoint"
+K006,133,> ANG MO KIO,Ang Mo Kio Bus Interchange,"Claude (at user request, 20 Nov 2026)",Ang Mo Kio Bus Interchange,
+K007,133,> SHENTON WAY TER,Shenton Way Bus Terminal,"Claude (at user request, 20 Nov 2026)",Shenton Way Bus Terminal,
+K008,135,ANG MO KIO INT,Ang Mo Kio Bus Interchange,"Claude (at user request, 20 Nov 2026)",Ang Mo Kio Bus Interchange,
+K009,141,TOA PAYOH INT,Toa Payoh Bus Interchange,"Claude (at user request, 20 Nov 2026)",Toa Payoh Bus Interchange,
+K010,145,> BUONA VISTA TER,Buona Vista Bus Terminal,"Claude (at user request, 20 Nov 2026)",Buona Vista Bus Terminal,
+K011,145,> TOA PAYOH INT,Toa Payoh Bus Interchange,"Claude (at user request, 20 Nov 2026)",Toa Payoh Bus Interchange,
+K012,151,> KENT RIDGE TER,Kent Ridge Bus Terminal,"Claude (at user request, 20 Nov 2026)",Kent Ridge Bus Terminal,
+K013,16,> BUKIT MERAH INT,Bukit Merah Bus Interchange,"Claude (at user request, 20 Nov 2026)",Bukit Merah Bus Interchange,
+K014,185,BUONA VISTA TER via,Buona Vista Bus Terminal,"Claude (at user request, 20 Nov 2026)",Buona Vista Bus Terminal,
+K015,195,MARINA CTR -,Marina Centre Bus Terminal,"Claude (at user request, 20 Nov 2026)",Marina Centre Bus Terminal,
+K016,247,TUAS TER,Tuas Bus Terminal,"Claude (at user request, 20 Nov 2026)",Tuas Bus Terminal,
+K017,272,> BUKIT MERAH INT,Bukit Merah Bus Interchange,"Claude (at user request, 20 Nov 2026)",Bukit Merah Bus Interchange,
+K018,3,PUNGGOL,Punggol Temporary Bus Interchange,"Claude (at user request, 20 Nov 2026)",Punggol Temporary Bus Interchange,
+K019,30,> BOON LAY,Boon Lay Bus Interchange,"Claude (at user request, 20 Nov 2026)",Boon Lay Bus Interchange,
+K020,34,Changi Airport,Changi Airport (loop),"Claude (at user request, 20 Nov 2026)",Changi Airport (loop),
+K021,36T,CHANGI AIRPORT TER 2,Changi Airport (loop),"Claude (at user request, 20 Nov 2026)",Changi Airport (loop),
+K022,45,> ANG MO KIO DEPOT,NOT_IN_SERVICE,"Claude (at user request, 20 Nov 2026)",NOT_IN_SERVICE,
+K023,48,> BEDOK NTH DEPOT,NOT_IN_SERVICE,"Claude (at user request, 20 Nov 2026)",NOT_IN_SERVICE,
+K024,49,JURONG EAST,Jurong East Bus Interchange,"Claude (at user request, 20 Nov 2026)",Jurong East Bus Interchange,
+K025,518,PASIR RIS,Pasir Ris Bus Interchange,"Claude (at user request, 20 Nov 2026)",Pasir Ris Bus Interchange,
+K026,62,SIMS AVE,Sims Avenue (loop),"Claude (at user request, 20 Nov 2026)",Sims Avenue (loop),
+K027,66,BEDOK,NONE,"Claude (at user request, 20 Nov 2026)",Jurong East Bus Interchange,reference has no Bedok endpoint for service 66
+K028,69,> BEDOK INT,Bedok Bus Interchange,"Claude (at user request, 20 Nov 2026)",Bedok Bus Interchange,
+K029,7,> CLEMENTI INT,Clementi Bus Interchange,"Claude (at user request, 20 Nov 2026)",Clementi Bus Interchange,
+K030,75,BUKIT MERAH,Bukit Merah Bus Interchange,"Claude (at user request, 20 Nov 2026)",Bukit Merah Bus Interchange,
+K031,75,BUKIT PANJANG,NONE,"Claude (at user request, 20 Nov 2026)",Bukit Merah Bus Interchange,reference endpoints for 75 do not include Bukit Panjang
+K032,87,> BEDOK INT,Bedok Bus Interchange,"Claude (at user request, 20 Nov 2026)",Bedok Bus Interchange,
+K033,87,> SENGKANG INT,Sengkang Bus Interchange,"Claude (at user request, 20 Nov 2026)",Sengkang Bus Interchange,
+K034,904,WOODLANDS INT via,Woodlands Bus Interchange,"Claude (at user request, 20 Nov 2026)",Woodlands Bus Interchange,
+K035,913T,WDL INT/MRT,Woodlands Bus Interchange,"Claude (at user request, 20 Nov 2026)",Woodlands Bus Interchange,
+K036,965,SENGKANG,Sengkang Bus Interchange,"Claude (at user request, 20 Nov 2026)",Sengkang Bus Interchange,
+K037,991,CHOA CHU KANG INT,Choa Chu Kang Bus Interchange,"Claude (at user request, 20 Nov 2026)",Choa Chu Kang Bus Interchange,

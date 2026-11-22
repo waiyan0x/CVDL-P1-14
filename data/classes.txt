@@ -1,4 +1,0 @@
-bus_front
-bus_number
-destination
-eds

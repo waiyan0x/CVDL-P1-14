@@ -2,6 +2,14 @@ from pathlib import Path
 from backend.app.services.matching import RouteMatcher
 
 
+def test_missing_reference_does_not_disable_detection_or_ocr(tmp_path):
+    matcher = RouteMatcher(tmp_path / 'missing.csv')
+    result = matcher.match('3', 'Tampines Int', .7)
+    assert matcher.available is False
+    assert result['status'] == 'unmatched'
+    assert result['reason'] == 'Reference data unavailable; raw OCR retained.'
+
+
 def matcher(tmp_path):
     p = tmp_path / 'routes.csv'
     p.write_text('Route number,Origin,Destination\n65,HarbourFront Int,Tampines Int\n133,Ang Mo Kio Int,Shenton Way Ter\n')
@@ -50,3 +58,17 @@ def test_split_display_returns_unknown_service_as_read(tmp_path):
 
 def test_split_display_without_service_keeps_all_text(tmp_path):
     assert matcher(tmp_path).split_display('OFF SERVICE') == ('', 'OFF SERVICE')
+
+
+def test_app_match_fields_passes_route_and_returns_announcement(tmp_path):
+    from types import SimpleNamespace
+    from backend.app.services.matching import RouteMatcher
+    from backend.app.services.results import match_fields
+    csv_path = tmp_path / 'bus_information.csv'
+    csv_path.write_text('Route number,Origin,Destination\n174,Boon Lay Bus Interchange,Kampong Bahru Bus Terminal\n')
+    fields = {'bus_number': {'raw': '174', 'ocr_confidence': .99},
+              'destination': {'raw': 'KAMPONG BAHRU TER', 'ocr_confidence': .99},
+              'route': {'raw': 'CORPORATION RD', 'ocr_confidence': .99}}
+    status, match = match_fields(fields, RouteMatcher(csv_path), SimpleNamespace(ocr_threshold=.25, similarity=.65))
+    assert status == 'matched'
+    assert match['announcement'] == 'Bus 174 to Kampong Bahru Bus Terminal, via Corporation Rd.'

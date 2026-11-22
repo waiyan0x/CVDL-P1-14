@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-02T21:40:06+0800",
+  "device": "cuda",
+  "backend": "easyocr",
+  "available_backends": [
+    "easyocr"
+  ],
+  "unavailable_backends": {
+    "tesseract": "tesseract is unavailable. Check its installed dependencies and local model files.",
+    "trocr": "trocr is unavailable. Check its installed dependencies and local model files."
+  },
+  "settings": {
+    "detector_confidence": 0.2,
+    "detector_nms_iou": 0.7,
+    "ocr_threshold": 0.25,
+    "runs_per_image": 3
+  },
+  "cases": {
+    "multiple_displays": {
+      "image": "data/training/2026-10-30-torchvision/valid/4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5.jpg",
+      "detections": 8,
+      "displays": [
+        {
+          "display_id": "display-1",
+          "status": "partial",
+          "fields": {
+            "bus_number": {
+              "raw": "14z",
+              "ocr_confidence": 0.4555,
+              "ocr_confidence_method": "character_weighted_word_probability",
+              "detection_confidence": 0.885
+            },
+            "destination": {
+              "raw": "~eotchQ T",
+              "ocr_confidence": 0.0097,
+              "ocr_confidence_method": "character_weighted_word_probability",
+              "detection_confidence": 0.8308
+            },
+            "route": {
+              "raw": "Lor $ TA Rexon",
+              "ocr_confidence": 0.0908,
+              "ocr_confidence_method": "character_weighted_word_probability",
+              "detection_confidence": 0.8176
+            }
+          }
+        },
+        {
+          "display_id": "display-2",
+          "status": "partial",
+          "fields": {
+            "route": {
+              "raw": "",
+              "ocr_confidence": 0.0,
+              "ocr_confidence_method": "character_weighted_word_probability",
+              "detection_confidence": 0.7234
+            },
+            "bus_number": {
+              "raw": "44",
+              "ocr_confidence": 0.4564,
+              "ocr_confidence_method": "character_weighted_word_probability",
+              "detection_confidence": 0.643
+            }
+          }
+        }
+      ],
+      "runs": [
+        {
+          "preprocessing_ms": 2.794,
+          "detection_ms": 173.154,
+          "ocr_ms": 382.27,
+          "matching_ms": 0.254,
+          "total_ms": 558.472
+        },
+        {
+          "preprocessing_ms": 2.5,
+          "detection_ms": 31.841,
+          "ocr_ms": 239.953,
+          "matching_ms": 0.046,
+          "total_ms": 274.34
+        },
+        {
+          "preprocessing_ms": 2.656,
+          "detection_ms": 29.9,
+          "ocr_ms": 280.058,
+          "matching_ms": 0.038,
+          "total_ms": 312.652
+        }
+      ]
+    },
+    "single_display": {
+      "image": "data/training/2026-10-30-torchvision/valid/IMAGE_2026-10-23_22_04_04_jpg.rf.0cb9ed676b55ae03ba0719f27edc5177.jpg",
+      "detections": 5,
+      "displays": [
+        {
+          "display_id": "display-1",
+          "status": "unreadable",
+          "fields": {
+            "route": {
+              "raw": "DLMNT NRT",
+              "ocr_confidence": 0.1871,
+              "ocr_confidence_method": "character_weighted_word_probability",
+              "detection_confidence": 0.6599
+            },
+            "destination": {
+              "raw": "EMDSmI",
+              "ocr_confidence": 0.1428,
+              "ocr_confidence_method": "character_weighted_word_probability",
+              "detection_confidence": 0.3381
+            }
+          }
+        }
+      ],
+      "runs": [
+        {
+          "preprocessing_ms": 2.874,
+          "detection_ms": 56.812,
+          "ocr_ms": 128.773,
+          "matching_ms": 0.02,
+          "total_ms": 188.479
+        },
+        {
+          "preprocessing_ms": 3.098,
+          "detection_ms": 22.558,
+          "ocr_ms": 124.719,
+          "matching_ms": 0.016,
+          "total_ms": 150.391
+        },
+        {
+          "preprocessing_ms": 2.787,
+          "detection_ms": 17.5,
+          "ocr_ms": 116.58,
+          "matching_ms": 0.017,
+          "total_ms": 136.884
+        }
+      ]
+    }
+  },
+  "latency": {
+    "ocr_median_ms": 184.363,
+    "ocr_p95_ms": 382.27,
+    "total_median_ms": 231.409,
+    "total_p95_ms": 558.472
+  },
+  "accuracy": null,
+  "limitations": [
+    "No reviewed OCR transcriptions are available, so raw readings and confidence are observations, not accuracy evidence.",
+    "EasyOCR runs on CPU in the application adapter; YOLO11s runs on the recorded detector device.",
+    "Reference matching was not run because data/bus_information.csv is unavailable.",
+    "Tesseract and the supplied fine-tuned TrOCR assets remain unavailable locally.",
+    "The two images are diagnostic integration cases, not an OCR benchmark dataset."
+  ]
+}

@@ -13,9 +13,9 @@ AnalysisStatus = Literal['no_eds', 'unreadable', 'partial', 'unknown_match', 'ma
 class FrameOptions(BaseModel):
     model_config = ConfigDict(allow_inf_nan=False)
     backend: Backend = 'easyocr'
-    detection: float = Field(.3, ge=.05, le=.95)
+    detection: float = Field(.50, ge=.05, le=.95)
     ocr_threshold: float = Field(.25, ge=0, le=1)
-    similarity: float = Field(.7, ge=0, le=1)
+    similarity: float = Field(.65, ge=0, le=1)
     session_id: str = Field(default_factory=lambda: str(uuid4()), min_length=1, max_length=100)
     frame_id: int = Field(0, ge=0)
     source: Literal['image', 'sample', 'camera', 'video'] = 'image'
@@ -42,7 +42,8 @@ class VideoFrameOptions(FrameOptions):
 class Detection(BaseModel):
     id: str
     display_id: str
-    label: Literal['bus_number', 'destination', 'eds']
+    label: Literal['bus_number', 'route', 'destination', 'eds']
+    model_label: Literal['front_eds', 'front_eds_num', 'front_eds_route', 'front_eds_destination'] | None = None
     box: tuple[int, int, int, int]
     confidence: float | None = Field(None, ge=0, le=1)
     source: Literal['model', 'field_union'] = 'model'
@@ -69,6 +70,7 @@ class ReferenceMatch(BaseModel):
     similarity: float | None
     reason: str
     routes: list[dict[str, str]]
+    announcement: str | None = None
 
 
 class DisplayResult(BaseModel):

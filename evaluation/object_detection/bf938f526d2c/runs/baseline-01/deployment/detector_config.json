@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "model_id": "eds-yolo11s-baseline-01",
+  "architecture": "YOLO11s",
+  "selection_basis": "Highest validation mAP50:95 among YOLO11n, YOLO11s and DETR-ResNet50",
+  "dataset_manifest_sha256": "bf938f526d2c01f1960b9af018f1fd1dc78a431e725037c84d1707dfcc5b826c",
+  "checkpoint_sha256": "01d832cb6eda71dcf4a88e6ebbafc080f9dc299be8161c76ab15c75f7c60c2e3",
+  "checkpoint_install_path": "evaluation/object_detection/bf938f526d2c/runs/baseline-01/checkpoints/yolo11s-best.pt",
+  "input_size": 640,
+  "confidence": 0.2,
+  "nms_iou": 0.7,
+  "max_detections": 100,
+  "class_contract": [
+    {"model_id": 0, "model_label": "front_eds", "api_label": "eds", "meaning": "Complete visible front- or side-facing EDS panel"},
+    {"model_id": 1, "model_label": "front_eds_num", "api_label": "bus_number", "meaning": "Complete service-number group"},
+    {"model_id": 2, "model_label": "front_eds_route", "api_label": "route", "meaning": "Intermediate route or landmark text"},
+    {"model_id": 3, "model_label": "front_eds_destination", "api_label": "destination", "meaning": "Final destination, terminal or interchange text"}
+  ],
+  "excluded_scope": ["rear-facing EDS", "bus body", "registration plate", "advertisement", "bus-stop information display"],
+  "checkpoint_tracked_in_git": false
+}

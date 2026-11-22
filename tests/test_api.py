@@ -10,6 +10,7 @@ from backend.app.main import create_app
 from backend.app.services.pipeline import Pipeline
 from backend.app.services.matching import RouteMatcher
 from backend.app.services.runtime import Runtime
+from backend.app.services.samples import SampleRegistry
 
 
 class EmptyDetector:
@@ -70,7 +71,14 @@ def test_input_coordinates_match_resized_preview(client):
     assert (data['width'], data['height'], data['results']) == (1920, 960, [])
 
 
-def test_sample_list_does_not_include_annotated_test_image(client):
+def test_sample_list_serves_reviewed_gallery(client):
     samples = client.get('/api/samples').json()
-    assert len(samples) == 18  # Four design-reference photos and 14 original project photos.
-    assert not any('annotated_' in sample['source'] for sample in samples)
+    assert len(samples) >= 48  # Reviewed gallery; original project photos are added when present locally.
+
+
+def test_sample_list_does_not_include_annotated_test_image(tmp_path):
+    originals = tmp_path / 'data/images/test'
+    originals.mkdir(parents=True)
+    (originals / 'bus.jpg').touch()
+    (originals / 'annotated_bus.jpg').touch()
+    assert [sample['source'] for sample in SampleRegistry(tmp_path).list()] == ['bus.jpg']

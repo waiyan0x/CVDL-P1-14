@@ -5,11 +5,10 @@ export async function loadSamples(container, onSelect) {
   const samples = await request('/api/samples');
   const buttons = [];
   samples.slice(0, 4).forEach((sample, index) => {
-    const button = el('button', {type: 'button', class: 'sample', 'aria-pressed': 'false', onclick: () => {
+    const button = el('button', {type: 'button', class: 'sample', title: sample.description, 'aria-pressed': 'false', onclick: () => {
       buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
       onSelect(sample);
-    }}, el('img', {src: sample.url, alt: '', loading: 'lazy'}), el('span', {}, `Sample ${index + 1}`),
-    sample.description ? el('span', {class: 'sample-description'}, sample.description) : null);
+    }}, el('img', {src: sample.url, alt: '', loading: 'lazy'}), el('span', {}, sample.name));
     buttons.push(button);
   });
   container.replaceChildren(...buttons);
