@@ -23,6 +23,12 @@ def route_phrase(text: str | None) -> str | None:
         return None
     cleaned = CLUTTER.sub("", " ".join(text.replace("\n", " ").split())).strip(" .,>-")
     tokens = re.findall(r"[A-Za-z]+|\d+[A-Za-z]?", cleaned.upper())
+    # Drop up to two trailing junk tokens after a road ending ("THOMSON RD WA" from the number column edge).
+    for cut in (1, 2):
+        if len(tokens) > cut + 1 and tokens[-cut - 1] in ROAD_ENDINGS and not any(t[0].isdigit() for t in tokens[-cut:]) \
+                and tokens[-1] not in ROAD_ENDINGS:
+            tokens = tokens[:-cut]
+            break
     if len(tokens) < 2 or any(len(t) < 2 and not t[0].isdigit() for t in tokens):
         return None
     if any(t[0].isdigit() for t in tokens[:-1]):        # a number mid-name is an OCR split ("SIME 1 RD")
@@ -42,9 +48,18 @@ def build_announcement(result: dict) -> str | None:
         return "Bus not in service."
     service, destination = result.get("service"), result.get("destination")
     raw = result.get("raw") or {}
-    swapped = "route_swapped" in (result.get("sources") or {}).get("destination", [])
-    # With swapped lines the route crop held the destination, so the destination crop holds the route.
-    via = route_phrase(raw.get("destination") if swapped else raw.get("route"))
+    sources = (result.get("sources") or {}).get("destination", [])
+    lines = raw.get("panel_lines") or []
+    if "panel_line" in sources and len(lines) > 1:
+        # Destination came from one whole-display line: the other line is the route.
+        used = re.sub(r"\W", "", (result.get("destination_text") or "").upper())
+        others = [l for l in lines if used and used not in re.sub(r"\W", "", l.upper())]
+        via = next((v for v in map(route_phrase, others) if v), None) or route_phrase(raw.get("route"))
+    elif "route_swapped" in sources:
+        # With swapped lines the route crop held the destination, so the destination crop holds the route.
+        via = route_phrase(raw.get("destination"))
+    else:
+        via = route_phrase(raw.get("route"))
     if via and destination and via.upper().replace(" ", "") in destination.upper().replace(" ", ""):
         via = None
     via_part = f", via {via}" if via else ""

@@ -4,17 +4,17 @@ photo,gold_service,gold_destination,service,destination,score,candidate,status,v
 001_head-on_1_destination-above_26,26,Toa Payoh Bus Interchange,26,Toa Payoh Bus Interchange,91.67,Bedok Bus Interchange,matched,correct
 003_front-right_2_route-above_298,298,Tampines Avenue 5,298,Tampines Avenue 5,100.0,Tampines North Bus Interchange,matched,correct
 005_elevated-left_3_destination-above_851,851,Bukit Merah Bus Interchange,851,Bukit Merah Bus Interchange,100.0,Yishun Bus Interchange,matched,correct
-007_head-on_4_route-above_90,90,Airport Road (loop),90,Airport Road (loop),81.82,Toa Payoh Bus Interchange,matched,correct
+007_head-on_4_route-above_90,90,Airport Road (loop),90,Airport Road (loop),100.0,Toa Payoh Bus Interchange,matched,correct
 009_front-right_5_destination-above_174,174,Kampong Bahru Bus Terminal,174,Kampong Bahru Bus Terminal,86.96,Boon Lay Bus Interchange,matched,correct
 011_elevated-right_6_route-above_979,979,Choa Chu Kang Crescent,979,Choa Chu Kang Crescent,100.0,Bukit Panjang Bus Interchange,matched,correct
 013_head-on_7_destination-above_31,31,Toa Payoh Bus Interchange,31,Toa Payoh Bus Interchange,100.0,Tampines Bus Interchange,matched,correct
 015_front-right_8_route-above_81,81,Serangoon MRT station (loop),81,Serangoon MRT station (loop),86.67,Tampines Bus Interchange,matched,correct
 094_side-left_10_side-compact_966,966,NONE,,,,,no_fields,correct (withheld)
-096_front-left_1_destination-above_268,268,Ang Mo Kio Industrial Park 2,268,Ang Mo Kio Industrial Park 2,100.0,Ang Mo Kio Street 65,matched,correct
+096_front-left_1_destination-above_268,268,Ang Mo Kio Industrial Park 2,268,Ang Mo Kio Industrial Park 2,94.44,Ang Mo Kio Street 65,matched,correct
 098_low-front_2_route-above_115,115,Hougang Avenue 3 (loop),115,Hougang Avenue 3 (loop),91.67,Kovan Hub (Hougang Street 21),matched,correct
 100_side-left_3_side-compact_901,901,NONE,,,93.33,Woodlands Avenue 5,unresolved,correct (withheld)
 082_elevated-right_4_route-above_251,251,Shipyard Road,251,Shipyard Road,100.0,Boon Lay Bus Interchange,matched,correct
-084_head-on_5_destination-above_678,678,Suntec Tower 3,678,Suntec Tower 3,84.62,Punggol Central,matched,correct
+084_head-on_5_destination-above_678,678,Suntec Tower 3,678,Suntec Tower 3,92.31,Punggol Central,matched,correct
 086_low-front_6_route-above_165,165,Clementi Bus Interchange,165,Clementi Bus Interchange,91.67,Hougang Central Bus Interchange,matched,correct
 088_side-left_7_side-compact_241,241,NONE,241,,46.15,Pioneer Sector 2,conflict,correct (withheld)
 090_head-on_8_destination-above_800,800,Sembawang Road (Blk 101),800,Sembawang Road (Blk 101),75.0,Yishun Bus Interchange,matched,correct

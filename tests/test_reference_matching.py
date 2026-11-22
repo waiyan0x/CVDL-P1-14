@@ -313,3 +313,33 @@ def test_route_phrase_rules():
     assert route_phrase("T") is None
     assert route_phrase("SIME 1 RD") is None
     assert route_phrase("PASIR RIS DR 1") == "Pasir Ris Dr 1"
+
+
+def test_split_lines_finds_two_text_rows_and_skips_the_number_column():
+    from PIL import Image, ImageDraw
+    from backend.app.services.panel_lines import split_lines
+    img = Image.new("RGB", (300, 60), "black")
+    d = ImageDraw.Draw(img)
+    for x in range(10, 200, 12):
+        d.rectangle([x, 8, x + 7, 18], fill="orange")      # small top line
+        d.rectangle([x, 28, x + 9, 50], fill="orange")     # tall bottom line
+    d.rectangle([230, 5, 290, 55], fill="orange")          # number spanning both lines
+    lines = split_lines(img, exclude=[(225, 0, 300, 60)])
+    assert len(lines) == 2 and lines[1].size[1] > lines[0].size[1]
+    assert all(line.size[0] <= 225 for line in lines)
+
+
+def test_split_lines_single_line_returns_nothing():
+    from PIL import Image, ImageDraw
+    from backend.app.services.panel_lines import split_lines
+    img = Image.new("RGB", (300, 40), "black")
+    ImageDraw.Draw(img).rectangle([10, 10, 200, 30], fill="orange")
+    assert split_lines(img) == []
+
+
+def test_tallest_whole_display_line_gives_destination_and_other_line_the_via(tmp_path):
+    m = _ann_matcher(tmp_path)
+    r = m.match(number="174", panel="KAMPONG BAHRU TER 174",
+                panel_lines=["KAMPONG BAHRU TER", "CORPORATION RD WWEA"])
+    assert r["destination"] == "Kampong Bahru Bus Terminal" and r["sources"]["destination"] == ["panel_line"]
+    assert r["announcement"] == "Bus 174 to Kampong Bahru Bus Terminal, via Corporation Rd."

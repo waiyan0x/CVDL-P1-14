@@ -41,6 +41,7 @@ def read_photos(labels, photo_dir, detector):
         displays, boxes, timing = mr.run_photo(path, detector, readers)
         nearest = displays[0]["texts"] if displays else {}
         rows.append({"photo": lab["photo"], "displays": len(displays), **{f: nearest.get(f) or "" for f in FIELDS},
+                     "panel_lines": " || ".join(nearest.get("panel_lines") or []),
                      "frame_ms": round(timing["detection_ms"] + timing["ocr_ms"], 1)})
         print(f"{lab['photo']}: {len(displays)} display(s), nearest {nearest} ({time.perf_counter() - start:.1f} s)")
     return rows
@@ -56,7 +57,8 @@ def score(labels, readings, matcher):
         if r["displays"] in (0, "0"):
             out = matcher.match(detected=False)
         else:
-            out = matcher.match(**{f: (r[f] or None) for f in FIELDS})
+            lines = [l for l in (r.get("panel_lines") or "").split(" || ") if l]
+            out = matcher.match(**{f: (r[f] or None) for f in FIELDS}, panel_lines=lines or None)
         svc, dest = out.get("service"), out.get("destination")
         if svc is None:
             res["svc_withheld"] += 1

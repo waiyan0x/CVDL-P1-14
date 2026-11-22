@@ -130,7 +130,17 @@ def merge_orphan_lines(groups):
     return kept
 
 
-def run_photo(photo, detector_path, reader, save_dir=None, conf=0.5, iou=0.7, imgsz=640):
+def needs_lines(texts, matcher):
+    """Read the whole display line by line only when the field crops leave the destination unconfirmed or
+    give no route text (the other line then supplies the "via" part). No matcher: always read."""
+    if matcher is None:
+        return True
+    result = matcher.match(**{k: texts.get(k) for k in ("number", "destination", "route", "panel")})
+    return not result["destination"] or not (texts.get("route") or "").strip()
+
+
+def run_photo(photo, detector_path, reader, save_dir=None, conf=0.5, iou=0.7, imgsz=640, panel_lines=True,
+              matcher=None):
     """YOLO11s boxes -> displays (app association) -> PaddleOCR per crop. Returns (displays, image size)."""
     try:
         from ultralytics import YOLO
@@ -138,6 +148,7 @@ def run_photo(photo, detector_path, reader, save_dir=None, conf=0.5, iou=0.7, im
         sys.exit("Photo mode needs Ultralytics: pip install ultralytics")
     from PIL import Image, ImageDraw
     from backend.app.services.association import associate_displays
+    from backend.app.services.panel_lines import split_lines
     if not Path(detector_path).is_file():
         sys.exit(f"Detector weights not found: {detector_path}")
     import time
@@ -161,7 +172,7 @@ def run_photo(photo, detector_path, reader, save_dir=None, conf=0.5, iou=0.7, im
         save.mkdir(parents=True, exist_ok=True)
     displays = []
     for group in groups:
-        texts, crops = {}, {}
+        texts, crops, line_crops = {}, {}, []
         items = [("panel", group["screen"])] if group["screen"] and group["screen"].get("source") != "field_union" else []
         items += [({"bus_number": "number"}.get(k, k), v) for k, v in group["fields"].items()]
         for field, item in items:
@@ -176,6 +187,25 @@ def run_photo(photo, detector_path, reader, save_dir=None, conf=0.5, iou=0.7, im
             texts[field] = text
             crops[field] = {"box": item["box"], "detector_confidence": item.get("confidence"),
                             "ocr_confidence": confidence, "crop": str(path)}
+            if field == "panel" and panel_lines:
+                # Whole display split into lines (number column blanked): one-line reads of two-line signs
+                # are garbled. Read below only if the fields leave the destination or the route unknown.
+                number_box = (group["fields"].get("bus_number") or {}).get("box")
+                exclude = [(number_box[0] - x1, number_box[1] - y1, number_box[2] - x1, number_box[3] - y1)] if number_box else []
+                line_crops = [(line, path.with_name(path.stem + f"_line{i + 1}.png"))
+                              for i, line in enumerate(split_lines(crop, exclude))]
+        if line_crops and needs_lines(texts, matcher):
+            read = []
+            for line, line_path in line_crops:
+                line.save(line_path)
+                start = time.perf_counter()
+                line_text, line_conf = reader(line_path, "panel")
+                timing["ocr_ms"] += (time.perf_counter() - start) * 1000
+                timing["ocr_crops"] += 1
+                read.append((line.size[1], line_text, line_conf, str(line_path)))
+            # Tallest line first: on EDS signs that is the destination.
+            texts["panel_lines"] = [t for _, t, _, _ in sorted(read, key=lambda r: -r[0])]
+            crops["panel_lines"] = [{"text": t, "ocr_confidence": c, "height": h, "crop": p} for h, t, c, p in read]
         if group["screen"]:
             box = group["screen"]["box"]
         else:
@@ -247,12 +277,18 @@ def show(result, labels=None, title=None):
             ("Destination", raw["destination"], result["destination"],
              f"{result['destination_score']:.1f}%" if result["destination_score"] is not None else None,
              result["destination_status"] + {("panel",): " (from whole display)", ("route",): " (from route crop)",
+                                                ("panel_line",): " (from a whole-display line)",
                                                 ("route_swapped",): " (from route crop: lines swapped)",
                                                 ("route_swapped", "panel"): " (route crop + whole display)",
                                                 ("panel", "route_swapped"): " (whole display + route crop)"}.get(
                  tuple(result["sources"].get("destination", [])), "")),
             ("Route text", raw["route"], result["route_text"], None, "kept as read" if result["route_text"] else None),
             ("Whole display", raw["panel"], None, None, None)]
+    for i, line in enumerate(raw.get("panel_lines") or [], 1):
+        rows.append((f"  line {i}" + (" (tallest)" if i == 1 else ""), line, None, None,
+                     "gave the destination" if "panel_line" in result["sources"].get("destination", []) and line
+                     and result.get("destination_text") and
+                     result["destination_text"].replace(" ", "") in line.replace(" ", "") else None))
     head = ["Field", "Raw OCR", "Matched reference", "Similarity", "Decision"] + (["Human label"] if labels else [])
     table = [head] + [[name, cell(r), cell(m), cell(s), cell(d)] + ([cell(labels.get(name))] if labels else [])
                       for name, r, m, s, d in rows]
@@ -325,7 +361,8 @@ def main(argv=None):
     if args.photo:
         print(f"Detector:  {args.detector}")
         import time
-        displays, boxes, timing = run_photo(args.photo, args.detector, make_readers(args), args.save_dir)
+        displays, boxes, timing = run_photo(args.photo, args.detector, make_readers(args), args.save_dir,
+                                            matcher=matcher)
         print(f"Detected boxes: " + ", ".join(f"{b['label']} {b['confidence']:.2f}" for b in boxes) if boxes else "Detected boxes: none")
         if not displays:
             show(matcher.match(detected=False), title=f"{args.photo.name}: no display found")
@@ -336,7 +373,8 @@ def main(argv=None):
         timing["matching_ms"] = 0.0
         for rank, d in enumerate(displays[:1] if args.closest_only else displays, 1):
             start = time.perf_counter()
-            result = matcher.match(**{k: d["texts"].get(k) for k in ("number", "destination", "route", "panel")})
+            result = matcher.match(**{k: d["texts"].get(k) for k in ("number", "destination", "route", "panel")},
+                                   panel_lines=d["texts"].get("panel_lines"))
             timing["matching_ms"] += (time.perf_counter() - start) * 1000
             label = "nearest bus" if rank == 1 and len(displays) > 1 else f"size rank {rank}"
             print(json.dumps({**result, "crops": d["crops"], "display_box": d["box"], "size_rank": rank}, indent=2,

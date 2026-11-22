@@ -35,7 +35,7 @@ Shown wrong = a wrong endpoint is shown, or any endpoint is shown on a NONE phot
 | 70 | 26 | 2 | 11 | 1 | 36 |
 | 75 | 26 | 2 | 11 | 1 | 36 |
 | 80 | 25 | 3 | 12 | 0 | 37 |
-| 90 | 22 | 6 | 12 | 0 | 34 |
+| 90 | 24 | 4 | 12 | 0 | 36 |
 
 Service number at 65: 33 of 40 correct, 0 wrong, 7 withheld: 3 side views had no display detected (966,
 26, 64); 901 had no number crop; OCR misread 3 numbers (`927` for 922, `9128` for 912B, `1004` for 100A),
@@ -91,6 +91,15 @@ inspected, so none of them is an untouched held-out result; confirm on new foota
 
 The one wrong result at 65 and 70: 807's side display `YISHUN RING RD` matches Yishun Bus Interchange
 (75.0%), an endpoint of 807. Only a cutoff above 75 removes it.
+
+## Whole display read line by line (22 Nov 2026)
+
+The benchmark now also reads each display crop line by line (`backend/app/services/panel_lines.py`;
+details in `docs/REFERENCE_MATCHING.md`). `results/ocr_readings.csv` gains `panel_lines` (tallest first,
+separated by `||`); the cutoff grid above was re-run with them and is unchanged at 25–80 except 90
+(24 instead of 22 correct). 23 of 37 displays split into lines. The benchmark reads lines on every photo;
+the terminal tool reads them only when the field crops leave the destination unconfirmed or give no route
+text, which gives the same destinations.
 
 ## Detector-confidence rule for destination/route crops (22 Nov 2026)
 
