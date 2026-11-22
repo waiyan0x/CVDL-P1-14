@@ -72,3 +72,19 @@ def test_app_match_fields_passes_route_and_returns_announcement(tmp_path):
     status, match = match_fields(fields, RouteMatcher(csv_path), SimpleNamespace(ocr_threshold=.25, similarity=.65))
     assert status == 'matched'
     assert match['announcement'] == 'Bus 174 to Kampong Bahru Bus Terminal, via Corporation Rd.'
+
+
+def test_service_inferred_from_destination_is_reported_with_it(tmp_path):
+    # Ang Mo Kio Int is an endpoint of 133 only, so the number is inferred, as the announcement says.
+    r = matcher(tmp_path).match('', 'ANG MO KIO INT')
+    assert r['status'] == 'matched' and r['service'] == '133' and r['endpoint'] == r['destination'] == 'Ang Mo Kio Int'
+    assert r['announcement'] == 'Bus 133 to Ang Mo Kio Int.'
+
+
+def test_destination_shared_by_services_is_kept_without_a_service(tmp_path):
+    p = tmp_path / 'routes.csv'
+    p.write_text('Route number,Origin,Destination\n65,HarbourFront Int,Tampines Int\n10,Kent Ridge Ter,Tampines Int\n')
+    r = RouteMatcher(p).match('', 'TAMPINES INT')
+    assert r['status'] == 'unmatched' and r['service'] is None and r['endpoint'] is None
+    assert r['destination'] == 'Tampines Int'
+    assert r['announcement'].startswith('A bus to Tampines Int is approaching.')

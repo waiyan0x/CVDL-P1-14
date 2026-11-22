@@ -70,6 +70,8 @@ class ReferenceMatch(BaseModel):
     similarity: float | None
     reason: str
     routes: list[dict[str, str]]
+    # Reference name of a confirmed destination, also when the service is not confirmed.
+    destination: str | None = None
     announcement: str | None = None
 
 

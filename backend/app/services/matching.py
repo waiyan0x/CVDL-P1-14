@@ -51,19 +51,23 @@ class RouteMatcher:
                                                           conflict=self.conflict,
                                                           route_as_destination=self.route_as_destination))
         result = matcher.match(number=service or None, destination=destination or None, route=route or None)
-        accepted = result["service_status"] == "accepted"
+        # "inferred": the destination belongs to one service only, so the announcement states that number too.
+        accepted = result["service_status"] in ("accepted", "inferred")
+        destination_confirmed = result["destination_status"] in ("accepted", "inferred")
         routes = [{"origin": r["origin"], "destination": r["destination"]}
                   for r in self.reference.services.get(result["service"], [])] if accepted else []
         if not self.available:
             status, reason = "unmatched", "Reference data unavailable; raw OCR retained."
         elif not accepted:
             status, reason = "unmatched", f"{result['message']} Raw OCR retained."
-        elif result["destination_status"] in ("accepted", "inferred"):
+        elif destination_confirmed:
             status, reason = "matched", "Reference endpoint matched; travel direction is unverified."
         else:
             status, reason = "service_only", "Service found; destination not confirmed. Raw OCR retained."
         score = result["destination_score"]
         return {"status": status, "service": result["service"] if accepted else None,
                 "endpoint": result["destination"] if status == "matched" else None,
+                # Confirmed destination even when the service is not (shared by several services); read aloud.
+                "destination": result["destination"] if destination_confirmed else None,
                 "similarity": round(score / 100, 3) if score is not None else None,
                 "reason": reason, "routes": routes, "announcement": result.get("announcement"), "detail": result}
