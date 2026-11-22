@@ -9,6 +9,177 @@ points; a service number only if it exactly equals a reference service. In the a
 `similarity` option (default .65 = 65).
 Code: `backend/app/services/reference_matching.py` (the app's `RouteMatcher` in `matching.py` calls it).
 
+## Logic at a glance (settings in use, 22 Nov 2026)
+
+### 1. Inputs (one bus display at a time)
+
+**Detection (YOLO11s)**
+
+- Settings: confidence ≥ **0.50**, NMS IoU **0.70**, input **640 px**.
+- Classes: whole display, number, destination, route.
+- Boxes are grouped into displays by containment.
+- A second display box overlapping a more confident one by IoU ≥ **0.5** is dropped as a duplicate.
+- A lone line with no display box and no number is attached to the display directly above or below it.
+- Displays are ranked by area, largest first, so the nearest bus comes first.
+
+**OCR (PaddleOCR)**
+
+- The fine-tuned model reads the number, destination and route crops.
+- The pretrained model reads the whole-display crop, once as a single image.
+- If the field crops leave the destination unconfirmed or give no route text, the whole display is also
+  split into lines and each line is read. Lines are passed tallest first, because the destination uses the
+  largest font.
+
+**Inputs to the matcher**
+
+- `number`: number crop text
+- `destination`: destination crop text
+- `route`: route crop text
+- `panel`: whole display read as one image
+- `panel_lines`: whole display read line by line, tallest first (only when needed)
+
+### 2. Text preparation
+
+- **Service number:** converted to upper case with spaces removed; suffix letters are kept (`14 e` → `14E`).
+  It is accepted only if it **exactly** equals a service in `bus_information.cleaned.csv`.
+- **Place text:** both the OCR text and the reference names go through the same steps:
+  - Convert to upper case.
+  - Strip display clutter: `>`, `VIA …`, a trailing `-`, `TERMINATE AT`.
+  - Map words to short standard forms from `abbreviations.csv`. Examples: `INTERCHANGE` → `INT`,
+    `TERMINAL` → `TER`, `BUSINESS` → `BIZ`, `BUKIT` → `BT`, `CENTRAL` → `CTRL`, `AVENUE` → `AVE`.
+
+  Short forms are used because long shared words make different places look similar.
+- **Similarity:** RapidFuzz `ratio`, from 0 to 100, on the prepared strings.
+- **Acceptance rule:** a destination is accepted only if both hold:
+  - score ≥ **65**, and
+  - it leads the next *distinct* endpoint by ≥ **10** points.
+
+  Otherwise it is a **tie** (lead under 10) or **below cutoff** (score under 65).
+
+### 3. Service number
+
+```
+crop_number  = number crop text, if it is a reference service
+panel_number = service tokens in the whole-display text, used only if exactly one is present
+
+if crop_number and panel_number differ:
+    if one contains the other (e.g. 10 vs 110)  -> partial read, keep crop_number
+    else                                        -> dispute: candidates = [crop_number, panel_number]
+                                                   (settled later by the destination)
+elif crop_number                                -> candidates = [crop_number]
+elif no number crop and panel_number            -> candidates = [panel_number]
+elif number crop text is not a reference service -> service "unable to detect"
+                                                   (the whole-display number is never substituted)
+```
+
+### 4. Destination evidence (order tried)
+
+```
+if a destination crop exists:
+    primary = destination crop
+    fallback groups, tried in order, only when the service is known and the
+    primary does not reach 65 for that service ("line swap"):
+        1. tallest whole-display line
+        2. route crop          (the detector may have swapped the two lines)
+        3. other lines + the single-image whole-display read
+else:
+    route crop  -> may only flag a number it does not fit; never shown as the destination
+    tallest whole-display line (or the single-image read if there are no lines)
+    fallback: other lines + the single-image read (only when the service is known)
+
+if any evidence says DEPOT / NOT IN SERVICE / OFF SERVICE -> "not in service"
+```
+
+### 5. Decisions
+
+**A. Number known and destination evidence present**
+
+- The search is limited to that service's two endpoints (origin and destination).
+- **Accepted** (≥ 65 and a lead of ≥ 10) → **matched**.
+- **Number dispute:**
+  - If the destination fits exactly one of the two candidate numbers, that number is kept.
+  - Otherwise both are withheld → **unresolved**.
+- **Two evidence sources accepted but point to different endpoints** → destination withheld → **service only**.
+- **Nothing accepted** → check the text against every endpoint in the reference:
+  - If it scores ≥ 65 against another service's endpoint, **and** that score is ≥ 10 points above the best
+    score for this service → **conflict**. The number is kept and the destination withheld.
+  - Example: number `148` with destination `CLEMENTI INT`, which fits service 14E's endpoint.
+- **Route crop fits this service** → recorded as "checked only": it raises no conflict and is not shown.
+
+**B. Number only**
+
+- The destination is inferred only if that service has a single endpoint in the reference. Otherwise →
+  **service only**, because the CSV has no direction.
+
+**C. Destination only (no number, or a number not in the reference)**
+
+- The text is scored against every endpoint. The same acceptance rule applies (≥ 65, lead ≥ 10).
+- If the accepted endpoint belongs to one service, that number is inferred → **matched**.
+- If several services share it → **destination only**.
+- If the top candidates are tied but all belong to one service, that service is kept.
+- If the number crop text was not a reference service, the service shows **unable to detect**, but an
+  accepted destination is still shown.
+
+**D. Other cases**
+
+- Route text only → kept as read → **route text only**. The CSV has no road names.
+- Nothing detected → **no fields**, and no message.
+
+### 6. Message (`announcement`)
+
+The service number and destination appear only if accepted in section 5.
+
+| Confirmed | Message |
+| --- | --- |
+| Number + destination + road-like route | Bus 174 to Kampong Bahru Bus Terminal, via Corporation Rd. |
+| Number + destination | Bus 174 to Kampong Bahru Bus Terminal. |
+| Number; destination not read | Bus 64 is approaching. Destination could not be read. |
+| Number; destination withheld (conflict / tie / below 65) | Bus 148 is approaching. Destination could not be confirmed. |
+| Destination; number not confirmed | A bus to Toa Payoh Bus Interchange is approaching. Bus number could not be confirmed. |
+| Number read but not a service | A bus is approaching. Bus number and destination could not be confirmed. |
+| Route only | A bus is approaching, via Jln Besar. Bus number and destination could not be read. |
+| Depot text | Bus not in service. |
+
+**Source of the "via" text**
+
+- Normally the route crop.
+- If the destination came from the route crop (swapped lines), the destination crop's text is used.
+- If the destination came from a whole-display line, the other line is used.
+
+**When the "via" text is added:** only if it reads like a road name, meaning all of these hold:
+
+- at least 2 words;
+- no single-letter word;
+- a number only as the last word;
+- the last word is a road or place ending (`RD`, `AVE`, `ST`, `DR`, `CRES`, `WAY`, `INT`, `MRT`, …), or the
+  first word is `JLN`, `LOR` or `UPP`.
+
+**Clean-up:** up to 2 junk words after the road ending are dropped (`THOMSON RD WA` → `Thomson Rd`).
+
+### 7. Settings and evidence
+
+| Setting | Value | Why |
+| --- | --- | --- |
+| Similarity cutoff | **65** | Never worse than 70 on validation, test or the 40 photos; adds no wrong output |
+| Lead over next endpoint | **10** | Chosen on validation |
+| Scorer | `ratio` | Chosen on validation |
+| Conflict policy | keep number, withhold destination | Chosen on validation |
+| Route crop as destination | check only | Showing it gave one wrong-direction destination on validation |
+| Line swap | on | Photos: 20 → 27 of 28 destinations, no new errors |
+| Detector confidence | 0.50, no extra per-field threshold | Higher thresholds lost correct destinations |
+
+**Results at these settings**
+
+- Validation: 24 of 27 destinations, 0 wrong.
+- Test: 15 of 16, 0 wrong.
+- 40-photo benchmark:
+  - 27 of 28 destinations correct.
+  - 11 of 12 signs whose text isn't an endpoint correctly withheld.
+  - 1 shown wrong (807: `YISHUN RING RD` → Yishun Bus Interchange, 75%).
+  - Service numbers: 33 of 40 correct, 0 wrong.
+
+The sections below give the detail behind each rule.
+
 ## How text reaches the fuzzy scorer
 
 ```
