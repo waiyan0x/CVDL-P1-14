@@ -66,6 +66,7 @@ class ReferenceMatch(BaseModel):
     similarity: float | None
     reason: str
     routes: list[dict[str, str]]
+    announcement: str | None = None
 
 
 class DisplayResult(BaseModel):

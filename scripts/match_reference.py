@@ -130,7 +130,7 @@ def merge_orphan_lines(groups):
     return kept
 
 
-def run_photo(photo, detector_path, reader, save_dir=None, conf=0.5, iou=0.7, imgsz=640, field_min_conf=0.5):
+def run_photo(photo, detector_path, reader, save_dir=None, conf=0.5, iou=0.7, imgsz=640):
     """YOLO11s boxes -> displays (app association) -> PaddleOCR per crop. Returns (displays, image size)."""
     try:
         from ultralytics import YOLO
@@ -163,9 +163,7 @@ def run_photo(photo, detector_path, reader, save_dir=None, conf=0.5, iou=0.7, im
     for group in groups:
         texts, crops = {}, {}
         items = [("panel", group["screen"])] if group["screen"] and group["screen"].get("source") != "field_union" else []
-        items += [({"bus_number": "number"}.get(k, k), v) for k, v in group["fields"].items()
-                  # Destination/route boxes below field_min_conf are not read; the whole display is used instead.
-                  if k not in ("destination", "route") or (v.get("confidence") or 1) >= field_min_conf]
+        items += [({"bus_number": "number"}.get(k, k), v) for k, v in group["fields"].items()]
         for field, item in items:
             x1, y1, x2, y2 = item["box"]
             crop = image.crop((max(0, x1), max(0, y1), min(image.size[0], x2), min(image.size[1], y2)))
@@ -299,9 +297,6 @@ def main(argv=None):
     photo.add_argument("--photo", type=Path, help="bus photo")
     photo.add_argument("--detector", type=Path, default=DEFAULT_DETECTOR, help="YOLO11s weights (.pt)")
     photo.add_argument("--save-dir", type=Path, help="write crops and an annotated detections.png here")
-    photo.add_argument("--field-min-conf", type=float, default=0.5,
-                       help="read a destination/route box only if its detector confidence is at least this "
-                            "(default 0.50 = every detected box; see evaluation/photo_benchmark/PHOTO_BENCHMARK.md)")
     photo.add_argument("--closest-only", action="store_true",
                        help="report only the largest display (the nearest bus); others are listed by size")
     data = parser.add_argument_group("use dataset crops (Cody's fine-tuned PaddleOCR readings)")
@@ -330,8 +325,7 @@ def main(argv=None):
     if args.photo:
         print(f"Detector:  {args.detector}")
         import time
-        displays, boxes, timing = run_photo(args.photo, args.detector, make_readers(args), args.save_dir,
-                                            field_min_conf=args.field_min_conf)
+        displays, boxes, timing = run_photo(args.photo, args.detector, make_readers(args), args.save_dir)
         print(f"Detected boxes: " + ", ".join(f"{b['label']} {b['confidence']:.2f}" for b in boxes) if boxes else "Detected boxes: none")
         if not displays:
             show(matcher.match(detected=False), title=f"{args.photo.name}: no display found")

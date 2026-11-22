@@ -45,3 +45,17 @@ def test_csv_route_identifiers_preserve_letters(tmp_path):
 def test_multiline_road_text_does_not_hide_endpoint(tmp_path):
     r = matcher(tmp_path).match('65', 'PUNGGOL RD\nTAMPINES INT')
     assert r['status'] == 'matched' and r['endpoint'] == 'Tampines Int'
+
+
+def test_app_match_fields_passes_route_and_returns_announcement(tmp_path):
+    from types import SimpleNamespace
+    from backend.app.services.matching import RouteMatcher
+    from backend.app.services.results import match_fields
+    csv_path = tmp_path / 'bus_information.csv'
+    csv_path.write_text('Route number,Origin,Destination\n174,Boon Lay Bus Interchange,Kampong Bahru Bus Terminal\n')
+    fields = {'bus_number': {'raw': '174', 'ocr_confidence': .99},
+              'destination': {'raw': 'KAMPONG BAHRU TER', 'ocr_confidence': .99},
+              'route': {'raw': 'CORPORATION RD', 'ocr_confidence': .99}}
+    status, match = match_fields(fields, RouteMatcher(csv_path), SimpleNamespace(ocr_threshold=.25, similarity=.65))
+    assert status == 'matched'
+    assert match['announcement'] == 'Bus 174 to Kampong Bahru Bus Terminal, via Corporation Rd.'

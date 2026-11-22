@@ -76,8 +76,10 @@ values are withheld; raw OCR is always kept.
 ## Announcement (message for each display)
 
 Every match result carries `announcement`, a one-line message built only from what was confirmed
-(`backend/app/services/announcement.py`; the app's `RouteMatcher` returns it at the top level, the terminal
-tool prints it as `Message:`). The service number and destination are stated only when the matcher accepted
+(`backend/app/services/announcement.py`). The terminal tool prints it as `Message:`; the app's `RouteMatcher`
+returns it as `match.announcement` and the results page shows it in the route card. The app passes the
+number, destination and route crops (each only if its OCR confidence passes `ocr_threshold`); it does not
+OCR the whole display yet, so the whole-display parts of the line swap apply in the terminal tool only. The service number and destination are stated only when the matcher accepted
 them; route text cannot be checked against the reference (it has no road names), so it is added as "via …"
 only when it reads like a road name: at least two words, no single-letter word, no number except at the end,
 and the last word a road or place ending (`RD`, `AVE`, `ST`, `DR`, `CRES`, `WAY`, `INT`, `MRT`, …) or the
@@ -131,7 +133,7 @@ road name (e.g. `RCHARD RD`) can appear. Known risk: a whole-display-only read o
   - Detector-confidence rule for destination/route crops (22 Nov 2026, same 40 photos): dropping boxes below
     0.60–0.70 changed nothing; 0.75 and above lost correct destinations (0.90: 25 of 28; whole display only:
     22 of 28 and 1 wrong). Boxes below about 0.72 were mostly the right text with the wrong class, which the
-    line swap already handles. Kept at 0.50 (every detected box); `--field-min-conf` exposes the option.
+    line swap already handles. Rule not adopted (every box the detector keeps at 0.50 is read).
   - After adding the line swap (same photos, OCR not re-run): at **65**, 27 of 28 destinations correct, 11 of
     12 withheld, 1 shown wrong (the same 807). 65 is the only cutoff never worse than 70 on validation
     (91 vs 91 net), test (15 vs 14 of 16) and the photos (37 vs 36), with no added wrong output; 50–55 show
@@ -248,7 +250,6 @@ Options:
 | `--crop-dir` | folder of `display-N_<number/destination/route/panel>.png` crops; reads all, grouped by display |
 | `--photo` | bus photo for the full chain |
 | `--save-dir` | with `--photo`: write each crop and an annotated `detections.png` to `<dir>/<photo name>/` |
-| `--field-min-conf` | with `--photo`: read a destination/route box only if its detector confidence is at least this; below it the whole display is used (default 0.50 = every detected box; higher values lost correct destinations in the photo benchmark) |
 | `--closest-only` | with `--photo`: report only the largest display (the nearest bus); all displays are still listed by size |
 | `--detector` | YOLO11s weights (default `models/local/yolo/best.pt`) |
 | `--ocr-model-dir` | PaddleOCR weights for number, destination and route crops (default `models/local/paddleocr/`) |

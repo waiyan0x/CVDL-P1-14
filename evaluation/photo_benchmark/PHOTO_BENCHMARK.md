@@ -118,7 +118,7 @@ boxes (0.51–0.71) were read correctly by OCR (OCR confidence 0.95–1.00) but 
 labelled destination on `TOA PAYOH INT`. Low detector confidence here means "unsure which line this is",
 not "unreadable"; the line swap already tries the other line and the whole display in that case. The
 whole display reads worse because it is read as one line (`TAPIPIS NS AVE 298` vs the destination crop
-`TAMPINES AVE 5`). Decision: keep T = 0.50; `--field-min-conf` in `scripts/match_reference.py` exposes it.
+`TAMPINES AVE 5`). Decision: rule not adopted; every box the detector keeps (confidence 0.50 and up) is read.
 
 ## Remaining miss (1 of 28)
 
