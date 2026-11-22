@@ -43,14 +43,23 @@ function serviceId(value) {
   return SERVICE.test(code) ? code : '';
 }
 
+// How a service is said. Numbers and lettered shuttles are spelled out ("1 7 4", "C W 1"). A number
+// ending in a letter is left for the voice to read ("63A": "sixty-three A"), with a pause before "to":
+// spelled out and run into "to", the letter was misheard ("6 3 A to" as "638", "10 E" as "10 east").
+// Measured in evaluation/tts/README.md (service-wording-v3).
+function spokenService(service, next) {
+  return /^[0-9]+[A-Z]+$/.test(service) ? `${service}${next ? ',' : ''}${next}` : `${spell(service)}${next}`;
+}
+
 // The matcher's one-line message (match.announcement, backend/app/services/announcement.py) states only
-// what was confirmed. For speech, the service is spelled out ("Bus 1 7 4") and the destination and the
-// "via" road are read as words ("Kampong Bahru Bus Terminal, via Corporation Road").
+// what was confirmed. For speech, the service is said as spokenService describes ("Bus 1 7 4 to",
+// "Bus 63A, to") and the destination and the "via" road are read as words ("Kampong Bahru Bus
+// Terminal, via Corporation Road").
 export function spokenAnnouncement(match) {
   let text = String(match?.announcement ?? '').trim();
   if (!text) return '';
   const service = serviceId(match.service);
-  if (service) text = text.replace(new RegExp(`^Bus ${service}\\b`), `Bus ${spell(service)}`);
+  if (service) text = text.replace(new RegExp(`^Bus ${service}\\b( to\\b)?`), (_, to = '') => `Bus ${spokenService(service, to)}`);
   // The road first: a spoken destination can itself contain ", via" (Siglap Road ..., via Tomlinson Road).
   text = text.replace(/, via ([^.]+)\./, (_, via) => `, via ${spokenPlace(via)}.`);
   return match.destination ? text.replace(`to ${match.destination}`, `to ${spokenPlace(match.destination)}`) : text;

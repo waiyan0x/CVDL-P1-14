@@ -18,10 +18,10 @@ function result({panel = [120, 110, 300, 146], source = 'camera'} = {}) {
   };
 }
 
-test('reads the matcher message with the service spelled out and places as words', () => {
+test('reads the matcher message with the service spoken clearly and places as words', () => {
   const frame = result();
-  assert.equal(busAnnouncement(frame), 'Bus 9 2 B to Ghim Moh Terminal.');
-  assert.equal(busAnnouncement(frame, {distance: 30}), 'Bus 9 2 B to Ghim Moh Terminal. About 30 metres away.');
+  assert.equal(busAnnouncement(frame), 'Bus 92B, to Ghim Moh Terminal.');
+  assert.equal(busAnnouncement(frame, {distance: 30}), 'Bus 92B, to Ghim Moh Terminal. About 30 metres away.');
   const cases = [
     [{service: '174', destination: 'Kampong Bahru Bus Terminal',
       announcement: 'Bus 174 to Kampong Bahru Bus Terminal, via Corporation Rd.'},
@@ -32,7 +32,9 @@ test('reads the matcher message with the service spelled out and places as words
       announcement: 'A bus to Hougang Central Bus Interchange is approaching, via Upp Serangoon Rd. Bus number could not be confirmed.'},
      'A bus to Hougang Central Bus Interchange is approaching, via Upper Serangoon Road. Bus number could not be confirmed.'],
     [{service: '3A', destination: 'Pasir Ris Drive 12 (Blk 747A)', announcement: 'Bus 3A to Pasir Ris Drive 12 (Blk 747A).'},
-     'Bus 3 A to Pasir Ris Drive 12, Block 7 4 7 A.'],
+     'Bus 3A, to Pasir Ris Drive 12, Block 7 4 7 A.'],
+    [{service: '851E', destination: null, announcement: 'Bus 851E is approaching. Destination could not be read.'},
+     'Bus 851E is approaching. Destination could not be read.'],
     [{service: '16', destination: 'Siglap Road (Bef Seaside Residences) via Tomlinson Road',
       announcement: 'Bus 16 to Siglap Road (Bef Seaside Residences) via Tomlinson Road, via Bishan MRT.'},
      'Bus 1 6 to Siglap Road, Before Seaside Residences, via Tomlinson Road, via Bishan M R T.'],
@@ -61,7 +63,7 @@ test('reads the nearest (largest) display first and no distance for several buse
   far.match = {service: '176', destination: null, announcement: 'Bus 176 is approaching. Destination could not be read.'};
   frame.results.unshift(far);
   assert.equal(busAnnouncement(frame, {distance: 30}),
-    'Bus 9 2 B to Ghim Moh Terminal. Bus 1 7 6 is approaching. Destination could not be read.');
+    'Bus 92B, to Ghim Moh Terminal. Bus 1 7 6 is approaching. Destination could not be read.');
 });
 
 test('reads reference destinations as a commuter would say them', () => {
