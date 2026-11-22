@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import test from 'node:test';
-import {AnnouncementGate, busAnnouncement, cameraObservation, estimateMetres, spokenPlace} from '../../frontend/assets/js/core/bus-announcements.js';
+import {AnnouncementGate, busAnnouncement, cameraObservation, estimateMetres, spokenAnnouncement, spokenPlace}
+  from '../../frontend/assets/js/core/bus-announcements.js';
 
 const captured = Date.parse('2026-11-21T00:00:00Z');
 function result({panel = [120, 110, 300, 146], source = 'camera'} = {}) {
@@ -10,21 +11,57 @@ function result({panel = [120, 110, 300, 146], source = 'camera'} = {}) {
     width: 1280, height: 720,
     results: [{
       fields: {bus_number: {raw: '92B', ocr_confidence: .9}},
-      match: {service: '92B', status: 'matched', endpoint: 'Ghim Moh Terminal'},
+      match: {service: '92B', status: 'matched', endpoint: 'Ghim Moh Terminal', destination: 'Ghim Moh Terminal',
+        announcement: 'Bus 92B to Ghim Moh Terminal.'},
       screen: {label: 'eds', source: 'model', box: panel},
     }],
   };
 }
 
-test('speaks service codes distinctly, with only matched destinations', () => {
+test('reads the matcher message with the service spelled out and places as words', () => {
   const frame = result();
-  assert.equal(busAnnouncement(frame, .25, 30),
-    'Bus service 9 2 B, about 30 metres away. Reference destination: Ghim Moh Terminal.');
-  frame.results[0].match = {status: 'unmatched', endpoint: 'Unused'};
-  assert.equal(busAnnouncement(frame, .25), 'Possible bus service 9 2 B.');
-  assert.equal(busAnnouncement(frame, .95), null);
-  frame.results[0].fields.bus_number.raw = 'unknown';
-  assert.equal(busAnnouncement(frame, .25), null);
+  assert.equal(busAnnouncement(frame), 'Bus 9 2 B to Ghim Moh Terminal.');
+  assert.equal(busAnnouncement(frame, {distance: 30}), 'Bus 9 2 B to Ghim Moh Terminal. About 30 metres away.');
+  const cases = [
+    [{service: '174', destination: 'Kampong Bahru Bus Terminal',
+      announcement: 'Bus 174 to Kampong Bahru Bus Terminal, via Corporation Rd.'},
+     'Bus 1 7 4 to Kampong Bahru Bus Terminal, via Corporation Road.'],
+    [{service: '64', destination: null, announcement: 'Bus 64 is approaching. Destination could not be read.'},
+     'Bus 6 4 is approaching. Destination could not be read.'],
+    [{service: null, destination: 'Hougang Central Bus Interchange',
+      announcement: 'A bus to Hougang Central Bus Interchange is approaching, via Upp Serangoon Rd. Bus number could not be confirmed.'},
+     'A bus to Hougang Central Bus Interchange is approaching, via Upper Serangoon Road. Bus number could not be confirmed.'],
+    [{service: '3A', destination: 'Pasir Ris Drive 12 (Blk 747A)', announcement: 'Bus 3A to Pasir Ris Drive 12 (Blk 747A).'},
+     'Bus 3 A to Pasir Ris Drive 12, Block 7 4 7 A.'],
+    [{service: '16', destination: 'Siglap Road (Bef Seaside Residences) via Tomlinson Road',
+      announcement: 'Bus 16 to Siglap Road (Bef Seaside Residences) via Tomlinson Road, via Bishan MRT.'},
+     'Bus 1 6 to Siglap Road, Before Seaside Residences, via Tomlinson Road, via Bishan M R T.'],
+    [{service: null, destination: null, announcement: 'Bus not in service.'}, 'Bus not in service.'],
+    [{service: null, destination: null, announcement: null}, ''],
+  ];
+  for (const [match, spoken] of cases) assert.equal(spokenAnnouncement(match), spoken, match.announcement);
+});
+
+test('automatic announcements leave out displays where nothing was confirmed', () => {
+  const frame = result();
+  frame.results[0].match = {service: null, destination: null, status: 'unmatched',
+    announcement: 'A bus is approaching. Bus number and destination could not be confirmed.'};
+  assert.equal(busAnnouncement(frame), 'A bus is approaching. Bus number and destination could not be confirmed.');
+  assert.equal(busAnnouncement(frame, {confirmedOnly: true}), null);
+  frame.results[0].match = {service: null, destination: null, announcement: 'Bus not in service.'};
+  assert.equal(busAnnouncement(frame, {confirmedOnly: true}), 'Bus not in service.');
+  frame.results[0].match = {service: null, destination: null, announcement: null};
+  assert.equal(busAnnouncement(frame), null);
+});
+
+test('reads the nearest (largest) display first and no distance for several buses', () => {
+  const frame = result();
+  const far = structuredClone(frame.results[0]);
+  far.screen.box = [600, 100, 660, 112];
+  far.match = {service: '176', destination: null, announcement: 'Bus 176 is approaching. Destination could not be read.'};
+  frame.results.unshift(far);
+  assert.equal(busAnnouncement(frame, {distance: 30}),
+    'Bus 9 2 B to Ghim Moh Terminal. Bus 1 7 6 is approaching. Destination could not be read.');
 });
 
 test('reads reference destinations as a commuter would say them', () => {
@@ -44,14 +81,18 @@ test('reads reference destinations as a commuter would say them', () => {
     'Ghim Moh Terminal': 'Ghim Moh Terminal',
   };
   for (const [place, spoken] of Object.entries(cases)) assert.equal(spokenPlace(place), spoken, place);
-  const frame = result();
-  frame.results[0].match.endpoint = 'Pasir Ris Drive 12 (Blk 747A)';
-  assert.equal(busAnnouncement(frame, .25), 'Bus service 9 2 B. Reference destination: Pasir Ris Drive 12, Block 7 4 7 A.');
+  const roads = {'Upp Serangoon Rd': 'Upper Serangoon Road', 'Jln Besar': 'Jalan Besar', 'Bt Batok St 11': 'Bukit Batok Street 11',
+    'Ang Mo Kio Ind Pk 2': 'Ang Mo Kio Industrial Park 2', 'Kg Bahru Rd': 'Kampong Bahru Road', 'Yishun Ring Rd': 'Yishun Ring Road'};
+  for (const [road, spoken] of Object.entries(roads)) assert.equal(spokenPlace(road), spoken, road);
 });
 
 test('leaves no symbols, unspelled acronyms or known abbreviations in any reference place', () => {
-  const csv = readFileSync(new URL('../../data/bus_information.csv', import.meta.url), 'utf8');
-  const places = new Set(csv.trim().split(/\r?\n/).slice(1).flatMap(row => row.split(',').slice(1)));
+  const places = new Set();
+  // The original table and the cleaned one the matcher reads its names from.
+  for (const file of ['../../data/bus_information.csv', '../../data/reference/bus_information.cleaned.csv']) {
+    const csv = readFileSync(new URL(file, import.meta.url), 'utf8');
+    csv.trim().split(/\r?\n/).slice(1).forEach(row => row.split(',').slice(1, 3).forEach(place => places.add(place)));
+  }
   for (const place of places) {
     const spoken = spokenPlace(place);
     assert.doesNotMatch(spoken, /[/()]|\b(?!IKEA\b|ALPS\b)[A-Z]{2,}\b/, place);
@@ -78,7 +119,7 @@ test('only a recent, single, unclipped model-detected sign qualifies', () => {
   assert.equal(cameraObservation(frame, 1, captured), null);
   frame.results.push(result().results[0]);
   assert.equal(cameraObservation(frame, 1, captured), null);
-  assert.doesNotMatch(busAnnouncement(frame, .25, 30), /metres/);
+  assert.doesNotMatch(busAnnouncement(frame, {distance: 30}), /metres/);
 });
 
 test('live announcements stabilise, deduplicate, and respect cooldown and stop', () => {
@@ -94,4 +135,9 @@ test('live announcements stabilise, deduplicate, and respect cooldown and stop',
   assert.equal(gate.ready('92B', 7500), true);
   gate.reset();
   assert.equal(gate.ready('92B', 8000), false);
+});
+
+test('spells lettered shuttle codes like bus numbers', () => {
+  assert.equal(spokenAnnouncement({service: 'CW1', destination: 'Kranji MRT station',
+    announcement: 'Bus CW1 to Kranji MRT station.'}), 'Bus C W 1 to Kranji M R T station.');
 });

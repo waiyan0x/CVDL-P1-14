@@ -59,7 +59,7 @@ async function processInput() {
     if (!data) return;
     viewer.render(data, {label: selected.label});
     renderResults($('results'), data);
-    speech.update(data, settings.ocr_threshold);
+    speech.update(data);
     $('legend').hidden = !data.detections.length;
     $('status').textContent = 'Analysis complete.';
   } catch (error) {

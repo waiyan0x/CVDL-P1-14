@@ -10,10 +10,10 @@ export class SpeechControls {
     this.gate = new AnnouncementGate();
     read.addEventListener('click', () => {
       if (!this.latest) return;
-      const {data, threshold} = this.latest;
-      const text = busAnnouncement(data, threshold, currentDistance());
+      const {data} = this.latest;
+      const text = busAnnouncement(data, {distance: currentDistance()});
       this.speak(text || (data.status === 'no_eds'
-        ? 'No bus display detected.' : 'Could not read the bus service number.'));
+        ? 'No bus display detected.' : 'Could not read the bus display.'));
     });
     stop.addEventListener('click', () => {
       if (automatic) automatic.checked = false;
@@ -39,11 +39,11 @@ export class SpeechControls {
     this.controls.stop.disabled = !this.active;
   }
 
-  update(data, threshold, distance = null, {announce = false} = {}) {
-    this.latest = {data, threshold};
+  update(data, distance = null, {announce = false} = {}) {
+    this.latest = {data};
     this.refresh();
     if (!announce || !this.controls.automatic?.checked) return;
-    const text = busAnnouncement(data, threshold, distance);
+    const text = busAnnouncement(data, {distance, confirmedOnly: true});
     const now = performance.now();
     if (this.gate.ready(text, now) && !this.active && this.speak(text)) this.gate.announced(text, now);
   }

@@ -184,7 +184,7 @@ async function processFrame() {
       freshnessTimer = setTimeout(refreshDistance,
         Math.max(0, 3501 - (Date.now() - Date.parse(data.frame.captured_at))));
     }
-    speech.update(data, settings.ocr_threshold, metres, {announce: true});
+    speech.update(data, metres, {announce: true});
     $('legend').hidden = !data.detections.length;
     reportStatus(`Processing · ${Number(data.processing_fps || 0).toFixed(1)} frames/s for the latest frame`, 'Processing frames.');
     $('results').setAttribute('aria-busy', 'false');
