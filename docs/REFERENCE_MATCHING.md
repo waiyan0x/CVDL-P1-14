@@ -185,6 +185,28 @@ models/local/
 
 With neither PaddleOCR folder filled, the public model is downloaded on first use.
 
+**Getting the weights.** All three are already in the GitHub repo on other branches, so they are not
+committed again here: both PaddleOCR folders on Cody's `OCR` branch (plain git; `inference.pdiparams`
+SHA-256 `bff74048…` fine-tuned, `3ec8a97e…` pretrained), and the YOLO11s weights on Brendan's
+`bren-object-detection` branch (Git LFS; SHA-256 `97150601…`). From the repo root (Windows `cmd`; needs
+Git LFS installed):
+
+```bat
+git fetch origin OCR bren-object-detection
+git lfs install
+git restore --source origin/OCR --worktree -- models/paddleocr-finetuned models/paddleocr-pretrained
+git restore --source origin/bren-object-detection --worktree -- YOLO_Weights/yolo11s-best.pt
+mkdir models\local\yolo
+move models\paddleocr-finetuned models\local\paddleocr
+move models\paddleocr-pretrained models\local\paddleocr-pretrained
+move YOLO_Weights\yolo11s-best.pt models\local\yolo\best.pt
+rmdir YOLO_Weights
+```
+
+`git restore --worktree` writes the files without staging them, and `models/local/` is gitignored, so nothing
+is added to this branch. Check `models\local\yolo\best.pt` is about 19 MB: a 133-byte file means Git LFS was
+not installed and only the pointer was written.
+
 **Two OCR models (since 21 Nov 2026).** Number, destination and route crops are read by the fine-tuned
 model; whole-display crops (the panel fallback) by the pretrained model. The fine-tuned model was trained
 on single-field crops only and misreads whole displays (`FERNVALE RD 374` → `KEAMALE "D 374`,
