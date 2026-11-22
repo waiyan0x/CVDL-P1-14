@@ -10,7 +10,7 @@ import json
 import logging
 import os
 from pathlib import Path
-import selectors
+import queue
 import subprocess
 import threading
 
@@ -66,6 +66,9 @@ class PaddleOCRAdapter:
             self.process = subprocess.Popen(
                 [str(self.python), '-I', str(WORKER), str(self.model_dir)],
                 stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=log, text=True, encoding='utf-8', env=env)
+        # A fresh queue per process, so a restarted worker never sees an old worker's reply.
+        self.lines = queue.Queue()
+        threading.Thread(target=self._pump, args=(self.process.stdout, self.lines), daemon=True).start()
         try:
             ready = self._receive(READY_TIMEOUT_SECONDS).get('ready')
         except Exception:
@@ -74,15 +77,18 @@ class PaddleOCRAdapter:
             self.close()
             raise RuntimeError(f'PaddleOCR worker failed to load the model; see {self.log_path}.')
 
+    @staticmethod
+    def _pump(stream, lines):
+        # A reader thread works on every platform; select() on pipes is POSIX-only.
+        for line in stream:
+            lines.put(line)
+        lines.put('')
+
     def _receive(self, timeout):
-        selector = selectors.DefaultSelector()
-        selector.register(self.process.stdout, selectors.EVENT_READ)
         try:
-            if not selector.select(timeout):
-                raise TimeoutError('PaddleOCR worker did not respond in time.')
-        finally:
-            selector.close()
-        line = self.process.stdout.readline()
+            line = self.lines.get(timeout=timeout)
+        except queue.Empty:
+            raise TimeoutError('PaddleOCR worker did not respond in time.') from None
         if not line:
             raise RuntimeError('PaddleOCR worker stopped unexpectedly.')
         return json.loads(line)
