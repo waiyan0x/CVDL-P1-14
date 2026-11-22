@@ -31,7 +31,7 @@ class Settings(BaseModel):
     max_video_uploads: int = Field(5, ge=1, le=100)
     default_interval_ms: int = Field(500, ge=100)
     min_interval_ms: int = Field(100, ge=50)
-    default_backend: Backend = 'easyocr'
+    default_backend: Backend = 'paddleocr'
 
     @field_validator('root')
     @classmethod

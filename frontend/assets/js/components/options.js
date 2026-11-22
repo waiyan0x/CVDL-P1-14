@@ -1,7 +1,7 @@
 import {health} from '../core/api.js';
 import {el} from '../core/dom.js';
 
-const defaults = {backend: 'easyocr', detection: .50, ocr_threshold: .25, similarity: .65};
+const defaults = {backend: 'paddleocr', detection: .50, ocr_threshold: .25, similarity: .65};
 const storageKey = 'eds-options-v4';
 export class Options {
   constructor(container, onChange = () => {}, {comparison = false} = {}) {
