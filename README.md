@@ -229,9 +229,44 @@ duration, count and expiry.
 
 Detection confidence, OCR confidence and reference similarity remain separate.
 OCR scores use different definitions across engines and are not calibrated
-accuracy. Matching requires an exact recognised service and adequate endpoint
-similarity; it does not infer travel direction or verify every road name.
+accuracy. Matching requires an exact recognised service (a number missing from
+the reference gives "unable to detect") and a destination that reaches the
+similarity cutoff (default 65 of 100, the `similarity` option .65) while leading
+the next distinct reference endpoint by 10 points; otherwise the value is
+withheld and the raw OCR is kept. Both text sides pass through
+`data/reference/abbreviations.csv` before scoring. If a destination fits another
+service better than the number read, the number is kept and the result is
+flagged as a conflict. Matching does not infer travel direction or verify road
+names. Rules, settings and results: `docs/REFERENCE_MATCHING.md`.
 Processing FPS is reciprocal inference time, not sustained camera/display FPS.
+
+## Reference matching
+
+Matching code: `backend/app/services/reference_matching.py` (used by
+`matching.py`). Reference: `data/reference/bus_information.cleaned.csv`, a cleaned
+copy of `data/bus_information.csv` (`data/reference/README.md`). Try it from a
+terminal without the web app:
+
+```sh
+python scripts/match_reference.py --number 14E --destination "> TAMP1NES INT"
+python scripts/match_reference.py --crop-dir runs/matching/bus_374
+python scripts/match_reference.py --photo data/samples/distance-and-image-quality/close-readable-eds.jpg --save-dir runs/matching
+python scripts/evaluate_reference_matching.py
+```
+
+Model weights for the terminal tool live in `models/local/` (gitignored): `paddleocr/` (fine-tuned
+PaddleOCR, reads number, destination and route crops), `paddleocr-pretrained/` (reads whole-display
+crops), `yolo/best.pt` (fine-tuned YOLO11s). Check which
+PaddleOCR weights are installed in `docs/REFERENCE_MATCHING.md` (hash table). Cutoff and line-swap benchmark on 40
+labelled photos: `evaluation/photo_benchmark/PHOTO_BENCHMARK.md` (`scripts/benchmark_photo_threshold.py`,
+`scripts/benchmark_crop_confidence.py`). Photo mode also reads the whole display line by line when the field
+crops leave gaps (`backend/app/services/panel_lines.py`). Each result also carries a one-line `announcement`, e.g.
+`Bus 174 to Kampong Bahru Bus Terminal, via Corporation Rd.` (rules in `docs/REFERENCE_MATCHING.md`).
+
+Settings in use: `ratio` scoring, cutoff 65, margin 10, line swap on, conflict policy
+`keep_number`, route crop fallback `check`. Full usage, decision rules and
+validation/test results: `docs/REFERENCE_MATCHING.md` and
+`evaluation/reference_matching/REFERENCE_MATCHING_RESULTS.md`.
 
 ## Configuration
 

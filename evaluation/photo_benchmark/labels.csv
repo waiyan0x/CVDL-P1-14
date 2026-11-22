@@ -1,0 +1,41 @@
+photo,service,sign_destination,sign_route,gold_destination,note
+017_elevated-right_9_destination-above_111,111,TEMASEK AVE,ORCHARD RD,Temasek Avenue (loop),
+019_head-on_10_route-above_199,199,NANYANG CRES,JLN BAHAR,Nanyang Crescent,
+001_head-on_1_destination-above_26,26,TOA PAYOH INT,KG EUNOS,Toa Payoh Bus Interchange,
+003_front-right_2_route-above_298,298,TAMPINES AVE 5,TAMPINES AVE 3,Tampines Avenue 5,
+005_elevated-left_3_destination-above_851,851,BUKIT MERAH INT,THOMSON RD,Bukit Merah Bus Interchange,
+007_head-on_4_route-above_90,90,AIRPORT RD,MACPHERSON RD,Airport Road (loop),
+009_front-right_5_destination-above_174,174,KAMPONG BAHRU TER,CORPORATION RD,Kampong Bahru Bus Terminal,
+011_elevated-right_6_route-above_979,979,CHOA CHU KANG CRES,STAGMONT RING,Choa Chu Kang Crescent,
+013_head-on_7_destination-above_31,31,TOA PAYOH INT,MARINE PARADE RD,Toa Payoh Bus Interchange,
+015_front-right_8_route-above_81,81,SERANGOON MRT,PASIR RIS DR 1,Serangoon MRT station (loop),
+094_side-left_10_side-compact_966,966,WOODLANDS AVE 3,,NONE,side display shows a road; not an endpoint of 966
+096_front-left_1_destination-above_268,268,ANG MO KIO IND PK 2,ANG MO KIO AVE 3,Ang Mo Kio Industrial Park 2,
+098_low-front_2_route-above_115,115,HOUGANG AVE 3,UPP SERANGOON RD,Hougang Avenue 3 (loop),
+100_side-left_3_side-compact_901,901,WOODLANDS AVE 1,,NONE,near miss: 901's endpoint is Woodlands Avenue 6
+082_elevated-right_4_route-above_251,251,SHIPYARD RD,PIONEER RD,Shipyard Road,
+084_head-on_5_destination-above_678,678,SUNTEC TOWER 3,EDGEFIELD PLAINS,Suntec Tower 3,
+086_low-front_6_route-above_165,165,CLEMENTI INT,ANG MO KIO AVE 3,Clementi Bus Interchange,
+088_side-left_7_side-compact_241,241,PIONEER RD NTH,,NONE,side display shows a road
+090_head-on_8_destination-above_800,800,SEMBAWANG RD,YISHUN ST 71,Sembawang Road (Blk 101),
+092_low-front_9_route-above_98,98,JURONG PIER WAY,BOON LAY WAY,Jurong Pier Way (loop),
+sgbus-20261120-b09_019_front_light-drizzle_315,315,SERANGOON NTH AVE 5,LOR CHUAN,Serangoon North Avenue 5,
+sgbus-20261120-b09_020_side_heavy-rain_922,922,JELAPANG RD,,NONE,side display shows a road
+sgbus-20261120-b09_001_front_overcast_912B,912B,WOODLANDS CTR RD,WOODLANDS AVE 5,Woodlands Centre Road,bus stop sign in frame lists 912B/912M/913/965
+sgbus-20261120-b09_002_side_light-drizzle_26,26,KG EUNOS,,NONE,side display shows a road
+sgbus-20261120-b09_003_front_heavy-rain_154B,154B,CLEMENTI RD,BOON LAY WAY,Clementi Road,
+sgbus-20261120-b09_004_side_post-rain_976,976,BUKIT PANJANG INT,,Bukit Panjang Bus Interchange,front display; side display shows BT PANJANG RD
+sgbus-20261120-b09_005_front_haze_272,272,TELOK BLANGAH RISE,LOWER DELTA RD,Telok Blangah Rise,
+sgbus-20261120-b09_006_side_mist-dawn_195,195,Buona Vista,,NONE,sign text is not an endpoint of 195 (Marina Centre / Commonwealth MRT)
+sgbus-20261120-b09_007_front_sunset_38,38,BEDOK INT,SIMEI RD,Bedok Bus Interchange,
+sgbus-20261120-b09_008_side_night-dry_807,807,YISHUN RING RD,,NONE,not an endpoint of 807
+sgbus-20261120-b09_009_front_night-rain_145,145,BUONA VISTA TER,BALESTIER RD,Buona Vista Bus Terminal,
+sgbus-20261120-b09_010_side_sunny-morning_100,100,GEYLANG RD,,NONE,side display shows a road
+sgbus-20261120-b09_011_front_post-rain_100A,100A,ALJUNIED MRT,UPP SERANGOON RD,Aljunied MRT station,
+sgbus-20261120-b09_012_side_haze_90,90,MACPHERSON RD,,NONE,side display shows a road
+sgbus-20261120-b09_013_front_mist-dawn_89E,89E,AIRPORT CARGO RD,HOUGANG AVE 10,Airport Cargo Road,
+sgbus-20261120-b09_014_side_sunset_64,64,JLN BESAR,,NONE,side display shows a road
+sgbus-20261120-b09_015_front_night-dry_241,241,JURONG WEST ST 91,PIONEER RD NTH,Jurong West Street 91,
+sgbus-20261120-b09_016_side_night-rain_317,317,YIO CHU KANG INT,,NONE,not an endpoint of 317 (Serangoon Int / Berwick Dr)
+sgbus-20261120-b09_017_front_sunny-morning_911A,911A,WOODLANDS ST 83,WOODLANDS ST 13,Woodlands St 83,
+sgbus-20261120-b09_018_side_overcast_103,103,YIO CHU KANG RD,,NONE,not an endpoint of 103

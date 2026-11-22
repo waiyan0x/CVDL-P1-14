@@ -62,6 +62,7 @@ input[type="range"] { accent-color: var(--ink); width: 100%; }
 .route-card { display: flex; flex-direction: column; gap: 6px; }
 .route-card > .small { font-family: var(--mono); font-size: 12px; }
 .route-card p { margin: 0; font-size: 14px; color: var(--muted); }
+.route-card p.announcement { font-size: 16px; font-weight: 500; color: var(--ink); }
 .timings { display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
 .timings > .small { font-family: var(--mono); font-size: 12px; }
 .timings dl { display: flex; flex-direction: column; gap: 10px; margin: 0; }

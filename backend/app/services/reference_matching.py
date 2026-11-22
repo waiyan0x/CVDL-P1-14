@@ -22,6 +22,8 @@ from __future__ import annotations
 
 import csv
 import re
+
+from backend.app.services.announcement import build_announcement
 import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -157,10 +159,20 @@ class Reference:
 
 @dataclass
 class Settings:
-    cutoff: float = 70.0          # 0-100 similarity needed to accept
+    cutoff: float = 65.0          # 0-100 similarity needed to accept
     margin: float = 5.0           # lead over the next distinct endpoint
     scorer: str = "ratio"
     conflict: str = "withhold_both"   # or "keep_number": keep an exact service, withhold only the destination
+    # No destination crop: "off" ignores the route crop; "check" uses it only to flag a number that does not
+    # fit (never shown as the destination); "use" may also show it as the destination.
+    route_as_destination: str = "off"
+    # Destination crop present but it does not fit the service read: also try the route crop (the detector
+    # sometimes swaps the two lines) and the whole display; either may then be shown.
+    line_swap: bool = True
+
+    def __post_init__(self):
+        if isinstance(self.route_as_destination, bool):
+            self.route_as_destination = "use" if self.route_as_destination else "off"
 
 
 def score_candidates(text: str, keys, reference: Reference, scorer: str) -> list[tuple[float, str]]:
@@ -213,16 +225,23 @@ class DisplayMatcher:
         return self.reference.endpoints[key].name if key else None
 
     def match(self, number: str | None = None, destination: str | None = None,
-              route: str | None = None, panel: str | None = None, detected: bool = True) -> dict:
-        """Match one display. Arguments are raw OCR strings; None means no crop."""
+              route: str | None = None, panel: str | None = None, detected: bool = True,
+              panel_lines: list[str] | None = None) -> dict:
+        """Match one display. Arguments are raw OCR strings; None means no crop.
+
+        panel_lines: the whole display read line by line (panel_lines.split_lines), tallest line first. On EDS
+        signs the destination is the tallest line, so it is the first whole-display candidate."""
         ref, log = self.reference, []
-        out = {"raw": {"number": number, "destination": destination, "route": route, "panel": panel},
+        panel_lines = [l for l in (panel_lines or []) if (l or "").strip()]
+        out = {"raw": {"number": number, "destination": destination, "route": route, "panel": panel,
+                       "panel_lines": panel_lines or None},
                "service": None, "service_status": "unread", "destination": None,
                "destination_status": "unread", "destination_score": None,
                "runner_up": None, "runner_up_score": None, "candidate": None, "route_text": (route or "").strip() or None,
+               "destination_text": None,
                "sources": {}, "log": log}
 
-        if not detected or all(v is None for v in (number, destination, route, panel)):
+        if not detected or (all(v is None for v in (number, destination, route, panel)) and not panel_lines):
             return self._finish(out, "no_fields", "no display fields detected")
         if not ref.available:
             return self._finish(out, "unresolved", "reference data unavailable; raw OCR kept")
@@ -253,19 +272,57 @@ class DisplayMatcher:
             log.append(f"crop number {crop_number} is not a reference service; whole-display number {panel_number} not substituted")
         not_in_reference = bool(crop_number) and not valid_crop
 
-        # ---- destination text: dedicated crop first, whole display as fallback
-        dest_text, dest_source = (destination, "crop") if (destination or "").strip() else (None, None)
-        if dest_text is None and panel_rest.strip():
-            dest_text, dest_source = panel_rest, "panel"
-        if dest_text and NOT_IN_SERVICE.search(strip_display_clutter(dest_text)):
-            out["destination_status"] = "not_in_service"
-            return self._finish(out, "not_in_service", "depot / not-in-service message")
+        # ---- destination evidence: the dedicated crop if there is one; otherwise the route crop
+        #      (the detector sometimes labels the destination as route) and the whole display
+        line_rests = [rest for rest in (panel_parts(l, ref)[1] for l in panel_lines) if rest.strip()]
+        options, fallbacks = [], []          # fallbacks: groups tried in order, only when the service is known
+        if (destination or "").strip():
+            options.append((destination, "crop"))
+            if self.settings.line_swap:
+                if line_rests:
+                    fallbacks.append([(line_rests[0], "panel_line")])
+                if (route or "").strip():
+                    fallbacks.append([(route, "route_swapped")])
+                rest_group = [(t, "panel_line") for t in line_rests[1:]] + ([(panel_rest, "panel")] if panel_rest.strip() else [])
+                if rest_group:
+                    fallbacks.append(rest_group)
+        else:
+            if self.settings.route_as_destination in ("check", "use") and (route or "").strip():
+                options.append((route, "route"))
+                log.append(f"no destination crop; route crop used ({self.settings.route_as_destination})")
+            if line_rests:
+                options.append((line_rests[0], "panel_line"))
+                rest_group = [(t, "panel_line") for t in line_rests[1:]] + ([(panel_rest, "panel")] if panel_rest.strip() else [])
+                if rest_group:
+                    fallbacks.append(rest_group)
+            elif panel_rest.strip():
+                options.append((panel_rest, "panel"))
+        for text, _ in options + [item for group in fallbacks for item in group]:
+            if NOT_IN_SERVICE.search(strip_display_clutter(text)):
+                out["destination_status"] = "not_in_service"
+                return self._finish(out, "not_in_service", "depot / not-in-service message")
 
         all_keys = list(ref.endpoints)
-        if candidates_numbers and dest_text:
+        if candidates_numbers and options:
             # Number and destination: number narrows the search.
-            decisions = {s: self._destination(dest_text, ref.service_endpoints[s]) for s in candidates_numbers}
-            accepted = [s for s, d in decisions.items() if d["status"] == "accepted"]
+            def evaluate(items):
+                return [(text, source, {s: self._destination(text, ref.service_endpoints[s]) for s in candidates_numbers})
+                        for text, source in items]
+
+            def showable(source):
+                return source != "route" or self.settings.route_as_destination == "use"
+
+            tried = evaluate(options)
+            accepted = sorted({s for _, src, d in tried for s, x in d.items() if x["status"] == "accepted" and showable(src)})
+            for group in fallbacks:
+                if accepted:
+                    break
+                extra = evaluate(group)
+                if any(x["status"] == "accepted" for _, _, d in extra for x in d.values()):
+                    log.append(f"first destination evidence does not fit the service read; tried {[src for _, src in group]} "
+                               "(detector may have swapped the lines)")
+                    tried += extra
+                    accepted = sorted({s for _, src, d in tried for s, x in d.items() if x["status"] == "accepted" and showable(src)})
             if len(candidates_numbers) > 1:
                 if len(accepted) == 1:
                     service = accepted[0]
@@ -275,12 +332,29 @@ class DisplayMatcher:
                     return self._finish(out, "unresolved", "crop and whole-display numbers disagree; destination did not resolve it")
             else:
                 service = candidates_numbers[0]
-            restricted = decisions[service]
-            overall = self._destination(dest_text, all_keys)
+            route_shown = self.settings.route_as_destination == "use"
+            hits = sorted([(text, source, d[service]) for text, source, d in tried
+                           if d[service]["status"] == "accepted" and showable(source)],
+                          key=lambda h: -h[2]["score"])
+            if len({h[2]["key"] for h in hits}) > 1:
+                out.update(service=service, service_status="accepted", destination_status="tie",
+                           sources={**out["sources"], "destination": [h[1] for h in hits]})
+                log.append("route crop and whole display point to different endpoints of this service")
+                return self._finish(out, "service_only", "destination sources disagree")
+            if hits:
+                text, source, restricted = hits[0]
+                if len(hits) > 1:
+                    source = [h[1] for h in hits]
+            else:
+                text, source, restricted = tried[0][0], tried[0][1], tried[0][2][service]
+                if source == "route" and not route_shown and restricted["status"] == "accepted":
+                    restricted = {**restricted, "status": "checked_only"}   # route fits this service: no conflict, not shown
+            out["destination_text"] = text
+            overall = self._destination(text, all_keys)
             other = overall["key"] and service not in ref.endpoints[overall["key"]].services
-            strong_other = (other and overall["score"] is not None and overall["score"] >= self.settings.cutoff
+            strong_other = (not hits and restricted["status"] != "checked_only" and other and overall["score"] is not None and overall["score"] >= self.settings.cutoff
                             and overall["score"] - (restricted["score"] or 0) >= self.settings.margin)
-            out["sources"]["destination"] = [dest_source]
+            out["sources"]["destination"] = source if isinstance(source, list) else [source]
             if strong_other and self.settings.conflict == "keep_number":
                 out.update(service=service, service_status="accepted", destination_status="conflict",
                            runner_up=self._name(overall["key"]), runner_up_score=overall["score"],
@@ -314,10 +388,22 @@ class DisplayMatcher:
                 log.append("route text kept as read; reference has no road names")
             return self._finish(out, "service_only", "service has more than one endpoint; direction unknown")
 
-        if dest_text:
+        if options:
             # Destination only (no number, or a number missing from the reference).
-            overall = self._destination(dest_text, all_keys)
-            out["sources"]["destination"] = [dest_source]
+            results = [(source, self._destination(text, all_keys), text) for text, source in options
+                       if source != "route" or self.settings.route_as_destination == "use"]
+            if not results:
+                if not_in_reference:
+                    out["service_status"] = "not_in_reference"
+                    return self._finish(out, "unable_to_detect", f"service {crop_number} not in reference")
+                return self._finish(out, "route_text_only", "route text kept; reference has no road names")
+            hits = sorted([(source, d, t) for source, d, t in results if d["status"] == "accepted"], key=lambda h: -h[1]["score"])
+            if len({d["key"] for _, d, _ in hits}) > 1:
+                out["destination_status"] = "tie"
+                out["sources"]["destination"] = [source for source, _, _ in hits]
+                return self._finish(out, "unresolved", "route crop and whole display point to different destinations")
+            source, overall, out["destination_text"] = hits[0] if hits else results[0]
+            out["sources"]["destination"] = [source for source, _, _ in hits] if hits else [source]
             self._apply_destination(out, overall)
             if not_in_reference:
                 out["service_status"] = "not_in_reference"
@@ -361,4 +447,5 @@ class DisplayMatcher:
     @staticmethod
     def _finish(out, status, reason):
         out.update(status=status, message=MESSAGES[status], reason=reason)
+        out["announcement"] = build_announcement(out)
         return out

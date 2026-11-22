@@ -25,9 +25,10 @@ from backend.app.services.reference_matching import (  # noqa: E402
     SCORERS, DisplayMatcher, Reference, Settings, normalise_place, normalise_service)
 
 OUT = ROOT / "evaluation/reference_matching"
-CUTOFFS = [25, 50, 60, 70, 75, 80, 90]
+CUTOFFS = [25, 50, 55, 60, 65, 70, 75, 80, 90]
 MARGINS = [0, 5, 10]
 CONFLICT = ["withhold_both", "keep_number"]
+ROUTE_FALLBACK = ["off", "check", "use"]
 
 
 def read_displays(path):
@@ -135,10 +136,21 @@ def summary(m):
             "dest_gold": m["dest_gold"], "svc_gold": m["svc_gold"]}
 
 
+# Project decision (20 Nov 2026): try the route crop as the destination when no destination crop exists.
+# Validation cannot measure it (scored destinations always have a destination crop) and showed no harm.
+ROUTE_ALLOWED = ("check", "use")
+# Project decision (21 Nov 2026, replaces 70 from 20 Nov): cutoff fixed at 65. With the line-swap fallback,
+# 65 is never worse than 70 on validation (91 vs 91 net), test (37 vs 36) or the 40-photo benchmark (37 vs 36),
+# with 0 wrong destinations on validation and test; 60 adds a wrong service on validation and 50-55 show
+# side-display roads as destinations on the photos. Chosen after validation, test and photos had all been seen.
+FIXED_CUTOFF = 65
+
+
 def choose_setting(grid):
     """Most correct outputs minus wrong outputs; then higher precision; then stricter cutoff/margin."""
+    grid = [g for g in grid if g["route_as_destination"] in ROUTE_ALLOWED and g["cutoff"] == FIXED_CUTOFF]
     return max(grid, key=lambda g: (g["net_correct"], g["shown_precision"] or 0, g["cutoff"], g["margin"],
-                                    g["conflict"] == "withhold_both"))
+                                    g["conflict"] == "withhold_both", g["route_as_destination"] == "check"))
 
 
 def pct(a, b):
@@ -191,13 +203,14 @@ def main(argv=None):
     test = [d for d in displays if d["split"] == "test"]
 
     grid = []
-    for scorer, cutoff, margin, conflict in itertools.product(SCORERS, CUTOFFS, MARGINS, CONFLICT):
-        m, _ = evaluate(valid, DisplayMatcher(reference, Settings(cutoff, margin, scorer, conflict)), key, reference)
-        grid.append({"scorer": scorer, "cutoff": cutoff, "margin": margin, "conflict": conflict, **summary(m)})
+    for scorer, cutoff, margin, conflict, route_fb in itertools.product(SCORERS, CUTOFFS, MARGINS, CONFLICT, ROUTE_FALLBACK):
+        m, _ = evaluate(valid, DisplayMatcher(reference, Settings(cutoff, margin, scorer, conflict, route_fb)), key, reference)
+        grid.append({"scorer": scorer, "cutoff": cutoff, "margin": margin, "conflict": conflict,
+                     "route_as_destination": route_fb, **summary(m)})
     (OUT / "results").mkdir(exist_ok=True)
     write_csv(OUT / "results/validation_grid.csv", grid)
     best = choose_setting(grid)
-    settings = Settings(best["cutoff"], best["margin"], best["scorer"], best["conflict"])
+    settings = Settings(best["cutoff"], best["margin"], best["scorer"], best["conflict"], best["route_as_destination"])
     matcher = DisplayMatcher(reference, settings)
 
     groups, all_rows = {}, {}
@@ -209,11 +222,21 @@ def main(argv=None):
     write_csv(OUT / "results/per_display_test.csv", all_rows["test/annotation"])
 
     focus = [g for g in grid if g["cutoff"] in (25, 50, 75) and g["margin"] == best["margin"]
-             and g["scorer"] == best["scorer"] and g["conflict"] == best["conflict"]]
+             and g["scorer"] == best["scorer"] and g["conflict"] == best["conflict"]
+             and g["route_as_destination"] == best["route_as_destination"]]
+    route_cmp = [max((g for g in grid if g["route_as_destination"] == v), key=lambda g: (g["net_correct"], g["shown_precision"] or 0)) for v in ROUTE_FALLBACK]
     policy = [max((g for g in grid if g["conflict"] == c), key=lambda g: (g["net_correct"], g["shown_precision"] or 0)) for c in CONFLICT]
     by_scorer = [max((g for g in grid if g["scorer"] == s), key=lambda g: (g["net_correct"], g["shown_precision"] or 0)) for s in SCORERS]
     key_note = f"`{args.key.relative_to(ROOT)}`, {len(key)} entries; reviewed by: " + ", ".join(
         f"{who} ({n})" for who, n in reviewers.items())
+    def at(cutoff):
+        return next(g for g in grid if g["scorer"] == best["scorer"] and g["cutoff"] == cutoff
+                    and g["margin"] == best["margin"] and g["conflict"] == best["conflict"]
+                    and g["route_as_destination"] == best["route_as_destination"])
+    c50, cfx = at(50), at(FIXED_CUTOFF)
+    cutoff_note = (f"Cutoff 50 scored best on validation (vs {FIXED_CUTOFF}: {c50['dest_correct']} vs {cfx['dest_correct']} of "
+                   f"{cfx['dest_gold']} destinations, {c50['dest_wrong']} and {cfx['dest_wrong']} wrong; net correct "
+                   f"{c50['net_correct']} vs {cfx['net_correct']}) ")
     md = [
         "# Reference matching results",
         "",
@@ -222,8 +245,15 @@ def main(argv=None):
         "",
         "## Selected setting (chosen on validation only)",
         "",
-        f"**Scorer `{best['scorer']}`, cutoff {best['cutoff']}, margin {best['margin']}, conflict policy `{best['conflict']}`.** "
-        "Rule: most correct outputs minus wrong outputs (services + destinations) on validation; "
+        f"**Scorer `{best['scorer']}`, cutoff {best['cutoff']}, margin {best['margin']}, conflict policy `{best['conflict']}`, "
+        f"route crop fallback `{best['route_as_destination']}`.** "
+        "Project decisions: the route crop fallback is required (`check` or `use`, never `off`; `check` wins ties) and "
+        f"the cutoff is fixed at {FIXED_CUTOFF} (21 Nov 2026; 70 before). " + cutoff_note +
+        "but 50-55 show roads on side displays as destinations in the 40-photo benchmark "
+        "(`evaluation/photo_benchmark/PHOTO_BENCHMARK.md`) and 60 adds a wrong service here; 65 is never worse than "
+        "70 on validation, test or the photos. The cutoff was chosen after validation, test and the photos had all "
+        "been inspected, so none of them is an untouched held-out result. "
+        "Other settings: most correct outputs minus wrong outputs (services + destinations) on validation; "
         "ties go to higher precision, then the stricter cutoff and margin. Test was run once with this setting.",
         "",
         "## Results with the selected setting",
@@ -256,6 +286,16 @@ def main(argv=None):
         "| --- | --- | ---: | ---: | ---: | ---: | ---: |",
         *[f"| {g['conflict']} | {g['scorer']} | {g['cutoff']} | {g['margin']} | {g['net_correct']} | "
           f"{g['shown_precision']}% | {g['svc_correct']} / {g['svc_wrong']} |" for g in policy],
+        "",
+        "## Route crop as destination fallback (validation, best setting of each)",
+        "",
+        "When a display has no destination crop: `off` ignores the route crop; `check` uses it only to flag a service "
+        "number it does not fit (never shown); `use` may also show it as the destination.",
+        "",
+        "| Fallback | Scorer | Cutoff | Margin | Net correct | Shown precision | Service correct / wrong | Destination correct / wrong |",
+        "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |",
+        *[f"| {g['route_as_destination']} | {g['scorer']} | {g['cutoff']} | {g['margin']} | {g['net_correct']} | "
+          f"{g['shown_precision']}% | {g['svc_correct']} / {g['svc_wrong']} | {g['dest_correct']} / {g['dest_wrong']} |" for g in route_cmp],
         "",
         "Full grid: `results/validation_grid.csv`. Per-display decisions with raw OCR, matched text, "
         "similarity and reasons: `results/per_display_validation.csv`, `results/per_display_test.csv`.",

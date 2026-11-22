@@ -14,7 +14,7 @@ class FrameOptions(BaseModel):
     backend: Backend = 'easyocr'
     detection: float = Field(.50, ge=.05, le=.95)
     ocr_threshold: float = Field(.25, ge=0, le=1)
-    similarity: float = Field(.7, ge=0, le=1)
+    similarity: float = Field(.65, ge=0, le=1)
     session_id: str = Field(default_factory=lambda: str(uuid4()), min_length=1, max_length=100)
     frame_id: int = Field(0, ge=0)
     source: Literal['image', 'sample', 'camera', 'video'] = 'image'
@@ -66,6 +66,7 @@ class ReferenceMatch(BaseModel):
     similarity: float | None
     reason: str
     routes: list[dict[str, str]]
+    announcement: str | None = None
 
 
 class DisplayResult(BaseModel):

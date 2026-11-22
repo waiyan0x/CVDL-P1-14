@@ -334,37 +334,37 @@
     {
       "a": "Bukit Batok East Avenue 2",
       "b": "Bukit Batok East Avenue 4",
-      "ratio": 95.5
+      "ratio": 94.7
     },
     {
       "a": "Bukit Batok West Avenue 3",
       "b": "Bukit Batok West Avenue 5",
-      "ratio": 95.5
+      "ratio": 94.7
     },
     {
       "a": "Bukit Batok West Avenue 3",
       "b": "Bukit Batok West Avenue 8",
-      "ratio": 95.5
+      "ratio": 94.7
     },
     {
       "a": "Bukit Batok West Avenue 3",
       "b": "Bukit Batok West Avenue 9",
-      "ratio": 95.5
+      "ratio": 94.7
     },
     {
       "a": "Bukit Batok West Avenue 5",
       "b": "Bukit Batok West Avenue 8",
-      "ratio": 95.5
+      "ratio": 94.7
     },
     {
       "a": "Bukit Batok West Avenue 5",
       "b": "Bukit Batok West Avenue 9",
-      "ratio": 95.5
+      "ratio": 94.7
     },
     {
       "a": "Bukit Batok West Avenue 8",
       "b": "Bukit Batok West Avenue 9",
-      "ratio": 95.5
+      "ratio": 94.7
     },
     {
       "a": "Choa Chu Kang Avenue 1",
@@ -400,11 +400,6 @@
       "a": "Serangoon North Avenue 4",
       "b": "Serangoon North Avenue 5",
       "ratio": 94.7
-    },
-    {
-      "a": "Bukit Batok Street 23",
-      "b": "Bukit Batok Street 33",
-      "ratio": 94.1
     },
     {
       "a": "Jurong East Avenue 1",
@@ -597,6 +592,11 @@
       "ratio": 93.3
     },
     {
+      "a": "Bukit Batok Street 23",
+      "b": "Bukit Batok Street 33",
+      "ratio": 92.9
+    },
+    {
       "a": "Clementi Avenue 1",
       "b": "Clementi Avenue 4",
       "ratio": 92.9
@@ -744,46 +744,6 @@
     {
       "a": "Ang Mo Kio Avenue 10",
       "b": "Ang Mo Kio Avenue 9",
-      "ratio": 90.9
-    },
-    {
-      "a": "Bukit Batok East Avenue 2",
-      "b": "Bukit Batok West Avenue 3",
-      "ratio": 90.9
-    },
-    {
-      "a": "Bukit Batok East Avenue 2",
-      "b": "Bukit Batok West Avenue 5",
-      "ratio": 90.9
-    },
-    {
-      "a": "Bukit Batok East Avenue 2",
-      "b": "Bukit Batok West Avenue 8",
-      "ratio": 90.9
-    },
-    {
-      "a": "Bukit Batok East Avenue 2",
-      "b": "Bukit Batok West Avenue 9",
-      "ratio": 90.9
-    },
-    {
-      "a": "Bukit Batok East Avenue 4",
-      "b": "Bukit Batok West Avenue 3",
-      "ratio": 90.9
-    },
-    {
-      "a": "Bukit Batok East Avenue 4",
-      "b": "Bukit Batok West Avenue 5",
-      "ratio": 90.9
-    },
-    {
-      "a": "Bukit Batok East Avenue 4",
-      "b": "Bukit Batok West Avenue 8",
-      "ratio": 90.9
-    },
-    {
-      "a": "Bukit Batok East Avenue 4",
-      "b": "Bukit Batok West Avenue 9",
       "ratio": 90.9
     }
   ]

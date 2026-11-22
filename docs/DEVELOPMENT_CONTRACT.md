@@ -28,7 +28,8 @@ responsibility rather than arbitrary line counts.
   interval. Missing engines do not disable otherwise usable engines.
 - `GET /api/samples`: `[{id,name,url,source}]`; image URL returns original image.
 - `POST /api/analysis`: multipart `file` or `sample_id`, plus `backend`,
-  `detection` (default .3), `ocr_threshold` (.25), `similarity` (.7),
+  `detection` (default .3), `ocr_threshold` (.25), `similarity` (.65 = reference-matching cutoff 65 of 100;
+  margin 10 and the other matching settings are fixed, see `docs/REFERENCE_MATCHING.md`),
   `session_id`, `frame_id` (nonnegative monotonic integer), `source`
   (`image|sample|camera|video`), `source_timestamp_ms` (nonnegative media time),
   `captured_at` (ISO timestamp). Metadata is echoed in `frame`.
@@ -69,7 +70,8 @@ Analysis response:
       "confidence":0.9,"raw":"3","ocr_confidence":0.8,
       "crop":"data:image/jpeg;base64,..."}},
     "match":{"status":"matched","service":"3","endpoint":"Tampines Bus Interchange",
-      "similarity":0.9,"reason":"...","routes":[]}}],
+      "similarity":0.9,"reason":"...","routes":[],
+      "announcement":"Bus 3 to Tampines Bus Interchange."}}],
   "timings":{"detection_ms":1,"preprocessing_ms":1,"ocr_ms":1,
     "matching_ms":1,"total_ms":4},
   "processing_fps":250
