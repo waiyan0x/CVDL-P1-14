@@ -35,7 +35,7 @@ playwright-report/
 
 # Local model weights and test photos (never committed)
 models/local/
-runs/
+/runs/
 
 # git bundles used to move commits between machines
 *.bundle
