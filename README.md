@@ -250,7 +250,7 @@ terminal without the web app:
 ```sh
 python scripts/match_reference.py --number 14E --destination "> TAMP1NES INT"
 python scripts/match_reference.py --crop-dir runs/matching/bus_374
-python scripts/match_reference.py --photo models/local/photos/bus_374.png --save-dir runs/matching
+python scripts/match_reference.py --photo data/samples/distance-and-image-quality/close-readable-eds.jpg --save-dir runs/matching
 python scripts/evaluate_reference_matching.py
 ```
 

@@ -275,7 +275,7 @@ then the overall result and the reason. Add `--json` for the full result.
 
 | Input | Command |
 | --- | --- |
-| Full chain on a photo (YOLO11s → PaddleOCR → matching) | `python scripts/match_reference.py --photo models/local/photos/bus_374.png --save-dir runs/matching` |
+| Full chain on a photo (YOLO11s → PaddleOCR → matching) | `python scripts/match_reference.py --photo data/samples/distance-and-image-quality/close-readable-eds.jpg --save-dir runs/matching` (a committed sample; `models/local/photos/` is gitignored) |
 | Every crop saved by `--photo --save-dir`, OCR shown per crop | `python scripts/match_reference.py --crop-dir runs/matching/bus_374` |
 | Crop images (PaddleOCR → matching) | `python scripts/match_reference.py --number-crop num.png --destination-crop dest.png` |
 | Typed OCR text | `python scripts/match_reference.py --number 14E --destination "> TAMP1NES INT"` |
