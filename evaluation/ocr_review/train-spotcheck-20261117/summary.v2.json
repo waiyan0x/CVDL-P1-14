@@ -1,0 +1,66 @@
+{
+  "sample": 50,
+  "population": "387 scoring-eligible training labels (codex_ai_3copy_consensus)",
+  "reviewer": "cody",
+  "reviewed_at": "2026-11-17",
+  "export_file": "training-50crop-review-20261117.checks.cody.2026-11-17 (1).csv",
+  "export_sha256": "2bac7867300b915be031d0907d89deebc50e43cf058a0c41779b04c97827d933",
+  "supersedes": "first export (spotcheck_export.csv / comparison.csv / summary.json); 11 rows revised",
+  "categories": {
+    "match": 21,
+    "human_reads_only_part_consistent": 3,
+    "conflicting_reading": 6,
+    "label_text_ok_extra_cut_off_part": 18,
+    "human_illegible": 2
+  },
+  "exact_text_agreement": {
+    "k": 21,
+    "n": 50,
+    "rate": 0.42,
+    "wilson95": [
+      0.294,
+      0.558
+    ]
+  },
+  "human_reading_consistent_with_label_ignoring_cut_off": {
+    "k": 39,
+    "n": 50,
+    "rate": 0.78,
+    "wilson95": [
+      0.648,
+      0.872
+    ]
+  },
+  "conflicting_text": {
+    "k": 6,
+    "n": 50,
+    "ids": [
+      "S004",
+      "S018",
+      "S029",
+      "S041",
+      "S046",
+      "S050"
+    ],
+    "claude_visual_check_supports_label": [
+      "S004",
+      "S018",
+      "S029"
+    ],
+    "unresolved": [
+      "S041",
+      "S046",
+      "S050"
+    ]
+  },
+  "label_full_but_human_partial_or_illegible": {
+    "k": 28,
+    "n": 50,
+    "rate": 0.56,
+    "wilson95": [
+      0.423,
+      0.688
+    ]
+  },
+  "labels_changed": false
+}

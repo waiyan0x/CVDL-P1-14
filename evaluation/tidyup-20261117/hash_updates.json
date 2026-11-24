@@ -1,0 +1,164 @@
+[
+ {
+  "file": "evaluation/ocr_review/human-verification-20261113/training.source.csv",
+  "old_sha256": "1c3e7eefac1a40eaa541fc2f4cc3831da5d2bcf887bf7d9bb56c7fd50905f19e",
+  "new_sha256": "f35dcfbd5fa26012927d1903813aaf95187a1a88f960788305c8a3e2fda49ae4",
+  "reason": "crop_local_path made repo-relative"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-01/full_text.ai-candidates.csv",
+  "old_sha256": "cb03672ce79463359471d55a41c237fb81437f0d21c38158f6ddb2d39b3fe0ce",
+  "new_sha256": "d2139018d155ad4a5dd6b79a358080318d046f63479b3b0acf757696fdd1bef7",
+  "reason": "crop_local_path made repo-relative"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-01/human_review_queue.csv",
+  "old_sha256": "50193e1489f18f7a70fc7ecba5bb813f0da98c7c1fa5c0cbe45dae7578810a07",
+  "new_sha256": "be6854fd3d5b5358897f5478bdf2fc562e2a07de42227a20c5e6ccec026172b0",
+  "reason": "crop_local_path made repo-relative"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-01/transcriptions.review.csv",
+  "old_sha256": "24a7503b450d640b1d8727e42ed476aecccaeccc47ef3249685659c0487922b8",
+  "new_sha256": "262002fef345ae05b998de16744c828738d7f59b3ec155d33310bfe6ba04be9c",
+  "reason": "crop_local_path made repo-relative"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-followup-20261112/human_training_review.template.csv",
+  "old_sha256": "035546712657b20cf64960bb05cbdbdc73c79d3ea3d543d21b5877620953f955",
+  "new_sha256": "3c78d37e9039cd3e1cf628e6d5dbfb6891dc6d4d7c033f822e135b6f1f4ca180",
+  "reason": "crop_local_path made repo-relative"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-followup-20261112/transcriptions.ai-followup.csv",
+  "old_sha256": "1f93d2cf043fe37386c375ecb083116322945b98d9a02f4ddcaf25e976727cb1",
+  "new_sha256": "6b30ba0cf1d165e3f9c4db5004a399506f9d8929f79ee9d0f91113bf6934f3ce",
+  "reason": "crop_local_path made repo-relative"
+ },
+ {
+  "file": "evaluation/ocr_review/human-verification-20261113/training.decisions.template.csv",
+  "old_sha256": "55b2e43baef2986ae173d013bf7ec6377193964288d7da3ea5b75913d099ffbb",
+  "new_sha256": "5610960a8018822e2788c9e24501ae04ff8480f6e338721554787dc42aea11c7",
+  "reason": "updated recorded hash of evaluation/ocr_review/human-verification-20261113/training.source.csv"
+ },
+ {
+  "file": "evaluation/ocr_training/train_labels_final.audit.json",
+  "old_sha256": "2c5858ebf2ac3ffd98791e6d3544f3cbea8d88c1221d665665b917de8bb46698",
+  "new_sha256": "d2244bc6cb2c487912ff4d8c9302ccc312ff59c10bafb41ea2736a6f2b0c175a",
+  "reason": "updated recorded hash of evaluation/ocr_review/human-verification-20261113/training.source.csv"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-human-verification-01/manifest.json",
+  "old_sha256": "43a60f4e2c63ca345c65858cb303ca3194e9b3667f657d38ab5b4d2d8bd737f9",
+  "new_sha256": "5348d64f8263a8b470e2433acd141d8e8464f4c945e08263d8ab4fc7536aeb51",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-01/full_text.ai-candidates.csv"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-01/artifact_checksums.json",
+  "old_sha256": "bcb9f51bc83a330a574013c4788ceb62d475199d053f7c5e34737d013c7e2d0a",
+  "new_sha256": "618ed61ad5f670b29e9304687f0c063720bbc1acbe6565e722dec30eb54dfb93",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-01/full_text.ai-candidates.csv"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-01/review_audit.json",
+  "old_sha256": "24102aac8af7a8dbcefc9f4857c0025033edf5bc8ba2e4c198e8c1cd5ff10698",
+  "new_sha256": "4de44cbe362616913f053c234b3b933922def10991a343adbf35148b12332354",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-01/full_text.ai-candidates.csv"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-01/artifact_checksums.json",
+  "old_sha256": "618ed61ad5f670b29e9304687f0c063720bbc1acbe6565e722dec30eb54dfb93",
+  "new_sha256": "e7f50e76ffe6e4f9f5e0e1d1ea03511c4994157b297a70156374d870a6edff4d",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-01/human_review_queue.csv"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-01/review_audit.json",
+  "old_sha256": "4de44cbe362616913f053c234b3b933922def10991a343adbf35148b12332354",
+  "new_sha256": "cf9935434ff0f7e387bcd30faf7fb28b161f1566a4578f507aaf5e3ff6a4d867",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-01/human_review_queue.csv"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-01/artifact_checksums.json",
+  "old_sha256": "e7f50e76ffe6e4f9f5e0e1d1ea03511c4994157b297a70156374d870a6edff4d",
+  "new_sha256": "2dfb581b26c67e4d967a49a3b8d3f48edd455e6ea7d6badbd0b228d3ae9bcfe6",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-01/transcriptions.review.csv"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-01/review_audit.json",
+  "old_sha256": "cf9935434ff0f7e387bcd30faf7fb28b161f1566a4578f507aaf5e3ff6a4d867",
+  "new_sha256": "1ff0524f6ed407d007214bb318384006ed8c97a2f59b89e359de9b983d092039",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-01/transcriptions.review.csv"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-followup-20261112/review_audit.json",
+  "old_sha256": "3547ed8f99f8cc80e540bb5124e07d985a1236098ac2ffe2ea84060626bbdf65",
+  "new_sha256": "21f78a2027f7c2879987bd83f5845ce1a006ca8c9b189a4f26dbd8fa0b15f1cb",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-01/transcriptions.review.csv"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-followup-20261112/artifact_checksums.json",
+  "old_sha256": "e64161caa4358fd947719d6725e44a97f31a9704c33b2c9dca4ff84282196c42",
+  "new_sha256": "e3aeae2ad3de86b4975c0340868fbd6723cb2ddecca39e678d6e94c7d5b9bb29",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-followup-20261112/human_training_review.template.csv"
+ },
+ {
+  "file": "evaluation/ocr_review/human-verification-20261113/audit.json",
+  "old_sha256": "3b1622085bb7fc32f2979b292c31ae98ca98f467ff3e8e281022e3f8b64601a7",
+  "new_sha256": "4880445f90f996ac3cafcfc4231aa33a3040a984e7a34fe9510d58b0f44360c9",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-followup-20261112/transcriptions.ai-followup.csv"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-followup-20261112/artifact_checksums.json",
+  "old_sha256": "e3aeae2ad3de86b4975c0340868fbd6723cb2ddecca39e678d6e94c7d5b9bb29",
+  "new_sha256": "0c4d189cc27155a6b2c8be25be0851552923b5ce15898de1993965fd7eb77de5",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-followup-20261112/transcriptions.ai-followup.csv"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-human-verification-01/checksums.json",
+  "old_sha256": "c7372254e93b20a1612d7a4578588f08d2b37b8cfbcd83e12328b99a167442ea",
+  "new_sha256": "5f92e17837f338dac243836d2f992a26b71bdfee68c3f46ad26419772bf0c446",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-human-verification-01/manifest.json"
+ },
+ {
+  "file": "evaluation/ocr_training/checkpoint-selection-01/selection_audit.json",
+  "old_sha256": "73d641a3f2a1aabc5e2850cbce4e1f005e6eb5ea2d0bdf9bd843f2056aa66f7d",
+  "new_sha256": "8aeff5650bef8279fb3c1cd5c7d97b24e319eacdfb8c3063241b31cb73dceed0",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-01/review_audit.json"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-01/artifact_checksums.json",
+  "old_sha256": "2dfb581b26c67e4d967a49a3b8d3f48edd455e6ea7d6badbd0b228d3ae9bcfe6",
+  "new_sha256": "72d46ecbaaf2c0f1730c2bd2c7902c07f503b0891e40b80d5fd3cf262b0f2fa5",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-01/review_audit.json"
+ },
+ {
+  "file": "evaluation/ocr_training/checkpoint-selection-01/selection_audit.json",
+  "old_sha256": "8aeff5650bef8279fb3c1cd5c7d97b24e319eacdfb8c3063241b31cb73dceed0",
+  "new_sha256": "722832be23a0e29d7ef6b30e8b20e7a7e80c1ad77ac1702b5cc61e58e9026277",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-01/review_audit.json"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-01/artifact_checksums.json",
+  "old_sha256": "72d46ecbaaf2c0f1730c2bd2c7902c07f503b0891e40b80d5fd3cf262b0f2fa5",
+  "new_sha256": "9c000e707908ce1071b6ab4ce75d2febbbc641543e6371200bad3931db15bdf7",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-01/review_audit.json"
+ },
+ {
+  "file": "evaluation/ocr_training/checkpoint-selection-01/selection_audit.json",
+  "old_sha256": "722832be23a0e29d7ef6b30e8b20e7a7e80c1ad77ac1702b5cc61e58e9026277",
+  "new_sha256": "0b385eac1d35def61613a6a7ce20ebfdb6979eba10e1b24e70b34f99f8b42911",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-01/review_audit.json"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-01/artifact_checksums.json",
+  "old_sha256": "9c000e707908ce1071b6ab4ce75d2febbbc641543e6371200bad3931db15bdf7",
+  "new_sha256": "87abd2b7dc3ccc8970e707f8abc55df8479eec40d3fc46c57582b49bd5ed92f4",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-01/review_audit.json"
+ },
+ {
+  "file": "evaluation/ocr_training/v4-reviewed-01-ai-followup-20261112/artifact_checksums.json",
+  "old_sha256": "0c4d189cc27155a6b2c8be25be0851552923b5ce15898de1993965fd7eb77de5",
+  "new_sha256": "82c71ddf1dd81c6fb85fa7d63e2a240aa9fe08d8e6083470f368ab125be95087",
+  "reason": "updated recorded hash of evaluation/ocr_training/v4-reviewed-01-ai-followup-20261112/review_audit.json"
+ }
+]

@@ -1,0 +1,260 @@
+{
+  "classification": "observed implementation and metadata audit; human decisions remain pending",
+  "validation_crops": 271,
+  "distinct_source_hashes_with_crops": 43,
+  "eligible": 0,
+  "manifest_sha256": "6ceaae74d9e47188b20d7bb8254ea959c0bfb99b10df8bcd913f5f5654c2687f",
+  "layout_sha256": "218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd",
+  "layout_human_review": false,
+  "layout_status_counts": {
+    "accepted": 251,
+    "unresolved": 20
+  },
+  "view_counts": {
+    "unknown": 271
+  },
+  "lighting_counts": {
+    "unknown": 271
+  },
+  "filename_timestamp_crops": 154,
+  "timestamp_pair_candidates_within_5_seconds": 2,
+  "timestamp_timezone": "Not stated in filenames; do not infer camera timezone from chat settings",
+  "source_handoff": {
+    "manifest_sha256": "c0968017273fc771bce7974c6111be7e5241161cf26109cc6efde4c7f3f0bef7",
+    "split": "valid",
+    "source_images": 53,
+    "images_without_annotation_boxes": 10,
+    "images_without_predicted_boxes": 12,
+    "origin_note": "Supplied v4 validation handoff; not evidence of the earlier 142-image held-out set or Roboflow v2 origin."
+  },
+  "duplicate_crop_hash_families": 0,
+  "augmentation_original_selection": "Not established by crop filenames; original/variant lineage needs source review. No crop removed automatically.",
+  "quality_issue_codes": "Existing review proposals, not newly verified visual diagnoses; see inventory.csv",
+  "compatibility": [
+    {
+      "model": "easyocr",
+      "run": "easyocr-v4-mps-fixed-lines-20261112-01",
+      "ids": 271,
+      "layout_sha256": "218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd",
+      "geometry_matches": true,
+      "prediction_sha256": "af355be8728ba6512fcd95827a7d67059737ff3329e8a998bb9a25fee72e384f",
+      "report_sha256": "127226b31d9c44ea78467a80745afec1a9307ddc6ffefe7f7e00d14caec9ff8e"
+    },
+    {
+      "model": "trocr",
+      "run": "trocr-base-printed-v4-mps-fixed-lines-20261112-01",
+      "ids": 271,
+      "layout_sha256": "218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd",
+      "geometry_matches": true,
+      "prediction_sha256": "1fd17b4fdd7567dd89e446685906567568fe54128720d4b32461ad72bd04cddc",
+      "report_sha256": "2c577fca30f3e3419e7b8918e35c995b493b8726243609b4d3d0128639be9c5a"
+    },
+    {
+      "model": "paddleocr",
+      "run": "paddle-en-v5-cpu-20261113-01",
+      "ids": 271,
+      "layout_sha256": "218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd",
+      "geometry_matches": true,
+      "prediction_sha256": "cfdae43ed61aaa909d6f9e147f0d4b48f52ae2bbfd85e9b04492428dbdadd2bd",
+      "report_sha256": "f42e3ea879faeffc8306814f4381899e4396e8dca2623cabf538fad1072a8463"
+    }
+  ],
+  "size_distributions": [
+    {
+      "input_set": "annotation",
+      "field": "front_eds_num",
+      "count": 60,
+      "width": {
+        "min": 8,
+        "p25": 31.75,
+        "median": 44.5,
+        "p75": 71.25,
+        "p95": 94.2,
+        "max": 117
+      },
+      "height": {
+        "min": 12,
+        "p25": 27.0,
+        "median": 41.0,
+        "p75": 53.0,
+        "p95": 78.7,
+        "max": 107
+      },
+      "aspect_ratio": {
+        "min": 0.24242424242424243,
+        "p25": 1.0,
+        "median": 1.228,
+        "p75": 1.584,
+        "p95": 2.0,
+        "max": 2.4074074074074074
+      }
+    },
+    {
+      "input_set": "annotation",
+      "field": "front_eds_destination",
+      "count": 55,
+      "width": {
+        "min": 19,
+        "p25": 73.0,
+        "median": 111.0,
+        "p75": 159.5,
+        "p95": 276.2,
+        "max": 606
+      },
+      "height": {
+        "min": 9,
+        "p25": 17.0,
+        "median": 24.0,
+        "p75": 33.0,
+        "p95": 47.3,
+        "max": 60
+      },
+      "aspect_ratio": {
+        "min": 0.8260869565217391,
+        "p25": 3.617,
+        "median": 4.467,
+        "p75": 6.227,
+        "p95": 10.289,
+        "max": 11.4375
+      }
+    },
+    {
+      "input_set": "annotation",
+      "field": "front_eds_route",
+      "count": 42,
+      "width": {
+        "min": 27,
+        "p25": 73.5,
+        "median": 110.5,
+        "p75": 156.75,
+        "p95": 238.9,
+        "max": 308
+      },
+      "height": {
+        "min": 10,
+        "p25": 16.0,
+        "median": 21.0,
+        "p75": 26.75,
+        "p95": 40.7,
+        "max": 46
+      },
+      "aspect_ratio": {
+        "min": 1.2857142857142858,
+        "p25": 4.379,
+        "median": 5.345,
+        "p75": 6.464,
+        "p95": 11.583,
+        "max": 14.272727272727273
+      }
+    },
+    {
+      "input_set": "prediction",
+      "field": "front_eds_num",
+      "count": 42,
+      "width": {
+        "min": 20,
+        "p25": 43.5,
+        "median": 63.5,
+        "p75": 78.25,
+        "p95": 102.85,
+        "max": 222
+      },
+      "height": {
+        "min": 23,
+        "p25": 37.25,
+        "median": 46.5,
+        "p75": 56.75,
+        "p95": 79.5,
+        "max": 102
+      },
+      "aspect_ratio": {
+        "min": 0.6060606060606061,
+        "p25": 1.036,
+        "median": 1.245,
+        "p75": 1.613,
+        "p95": 2.065,
+        "max": 3.76271186440678
+      }
+    },
+    {
+      "input_set": "prediction",
+      "field": "front_eds_destination",
+      "count": 35,
+      "width": {
+        "min": 73,
+        "p25": 106.0,
+        "median": 129.0,
+        "p75": 165.5,
+        "p95": 275.2,
+        "max": 351
+      },
+      "height": {
+        "min": 14,
+        "p25": 25.0,
+        "median": 29.0,
+        "p75": 39.0,
+        "p95": 59.3,
+        "max": 64
+      },
+      "aspect_ratio": {
+        "min": 2.34375,
+        "p25": 3.57,
+        "median": 4.474,
+        "p75": 5.615,
+        "p95": 7.531,
+        "max": 10.0
+      }
+    },
+    {
+      "input_set": "prediction",
+      "field": "front_eds_route",
+      "count": 37,
+      "width": {
+        "min": 61,
+        "p25": 99.0,
+        "median": 133.0,
+        "p75": 167.0,
+        "p95": 231.2,
+        "max": 278
+      },
+      "height": {
+        "min": 14,
+        "p25": 22.0,
+        "median": 27.0,
+        "p75": 35.0,
+        "p95": 42.0,
+        "max": 50
+      },
+      "aspect_ratio": {
+        "min": 3.230769230769231,
+        "p25": 4.344,
+        "median": 4.778,
+        "p75": 5.361,
+        "p95": 7.432,
+        "max": 7.944444444444445
+      }
+    }
+  ],
+  "blockers_overlapping": {
+    "crop_target_unresolved_or_challenge": 271,
+    "field_confirmation_pending": 271,
+    "field_review_pending": 271,
+    "group_review_pending": 271,
+    "human_review_incomplete": 271,
+    "text_not_full": 154,
+    "correspondence_pending": 114,
+    "explicit_exclusion": 26,
+    "field_not_confirmed_present": 16,
+    "text_or_field_conventions_unresolved": 1
+  },
+  "unresolved_requirements": [
+    "Human text and field adjudication; do not promote AI proposals.",
+    "Human source/augmentation/burst grouping; proposed source hashes do not prove bus identity.",
+    "Predicted-crop correspondence; do not copy annotation text automatically.",
+    "Human line-layout confirmation and mixed-field/operational-message policy.",
+    "View/lighting/source-origin evidence where unknown.",
+    "GPU-equivalent timing comparison requires the same device; CPU is a separate diagnostic."
+  ],
+  "reserved_test_accessed": false,
+  "training_performed": false
+}

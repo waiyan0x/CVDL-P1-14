@@ -1,12 +1,19 @@
 # Evaluation evidence
 
-The application is designed to compare the validation-selected YOLO11s detector
-with EasyOCR, Tesseract and the supplied fine-tuned TrOCR. A same-image comparison
-runs the detector once and shares the resulting boxes/crops. At the current
-handoff, only real EasyOCR integration observations have been recorded locally;
-Tesseract and fine-tuned TrOCR remain pending. Reported text, engine-specific
-confidence and processing time form a functional comparison, not an accuracy
-measurement without reviewed transcriptions.
+## Reviewed crop scoring
+
+The saved-prediction scorer and three-model table generator are documented in
+[archive/ocr/OCR_CROP_SCORING.md](archive/ocr/OCR_CROP_SCORING.md). They freeze human-review eligibility,
+score primary raw and secondary normalised CER/WER/exact match for all three text fields, retain separate raw/normalised text exports, and preserve pending
+statuses where review or model runs are incomplete. This is a separate crop
+workflow; it does not change the older whole-image evaluator below.
+
+The application compares the validation-selected YOLO11s detector with three OCR
+engines: EasyOCR, the selected fine-tuned PaddleOCR and the supplied fine-tuned TrOCR.
+A same-image comparison runs the detector once and shares the resulting boxes/crops.
+It reports actual text, reference matches, engine-specific confidence and processing
+time. This is a functional comparison, not accuracy measurement without reviewed
+transcriptions.
 
 ## Latest four-class detector experiment
 

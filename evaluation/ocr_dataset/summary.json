@@ -1,0 +1,29 @@
+{
+ "rows": 763,
+ "counts": {
+  "test/annotation/bus_number/eligible=False": 17,
+  "test/annotation/bus_number/eligible=True": 30,
+  "test/annotation/destination/eligible=False": 19,
+  "test/annotation/destination/eligible=True": 20,
+  "test/annotation/route_text/eligible=False": 22,
+  "test/annotation/route_text/eligible=True": 10,
+  "train/annotation/bus_number/eligible=True": 282,
+  "train/annotation/destination/eligible=True": 63,
+  "train/annotation/route_text/eligible=True": 42,
+  "valid/annotation/bus_number/eligible=False": 14,
+  "valid/annotation/bus_number/eligible=True": 43,
+  "valid/annotation/destination/eligible=False": 33,
+  "valid/annotation/destination/eligible=True": 19,
+  "valid/annotation/route_text/eligible=False": 24,
+  "valid/annotation/route_text/eligible=True": 17,
+  "valid/prediction/bus_number/eligible=False": 8,
+  "valid/prediction/bus_number/eligible=True": 33,
+  "valid/prediction/destination/eligible=False": 26,
+  "valid/prediction/destination/eligible=True": 6,
+  "valid/prediction/route_text/eligible=False": 23,
+  "valid/prediction/route_text/eligible=True": 12
+ },
+ "valid_eligibility_mismatch_vs_repo_scorer": [],
+ "validation_review_source": "evaluation/ocr_review/human-verification-20261116/validation.source.corrected-P065.csv",
+ "validation_reviewer": "cody"
+}

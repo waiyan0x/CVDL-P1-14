@@ -1,0 +1,13 @@
+{
+  "review_scope": "100 displayed sample crops compared with text labels",
+  "reviewer": "user_chat_confirmation",
+  "reviewed_at": "2026-11-19",
+  "confirmation_quote": "Yep, after looking through the text labels with the different cropping boxes, it looks accurate in terms of matching of the image to text.",
+  "preceding_clarification": "Have you compared all 100 crops with their text labels, or are you still partway through?",
+  "method": "bulk user chat attestation; assistant transcribed confirmation into CSV",
+  "independent_blind_review": false,
+  "entire_10000_crop_dataset_reviewed": false,
+  "source_template_sha256": "f5b40615c41e13a6dcd5ea89a03ad29524118de0b25616ef4c7823dd2aefce66",
+  "confirmed_csv_sha256": "2cc30b64944f21a8463ee88c72df51fd68d8908e38c477feaf29dd149d33df6b",
+  "rows": 100
+}

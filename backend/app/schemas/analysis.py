@@ -5,7 +5,8 @@ from uuid import uuid4
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
-Backend = Literal['easyocr', 'tesseract', 'trocr']
+# Single source of OCR engine IDs, in display order.
+Backend = Literal['easyocr', 'paddleocr', 'trocr']
 AnalysisStatus = Literal['no_eds', 'unreadable', 'partial', 'unknown_match', 'matched']
 
 
@@ -14,7 +15,7 @@ class FrameOptions(BaseModel):
     backend: Backend = 'easyocr'
     detection: float = Field(.50, ge=.05, le=.95)
     ocr_threshold: float = Field(.25, ge=0, le=1)
-    similarity: float = Field(.7, ge=0, le=1)
+    similarity: float = Field(.65, ge=0, le=1)
     session_id: str = Field(default_factory=lambda: str(uuid4()), min_length=1, max_length=100)
     frame_id: int = Field(0, ge=0)
     source: Literal['image', 'sample', 'camera', 'video'] = 'image'
@@ -56,6 +57,9 @@ class FieldResult(Detection):
     raw: str
     ocr_confidence: float | None = Field(None, ge=0, le=1)
     ocr_confidence_method: str
+    # whole_display_fallback: no usable field crop, so this text was split from the
+    # pretrained PaddleOCR reading of the whole display; its box and crop are the display's.
+    ocr_source: Literal['field_crop', 'whole_display_fallback'] = 'field_crop'
     crop: str
 
 
@@ -66,6 +70,9 @@ class ReferenceMatch(BaseModel):
     similarity: float | None
     reason: str
     routes: list[dict[str, str]]
+    # Reference name of a confirmed destination, also when the service is not confirmed.
+    destination: str | None = None
+    announcement: str | None = None
 
 
 class DisplayResult(BaseModel):

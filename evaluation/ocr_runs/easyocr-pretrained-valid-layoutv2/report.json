@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "run_name": "easyocr-pretrained-valid-layoutv2",
+  "started_at_utc": "2026-11-17T07:32:43.855401+00:00",
+  "finished_at_utc": "2026-11-17T07:32:53.556726+00:00",
+  "dataset": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_annotations/v4-reviewed-01",
+  "split": "valid",
+  "inputs": 271,
+  "engine": "easyocr",
+  "model": "EasyOCR English generation-2 pretrained recognizer",
+  "model_provenance": {
+    "easyocr_version": "1.7.2",
+    "recog_network": "standard",
+    "fine_tuned": false,
+    "finetuned_from": null
+  },
+  "fine_tuned": false,
+  "finetuned_from": null,
+  "model_sha256_before": "e2272681d9d67a04e2dff396b6e95077bc19001f8f6d3593c307b9852e1c29e8",
+  "model_sha256_after": "e2272681d9d67a04e2dff396b6e95077bc19001f8f6d3593c307b9852e1c29e8",
+  "cached_weights_unchanged": true,
+  "model_files_sha256": {
+    "craft_mlt_25k.pth": "4a5efbfb48b4081100544e75e1e2b57f8de3d84f213004b14b85fd4b3748db17",
+    "english_g2.pth": "e2272681d9d67a04e2dff396b6e95077bc19001f8f6d3593c307b9852e1c29e8"
+  },
+  "source_workspace_unchanged": true,
+  "actual_device": "mps:0",
+  "seed": 0,
+  "warmup_runs_per_field": 3,
+  "measured_runs_per_crop": 1,
+  "warmup_policy": "First accepted-layout annotation crop per field (or first crop in automatic mode), repeated before measurements; unseen shapes can incur first-use costs",
+  "frozen_line_layout": {
+    "version": "v4-lines-v2",
+    "sha256": "d1dd79be9e2b8a4599c86d0c2021a8fb049427b4dc5ca16122bf862b92435b7c",
+    "reviewer_type": "AI",
+    "summary": {
+      "total": 271,
+      "accepted": 251,
+      "unresolved": 20,
+      "multiline_crops": 27,
+      "line_regions": 278,
+      "changed_from_proposal": 48
+    }
+  },
+  "recognition_settings": {
+    "detector": false,
+    "decoder": "greedy",
+    "batch_size": 1,
+    "languages": [
+      "en"
+    ],
+    "allowlist": null,
+    "blocklist": null,
+    "workers": 0,
+    "contrast_ths": 0.0,
+    "paragraph": false,
+    "reformat": false,
+    "download_enabled": false
+  },
+  "preprocessing": {
+    "external_resize": null,
+    "external_padding": null,
+    "conversion": "Pillow RGB then OpenCV RGB-to-grayscale",
+    "line_segmentation": {
+      "method": "reviewed_full_width_separators_v1",
+      "transform": "Horizontal regions: exact slicing. Sloping full-width regions: perspective rectify to original width and maximum side height, INTER_LINEAR/BORDER_REPLICATE",
+      "unresolved_policy": "No recognition regions and no automatic/full-crop fallback; retain crop ID and explicit error"
+    },
+    "recognizer_resize": "Unmodified EasyOCR internal height/aspect-dependent width preprocessing"
+  },
+  "confidence_method": "Character-count-weighted mean of EasyOCR returned region confidences, excluding inserted newlines; empty output has null score",
+  "raw_text_assembly": "Preserve each returned string; join regions/lines top-to-bottom with actual newlines; no spelling/case/reference correction",
+  "timing": {
+    "preprocessing_ms": "File read, SHA-256 check, image decode, RGB/grayscale conversion and line segmentation",
+    "recognition_ms": "Sum of synchronized wall times around each Reader.recognize call, including internal resize/transfer/forward/decode",
+    "crop_total_ms": "Wall time for preprocessing, synchronized recognition and result assembly",
+    "excluded": "Model initialization, warmups, preflight/integrity hashing, previews and result-file writes",
+    "percentile": "Linear interpolation at (n-1)*q across successful heterogeneous crops, separately by set/field"
+  },
+  "summary": [
+    {
+      "crop_set": "annotation",
+      "field": "front_eds_num",
+      "attempted": 60,
+      "completed": 58,
+      "errors": 2,
+      "empty_outputs": 1,
+      "multiline_candidates": 0,
+      "segmentation_status_counts": {
+        "fixed_layout_accepted": 58,
+        "fixed_layout_unresolved": 2
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.46610449953732314,
+      "preprocessing_ms_p95": 2.8053936498508842,
+      "recognition_ms_median": 7.183166499089566,
+      "recognition_ms_p95": 20.230974950391087,
+      "crop_total_ms_median": 8.130875000460946,
+      "crop_total_ms_p95": 23.676008049733333
+    },
+    {
+      "crop_set": "annotation",
+      "field": "front_eds_route",
+      "attempted": 42,
+      "completed": 39,
+      "errors": 3,
+      "empty_outputs": 1,
+      "multiline_candidates": 2,
+      "segmentation_status_counts": {
+        "fixed_layout_accepted": 39,
+        "fixed_layout_unresolved": 3
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.5052500000601867,
+      "preprocessing_ms_p95": 2.7051881004808824,
+      "recognition_ms_median": 13.468917000864167,
+      "recognition_ms_p95": 49.36709170033282,
+      "crop_total_ms_median": 13.782083999103634,
+      "crop_total_ms_p95": 49.77886249889707
+    },
+    {
+      "crop_set": "annotation",
+      "field": "front_eds_destination",
+      "attempted": 55,
+      "completed": 49,
+      "errors": 6,
+      "empty_outputs": 1,
+      "multiline_candidates": 2,
+      "segmentation_status_counts": {
+        "fixed_layout_unresolved": 6,
+        "fixed_layout_accepted": 49
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.4427920011949027,
+      "preprocessing_ms_p95": 2.292783399389005,
+      "recognition_ms_median": 13.323165998372133,
+      "recognition_ms_p95": 54.484175000106895,
+      "crop_total_ms_median": 13.918083999669761,
+      "crop_total_ms_p95": 55.15451639985256
+    },
+    {
+      "crop_set": "annotation",
+      "field": "all",
+      "attempted": 157,
+      "completed": 146,
+      "errors": 11,
+      "empty_outputs": 3,
+      "multiline_candidates": 4,
+      "segmentation_status_counts": {
+        "fixed_layout_accepted": 146,
+        "fixed_layout_unresolved": 11
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.4674795000028098,
+      "preprocessing_ms_p95": 2.7452710000943625,
+      "recognition_ms_median": 10.706979000133288,
+      "recognition_ms_p95": 46.93276049920314,
+      "crop_total_ms_median": 11.611041000833211,
+      "crop_total_ms_p95": 47.3285727507573
+    },
+    {
+      "crop_set": "prediction",
+      "field": "front_eds_num",
+      "attempted": 42,
+      "completed": 40,
+      "errors": 2,
+      "empty_outputs": 0,
+      "multiline_candidates": 0,
+      "segmentation_status_counts": {
+        "fixed_layout_accepted": 40,
+        "fixed_layout_unresolved": 2
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.5194165005377727,
+      "preprocessing_ms_p95": 1.7758041496563213,
+      "recognition_ms_median": 6.911437500093598,
+      "recognition_ms_p95": 13.77604195004095,
+      "crop_total_ms_median": 7.504375000280561,
+      "crop_total_ms_p95": 14.82318809858042
+    },
+    {
+      "crop_set": "prediction",
+      "field": "front_eds_route",
+      "attempted": 37,
+      "completed": 35,
+      "errors": 2,
+      "empty_outputs": 0,
+      "multiline_candidates": 10,
+      "segmentation_status_counts": {
+        "fixed_layout_accepted": 35,
+        "fixed_layout_unresolved": 2
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.4366670000308659,
+      "preprocessing_ms_p95": 1.2835911004003708,
+      "recognition_ms_median": 11.943666999286506,
+      "recognition_ms_p95": 82.75263300056393,
+      "crop_total_ms_median": 12.503166000897181,
+      "crop_total_ms_p95": 83.28382500094447
+    },
+    {
+      "crop_set": "prediction",
+      "field": "front_eds_destination",
+      "attempted": 35,
+      "completed": 30,
+      "errors": 5,
+      "empty_outputs": 0,
+      "multiline_candidates": 13,
+      "segmentation_status_counts": {
+        "fixed_layout_unresolved": 5,
+        "fixed_layout_accepted": 30
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.47143749907263555,
+      "preprocessing_ms_p95": 2.0589314005519554,
+      "recognition_ms_median": 15.399292000438436,
+      "recognition_ms_p95": 101.0257400996124,
+      "crop_total_ms_median": 16.17095849906036,
+      "crop_total_ms_p95": 102.12150609968371
+    },
+    {
+      "crop_set": "prediction",
+      "field": "all",
+      "attempted": 114,
+      "completed": 105,
+      "errors": 9,
+      "empty_outputs": 0,
+      "multiline_candidates": 23,
+      "segmentation_status_counts": {
+        "fixed_layout_accepted": 105,
+        "fixed_layout_unresolved": 9
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.4791249994013924,
+      "preprocessing_ms_p95": 1.9706336006493066,
+      "recognition_ms_median": 9.94337500014808,
+      "recognition_ms_p95": 84.84500800041131,
+      "crop_total_ms_median": 10.412833000373212,
+      "crop_total_ms_p95": 85.27770000109739
+    }
+  ],
+  "accuracy_calculated": false,
+  "reference_matching_used": false,
+  "limitations": [
+    "Fixed upstream geometry was visually reviewed by AI, not independently adjudicated by a human; it is diagnostic layout information, not automatic deployment performance",
+    "No foreground/fragmented layouts return an explicit error, never an unreported full-crop fallback",
+    "One timed pass per crop; timings include varying image/line counts and first-use shape costs, not sustained end-to-end FPS",
+    "Only existing crops are recognized; missing detections and zero-box images are outside this crop-only run",
+    "Ground-truth resolution, related-frame group review and prediction correspondence remain outstanding",
+    "English pretrained vocabulary may not cover every visible symbol or script",
+    "No accuracy, independence, training, model selection or fine-tuning claim is made"
+  ]
+}

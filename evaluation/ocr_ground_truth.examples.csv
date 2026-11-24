@@ -1,0 +1,11 @@
+crop_id,source_image,group_id,view,field,bbox,text,legibility,lighting,split
+examples/num_full.png,synthetic/bus01.jpg,synthetic-01,front,front_eds_num,"[10,10,70,40]",96B,full,day,train
+examples/num_partial.png,synthetic/bus02.jpg,synthetic-02,side,front_eds_num,"[10,10,70,40]",1[UNK]A,partial,day,valid
+examples/num_illegible.png,synthetic/bus03.jpg,synthetic-03,rear,front_eds_num,"[10,10,70,40]",[UNK],illegible,night,test
+examples/destination_full.png,synthetic/bus01.jpg,synthetic-01,front,front_eds_destination,"[80,10,280,70]","ANG MO KIO
+INT.",full,day,train
+examples/destination_partial.png,synthetic/bus02.jpg,synthetic-02,side,front_eds_destination,"[80,10,280,70]",WOOD[UNK],partial,day,valid
+examples/destination_illegible.png,synthetic/bus03.jpg,synthetic-03,rear,front_eds_destination,"[80,10,280,70]",[UNK],illegible,night,test
+examples/route_full.png,synthetic/bus01.jpg,synthetic-01,front,front_eds_route,"[80,80,280,110]",VIA A / B RD,full,day,train
+examples/route_partial.png,synthetic/bus02.jpg,synthetic-02,side,front_eds_route,"[80,80,280,110]",[UNK]SERANGOON[UNK],partial,day,valid
+examples/route_illegible.png,synthetic/bus03.jpg,synthetic-03,rear,front_eds_route,"[80,80,280,110]",[UNK],illegible,night,test

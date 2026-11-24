@@ -1,0 +1,55 @@
+{
+  "sample": 50,
+  "population": "387 scoring-eligible training labels (codex_ai_3copy_consensus)",
+  "reviewer": "cody",
+  "reviewed_at": "2026-11-17",
+  "status": "final (settled by reviewer)",
+  "export_file": "training-50crop-review-20261117.checks.cody.2026-11-17 (2).csv",
+  "export_sha256": "46f923e0fd06959cc9599ae996d5b9eac44578cf7faaae059c4e6eef4f8d48d1",
+  "supersedes": "v1 and v2 exports",
+  "categories": {
+    "match": 22,
+    "human_reads_only_part_consistent": 3,
+    "label_text_ok_extra_cut_off_part": 19,
+    "human_illegible": 2,
+    "conflicting_reading": 4
+  },
+  "exact_text_agreement": {
+    "k": 22,
+    "n": 50,
+    "rate": 0.44,
+    "wilson95": [
+      0.312,
+      0.577
+    ]
+  },
+  "human_reading_consistent_with_label_ignoring_cut_off": {
+    "k": 41,
+    "n": 50,
+    "rate": 0.82,
+    "wilson95": [
+      0.692,
+      0.902
+    ]
+  },
+  "conflicting_text": {
+    "k": 4,
+    "n": 50,
+    "ids": [
+      "S018",
+      "S041",
+      "S046",
+      "S050"
+    ]
+  },
+  "label_full_but_human_partial_or_illegible": {
+    "k": 27,
+    "n": 50,
+    "rate": 0.54,
+    "wilson95": [
+      0.404,
+      0.67
+    ]
+  },
+  "labels_changed": false
+}

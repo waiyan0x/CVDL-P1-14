@@ -1,0 +1,982 @@
+engine,variant,review_id,input_set,field,ref,hyp
+trocr,raw,A001,annotation,front_eds_num,980,980
+trocr,up2,A001,annotation,front_eds_num,980,980
+trocr,up2_sharp,A001,annotation,front_eds_num,980,980
+trocr,clahe,A001,annotation,front_eds_num,980,980
+trocr,otsu_inv,A001,annotation,front_eds_num,980,980
+trocr,close,A001,annotation,front_eds_num,980,980
+trocr,blur_bridge,A001,annotation,front_eds_num,980,980
+trocr,erode,A001,annotation,front_eds_num,980,980
+trocr,pad,A001,annotation,front_eds_num,980,980
+trocr,raw,A004,annotation,front_eds_route,hougang ave 3,hougang aue 3
+trocr,up2,A004,annotation,front_eds_route,hougang ave 3,hougang ave 3
+trocr,up2_sharp,A004,annotation,front_eds_route,hougang ave 3,hougang ave 3
+trocr,clahe,A004,annotation,front_eds_route,hougang ave 3,hougang ave 3
+trocr,otsu_inv,A004,annotation,front_eds_route,hougang ave 3,hougang aue 3
+trocr,close,A004,annotation,front_eds_route,hougang ave 3,hougang aue 3
+trocr,blur_bridge,A004,annotation,front_eds_route,hougang ave 3,houghng ave 3
+trocr,erode,A004,annotation,front_eds_route,hougang ave 3,hougang aue 3
+trocr,pad,A004,annotation,front_eds_route,hougang ave 3,hougang aue 3
+trocr,raw,A006,annotation,front_eds_num,45,45
+trocr,up2,A006,annotation,front_eds_num,45,45
+trocr,up2_sharp,A006,annotation,front_eds_num,45,45
+trocr,clahe,A006,annotation,front_eds_num,45,45
+trocr,otsu_inv,A006,annotation,front_eds_num,45,45
+trocr,close,A006,annotation,front_eds_num,45,45
+trocr,blur_bridge,A006,annotation,front_eds_num,45,45
+trocr,erode,A006,annotation,front_eds_num,45,45
+trocr,pad,A006,annotation,front_eds_num,45,45
+trocr,raw,A007,annotation,front_eds_num,120,120
+trocr,up2,A007,annotation,front_eds_num,120,120
+trocr,up2_sharp,A007,annotation,front_eds_num,120,120
+trocr,clahe,A007,annotation,front_eds_num,120,120
+trocr,otsu_inv,A007,annotation,front_eds_num,120,120
+trocr,close,A007,annotation,front_eds_num,120,120
+trocr,blur_bridge,A007,annotation,front_eds_num,120,120
+trocr,erode,A007,annotation,front_eds_num,120,120
+trocr,pad,A007,annotation,front_eds_num,120,120
+trocr,raw,A010,annotation,front_eds_route,changi rd,changi rd
+trocr,up2,A010,annotation,front_eds_route,changi rd,changi rd
+trocr,up2_sharp,A010,annotation,front_eds_route,changi rd,changi fo
+trocr,clahe,A010,annotation,front_eds_route,changi rd,changified
+trocr,otsu_inv,A010,annotation,front_eds_route,changi rd,changi rd
+trocr,close,A010,annotation,front_eds_route,changi rd,change po
+trocr,blur_bridge,A010,annotation,front_eds_route,changi rd,changi rm
+trocr,erode,A010,annotation,front_eds_route,changi rd,changi rd
+trocr,pad,A010,annotation,front_eds_route,changi rd,changi re
+trocr,raw,A011,annotation,front_eds_destination,> boon lay,> boon lay
+trocr,up2,A011,annotation,front_eds_destination,> boon lay,> boun lay
+trocr,up2_sharp,A011,annotation,front_eds_destination,> boon lay,> boun lay
+trocr,clahe,A011,annotation,front_eds_destination,> boon lay,> boon lay
+trocr,otsu_inv,A011,annotation,front_eds_destination,> boon lay,> boun lay
+trocr,close,A011,annotation,front_eds_destination,> boon lay,>* boon lay
+trocr,blur_bridge,A011,annotation,front_eds_destination,> boon lay,>* boon lay
+trocr,erode,A011,annotation,front_eds_destination,> boon lay,>* boon lay
+trocr,pad,A011,annotation,front_eds_destination,> boon lay,> boon lay
+trocr,raw,A012,annotation,front_eds_num,30,30
+trocr,up2,A012,annotation,front_eds_num,30,30
+trocr,up2_sharp,A012,annotation,front_eds_num,30,30
+trocr,clahe,A012,annotation,front_eds_num,30,30
+trocr,otsu_inv,A012,annotation,front_eds_num,30,30
+trocr,close,A012,annotation,front_eds_num,30,30
+trocr,blur_bridge,A012,annotation,front_eds_num,30,30
+trocr,erode,A012,annotation,front_eds_num,30,30
+trocr,pad,A012,annotation,front_eds_num,30,30
+trocr,raw,A013,annotation,front_eds_num,142,142
+trocr,up2,A013,annotation,front_eds_num,142,142
+trocr,up2_sharp,A013,annotation,front_eds_num,142,142
+trocr,clahe,A013,annotation,front_eds_num,142,42
+trocr,otsu_inv,A013,annotation,front_eds_num,142,142
+trocr,close,A013,annotation,front_eds_num,142,42
+trocr,blur_bridge,A013,annotation,front_eds_num,142,122
+trocr,erode,A013,annotation,front_eds_num,142,142
+trocr,pad,A013,annotation,front_eds_num,142,142
+trocr,raw,A015,annotation,front_eds_destination,lor 6 toa payoh,lor 6 tor payon.
+trocr,up2,A015,annotation,front_eds_destination,lor 6 toa payoh,lor 6 tor payon!
+trocr,up2_sharp,A015,annotation,front_eds_destination,lor 6 toa payoh,lor 6 tor pryoh !
+trocr,clahe,A015,annotation,front_eds_destination,lor 6 toa payoh,cor 6 tor pkych
+trocr,otsu_inv,A015,annotation,front_eds_destination,lor 6 toa payoh,lor 6 tda payon
+trocr,close,A015,annotation,front_eds_destination,lor 6 toa payoh,lor 6 tdr punch!
+trocr,blur_bridge,A015,annotation,front_eds_destination,lor 6 toa payoh,lot & tax pinge
+trocr,erode,A015,annotation,front_eds_destination,lor 6 toa payoh,lor 6 tda payon!
+trocr,pad,A015,annotation,front_eds_destination,lor 6 toa payoh,lor 6 tor paypoh
+trocr,raw,A018,annotation,front_eds_num,145,145
+trocr,up2,A018,annotation,front_eds_num,145,145
+trocr,up2_sharp,A018,annotation,front_eds_num,145,145
+trocr,clahe,A018,annotation,front_eds_num,145,145
+trocr,otsu_inv,A018,annotation,front_eds_num,145,145
+trocr,close,A018,annotation,front_eds_num,145,145
+trocr,blur_bridge,A018,annotation,front_eds_num,145,145
+trocr,erode,A018,annotation,front_eds_num,145,145
+trocr,pad,A018,annotation,front_eds_num,145,mas
+trocr,raw,A021,annotation,front_eds_num,7,7
+trocr,up2,A021,annotation,front_eds_num,7,7
+trocr,up2_sharp,A021,annotation,front_eds_num,7,7
+trocr,clahe,A021,annotation,front_eds_num,7,7
+trocr,otsu_inv,A021,annotation,front_eds_num,7,7
+trocr,close,A021,annotation,front_eds_num,7,7
+trocr,blur_bridge,A021,annotation,front_eds_num,7,7
+trocr,erode,A021,annotation,front_eds_num,7,7
+trocr,pad,A021,annotation,front_eds_num,7,7
+trocr,raw,A022,annotation,front_eds_destination,> clementi int,cashenii nt
+trocr,up2,A022,annotation,front_eds_destination,> clementi int,cashenii nt
+trocr,up2_sharp,A022,annotation,front_eds_destination,> clementi int,clement nt
+trocr,clahe,A022,annotation,front_eds_destination,> clementi int,cashenti nt
+trocr,otsu_inv,A022,annotation,front_eds_destination,> clementi int,> comount
+trocr,close,A022,annotation,front_eds_destination,> clementi int,cashom nt
+trocr,blur_bridge,A022,annotation,front_eds_destination,> clementi int,cashoment
+trocr,erode,A022,annotation,front_eds_destination,> clementi int,> clement int
+trocr,pad,A022,annotation,front_eds_destination,> clementi int,salemi nice
+trocr,raw,A023,annotation,front_eds_route,orchard boulevard,opchard boulevard
+trocr,up2,A023,annotation,front_eds_route,orchard boulevard,opchard boulevard
+trocr,up2_sharp,A023,annotation,front_eds_route,orchard boulevard,opchard boulevard
+trocr,clahe,A023,annotation,front_eds_route,orchard boulevard,orchard boulevard
+trocr,otsu_inv,A023,annotation,front_eds_route,orchard boulevard,opchang boulevard
+trocr,close,A023,annotation,front_eds_route,orchard boulevard,orchaso boulevard
+trocr,blur_bridge,A023,annotation,front_eds_route,orchard boulevard,bromso bill avard
+trocr,erode,A023,annotation,front_eds_route,orchard boulevard,orchased boulevard
+trocr,pad,A023,annotation,front_eds_route,orchard boulevard,orchand boul evard
+trocr,raw,A026,annotation,front_eds_num,66,66
+trocr,up2,A026,annotation,front_eds_num,66,66
+trocr,up2_sharp,A026,annotation,front_eds_num,66,66
+trocr,clahe,A026,annotation,front_eds_num,66,66
+trocr,otsu_inv,A026,annotation,front_eds_num,66,66
+trocr,close,A026,annotation,front_eds_num,66,66
+trocr,blur_bridge,A026,annotation,front_eds_num,66,66
+trocr,erode,A026,annotation,front_eds_num,66,66
+trocr,pad,A026,annotation,front_eds_num,66,66
+trocr,raw,A027,annotation,front_eds_destination,bedok,bedok
+trocr,up2,A027,annotation,front_eds_destination,bedok,bedok
+trocr,up2_sharp,A027,annotation,front_eds_destination,bedok,bedok
+trocr,clahe,A027,annotation,front_eds_destination,bedok,bedok
+trocr,otsu_inv,A027,annotation,front_eds_destination,bedok,bedok
+trocr,close,A027,annotation,front_eds_destination,bedok,bedok
+trocr,blur_bridge,A027,annotation,front_eds_destination,bedok,beook
+trocr,erode,A027,annotation,front_eds_destination,bedok,redok
+trocr,pad,A027,annotation,front_eds_destination,bedok,bedok
+trocr,raw,A032,annotation,front_eds_num,965,965
+trocr,up2,A032,annotation,front_eds_num,965,965
+trocr,up2_sharp,A032,annotation,front_eds_num,965,965
+trocr,clahe,A032,annotation,front_eds_num,965,965
+trocr,otsu_inv,A032,annotation,front_eds_num,965,965
+trocr,close,A032,annotation,front_eds_num,965,965
+trocr,blur_bridge,A032,annotation,front_eds_num,965,965
+trocr,erode,A032,annotation,front_eds_num,965,965
+trocr,pad,A032,annotation,front_eds_num,965,965
+trocr,raw,A033,annotation,front_eds_destination,sengkang,sengkang
+trocr,up2,A033,annotation,front_eds_destination,sengkang,sengkang
+trocr,up2_sharp,A033,annotation,front_eds_destination,sengkang,sengkang
+trocr,clahe,A033,annotation,front_eds_destination,sengkang,sengkang
+trocr,otsu_inv,A033,annotation,front_eds_destination,sengkang,sengkang
+trocr,close,A033,annotation,front_eds_destination,sengkang,sengkang
+trocr,blur_bridge,A033,annotation,front_eds_destination,sengkang,sengkang
+trocr,erode,A033,annotation,front_eds_destination,sengkang,sengkang
+trocr,pad,A033,annotation,front_eds_destination,sengkang,sengkang
+trocr,raw,A034,annotation,front_eds_num,145,145
+trocr,up2,A034,annotation,front_eds_num,145,145
+trocr,up2_sharp,A034,annotation,front_eds_num,145,145
+trocr,clahe,A034,annotation,front_eds_num,145,145
+trocr,otsu_inv,A034,annotation,front_eds_num,145,145
+trocr,close,A034,annotation,front_eds_num,145,145
+trocr,blur_bridge,A034,annotation,front_eds_num,145,145
+trocr,erode,A034,annotation,front_eds_num,145,145
+trocr,pad,A034,annotation,front_eds_num,145,145
+trocr,raw,A036,annotation,front_eds_route,balestier rd,onley x6 mo
+trocr,up2,A036,annotation,front_eds_route,balestier rd,onleyies no
+trocr,up2_sharp,A036,annotation,front_eds_route,balestier rd,salesyies no
+trocr,clahe,A036,annotation,front_eds_route,balestier rd,salesyies no
+trocr,otsu_inv,A036,annotation,front_eds_route,balestier rd,dalestier @
+trocr,close,A036,annotation,front_eds_route,balestier rd,sales missed
+trocr,blur_bridge,A036,annotation,front_eds_route,balestier rd,marked
+trocr,erode,A036,annotation,front_eds_route,balestier rd,onvoy (rm)
+trocr,pad,A036,annotation,front_eds_route,balestier rd,maspytsamp
+trocr,raw,A037,annotation,front_eds_num,49,49
+trocr,up2,A037,annotation,front_eds_num,49,49
+trocr,up2_sharp,A037,annotation,front_eds_num,49,49
+trocr,clahe,A037,annotation,front_eds_num,49,49
+trocr,otsu_inv,A037,annotation,front_eds_num,49,49
+trocr,close,A037,annotation,front_eds_num,49,49
+trocr,blur_bridge,A037,annotation,front_eds_num,49,49
+trocr,erode,A037,annotation,front_eds_num,49,49
+trocr,pad,A037,annotation,front_eds_num,49,49
+trocr,raw,A038,annotation,front_eds_destination,jurong east,jurong east
+trocr,up2,A038,annotation,front_eds_destination,jurong east,jurong east
+trocr,up2_sharp,A038,annotation,front_eds_destination,jurong east,jurong east
+trocr,clahe,A038,annotation,front_eds_destination,jurong east,jurong east
+trocr,otsu_inv,A038,annotation,front_eds_destination,jurong east,jurong east
+trocr,close,A038,annotation,front_eds_destination,jurong east,jurong east
+trocr,blur_bridge,A038,annotation,front_eds_destination,jurong east,jurong east
+trocr,erode,A038,annotation,front_eds_destination,jurong east,jurong east
+trocr,pad,A038,annotation,front_eds_destination,jurong east,jurong east
+trocr,raw,A039,annotation,front_eds_num,151,15
+trocr,up2,A039,annotation,front_eds_num,151,15
+trocr,up2_sharp,A039,annotation,front_eds_num,151,15
+trocr,clahe,A039,annotation,front_eds_num,151,15
+trocr,otsu_inv,A039,annotation,front_eds_num,151,151
+trocr,close,A039,annotation,front_eds_num,151,15
+trocr,blur_bridge,A039,annotation,front_eds_num,151,15
+trocr,erode,A039,annotation,front_eds_num,151,151
+trocr,pad,A039,annotation,front_eds_num,151,15
+trocr,raw,A040,annotation,front_eds_destination,> kent ridge ter,>kent ridge ter
+trocr,up2,A040,annotation,front_eds_destination,> kent ridge ter,>kent ridge ter
+trocr,up2_sharp,A040,annotation,front_eds_destination,> kent ridge ter,>kent ridge ter
+trocr,clahe,A040,annotation,front_eds_destination,> kent ridge ter,>kent ridge ter
+trocr,otsu_inv,A040,annotation,front_eds_destination,> kent ridge ter,>kent ridge ter
+trocr,close,A040,annotation,front_eds_destination,> kent ridge ter,>kent rice ter
+trocr,blur_bridge,A040,annotation,front_eds_destination,> kent ridge ter,>kent rice ter
+trocr,erode,A040,annotation,front_eds_destination,> kent ridge ter,>kent ridge ter
+trocr,pad,A040,annotation,front_eds_destination,> kent ridge ter,> kent ridge ter
+trocr,raw,A041,annotation,front_eds_route,bukit timah rd,bukit timahrd
+trocr,up2,A041,annotation,front_eds_route,bukit timah rd,bukit timahrd
+trocr,up2_sharp,A041,annotation,front_eds_route,bukit timah rd,bukit timahrd
+trocr,clahe,A041,annotation,front_eds_route,bukit timah rd,bukit timahrd
+trocr,otsu_inv,A041,annotation,front_eds_route,bukit timah rd,bukit timahrd
+trocr,close,A041,annotation,front_eds_route,bukit timah rd,bukit thah rd
+trocr,blur_bridge,A041,annotation,front_eds_route,bukit timah rd,bukit thah rd
+trocr,erode,A041,annotation,front_eds_route,bukit timah rd,bukit timah rd
+trocr,pad,A041,annotation,front_eds_route,bukit timah rd,bukit timah rd-
+trocr,raw,A049,annotation,front_eds_route,airline rd,airline rd
+trocr,up2,A049,annotation,front_eds_route,airline rd,airline rd
+trocr,up2_sharp,A049,annotation,front_eds_route,airline rd,airline rd.
+trocr,clahe,A049,annotation,front_eds_route,airline rd,airline rd.
+trocr,otsu_inv,A049,annotation,front_eds_route,airline rd,airline rd
+trocr,close,A049,annotation,front_eds_route,airline rd,airline rd
+trocr,blur_bridge,A049,annotation,front_eds_route,airline rd,airline rd
+trocr,erode,A049,annotation,front_eds_route,airline rd,airline rd.
+trocr,pad,A049,annotation,front_eds_route,airline rd,airline rd.
+trocr,raw,A051,annotation,front_eds_num,19,19
+trocr,up2,A051,annotation,front_eds_num,19,19
+trocr,up2_sharp,A051,annotation,front_eds_num,19,19
+trocr,clahe,A051,annotation,front_eds_num,19,19
+trocr,otsu_inv,A051,annotation,front_eds_num,19,19
+trocr,close,A051,annotation,front_eds_num,19,19
+trocr,blur_bridge,A051,annotation,front_eds_num,19,19
+trocr,erode,A051,annotation,front_eds_num,19,19
+trocr,pad,A051,annotation,front_eds_num,19,19
+trocr,raw,A053,annotation,front_eds_num,148,148
+trocr,up2,A053,annotation,front_eds_num,148,148
+trocr,up2_sharp,A053,annotation,front_eds_num,148,148
+trocr,clahe,A053,annotation,front_eds_num,148,148
+trocr,otsu_inv,A053,annotation,front_eds_num,148,148
+trocr,close,A053,annotation,front_eds_num,148,148
+trocr,blur_bridge,A053,annotation,front_eds_num,148,148
+trocr,erode,A053,annotation,front_eds_num,148,148
+trocr,pad,A053,annotation,front_eds_num,148,148
+trocr,raw,A058,annotation,front_eds_num,48,46
+trocr,up2,A058,annotation,front_eds_num,48,46
+trocr,up2_sharp,A058,annotation,front_eds_num,48,4
+trocr,clahe,A058,annotation,front_eds_num,48,4:6
+trocr,otsu_inv,A058,annotation,front_eds_num,48,46
+trocr,close,A058,annotation,front_eds_num,48,46
+trocr,blur_bridge,A058,annotation,front_eds_num,48,46
+trocr,erode,A058,annotation,front_eds_num,48,46
+trocr,pad,A058,annotation,front_eds_num,48,46
+trocr,raw,A059,annotation,front_eds_destination,> bedok nth depot,beodk with depot
+trocr,up2,A059,annotation,front_eds_destination,> bedok nth depot,beodk with depot
+trocr,up2_sharp,A059,annotation,front_eds_destination,> bedok nth depot,bebox nth depgt
+trocr,clahe,A059,annotation,front_eds_destination,> bedok nth depot,sebox nth depot
+trocr,otsu_inv,A059,annotation,front_eds_destination,> bedok nth depot,> bedon nth depot
+trocr,close,A059,annotation,front_eds_destination,> bedok nth depot,sebox nth depot
+trocr,blur_bridge,A059,annotation,front_eds_destination,> bedok nth depot,bedox nth depot
+trocr,erode,A059,annotation,front_eds_destination,> bedok nth depot,beodx with depot
+trocr,pad,A059,annotation,front_eds_destination,> bedok nth depot,* sbook with depot
+trocr,raw,A064,annotation,front_eds_num,110,110
+trocr,up2,A064,annotation,front_eds_num,110,110
+trocr,up2_sharp,A064,annotation,front_eds_num,110,110
+trocr,clahe,A064,annotation,front_eds_num,110,110
+trocr,otsu_inv,A064,annotation,front_eds_num,110,110
+trocr,close,A064,annotation,front_eds_num,110,110
+trocr,blur_bridge,A064,annotation,front_eds_num,110,110
+trocr,erode,A064,annotation,front_eds_num,110,110
+trocr,pad,A064,annotation,front_eds_num,110,110
+trocr,raw,A065,annotation,front_eds_num,110,110
+trocr,up2,A065,annotation,front_eds_num,110,110
+trocr,up2_sharp,A065,annotation,front_eds_num,110,110
+trocr,clahe,A065,annotation,front_eds_num,110,110
+trocr,otsu_inv,A065,annotation,front_eds_num,110,110
+trocr,close,A065,annotation,front_eds_num,110,110
+trocr,blur_bridge,A065,annotation,front_eds_num,110,110
+trocr,erode,A065,annotation,front_eds_num,110,110
+trocr,pad,A065,annotation,front_eds_num,110,110
+trocr,raw,A072,annotation,front_eds_num,359,359
+trocr,up2,A072,annotation,front_eds_num,359,359
+trocr,up2_sharp,A072,annotation,front_eds_num,359,359
+trocr,clahe,A072,annotation,front_eds_num,359,359
+trocr,otsu_inv,A072,annotation,front_eds_num,359,359
+trocr,close,A072,annotation,front_eds_num,359,359
+trocr,blur_bridge,A072,annotation,front_eds_num,359,359
+trocr,erode,A072,annotation,front_eds_num,359,359
+trocr,pad,A072,annotation,front_eds_num,359,359
+trocr,raw,A073,annotation,front_eds_num,350,358
+trocr,up2,A073,annotation,front_eds_num,350,358
+trocr,up2_sharp,A073,annotation,front_eds_num,350,358
+trocr,clahe,A073,annotation,front_eds_num,350,358
+trocr,otsu_inv,A073,annotation,front_eds_num,350,350
+trocr,close,A073,annotation,front_eds_num,350,358
+trocr,blur_bridge,A073,annotation,front_eds_num,350,358
+trocr,erode,A073,annotation,front_eds_num,350,358
+trocr,pad,A073,annotation,front_eds_num,350,358
+trocr,raw,A080,annotation,front_eds_num,87,87
+trocr,up2,A080,annotation,front_eds_num,87,87
+trocr,up2_sharp,A080,annotation,front_eds_num,87,87
+trocr,clahe,A080,annotation,front_eds_num,87,87
+trocr,otsu_inv,A080,annotation,front_eds_num,87,87
+trocr,close,A080,annotation,front_eds_num,87,87
+trocr,blur_bridge,A080,annotation,front_eds_num,87,87
+trocr,erode,A080,annotation,front_eds_num,87,87
+trocr,pad,A080,annotation,front_eds_num,87,87
+trocr,raw,A081,annotation,front_eds_route,bedok north rd,bedok north rd
+trocr,up2,A081,annotation,front_eds_route,bedok north rd,bedok north rd
+trocr,up2_sharp,A081,annotation,front_eds_route,bedok north rd,bedok north rd
+trocr,clahe,A081,annotation,front_eds_route,bedok north rd,eedok north rd
+trocr,otsu_inv,A081,annotation,front_eds_route,bedok north rd,bedok north rd
+trocr,close,A081,annotation,front_eds_route,bedok north rd,bedok north rd
+trocr,blur_bridge,A081,annotation,front_eds_route,bedok north rd,bedok north rd
+trocr,erode,A081,annotation,front_eds_route,bedok north rd,bedok north rd
+trocr,pad,A081,annotation,front_eds_route,bedok north rd,bepok north rd
+trocr,raw,A082,annotation,front_eds_destination,> bedok int,> bedok int
+trocr,up2,A082,annotation,front_eds_destination,> bedok int,> bedok int
+trocr,up2_sharp,A082,annotation,front_eds_destination,> bedok int,> bedok int
+trocr,clahe,A082,annotation,front_eds_destination,> bedok int,> bedok int
+trocr,otsu_inv,A082,annotation,front_eds_destination,> bedok int,> by crice
+trocr,close,A082,annotation,front_eds_destination,> bedok int,> bedok int
+trocr,blur_bridge,A082,annotation,front_eds_destination,> bedok int,> bedok int
+trocr,erode,A082,annotation,front_eds_destination,> bedok int,> bedok int
+trocr,pad,A082,annotation,front_eds_destination,> bedok int,> bedok int
+trocr,raw,A088,annotation,front_eds_num,965,965
+trocr,up2,A088,annotation,front_eds_num,965,965
+trocr,up2_sharp,A088,annotation,front_eds_num,965,965
+trocr,clahe,A088,annotation,front_eds_num,965,965
+trocr,otsu_inv,A088,annotation,front_eds_num,965,965
+trocr,close,A088,annotation,front_eds_num,965,965
+trocr,blur_bridge,A088,annotation,front_eds_num,965,965
+trocr,erode,A088,annotation,front_eds_num,965,965
+trocr,pad,A088,annotation,front_eds_num,965,965
+trocr,raw,A090,annotation,front_eds_route,yishun ave 7,yichun aue 7
+trocr,up2,A090,annotation,front_eds_route,yishun ave 7,yishun aue 7
+trocr,up2_sharp,A090,annotation,front_eds_route,yishun ave 7,yishun aue 7
+trocr,clahe,A090,annotation,front_eds_route,yishun ave 7,wichun aue 7
+trocr,otsu_inv,A090,annotation,front_eds_route,yishun ave 7,yighun aue 7
+trocr,close,A090,annotation,front_eds_route,yishun ave 7,yichun aue 7
+trocr,blur_bridge,A090,annotation,front_eds_route,yishun ave 7,yichun aue 7
+trocr,erode,A090,annotation,front_eds_route,yishun ave 7,yishun aue 7
+trocr,pad,A090,annotation,front_eds_route,yishun ave 7,yichon rue 7
+trocr,raw,A093,annotation,front_eds_num,991,991
+trocr,up2,A093,annotation,front_eds_num,991,991
+trocr,up2_sharp,A093,annotation,front_eds_num,991,991
+trocr,clahe,A093,annotation,front_eds_num,991,991
+trocr,otsu_inv,A093,annotation,front_eds_num,991,991
+trocr,close,A093,annotation,front_eds_num,991,991
+trocr,blur_bridge,A093,annotation,front_eds_num,991,991
+trocr,erode,A093,annotation,front_eds_num,991,991
+trocr,pad,A093,annotation,front_eds_num,991,991
+trocr,raw,A100,annotation,front_eds_num,269,269
+trocr,up2,A100,annotation,front_eds_num,269,269
+trocr,up2_sharp,A100,annotation,front_eds_num,269,269
+trocr,clahe,A100,annotation,front_eds_num,269,269
+trocr,otsu_inv,A100,annotation,front_eds_num,269,269
+trocr,close,A100,annotation,front_eds_num,269,269
+trocr,blur_bridge,A100,annotation,front_eds_num,269,269
+trocr,erode,A100,annotation,front_eds_num,269,269
+trocr,pad,A100,annotation,front_eds_num,269,269
+trocr,raw,A102,annotation,front_eds_num,187,187
+trocr,up2,A102,annotation,front_eds_num,187,187
+trocr,up2_sharp,A102,annotation,front_eds_num,187,187
+trocr,clahe,A102,annotation,front_eds_num,187,187
+trocr,otsu_inv,A102,annotation,front_eds_num,187,187
+trocr,close,A102,annotation,front_eds_num,187,187
+trocr,blur_bridge,A102,annotation,front_eds_num,187,187
+trocr,erode,A102,annotation,front_eds_num,187,187
+trocr,pad,A102,annotation,front_eds_num,187,187
+trocr,raw,A105,annotation,front_eds_num,966,966
+trocr,up2,A105,annotation,front_eds_num,966,966
+trocr,up2_sharp,A105,annotation,front_eds_num,966,966
+trocr,clahe,A105,annotation,front_eds_num,966,966
+trocr,otsu_inv,A105,annotation,front_eds_num,966,966
+trocr,close,A105,annotation,front_eds_num,966,966
+trocr,blur_bridge,A105,annotation,front_eds_num,966,966
+trocr,erode,A105,annotation,front_eds_num,966,966
+trocr,pad,A105,annotation,front_eds_num,966,966
+trocr,raw,A107,annotation,front_eds_num,966,966
+trocr,up2,A107,annotation,front_eds_num,966,966
+trocr,up2_sharp,A107,annotation,front_eds_num,966,966
+trocr,clahe,A107,annotation,front_eds_num,966,966
+trocr,otsu_inv,A107,annotation,front_eds_num,966,%
+trocr,close,A107,annotation,front_eds_num,966,9%
+trocr,blur_bridge,A107,annotation,front_eds_num,966,rm
+trocr,erode,A107,annotation,front_eds_num,966,966
+trocr,pad,A107,annotation,front_eds_num,966,966
+trocr,raw,A115,annotation,front_eds_destination,> shenton way ter,> shemton uny ter
+trocr,up2,A115,annotation,front_eds_destination,> shenton way ter,> shemton uny ter
+trocr,up2_sharp,A115,annotation,front_eds_destination,> shenton way ter,> shemton usy ter
+trocr,clahe,A115,annotation,front_eds_destination,> shenton way ter,> shehton usy ter
+trocr,otsu_inv,A115,annotation,front_eds_destination,> shenton way ter,> signmary ter
+trocr,close,A115,annotation,front_eds_destination,> shenton way ter,> shemton uny ter
+trocr,blur_bridge,A115,annotation,front_eds_destination,> shenton way ter,>shenton uny ter
+trocr,erode,A115,annotation,front_eds_destination,> shenton way ter,> shemton uny ter
+trocr,pad,A115,annotation,front_eds_destination,> shenton way ter,> shemton way ter
+trocr,raw,A116,annotation,front_eds_num,133,133
+trocr,up2,A116,annotation,front_eds_num,133,133
+trocr,up2_sharp,A116,annotation,front_eds_num,133,133
+trocr,clahe,A116,annotation,front_eds_num,133,133
+trocr,otsu_inv,A116,annotation,front_eds_num,133,133
+trocr,close,A116,annotation,front_eds_num,133,133
+trocr,blur_bridge,A116,annotation,front_eds_num,133,133
+trocr,erode,A116,annotation,front_eds_num,133,133
+trocr,pad,A116,annotation,front_eds_num,133,133
+trocr,raw,A119,annotation,front_eds_num,518,518
+trocr,up2,A119,annotation,front_eds_num,518,518
+trocr,up2_sharp,A119,annotation,front_eds_num,518,518
+trocr,clahe,A119,annotation,front_eds_num,518,518
+trocr,otsu_inv,A119,annotation,front_eds_num,518,818
+trocr,close,A119,annotation,front_eds_num,518,518
+trocr,blur_bridge,A119,annotation,front_eds_num,518,518
+trocr,erode,A119,annotation,front_eds_num,518,518
+trocr,pad,A119,annotation,front_eds_num,518,518
+trocr,raw,A125,annotation,front_eds_num,195,195
+trocr,up2,A125,annotation,front_eds_num,195,195
+trocr,up2_sharp,A125,annotation,front_eds_num,195,195
+trocr,clahe,A125,annotation,front_eds_num,195,195
+trocr,otsu_inv,A125,annotation,front_eds_num,195,195
+trocr,close,A125,annotation,front_eds_num,195,195
+trocr,blur_bridge,A125,annotation,front_eds_num,195,195
+trocr,erode,A125,annotation,front_eds_num,195,195
+trocr,pad,A125,annotation,front_eds_num,195,195
+trocr,raw,A126,annotation,front_eds_destination,marina ctr -,marina ctr -
+trocr,up2,A126,annotation,front_eds_destination,marina ctr -,marina ctr -
+trocr,up2_sharp,A126,annotation,front_eds_destination,marina ctr -,marina ctr -
+trocr,clahe,A126,annotation,front_eds_destination,marina ctr -,marina ctr -
+trocr,otsu_inv,A126,annotation,front_eds_destination,marina ctr -,magon ctr -
+trocr,close,A126,annotation,front_eds_destination,marina ctr -,marina ctr -
+trocr,blur_bridge,A126,annotation,front_eds_destination,marina ctr -,morina ctr -
+trocr,erode,A126,annotation,front_eds_destination,marina ctr -,marina ctr -
+trocr,pad,A126,annotation,front_eds_destination,marina ctr -,inring ctr -
+trocr,raw,A127,annotation,front_eds_route,c'wealth ave (loop),c'nealth rve (lop)
+trocr,up2,A127,annotation,front_eds_route,c'wealth ave (loop),c'nealth rve (lop)
+trocr,up2_sharp,A127,annotation,front_eds_route,c'wealth ave (loop),c'nealth rve (lop)
+trocr,clahe,A127,annotation,front_eds_route,c'wealth ave (loop),c'nealth rve (loop)
+trocr,otsu_inv,A127,annotation,front_eds_route,c'wealth ave (loop),chell time copy
+trocr,close,A127,annotation,front_eds_route,c'wealth ave (loop),c'nealth rve (loop)
+trocr,blur_bridge,A127,annotation,front_eds_route,c'wealth ave (loop),cash time copy
+trocr,erode,A127,annotation,front_eds_route,c'wealth ave (loop),cherl th ave (lop)
+trocr,pad,A127,annotation,front_eds_route,c'wealth ave (loop),cash time copy
+trocr,raw,A128,annotation,front_eds_num,36t,36t
+trocr,up2,A128,annotation,front_eds_num,36t,36t
+trocr,up2_sharp,A128,annotation,front_eds_num,36t,36t
+trocr,clahe,A128,annotation,front_eds_num,36t,36t
+trocr,otsu_inv,A128,annotation,front_eds_num,36t,36t
+trocr,close,A128,annotation,front_eds_num,36t,36t
+trocr,blur_bridge,A128,annotation,front_eds_num,36t,36t
+trocr,erode,A128,annotation,front_eds_num,36t,36t
+trocr,pad,A128,annotation,front_eds_num,36t,36t
+trocr,raw,A129,annotation,front_eds_destination,changi airport ter 2,change airport ter 2
+trocr,up2,A129,annotation,front_eds_destination,changi airport ter 2,change airport ter 2
+trocr,up2_sharp,A129,annotation,front_eds_destination,changi airport ter 2,change airport ter 2
+trocr,clahe,A129,annotation,front_eds_destination,changi airport ter 2,change airport ter 2
+trocr,otsu_inv,A129,annotation,front_eds_destination,changi airport ter 2,cashierport ter 2
+trocr,close,A129,annotation,front_eds_destination,changi airport ter 2,change airport ter 2
+trocr,blur_bridge,A129,annotation,front_eds_destination,changi airport ter 2,change airport ter 2
+trocr,erode,A129,annotation,front_eds_destination,changi airport ter 2,change airport ter 2
+trocr,pad,A129,annotation,front_eds_destination,changi airport ter 2,change airport ter 2
+trocr,raw,A132,annotation,front_eds_num,12,2
+trocr,up2,A132,annotation,front_eds_num,12,2
+trocr,up2_sharp,A132,annotation,front_eds_num,12,2
+trocr,clahe,A132,annotation,front_eds_num,12,12
+trocr,otsu_inv,A132,annotation,front_eds_num,12,12
+trocr,close,A132,annotation,front_eds_num,12,12
+trocr,blur_bridge,A132,annotation,front_eds_num,12,2
+trocr,erode,A132,annotation,front_eds_num,12,12
+trocr,pad,A132,annotation,front_eds_num,12,2
+trocr,raw,A137,annotation,front_eds_num,16,b
+trocr,up2,A137,annotation,front_eds_num,16,b
+trocr,up2_sharp,A137,annotation,front_eds_num,16,b
+trocr,clahe,A137,annotation,front_eds_num,16,15
+trocr,otsu_inv,A137,annotation,front_eds_num,16,18
+trocr,close,A137,annotation,front_eds_num,16,6
+trocr,blur_bridge,A137,annotation,front_eds_num,16,b
+trocr,erode,A137,annotation,front_eds_num,16,16
+trocr,pad,A137,annotation,front_eds_num,16,b
+trocr,raw,A139,annotation,front_eds_num,51a,51a
+trocr,up2,A139,annotation,front_eds_num,51a,51a
+trocr,up2_sharp,A139,annotation,front_eds_num,51a,51a
+trocr,clahe,A139,annotation,front_eds_num,51a,5ia
+trocr,otsu_inv,A139,annotation,front_eds_num,51a,51a
+trocr,close,A139,annotation,front_eds_num,51a,51a
+trocr,blur_bridge,A139,annotation,front_eds_num,51a,5ia
+trocr,erode,A139,annotation,front_eds_num,51a,51a
+trocr,pad,A139,annotation,front_eds_num,51a,51a
+trocr,raw,A140,annotation,front_eds_destination,terminate at,termunate at
+trocr,up2,A140,annotation,front_eds_destination,terminate at,termunate at
+trocr,up2_sharp,A140,annotation,front_eds_destination,terminate at,terminate at
+trocr,clahe,A140,annotation,front_eds_destination,terminate at,tesminate at
+trocr,otsu_inv,A140,annotation,front_eds_destination,terminate at,termonate at
+trocr,close,A140,annotation,front_eds_destination,terminate at,tesminate bt
+trocr,blur_bridge,A140,annotation,front_eds_destination,terminate at,temonate at
+trocr,erode,A140,annotation,front_eds_destination,terminate at,termonate at
+trocr,pad,A140,annotation,front_eds_destination,terminate at,tesminate at
+trocr,raw,A141,annotation,front_eds_route,pandan gardens (blk 407),pahown garders (blk 40t)
+trocr,up2,A141,annotation,front_eds_route,pandan gardens (blk 407),pahown garders (blk 40t)
+trocr,up2_sharp,A141,annotation,front_eds_route,pandan gardens (blk 407),pahown garders (blk 40t)
+trocr,clahe,A141,annotation,front_eds_route,pandan gardens (blk 407),pandah gardens (blk 40td
+trocr,otsu_inv,A141,annotation,front_eds_route,pandan gardens (blk 407),manbah grenens (blk 40t)
+trocr,close,A141,annotation,front_eds_route,pandan gardens (blk 407),pah mhh orchens (glk 40t)
+trocr,blur_bridge,A141,annotation,front_eds_route,pandan gardens (blk 407),phran cambk (buk 40t)
+trocr,erode,A141,annotation,front_eds_route,pandan gardens (blk 407),pahorh gardens (blk 40td
+trocr,pad,A141,annotation,front_eds_route,pandan gardens (blk 407),famoah gardens (bln 40t)
+trocr,raw,A142,annotation,front_eds_num,185,185
+trocr,up2,A142,annotation,front_eds_num,185,185
+trocr,up2_sharp,A142,annotation,front_eds_num,185,185
+trocr,clahe,A142,annotation,front_eds_num,185,185
+trocr,otsu_inv,A142,annotation,front_eds_num,185,185
+trocr,close,A142,annotation,front_eds_num,185,185
+trocr,blur_bridge,A142,annotation,front_eds_num,185,185
+trocr,erode,A142,annotation,front_eds_num,185,185
+trocr,pad,A142,annotation,front_eds_num,185,185
+trocr,raw,A143,annotation,front_eds_destination,buona vista ter via,bloma visia ter wa
+trocr,up2,A143,annotation,front_eds_destination,buona vista ter via,bloma visia ter oia
+trocr,up2_sharp,A143,annotation,front_eds_destination,buona vista ter via,blooma visia ter oia
+trocr,clahe,A143,annotation,front_eds_destination,buona vista ter via,buoma visia ter uia
+trocr,otsu_inv,A143,annotation,front_eds_destination,buona vista ter via,buonh vista ter via
+trocr,close,A143,annotation,front_eds_destination,buona vista ter via,buoma visia ter wa
+trocr,blur_bridge,A143,annotation,front_eds_destination,buona vista ter via,buoma visia ter wa
+trocr,erode,A143,annotation,front_eds_destination,buona vista ter via,buoma visia ter uia
+trocr,pad,A143,annotation,front_eds_destination,buona vista ter via,buona visia ter oia
+trocr,raw,A144,annotation,front_eds_route,pioneer rd nth,pioneer ro with
+trocr,up2,A144,annotation,front_eds_route,pioneer rd nth,pioneer ro with
+trocr,up2_sharp,A144,annotation,front_eds_route,pioneer rd nth,pioneer ro with
+trocr,clahe,A144,annotation,front_eds_route,pioneer rd nth,phoneer ro with
+trocr,otsu_inv,A144,annotation,front_eds_route,pioneer rd nth,pioneer rd nth
+trocr,close,A144,annotation,front_eds_route,pioneer rd nth,pioneer ro nth
+trocr,blur_bridge,A144,annotation,front_eds_route,pioneer rd nth,pioneer ro nth
+trocr,erode,A144,annotation,front_eds_route,pioneer rd nth,pioneer ro nth
+trocr,pad,A144,annotation,front_eds_route,pioneer rd nth,pioneer rd with
+trocr,raw,A147,annotation,front_eds_route,upper thomson rd,upper i humsun pd
+trocr,up2,A147,annotation,front_eds_route,upper thomson rd,reper i humsun pd
+trocr,up2_sharp,A147,annotation,front_eds_route,upper thomson rd,reper i humsun pd
+trocr,clahe,A147,annotation,front_eds_route,upper thomson rd,epper i humeon pd
+trocr,otsu_inv,A147,annotation,front_eds_route,upper thomson rd,exceipt inucun pu
+trocr,close,A147,annotation,front_eds_route,upper thomson rd,upper hummun pu
+trocr,blur_bridge,A147,annotation,front_eds_route,upper thomson rd,(park inclus(rm)
+trocr,erode,A147,annotation,front_eds_route,upper thomson rd,repeipt inline conput
+trocr,pad,A147,annotation,front_eds_route,upper thomson rd,super inclusum pr
+trocr,raw,A148,annotation,front_eds_num,130,130
+trocr,up2,A148,annotation,front_eds_num,130,130
+trocr,up2_sharp,A148,annotation,front_eds_num,130,130
+trocr,clahe,A148,annotation,front_eds_num,130,130
+trocr,otsu_inv,A148,annotation,front_eds_num,130,130
+trocr,close,A148,annotation,front_eds_num,130,130
+trocr,blur_bridge,A148,annotation,front_eds_num,130,130
+trocr,erode,A148,annotation,front_eds_num,130,130
+trocr,pad,A148,annotation,front_eds_num,130,130
+trocr,raw,A149,annotation,front_eds_destination,> shenton way ter,> shenton way ter
+trocr,up2,A149,annotation,front_eds_destination,> shenton way ter,> shenton way ter
+trocr,up2_sharp,A149,annotation,front_eds_destination,> shenton way ter,> shenton way ter
+trocr,clahe,A149,annotation,front_eds_destination,> shenton way ter,> shenton way ter
+trocr,otsu_inv,A149,annotation,front_eds_destination,> shenton way ter,> shenton way ter
+trocr,close,A149,annotation,front_eds_destination,> shenton way ter,> shenton may ter
+trocr,blur_bridge,A149,annotation,front_eds_destination,> shenton way ter,> shenton may ter
+trocr,erode,A149,annotation,front_eds_destination,> shenton way ter,> shenton way ter
+trocr,pad,A149,annotation,front_eds_destination,> shenton way ter,> shenton may ter
+trocr,raw,A150,annotation,front_eds_route,thomson rd,thomson rd
+trocr,up2,A150,annotation,front_eds_route,thomson rd,thomson rd
+trocr,up2_sharp,A150,annotation,front_eds_route,thomson rd,thomson rd
+trocr,clahe,A150,annotation,front_eds_route,thomson rd,thomson rd
+trocr,otsu_inv,A150,annotation,front_eds_route,thomson rd,thomson rd
+trocr,close,A150,annotation,front_eds_route,thomson rd,thomson rd
+trocr,blur_bridge,A150,annotation,front_eds_route,thomson rd,thomson ro
+trocr,erode,A150,annotation,front_eds_route,thomson rd,thomson rd
+trocr,pad,A150,annotation,front_eds_route,thomson rd,thomson rd
+trocr,raw,A151,annotation,front_eds_destination,punggol,punggol
+trocr,up2,A151,annotation,front_eds_destination,punggol,punggol
+trocr,up2_sharp,A151,annotation,front_eds_destination,punggol,punggol
+trocr,clahe,A151,annotation,front_eds_destination,punggol,punggol
+trocr,otsu_inv,A151,annotation,front_eds_destination,punggol,punggol
+trocr,close,A151,annotation,front_eds_destination,punggol,punggol
+trocr,blur_bridge,A151,annotation,front_eds_destination,punggol,punggol
+trocr,erode,A151,annotation,front_eds_destination,punggol,punggol
+trocr,pad,A151,annotation,front_eds_destination,punggol,punggol
+trocr,raw,A152,annotation,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,pasip ris dr 4 / 3 / 8 / 1
+trocr,up2,A152,annotation,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,pasip ris dr 4 / 3 / 8 / 1
+trocr,up2_sharp,A152,annotation,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,pasir ris or 4 / 3 / 8 / 1
+trocr,clahe,A152,annotation,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,prsip ris or 4 / 3 / 8 / 1
+trocr,otsu_inv,A152,annotation,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,pasir ris dr 4 / 3 / 8 / 1
+trocr,close,A152,annotation,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,pasur ris or 4 / 3 / 8 / 1
+trocr,blur_bridge,A152,annotation,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,prsir ris id 4 / 3 / 8/ 1
+trocr,erode,A152,annotation,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,prgip ris or 4 / 3 / 8 / 1
+trocr,pad,A152,annotation,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,pasir ris or 4 / 3 / 8 / 1
+trocr,raw,A153,annotation,front_eds_num,3,3
+trocr,up2,A153,annotation,front_eds_num,3,3
+trocr,up2_sharp,A153,annotation,front_eds_num,3,3
+trocr,clahe,A153,annotation,front_eds_num,3,3
+trocr,otsu_inv,A153,annotation,front_eds_num,3,3
+trocr,close,A153,annotation,front_eds_num,3,3
+trocr,blur_bridge,A153,annotation,front_eds_num,3,c
+trocr,erode,A153,annotation,front_eds_num,3,3
+trocr,pad,A153,annotation,front_eds_num,3,3
+trocr,raw,A156,annotation,front_eds_num,69,69
+trocr,up2,A156,annotation,front_eds_num,69,69
+trocr,up2_sharp,A156,annotation,front_eds_num,69,69
+trocr,clahe,A156,annotation,front_eds_num,69,69
+trocr,otsu_inv,A156,annotation,front_eds_num,69,69
+trocr,close,A156,annotation,front_eds_num,69,69
+trocr,blur_bridge,A156,annotation,front_eds_num,69,69
+trocr,erode,A156,annotation,front_eds_num,69,69
+trocr,pad,A156,annotation,front_eds_num,69,69
+trocr,raw,P001,prediction,front_eds_num,980,980
+trocr,up2,P001,prediction,front_eds_num,980,980
+trocr,up2_sharp,P001,prediction,front_eds_num,980,980
+trocr,clahe,P001,prediction,front_eds_num,980,980
+trocr,otsu_inv,P001,prediction,front_eds_num,980,980
+trocr,close,P001,prediction,front_eds_num,980,980
+trocr,blur_bridge,P001,prediction,front_eds_num,980,980
+trocr,erode,P001,prediction,front_eds_num,980,980
+trocr,pad,P001,prediction,front_eds_num,980,980
+trocr,raw,P004,prediction,front_eds_route,hougang ave 3,hougang aue 3
+trocr,up2,P004,prediction,front_eds_route,hougang ave 3,hougang aue 3
+trocr,up2_sharp,P004,prediction,front_eds_route,hougang ave 3,hougang aue 3
+trocr,clahe,P004,prediction,front_eds_route,hougang ave 3,hougang ave 3
+trocr,otsu_inv,P004,prediction,front_eds_route,hougang ave 3,hougang aue 3
+trocr,close,P004,prediction,front_eds_route,hougang ave 3,hougang ave 3
+trocr,blur_bridge,P004,prediction,front_eds_route,hougang ave 3,hougang rue 3
+trocr,erode,P004,prediction,front_eds_route,hougang ave 3,hougang aue 3
+trocr,pad,P004,prediction,front_eds_route,hougang ave 3,hougang aue 3
+trocr,raw,P007,prediction,front_eds_num,45,45
+trocr,up2,P007,prediction,front_eds_num,45,45
+trocr,up2_sharp,P007,prediction,front_eds_num,45,45
+trocr,clahe,P007,prediction,front_eds_num,45,45
+trocr,otsu_inv,P007,prediction,front_eds_num,45,45
+trocr,close,P007,prediction,front_eds_num,45,45
+trocr,blur_bridge,P007,prediction,front_eds_num,45,45
+trocr,erode,P007,prediction,front_eds_num,45,45
+trocr,pad,P007,prediction,front_eds_num,45,45
+trocr,raw,P008,prediction,front_eds_num,120,120
+trocr,up2,P008,prediction,front_eds_num,120,120
+trocr,up2_sharp,P008,prediction,front_eds_num,120,120
+trocr,clahe,P008,prediction,front_eds_num,120,120
+trocr,otsu_inv,P008,prediction,front_eds_num,120,120
+trocr,close,P008,prediction,front_eds_num,120,120
+trocr,blur_bridge,P008,prediction,front_eds_num,120,120
+trocr,erode,P008,prediction,front_eds_num,120,120
+trocr,pad,P008,prediction,front_eds_num,120,120
+trocr,raw,P012,prediction,front_eds_route,changi rd,changi rd
+trocr,up2,P012,prediction,front_eds_route,changi rd,changi pd
+trocr,up2_sharp,P012,prediction,front_eds_route,changi rd,changi pd
+trocr,clahe,P012,prediction,front_eds_route,changi rd,changi rd
+trocr,otsu_inv,P012,prediction,front_eds_route,changi rd,change| sd
+trocr,close,P012,prediction,front_eds_route,changi rd,change rd
+trocr,blur_bridge,P012,prediction,front_eds_route,changi rd,changi rd
+trocr,erode,P012,prediction,front_eds_route,changi rd,changurd
+trocr,pad,P012,prediction,front_eds_route,changi rd,changired
+trocr,raw,P013,prediction,front_eds_num,30,30
+trocr,up2,P013,prediction,front_eds_num,30,30
+trocr,up2_sharp,P013,prediction,front_eds_num,30,30
+trocr,clahe,P013,prediction,front_eds_num,30,30
+trocr,otsu_inv,P013,prediction,front_eds_num,30,30
+trocr,close,P013,prediction,front_eds_num,30,30
+trocr,blur_bridge,P013,prediction,front_eds_num,30,30
+trocr,erode,P013,prediction,front_eds_num,30,30
+trocr,pad,P013,prediction,front_eds_num,30,30
+trocr,raw,P015,prediction,front_eds_num,142,142
+trocr,up2,P015,prediction,front_eds_num,142,142
+trocr,up2_sharp,P015,prediction,front_eds_num,142,142
+trocr,clahe,P015,prediction,front_eds_num,142,142
+trocr,otsu_inv,P015,prediction,front_eds_num,142,142
+trocr,close,P015,prediction,front_eds_num,142,42
+trocr,blur_bridge,P015,prediction,front_eds_num,142,#2
+trocr,erode,P015,prediction,front_eds_num,142,142
+trocr,pad,P015,prediction,front_eds_num,142,142
+trocr,raw,P016,prediction,front_eds_route,lor 6 toa payoh,lor 6 tqa pryron.
+trocr,up2,P016,prediction,front_eds_route,lor 6 toa payoh,lor 6 tor pryron.
+trocr,up2_sharp,P016,prediction,front_eds_route,lor 6 toa payoh,lor 6 tqa pryoh.
+trocr,clahe,P016,prediction,front_eds_route,lor 6 toa payoh,lor 6 tor pkyoh.
+trocr,otsu_inv,P016,prediction,front_eds_route,lor 6 toa payoh,lor 6 toa payron
+trocr,close,P016,prediction,front_eds_route,lor 6 toa payoh,lor 6 tax perron.
+trocr,blur_bridge,P016,prediction,front_eds_route,lor 6 toa payoh,lop & tax within
+trocr,erode,P016,prediction,front_eds_route,lor 6 toa payoh,lor 6 tda pritch.
+trocr,pad,P016,prediction,front_eds_route,lor 6 toa payoh,lor 6 tqa peroh.
+trocr,raw,P020,prediction,front_eds_num,145,145
+trocr,up2,P020,prediction,front_eds_num,145,145
+trocr,up2_sharp,P020,prediction,front_eds_num,145,145
+trocr,clahe,P020,prediction,front_eds_num,145,145
+trocr,otsu_inv,P020,prediction,front_eds_num,145,145
+trocr,close,P020,prediction,front_eds_num,145,145
+trocr,blur_bridge,P020,prediction,front_eds_num,145,ms
+trocr,erode,P020,prediction,front_eds_num,145,145
+trocr,pad,P020,prediction,front_eds_num,145,mas
+trocr,raw,P023,prediction,front_eds_num,7,7
+trocr,up2,P023,prediction,front_eds_num,7,7
+trocr,up2_sharp,P023,prediction,front_eds_num,7,7
+trocr,clahe,P023,prediction,front_eds_num,7,7
+trocr,otsu_inv,P023,prediction,front_eds_num,7,7
+trocr,close,P023,prediction,front_eds_num,7,7
+trocr,blur_bridge,P023,prediction,front_eds_num,7,7
+trocr,erode,P023,prediction,front_eds_num,7,7
+trocr,pad,P023,prediction,front_eds_num,7,7
+trocr,raw,P025,prediction,front_eds_route,orchard boulevard,orchard boulevard
+trocr,up2,P025,prediction,front_eds_route,orchard boulevard,orchard boulevard
+trocr,up2_sharp,P025,prediction,front_eds_route,orchard boulevard,orchard boulevard
+trocr,clahe,P025,prediction,front_eds_route,orchard boulevard,orchard boulevard
+trocr,otsu_inv,P025,prediction,front_eds_route,orchard boulevard,ording squleward
+trocr,close,P025,prediction,front_eds_route,orchard boulevard,orchard bouleward
+trocr,blur_bridge,P025,prediction,front_eds_route,orchard boulevard,orowned boll ewbo
+trocr,erode,P025,prediction,front_eds_route,orchard boulevard,orchard boulevard
+trocr,pad,P025,prediction,front_eds_route,orchard boulevard,orowned boulevard
+trocr,raw,P028,prediction,front_eds_num,66,66
+trocr,up2,P028,prediction,front_eds_num,66,66
+trocr,up2_sharp,P028,prediction,front_eds_num,66,66
+trocr,clahe,P028,prediction,front_eds_num,66,66
+trocr,otsu_inv,P028,prediction,front_eds_num,66,66
+trocr,close,P028,prediction,front_eds_num,66,66
+trocr,blur_bridge,P028,prediction,front_eds_num,66,66
+trocr,erode,P028,prediction,front_eds_num,66,66
+trocr,pad,P028,prediction,front_eds_num,66,66
+trocr,raw,P030,prediction,front_eds_num,965,965
+trocr,up2,P030,prediction,front_eds_num,965,965
+trocr,up2_sharp,P030,prediction,front_eds_num,965,965
+trocr,clahe,P030,prediction,front_eds_num,965,965
+trocr,otsu_inv,P030,prediction,front_eds_num,965,965
+trocr,close,P030,prediction,front_eds_num,965,965
+trocr,blur_bridge,P030,prediction,front_eds_num,965,965
+trocr,erode,P030,prediction,front_eds_num,965,965
+trocr,pad,P030,prediction,front_eds_num,965,965
+trocr,raw,P031,prediction,front_eds_destination,sengkang,sengkang
+trocr,up2,P031,prediction,front_eds_destination,sengkang,sengkang
+trocr,up2_sharp,P031,prediction,front_eds_destination,sengkang,sengkang
+trocr,clahe,P031,prediction,front_eds_destination,sengkang,sengkang
+trocr,otsu_inv,P031,prediction,front_eds_destination,sengkang,sengkang
+trocr,close,P031,prediction,front_eds_destination,sengkang,sengkang
+trocr,blur_bridge,P031,prediction,front_eds_destination,sengkang,sengkang
+trocr,erode,P031,prediction,front_eds_destination,sengkang,sengkang
+trocr,pad,P031,prediction,front_eds_destination,sengkang,sengkang
+trocr,raw,P032,prediction,front_eds_num,145,145
+trocr,up2,P032,prediction,front_eds_num,145,145
+trocr,up2_sharp,P032,prediction,front_eds_num,145,145
+trocr,clahe,P032,prediction,front_eds_num,145,145
+trocr,otsu_inv,P032,prediction,front_eds_num,145,145
+trocr,close,P032,prediction,front_eds_num,145,145
+trocr,blur_bridge,P032,prediction,front_eds_num,145,145
+trocr,erode,P032,prediction,front_eds_num,145,145
+trocr,pad,P032,prediction,front_eds_num,145,145
+trocr,raw,P033,prediction,front_eds_route,balestier rd,dalesyicand
+trocr,up2,P033,prediction,front_eds_route,balestier rd,dalesyizend
+trocr,up2_sharp,P033,prediction,front_eds_route,balestier rd,dalesyizes no.
+trocr,clahe,P033,prediction,front_eds_route,balestier rd,dalesvicand
+trocr,otsu_inv,P033,prediction,front_eds_route,balestier rd,balestses @
+trocr,close,P033,prediction,front_eds_route,balestier rd,multics @
+trocr,blur_bridge,P033,prediction,front_eds_route,balestier rd,invoice
+trocr,erode,P033,prediction,front_eds_route,balestier rd,dalesyicand
+trocr,pad,P033,prediction,front_eds_route,balestier rd,unlegyicamp
+trocr,raw,P035,prediction,front_eds_num,49,49
+trocr,up2,P035,prediction,front_eds_num,49,49
+trocr,up2_sharp,P035,prediction,front_eds_num,49,49
+trocr,clahe,P035,prediction,front_eds_num,49,49
+trocr,otsu_inv,P035,prediction,front_eds_num,49,49
+trocr,close,P035,prediction,front_eds_num,49,49
+trocr,blur_bridge,P035,prediction,front_eds_num,49,49
+trocr,erode,P035,prediction,front_eds_num,49,49
+trocr,pad,P035,prediction,front_eds_num,49,49
+trocr,raw,P036,prediction,front_eds_num,151,151
+trocr,up2,P036,prediction,front_eds_num,151,151
+trocr,up2_sharp,P036,prediction,front_eds_num,151,151
+trocr,clahe,P036,prediction,front_eds_num,151,151
+trocr,otsu_inv,P036,prediction,front_eds_num,151,151
+trocr,close,P036,prediction,front_eds_num,151,151
+trocr,blur_bridge,P036,prediction,front_eds_num,151,151
+trocr,erode,P036,prediction,front_eds_num,151,151
+trocr,pad,P036,prediction,front_eds_num,151,151
+trocr,raw,P038,prediction,front_eds_route,bukit timah rd,bukit timah rd
+trocr,up2,P038,prediction,front_eds_route,bukit timah rd,bukit timah rd
+trocr,up2_sharp,P038,prediction,front_eds_route,bukit timah rd,bukit timah rd
+trocr,clahe,P038,prediction,front_eds_route,bukit timah rd,bukit timah rd
+trocr,otsu_inv,P038,prediction,front_eds_route,bukit timah rd,bukit thahrd
+trocr,close,P038,prediction,front_eds_route,bukit timah rd,bukit thah rd
+trocr,blur_bridge,P038,prediction,front_eds_route,bukit timah rd,bukit tinah ro
+trocr,erode,P038,prediction,front_eds_route,bukit timah rd,bukit tmah rd
+trocr,pad,P038,prediction,front_eds_route,bukit timah rd,bukit timah rd
+trocr,raw,P045,prediction,front_eds_num,19,19
+trocr,up2,P045,prediction,front_eds_num,19,19
+trocr,up2_sharp,P045,prediction,front_eds_num,19,19
+trocr,clahe,P045,prediction,front_eds_num,19,19
+trocr,otsu_inv,P045,prediction,front_eds_num,19,19
+trocr,close,P045,prediction,front_eds_num,19,19
+trocr,blur_bridge,P045,prediction,front_eds_num,19,19
+trocr,erode,P045,prediction,front_eds_num,19,19
+trocr,pad,P045,prediction,front_eds_num,19,19
+trocr,raw,P049,prediction,front_eds_num,48,46
+trocr,up2,P049,prediction,front_eds_num,48,46
+trocr,up2_sharp,P049,prediction,front_eds_num,48,#
+trocr,clahe,P049,prediction,front_eds_num,48,:
+trocr,otsu_inv,P049,prediction,front_eds_num,48,46
+trocr,close,P049,prediction,front_eds_num,48,46
+trocr,blur_bridge,P049,prediction,front_eds_num,48,46
+trocr,erode,P049,prediction,front_eds_num,48,46
+trocr,pad,P049,prediction,front_eds_num,48,48
+trocr,raw,P053,prediction,front_eds_num,110,110
+trocr,up2,P053,prediction,front_eds_num,110,110
+trocr,up2_sharp,P053,prediction,front_eds_num,110,110
+trocr,clahe,P053,prediction,front_eds_num,110,110
+trocr,otsu_inv,P053,prediction,front_eds_num,110,110
+trocr,close,P053,prediction,front_eds_num,110,110
+trocr,blur_bridge,P053,prediction,front_eds_num,110,110
+trocr,erode,P053,prediction,front_eds_num,110,110
+trocr,pad,P053,prediction,front_eds_num,110,110
+trocr,raw,P054,prediction,front_eds_num,110,110
+trocr,up2,P054,prediction,front_eds_num,110,110
+trocr,up2_sharp,P054,prediction,front_eds_num,110,110
+trocr,clahe,P054,prediction,front_eds_num,110,110
+trocr,otsu_inv,P054,prediction,front_eds_num,110,110
+trocr,close,P054,prediction,front_eds_num,110,110
+trocr,blur_bridge,P054,prediction,front_eds_num,110,110
+trocr,erode,P054,prediction,front_eds_num,110,110
+trocr,pad,P054,prediction,front_eds_num,110,110
+trocr,raw,P055,prediction,front_eds_num,359,359
+trocr,up2,P055,prediction,front_eds_num,359,359
+trocr,up2_sharp,P055,prediction,front_eds_num,359,359
+trocr,clahe,P055,prediction,front_eds_num,359,359
+trocr,otsu_inv,P055,prediction,front_eds_num,359,359
+trocr,close,P055,prediction,front_eds_num,359,259
+trocr,blur_bridge,P055,prediction,front_eds_num,359,359
+trocr,erode,P055,prediction,front_eds_num,359,359
+trocr,pad,P055,prediction,front_eds_num,359,359
+trocr,raw,P058,prediction,front_eds_num,87,87
+trocr,up2,P058,prediction,front_eds_num,87,87
+trocr,up2_sharp,P058,prediction,front_eds_num,87,87
+trocr,clahe,P058,prediction,front_eds_num,87,87
+trocr,otsu_inv,P058,prediction,front_eds_num,87,87
+trocr,close,P058,prediction,front_eds_num,87,87
+trocr,blur_bridge,P058,prediction,front_eds_num,87,87
+trocr,erode,P058,prediction,front_eds_num,87,87
+trocr,pad,P058,prediction,front_eds_num,87,87
+trocr,raw,P059,prediction,front_eds_route,bedok north rd,bedok north rd
+trocr,up2,P059,prediction,front_eds_route,bedok north rd,bedok north rd
+trocr,up2_sharp,P059,prediction,front_eds_route,bedok north rd,bedok north rd
+trocr,clahe,P059,prediction,front_eds_route,bedok north rd,bedok northird
+trocr,otsu_inv,P059,prediction,front_eds_route,bedok north rd,6.00 comount
+trocr,close,P059,prediction,front_eds_route,bedok north rd,bedok north rd
+trocr,blur_bridge,P059,prediction,front_eds_route,bedok north rd,bedok north rd
+trocr,erode,P059,prediction,front_eds_route,bedok north rd,bedok north rd
+trocr,pad,P059,prediction,front_eds_route,bedok north rd,bepok north rd
+trocr,raw,P060,prediction,front_eds_destination,> bedok int,> bedok int
+trocr,up2,P060,prediction,front_eds_destination,> bedok int,> bedok int
+trocr,up2_sharp,P060,prediction,front_eds_destination,> bedok int,> bedok int
+trocr,clahe,P060,prediction,front_eds_destination,> bedok int,> bedok int
+trocr,otsu_inv,P060,prediction,front_eds_destination,> bedok int,>by(rm)
+trocr,close,P060,prediction,front_eds_destination,> bedok int,> bedok int
+trocr,blur_bridge,P060,prediction,front_eds_destination,> bedok int,> bedok int
+trocr,erode,P060,prediction,front_eds_destination,> bedok int,> bedok int
+trocr,pad,P060,prediction,front_eds_destination,> bedok int,> bedok int
+trocr,raw,P069,prediction,front_eds_num,991,991
+trocr,up2,P069,prediction,front_eds_num,991,991
+trocr,up2_sharp,P069,prediction,front_eds_num,991,991
+trocr,clahe,P069,prediction,front_eds_num,991,991
+trocr,otsu_inv,P069,prediction,front_eds_num,991,991
+trocr,close,P069,prediction,front_eds_num,991,991
+trocr,blur_bridge,P069,prediction,front_eds_num,991,991
+trocr,erode,P069,prediction,front_eds_num,991,991
+trocr,pad,P069,prediction,front_eds_num,991,991
+trocr,raw,P074,prediction,front_eds_num,269,269
+trocr,up2,P074,prediction,front_eds_num,269,269
+trocr,up2_sharp,P074,prediction,front_eds_num,269,269
+trocr,clahe,P074,prediction,front_eds_num,269,269
+trocr,otsu_inv,P074,prediction,front_eds_num,269,269
+trocr,close,P074,prediction,front_eds_num,269,269
+trocr,blur_bridge,P074,prediction,front_eds_num,269,269
+trocr,erode,P074,prediction,front_eds_num,269,269
+trocr,pad,P074,prediction,front_eds_num,269,269
+trocr,raw,P075,prediction,front_eds_num,187,187
+trocr,up2,P075,prediction,front_eds_num,187,187
+trocr,up2_sharp,P075,prediction,front_eds_num,187,187
+trocr,clahe,P075,prediction,front_eds_num,187,187
+trocr,otsu_inv,P075,prediction,front_eds_num,187,187
+trocr,close,P075,prediction,front_eds_num,187,187
+trocr,blur_bridge,P075,prediction,front_eds_num,187,187
+trocr,erode,P075,prediction,front_eds_num,187,187
+trocr,pad,P075,prediction,front_eds_num,187,187
+trocr,raw,P078,prediction,front_eds_num,133,133
+trocr,up2,P078,prediction,front_eds_num,133,133
+trocr,up2_sharp,P078,prediction,front_eds_num,133,133
+trocr,clahe,P078,prediction,front_eds_num,133,133
+trocr,otsu_inv,P078,prediction,front_eds_num,133,133
+trocr,close,P078,prediction,front_eds_num,133,133
+trocr,blur_bridge,P078,prediction,front_eds_num,133,133
+trocr,erode,P078,prediction,front_eds_num,133,133
+trocr,pad,P078,prediction,front_eds_num,133,133
+trocr,raw,P079,prediction,front_eds_num,518,518
+trocr,up2,P079,prediction,front_eds_num,518,518
+trocr,up2_sharp,P079,prediction,front_eds_num,518,518
+trocr,clahe,P079,prediction,front_eds_num,518,518
+trocr,otsu_inv,P079,prediction,front_eds_num,518,818
+trocr,close,P079,prediction,front_eds_num,518,518
+trocr,blur_bridge,P079,prediction,front_eds_num,518,518
+trocr,erode,P079,prediction,front_eds_num,518,518
+trocr,pad,P079,prediction,front_eds_num,518,518
+trocr,raw,P084,prediction,front_eds_num,195,195
+trocr,up2,P084,prediction,front_eds_num,195,195
+trocr,up2_sharp,P084,prediction,front_eds_num,195,195
+trocr,clahe,P084,prediction,front_eds_num,195,195
+trocr,otsu_inv,P084,prediction,front_eds_num,195,195
+trocr,close,P084,prediction,front_eds_num,195,195
+trocr,blur_bridge,P084,prediction,front_eds_num,195,195
+trocr,erode,P084,prediction,front_eds_num,195,195
+trocr,pad,P084,prediction,front_eds_num,195,195
+trocr,raw,P090,prediction,front_eds_num,36t,36t
+trocr,up2,P090,prediction,front_eds_num,36t,36t
+trocr,up2_sharp,P090,prediction,front_eds_num,36t,36t
+trocr,clahe,P090,prediction,front_eds_num,36t,36t
+trocr,otsu_inv,P090,prediction,front_eds_num,36t,36t
+trocr,close,P090,prediction,front_eds_num,36t,36t
+trocr,blur_bridge,P090,prediction,front_eds_num,36t,36t
+trocr,erode,P090,prediction,front_eds_num,36t,36t
+trocr,pad,P090,prediction,front_eds_num,36t,36t
+trocr,raw,P091,prediction,front_eds_route,terminating at,terminting at
+trocr,up2,P091,prediction,front_eds_route,terminating at,terminting rt
+trocr,up2_sharp,P091,prediction,front_eds_route,terminating at,terminting rt
+trocr,clahe,P091,prediction,front_eds_route,terminating at,terminting rt
+trocr,otsu_inv,P091,prediction,front_eds_route,terminating at,tercntng at
+trocr,close,P091,prediction,front_eds_route,terminating at,terminting at
+trocr,blur_bridge,P091,prediction,front_eds_route,terminating at,terminting at
+trocr,erode,P091,prediction,front_eds_route,terminating at,terminting rt
+trocr,pad,P091,prediction,front_eds_route,terminating at,terminting rt
+trocr,raw,P096,prediction,front_eds_num,51a,51a
+trocr,up2,P096,prediction,front_eds_num,51a,51a
+trocr,up2_sharp,P096,prediction,front_eds_num,51a,51a
+trocr,clahe,P096,prediction,front_eds_num,51a,5ia
+trocr,otsu_inv,P096,prediction,front_eds_num,51a,51a
+trocr,close,P096,prediction,front_eds_num,51a,51a
+trocr,blur_bridge,P096,prediction,front_eds_num,51a,51a
+trocr,erode,P096,prediction,front_eds_num,51a,51a
+trocr,pad,P096,prediction,front_eds_num,51a,51a
+trocr,raw,P099,prediction,front_eds_num,185,185
+trocr,up2,P099,prediction,front_eds_num,185,185
+trocr,up2_sharp,P099,prediction,front_eds_num,185,185
+trocr,clahe,P099,prediction,front_eds_num,185,185
+trocr,otsu_inv,P099,prediction,front_eds_num,185,185
+trocr,close,P099,prediction,front_eds_num,185,185
+trocr,blur_bridge,P099,prediction,front_eds_num,185,185
+trocr,erode,P099,prediction,front_eds_num,185,185
+trocr,pad,P099,prediction,front_eds_num,185,185
+trocr,raw,P103,prediction,front_eds_route,upper thomson rd,upper inumelon pd
+trocr,up2,P103,prediction,front_eds_route,upper thomson rd,epper inumsun pd
+trocr,up2_sharp,P103,prediction,front_eds_route,upper thomson rd,epper inumsun pd
+trocr,clahe,P103,prediction,front_eds_route,upper thomson rd,epper inclusion pd
+trocr,otsu_inv,P103,prediction,front_eds_route,upper thomson rd,paul inucum
+trocr,close,P103,prediction,front_eds_route,upper thomson rd,upper inclusum pd
+trocr,blur_bridge,P103,prediction,front_eds_route,upper thomson rd,(per inclused
+trocr,erode,P103,prediction,front_eds_route,upper thomson rd,upper inuns on pd
+trocr,pad,P103,prediction,front_eds_route,upper thomson rd,upper inclusion pd
+trocr,raw,P109,prediction,front_eds_num,3,3
+trocr,up2,P109,prediction,front_eds_num,3,3
+trocr,up2_sharp,P109,prediction,front_eds_num,3,3
+trocr,clahe,P109,prediction,front_eds_num,3,3
+trocr,otsu_inv,P109,prediction,front_eds_num,3,3
+trocr,close,P109,prediction,front_eds_num,3,3
+trocr,blur_bridge,P109,prediction,front_eds_num,3,3
+trocr,erode,P109,prediction,front_eds_num,3,3
+trocr,pad,P109,prediction,front_eds_num,3,3
+trocr,raw,P111,prediction,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,prgir ris dr 4 / 3 / 8 / 1
+trocr,up2,P111,prediction,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,prgip ris dr 4 / 3 / 8 / 1
+trocr,up2_sharp,P111,prediction,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,prsip ris or 4 / 3 / 8 / 1
+trocr,clahe,P111,prediction,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,preip ris or 4 / 3 / 8 / 1
+trocr,otsu_inv,P111,prediction,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,pasir ris dr 4 / 3 / 8 / 1
+trocr,close,P111,prediction,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,ppgir ris dr 4 / 3 / 8 / 1
+trocr,blur_bridge,P111,prediction,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,prgir ris or 4 / 3 / 8/ 1
+trocr,erode,P111,prediction,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,prgip rib or 4 / 3 / 8 / 1
+trocr,pad,P111,prediction,front_eds_route,pasir ris dr 4 / 3 / 8 / 1,pasir ris dr 4 / 3 / 8 / 1
+trocr,raw,P112,prediction,front_eds_destination,punggol,punggol
+trocr,up2,P112,prediction,front_eds_destination,punggol,punggol
+trocr,up2_sharp,P112,prediction,front_eds_destination,punggol,punggol
+trocr,clahe,P112,prediction,front_eds_destination,punggol,punggol
+trocr,otsu_inv,P112,prediction,front_eds_destination,punggol,punggol
+trocr,close,P112,prediction,front_eds_destination,punggol,punggol
+trocr,blur_bridge,P112,prediction,front_eds_destination,punggol,punggol
+trocr,erode,P112,prediction,front_eds_destination,punggol,punggol
+trocr,pad,P112,prediction,front_eds_destination,punggol,punggol
+trocr,raw,P113,prediction,front_eds_num,69,69
+trocr,up2,P113,prediction,front_eds_num,69,69
+trocr,up2_sharp,P113,prediction,front_eds_num,69,69
+trocr,clahe,P113,prediction,front_eds_num,69,69
+trocr,otsu_inv,P113,prediction,front_eds_num,69,69
+trocr,close,P113,prediction,front_eds_num,69,69
+trocr,blur_bridge,P113,prediction,front_eds_num,69,69
+trocr,erode,P113,prediction,front_eds_num,69,69
+trocr,pad,P113,prediction,front_eds_num,69,69

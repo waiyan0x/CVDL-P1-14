@@ -1,0 +1,55 @@
+review_id,training_review_id,field,crop,label_text,label_legibility,human_text,human_legibility,human_field_status,category,claude_visual_check,applied_to_labels
+S001,T0480,bus_number,crops/train/front_eds_num/171_IMAGE_2026-10-25_14_42_24_jpg.rf.58f8254757ba8029a3575fc7b628f0c9_a1461.png,903,full,903,full,present,match,,no
+S002,T0482,destination,crops/train/front_eds_destination/172_IMAGE_2026-10-25_14_42_32_jpg.rf.375751f10591d1e0b5a0aba719b3cebd_a117.png,"WOODLANDS
+INT / MRT",full,"WOODLANDS
+INT / MRT ",full,present,match,,no
+S003,T1553,destination,crops/train/front_eds_destination/627_b6e6d113__73b5fe8f-1324_jpg.rf.f7cacfe54c705da68356fa5cd0d8db00_a75.png,> HOUGANG CTRL INT,full,[UNK]HOUGANG CTRL INT,partial,present,human_reads_only_part_consistent,,no
+S004,T0934,bus_number,crops/train/front_eds_num/382_Screenshot_2026-11-01-21-24-47-63_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.95cc5f2061e0d337d4698f223f38934b_a1005.png,S43,full,S43,full,present,match,,no
+S005,T0770,bus_number,crops/train/front_eds_num/330_Screenshot_2026-11-01-21-16-33-38_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.dfcd5f099fb5dde8c6c26f14b9f928ab_a420.png,80,full,80 [UNK],partial,present,label_text_ok_extra_cut_off_part,,no
+S006,T1264,bus_number,crops/train/front_eds_num/505_Screenshot_2026-11-01-21-37-42-29_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.97df0890c75ae7baadc86800bb6544bd_a1934.png,31,full,31 [UNK],partial,present,label_text_ok_extra_cut_off_part,,no
+S007,T1585,bus_number,crops/train/front_eds_num/638_ba67cfc3-a6daa64e-74_jpg.rf.92808b42968d06200ec1c626b559bcd3_a1489.png,74,full,74,full,present,match,,no
+S008,T0686,bus_number,crops/train/front_eds_num/291_Screenshot_2026-10-24-20-33-30-00_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5dcef5b48ea3f2ec2167323fe513fcd8_a695.png,175,full,175,full,present,match,,no
+S009,T1435,bus_number,crops/train/front_eds_num/595_a0a83637__6b4e564e-321_jpg.rf.842a828116091f4523efb72ac8ffb117_a2318.png,32,full,32 [UNK],partial,present,label_text_ok_extra_cut_off_part,,no
+S010,T0048,bus_number,crops/train/front_eds_num/017_159ee871__0cc20afd-643_jpg.rf.9c03e16ee26fb0b508828619f9b906b8_a1510.png,64,full,[UNK]64,partial,present,label_text_ok_extra_cut_off_part,,no
+S011,T1267,bus_number,crops/train/front_eds_num/506_Screenshot_2026-11-01-21-37-42-29_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a52be54a100dda0a128f4363a55205b3_a2395.png,31,full,31 [UNK],partial,present,label_text_ok_extra_cut_off_part,,no
+S012,T0436,bus_number,crops/train/front_eds_num/142_IMAGE_2026-10-23_21_59_20_jpg.rf.6468818d92ac735c24963dc610370517_a227.png,77,full,[UNK],illegible,present,human_illegible,,no
+S013,T1678,route_text,crops/train/front_eds_route/663_cb6d5a44__4b9716f2-145_jpg.rf.b0ef5d5aaff86dec15c66360206abaa4_a2322.png,VICTORIA ST,full,VICTORIA ST [UNK],partial,present,label_text_ok_extra_cut_off_part,,no
+S014,T0044,destination,crops/train/front_eds_destination/016_159ee871__0cc20afd-643_jpg.rf.7122d884c06d8427e7f43afb21225b55_a2156.png,> SIMS PLACE TER,full,[UNK] PLACE TER,partial,present,human_reads_only_part_consistent,,no
+S015,T1310,bus_number,crops/train/front_eds_num/546_Screenshot_2026-11-01-21-48-31-72_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c317e5c4105315936229ebca18286d77_a2555.png,21,full,21,full,present,match,,no
+S016,T1262,bus_number,crops/train/front_eds_num/504_Screenshot_2026-11-01-21-37-36-07_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.7cf6fafa14eb3033d0585cc05fbe1e9b_a561.png,166,full,[UNK]166,partial,present,label_text_ok_extra_cut_off_part,,no
+S017,T1549,route_text,crops/train/front_eds_route/626_b6e6d113__73b5fe8f-1324_jpg.rf.622a39a66596710895c2aedf2466277b_a356.png,THOMSON RD,full,THOMSON RD [UNK],partial,present,label_text_ok_extra_cut_off_part,,no
+S018,T0808,route_text,crops/train/front_eds_route/344_Screenshot_2026-11-01-21-17-23-12_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5f04cd8ff0cb9b456fedd97c5806ccdc_a2316.png,"RIVERVALE DR
+JALAN KAYU",full,"RIVER VALLEY DR
+JALAN KAYU",full,present,conflicting_reading,crop appears to show RIVERVALE DR (supports label),no
+S019,T0510,destination,crops/train/front_eds_destination/198_IMG20261022115955_jpg.rf.e8fcc9add31939d3bf51ac4aa21b1464_a1739.png,Punggol,full,Punggol,full,present,match,,no
+S020,T1420,bus_number,crops/train/front_eds_num/586_Screenshot_2026-11-01-21-51-56-65_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.07d55b753fef2ac805ebad43e5791f8c_a1999.png,36,full,36,full,present,match,,no
+S021,T1039,bus_number,crops/train/front_eds_num/419_Screenshot_2026-11-01-21-31-19-42_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.67e0734f71985eb8a292839b71b431a0_a1619.png,190,full,190,full,present,match,,no
+S022,T1377,bus_number,crops/train/front_eds_num/579_Screenshot_2026-11-01-21-51-40-91_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.e03567003ae8ec5eb36532c894e03414_a1135.png,502,full,[UNK] 502,partial,present,label_text_ok_extra_cut_off_part,,no
+S023,T0802,bus_number,crops/train/front_eds_num/342_Screenshot_2026-11-01-21-17-19-62_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.cacfc48238576bea71cc3f88c58459b2_a368.png,86,full,[UNK] 86,partial,present,label_text_ok_extra_cut_off_part,,no
+S024,T1369,bus_number,crops/train/front_eds_num/577_Screenshot_2026-11-01-21-51-40-91_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.4aba32d52f88fce290126eb061c37077_a2098.png,502,full,[UNK] 502,partial,present,label_text_ok_extra_cut_off_part,,no
+S025,T0528,bus_number,crops/train/front_eds_num/207_IMG20261024203802_jpg.rf.d5f752dedce422e928d1a48037de34a1_a1537.png,189,full,[UNK] 189,partial,present,label_text_ok_extra_cut_off_part,,no
+S026,T1717,bus_number,crops/train/front_eds_num/674_d07fa59e__be27507d-5_jpg.rf.939ea95240dccdc7ccd5e18c061274d7_a2568.png,5,full,[UNK] 5,partial,present,label_text_ok_extra_cut_off_part,,no
+S027,T0129,bus_number,crops/train/front_eds_num/040_352eed8b__1433d18a-1325_jpg.rf.98b6d00b60d58677d329f6b9bbdaa61d_a1471.png,132,full,[UNK] 132,partial,present,label_text_ok_extra_cut_off_part,,no
+S028,T0488,bus_number,crops/train/front_eds_num/175_IMAGE_2026-10-25_14_43_01_jpg.rf.14bbecad08e48752aee8c4d0654638bf_a1369.png,806,full,806,full,present,match,,no
+S029,T1425,destination,crops/train/front_eds_destination/588_Screenshot_2026-11-01-21-51-56-65_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c9646f3e1712f27886a01bbf8d29f0a1_a983.png,Tomlinson Road,full,[UNK] Tomlinson Road,partial,present,label_text_ok_extra_cut_off_part,,no
+S030,T1036,bus_number,crops/train/front_eds_num/418_Screenshot_2026-11-01-21-31-19-42_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.366bc3647119a55861f27880bc072e32_a941.png,190,full,190,full,present,match,,no
+S031,T0917,bus_number,crops/train/front_eds_num/378_Screenshot_2026-11-01-21-24-26-20_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a28905baa1ee442835944981eb992f72_a1623.png,67,full,[UNK],illegible,present,human_illegible,,no
+S032,T1170,bus_number,crops/train/front_eds_num/457_Screenshot_2026-11-01-21-34-22-54_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.230274b2b49769b43bd96abe62c29401_a2383.png,64,full,64,full,present,match,,no
+S033,T1570,bus_number,crops/train/front_eds_num/633_b966eed4__b6a9d057-645_jpg.rf.c53f2efcfbbd4889529199dab511069d_a1427.png,64,full,64,full,present,match,,no
+S034,T0265,bus_number,crops/train/front_eds_num/081_84a30cf2-f44d6651-232_jpg.rf.e282b0a9145c2d7850b072b0f6570e49_a2423.png,232,full,232,full,present,match,,no
+S035,T1189,bus_number,crops/train/front_eds_num/461_Screenshot_2026-11-01-21-34-25-97_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.202c0a6c2c033286827bf32c9eadbd6b_a1930.png,190,full,190,full,present,match,,no
+S036,T0471,bus_number,crops/train/front_eds_num/165_IMAGE_2026-10-25_14_42_15_jpg.rf.ea63d73bd6270468cc9a87af3458e884_a2535.png,800,full,800 [UNK],partial,present,label_text_ok_extra_cut_off_part,,no
+S037,T0430,bus_number,crops/train/front_eds_num/140_IMAGE_2026-10-23_21_57_34_jpg.rf.4f2f52b260556c689d7fb39bff5751d8_a498.png,198,full,198,full,present,match,,no
+S038,T0491,bus_number,crops/train/front_eds_num/176_IMAGE_2026-10-25_14_43_01_jpg.rf.4c5a2019167b7cabffd6a149a925231c_a438.png,806,full,806,full,present,match,,no
+S039,T1441,bus_number,crops/train/front_eds_num/597_a0a83637__6b4e564e-321_jpg.rf.eb814aa2ae0fbe62c175dee167050338_a530.png,32,full,32,full,present,match,,no
+S040,T0031,bus_number,crops/train/front_eds_num/012_10964f70-bus_39_jpg.rf.dad087647bd37a83154bd2c786a95365_a866.png,30,full,30,full,present,match,,no
+S041,T0911,destination,crops/train/front_eds_destination/374_Screenshot_2026-11-01-21-24-21-51_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.346ce59606419ff25e550d3cd2ee48e3_a1337.png,CITY DIRECT,full,[UNK] CITY DREL,partial,present,conflicting_reading,"blurred; CITY DIRE..., cut off (unresolved)",no
+S042,T1227,bus_number,crops/train/front_eds_num/486_Screenshot_2026-11-01-21-35-36-13_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.e85e338e80ceb2bfe5ebc387fbf8cd46_a1166.png,167,full,167 [UNK],partial,present,label_text_ok_extra_cut_off_part,,no
+S043,T1730,destination,crops/train/front_eds_destination/677_d8d33913-bus_14_jpg.rf.c374a81017ea9cb40c9726a6fe3641b3_a273.png,BOON LAY via,full,BOON LAY [UNK],partial,present,human_reads_only_part_consistent,,no
+S044,T0364,bus_number,crops/train/front_eds_num/111_98f4d004__ba16f6b0-48_jpg.rf.f5f33a4816eb82c1803a01c5fa11726b_a875.png,48,full,48,full,present,match,,no
+S045,T0442,bus_number,crops/train/front_eds_num/144_IMAGE_2026-10-23_21_59_20_jpg.rf.af328750bf4ebd96a3201e8a4f08c9dd_a1333.png,77,full,77 [UNK],partial,present,label_text_ok_extra_cut_off_part,,no
+S046,T1758,bus_number,crops/train/front_eds_num/684_da54ed38-571d0446-167_jpg.rf.f087b2752e0ffd42aea5816d3ca30246_a1341.png,67,full,167 [UNK],partial,present,conflicting_reading,too blurred to read (unresolved),no
+S047,T0307,bus_number,crops/train/front_eds_num/092_8d6d224a__5e37e4fd-1204_jpg.rf.7cbeca933faa84a0f689282176601115_a511.png,120,full,120,full,present,match,,no
+S048,T0516,bus_number,crops/train/front_eds_num/200_IMG20261022123822_jpg.rf.ea6e1c60062c7ffb4883ea665d482645_a332.png,117,full,117,full,present,match,,no
+S049,T1774,route_text,crops/train/front_eds_route/694_e89dca00-4ec58783-51_jpg.rf.0e713b44da6adfdc9792328523f7019e_a589.png,SIMS AVE,full,[UNK] SIMS AVE,partial,present,label_text_ok_extra_cut_off_part,,no
+S050,T1333,bus_number,crops/train/front_eds_num/565_Screenshot_2026-11-01-21-50-15-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.9ca87e0aeb6f9baafdcbe493121d68b3_a2202.png,11,full,77 [UNK],partial,present,conflicting_reading,too blurred to read (unresolved),no

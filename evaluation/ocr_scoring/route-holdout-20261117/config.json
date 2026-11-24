@@ -1,0 +1,67 @@
+{
+ "models": [
+  {
+   "id": "easyocr",
+   "baseline": {
+    "run_dir": "../../../.cache/ocr_runs/easyocr-pretrained-routeholdout",
+    "splits": [
+     "train"
+    ],
+    "input_sets": [
+     "annotation"
+    ]
+   },
+   "finetuned": {
+    "run_dir": "../../../.cache/ocr_runs/easyocr-finetuned-routeholdout",
+    "splits": [
+     "train"
+    ],
+    "input_sets": [
+     "annotation"
+    ]
+   }
+  },
+  {
+   "id": "trocr",
+   "baseline": {
+    "run_dir": "../../../.cache/ocr_runs/trocr-pretrained-routeholdout",
+    "splits": [
+     "train"
+    ],
+    "input_sets": [
+     "annotation"
+    ]
+   },
+   "finetuned": {
+    "run_dir": "../../../.cache/ocr_runs/trocr-finetuned-routeholdout",
+    "splits": [
+     "train"
+    ],
+    "input_sets": [
+     "annotation"
+    ]
+   }
+  },
+  {
+   "id": "paddleocr",
+   "baseline": {
+    "run_dir": "../../../.cache/ocr_runs/paddleocr-pretrained-routeholdout",
+    "splits": [
+     "train"
+    ],
+    "input_sets": [
+     "annotation"
+    ]
+   },
+   "finetuned": {
+    "run_dir": "../../../.cache/ocr_runs/paddleocr-finetuned-routeholdout",
+    "splits": [
+     "train"
+    ],
+    "input_sets": [
+     "annotation"
+    ]
+   }
+  }
+ ]
+}

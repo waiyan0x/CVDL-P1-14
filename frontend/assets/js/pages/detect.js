@@ -4,25 +4,27 @@ import {FrameSession} from '../core/session.js';
 import {Camera} from '../core/camera.js';
 import {message, setSegments} from '../core/dom.js';
 import {Options} from '../components/options.js';
-import {Viewer} from '../components/viewer.js';
+import {Viewer} from '../components/viewer.js?v=2';
 import {renderResults} from '../components/results.js';
 import {dropFiles, loadSamples} from '../components/samples.js';
+import {SpeechControls} from '../components/speech.js';
 
 const $ = id => document.getElementById(id);
 const session = new FrameSession();
-const viewer = new Viewer($('viewer'), $('frame-label'));
+const viewer = new Viewer($('viewer'), $('frame-label'), {boxesButton: $('detection-boxes')});
 const camera = new Camera($('camera'));
+const speech = new SpeechControls({read: $('speech-read'), stop: $('speech-stop'), status: $('speech-status')});
 let mode = 'samples', input = null, objectURL = null, sampleList, maxBytes;
 const options = new Options($('options'), () => { if (input) processInput(); });
 
 function clearInput() {
   session.reset();
+  speech.reset();
   camera.close();
   input = null;
   if (objectURL) URL.revokeObjectURL(objectURL);
   objectURL = null;
   viewer.clear();
-  $('legend').hidden = true;
   $('image-file').value = '';
   $('upload-zone').classList.remove('compact');
   $('camera').hidden = false;
@@ -46,20 +48,21 @@ function selectMode(next) {
 async function processInput() {
   if (!input) return;
   const selected = input;
+  const settings = options.get();
   const generation = session.reset();
+  speech.reset();
   $('results').setAttribute('aria-busy', 'true');
   $('status').textContent = 'Processing image…';
   try {
-    const data = await session.run(generation, () => analyse(selected, options.get(), session.metadata(selected.source, selected.timestamp || 0)));
+    const data = await session.run(generation, () => analyse(selected, settings, session.metadata(selected.source, selected.timestamp || 0)));
     if (!data) return;
     viewer.render(data, {label: selected.label});
     renderResults($('results'), data);
-    $('legend').hidden = !data.detections.length;
+    speech.update(data);
     $('status').textContent = 'Analysis complete.';
   } catch (error) {
     if (!session.current(generation)) return;
     viewer.clear();
-    $('legend').hidden = true;
     $('status').textContent = 'Processing stopped.';
     message($('results'), 'Processing failed', error.message, {error: true, retry: processInput});
   } finally {
@@ -72,7 +75,6 @@ function selectSample(sample) {
   input = {sampleId: sample.id, source: 'sample', label: sample.name};
   message($('results'), 'Processing image', 'The result will appear here.');
   viewer.preview(sample.url, sample.name);
-  $('legend').hidden = true;
   processInput();
 }
 
@@ -125,7 +127,7 @@ $('open-camera').addEventListener('click', openCamera);
 $('modes').addEventListener('click', event => { if (event.target.dataset.mode) selectMode(event.target.dataset.mode); });
 $('reset').addEventListener('click', () => { clearInput(); $('status').textContent = 'Reset complete. Choose a new input.'; });
 dropFiles($('upload-zone'), $('image-file'), selectFile);
-window.addEventListener('pagehide', () => { session.reset(); camera.close(); if (objectURL) URL.revokeObjectURL(objectURL); });
+window.addEventListener('pagehide', () => { session.reset(); speech.reset(); camera.close(); if (objectURL) URL.revokeObjectURL(objectURL); });
 
 async function initialise() {
   const generation = session.generation;

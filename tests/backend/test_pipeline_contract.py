@@ -18,10 +18,10 @@ class Detector:
 
 class Engines:
     def backends(self):
-        return ['easyocr', 'tesseract']
+        return ['easyocr', 'paddleocr']
 
     def read(self, crop, field, backend):
-        if backend == 'tesseract':
+        if backend == 'paddleocr':
             raise RuntimeError('a private adapter detail')
         return ('3' if field == 'bus_number' else 'Tampines Int'), .9, 'test_score'
 
@@ -51,8 +51,8 @@ def test_comparison_detects_once_and_isolates_engine_failure(tmp_path):
     assert service.detector.calls == 1
     engines = {entry['backend']: entry for entry in response['comparisons']}
     assert engines['easyocr']['result']['status'] == 'matched'
-    assert engines['tesseract']['status'] == 'error'
-    assert 'private' not in engines['tesseract']['error']
+    assert engines['paddleocr']['status'] == 'error'
+    assert 'private' not in engines['paddleocr']['error']
     assert engines['trocr']['status'] == 'unavailable'
     assert engines['easyocr']['result']['detections'] == response['detections']
     assert any(item['label'] == 'route' for item in response['detections'])
@@ -70,10 +70,10 @@ def test_engine_initialization_failure_does_not_disable_other_engines(tmp_path, 
         def read(self, crop, field):
             return '3', .8
     monkeypatch.setattr(registry, 'EasyOCRAdapter', unavailable)
-    monkeypatch.setattr(registry, 'TesseractAdapter', Available)
+    monkeypatch.setattr(registry, 'PaddleOCRAdapter', Available)
     monkeypatch.setattr(registry, 'TrOCRAdapter', Available)
     engines = registry.OCRRegistry(Settings(root=tmp_path))
-    assert engines.backends() == ['tesseract', 'trocr']
+    assert engines.backends() == ['paddleocr', 'trocr']
     assert engines.read(np.zeros((20, 50, 3), np.uint8), 'bus_number', 'trocr') == ('3', .8, 'test')
     assert 'private' not in engines.availability()['easyocr']
 
@@ -98,3 +98,50 @@ def test_unknown_reference_and_missing_field_have_distinct_states(tmp_path):
     assert status == 'unknown_match' and match['endpoint'] is None
     status, match = match_fields({'bus_number': {'raw': '3', 'ocr_confidence': .9}}, service.matcher, FrameOptions())
     assert status == 'partial' and match['service'] == '3'
+
+
+class DisplayEngines(Engines):
+    def __init__(self, display_text):
+        self.display_text, self.display_calls = display_text, 0
+
+    def backends(self):
+        return ['easyocr', 'paddleocr']
+
+    def read(self, crop, field, backend):
+        return ('', .0, 'test_score') if field == 'destination' else ('3', .9, 'test_score')
+
+    def read_display(self, crop):
+        self.display_calls += 1
+        return self.display_text, .8, 'pretrained_whole_display_test'
+
+
+def display_pipeline(tmp_path, fields, display_text):
+    service = pipeline(tmp_path, fields)
+    service.ocr = DisplayEngines(display_text)
+    return service
+
+
+def test_screen_only_display_uses_pretrained_whole_display_fallback(tmp_path):
+    service = display_pipeline(tmp_path, [{'label': 'eds', 'box': [0, 0, 100, 40], 'confidence': .8}], '3\nTAMPINES INT')
+    result = service.analyse(np.zeros((60, 120, 3), np.uint8), FrameOptions(backend='paddleocr'))
+    parsed = AnalysisResponse.model_validate(result)
+    fields = parsed.results[0].fields
+    assert parsed.status == 'matched'
+    assert {f.ocr_source for f in fields.values()} == {'whole_display_fallback'}
+    assert fields['bus_number'].raw == '3' and fields['destination'].raw == 'TAMPINES INT'
+
+
+def test_fallback_fills_only_unusable_field(tmp_path):
+    service = display_pipeline(tmp_path, [
+        {'label': 'eds', 'box': [0, 0, 110, 40], 'confidence': .8},
+        {'label': 'bus_number', 'box': [75, 10, 100, 30], 'confidence': .9},
+        {'label': 'destination', 'box': [10, 10, 70, 30], 'confidence': .85}], '3 TAMPINES INT')
+    fields = service.analyse(np.zeros((60, 120, 3), np.uint8), FrameOptions(backend='paddleocr'))['results'][0]['fields']
+    assert fields['bus_number'].get('ocr_source', 'field_crop') == 'field_crop'
+    assert fields['destination']['ocr_source'] == 'whole_display_fallback'
+
+
+def test_no_fallback_for_other_engines(tmp_path):
+    service = display_pipeline(tmp_path, [{'label': 'eds', 'box': [0, 0, 100, 40], 'confidence': .8}], '3 TAMPINES INT')
+    result = service.analyse(np.zeros((60, 120, 3), np.uint8), FrameOptions(backend='easyocr'))
+    assert result['status'] == 'unreadable' and service.ocr.display_calls == 0

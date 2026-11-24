@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "record_type": "local_ocr_model_inventory",
+  "created_at_utc": "2026-11-12T02:28:32.027183+00:00",
+  "workspace_root": "/Users/tanyilin/Downloads/CVDL-P1-14",
+  "scope": "Point 1: artifact identification only; no loading, inference, scoring or downloads.",
+  "packages": {
+    "torch": "2.15.0",
+    "easyocr": "1.7.2",
+    "transformers": "4.57.6",
+    "safetensors": "0.8.0",
+    "paddleocr": null,
+    "paddlepaddle": null
+  },
+  "models": [
+    {
+      "id": "easyocr_english_g2",
+      "identity": "EasyOCR English generation-2 pretrained recognizer",
+      "software": "easyocr",
+      "installed_version": "1.7.2",
+      "role": "public_pretrained_baseline",
+      "class_specific_weights": false,
+      "benchmark_runner_supported": true,
+      "provenance": "Existing cached weight; local hash compared with saved EasyOCR run; upstream revision not independently verified in this inventory.",
+      "artifacts": [
+        {
+          "path": ".cache/easyocr/english_g2.pth",
+          "role": "recognition_weights",
+          "status": "present_not_load_tested",
+          "size_bytes": 15143997,
+          "sha256": "e2272681d9d67a04e2dff396b6e95077bc19001f8f6d3593c307b9852e1c29e8"
+        }
+      ],
+      "associated_artifacts": [
+        {
+          "path": ".cache/easyocr/craft_mlt_25k.pth",
+          "role": "text_detector_not_used_in_recognition_only_benchmark",
+          "status": "present_not_load_tested",
+          "size_bytes": 83152330,
+          "sha256": "4a5efbfb48b4081100544e75e1e2b57f8de3d84f213004b14b85fd4b3748db17"
+        }
+      ],
+      "matches_saved_baseline_weight_hash": true
+    },
+    {
+      "id": "public_trocr_base_printed",
+      "identity": "microsoft/trocr-base-printed",
+      "software": "transformers",
+      "installed_version": "4.57.6",
+      "role": "public_pretrained_baseline",
+      "class_specific_weights": false,
+      "benchmark_runner_supported": true,
+      "recorded_provenance": {
+        "repository": "microsoft/trocr-base-printed",
+        "revision": "93450be3f1ed40a930690d951ef3932687cc1892"
+      },
+      "provenance_note": "Revision from local provenance.json and pinned retrieval script; remote origin not reverified.",
+      "artifacts": [
+        {
+          "path": ".cache/trocr-base-printed/model.safetensors",
+          "role": "recognition_weights",
+          "status": "present_not_load_tested",
+          "size_bytes": 1333384464,
+          "sha256": "1cf4a6eedab26afaaf505f1c7f73d9634944924dbd1ed049d569db98039cd596"
+        }
+      ],
+      "associated_artifacts": [
+        {
+          "path": ".cache/trocr-base-printed/config.json",
+          "role": "processor_tokenizer_or_configuration",
+          "status": "present_not_load_tested",
+          "size_bytes": 4126,
+          "sha256": "5bda1deab455661feb3d91906656e5600e2ca520d5c00a2a03836614b850c93e"
+        },
+        {
+          "path": ".cache/trocr-base-printed/generation_config.json",
+          "role": "processor_tokenizer_or_configuration",
+          "status": "present_not_load_tested",
+          "size_bytes": 190,
+          "sha256": "41149cdcffec4d657f32dfcddd9b208037f01286c9e07945c724908c58ed0193"
+        },
+        {
+          "path": ".cache/trocr-base-printed/preprocessor_config.json",
+          "role": "processor_tokenizer_or_configuration",
+          "status": "present_not_load_tested",
+          "size_bytes": 224,
+          "sha256": "2fcc0da9466ee00be0403b26027373039e032820ebac409e207b32e52e52119d"
+        },
+        {
+          "path": ".cache/trocr-base-printed/tokenizer_config.json",
+          "role": "processor_tokenizer_or_configuration",
+          "status": "present_not_load_tested",
+          "size_bytes": 1118,
+          "sha256": "5a1356884c6ae736a621841535264ba7c5bebd52f169258add2c48fcbb32d50a"
+        },
+        {
+          "path": ".cache/trocr-base-printed/special_tokens_map.json",
+          "role": "processor_tokenizer_or_configuration",
+          "status": "present_not_load_tested",
+          "size_bytes": 772,
+          "sha256": "c611b1f7d416eb001ee4f293d903ea8c88e703463f1d403f1866a0352743fd00"
+        },
+        {
+          "path": ".cache/trocr-base-printed/merges.txt",
+          "role": "processor_tokenizer_or_configuration",
+          "status": "present_not_load_tested",
+          "size_bytes": 456318,
+          "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5"
+        },
+        {
+          "path": ".cache/trocr-base-printed/vocab.json",
+          "role": "processor_tokenizer_or_configuration",
+          "status": "present_not_load_tested",
+          "size_bytes": 898822,
+          "sha256": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab"
+        }
+      ]
+    },
+    {
+      "id": "paddle_english_v5_mobile",
+      "identity": "en_PP-OCRv5_mobile_rec",
+      "software": "paddleocr",
+      "installed_version": null,
+      "role": "proposed_public_pretrained_baseline",
+      "benchmark_runner_supported": false,
+      "status": "proposed_no_checkpoint_pinned_or_inventoried",
+      "artifacts": []
+    },
+    {
+      "id": "supplied_finetuned_trocr",
+      "identity": "Supplied TrOCR artifact; base checkpoint and training lineage unverified",
+      "software": "transformers",
+      "installed_version": "4.57.6",
+      "role": "separate_finetuned_experiment",
+      "benchmark_runner_supported": false,
+      "artifacts": [
+        {
+          "path": "models/trocr-finetuned/model.safetensors",
+          "role": "recognition_weight_pointer_only",
+          "status": "git_lfs_pointer",
+          "size_bytes": 135,
+          "sha256": "a6e9887cc2be01911076309bb1faac2d78552ea913d94e997247b8fae86954a1",
+          "expected_weight_sha256": "3783be7c23cd38e84cc2215ca678f63aae59af665e3b164f97c7bf1e07b10fe4",
+          "expected_weight_size_bytes": 1335747032
+        }
+      ],
+      "training_provenance": "No verified training run, split lineage, checkpoint epoch or validation CER available; see evaluation/ocr_training/checkpoint-selection-01/README.md"
+    },
+    {
+      "id": "tesseract_english",
+      "identity": "Tesseract with English traineddata; model version/hash not established",
+      "role": "optional_application_engine_outside_current_shortlist",
+      "executable": null,
+      "benchmark_runner_supported": false,
+      "artifacts": []
+    }
+  ],
+  "limitations": [
+    "File presence and hashes do not establish loadability or model accuracy.",
+    "Local cache paths are ignored by Git; inventory does not package weights.",
+    "Hash all model, processor and tokenizer files again in each actual benchmark run."
+  ]
+}

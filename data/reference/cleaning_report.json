@@ -1,0 +1,750 @@
+{
+  "source": "data/bus_information.csv",
+  "output": "data/reference/bus_information.cleaned.csv",
+  "rows_in": 609,
+  "rows_out": 607,
+  "services": 599,
+  "distinct_endpoint_names": 476,
+  "distinct_endpoints_after_normalising": 453,
+  "exact_duplicates_dropped": [
+    {
+      "line": 394,
+      "duplicate_of_line": 392,
+      "row": [
+        "307",
+        "Choa Chu Kang Bus Interchange",
+        "Choa Chu Kang Street 62"
+      ]
+    },
+    {
+      "line": 395,
+      "duplicate_of_line": 393,
+      "row": [
+        "307T",
+        "Choa Chu Kang MRT/LRT station",
+        "Teck Whye Lane"
+      ]
+    }
+  ],
+  "rows_changed": [
+    {
+      "line": 38,
+      "service": "21",
+      "changes": [
+        "destination: curly apostrophe made straight"
+      ]
+    },
+    {
+      "line": 160,
+      "service": "92B",
+      "changes": [
+        "origin: spelling corrected from 'Kent Ridge MRT dtation'"
+      ]
+    },
+    {
+      "line": 474,
+      "service": "851E",
+      "changes": [
+        "service id trimmed / upper-cased"
+      ]
+    },
+    {
+      "line": 536,
+      "service": "960E",
+      "changes": [
+        "service id trimmed / upper-cased"
+      ]
+    },
+    {
+      "line": 543,
+      "service": "963E",
+      "changes": [
+        "service id trimmed / upper-cased"
+      ]
+    },
+    {
+      "line": 607,
+      "service": "LCS1",
+      "changes": [
+        "origin: whitespace trimmed",
+        "destination: whitespace trimmed"
+      ]
+    },
+    {
+      "line": 609,
+      "service": "LCS2",
+      "changes": [
+        "origin: whitespace trimmed",
+        "destination: whitespace trimmed"
+      ]
+    }
+  ],
+  "flags": [
+    {
+      "line": 160,
+      "service": "92B",
+      "flag": "blank endpoint; only the filled endpoint can be matched"
+    },
+    {
+      "line": 583,
+      "service": "AC7",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 584,
+      "service": "CW1",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 585,
+      "service": "CW2",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 586,
+      "service": "CW3",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 587,
+      "service": "CW4",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 588,
+      "service": "CW4S",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 589,
+      "service": "CW5",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 590,
+      "service": "CW6",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 591,
+      "service": "CW7",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 592,
+      "service": "Courts Megastore",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 593,
+      "service": "Giant/IKEA Bedok",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 594,
+      "service": "IKEA Buona Vista",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 595,
+      "service": "Giant/IKEA Pasir Ris",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 596,
+      "service": "IKEA Redhill",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 597,
+      "service": "Giant/IKEA Sengkang",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 598,
+      "service": "IKEA Tiong Bahru",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 599,
+      "service": "Giant/IKEA Tampines",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 600,
+      "service": "RWS8",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 601,
+      "service": "TS1",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 602,
+      "service": "TS3",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 603,
+      "service": "TS6",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 604,
+      "service": "TS8",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 605,
+      "service": "SJE",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 606,
+      "service": "LCS1",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 607,
+      "service": "LCS1",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 608,
+      "service": "LCS2",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    },
+    {
+      "line": 609,
+      "service": "LCS2",
+      "flag": "non-standard service id (shuttle/named service); kept"
+    }
+  ],
+  "names_identical_after_normalising": {
+    "BEAUTY WORLD MRT STN": [
+      "Beauty World MRT station (Loop)",
+      "Beauty World MRT station (loop)"
+    ],
+    "BEDOK INT": [
+      "Bedok Bus Interchange",
+      "Bedok Bus Interchange (loop)"
+    ],
+    "BOON LAY INT": [
+      "Boon Lay Bus Interchange",
+      "Boon Lay Bus Interchange (loop)"
+    ],
+    "BUANGKOK CRES": [
+      "Buangkok Crescent",
+      "Buangkok Crescent (loop)"
+    ],
+    "CHANGI AIRPORT": [
+      "Changi Airport",
+      "Changi Airport (loop)"
+    ],
+    "CHANGI VILLAGE TER": [
+      "Changi Village Bus Terminal",
+      "Changi Village Bus Terminal (loop)"
+    ],
+    "CLEMENTI INT": [
+      "Clementi Bus Interchange",
+      "Clementi Bus Interchange (loop)"
+    ],
+    "JURONG EAST ST 32": [
+      "Jurong East Street 32",
+      "Jurong East Street 32 (Loop)"
+    ],
+    "JURONG WEST ST 42": [
+      "Jurong West Street 42",
+      "Jurong West Street 42 (loop)"
+    ],
+    "KOVAN HUB HOUGANG ST 21": [
+      "Kovan Hub (Hougang Street 21)",
+      "Kovan Hub (Hougang Street 21) (loop)"
+    ],
+    "LOR 8 TOA PAYOH": [
+      "Lorong 8 Toa Payoh",
+      "Lorong 8 Toa Payoh (loop)"
+    ],
+    "MARINE TERRACE": [
+      "Marine Terrace",
+      "Marine Terrace (loop)"
+    ],
+    "RHU CROSS": [
+      "Rhu Cross",
+      "Rhu Cross (loop)"
+    ],
+    "SCIENCE PK DR": [
+      "Science Park Drive",
+      "Science Park Drive (loop)"
+    ],
+    "SENGKANG INT": [
+      "Sengkang Bus Interchange",
+      "Sengkang Bus Interchange (loop)"
+    ],
+    "SENGKANG MRT LRT STN": [
+      "Sengkang MRT/LRT Station",
+      "Sengkang MRT/LRT station"
+    ],
+    "SERANGOON MRT STN": [
+      "Serangoon MRT station",
+      "Serangoon MRT station (loop)"
+    ],
+    "TAMPINES INT": [
+      "Tampines Bus Interchange",
+      "Tampines Bus Interchange (loop)"
+    ],
+    "TEMASEK AVE": [
+      "Temasek Ave (loop)",
+      "Temasek Avenue (loop)"
+    ],
+    "TOA PAYOH INT": [
+      "Toa Payoh Bus Interchange",
+      "Toa Payoh Bus Interchange (loop)"
+    ],
+    "TOA PAYOH LINK CALDECOTT MRT STN": [
+      "Toa Payoh Link (Caldecott MRT station)",
+      "Toa Payoh Link (Caldecott MRT station) (loop)"
+    ],
+    "YISHUN AVE 5 OPP YISHUN STN EXIT B": [
+      "Yishun Ave 5 (Opp Yishun Stn Exit B)",
+      "Yishun Avenue 5 (Opp Yishun Stn Exit B)"
+    ],
+    "YISHUN INT": [
+      "Yishun Bus Interchange",
+      "Yishun Bus Interchange (loop)"
+    ]
+  },
+  "similar_names_kept_distinct": [
+    {
+      "a": "Woodlands Avenue 2 / Woodlands Centre Road",
+      "b": "Woodlands Avenue 7 / Woodlands Centre Road",
+      "ratio": 96.9
+    },
+    {
+      "a": "Woodlands Avenue 6 (Admiralty MRT)",
+      "b": "Woodlands Avenue 7 (Admiralty MRT)",
+      "ratio": 96.6
+    },
+    {
+      "a": "Shunfu Road (via Bishan Street 21)",
+      "b": "Shunfu Road (via Bishan Street 22)",
+      "ratio": 96.2
+    },
+    {
+      "a": "Bukit Batok East Avenue 2",
+      "b": "Bukit Batok East Avenue 4",
+      "ratio": 94.7
+    },
+    {
+      "a": "Bukit Batok West Avenue 3",
+      "b": "Bukit Batok West Avenue 5",
+      "ratio": 94.7
+    },
+    {
+      "a": "Bukit Batok West Avenue 3",
+      "b": "Bukit Batok West Avenue 8",
+      "ratio": 94.7
+    },
+    {
+      "a": "Bukit Batok West Avenue 3",
+      "b": "Bukit Batok West Avenue 9",
+      "ratio": 94.7
+    },
+    {
+      "a": "Bukit Batok West Avenue 5",
+      "b": "Bukit Batok West Avenue 8",
+      "ratio": 94.7
+    },
+    {
+      "a": "Bukit Batok West Avenue 5",
+      "b": "Bukit Batok West Avenue 9",
+      "ratio": 94.7
+    },
+    {
+      "a": "Bukit Batok West Avenue 8",
+      "b": "Bukit Batok West Avenue 9",
+      "ratio": 94.7
+    },
+    {
+      "a": "Choa Chu Kang Avenue 1",
+      "b": "Choa Chu Kang Avenue 3",
+      "ratio": 94.7
+    },
+    {
+      "a": "Choa Chu Kang Avenue 1",
+      "b": "Choa Chu Kang Avenue 4",
+      "ratio": 94.7
+    },
+    {
+      "a": "Choa Chu Kang Avenue 1",
+      "b": "Choa Chu Kang Avenue 5",
+      "ratio": 94.7
+    },
+    {
+      "a": "Choa Chu Kang Avenue 3",
+      "b": "Choa Chu Kang Avenue 4",
+      "ratio": 94.7
+    },
+    {
+      "a": "Choa Chu Kang Avenue 3",
+      "b": "Choa Chu Kang Avenue 5",
+      "ratio": 94.7
+    },
+    {
+      "a": "Choa Chu Kang Avenue 4",
+      "b": "Choa Chu Kang Avenue 5",
+      "ratio": 94.7
+    },
+    {
+      "a": "Serangoon North Avenue 4",
+      "b": "Serangoon North Avenue 5",
+      "ratio": 94.7
+    },
+    {
+      "a": "Jurong East Avenue 1",
+      "b": "Jurong West Avenue 1",
+      "ratio": 94.1
+    },
+    {
+      "a": "Jurong West Avenue 1",
+      "b": "Jurong West Avenue 3",
+      "ratio": 94.1
+    },
+    {
+      "a": "Jurong West Avenue 1",
+      "b": "Jurong West Avenue 5",
+      "ratio": 94.1
+    },
+    {
+      "a": "Jurong West Avenue 1",
+      "b": "Jurong West Avenue 6",
+      "ratio": 94.1
+    },
+    {
+      "a": "Jurong West Avenue 3",
+      "b": "Jurong West Avenue 5",
+      "ratio": 94.1
+    },
+    {
+      "a": "Jurong West Avenue 3",
+      "b": "Jurong West Avenue 6",
+      "ratio": 94.1
+    },
+    {
+      "a": "Jurong West Avenue 5",
+      "b": "Jurong West Avenue 6",
+      "ratio": 94.1
+    },
+    {
+      "a": "Jurong West Street 71",
+      "b": "Jurong West Street 91",
+      "ratio": 94.1
+    },
+    {
+      "a": "Tampines North Drive 1",
+      "b": "Tampines North Drive 2",
+      "ratio": 94.1
+    },
+    {
+      "a": "Ang Mo Kio Avenue 2",
+      "b": "Ang Mo Kio Avenue 5",
+      "ratio": 93.8
+    },
+    {
+      "a": "Ang Mo Kio Avenue 2",
+      "b": "Ang Mo Kio Avenue 8",
+      "ratio": 93.8
+    },
+    {
+      "a": "Ang Mo Kio Avenue 2",
+      "b": "Ang Mo Kio Avenue 9",
+      "ratio": 93.8
+    },
+    {
+      "a": "Ang Mo Kio Avenue 5",
+      "b": "Ang Mo Kio Avenue 8",
+      "ratio": 93.8
+    },
+    {
+      "a": "Ang Mo Kio Avenue 5",
+      "b": "Ang Mo Kio Avenue 9",
+      "ratio": 93.8
+    },
+    {
+      "a": "Ang Mo Kio Avenue 8",
+      "b": "Ang Mo Kio Avenue 9",
+      "ratio": 93.8
+    },
+    {
+      "a": "Ang Mo Kio Street 61",
+      "b": "Ang Mo Kio Street 63",
+      "ratio": 93.8
+    },
+    {
+      "a": "Ang Mo Kio Street 61",
+      "b": "Ang Mo Kio Street 64",
+      "ratio": 93.8
+    },
+    {
+      "a": "Ang Mo Kio Street 61",
+      "b": "Ang Mo Kio Street 65",
+      "ratio": 93.8
+    },
+    {
+      "a": "Ang Mo Kio Street 61",
+      "b": "Ang Mo Kio Street 66",
+      "ratio": 93.8
+    },
+    {
+      "a": "Ang Mo Kio Street 63",
+      "b": "Ang Mo Kio Street 64",
+      "ratio": 93.8
+    },
+    {
+      "a": "Ang Mo Kio Street 63",
+      "b": "Ang Mo Kio Street 65",
+      "ratio": 93.8
+    },
+    {
+      "a": "Ang Mo Kio Street 63",
+      "b": "Ang Mo Kio Street 66",
+      "ratio": 93.8
+    },
+    {
+      "a": "Ang Mo Kio Street 64",
+      "b": "Ang Mo Kio Street 65",
+      "ratio": 93.8
+    },
+    {
+      "a": "Ang Mo Kio Street 64",
+      "b": "Ang Mo Kio Street 66",
+      "ratio": 93.8
+    },
+    {
+      "a": "Ang Mo Kio Street 65",
+      "b": "Ang Mo Kio Street 66",
+      "ratio": 93.8
+    },
+    {
+      "a": "Kovan Stn Exit B",
+      "b": "Kovan Stn Exit C",
+      "ratio": 93.8
+    },
+    {
+      "a": "Lorong 5 Toa Payoh",
+      "b": "Lorong 8 Toa Payoh",
+      "ratio": 93.3
+    },
+    {
+      "a": "Lorong 5 Toa Payoh",
+      "b": "Lorong 8 Toa Payoh (loop)",
+      "ratio": 93.3
+    },
+    {
+      "a": "Tampines Avenue 11 (Opp Reebonz Bldg)",
+      "b": "Tampines Avenue 11 (Reebonz Bldg)",
+      "ratio": 93.3
+    },
+    {
+      "a": "Tuas South Avenue 10",
+      "b": "Tuas South Avenue 14",
+      "ratio": 93.3
+    },
+    {
+      "a": "Woodlands Avenue 5",
+      "b": "Woodlands Avenue 6",
+      "ratio": 93.3
+    },
+    {
+      "a": "Woodlands Avenue 5",
+      "b": "Woodlands Avenue 7",
+      "ratio": 93.3
+    },
+    {
+      "a": "Woodlands Avenue 5",
+      "b": "Woodlands Avenue 8",
+      "ratio": 93.3
+    },
+    {
+      "a": "Woodlands Avenue 6",
+      "b": "Woodlands Avenue 7",
+      "ratio": 93.3
+    },
+    {
+      "a": "Woodlands Avenue 6",
+      "b": "Woodlands Avenue 8",
+      "ratio": 93.3
+    },
+    {
+      "a": "Woodlands Avenue 7",
+      "b": "Woodlands Avenue 8",
+      "ratio": 93.3
+    },
+    {
+      "a": "Woodlands St 83",
+      "b": "Woodlands Street 13",
+      "ratio": 93.3
+    },
+    {
+      "a": "Woodlands St 83",
+      "b": "Woodlands Street 82",
+      "ratio": 93.3
+    },
+    {
+      "a": "Bukit Batok Street 23",
+      "b": "Bukit Batok Street 33",
+      "ratio": 92.9
+    },
+    {
+      "a": "Clementi Avenue 1",
+      "b": "Clementi Avenue 4",
+      "ratio": 92.9
+    },
+    {
+      "a": "Corporation Drive",
+      "b": "Corporation Road (loop)",
+      "ratio": 92.9
+    },
+    {
+      "a": "Tampines Avenue 4",
+      "b": "Tampines Avenue 5",
+      "ratio": 92.9
+    },
+    {
+      "a": "Tampines Avenue 4",
+      "b": "Tampines Avenue 9",
+      "ratio": 92.9
+    },
+    {
+      "a": "Tampines Avenue 5",
+      "b": "Tampines Avenue 9",
+      "ratio": 92.9
+    },
+    {
+      "a": "Jalan Kayu (Aft Seletar Camp G)",
+      "b": "Jalan Kayu (Bef Seletar Camp G)",
+      "ratio": 92.6
+    },
+    {
+      "a": "Yishun Ring Road (Khatib MRT station)",
+      "b": "Yishun Ring Road (Khatib MRT)",
+      "ratio": 92.6
+    },
+    {
+      "a": "Hougang Avenue 1",
+      "b": "Hougang Avenue 3 (loop)",
+      "ratio": 92.3
+    },
+    {
+      "a": "Hougang Avenue 1",
+      "b": "Hougang Avenue 4",
+      "ratio": 92.3
+    },
+    {
+      "a": "Hougang Avenue 1",
+      "b": "Hougang Avenue 7",
+      "ratio": 92.3
+    },
+    {
+      "a": "Hougang Avenue 3 (loop)",
+      "b": "Hougang Avenue 4",
+      "ratio": 92.3
+    },
+    {
+      "a": "Hougang Avenue 3 (loop)",
+      "b": "Hougang Avenue 7",
+      "ratio": 92.3
+    },
+    {
+      "a": "Hougang Avenue 4",
+      "b": "Hougang Avenue 7",
+      "ratio": 92.3
+    },
+    {
+      "a": "Hougang Street 11 (loop)",
+      "b": "Hougang Street 51",
+      "ratio": 92.3
+    },
+    {
+      "a": "Hougang Street 11 (loop)",
+      "b": "Hougang Street 91",
+      "ratio": 92.3
+    },
+    {
+      "a": "Hougang Street 51",
+      "b": "Hougang Street 91",
+      "ratio": 92.3
+    },
+    {
+      "a": "Hougang Street 91",
+      "b": "Hougang Street 92 (loop)",
+      "ratio": 92.3
+    },
+    {
+      "a": "Science Park Drive",
+      "b": "Science Park Rd (loop)",
+      "ratio": 92.3
+    },
+    {
+      "a": "Science Park Drive (loop)",
+      "b": "Science Park Rd (loop)",
+      "ratio": 92.3
+    },
+    {
+      "a": "Yishun Avenue 1",
+      "b": "Yishun Avenue 5/1",
+      "ratio": 92.3
+    },
+    {
+      "a": "Yishun Avenue 1",
+      "b": "Yishun Avenue 2",
+      "ratio": 91.7
+    },
+    {
+      "a": "Yishun Avenue 1",
+      "b": "Yishun Avenue 6",
+      "ratio": 91.7
+    },
+    {
+      "a": "Yishun Avenue 1",
+      "b": "Yishun Avenue 7",
+      "ratio": 91.7
+    },
+    {
+      "a": "Yishun Avenue 2",
+      "b": "Yishun Avenue 6",
+      "ratio": 91.7
+    },
+    {
+      "a": "Yishun Avenue 2",
+      "b": "Yishun Avenue 7",
+      "ratio": 91.7
+    },
+    {
+      "a": "Yishun Avenue 6",
+      "b": "Yishun Avenue 7",
+      "ratio": 91.7
+    },
+    {
+      "a": "Ang Mo Kio Avenue 10",
+      "b": "Ang Mo Kio Avenue 2",
+      "ratio": 90.9
+    },
+    {
+      "a": "Ang Mo Kio Avenue 10",
+      "b": "Ang Mo Kio Avenue 5",
+      "ratio": 90.9
+    },
+    {
+      "a": "Ang Mo Kio Avenue 10",
+      "b": "Ang Mo Kio Avenue 8",
+      "ratio": 90.9
+    },
+    {
+      "a": "Ang Mo Kio Avenue 10",
+      "b": "Ang Mo Kio Avenue 9",
+      "ratio": 90.9
+    }
+  ]
+}

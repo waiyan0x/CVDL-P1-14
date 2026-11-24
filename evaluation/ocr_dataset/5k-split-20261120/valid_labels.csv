@@ -1,0 +1,501 @@
+example_id,source_crop_id,source_path,field,origin,text,image_sha256,source_photo,split,group_id,image
+T0044_00,T0044,lines/train/T0044_00.png,destination,original_real,> SIMS PLACE TER,adcb0e5957d092cb7b04211ffcfaa657b599f076d641a5e58a9145e378cbc9af,159ee871__0cc20afd-643.jpg,valid,G0012,lines/valid/T0044_00.png
+T0045_00,T0045,lines/train/T0045_00.png,bus_number,original_real,64,9301a497c23c87c218f25085628aa32303510988fc82ac323ccba06e5c585f7d,159ee871__0cc20afd-643.jpg,valid,G0012,lines/valid/T0045_00.png
+T0047_00,T0047,lines/train/T0047_00.png,destination,original_real,> SIMS PLACE TER,ae558e30f33c3c82ce07dba61c7a50cbae74a1558efa40242e26a7fb1a317929,159ee871__0cc20afd-643.jpg,valid,G0012,lines/valid/T0047_00.png
+T0048_00,T0048,lines/train/T0048_00.png,bus_number,original_real,64,b7b4f0b6c7db5840503c8d791f89492af0fc7b2f11b16c3a5bf2a6d02542a66e,159ee871__0cc20afd-643.jpg,valid,G0012,lines/valid/T0048_00.png
+T0050_00,T0050,lines/train/T0050_00.png,destination,original_real,> SIMS PLACE TER,3a06711df106b88f4707833adbc2c0f57958eee22c0b43ac850c9a1172e2ba7b,159ee871__0cc20afd-643.jpg,valid,G0012,lines/valid/T0050_00.png
+T0051_00,T0051,lines/train/T0051_00.png,bus_number,original_real,64,afb797673ef53c04bf2daa4c40a18bf0d4dce87480101d56e191da98bbcb2aa5,159ee871__0cc20afd-643.jpg,valid,G0012,lines/valid/T0051_00.png
+T0091_00,T0091,lines/train/T0091_00.png,bus_number,original_real,33,43877a14d04206ef22be87ddac60fd1158f79050e3248fff06c52d648b6803dc,3020a120__c454da53-33.jpg,valid,G0036,lines/valid/T0091_00.png
+T0094_00,T0094,lines/train/T0094_00.png,bus_number,original_real,33,0f048d515d1924f7f3521c862278d8be738a9395b3680cf216bf3ac8dbcf5091,3020a120__c454da53-33.jpg,valid,G0036,lines/valid/T0094_00.png
+T0097_00,T0097,lines/train/T0097_00.png,bus_number,original_real,33,1f6d3ad87407f188e06ff3d42dc4a4eda46547b0e2f063a9bc6750ced8f64cbd,3020a120__c454da53-33.jpg,valid,G0036,lines/valid/T0097_00.png
+T0208_00,T0208,lines/train/T0208_00.png,route_text,original_real,TIONG BAHRU RD,8b56e67aea8d8c942772229309903c8faa42c34876e95d03fc8d0201d979114d,6fca43a8-195.jpg,valid,G0012,lines/valid/T0208_00.png
+T0210_00,T0210,lines/train/T0210_00.png,bus_number,original_real,195,1c7a81dde243e6d9359210125ed4d7347b0500b5c7a72f54653129581985741a,6fca43a8-195.jpg,valid,G0012,lines/valid/T0210_00.png
+T0211_00,T0211,lines/train/T0211_00.png,route_text,original_real,TIONG BAHRU RD,7c1ec263626f770e53997421a11056ef6fda26c7e038999da1822f46d695ccce,6fca43a8-195.jpg,valid,G0012,lines/valid/T0211_00.png
+T0213_00,T0213,lines/train/T0213_00.png,bus_number,original_real,195,7f8f315d8c044488ac2caa1eb5673883afe1da433db90d088c4a80997be3b9df,6fca43a8-195.jpg,valid,G0012,lines/valid/T0213_00.png
+T0214_00,T0214,lines/train/T0214_00.png,route_text,original_real,TIONG BAHRU RD,c494c8b827dd4f81a1d4fcc427aad3d2fc455caa59feeb92e375181982c6aa22,6fca43a8-195.jpg,valid,G0012,lines/valid/T0214_00.png
+T0216_00,T0216,lines/train/T0216_00.png,bus_number,original_real,195,137c5006832e9e2f7822741217e78a2d78d3d619347b46ed8ba41ecf9da625a3,6fca43a8-195.jpg,valid,G0012,lines/valid/T0216_00.png
+T0217_00,T0217,lines/train/T0217_00.png,bus_number,original_real,64,42a5bc9ea0a6e52f64932d578e63103e0213c3ae126025c56ebabdf955a0fea8,71ebc2d1__2feba792-642.jpg,valid,G0012,lines/valid/T0217_00.png
+T0218_00,T0218,lines/train/T0218_00.png,destination,original_real,> SIMS PLACE TER,11eafe1cfc9201cae5cafd4d02aacaa2c9e0bb5b401f0ea3660a14d53274ff56,71ebc2d1__2feba792-642.jpg,valid,G0012,lines/valid/T0218_00.png
+T0219_00,T0219,lines/train/T0219_00.png,route_text,original_real,TIONG BAHRU RD,c9b30be7f48d1ca282614e37d153cd2ae7740d76d652daace7ba92a1b93c3504,71ebc2d1__2feba792-642.jpg,valid,G0012,lines/valid/T0219_00.png
+T0220_00,T0220,lines/train/T0220_00.png,bus_number,original_real,64,278fbe36a990b5c98ba9348c399fbfb23d59b966ed81e382562a495301abba2d,71ebc2d1__2feba792-642.jpg,valid,G0012,lines/valid/T0220_00.png
+T0221_00,T0221,lines/train/T0221_00.png,destination,original_real,> SIMS PLACE TER,133b64238d056914f198a6a5d22eb63dd8baa4ff1b0d34ff714a678cb8ad04af,71ebc2d1__2feba792-642.jpg,valid,G0012,lines/valid/T0221_00.png
+T0222_00,T0222,lines/train/T0222_00.png,route_text,original_real,TIONG BAHRU RD,d90fcce8ebafe16dc614462b20a257392429a1785c3ffc95892e5f9714663b55,71ebc2d1__2feba792-642.jpg,valid,G0012,lines/valid/T0222_00.png
+T0223_00,T0223,lines/train/T0223_00.png,bus_number,original_real,64,dbcd56a6f299a45a46e0ec0bebbc7bb079e8ffa09f1b068a5c0af27b57d7c220,71ebc2d1__2feba792-642.jpg,valid,G0012,lines/valid/T0223_00.png
+T0224_00,T0224,lines/train/T0224_00.png,destination,original_real,> SIMS PLACE TER,bb22f0f56a8691bd18a841b0641fbd4f1b82c87a304f03fd36602ce0c3ba994c,71ebc2d1__2feba792-642.jpg,valid,G0012,lines/valid/T0224_00.png
+T0225_00,T0225,lines/train/T0225_00.png,route_text,original_real,TIONG BAHRU RD,b565656ffef42bc99edf3c67c851db048dadeaa107bf0cc6e359744b7c2fd7f7,71ebc2d1__2feba792-642.jpg,valid,G0012,lines/valid/T0225_00.png
+T0454_00,T0454,lines/train/T0454_00.png,bus_number,original_real,920,e54168bc2bf734cd57208626b9f430bb7851754a5d2367eeb066a788d5e180df,IMAGE_2026-10-23_22_12_50.jpg,valid,G0001,lines/valid/T0454_00.png
+T0457_00,T0457,lines/train/T0457_00.png,bus_number,original_real,920,67ed397b40651f547740982fa9e196e8260f373d872f3f0b6ac33e65cb4d745c,IMAGE_2026-10-23_22_12_50.jpg,valid,G0001,lines/valid/T0457_00.png
+T0460_00,T0460,lines/train/T0460_00.png,bus_number,original_real,920,cf9c866eb7678697633116d3a0b00de11002e28539a8f1eb2b829851b4aa3182,IMAGE_2026-10-23_22_12_50.jpg,valid,G0001,lines/valid/T0460_00.png
+T0829_00,T0829,lines/train/T0829_00.png,bus_number,original_real,312,dc5d343fac2da279fc9976000d8a97bd940828b15bb740af6d9d945464b5d3ee,Screenshot_2026-11-01-21-17-33-25_f9ee0578fe1cc94de7482bd41accb329.jpg,valid,G0034,lines/valid/T0829_00.png
+T0830_00,T0830,lines/train/T0830_00.png,bus_number,original_real,312,6ec77508de1bd919b54bd876b04bee5adc8ac51b63879fa20cd45b6eb60d2505,Screenshot_2026-11-01-21-17-33-25_f9ee0578fe1cc94de7482bd41accb329.jpg,valid,G0034,lines/valid/T0830_00.png
+T0831_00,T0831,lines/train/T0831_00.png,bus_number,original_real,312,1d601437653baca3f8c7dc6044631cd0911b0fa9b44fbdc963d52de118a81d32,Screenshot_2026-11-01-21-17-33-25_f9ee0578fe1cc94de7482bd41accb329.jpg,valid,G0034,lines/valid/T0831_00.png
+T1170_00,T1170,lines/train/T1170_00.png,bus_number,original_real,64,65df2b0edd0384e1d35b963bf579136f84175972299afb0deaca71c60b0d1629,Screenshot_2026-11-01-21-34-22-54_f9ee0578fe1cc94de7482bd41accb329.jpg,valid,G0012,lines/valid/T1170_00.png
+T1176_00,T1176,lines/train/T1176_00.png,bus_number,original_real,64,b46d5231b0ee50dfe39ca08562e165016dc8a5e43c769649d9b440c0efb188c7,Screenshot_2026-11-01-21-34-22-54_f9ee0578fe1cc94de7482bd41accb329.jpg,valid,G0012,lines/valid/T1176_00.png
+T1182_00,T1182,lines/train/T1182_00.png,bus_number,original_real,64,b06450511704778385d814ea2b44b7d6109e28095218ea1fb6a3d7b1e58ed13c,Screenshot_2026-11-01-21-34-22-54_f9ee0578fe1cc94de7482bd41accb329.jpg,valid,G0012,lines/valid/T1182_00.png
+T1369_00,T1369,lines/train/T1369_00.png,bus_number,original_real,502,cc31f454b616777f4b056b4b75c50f7c3dc6a03a4f583ed41148eecb0474f956,Screenshot_2026-11-01-21-51-40-91_f9ee0578fe1cc94de7482bd41accb329.jpg,valid,G0051,lines/valid/T1369_00.png
+T1373_00,T1373,lines/train/T1373_00.png,bus_number,original_real,502,c3354b20a336d1ca1dc5d577c089fd1332146492d67feccd5eb2897eeaa76451,Screenshot_2026-11-01-21-51-40-91_f9ee0578fe1cc94de7482bd41accb329.jpg,valid,G0051,lines/valid/T1373_00.png
+T1377_00,T1377,lines/train/T1377_00.png,bus_number,original_real,502,ffa9c3faffbcf6cc79b201b9f58f03a3b90b988dea6bb62100498519b369328c,Screenshot_2026-11-01-21-51-40-91_f9ee0578fe1cc94de7482bd41accb329.jpg,valid,G0051,lines/valid/T1377_00.png
+T1510_00,T1510,lines/train/T1510_00.png,bus_number,original_real,64,63df21ea17c87243befbf8b93b2043406a3888ad061e891994afaa8b0edeba41,abe85849__42d5920a-646.jpg,valid,G0012,lines/valid/T1510_00.png
+T1513_00,T1513,lines/train/T1513_00.png,bus_number,original_real,64,ad29a71ed976fdc333a8922f754312dbe3f4fb29bb399c6f74aa2a9086825bb9,abe85849__42d5920a-646.jpg,valid,G0012,lines/valid/T1513_00.png
+T1516_00,T1516,lines/train/T1516_00.png,bus_number,original_real,64,027d13e58f0f3626533d799799ba035ebcbdada482052ea30ebd480b7eada226,abe85849__42d5920a-646.jpg,valid,G0012,lines/valid/T1516_00.png
+T1564_00,T1564,lines/train/T1564_00.png,bus_number,original_real,64,a257c972e05d6ddc700c4037cfac4297a7f50581869c20eb68379a074a2311bb,b966eed4__b6a9d057-645.jpg,valid,G0012,lines/valid/T1564_00.png
+T1567_00,T1567,lines/train/T1567_00.png,bus_number,original_real,64,dfddb110257025350a4a63462cf8657ed591eb59400a11fe717ea9dbc5062905,b966eed4__b6a9d057-645.jpg,valid,G0012,lines/valid/T1567_00.png
+T1570_00,T1570,lines/train/T1570_00.png,bus_number,original_real,64,f011d393bb24be0650d01c5922035b3905da5523eea161533fccce0248e60f1a,b966eed4__b6a9d057-645.jpg,valid,G0012,lines/valid/T1570_00.png
+T1582_00,T1582,lines/train/T1582_00.png,bus_number,original_real,74,722f64d14a500b3424e35aa414e08ed2a54021190e0ba32d923e168cb312d8f3,ba67cfc3-a6daa64e-74.jpg,valid,G0038,lines/valid/T1582_00.png
+T1585_00,T1585,lines/train/T1585_00.png,bus_number,original_real,74,d3282852bb12ee65ad1dd60d8bc98543f0e9ab5c1a806632e7e4b7dd38c6d6d7,ba67cfc3-a6daa64e-74.jpg,valid,G0038,lines/valid/T1585_00.png
+T1588_00,T1588,lines/train/T1588_00.png,bus_number,original_real,74,f6b667cbc16bdcad65d7447faeee1429acf6ad57fcd93e9cfb7239dbf5b52590,ba67cfc3-a6daa64e-74.jpg,valid,G0038,lines/valid/T1588_00.png
+SYN2-00006_00,SYN2-00006,lines/train/SYN2-00006_00.png,bus_number,rendered,920,09221809fb3e132e14c9343d35dc3cab2c754bbdf2193d013768799216de6b74,,valid,G0001,lines/valid/SYN2-00006_00.png
+SYN2-00035_00,SYN2-00035,lines/train/SYN2-00035_00.png,bus_number,rendered,64,4f0a5a526b63742e344843efa1531a54c6788ecfa67eb3d96f2830ddaa15a51f,,valid,G0012,lines/valid/SYN2-00035_00.png
+SYN2-00073_00,SYN2-00073,lines/train/SYN2-00073_00.png,bus_number,rendered,920,9e167cb17e21b30b42413a9565d051fd5690e62c7e004e7a0f0c2c7a421c902f,,valid,G0001,lines/valid/SYN2-00073_00.png
+SYN2-00076_00,SYN2-00076,lines/train/SYN2-00076_00.png,bus_number,rendered,64,1ea943c4965d08800000741e9986c760a5fa7bb00f251745182a28f2ea2b452c,,valid,G0012,lines/valid/SYN2-00076_00.png
+SYN2-00119_00,SYN2-00119,lines/train/SYN2-00119_00.png,bus_number,rendered,312,0a21c8f535976f02d39cac32b0804a795da77befa63e6dd4a5cd9dfb03c16474,,valid,G0034,lines/valid/SYN2-00119_00.png
+SYN2-00124_00,SYN2-00124,lines/train/SYN2-00124_00.png,bus_number,rendered,33,eb11df6a6b959ed448d338d2b507883a122e560dff2e7486465d795833b02c47,,valid,G0036,lines/valid/SYN2-00124_00.png
+SYN2-00133_00,SYN2-00133,lines/train/SYN2-00133_00.png,bus_number,rendered,64,78c4be3645cb945807360a2b5c1c1f81b56f7f016b3184f1ae10657e574ef7cd,,valid,G0012,lines/valid/SYN2-00133_00.png
+SYN2-00136_00,SYN2-00136,lines/train/SYN2-00136_00.png,bus_number,rendered,74,ee4d4b44dc431265bf294d874624bcbddb02cfd21ee8b59bea8ea047ccf84a6c,,valid,G0038,lines/valid/SYN2-00136_00.png
+SYN2-00220_00,SYN2-00220,lines/train/SYN2-00220_00.png,bus_number,rendered,64,9c140627783c58b5c6602e4edacd2b320fd9e21e99e519e9e1d798d1302a90f7,,valid,G0012,lines/valid/SYN2-00220_00.png
+SYN2-00232_00,SYN2-00232,lines/train/SYN2-00232_00.png,bus_number,rendered,64,8540ee1f10898ed6310a94173a945b858d053a4f4ac8237fefab77b795411eb4,,valid,G0012,lines/valid/SYN2-00232_00.png
+SYN2-00233_00,SYN2-00233,lines/train/SYN2-00233_00.png,bus_number,rendered,920,1310f178aeaa2bd9d5543c1bc9a68d0a8b5c5baf3363a1d0ed6fe5ea63b99589,,valid,G0001,lines/valid/SYN2-00233_00.png
+SYN2-00244_00,SYN2-00244,lines/train/SYN2-00244_00.png,bus_number,rendered,502,08f6e812fa73b846f352bed13989d4d6674efae64d25ea5def2ed5e6394f8733,,valid,G0051,lines/valid/SYN2-00244_00.png
+SYN2-00262_00,SYN2-00262,lines/train/SYN2-00262_00.png,bus_number,rendered,33,c70de700e88e5382b3f47690262266d5e89899a946a08872274814252cd0c7cc,,valid,G0036,lines/valid/SYN2-00262_00.png
+SYN2-00279_00,SYN2-00279,lines/train/SYN2-00279_00.png,bus_number,rendered,312,04855609c62d8562216cc14db71012d3392d5215ce8e93c5edd630703501e15d,,valid,G0034,lines/valid/SYN2-00279_00.png
+SYN2-00280_00,SYN2-00280,lines/train/SYN2-00280_00.png,bus_number,rendered,33,70d8cb8a6d3cd1ff9894974a028b0e4e213cdda9abc3df825728db7446e496b4,,valid,G0036,lines/valid/SYN2-00280_00.png
+SYN2-00320_00,SYN2-00320,lines/train/SYN2-00320_00.png,bus_number,rendered,33,ab29f662abf92264754af193e066976fc23c6d5a00681e257ccbec94ec4ab9ed,,valid,G0036,lines/valid/SYN2-00320_00.png
+SYN2-00351_00,SYN2-00351,lines/train/SYN2-00351_00.png,bus_number,rendered,33,e3b7f97914845a3c66d0e63dde6fe9b1cb75c378a498878dcaa6eee80f118d66,,valid,G0036,lines/valid/SYN2-00351_00.png
+SYN2-00352_00,SYN2-00352,lines/train/SYN2-00352_00.png,bus_number,rendered,33,df3b7b9ab8a923569e553ce6a5975bceb3faac2aac55342ac67849620dfd5e96,,valid,G0036,lines/valid/SYN2-00352_00.png
+SYN2-00353_00,SYN2-00353,lines/train/SYN2-00353_00.png,bus_number,rendered,33,003afd46b5f78c4f74d329b7ead5c18553610a15b8cc4e5764dc3e90704e37ae,,valid,G0036,lines/valid/SYN2-00353_00.png
+SYN2-00374_00,SYN2-00374,lines/train/SYN2-00374_00.png,bus_number,rendered,64,5e671679ad637cddb8f03dd2a8bfe46cc333035f9f164c99254e13e8ad5e250f,,valid,G0012,lines/valid/SYN2-00374_00.png
+SYN2-00382_00,SYN2-00382,lines/train/SYN2-00382_00.png,bus_number,rendered,64,5bc6684729e58867f9217794c6fd5746e0da0952160de9c72d6c2b6b700d8ba8,,valid,G0012,lines/valid/SYN2-00382_00.png
+SYN2-00387_00,SYN2-00387,lines/train/SYN2-00387_00.png,bus_number,rendered,64,52a2075193f96aec099f0c39d77c93bf56ee56fe5382bdcde8cdfdcea07752f3,,valid,G0012,lines/valid/SYN2-00387_00.png
+SYN2-00439_00,SYN2-00439,lines/train/SYN2-00439_00.png,bus_number,rendered,502,90dffa898fca397a6e13adc46e0bd2e6e81b58b125757fab80dd5a80a5e724e5,,valid,G0051,lines/valid/SYN2-00439_00.png
+SYN2-00448_00,SYN2-00448,lines/train/SYN2-00448_00.png,bus_number,rendered,502,24fcbb38a95d96c867a930ddd6c0ea6a2c0775d9223d9e265b74736044131ca0,,valid,G0051,lines/valid/SYN2-00448_00.png
+SYN2-00456_00,SYN2-00456,lines/train/SYN2-00456_00.png,bus_number,rendered,74,2ac045036ea21bcbc5837383eaee80373ace6a9faf4c029accf7be5f4f92dff7,,valid,G0038,lines/valid/SYN2-00456_00.png
+SYN2-00482_00,SYN2-00482,lines/train/SYN2-00482_00.png,bus_number,rendered,502,c0b53134c13abb77bd491ac2100ce08f2dd7ff54f0df470a0c4a5793d70c80c0,,valid,G0051,lines/valid/SYN2-00482_00.png
+SYN2-00488_00,SYN2-00488,lines/train/SYN2-00488_00.png,bus_number,rendered,33,16c98392af12ae29b59be11457804a8c8888349ea0690b8ba782ff8df4478084,,valid,G0036,lines/valid/SYN2-00488_00.png
+SYN2-00514_00,SYN2-00514,lines/train/SYN2-00514_00.png,bus_number,rendered,33,01aec853555ab18143c409a81bf8f44eb52794f5ba385b76e5a8bf20dd779003,,valid,G0036,lines/valid/SYN2-00514_00.png
+SYN2-00537_00,SYN2-00537,lines/train/SYN2-00537_00.png,bus_number,rendered,74,bd8724e5c94f3c2ca31969c06c0198e1f914df325fdd689645087c85cc8712af,,valid,G0038,lines/valid/SYN2-00537_00.png
+SYN2-00548_00,SYN2-00548,lines/train/SYN2-00548_00.png,bus_number,rendered,33,fe2d8d414a223c188c7027a57238e08ed778835f07a9cca65a4b2dafa9637e93,,valid,G0036,lines/valid/SYN2-00548_00.png
+SYN2-00550_00,SYN2-00550,lines/train/SYN2-00550_00.png,bus_number,rendered,33,bdfa969da918dd89f7ce3f3c83686e3965abe712ba48ce4f105fd4848fa227fa,,valid,G0036,lines/valid/SYN2-00550_00.png
+SYN2-00586_00,SYN2-00586,lines/train/SYN2-00586_00.png,bus_number,rendered,74,ac586e5922dad6d8f52904528f7adaf948fba49f8d1f5b40619e19cbcf3aa14e,,valid,G0038,lines/valid/SYN2-00586_00.png
+SYN2-00666_00,SYN2-00666,lines/train/SYN2-00666_00.png,bus_number,rendered,502,1220fdad56ba54f91b17b4d85e120b9fb25a34c92f3056da07b2227e34391917,,valid,G0051,lines/valid/SYN2-00666_00.png
+SYN2-00668_00,SYN2-00668,lines/train/SYN2-00668_00.png,bus_number,rendered,312,3b724cf6db20ae4ec0013dccaefbd0ebcafc9c3b8a9e8205dfe94322780a66d2,,valid,G0034,lines/valid/SYN2-00668_00.png
+SYN2-00730_00,SYN2-00730,lines/train/SYN2-00730_00.png,bus_number,rendered,502,ac435a7b81414a56edf212e48d7a573a320b089a8a8c4a3756f05e000c434e65,,valid,G0051,lines/valid/SYN2-00730_00.png
+SYN2-00819_00,SYN2-00819,lines/train/SYN2-00819_00.png,bus_number,rendered,502,9209eb1e34ed63fff85ec2587c68c451e70866ad5febc5fd96d951ca53d5e76b,,valid,G0051,lines/valid/SYN2-00819_00.png
+SYN2-00821_00,SYN2-00821,lines/train/SYN2-00821_00.png,bus_number,rendered,33,4a862a8551ee175be5afbeb7954dc1f29520364f4c100eb50bfb002b34e68c00,,valid,G0036,lines/valid/SYN2-00821_00.png
+SYN2-00831_00,SYN2-00831,lines/train/SYN2-00831_00.png,bus_number,rendered,920,63ca499cd83dbe7c431989cc2469d0076830d1a0af78547b902f7ffb83e19df7,,valid,G0001,lines/valid/SYN2-00831_00.png
+SYN2-00832_00,SYN2-00832,lines/train/SYN2-00832_00.png,bus_number,rendered,502,ab42df2b49fa4c12314af61e75735f8935db6c024893585b85e0babc06dc5ce5,,valid,G0051,lines/valid/SYN2-00832_00.png
+SYN2-00870_00,SYN2-00870,lines/train/SYN2-00870_00.png,bus_number,rendered,312,bcab0e5bc60a9d2b5b888e6c25755b3c9aa1d24cf3508b899e067b0df14b6980,,valid,G0034,lines/valid/SYN2-00870_00.png
+SYN2-00876_00,SYN2-00876,lines/train/SYN2-00876_00.png,bus_number,rendered,74,2ebbac4585bf42f32e60b2dc3ed66c9335d89d8e629101593439c8055f163e78,,valid,G0038,lines/valid/SYN2-00876_00.png
+SYN2-00888_00,SYN2-00888,lines/train/SYN2-00888_00.png,bus_number,rendered,920,044adfa4ea49cab1f27044da24e107d2ed47f1e54d9babc068b4e415f29ebcf2,,valid,G0001,lines/valid/SYN2-00888_00.png
+SYN2-00898_00,SYN2-00898,lines/train/SYN2-00898_00.png,bus_number,rendered,312,f8b575a09bb4ef2d870eb4c9ef4d0a78495b075fde565b451630b29662a36910,,valid,G0034,lines/valid/SYN2-00898_00.png
+SYN2-00904_00,SYN2-00904,lines/train/SYN2-00904_00.png,bus_number,rendered,312,c46fefb6176ad9ca938a8847a7eb1e5f9eb6d32d39ac58c3396c13985829c231,,valid,G0034,lines/valid/SYN2-00904_00.png
+SYN2-00915_00,SYN2-00915,lines/train/SYN2-00915_00.png,bus_number,rendered,64,50cdfdd746a8dc478c3dd38b6c4b0598d6bb3f76e459bbfcf8482ab3beeaf6e6,,valid,G0012,lines/valid/SYN2-00915_00.png
+SYN2-00965_00,SYN2-00965,lines/train/SYN2-00965_00.png,bus_number,rendered,33,9fad1db32fdc7cd35bd0d9df9f94971851722f56cda3c429829cba60214870bf,,valid,G0036,lines/valid/SYN2-00965_00.png
+SYN2-00987_00,SYN2-00987,lines/train/SYN2-00987_00.png,bus_number,rendered,312,75e6f7b4456178d758643d80880d1afa3bcd972ce7e465d7fd5a3b39da1adc9d,,valid,G0034,lines/valid/SYN2-00987_00.png
+SYN2-01013_00,SYN2-01013,lines/train/SYN2-01013_00.png,bus_number,rendered,502,ad8cceef69a3f5ba2281ddcefe23d67b6fea3228bb2aec1a2a00f6ba7c8c551b,,valid,G0051,lines/valid/SYN2-01013_00.png
+SYN2-01027_00,SYN2-01027,lines/train/SYN2-01027_00.png,bus_number,rendered,33,3e000add00da11b1719c3762b4e95c82258ee719b53ff24e6dc8ea320315f788,,valid,G0036,lines/valid/SYN2-01027_00.png
+SYN2-01046_00,SYN2-01046,lines/train/SYN2-01046_00.png,bus_number,rendered,502,4c5bb12e44716882d645bf1b48539ee0ce5c479fd0bfc39c6abafa79b581c17c,,valid,G0051,lines/valid/SYN2-01046_00.png
+SYN2-01050_00,SYN2-01050,lines/train/SYN2-01050_00.png,bus_number,rendered,74,294682200e202e336df705f03479e7080cc621c72c88a8693368b44d0d2d9f44,,valid,G0038,lines/valid/SYN2-01050_00.png
+SYN2-01058_00,SYN2-01058,lines/train/SYN2-01058_00.png,bus_number,rendered,64,5c7ecd1b0140fdd2d997baf64b1719b1acddf20219ebe81de943c0f7f477af38,,valid,G0012,lines/valid/SYN2-01058_00.png
+SYN2-01062_00,SYN2-01062,lines/train/SYN2-01062_00.png,bus_number,rendered,74,7d2b3a42fb8c1841f045964334b11259fd4c03bce65e076a723d7b46a286f042,,valid,G0038,lines/valid/SYN2-01062_00.png
+SYN2-01067_00,SYN2-01067,lines/train/SYN2-01067_00.png,bus_number,rendered,312,97a25ce5a4cb189c670700ed8d92ee425b79d3bc50bd192eadf620ec605ae724,,valid,G0034,lines/valid/SYN2-01067_00.png
+SYN2-01098_00,SYN2-01098,lines/train/SYN2-01098_00.png,bus_number,rendered,920,0cdf24187db83b6db05293b85817b67be6dcb4729a45b3020d3d7bd676f1fa5b,,valid,G0001,lines/valid/SYN2-01098_00.png
+SYN2-01114_00,SYN2-01114,lines/train/SYN2-01114_00.png,bus_number,rendered,920,0cb8839d53ffcf48668e020701cf68c37abdd331b2bde1a1d9d292ac969cf1af,,valid,G0001,lines/valid/SYN2-01114_00.png
+SYN2-01122_00,SYN2-01122,lines/train/SYN2-01122_00.png,bus_number,rendered,64,c47f27215039667ac8d8157faaf3a6c38d6c5840f2abb0d6aa08567f3bda98ee,,valid,G0012,lines/valid/SYN2-01122_00.png
+SYN2-01137_00,SYN2-01137,lines/train/SYN2-01137_00.png,bus_number,rendered,64,2d6e74dd0aa4f807fbbac7a3b3509b7873ace6cf60f0fe59885ba463911ef966,,valid,G0012,lines/valid/SYN2-01137_00.png
+SYN2-01190_00,SYN2-01190,lines/train/SYN2-01190_00.png,bus_number,rendered,64,a3ba4e827386b625712c8d9103d05dcc47943a822e656d6c04b727cc1800ff60,,valid,G0012,lines/valid/SYN2-01190_00.png
+SYN2-01224_00,SYN2-01224,lines/train/SYN2-01224_00.png,bus_number,rendered,920,f8a38c336e5708833cf95d9d408c29bba83d16cf4bd3cb016edc2d80454c5cad,,valid,G0001,lines/valid/SYN2-01224_00.png
+SYN2-01237_00,SYN2-01237,lines/train/SYN2-01237_00.png,bus_number,rendered,64,5a1a377612dcb89fe87f8acda6dd3414d73fda7564d396589b71804c5037f3ab,,valid,G0012,lines/valid/SYN2-01237_00.png
+SYN2-01277_00,SYN2-01277,lines/train/SYN2-01277_00.png,bus_number,rendered,920,2ba461c4ace70011e7519f60e52e9db5d2f2d042469b6da91e8b9ecb2f529e08,,valid,G0001,lines/valid/SYN2-01277_00.png
+SYN2-01279_00,SYN2-01279,lines/train/SYN2-01279_00.png,bus_number,rendered,920,6a014d250ce985b44e73ed6fe31d661f0960eb5a424ec67b4c9ca4da5bf5fb6b,,valid,G0001,lines/valid/SYN2-01279_00.png
+SYN2-01296_00,SYN2-01296,lines/train/SYN2-01296_00.png,bus_number,rendered,33,66239b6049356368410a3defcb619552053ae8a2f27fb9150ec73563254a164d,,valid,G0036,lines/valid/SYN2-01296_00.png
+SYN2-01322_00,SYN2-01322,lines/train/SYN2-01322_00.png,bus_number,rendered,502,d82c3340c46f25eba49f6ccf1317224b76e15ad4e6d767d4eaa7acb038e574fa,,valid,G0051,lines/valid/SYN2-01322_00.png
+SYN2-01348_00,SYN2-01348,lines/train/SYN2-01348_00.png,bus_number,rendered,312,ce448903bb805bcd061f0f77685c8eaebc5e601637df482c4f090d35f6b456c2,,valid,G0034,lines/valid/SYN2-01348_00.png
+SYN2-01381_00,SYN2-01381,lines/train/SYN2-01381_00.png,bus_number,rendered,312,304ce97cb3042c28c5842d877170379f7b8daaea3a90ad2cf03fc9bc721fe2c2,,valid,G0034,lines/valid/SYN2-01381_00.png
+SYN2-01388_00,SYN2-01388,lines/train/SYN2-01388_00.png,bus_number,rendered,64,2f131d3940c9b96c656866353ef2d3667a56dcf75623605e78457c03169af657,,valid,G0012,lines/valid/SYN2-01388_00.png
+SYN2-01405_00,SYN2-01405,lines/train/SYN2-01405_00.png,bus_number,rendered,312,ba7b009e4a1eac263a25628ecca487d03f9fb939e620004860a8c23924fd7fd6,,valid,G0034,lines/valid/SYN2-01405_00.png
+SYN2-01440_00,SYN2-01440,lines/train/SYN2-01440_00.png,bus_number,rendered,33,e6c4dcd779647c95b467f9c9af0267a95d207fed26d91b34c26d17a188b0aa6d,,valid,G0036,lines/valid/SYN2-01440_00.png
+SYN2-01454_00,SYN2-01454,lines/train/SYN2-01454_00.png,bus_number,rendered,312,d114836daa488c1c5b11980d02003bf1637667a7d78508b7673094ddebc9f59c,,valid,G0034,lines/valid/SYN2-01454_00.png
+SYN2-01499_00,SYN2-01499,lines/train/SYN2-01499_00.png,bus_number,rendered,312,e8d7fcc9ba83c0c2ea4c743a7b7b47d7e9d993416dba57ee4a71f9c650e45d28,,valid,G0034,lines/valid/SYN2-01499_00.png
+SYN2-01520_00,SYN2-01520,lines/train/SYN2-01520_00.png,bus_number,rendered,312,88e9999359c6b2280b89e9d3b0451d00f504c65e17d578e5ef4d998d3e474f0d,,valid,G0034,lines/valid/SYN2-01520_00.png
+SYN2-01574_00,SYN2-01574,lines/train/SYN2-01574_00.png,bus_number,rendered,312,002ea35140aaa54e3df68f68acdb8d326b1264314950d7d78eb553ed95393207,,valid,G0034,lines/valid/SYN2-01574_00.png
+SYN2-01615_00,SYN2-01615,lines/train/SYN2-01615_00.png,bus_number,rendered,64,ded45fd22c143f349e28d8a4294ad427d8786ab626eac4d3a0fbf61c66eb3e10,,valid,G0012,lines/valid/SYN2-01615_00.png
+SYN2-01644_00,SYN2-01644,lines/train/SYN2-01644_00.png,bus_number,rendered,920,e6ebcb0747e41b81900224fb98012bc38b0c5aac839c7fbb8cd806e985d09afd,,valid,G0001,lines/valid/SYN2-01644_00.png
+SYN2-01649_00,SYN2-01649,lines/train/SYN2-01649_00.png,bus_number,rendered,64,66b36814dd201f97e2f24f057f91ce8b7d2b96324f24d0169ebca773c735dcca,,valid,G0012,lines/valid/SYN2-01649_00.png
+SYN2-01684_00,SYN2-01684,lines/train/SYN2-01684_00.png,bus_number,rendered,74,9b01413c278ae4fcc83e9b5b4b0b5237336c2bf27dacbbc9945cb4bd1c11033b,,valid,G0038,lines/valid/SYN2-01684_00.png
+SYN2-01687_00,SYN2-01687,lines/train/SYN2-01687_00.png,bus_number,rendered,64,0198992224d750b05cc3c7dd233773250790b5f2e28c8004aef8c2110c41f227,,valid,G0012,lines/valid/SYN2-01687_00.png
+SYN2-01710_00,SYN2-01710,lines/train/SYN2-01710_00.png,bus_number,rendered,64,21c5812aa599c01cb99edb5dd54116a87e28a23f77327620e11f1b721bc5108c,,valid,G0012,lines/valid/SYN2-01710_00.png
+SYN2-01793_00,SYN2-01793,lines/train/SYN2-01793_00.png,bus_number,rendered,312,75759eba0e2a8b06d23622dedb7a4b3df4ac55fa8bfdc1f617359f1d2bcd139f,,valid,G0034,lines/valid/SYN2-01793_00.png
+SYN2-01819_00,SYN2-01819,lines/train/SYN2-01819_00.png,bus_number,rendered,312,6033a0b09b7f7ed037beeb4e2ee29f6566a209590883de8641ae1d20dd3ff194,,valid,G0034,lines/valid/SYN2-01819_00.png
+SYN2-01820_00,SYN2-01820,lines/train/SYN2-01820_00.png,bus_number,rendered,312,7601f3087a5a5530c5a0c111a162b2c0792330c0715a709ce4dcee4113e0fc05,,valid,G0034,lines/valid/SYN2-01820_00.png
+SYN2-01829_00,SYN2-01829,lines/train/SYN2-01829_00.png,bus_number,rendered,74,d062ad507fc2a48f9c1a75faae784a1f245eeffa5a3f0a46cc6a52f35732e141,,valid,G0038,lines/valid/SYN2-01829_00.png
+SYN2-01834_00,SYN2-01834,lines/train/SYN2-01834_00.png,bus_number,rendered,64,72c6580f67e759f02577d5fccc1a83685768c43859444d2f15f7e88f68d54638,,valid,G0012,lines/valid/SYN2-01834_00.png
+SYN2-01859_00,SYN2-01859,lines/train/SYN2-01859_00.png,bus_number,rendered,74,67ed2652f0d7f38cc46da026b5e07571c381d83e2301af6b06998d3bf7ba4d0c,,valid,G0038,lines/valid/SYN2-01859_00.png
+SYN2-01879_00,SYN2-01879,lines/train/SYN2-01879_00.png,bus_number,rendered,502,3e57fedfb22af6a99c5a0a09d5a82175d704e7375a968cab4d5f6ed89cf63774,,valid,G0051,lines/valid/SYN2-01879_00.png
+SYN2-01925_00,SYN2-01925,lines/train/SYN2-01925_00.png,bus_number,rendered,920,572e1ed0f25e488c0c41082031094d34df38620dae0972cb775b91f5786a27ab,,valid,G0001,lines/valid/SYN2-01925_00.png
+SYN2-01927_00,SYN2-01927,lines/train/SYN2-01927_00.png,bus_number,rendered,920,31d504a8bd7f6aa63c75e139f7aa0820aff61ba02c1a62c1ca0dc23aa14cb0f3,,valid,G0001,lines/valid/SYN2-01927_00.png
+SYN2-01932_00,SYN2-01932,lines/train/SYN2-01932_00.png,bus_number,rendered,64,d80f3d9635c5f0fd7d5ef03cf170437151a90fc0d57646d5c75ad825ac824964,,valid,G0012,lines/valid/SYN2-01932_00.png
+SYN2-01944_00,SYN2-01944,lines/train/SYN2-01944_00.png,bus_number,rendered,312,ae3ae2cad4a5226bcd2627d7ffcdf5df0b12b330a39775c64bbb38dff8bbf9b5,,valid,G0034,lines/valid/SYN2-01944_00.png
+SYN2-01986_00,SYN2-01986,lines/train/SYN2-01986_00.png,bus_number,rendered,33,775bf49e5cd16aac293c0bd60ec42eea9234649138a72444eb0b933b812c9840,,valid,G0036,lines/valid/SYN2-01986_00.png
+SYN2-02007_00,SYN2-02007,lines/train/SYN2-02007_00.png,bus_number,rendered,502,c190298dd3e542ed4b179a629daa390cf1b5cd9d12c427d421fde1456017eb0e,,valid,G0051,lines/valid/SYN2-02007_00.png
+SYN2-02010_00,SYN2-02010,lines/train/SYN2-02010_00.png,bus_number,rendered,920,a0cb9aeceefc74c5575db596aa30da2620ce1ed4178f78a97d5bedc1686d253d,,valid,G0001,lines/valid/SYN2-02010_00.png
+SYN2-02014_00,SYN2-02014,lines/train/SYN2-02014_00.png,bus_number,rendered,920,085987665b756584b5bb6ef683e8c1c9bbe682361e8737b4a2927a8cdadee0ab,,valid,G0001,lines/valid/SYN2-02014_00.png
+SYN2-02030_00,SYN2-02030,lines/train/SYN2-02030_00.png,bus_number,rendered,33,9cdfd253ae3ef2bbe6723d1f4e6e99a069e70032c20e5f3042dbfce04fd33b6e,,valid,G0036,lines/valid/SYN2-02030_00.png
+SYN2-02045_00,SYN2-02045,lines/train/SYN2-02045_00.png,bus_number,rendered,920,fcc236681c16444894f11c868a8aa2055677dbd81e98484d7c6addadd6fb79b9,,valid,G0001,lines/valid/SYN2-02045_00.png
+SYN2-02087_00,SYN2-02087,lines/train/SYN2-02087_00.png,bus_number,rendered,502,1d69d161974024bc41708c188987e9949a7d24dc40c7b705fadf9e3f8df239b8,,valid,G0051,lines/valid/SYN2-02087_00.png
+SYN2-02091_00,SYN2-02091,lines/train/SYN2-02091_00.png,bus_number,rendered,64,41b588b25d99be5b06c7ec4f8c50724098d1c527552ba72ca837960fedb08a2f,,valid,G0012,lines/valid/SYN2-02091_00.png
+SYN2-02102_00,SYN2-02102,lines/train/SYN2-02102_00.png,bus_number,rendered,920,add751745ce99d1637dfc4d20150849135696f4c7fa0dd43d72681837697d843,,valid,G0001,lines/valid/SYN2-02102_00.png
+SYN2-02121_00,SYN2-02121,lines/train/SYN2-02121_00.png,bus_number,rendered,502,4896356cf9d6468d1abb30ddafc0090260cbd3c25e9d68f322e5a7d110845eb6,,valid,G0051,lines/valid/SYN2-02121_00.png
+SYN2-02147_00,SYN2-02147,lines/train/SYN2-02147_00.png,bus_number,rendered,64,0d299744fc5bb79ff75b296c29bc266c313097ddca42cf9660bec1f6e535fa98,,valid,G0012,lines/valid/SYN2-02147_00.png
+SYN2-02152_00,SYN2-02152,lines/train/SYN2-02152_00.png,bus_number,rendered,502,e1f355ab3d6d68ff25d9d63e4adef6c0cb4e85d63b6e36a49862c3471a57624c,,valid,G0051,lines/valid/SYN2-02152_00.png
+SYN2-02187_00,SYN2-02187,lines/train/SYN2-02187_00.png,bus_number,rendered,33,7d342f469631ec0e3aa181bce0a4c282d71cbfd5187026837545815577096945,,valid,G0036,lines/valid/SYN2-02187_00.png
+SYN2-02194_00,SYN2-02194,lines/train/SYN2-02194_00.png,bus_number,rendered,33,755f991fb3c64ece558f8b997311e5c8b95609497e80802cfee24c33ac49a512,,valid,G0036,lines/valid/SYN2-02194_00.png
+SYN2-02213_00,SYN2-02213,lines/train/SYN2-02213_00.png,bus_number,rendered,64,64b39222f7afdb8558e670328d8e5e33beba31230196ff446e1fa57950559097,,valid,G0012,lines/valid/SYN2-02213_00.png
+SYN2-02221_00,SYN2-02221,lines/train/SYN2-02221_00.png,bus_number,rendered,312,fd3abde675f3fc697ebf14e9f318f77505b18a5e76de1ecd842bee3984e26eec,,valid,G0034,lines/valid/SYN2-02221_00.png
+SYN2-02228_00,SYN2-02228,lines/train/SYN2-02228_00.png,bus_number,rendered,920,419f01f2b7f466b209d0b120d35ab21539ed8613ce34f09d0fdb75333cc9b802,,valid,G0001,lines/valid/SYN2-02228_00.png
+SYN2-02229_00,SYN2-02229,lines/train/SYN2-02229_00.png,bus_number,rendered,33,dd1354856369e49f4bc97f0dd7484c0b020b5dcf47288e513734e0ea604aa68f,,valid,G0036,lines/valid/SYN2-02229_00.png
+SYN2-02253_00,SYN2-02253,lines/train/SYN2-02253_00.png,bus_number,rendered,502,eba9a2b587967617b1609e9f4201b5d5ce99f7cf212df3e5b734023c8fb8008c,,valid,G0051,lines/valid/SYN2-02253_00.png
+SYN2-02274_00,SYN2-02274,lines/train/SYN2-02274_00.png,bus_number,rendered,502,c6cf6302d9d253c950dda9b6e5ef15b74a9c67ce0198e6aff628b9b30320b7b4,,valid,G0051,lines/valid/SYN2-02274_00.png
+SYN2-02299_00,SYN2-02299,lines/train/SYN2-02299_00.png,bus_number,rendered,920,1930d7b051eeac3b658b89c9561a54a1fe334efb229ef7cf9947345493f8b89a,,valid,G0001,lines/valid/SYN2-02299_00.png
+SYN2-02320_00,SYN2-02320,lines/train/SYN2-02320_00.png,bus_number,rendered,64,c195ffcd21b3c090e6a2c7e49a26629a6a8b9aa2e0e4ee94a65f6eedc7e1e884,,valid,G0012,lines/valid/SYN2-02320_00.png
+SYN2-02336_00,SYN2-02336,lines/train/SYN2-02336_00.png,bus_number,rendered,33,3f551c90c9959040142e9c94e43cce3ade1ecdba2af5aaedbaf0e93200d65b59,,valid,G0036,lines/valid/SYN2-02336_00.png
+SYN2-02347_00,SYN2-02347,lines/train/SYN2-02347_00.png,bus_number,rendered,312,6d6541326a17b1fa279b625d3d654a08a065498190dbc397de93c1bc65751219,,valid,G0034,lines/valid/SYN2-02347_00.png
+SYN2-02385_00,SYN2-02385,lines/train/SYN2-02385_00.png,bus_number,rendered,502,a25ce8be45fc1bc7e605791493bd1f7d0683de9d75ac5cc5d6c36b24998c5896,,valid,G0051,lines/valid/SYN2-02385_00.png
+SYN2-02398_00,SYN2-02398,lines/train/SYN2-02398_00.png,bus_number,rendered,312,8f003944d41ad7f275c595528455a6fb438df0aa8a4fdd58cf8ccea634edd2cb,,valid,G0034,lines/valid/SYN2-02398_00.png
+SYN2-02436_00,SYN2-02436,lines/train/SYN2-02436_00.png,bus_number,rendered,33,334759531383e9283143d86cfc24e6f1e09076e196941a956395bb6782b63012,,valid,G0036,lines/valid/SYN2-02436_00.png
+SYN2-02441_00,SYN2-02441,lines/train/SYN2-02441_00.png,bus_number,rendered,64,6b6929e4a67c38a1705634b3e956fe68302d3f462db416d36e33753b654903eb,,valid,G0012,lines/valid/SYN2-02441_00.png
+SYN2-02445_00,SYN2-02445,lines/train/SYN2-02445_00.png,bus_number,rendered,502,da045c1a0557a2ee16abb67530066205f389ed7cc855943163413a82e4d1ba17,,valid,G0051,lines/valid/SYN2-02445_00.png
+SYN2-02471_00,SYN2-02471,lines/train/SYN2-02471_00.png,bus_number,rendered,920,d3fd1faa98f56ada477b3a5282484db425eb5ae6b821ed5a7b20bef08fcd8d44,,valid,G0001,lines/valid/SYN2-02471_00.png
+SYN2-02481_00,SYN2-02481,lines/train/SYN2-02481_00.png,bus_number,rendered,920,3a2cfc4becadbe78e04e1f4af158ff909172ac969f22de1f446da9892b578c99,,valid,G0001,lines/valid/SYN2-02481_00.png
+SYN2-02500_00,SYN2-02500,lines/train/SYN2-02500_00.png,bus_number,rendered,312,8969b5eeabd34ce0decb0d636e5aa8ab7f3e8891005c70e8aa313e8f8b7fe5d5,,valid,G0034,lines/valid/SYN2-02500_00.png
+SYN2-02507_00,SYN2-02507,lines/train/SYN2-02507_00.png,bus_number,rendered,920,e1d9c1661fa171801644738de96f513b4adb4bd64bd95d0b7456a89ad4a4b03f,,valid,G0001,lines/valid/SYN2-02507_00.png
+SYN2-02537_00,SYN2-02537,lines/train/SYN2-02537_00.png,bus_number,rendered,920,58fac06043998cb1bb2472283ea8ca4114e64d60fd899baefaef77c9a3f8c645,,valid,G0001,lines/valid/SYN2-02537_00.png
+SYN2-02544_00,SYN2-02544,lines/train/SYN2-02544_00.png,bus_number,rendered,33,f31c4065b82338c3e87a070db8879dff29ed1dccb5708115598988b1707775b3,,valid,G0036,lines/valid/SYN2-02544_00.png
+SYN2-02601_00,SYN2-02601,lines/train/SYN2-02601_00.png,bus_number,rendered,502,d9569f905ed960f675a5041c265ec74393781f970bc82561ea42296430b790aa,,valid,G0051,lines/valid/SYN2-02601_00.png
+SYN2-02604_00,SYN2-02604,lines/train/SYN2-02604_00.png,bus_number,rendered,33,c7e1b4703dfc6da8b3906204657c2fc5bf2ba6e7a759fb8026a5970f2c857a11,,valid,G0036,lines/valid/SYN2-02604_00.png
+SYN2-02692_00,SYN2-02692,lines/train/SYN2-02692_00.png,bus_number,rendered,74,4c14b3175527cce09764491e2e60b3790cd802d620eba17e6745e7e7ed4f9e0d,,valid,G0038,lines/valid/SYN2-02692_00.png
+SYN2-02745_00,SYN2-02745,lines/train/SYN2-02745_00.png,bus_number,rendered,312,80d9df615a70fa33dfa557a6fc0ef173edbab49e2772afe41d8499f0fb3c0d51,,valid,G0034,lines/valid/SYN2-02745_00.png
+SYN2-02746_00,SYN2-02746,lines/train/SYN2-02746_00.png,bus_number,rendered,64,17b502091b10094a7dd2ccc881a4c92426e2f78b8e13c5f0926621307fde0f5c,,valid,G0012,lines/valid/SYN2-02746_00.png
+SYN2-02751_00,SYN2-02751,lines/train/SYN2-02751_00.png,bus_number,rendered,920,f117648c5ba1d0e0ea3413c5aa3bf1d3d8aaec9bc93c19fb86667f6ddacd2990,,valid,G0001,lines/valid/SYN2-02751_00.png
+SYN2-02793_00,SYN2-02793,lines/train/SYN2-02793_00.png,bus_number,rendered,74,6d7a0ed2376a2b75cb4324c21dfbdfa2c19c533cc3bd44f4d705f15a83a2172b,,valid,G0038,lines/valid/SYN2-02793_00.png
+SYN2-02798_00,SYN2-02798,lines/train/SYN2-02798_00.png,bus_number,rendered,33,3daf5f0bfe700d61ec84bf2fb05dba60b76429cba204e1ca09e497bad9510a03,,valid,G0036,lines/valid/SYN2-02798_00.png
+SYN2-02852_00,SYN2-02852,lines/train/SYN2-02852_00.png,bus_number,rendered,502,beedf28a7ab70b0fe81f59f0f0c8d34522c18e51d579c1eb34663dbc69ffca88,,valid,G0051,lines/valid/SYN2-02852_00.png
+SYN2-02856_00,SYN2-02856,lines/train/SYN2-02856_00.png,bus_number,rendered,33,e91af0e60b2e8990065d3c962e9739cb8fd4c7ebb92b9e5590d6fbde04cb07cd,,valid,G0036,lines/valid/SYN2-02856_00.png
+SYN2-02904_00,SYN2-02904,lines/train/SYN2-02904_00.png,bus_number,rendered,502,11955079adb2e5616f530e3f8cb26ce70685d6820b8c15befde12831899e9305,,valid,G0051,lines/valid/SYN2-02904_00.png
+SYN2-02947_00,SYN2-02947,lines/train/SYN2-02947_00.png,bus_number,rendered,312,841b7e5336dff50ca86b70a460242c0ffea5cb9b729e390e23edb44cfc671033,,valid,G0034,lines/valid/SYN2-02947_00.png
+SYN2-02980_00,SYN2-02980,lines/train/SYN2-02980_00.png,bus_number,rendered,64,62675bb73c98bfda99801945a63e1d10f9985f2d8203e1ca475014ceadfd61e4,,valid,G0012,lines/valid/SYN2-02980_00.png
+SYN2-02989_00,SYN2-02989,lines/train/SYN2-02989_00.png,bus_number,rendered,312,419d444d315c38a33b1f9601d9583bff8047cb73c8f888bcc3bd1c1cef8cf781,,valid,G0034,lines/valid/SYN2-02989_00.png
+SYN2-03003_00,SYN2-03003,lines/train/SYN2-03003_00.png,bus_number,rendered,64,e5b479a147b392922c0bcb6e5d349f7e2da983a4ee00245b2254b400f48ca287,,valid,G0012,lines/valid/SYN2-03003_00.png
+SYN2-03068_00,SYN2-03068,lines/train/SYN2-03068_00.png,bus_number,rendered,74,81aa168264b027cccef45ff0640381e07052ad071222385c8dcabcb0e9a100a8,,valid,G0038,lines/valid/SYN2-03068_00.png
+SYN2-03100_00,SYN2-03100,lines/train/SYN2-03100_00.png,bus_number,rendered,74,7926ed1c0f2778802e41bafa047b251b240652f267fb9501a29ce47b9fcccdeb,,valid,G0038,lines/valid/SYN2-03100_00.png
+SYN2-03128_00,SYN2-03128,lines/train/SYN2-03128_00.png,bus_number,rendered,312,c6fb309b445787ff0647f70aa0512b2e1e7e8e78e3c0983e3b3cf3fab428ae03,,valid,G0034,lines/valid/SYN2-03128_00.png
+SYN2-03139_00,SYN2-03139,lines/train/SYN2-03139_00.png,bus_number,rendered,64,b0cd86315fb05b1b94afc463e6a8385fe51703961df4a4fdbdbb91ae27aa22ba,,valid,G0012,lines/valid/SYN2-03139_00.png
+SYN2-03140_00,SYN2-03140,lines/train/SYN2-03140_00.png,bus_number,rendered,33,8500667a00573ba182b005245f941f1b2e370e164214d8cf9e583c9688339135,,valid,G0036,lines/valid/SYN2-03140_00.png
+SYN2-03203_00,SYN2-03203,lines/train/SYN2-03203_00.png,bus_number,rendered,502,cb55d60ff27f16e351a56b551c094c3f5a3c1bd1df75f176a221ec13413e7558,,valid,G0051,lines/valid/SYN2-03203_00.png
+SYN2-03275_00,SYN2-03275,lines/train/SYN2-03275_00.png,bus_number,rendered,74,5ec25afcd8d26d6f834d4049134019346faa6349c14ca07770123baa2d0cb329,,valid,G0038,lines/valid/SYN2-03275_00.png
+SYN2-03327_00,SYN2-03327,lines/train/SYN2-03327_00.png,bus_number,rendered,920,787eff13126d2c572295e6f2a8c7ceba7b3d2f78f6d3d03d32fc46710ecc6fd5,,valid,G0001,lines/valid/SYN2-03327_00.png
+SYN2-03332_00,SYN2-03332,lines/train/SYN2-03332_00.png,bus_number,rendered,64,d78dd15aaf51c113d6eb1159c2489ce0d2be56af214f81a47b7ecd478cf37fca,,valid,G0012,lines/valid/SYN2-03332_00.png
+SYN2-03344_00,SYN2-03344,lines/train/SYN2-03344_00.png,bus_number,rendered,312,cc0dbae44dcf93d9975d4378562c7fa888f728e04d5a37a1e99a10e72b3c2e38,,valid,G0034,lines/valid/SYN2-03344_00.png
+SYN2-03345_00,SYN2-03345,lines/train/SYN2-03345_00.png,bus_number,rendered,312,a752100f6511c544ab1baf2a2ae68e6ebbfc67f687db7686c91b46045cf66194,,valid,G0034,lines/valid/SYN2-03345_00.png
+SYN2-03362_00,SYN2-03362,lines/train/SYN2-03362_00.png,bus_number,rendered,312,35ffc35fec4e4be0da71e04e62b1332b4737c482f6691bcfe4a2c3b9d2883c7a,,valid,G0034,lines/valid/SYN2-03362_00.png
+SYN2-03391_00,SYN2-03391,lines/train/SYN2-03391_00.png,bus_number,rendered,64,be0e7d7848fd741c164c3ad0546674d6d976492cf086f56416d2e530471396c1,,valid,G0012,lines/valid/SYN2-03391_00.png
+SYN2-03405_00,SYN2-03405,lines/train/SYN2-03405_00.png,bus_number,rendered,312,39b9f491dae5c8944bfcdc1b00d9d26d5a27b4c63b9cd05f6980dfa9e74c7e05,,valid,G0034,lines/valid/SYN2-03405_00.png
+SYN2-03437_00,SYN2-03437,lines/train/SYN2-03437_00.png,bus_number,rendered,920,8cae5297124e5e7bbe6ab5364b7c6b8f4bbbecd9145c654f22c71c15b2a198dd,,valid,G0001,lines/valid/SYN2-03437_00.png
+SYN2-03441_00,SYN2-03441,lines/train/SYN2-03441_00.png,bus_number,rendered,920,467aa1964506b046a303d4393256e2f17ff82b178d16ce386c6262132de8dcab,,valid,G0001,lines/valid/SYN2-03441_00.png
+SYN2-03465_00,SYN2-03465,lines/train/SYN2-03465_00.png,bus_number,rendered,64,56f6fda4d41816a694c9ba2ce4139a8d20c1bb89786aa090cd00b5ec2d4b760b,,valid,G0012,lines/valid/SYN2-03465_00.png
+SYN2-03481_00,SYN2-03481,lines/train/SYN2-03481_00.png,bus_number,rendered,64,471708bdab82a16ebcb6ae040bf325e6b166cf9e49fdab11c5213f65e3fd87f5,,valid,G0012,lines/valid/SYN2-03481_00.png
+SYN2-03499_00,SYN2-03499,lines/train/SYN2-03499_00.png,bus_number,rendered,312,1edf4951e1c20fd00fc276dfdbaaf96c23806711be57803e71c8f35572b66ba2,,valid,G0034,lines/valid/SYN2-03499_00.png
+SYN2-03549_00,SYN2-03549,lines/train/SYN2-03549_00.png,bus_number,rendered,74,31575c92e09cad891bea7969f768ab4a0bed5105a8977d652dc1341da338bef9,,valid,G0038,lines/valid/SYN2-03549_00.png
+SYN2-03559_00,SYN2-03559,lines/train/SYN2-03559_00.png,bus_number,rendered,64,b3e45f47ba9d4ca9eb19b3fc860cceb7f955b7dcdca1471e245395bcd2919496,,valid,G0012,lines/valid/SYN2-03559_00.png
+SYN2-03561_00,SYN2-03561,lines/train/SYN2-03561_00.png,bus_number,rendered,33,70f7530a2cb535e14c41dcb461361870b3a8770a7f470732fd187407664e43e9,,valid,G0036,lines/valid/SYN2-03561_00.png
+SYN2-03588_00,SYN2-03588,lines/train/SYN2-03588_00.png,bus_number,rendered,74,c6e02fcc356003b9c7c57eaed1655b73c26ca54cfae3cf274b43d4ae07cd38c7,,valid,G0038,lines/valid/SYN2-03588_00.png
+SYN2-03603_00,SYN2-03603,lines/train/SYN2-03603_00.png,bus_number,rendered,64,fa3a1c105f1959fce6e7ed15bc04718b87b25d7c362eaec98a7b9f7c01a1f89b,,valid,G0012,lines/valid/SYN2-03603_00.png
+SYN2-03626_00,SYN2-03626,lines/train/SYN2-03626_00.png,bus_number,rendered,502,0a26131b9d04925283f87e74e4658f94e9653bb73b40cc128120394f049af2fa,,valid,G0051,lines/valid/SYN2-03626_00.png
+SYN2-03640_00,SYN2-03640,lines/train/SYN2-03640_00.png,bus_number,rendered,312,0bb5c64ab26b03d92b1d09b95cb5f693bf5d05e96bb2e08527e2e47145e3162f,,valid,G0034,lines/valid/SYN2-03640_00.png
+SYN2-03686_00,SYN2-03686,lines/train/SYN2-03686_00.png,bus_number,rendered,64,ae37089ca8c7b197c4e0c7a98b638b55693b6d66f74deb930874e2b76309e7c2,,valid,G0012,lines/valid/SYN2-03686_00.png
+SYN2-03693_00,SYN2-03693,lines/train/SYN2-03693_00.png,bus_number,rendered,920,dcf3b9dad41ec0cefb2c890b9089948357afca0f8fded21ec3c10ec7aa82c534,,valid,G0001,lines/valid/SYN2-03693_00.png
+SYN2-03702_00,SYN2-03702,lines/train/SYN2-03702_00.png,bus_number,rendered,312,903b92b5d2313477d7f2c3e542b78dd4141abf442a4f0a518b1b0c072091d80a,,valid,G0034,lines/valid/SYN2-03702_00.png
+SYN2-03707_00,SYN2-03707,lines/train/SYN2-03707_00.png,bus_number,rendered,312,5796eadf7424b31976a8fed9917ac3a531dddba37bf8f31223941c7ec0a15235,,valid,G0034,lines/valid/SYN2-03707_00.png
+SYN2-03725_00,SYN2-03725,lines/train/SYN2-03725_00.png,bus_number,rendered,74,01cb677ded6aba859509e98ef739c590aa85c4deeffa276d43cee3c8212607ee,,valid,G0038,lines/valid/SYN2-03725_00.png
+SYN2-03819_00,SYN2-03819,lines/train/SYN2-03819_00.png,bus_number,rendered,920,ff09cb21191e077e72a39dff99593af2bae00024046d8924cf80c415cab0ea95,,valid,G0001,lines/valid/SYN2-03819_00.png
+SYN2-03850_00,SYN2-03850,lines/train/SYN2-03850_00.png,bus_number,rendered,33,0f1f8081ce660dc79122b88ed5d8d570211e5b64678921562aeea0c2f946c622,,valid,G0036,lines/valid/SYN2-03850_00.png
+SYN2-03915_00,SYN2-03915,lines/train/SYN2-03915_00.png,bus_number,rendered,502,c7ca7bf5e4dbddaf0e50bfbb91a9537478423dcb200d0d304e7a8e185c1ad40e,,valid,G0051,lines/valid/SYN2-03915_00.png
+SYN2-03943_00,SYN2-03943,lines/train/SYN2-03943_00.png,bus_number,rendered,502,74d0b4f4dc76a5804d36e51e6593cb96579fd4b672408dd183cc2f68581bccef,,valid,G0051,lines/valid/SYN2-03943_00.png
+SYN2-03950_00,SYN2-03950,lines/train/SYN2-03950_00.png,bus_number,rendered,64,d48b239a1506df3aab1f4bbbda159e1dbf4ce7f1e6edd1ada9760072ca62523c,,valid,G0012,lines/valid/SYN2-03950_00.png
+SYN2-03981_00,SYN2-03981,lines/train/SYN2-03981_00.png,bus_number,rendered,502,d35c78b5cef169016c35670d40e3614a4cb7bede3add7cb1a12e172f90cc4d06,,valid,G0051,lines/valid/SYN2-03981_00.png
+SYN2-03994_00,SYN2-03994,lines/train/SYN2-03994_00.png,bus_number,rendered,64,3afe4bc852ab824f49ebf916b1c2c9eb79fbaf59a4ac5607979c3ad906667772,,valid,G0012,lines/valid/SYN2-03994_00.png
+SYN2-04012_00,SYN2-04012,lines/train/SYN2-04012_00.png,destination,rendered,> SIMS PLACE TER,d0709c144eff7a8e62849d05cc5ca8b29ff792a35cf095be77fc9a265be64364,,valid,G0012,lines/valid/SYN2-04012_00.png
+SYN2-04081_00,SYN2-04081,lines/train/SYN2-04081_00.png,destination,rendered,> TOWNER TER,a7495b73a36e83361a4025ccfd3137b5ae351a772adc91bd02712277d17da70c,,valid,G0076,lines/valid/SYN2-04081_00.png
+SYN2-04112_00,SYN2-04112,lines/train/SYN2-04112_00.png,destination,rendered,> SIMS PLACE TER,ecd7543cda5eba425865cbf5e36dca7ac40130d21edd0253dd41724d80a008fb,,valid,G0012,lines/valid/SYN2-04112_00.png
+SYN2-04126_00,SYN2-04126,lines/train/SYN2-04126_00.png,destination,rendered,> JLN KEMBANGAN INT,4a3f301130dc75667d7ee47ad6601af9af8a90d42fb8769a2fd7098e60d7aade,,valid,G0081,lines/valid/SYN2-04126_00.png
+SYN2-04159_00,SYN2-04159,lines/train/SYN2-04159_00.png,destination,rendered,> SIMS PLACE TER,308e373f52a755885483589285ba87279a67b279325d08ff9f7244e23f91726e,,valid,G0012,lines/valid/SYN2-04159_00.png
+SYN2-04162_00,SYN2-04162,lines/train/SYN2-04162_00.png,destination,rendered,> SIMS PLACE TER,87312299211e9d41c09550239f608a279991e6e2af3e824feae1dfbb712facb0,,valid,G0012,lines/valid/SYN2-04162_00.png
+SYN2-04234_00,SYN2-04234,lines/train/SYN2-04234_00.png,destination,rendered,JALAN KAYU INT,47f8cd97fae990dae9fa0e7b98946fcda720ba7a995f903cda5cfa5aa1b89f62,,valid,G0100,lines/valid/SYN2-04234_00.png
+SYN2-04246_00,SYN2-04246,lines/train/SYN2-04246_00.png,destination,rendered,> SIMS PLACE TER,2b8919e1b105356eba5a12f171eede77684ce153beae6064135f91d63d612548,,valid,G0012,lines/valid/SYN2-04246_00.png
+SYN2-04277_00,SYN2-04277,lines/train/SYN2-04277_00.png,destination,rendered,> SIMS PLACE TER,35994f7698a997558bee9016e4fc8fc0a7ea992a84fc7fcc7a261465fdfacd16,,valid,G0012,lines/valid/SYN2-04277_00.png
+SYN2-04282_00,SYN2-04282,lines/train/SYN2-04282_00.png,destination,rendered,Jln Kembangan Road,6668653ee0aed9811705340b254bb97f9481a0008806ce1706ea96fd99c79d81,,valid,G0107,lines/valid/SYN2-04282_00.png
+SYN2-04303_00,SYN2-04303,lines/train/SYN2-04303_00.png,destination,rendered,> SIMS PLACE TER,c55f1b03afe69f789e52de2d7064986db0e621bd5f9c58b2ef97d5f07957e316,,valid,G0012,lines/valid/SYN2-04303_00.png
+SYN2-04308_00,SYN2-04308,lines/train/SYN2-04308_00.png,destination,rendered,> SIMS PLACE TER,aadb5513b0455b9abf28eca8b0e2ccef50f61b8c7082e318eed345178638dbb5,,valid,G0012,lines/valid/SYN2-04308_00.png
+SYN2-04313_00,SYN2-04313,lines/train/SYN2-04313_00.png,destination,rendered,> SIMS PLACE TER,d33fbc364a1e85caf4fc8c76351fbed4e96bba33f2102d3d0771e1c7256705c6,,valid,G0012,lines/valid/SYN2-04313_00.png
+SYN2-04318_00,SYN2-04318,lines/train/SYN2-04318_00.png,destination,rendered,> SIMS PLACE TER,263d9b8d5f4c16caa6c02cd806d53a6fc138539eac863e16ffe9d96a38b0e79d,,valid,G0012,lines/valid/SYN2-04318_00.png
+SYN2-04354_00,SYN2-04354,lines/train/SYN2-04354_00.png,destination,rendered,> SIMS PLACE TER,ccf21237546b734141fc311f9572ddfbce3c786bcb4df5ef28dfee719dadc12a,,valid,G0012,lines/valid/SYN2-04354_00.png
+SYN2-04358_00,SYN2-04358,lines/train/SYN2-04358_00.png,destination,rendered,> SIMS PLACE TER,1ac6a8372493e7228e27b42ee70a29d2f83715f09a369c69943257f47e78fb14,,valid,G0012,lines/valid/SYN2-04358_00.png
+SYN2-04365_00,SYN2-04365,lines/train/SYN2-04365_00.png,destination,rendered,> SIMS PLACE TER,366509d6072363705bc92fce61898db4f5feb5fa7b412ae757d63da09da63dae,,valid,G0012,lines/valid/SYN2-04365_00.png
+SYN2-04380_00,SYN2-04380,lines/train/SYN2-04380_00.png,destination,rendered,CITY via,eba8aa943bbeb74d1d4dc796f48f23cdebfc548fb992dd0063e08df9a272c96e,,valid,G0123,lines/valid/SYN2-04380_00.png
+SYN2-04402_00,SYN2-04402,lines/train/SYN2-04402_00.png,destination,rendered,> SIMS PLACE TER,75b3ece6611813aa72366c69ff4adf4a779558e3f737f7acfc56cea39c0214ee,,valid,G0012,lines/valid/SYN2-04402_00.png
+SYN2-04422_00,SYN2-04422,lines/train/SYN2-04422_00.png,destination,rendered,> SIMS PLACE TER,5e9e2fb2407623d115999039fd428c034e833429628e4dfef645c839fc0be641,,valid,G0012,lines/valid/SYN2-04422_00.png
+SYN2-04450_00,SYN2-04450,lines/train/SYN2-04450_00.png,destination,rendered,> SIMS PLACE TER,fc46068b61a241f071a73ce2b6149130f755a6df8a353fa447c3bdd54f3d734b,,valid,G0012,lines/valid/SYN2-04450_00.png
+SYN2-04505_00,SYN2-04505,lines/train/SYN2-04505_00.png,destination,rendered,Towner MRT,08dc5d7cdc57bff4048c951f0232d297fe06d17577f0dd015f9abb99bb5dec00,,valid,G0131,lines/valid/SYN2-04505_00.png
+SYN2-04561_00,SYN2-04561,lines/train/SYN2-04561_00.png,destination,rendered,> SIMS PLACE TER,577edaaf8f6783c0a543c08477f18f92b0914170fd4ad8870ca1963756e2bcd2,,valid,G0012,lines/valid/SYN2-04561_00.png
+SYN2-04608_00,SYN2-04608,lines/train/SYN2-04608_00.png,destination,rendered,> SIMS PLACE TER,bd4e18114eace5339cab4ff49c94f32b9ad1d03f7c355b7bc686743822f8fe2b,,valid,G0012,lines/valid/SYN2-04608_00.png
+SYN2-04610_00,SYN2-04610,lines/train/SYN2-04610_00.png,destination,rendered,> SIMS PLACE TER,b1d72ecd45d8abe1a81ce7b7903a6d93ca7565d9376090fa28725f221c458754,,valid,G0012,lines/valid/SYN2-04610_00.png
+SYN2-04619_00,SYN2-04619,lines/train/SYN2-04619_00.png,destination,rendered,> SIMS PLACE TER,1541724ae77b5faf5e41601cea6451a178bd67977c76fdd685126b8567511e26,,valid,G0012,lines/valid/SYN2-04619_00.png
+SYN2-04626_00,SYN2-04626,lines/train/SYN2-04626_00.png,destination,rendered,> SIMS PLACE TER,5af3a0e33e4a346041fa99468e97329f236763f4a6321df0cc4c1d7c655d4e82,,valid,G0012,lines/valid/SYN2-04626_00.png
+SYN2-04693_00,SYN2-04693,lines/train/SYN2-04693_00.png,destination,rendered,WOODLANDS via,0a49f10823479c6bd0e827e44624d923c8b1ba8ae43340a67246edbb86155d96,,valid,G0145,lines/valid/SYN2-04693_00.png
+SYN2-04720_00,SYN2-04720,lines/train/SYN2-04720_00.png,destination,rendered,> SIMS PLACE TER,5aa32a188b840e1ab4b26c00d352958fb0d81bd714e5f4e7a9269a2fcea2cb55,,valid,G0012,lines/valid/SYN2-04720_00.png
+SYN2-04785_00,SYN2-04785,lines/train/SYN2-04785_00.png,destination,rendered,JALAN KAYU INT,b9b917e5398d3a8fa0cd3052c75286f4cb48b0556d404eeb794c7888ebc4eb2c,,valid,G0100,lines/valid/SYN2-04785_00.png
+SYN2-04803_00,SYN2-04803,lines/train/SYN2-04803_00.png,destination,rendered,> SIMS PLACE TER,a04b4b32e5f3fc24125d7608f2325978e48b30258337d2bcd5e958c50a56bbca,,valid,G0012,lines/valid/SYN2-04803_00.png
+SYN2-04810_00,SYN2-04810,lines/train/SYN2-04810_00.png,destination,rendered,> CLEMENTI (LOOP),9e28bf512209843bf13e4e3477008f70a911c474f06eb43157bd00f2409e3ad4,,valid,G0160,lines/valid/SYN2-04810_00.png
+SYN2-04841_00,SYN2-04841,lines/train/SYN2-04841_00.png,destination,rendered,> SIMS PLACE TER,891ac0ed486e1b370217db0d57c26b7c34d03eb6b73d69248a4ad8463b25c059,,valid,G0012,lines/valid/SYN2-04841_00.png
+SYN2-04851_00,SYN2-04851,lines/train/SYN2-04851_00.png,destination,rendered,> SIMS PLACE TER,b25be3e9bccbad5be9590191b8d8521e4909a71a00ca9997ad8c09c8088a5b30,,valid,G0012,lines/valid/SYN2-04851_00.png
+SYN2-04855_00,SYN2-04855,lines/train/SYN2-04855_00.png,destination,rendered,> SIMS PLACE TER,bc65ca0ee13c8d39dd42e38a6dafd6ffecaa4c7ca3123ee3c8a73b547d97a1de,,valid,G0012,lines/valid/SYN2-04855_00.png
+SYN2-04857_00,SYN2-04857,lines/train/SYN2-04857_00.png,destination,rendered,> TOMLINSON INT,8566e6313d8407f0cfef96d200c6a5a3c931ea5197caa7034aa69d0e8de4b61c,,valid,G0165,lines/valid/SYN2-04857_00.png
+SYN2-04917_00,SYN2-04917,lines/train/SYN2-04917_00.png,destination,rendered,> SIMS PLACE TER,e43b5035b4ed1b59ea8ba92959f7063ff05772f69cd1c08ddfc0e14fa229b92f,,valid,G0012,lines/valid/SYN2-04917_00.png
+SYN2-05009_00,SYN2-05009,lines/train/SYN2-05009_00.png,destination,rendered,> SIMS PLACE TER,9c9459f5ff1b3630ea7ba7024acb23c103c21a47f1627f846dd9ece040c9e5c9,,valid,G0012,lines/valid/SYN2-05009_00.png
+SYN2-05021_00,SYN2-05021,lines/train/SYN2-05021_00.png,destination,rendered,> SIMS PLACE TER,c78da603d4db41751f5617941c825a2e26f317b4334725eb3a24a104b8ea39d8,,valid,G0012,lines/valid/SYN2-05021_00.png
+SYN2-05056_00,SYN2-05056,lines/train/SYN2-05056_00.png,destination,rendered,> SIMS PLACE TER,f3bde639ed6ccbc31af2571585cc6f9fdd6bf36a4406fdc2bddf1d395208a816,,valid,G0012,lines/valid/SYN2-05056_00.png
+SYN2-05101_00,SYN2-05101,lines/train/SYN2-05101_00.png,destination,rendered,> SIMS PLACE TER,af13f88a29af865d977b6da3d4205eb27b0e37917f88eab9ecc141d4d22c2a95,,valid,G0012,lines/valid/SYN2-05101_00.png
+SYN2-05125_00,SYN2-05125,lines/train/SYN2-05125_00.png,destination,rendered,Towner MRT,0014a70f407cebe96c0db3c7032c1e462e753ebd990b326af0533d0b7de36e4f,,valid,G0131,lines/valid/SYN2-05125_00.png
+SYN2-05152_00,SYN2-05152,lines/train/SYN2-05152_00.png,destination,rendered,> SIMS PLACE TER,3930d62425256e54d45645cd96b853a03c8de1b9cc98511810a675783339b60c,,valid,G0012,lines/valid/SYN2-05152_00.png
+SYN2-05171_00,SYN2-05171,lines/train/SYN2-05171_00.png,destination,rendered,> SIMS PLACE TER,002724f1f85e7ee91a5af8fee86e8465654e9b4b000ef1dd76d73e000ed76ecc,,valid,G0012,lines/valid/SYN2-05171_00.png
+SYN2-05210_00,SYN2-05210,lines/train/SYN2-05210_00.png,destination,rendered,BAYFRONT INT / MRT / LRT,687dc95aea68ac7086efe12fb516e19697c47e5dc37a4a11aadb0e70671a82b3,,valid,G0195,lines/valid/SYN2-05210_00.png
+SYN2-05263_00,SYN2-05263,lines/train/SYN2-05263_00.png,destination,rendered,> PUNGGOL (LOOP),139b484ca9a5fe9e83a1acec902d56b5747c8272838d12c0e0a7cd7736165349,,valid,G0199,lines/valid/SYN2-05263_00.png
+SYN2-05292_00,SYN2-05292,lines/train/SYN2-05292_00.png,destination,rendered,> SIMS PLACE TER,addc4797886a410e2baf22a78c6fb4ccfdee1bd7368425df1125de5e1ebd809a,,valid,G0012,lines/valid/SYN2-05292_00.png
+SYN2-05354_00,SYN2-05354,lines/train/SYN2-05354_00.png,destination,rendered,> SIMS PLACE TER,a20a9bb1edf3e36093e95d682d529b5b96258d9517113dc30ba026ca07ea18e5,,valid,G0012,lines/valid/SYN2-05354_00.png
+SYN2-05376_00,SYN2-05376,lines/train/SYN2-05376_00.png,destination,rendered,> SIMS PLACE TER,171b8f29198a401740b286b58b3f360205e80e59f1e42df8d27e20921d40b25e,,valid,G0012,lines/valid/SYN2-05376_00.png
+SYN2-05384_00,SYN2-05384,lines/train/SYN2-05384_00.png,destination,rendered,Yishun MRT,143eb56d9992ca6cdb9721fae3e35336d8d9704a79e04ab71b588131823d85e6,,valid,G0205,lines/valid/SYN2-05384_00.png
+SYN2-05404_00,SYN2-05404,lines/train/SYN2-05404_00.png,destination,rendered,> SIMS PLACE TER,62110db02076d625874d2d4ca7e0640908360227403cce2074044c092aeee833,,valid,G0012,lines/valid/SYN2-05404_00.png
+SYN2-05545_00,SYN2-05545,lines/train/SYN2-05545_00.png,destination,rendered,Towner MRT,f574bb8b9dc7aadef1001d3ee4a4052f79b69c9bd1f7fd08c5973fa046796763,,valid,G0131,lines/valid/SYN2-05545_00.png
+SYN2-05557_00,SYN2-05557,lines/train/SYN2-05557_00.png,destination,rendered,Towner MRT,336e693106e88724a86c7b6d0731ddb36875023789a7e668bce46b5728305908,,valid,G0131,lines/valid/SYN2-05557_00.png
+SYN2-05589_00,SYN2-05589,lines/train/SYN2-05589_00.png,destination,rendered,> TOMLINSON INT,c4ca4b08ecb7178716f78855cd44bc6c85c7cda085dd0ef2f419e1b9ddf24308,,valid,G0165,lines/valid/SYN2-05589_00.png
+SYN2-05591_00,SYN2-05591,lines/train/SYN2-05591_00.png,destination,rendered,> SIMS PLACE TER,0052d2b8f98190f06d6a58f37e61002785d18f15eac7a9dc7e3607765af6bb12,,valid,G0012,lines/valid/SYN2-05591_00.png
+SYN2-05628_00,SYN2-05628,lines/train/SYN2-05628_00.png,destination,rendered,> SIMS PLACE TER,0a8c324035e088afcd7cfc023572853edccea9382cbfc936cffd367428f936d2,,valid,G0012,lines/valid/SYN2-05628_00.png
+SYN2-05641_00,SYN2-05641,lines/train/SYN2-05641_00.png,destination,rendered,> JLN KEMBANGAN INT,7ae043d4a7ad0d7087a93f6e690f5e929d7562c73159eecd07c5a1fd559a3b65,,valid,G0081,lines/valid/SYN2-05641_00.png
+SYN2-05648_00,SYN2-05648,lines/train/SYN2-05648_00.png,destination,rendered,> SIMS PLACE TER,d7c908c995a73ff0b12006dbf17b1a308bf91fa53210b8284ab833c26eaaad77,,valid,G0012,lines/valid/SYN2-05648_00.png
+SYN2-05664_00,SYN2-05664,lines/train/SYN2-05664_00.png,destination,rendered,> SIMS PLACE TER,85ad808b6bc1d37e1627a20a4b8fccaaa71ae9a5373433bbcb265977e81d7a05,,valid,G0012,lines/valid/SYN2-05664_00.png
+SYN2-05704_00,SYN2-05704,lines/train/SYN2-05704_00.png,destination,rendered,> SIMS PLACE TER,607f904bea974cf2020c28f5bb3c04ec85ec1978125e32c51dd789c333fd4550,,valid,G0012,lines/valid/SYN2-05704_00.png
+SYN2-05747_00,SYN2-05747,lines/train/SYN2-05747_00.png,destination,rendered,Yishun MRT,c376ec361771ee06addc7c88db661d6211a4e01119a2204c97b101ba0d5d531a,,valid,G0205,lines/valid/SYN2-05747_00.png
+SYN2-05755_00,SYN2-05755,lines/train/SYN2-05755_00.png,destination,rendered,Jln Kembangan Road,193b7b8ee768d0d7fda636e0b7e82b865f1634540aeef9a04ccfa6d9f1bd3d71,,valid,G0107,lines/valid/SYN2-05755_00.png
+SYN2-05765_00,SYN2-05765,lines/train/SYN2-05765_00.png,destination,rendered,> TOMLINSON INT,b44be67da44ab6c4899d562d59319f67c0179379882ca930639c28b6bac21395,,valid,G0165,lines/valid/SYN2-05765_00.png
+SYN2-05811_00,SYN2-05811,lines/train/SYN2-05811_00.png,destination,rendered,JALAN KAYU INT,64de27950e8f6e4bf31068e08dc7b345ee993edb6bf423474956f6fbd4c94e12,,valid,G0100,lines/valid/SYN2-05811_00.png
+SYN2-05813_00,SYN2-05813,lines/train/SYN2-05813_00.png,destination,rendered,CITY via,e0121683c4b8f4189bc175364abd4471057ca7c5d22030ce61fa01ec76457ee7,,valid,G0123,lines/valid/SYN2-05813_00.png
+SYN2-05848_00,SYN2-05848,lines/train/SYN2-05848_00.png,destination,rendered,> SIMS PLACE TER,e672907e373ccd99697689604d80d45cfbc84058f167f2b5a0ef3e2e925ca387,,valid,G0012,lines/valid/SYN2-05848_00.png
+SYN2-05852_00,SYN2-05852,lines/train/SYN2-05852_00.png,destination,rendered,BEDOK NORTH INT / MRT,cc9b3035a8117ca9a2980db3d75627496f91a711bdb6a1242f5ff3e20b0d7a84,,valid,G0235,lines/valid/SYN2-05852_00.png
+SYN2-05876_00,SYN2-05876,lines/train/SYN2-05876_00.png,destination,rendered,Jln Kembangan Road,d88f83db4dd6f6b56b1d7aa7dcc9bd1aea23c770926cc58f6bd2f12e94891c29,,valid,G0107,lines/valid/SYN2-05876_00.png
+SYN2-05892_00,SYN2-05892,lines/train/SYN2-05892_00.png,destination,rendered,> CLEMENTI (LOOP),69ff0e518a3b9286d817b2f3196b3830996d09699fa46648f70f766ab6de03af,,valid,G0160,lines/valid/SYN2-05892_00.png
+SYN2-05908_00,SYN2-05908,lines/train/SYN2-05908_00.png,destination,rendered,CLEMENTI DIRECT,4fcc5a914069423c92e261b9649a3d4d3fee2176de2256f4e6c2034a5173524d,,valid,G0240,lines/valid/SYN2-05908_00.png
+SYN2-05914_00,SYN2-05914,lines/train/SYN2-05914_00.png,destination,rendered,> SIMS PLACE TER,914b49b41ffe48a8aff5c5e3628e4f0549bbc1c30cb287ffe0cfad17aab499ed,,valid,G0012,lines/valid/SYN2-05914_00.png
+SYN2-05921_00,SYN2-05921,lines/train/SYN2-05921_00.png,destination,rendered,> SIMS PLACE TER,0f98c4048130f0042e4405f82189fe81e7ea91a81e07b5c056d194875ba5b5bf,,valid,G0012,lines/valid/SYN2-05921_00.png
+SYN2-05938_00,SYN2-05938,lines/train/SYN2-05938_00.png,destination,rendered,BEDOK NORTH INT / MRT,3ddfaba14fa1fe166a2b383e127b946cff9a94f3e28773c3f057fc66024513fa,,valid,G0235,lines/valid/SYN2-05938_00.png
+SYN2-05942_00,SYN2-05942,lines/train/SYN2-05942_00.png,destination,rendered,> SIMS PLACE TER,e8efbf7d21fa3c625116c90f6bd082162e26fd25f03872002baa08959e0e300c,,valid,G0012,lines/valid/SYN2-05942_00.png
+SYN2-05960_00,SYN2-05960,lines/train/SYN2-05960_00.png,destination,rendered,> TOWNER TER,008dd7f12619ad4bf2a8ffde6765845d3dfb6adfeb7aaeec63da1301de6d4b9f,,valid,G0076,lines/valid/SYN2-05960_00.png
+SYN2-06040_00,SYN2-06040,lines/train/SYN2-06040_00.png,destination,rendered,> SIMS PLACE TER,1ccfc62a961ead31868dce66e9a0893eb9c8a7c43df2141bb1654c6d1526212a,,valid,G0012,lines/valid/SYN2-06040_00.png
+SYN2-06044_00,SYN2-06044,lines/train/SYN2-06044_00.png,destination,rendered,Yishun MRT,a2868b0e83e7f4e78eec8024832e03d7e36861edea6803741d2680b1c21c7f23,,valid,G0205,lines/valid/SYN2-06044_00.png
+SYN2-06046_00,SYN2-06046,lines/train/SYN2-06046_00.png,destination,rendered,City Road,92904b73179b7dc0a94f481d27a47efed2858f0ec74ae9351cf748ef8be1a6dc,,valid,G0244,lines/valid/SYN2-06046_00.png
+SYN2-06055_00,SYN2-06055,lines/train/SYN2-06055_00.png,destination,rendered,> SIMS PLACE TER,eb3fb2abe45a69b61d09c7170e90e046f6f2918d6c7b03a0f5fadeebd2c5f9de,,valid,G0012,lines/valid/SYN2-06055_00.png
+SYN2-06074_00,SYN2-06074,lines/train/SYN2-06074_00.png,destination,rendered,> SIMS PLACE TER,2230442dfe60a3cc87182ad8a57cf1eb9e117abf8493388df0d9eeb3c3721a9b,,valid,G0012,lines/valid/SYN2-06074_00.png
+SYN2-06084_00,SYN2-06084,lines/train/SYN2-06084_00.png,destination,rendered,> SIMS PLACE TER,1760e6de5952ee1f381325e711ad56655e3ccea9fdba4f33bd8e11232ed8147e,,valid,G0012,lines/valid/SYN2-06084_00.png
+SYN2-06087_00,SYN2-06087,lines/train/SYN2-06087_00.png,destination,rendered,> TOWNER TER,4b47073388174ac0fd962ce75faea58b677f046a325d9823d54f64b0e558c910,,valid,G0076,lines/valid/SYN2-06087_00.png
+SYN2-06114_00,SYN2-06114,lines/train/SYN2-06114_00.png,destination,rendered,> JALAN KAYU (LOOP),c0239724117f6c9fd1021bd732b3195b84b3189e32aa742d989a5021408ce5cb,,valid,G0248,lines/valid/SYN2-06114_00.png
+SYN2-06138_00,SYN2-06138,lines/train/SYN2-06138_00.png,destination,rendered,> SIMS PLACE TER,7d5c101335f5d03a6680064cfec17d7a52e212544e40806ba0b2e21e427ce67f,,valid,G0012,lines/valid/SYN2-06138_00.png
+SYN2-06140_00,SYN2-06140,lines/train/SYN2-06140_00.png,destination,rendered,> SIMS PLACE TER,8d6e89b50f188bea0e417d6088a0e2dc80dc84ed3d3218f194b43172bb8a347e,,valid,G0012,lines/valid/SYN2-06140_00.png
+SYN2-06143_00,SYN2-06143,lines/train/SYN2-06143_00.png,destination,rendered,> TOWNER TER,aa2f3c432e697131412d16b59f4b62ef7235dbd00a3316dd5e4e533dda5d3805,,valid,G0076,lines/valid/SYN2-06143_00.png
+SYN2-06177_00,SYN2-06177,lines/train/SYN2-06177_00.png,destination,rendered,BAYFRONT INT / MRT / LRT,b8ddf7bd9a9c34d364293a9d7456b6d3a93796093ed73bff04fba767b765bfb9,,valid,G0195,lines/valid/SYN2-06177_00.png
+SYN2-06184_00,SYN2-06184,lines/train/SYN2-06184_00.png,destination,rendered,> SIMS PLACE TER,089c2b147086f05f636347edcec796bdfc27d9d90d0c0e3abfd61e870951930e,,valid,G0012,lines/valid/SYN2-06184_00.png
+SYN2-06195_00,SYN2-06195,lines/train/SYN2-06195_00.png,destination,rendered,> SIMS PLACE TER,a367675691d49997ce37b402599f7a36318714ffedf3f468812fa8337089a3b1,,valid,G0012,lines/valid/SYN2-06195_00.png
+SYN2-06221_00,SYN2-06221,lines/train/SYN2-06221_00.png,destination,rendered,> SIMS PLACE TER,5405fcbbb0a70e109c2b09d30eab2511f894a16e14518e626c29af27e2acf923,,valid,G0012,lines/valid/SYN2-06221_00.png
+SYN2-06229_00,SYN2-06229,lines/train/SYN2-06229_00.png,destination,rendered,> SIMS PLACE TER,9eacdd3656582399c5f62d6b90752a245b4e453a6cc16d0dbd750f4429ab5b6b,,valid,G0012,lines/valid/SYN2-06229_00.png
+SYN2-06234_00,SYN2-06234,lines/train/SYN2-06234_00.png,destination,rendered,> SIMS PLACE TER,24f4b9ee31c35b057c8fe91a93a0d717c867a502adf941c04f1c8ca7999c6db9,,valid,G0012,lines/valid/SYN2-06234_00.png
+SYN2-06243_00,SYN2-06243,lines/train/SYN2-06243_00.png,destination,rendered,> SIMS PLACE TER,19f1a085e1c844554992d1c9d1df60ed099d701f5ec168f89e5ffe1832edbe6e,,valid,G0012,lines/valid/SYN2-06243_00.png
+SYN2-06249_00,SYN2-06249,lines/train/SYN2-06249_00.png,destination,rendered,> SIMS PLACE TER,047037c3eee604a66fc52ff7b531461e0b4d5239eaeb1efbe27554a012538b45,,valid,G0012,lines/valid/SYN2-06249_00.png
+SYN2-06254_00,SYN2-06254,lines/train/SYN2-06254_00.png,destination,rendered,> JLN KEMBANGAN INT,ebcb050573b59f31d73d4e716fa76745bf31c7587980abd659c0fc4e5985b3ff,,valid,G0081,lines/valid/SYN2-06254_00.png
+SYN2-06269_00,SYN2-06269,lines/train/SYN2-06269_00.png,destination,rendered,> SIMS PLACE TER,a7d8759549de855bbdcee49455df322ddc33e373477b0fbc39a561a97ab9018c,,valid,G0012,lines/valid/SYN2-06269_00.png
+SYN2-06276_00,SYN2-06276,lines/train/SYN2-06276_00.png,destination,rendered,> SIMS CTRL INT,5d5fdf1578ca5568dfc218d3305d4197d7d8695c606492dc885bce62710996c2,,valid,G0254,lines/valid/SYN2-06276_00.png
+SYN2-06279_00,SYN2-06279,lines/train/SYN2-06279_00.png,destination,rendered,> SIMS CTRL INT,dac637f889cb4ac599c554084fdc27cd968fceed77e3c3df9c9a0664dc0cee91,,valid,G0254,lines/valid/SYN2-06279_00.png
+SYN2-06288_00,SYN2-06288,lines/train/SYN2-06288_00.png,destination,rendered,> SIMS PLACE TER,0d176dad44d98c84d559292e2c00a7ae12ab427395199e71420a5faf6777b2f3,,valid,G0012,lines/valid/SYN2-06288_00.png
+SYN2-06289_00,SYN2-06289,lines/train/SYN2-06289_00.png,destination,rendered,> TIONG BAHRU (LOOP),a09346ad393cfc5d1a3433d59d3e77c00ae35730fe271d4e86abe05527d6c262,,valid,G0255,lines/valid/SYN2-06289_00.png
+SYN2-06292_00,SYN2-06292,lines/train/SYN2-06292_00.png,destination,rendered,> SIMS PLACE TER,2c3a02dfc7ec4c5d8b76809e2413a5314bd2aecd68e1431eed139ff6ed0a190e,,valid,G0012,lines/valid/SYN2-06292_00.png
+SYN2-06327_00,SYN2-06327,lines/train/SYN2-06327_00.png,destination,rendered,Towner MRT,c530aa5d61551a45229a6985d0701c06676e987dcfb841bfb489645c9ea2e45f,,valid,G0131,lines/valid/SYN2-06327_00.png
+SYN2-06362_00,SYN2-06362,lines/train/SYN2-06362_00.png,destination,rendered,> SIMS PLACE TER,fd4c3ba6e3374368ac4a2a9ae1ff229275b08abab1639cdef3ca9545bbaf7825,,valid,G0012,lines/valid/SYN2-06362_00.png
+SYN2-06371_00,SYN2-06371,lines/train/SYN2-06371_00.png,destination,rendered,> SIMS PLACE TER,6ef5e879fe92ed5c799092c5e3a0262f4ceba2552c2c1aa00eb08a1ab9d7cbef,,valid,G0012,lines/valid/SYN2-06371_00.png
+SYN2-06376_00,SYN2-06376,lines/train/SYN2-06376_00.png,destination,rendered,> SIMS PLACE TER,ebaf6556746f67c3b1ebd952ed13897798902e4dee973b6eceb19e7e273aca2a,,valid,G0012,lines/valid/SYN2-06376_00.png
+SYN2-06385_00,SYN2-06385,lines/train/SYN2-06385_00.png,destination,rendered,City Road,32d4d7b408c13db2ef19083c39875b9d968b5709ff7c14b394a44bcdaa9d5c00,,valid,G0244,lines/valid/SYN2-06385_00.png
+SYN2-06387_00,SYN2-06387,lines/train/SYN2-06387_00.png,destination,rendered,> SIMS PLACE TER,4099bc7fe154be7fef792a2056d4e274911072c15a6e5aa150a5df10912530e3,,valid,G0012,lines/valid/SYN2-06387_00.png
+SYN2-06394_00,SYN2-06394,lines/train/SYN2-06394_00.png,destination,rendered,> SIMS PLACE TER,5fe3f951b48d047c299d12aa8ebdad1a5309fde1fbe098a3331954189430b004,,valid,G0012,lines/valid/SYN2-06394_00.png
+SYN2-06416_00,SYN2-06416,lines/train/SYN2-06416_00.png,destination,rendered,> SIMS PLACE TER,4f1c6fc6e235f1bd2e8ef76b8e6751b60eaefabeda51487e41609fc9745fde97,,valid,G0012,lines/valid/SYN2-06416_00.png
+SYN2-06427_00,SYN2-06427,lines/train/SYN2-06427_00.png,destination,rendered,> SIMS PLACE TER,c98d0a2fdc60d98a7a24890bff58f84c59ccd50d032d06738b2a07de14876346,,valid,G0012,lines/valid/SYN2-06427_00.png
+SYN2-06429_00,SYN2-06429,lines/train/SYN2-06429_00.png,destination,rendered,> SIMS PLACE TER,a5926d2700250007967269f5737687e988e21dfec5a459825270c87795dce3a5,,valid,G0012,lines/valid/SYN2-06429_00.png
+SYN2-06437_00,SYN2-06437,lines/train/SYN2-06437_00.png,destination,rendered,> SIMS PLACE TER,4154ff9ea8b8fe83cd603f61a861bef3d30c28c3a4641c77a7e0fa5293f45ef5,,valid,G0012,lines/valid/SYN2-06437_00.png
+SYN2-06471_00,SYN2-06471,lines/train/SYN2-06471_00.png,destination,rendered,> SIMS PLACE TER,de79487b2a1d2f3d2d320bb23b7c2c14eee1947466a757a481e51d332c029a44,,valid,G0012,lines/valid/SYN2-06471_00.png
+SYN2-06473_00,SYN2-06473,lines/train/SYN2-06473_00.png,destination,rendered,> SIMS PLACE TER,4f5e00fc43f268bc4f802f1962858d1b645c3cead84deef2d6a934b761fe47e9,,valid,G0012,lines/valid/SYN2-06473_00.png
+SYN2-06493_00,SYN2-06493,lines/train/SYN2-06493_00.png,destination,rendered,> SIMS PLACE TER,a813dbab5b1acb82def44be62598e340343fe4d67ee611245769cdca6781486a,,valid,G0012,lines/valid/SYN2-06493_00.png
+SYN2-06494_00,SYN2-06494,lines/train/SYN2-06494_00.png,destination,rendered,> SIMS PLACE TER,88911699feb6e3742da7462184bd08c803abf1d301807982efa15292a1393bc2,,valid,G0012,lines/valid/SYN2-06494_00.png
+SYN2-06495_00,SYN2-06495,lines/train/SYN2-06495_00.png,destination,rendered,> SIMS PLACE TER,584102a41d47f27b1e8b830483008324db9c34d31a71f275c9738b453d3d6bb6,,valid,G0012,lines/valid/SYN2-06495_00.png
+SYN2-06500_00,SYN2-06500,lines/train/SYN2-06500_00.png,destination,rendered,> SIMS CTRL INT,2cc5c7da5b10a9b36eb2d23c9a267e9fe93a3bd31b17d3c16c89bdd6bc2e0e2e,,valid,G0254,lines/valid/SYN2-06500_00.png
+SYN2-06506_00,SYN2-06506,lines/train/SYN2-06506_00.png,destination,rendered,> SIMS PLACE TER,5a631a4d1de114cd45b1f45159639fcb4f30f8373c3356621e48024947921e89,,valid,G0012,lines/valid/SYN2-06506_00.png
+SYN2-06556_00,SYN2-06556,lines/train/SYN2-06556_00.png,destination,rendered,> SIMS PLACE TER,06bef90cbde34d35e7ca7bc049786bf2ce192a205cb8040b2b6459adbd06634b,,valid,G0012,lines/valid/SYN2-06556_00.png
+SYN2-06595_00,SYN2-06595,lines/train/SYN2-06595_00.png,destination,rendered,> SIMS PLACE TER,fd2b880952cbe201ffb95e3d062eb6386fa395d3541f66cb64e564f4019e7be8,,valid,G0012,lines/valid/SYN2-06595_00.png
+SYN2-06601_00,SYN2-06601,lines/train/SYN2-06601_00.png,destination,rendered,> JLN KEMBANGAN INT,ade3bb42e6ec0de2344b246df7eeb7db2d15df8650e0199d232c6edaa5247bad,,valid,G0081,lines/valid/SYN2-06601_00.png
+SYN2-06626_00,SYN2-06626,lines/train/SYN2-06626_00.png,destination,rendered,> TOMLINSON INT,ee85f0e4c20912139413b425d9b3bbf2d471a9b7cc4b384765799a66ac27d101,,valid,G0165,lines/valid/SYN2-06626_00.png
+SYN2-06656_00,SYN2-06656,lines/train/SYN2-06656_00.png,destination,rendered,> JALAN KAYU (LOOP),0e728857d6a871307c5f216e91988a89c7e9247a7aeaf31da7ac7a739714eb3c,,valid,G0248,lines/valid/SYN2-06656_00.png
+SYN2-06658_00,SYN2-06658,lines/train/SYN2-06658_00.png,destination,rendered,> SIMS PLACE TER,29a8df9c1f038f6750eedef5ffdb187ee4d949bd8e92b8a940ca0b756a2fab27,,valid,G0012,lines/valid/SYN2-06658_00.png
+SYN2-06672_00,SYN2-06672,lines/train/SYN2-06672_00.png,destination,rendered,> SIMS PLACE TER,4b533c7b1c56b03085b21ee6e94a3d687ee12c12efeb7727567aa776f4eb252e,,valid,G0012,lines/valid/SYN2-06672_00.png
+SYN2-06726_00,SYN2-06726,lines/train/SYN2-06726_00.png,destination,rendered,> SIMS PLACE TER,4b9f7eb71bb54672d62d146482fa8e870d6ddc1a4196f6ca16ded1248b95cdf3,,valid,G0012,lines/valid/SYN2-06726_00.png
+SYN2-06746_00,SYN2-06746,lines/train/SYN2-06746_00.png,destination,rendered,> SIMS PLACE TER,b25a76eaac28807278fbabafb97597633932399b2b70d2178aaf596a0a36b5a1,,valid,G0012,lines/valid/SYN2-06746_00.png
+SYN2-06749_00,SYN2-06749,lines/train/SYN2-06749_00.png,destination,rendered,> SIMS PLACE TER,6c9e823d3613d7d862c5b9a856e42ec4752fbbe8cfcb1476540b0d88b8e8a998,,valid,G0012,lines/valid/SYN2-06749_00.png
+SYN2-06775_00,SYN2-06775,lines/train/SYN2-06775_00.png,destination,rendered,WOODLANDS via,ccb82693bda5a3c8a2ffe35130ce338448283914ff0e928b901781d8183d98ef,,valid,G0145,lines/valid/SYN2-06775_00.png
+SYN2-06814_00,SYN2-06814,lines/train/SYN2-06814_00.png,destination,rendered,> CLEMENTI (LOOP),d0b1a3ea2781ca97db6efe8e3dcd3e7d8d18f6b4af1e6909e2d0eee5f10e3408,,valid,G0160,lines/valid/SYN2-06814_00.png
+SYN2-06835_00,SYN2-06835,lines/train/SYN2-06835_00.png,destination,rendered,> SIMS PLACE TER,1ea891473a909ccf457064c4f1947fcd45b63ed60900f1272a2da685ed8ea737,,valid,G0012,lines/valid/SYN2-06835_00.png
+SYN2-06847_00,SYN2-06847,lines/train/SYN2-06847_00.png,destination,rendered,> SIMS PLACE TER,e115703e1a93b3ad1121ead3c9ab4837687ceb971a7ca2642097c8c75990a0c9,,valid,G0012,lines/valid/SYN2-06847_00.png
+SYN2-06856_00,SYN2-06856,lines/train/SYN2-06856_00.png,destination,rendered,> SIMS PLACE TER,1aa4aecb782e577dc9bec4801d334c5014a56e7c1ebf827129be1db5712bc7fc,,valid,G0012,lines/valid/SYN2-06856_00.png
+SYN2-06873_00,SYN2-06873,lines/train/SYN2-06873_00.png,destination,rendered,> SIMS PLACE TER,cb24a8b9f56e0ed93909f3559b507f13da43d774df41a654244e4c3f7d900af6,,valid,G0012,lines/valid/SYN2-06873_00.png
+SYN2-06908_00,SYN2-06908,lines/train/SYN2-06908_00.png,destination,rendered,> SIMS PLACE TER,8330f2c41a7ba3b458b2377164bcb134826d718cde8944d7d668a25475d85a5d,,valid,G0012,lines/valid/SYN2-06908_00.png
+SYN2-06925_00,SYN2-06925,lines/train/SYN2-06925_00.png,destination,rendered,> JALAN KAYU (LOOP),1e36dcf2568f91191481e2e0a98f4d3c7c0789eba12a1cdfd3b6b4a68f688494,,valid,G0248,lines/valid/SYN2-06925_00.png
+SYN2-06936_00,SYN2-06936,lines/train/SYN2-06936_00.png,destination,rendered,Yishun MRT,c9f46adc8b41db5abf3e0d08cc76f7130058d0cd479fcfff6a8b736f1a9fd9b0,,valid,G0205,lines/valid/SYN2-06936_00.png
+SYN2-06943_00,SYN2-06943,lines/train/SYN2-06943_00.png,destination,rendered,> SIMS PLACE TER,ef49065a6bda4cced2e565e4e6ff3a03095228199174872207d7114ea48a87be,,valid,G0012,lines/valid/SYN2-06943_00.png
+SYN2-06970_00,SYN2-06970,lines/train/SYN2-06970_00.png,destination,rendered,> SIMS PLACE TER,143170be5b77f5d68eb0adb05a6e304578b1c2f8bca6a4fed6b14044139ab64f,,valid,G0012,lines/valid/SYN2-06970_00.png
+SYN2-06993_00,SYN2-06993,lines/train/SYN2-06993_00.png,destination,rendered,> SIMS CTRL INT,9a6309887cda6b326a0d739a6a162952c222ef74cf6d85d80c500ec67a64f18c,,valid,G0254,lines/valid/SYN2-06993_00.png
+SYN2-07001_00,SYN2-07001,lines/train/SYN2-07001_00.png,destination,rendered,> SIMS PLACE TER,75d4b01fe1a75a3e682fd5fddec4afd2626e53836b86df454d0d30d76d3b21cc,,valid,G0012,lines/valid/SYN2-07001_00.png
+SYN2-07017_00,SYN2-07017,lines/train/SYN2-07017_00.png,destination,rendered,> SIMS PLACE TER,0c284d459e6cc6c6e9c6c8382639be864f556cb99b6b66c03968f9060c321183,,valid,G0012,lines/valid/SYN2-07017_00.png
+SYN2-07022_00,SYN2-07022,lines/train/SYN2-07022_00.png,destination,rendered,> SIMS PLACE TER,6bcf98ef8479dea99033ffc783dcf150f964c6b54bd4fd2fd09fa132ad7d8e33,,valid,G0012,lines/valid/SYN2-07022_00.png
+SYN2-07030_00,SYN2-07030,lines/train/SYN2-07030_00.png,destination,rendered,CITY via,708dc6aa904017a68211224e6c1400f126e384fd37d857a984216c7036effc17,,valid,G0123,lines/valid/SYN2-07030_00.png
+SYN2-07033_00,SYN2-07033,lines/train/SYN2-07033_00.png,destination,rendered,> TIONG BAHRU (LOOP),d6cb10a0269cde10ddda1b543295fd11f3d623b7b64064b087d43a16a8ab0677,,valid,G0255,lines/valid/SYN2-07033_00.png
+SYN2-07125_00,SYN2-07125,lines/train/SYN2-07125_00.png,destination,rendered,> CLEMENTI (LOOP),4eedaf785e15466df92f41034b22f0771eb81ccbf5383ed422b47079dde45873,,valid,G0160,lines/valid/SYN2-07125_00.png
+SYN2-07143_00,SYN2-07143,lines/train/SYN2-07143_00.png,destination,rendered,> SIMS PLACE TER,17c8ac0851cbad5acad8c70661f2a31b417833945f9be7ab8d852a67ec37d0f2,,valid,G0012,lines/valid/SYN2-07143_00.png
+SYN2-07147_00,SYN2-07147,lines/train/SYN2-07147_00.png,destination,rendered,> CLEMENTI (LOOP),6346c02004a9eae17cc91c43926b998abf2b7d81a098f6dd959c982e6781816e,,valid,G0160,lines/valid/SYN2-07147_00.png
+SYN2-07167_00,SYN2-07167,lines/train/SYN2-07167_00.png,destination,rendered,CLEMENTI DIRECT,c6cb88aabaa65f1a5c4f58e41d7c81912520206ed6d38deebf690ab6e223c524,,valid,G0240,lines/valid/SYN2-07167_00.png
+SYN2-07179_00,SYN2-07179,lines/train/SYN2-07179_00.png,destination,rendered,JALAN KAYU INT,52b14251c083c7d5ce970865ca479ba964419401736703efe97fde2d54f10abe,,valid,G0100,lines/valid/SYN2-07179_00.png
+SYN2-07207_00,SYN2-07207,lines/train/SYN2-07207_00.png,destination,rendered,City Road,8c9f12d59b1b63e32d608ef59903531d6d24e2ed716f62ce88772f655eaaccc9,,valid,G0244,lines/valid/SYN2-07207_00.png
+SYN2-07228_00,SYN2-07228,lines/train/SYN2-07228_00.png,destination,rendered,> SIMS PLACE TER,ae67e54a85987eab1555deb1bb1a98cf3f653e83d9195a21a3bc2ac30d049692,,valid,G0012,lines/valid/SYN2-07228_00.png
+SYN2-07232_00,SYN2-07232,lines/train/SYN2-07232_00.png,destination,rendered,> SIMS PLACE TER,d4a9b382cef169bd4e6e9afe401e93e6e5fd50c282c658d16737a9887fe7d561,,valid,G0012,lines/valid/SYN2-07232_00.png
+SYN2-07245_00,SYN2-07245,lines/train/SYN2-07245_00.png,destination,rendered,> SIMS PLACE TER,cd5d601e86272bcd20960e7e21507d2efab06baf62a15843385aefa0300b4e0c,,valid,G0012,lines/valid/SYN2-07245_00.png
+SYN2-07298_00,SYN2-07298,lines/train/SYN2-07298_00.png,destination,rendered,JLN KEMBANGAN INT / MRT / LRT,b1f48210a6fec7ca8dc44263a18e0ba206d6a4257b7e8f25ae12e3c25a6a8185,,valid,G0279,lines/valid/SYN2-07298_00.png
+SYN2-07332_00,SYN2-07332,lines/train/SYN2-07332_00.png,destination,rendered,> SIMS PLACE TER,be12d7610f417bcc58f89798ad43e84b3f084ce0fc14d5811259df75cb45d7ac,,valid,G0012,lines/valid/SYN2-07332_00.png
+SYN2-07378_00,SYN2-07378,lines/train/SYN2-07378_00.png,destination,rendered,> SIMS PLACE TER,b12829493d01cb796b5305914627db76ea9729d9224917ce8a970fb83ca65e03,,valid,G0012,lines/valid/SYN2-07378_00.png
+SYN2-07395_00,SYN2-07395,lines/train/SYN2-07395_00.png,destination,rendered,> SIMS PLACE TER,1b54d89b98e2ccf774eddf67697913b8abd2d886da1c77c6d9234d748ab02bfd,,valid,G0012,lines/valid/SYN2-07395_00.png
+SYN2-07514_00,SYN2-07514,lines/train/SYN2-07514_00.png,destination,rendered,BAYFRONT INT / MRT / LRT,37b5a681a28069ea559b7223733b097beb1289244a450e776a91747321c7fe37,,valid,G0195,lines/valid/SYN2-07514_00.png
+SYN2-07559_00,SYN2-07559,lines/train/SYN2-07559_00.png,destination,rendered,CLEMENTI DIRECT,4f43332c801e5a2ca2c4dee6be2321269803a27a044613ac7afcc1f2f82fe1cb,,valid,G0240,lines/valid/SYN2-07559_00.png
+SYN2-07561_00,SYN2-07561,lines/train/SYN2-07561_00.png,destination,rendered,> SIMS PLACE TER,da7c9589ce4c4fd0047c7950a7db86157f45b50601df53f73e98874f3a9f1e37,,valid,G0012,lines/valid/SYN2-07561_00.png
+SYN2-07580_00,SYN2-07580,lines/train/SYN2-07580_00.png,destination,rendered,JALAN KAYU INT,1fe837d6ea06ddd4de3c486b15bf5f881305c368e53508836d46a46b24c88786,,valid,G0100,lines/valid/SYN2-07580_00.png
+SYN2-07589_00,SYN2-07589,lines/train/SYN2-07589_00.png,destination,rendered,> SIMS PLACE TER,6bd355dbe44b977546053365a01f838859694a76566c18d2d6006b8810bf76c5,,valid,G0012,lines/valid/SYN2-07589_00.png
+SYN2-07604_00,SYN2-07604,lines/train/SYN2-07604_00.png,destination,rendered,> SIMS PLACE TER,9aec2d32d2b9d32b093fc5e446b3059816b0ec2bdc73064814b000cc1e64052e,,valid,G0012,lines/valid/SYN2-07604_00.png
+SYN2-07653_00,SYN2-07653,lines/train/SYN2-07653_00.png,destination,rendered,> SIMS PLACE TER,16a30f49487ba1e43c0503425495c36091db864e8d1332b9902185c3c52d59a4,,valid,G0012,lines/valid/SYN2-07653_00.png
+SYN2-07684_00,SYN2-07684,lines/train/SYN2-07684_00.png,destination,rendered,Towner MRT,7beab38df4467d0c6b823daf1617820f48fe50e06919c5057d787cd3506ba4e0,,valid,G0131,lines/valid/SYN2-07684_00.png
+SYN2-07723_00,SYN2-07723,lines/train/SYN2-07723_00.png,destination,rendered,> SIMS PLACE TER,eddd53bee2198391d3ced38f63e48b0ca751187dddc6cff0e959ab539b572c22,,valid,G0012,lines/valid/SYN2-07723_00.png
+SYN2-07727_00,SYN2-07727,lines/train/SYN2-07727_00.png,destination,rendered,> SIMS PLACE TER,ebf08251a05174f281222c86ac6ec411f310da620d574131733fa04fe01f21d1,,valid,G0012,lines/valid/SYN2-07727_00.png
+SYN2-07747_00,SYN2-07747,lines/train/SYN2-07747_00.png,destination,rendered,> SIMS PLACE TER,aa0e936926cb4d81a15847681c3d4f174217213f99d91bdf06e6cddb629f68c4,,valid,G0012,lines/valid/SYN2-07747_00.png
+SYN2-07770_00,SYN2-07770,lines/train/SYN2-07770_00.png,destination,rendered,> SIMS PLACE TER,06221d9f068e847fab929ad28d9be300ea4d770c52fd0064f37f0ca57244ee9e,,valid,G0012,lines/valid/SYN2-07770_00.png
+SYN2-07787_00,SYN2-07787,lines/train/SYN2-07787_00.png,destination,rendered,> SIMS PLACE TER,040e8e806b2e5a473b0d11af4bbf492e5f6d130d187fc1fae4eb707051fe6d20,,valid,G0012,lines/valid/SYN2-07787_00.png
+SYN2-07825_00,SYN2-07825,lines/train/SYN2-07825_00.png,destination,rendered,> SIMS PLACE TER,83f1fcda100ebe1ac427c45a0d702dfde87d78c961431ce74ea60288f3ae3b48,,valid,G0012,lines/valid/SYN2-07825_00.png
+SYN2-07835_00,SYN2-07835,lines/train/SYN2-07835_00.png,destination,rendered,> SIMS PLACE TER,60464133db3ab4b5395fb6d7cd4286bfc321f00324beaa61e3592f88a0be7299,,valid,G0012,lines/valid/SYN2-07835_00.png
+SYN2-07893_00,SYN2-07893,lines/train/SYN2-07893_00.png,destination,rendered,> SIMS PLACE TER,a7178ce5a2aab0f10482ea1edcdedd1af0d22312889e476d08658ec59b46f4b3,,valid,G0012,lines/valid/SYN2-07893_00.png
+SYN2-07902_00,SYN2-07902,lines/train/SYN2-07902_00.png,destination,rendered,City Road,cca8d53333ddd1ebfbbd05e0e75b4782f5d6c22144becf366eac597cc9995f17,,valid,G0244,lines/valid/SYN2-07902_00.png
+SYN2-07909_00,SYN2-07909,lines/train/SYN2-07909_00.png,destination,rendered,> SIMS PLACE TER,0d97415537013e51f029482a65eb184b966ed3f8adfccf81cda920012cbceeae,,valid,G0012,lines/valid/SYN2-07909_00.png
+SYN2-07920_00,SYN2-07920,lines/train/SYN2-07920_00.png,destination,rendered,> SIMS PLACE TER,3bc81d663ced718f08e7918349712049df66307f6c1e16a96dfbc42f62903df6,,valid,G0012,lines/valid/SYN2-07920_00.png
+SYN2-07967_00,SYN2-07967,lines/train/SYN2-07967_00.png,destination,rendered,> SIMS PLACE TER,ded66323755b7d6971b28a06d004359635bd183628c768d56ffe30932cd35ef5,,valid,G0012,lines/valid/SYN2-07967_00.png
+SYN2-07994_00,SYN2-07994,lines/train/SYN2-07994_00.png,destination,rendered,> SIMS PLACE TER,d6a303d34b3f859bc89e4f9dbe6d1d66295bd5b33fde0d5ab52587a6966e228c,,valid,G0012,lines/valid/SYN2-07994_00.png
+SYN2-08014_00,SYN2-08014,lines/train/SYN2-08014_00.png,route_text,rendered,TIONG BAHRU RD,46509c2cee8909e2e9d0047e4ecd3519dd407dc534acb61b6e3eda879d84b52c,,valid,G0012,lines/valid/SYN2-08014_00.png
+SYN2-08019_00,SYN2-08019,lines/train/SYN2-08019_00.png,route_text,rendered,TIONG BAHRU RD,a6403b8e290fc1b02fca2d287ca05a75620afcd893ff54fb7547572c423e357d,,valid,G0012,lines/valid/SYN2-08019_00.png
+SYN2-08041_00,SYN2-08041,lines/train/SYN2-08041_00.png,route_text,rendered,TIONG BAHRU RD,0630ac82baa0174e8797ba68dcef815d650cf595f429b1dde6889a6ff4d70532,,valid,G0012,lines/valid/SYN2-08041_00.png
+SYN2-08080_00,SYN2-08080,lines/train/SYN2-08080_00.png,route_text,rendered,TIONG BAHRU RD,21aad8dd3b4a831e1a130dbf9efb58c9f1701c165b0f76b253de740ca9128c40,,valid,G0012,lines/valid/SYN2-08080_00.png
+SYN2-08085_00,SYN2-08085,lines/train/SYN2-08085_00.png,route_text,rendered,TIONG BAHRU RD,572af938da26658c05bd126db7e7d0c70bbbeede2ad8269669d0ff4e49b4b38a,,valid,G0012,lines/valid/SYN2-08085_00.png
+SYN2-08118_00,SYN2-08118,lines/train/SYN2-08118_00.png,route_text,rendered,TIONG BAHRU RD,6f4cc6cdf83dd2ecadf1043910622eec4f32f3dfa7759df3ba529525799b95bd,,valid,G0012,lines/valid/SYN2-08118_00.png
+SYN2-08170_00,SYN2-08170,lines/train/SYN2-08170_00.png,route_text,rendered,TIONG BAHRU RD,8d5be3bfa29db06489f9df1a9f09c4296008abafb999da39aee8b4eef592d6d6,,valid,G0012,lines/valid/SYN2-08170_00.png
+SYN2-08182_00,SYN2-08182,lines/train/SYN2-08182_00.png,route_text,rendered,TIONG BAHRU RD,6c68d54dbfab4496a96800822c12771425d25d63522ab60edac32780b70d1246,,valid,G0012,lines/valid/SYN2-08182_00.png
+SYN2-08194_00,SYN2-08194,lines/train/SYN2-08194_00.png,route_text,rendered,TIONG BAHRU RD,86a9c36639c4c5883eb251475ec4e58fc2d8c5c533b8ccc4381c05b44d66de27,,valid,G0012,lines/valid/SYN2-08194_00.png
+SYN2-08202_00,SYN2-08202,lines/train/SYN2-08202_00.png,route_text,rendered,TIONG BAHRU RD,feeccf60b64ea5cc3237479ef484d62ee132213b11b1763fd7de0e16541f962c,,valid,G0012,lines/valid/SYN2-08202_00.png
+SYN2-08246_00,SYN2-08246,lines/train/SYN2-08246_00.png,route_text,rendered,TIONG BAHRU RD,9171b21c33bdd84bb532937a2e35c4f0542758a4736c92301ae3fa05c3300719,,valid,G0012,lines/valid/SYN2-08246_00.png
+SYN2-08281_00,SYN2-08281,lines/train/SYN2-08281_00.png,route_text,rendered,TIONG BAHRU RD,e5d5922b4d53c89585e4c9f0c87b817537e835c913dfd23603ec2f6b36073d5f,,valid,G0012,lines/valid/SYN2-08281_00.png
+SYN2-08322_00,SYN2-08322,lines/train/SYN2-08322_00.png,route_text,rendered,TIONG BAHRU RD,ac7d89cfa857eb6c95984d1aff6c0bd2c87355be048ce7bfd8e5f1cfbdfbaa13,,valid,G0012,lines/valid/SYN2-08322_00.png
+SYN2-08349_00,SYN2-08349,lines/train/SYN2-08349_00.png,route_text,rendered,TIONG BAHRU RD,ac10b86ecb0fecc527b13dd95a1a45ad5166dd85303fa9753bff4b92a14d537b,,valid,G0012,lines/valid/SYN2-08349_00.png
+SYN2-08402_00,SYN2-08402,lines/train/SYN2-08402_00.png,route_text,rendered,TIONG BAHRU RD,b8f699e11fc328a594ca5459cfbc419317a918d45f6cc59f7ee223ab350ff664,,valid,G0012,lines/valid/SYN2-08402_00.png
+SYN2-08443_00,SYN2-08443,lines/train/SYN2-08443_00.png,route_text,rendered,TIONG BAHRU RD,bf6c83f12c2bbaf44aba654498eaf76120264483f86ac2f6f05bd0f23eceafd7,,valid,G0012,lines/valid/SYN2-08443_00.png
+SYN2-08451_00,SYN2-08451,lines/train/SYN2-08451_00.png,route_text,rendered,TIONG BAHRU RD,d607517f3fc5605a4dbf5034dc62f019848d79da44860699fdef666ddf7b93b4,,valid,G0012,lines/valid/SYN2-08451_00.png
+SYN2-08502_00,SYN2-08502,lines/train/SYN2-08502_00.png,route_text,rendered,TIONG BAHRU RD,10b5e260e64ecafc143cfa9f844444e8171d0e36849f887f2654e8e2c5f9a0bd,,valid,G0012,lines/valid/SYN2-08502_00.png
+SYN2-08512_00,SYN2-08512,lines/train/SYN2-08512_00.png,route_text,rendered,TIONG BAHRU RD,d3546225ef3c8d860eef1e5ece160289e2d23e369990486d5a6e4dde23682f76,,valid,G0012,lines/valid/SYN2-08512_00.png
+SYN2-08516_00,SYN2-08516,lines/train/SYN2-08516_00.png,route_text,rendered,TIONG BAHRU RD,c8efc01eb4174beab323b990d93a56b41c8f6eaa0b56c1a6ebdfdb0f6b9697bb,,valid,G0012,lines/valid/SYN2-08516_00.png
+SYN2-08530_00,SYN2-08530,lines/train/SYN2-08530_00.png,route_text,rendered,TIONG BAHRU RD,05485245eafc993658c1d6ec586cfbb175f36af8dc040e52b17c6064d8d6db63,,valid,G0012,lines/valid/SYN2-08530_00.png
+SYN2-08550_00,SYN2-08550,lines/train/SYN2-08550_00.png,route_text,rendered,TIONG BAHRU RD,b3c0210b305910f0fce74840dcb1a12365d305fbee967e72a473bde563ccff98,,valid,G0012,lines/valid/SYN2-08550_00.png
+SYN2-08562_00,SYN2-08562,lines/train/SYN2-08562_00.png,route_text,rendered,TIONG BAHRU RD,874c64780bb1df69b129c3c079d5e456eafc6191357cbc644474ef4b7c9db282,,valid,G0012,lines/valid/SYN2-08562_00.png
+SYN2-08600_00,SYN2-08600,lines/train/SYN2-08600_00.png,route_text,rendered,TIONG BAHRU RD,54494b80aab8c5242e64f07ea6d681071afee78685aa924c6050287b5e732b77,,valid,G0012,lines/valid/SYN2-08600_00.png
+SYN2-08609_00,SYN2-08609,lines/train/SYN2-08609_00.png,route_text,rendered,TIONG BAHRU RD,789d45b59de2960abf68294a6d073e8cdc7f7f89078fc0816d340c57929c0563,,valid,G0012,lines/valid/SYN2-08609_00.png
+SYN2-08618_00,SYN2-08618,lines/train/SYN2-08618_00.png,route_text,rendered,TIONG BAHRU RD,1d23c08f4a0e53c117a3baf9dde472aeee76a575529da00462284b9f7beff949,,valid,G0012,lines/valid/SYN2-08618_00.png
+SYN2-08626_00,SYN2-08626,lines/train/SYN2-08626_00.png,route_text,rendered,TIONG BAHRU RD,52c107081fa1c2ed2ea9a1634c767f0bf3fd66caafa9c67eff56f7ded6eef9e6,,valid,G0012,lines/valid/SYN2-08626_00.png
+SYN2-08628_00,SYN2-08628,lines/train/SYN2-08628_00.png,route_text,rendered,TIONG BAHRU RD,2ed745690338712be1ec09bb909c33158a3abcae721ad03bc592284893f70439,,valid,G0012,lines/valid/SYN2-08628_00.png
+SYN2-08645_00,SYN2-08645,lines/train/SYN2-08645_00.png,route_text,rendered,TIONG BAHRU RD,60cf6ab27fe3d37a9c42429d2a305bc56219d71aaebfa47acdfcad11529b3206,,valid,G0012,lines/valid/SYN2-08645_00.png
+SYN2-08666_00,SYN2-08666,lines/train/SYN2-08666_00.png,route_text,rendered,TIONG BAHRU RD,7c811948b9cb21681c2c8fbbb5939e4f12c1e4e3279b1de4f6f0c5b1b1dcff22,,valid,G0012,lines/valid/SYN2-08666_00.png
+SYN2-08667_00,SYN2-08667,lines/train/SYN2-08667_00.png,route_text,rendered,TIONG BAHRU RD,428cd1253ba980788db646bf8ad09bcefb581514246efd2e841ecbc8c83a70f1,,valid,G0012,lines/valid/SYN2-08667_00.png
+SYN2-08668_00,SYN2-08668,lines/train/SYN2-08668_00.png,route_text,rendered,TIONG BAHRU RD,858d5589699e2b6242fa530da6d0de966ff872d9b538311c0889f555b2c1ed7e,,valid,G0012,lines/valid/SYN2-08668_00.png
+SYN2-08692_00,SYN2-08692,lines/train/SYN2-08692_00.png,route_text,rendered,TIONG BAHRU RD,847db43936ac30a2e67f32fd6ab2620a9e7b5796f1023639a3e484d7f3472dfa,,valid,G0012,lines/valid/SYN2-08692_00.png
+SYN2-08740_00,SYN2-08740,lines/train/SYN2-08740_00.png,route_text,rendered,TIONG BAHRU RD,a95ed6d9f7fa5dae4b3d491ae6ea14f0192b50769c3bcb8154d0a1b57e9ffd82,,valid,G0012,lines/valid/SYN2-08740_00.png
+SYN2-08767_00,SYN2-08767,lines/train/SYN2-08767_00.png,route_text,rendered,TIONG BAHRU RD,7ddcabbb090fc764da2975550bec6aeb8d107f0fe7158cb0402f2a8cbf15de47,,valid,G0012,lines/valid/SYN2-08767_00.png
+SYN2-08787_00,SYN2-08787,lines/train/SYN2-08787_00.png,route_text,rendered,TIONG BAHRU RD,c9bb390a1649997b45fd448fd5a17f0507b6cf65902cb4f681061f3289b2467f,,valid,G0012,lines/valid/SYN2-08787_00.png
+SYN2-08788_00,SYN2-08788,lines/train/SYN2-08788_00.png,route_text,rendered,TIONG BAHRU RD,001418d77677f0ef41264f5033e7ad180a11567a16ce184abb4e2b262da5d136,,valid,G0012,lines/valid/SYN2-08788_00.png
+SYN2-08790_00,SYN2-08790,lines/train/SYN2-08790_00.png,route_text,rendered,TIONG BAHRU RD,de54d207660a52000e1f67b36903d02be7b7cc7c8e008e21b4ba8487cea64d0f,,valid,G0012,lines/valid/SYN2-08790_00.png
+SYN2-08828_00,SYN2-08828,lines/train/SYN2-08828_00.png,route_text,rendered,TIONG BAHRU RD,9661c9f91f011376c21750beefb62a3fc206ffb896d8ac7e485e7a814efc5db8,,valid,G0012,lines/valid/SYN2-08828_00.png
+SYN2-08842_00,SYN2-08842,lines/train/SYN2-08842_00.png,route_text,rendered,TIONG BAHRU RD,533efa3bfa069ab891d18b6e354026cb99629d9c65241cd08ae586abd146d8a1,,valid,G0012,lines/valid/SYN2-08842_00.png
+SYN2-08877_00,SYN2-08877,lines/train/SYN2-08877_00.png,route_text,rendered,TIONG BAHRU RD,18e2517d43bab0a881ea40c19e6ee535883f67ff71dd722681c729e3b4b481d2,,valid,G0012,lines/valid/SYN2-08877_00.png
+SYN2-08933_00,SYN2-08933,lines/train/SYN2-08933_00.png,route_text,rendered,TIONG BAHRU RD,e0cf1cbbc312d60e633e69c82b61b0c44e6b6db79c2160c675ae4bf974f5df03,,valid,G0012,lines/valid/SYN2-08933_00.png
+SYN2-08943_00,SYN2-08943,lines/train/SYN2-08943_00.png,route_text,rendered,TIONG BAHRU RD,8572ba65949909f59823e8957654242ee48f2e583bb0bbabc05fdd695f72dc53,,valid,G0012,lines/valid/SYN2-08943_00.png
+SYN2-08947_00,SYN2-08947,lines/train/SYN2-08947_00.png,route_text,rendered,TIONG BAHRU RD,542011814669aeb0d6a9fc479ec6a53310b15bc6fbdf44a1d09b5746db8fd851,,valid,G0012,lines/valid/SYN2-08947_00.png
+SYN2-08964_00,SYN2-08964,lines/train/SYN2-08964_00.png,route_text,rendered,TIONG BAHRU RD,1efc5a19ef74a2ee804a5241f848d80d2bde992bc4a559965fb74293b4cc522f,,valid,G0012,lines/valid/SYN2-08964_00.png
+SYN2-08992_00,SYN2-08992,lines/train/SYN2-08992_00.png,route_text,rendered,TIONG BAHRU RD,88cdedd5bb84253c9ed33ab548f8a4f490c7aee25050384efe1e59b5ae6c658e,,valid,G0012,lines/valid/SYN2-08992_00.png
+SYN2-09032_00,SYN2-09032,lines/train/SYN2-09032_00.png,route_text,rendered,TIONG BAHRU RD,2ad9d497269d579ceddaaa51d503179faa846598ce5c08b0b3a402ecb890afd9,,valid,G0012,lines/valid/SYN2-09032_00.png
+SYN2-09037_00,SYN2-09037,lines/train/SYN2-09037_00.png,route_text,rendered,TIONG BAHRU RD,3d22fb9651f0182a991f44fed0aef095552660d50427870c092699aa2d3a8f5f,,valid,G0012,lines/valid/SYN2-09037_00.png
+SYN2-09077_00,SYN2-09077,lines/train/SYN2-09077_00.png,route_text,rendered,TIONG BAHRU RD,ee2f99baef258a074be70bf4bf96cbbba4ee8aba98f42fd360c6c7ecf726ac27,,valid,G0012,lines/valid/SYN2-09077_00.png
+SYN2-09078_00,SYN2-09078,lines/train/SYN2-09078_00.png,route_text,rendered,TIONG BAHRU RD,fc15d307474d77263f3524efcf8787d33910d1ee7de8e7419f9a37f1ac1e3e83,,valid,G0012,lines/valid/SYN2-09078_00.png
+SYN2-09108_00,SYN2-09108,lines/train/SYN2-09108_00.png,route_text,rendered,TIONG BAHRU RD,9513bbe56a7fe8955dda490fb34b7c761800808a0b70aec18cd60414c674fe4b,,valid,G0012,lines/valid/SYN2-09108_00.png
+SYN2-09166_00,SYN2-09166,lines/train/SYN2-09166_00.png,route_text,rendered,TIONG BAHRU RD,17e92373e5c7139bf20fce7b71704746bc52badd46e94c702252439db1975865,,valid,G0012,lines/valid/SYN2-09166_00.png
+SYN2-09169_00,SYN2-09169,lines/train/SYN2-09169_00.png,route_text,rendered,TIONG BAHRU RD,a130e4dcdbb113e719869578418567d2e085dcd94df8081e773309675168611d,,valid,G0012,lines/valid/SYN2-09169_00.png
+SYN2-09208_00,SYN2-09208,lines/train/SYN2-09208_00.png,route_text,rendered,TIONG BAHRU RD,a8678a66a524d9aa371239f128f2fb0362527c8b2eb7a09fc6462e359d161eb1,,valid,G0012,lines/valid/SYN2-09208_00.png
+SYN2-09235_00,SYN2-09235,lines/train/SYN2-09235_00.png,route_text,rendered,TIONG BAHRU RD,8554a27bb8cfbf8dc4f6b73e1f9189fc276a4b9b5f183c671fd3bc1c9bdef55d,,valid,G0012,lines/valid/SYN2-09235_00.png
+SYN2-09254_00,SYN2-09254,lines/train/SYN2-09254_00.png,route_text,rendered,TIONG BAHRU RD,b4a59cb8855cbf49912f08268f69f267176863d9e8f007e80ca3cee2aa5630a2,,valid,G0012,lines/valid/SYN2-09254_00.png
+SYN2-09258_00,SYN2-09258,lines/train/SYN2-09258_00.png,route_text,rendered,TIONG BAHRU RD,c35801bc2de2e62d6378443e9dcc69b9011a953eb77135f4df43537f19b1a51d,,valid,G0012,lines/valid/SYN2-09258_00.png
+SYN2-09293_00,SYN2-09293,lines/train/SYN2-09293_00.png,route_text,rendered,TIONG BAHRU RD,b4ccb8757187f43d095ef887c8b1e965e1591a4921671cd7049cd537a5871aa1,,valid,G0012,lines/valid/SYN2-09293_00.png
+SYN2-09314_00,SYN2-09314,lines/train/SYN2-09314_00.png,route_text,rendered,TIONG BAHRU RD,56d77d3366c5ff77d32abc9cc5b8f5a7c37c427eeb499c178494e1c702f1ffad,,valid,G0012,lines/valid/SYN2-09314_00.png
+SYN2-09329_00,SYN2-09329,lines/train/SYN2-09329_00.png,route_text,rendered,TIONG BAHRU RD,53097040c4c352b30c37010bffe85f757ce17fc778c76110ec7490bbd4759bca,,valid,G0012,lines/valid/SYN2-09329_00.png
+SYN2-09375_00,SYN2-09375,lines/train/SYN2-09375_00.png,route_text,rendered,TIONG BAHRU RD,f5d6a68e7acb1284e31012a6359ab09da462c54564756a7dc9bfd0856bc1c4f3,,valid,G0012,lines/valid/SYN2-09375_00.png
+SYN2-09407_00,SYN2-09407,lines/train/SYN2-09407_00.png,route_text,rendered,TIONG BAHRU RD,a2e7aa19f7275fc3f36e2e9656a0d2d8a02b0a15160799ae9040826b1bfcc02a,,valid,G0012,lines/valid/SYN2-09407_00.png
+SYN2-09421_00,SYN2-09421,lines/train/SYN2-09421_00.png,route_text,rendered,TIONG BAHRU RD,e87ff325d88777ef4ab36e66ac0aaad80fc05d2b9b069252f589470f82a53cc3,,valid,G0012,lines/valid/SYN2-09421_00.png
+SYN2-09443_00,SYN2-09443,lines/train/SYN2-09443_00.png,route_text,rendered,TIONG BAHRU RD,d7e489099cc37fd0e00f9c6c9892aa538dd3831642963a69f27f3847824cc7de,,valid,G0012,lines/valid/SYN2-09443_00.png
+SYN2-09450_00,SYN2-09450,lines/train/SYN2-09450_00.png,route_text,rendered,TIONG BAHRU RD,f7ab3c85d1d8004f58875e383ec9252b5266d92b610f18879604c7b1779c298c,,valid,G0012,lines/valid/SYN2-09450_00.png
+SYN2-09460_00,SYN2-09460,lines/train/SYN2-09460_00.png,route_text,rendered,TIONG BAHRU RD,3fcd54d6bfdd0eed934c109fb4730a394195dffbb612fea936d9d984fcaeadd1,,valid,G0012,lines/valid/SYN2-09460_00.png
+SYN2-09474_00,SYN2-09474,lines/train/SYN2-09474_00.png,route_text,rendered,TIONG BAHRU RD,87ccb5622b522ba65c7cf12a95d342179879acba4700bdf1b087915d644fce4d,,valid,G0012,lines/valid/SYN2-09474_00.png
+SYN2-09497_00,SYN2-09497,lines/train/SYN2-09497_00.png,route_text,rendered,TIONG BAHRU RD,81bc7afb8b88290fe6fdedb8dcc6ce8b7763f34ff563b753612e8e9d84d7d4a7,,valid,G0012,lines/valid/SYN2-09497_00.png
+SYN2-09515_00,SYN2-09515,lines/train/SYN2-09515_00.png,route_text,rendered,TIONG BAHRU RD,a90ceca8c57b054e3490ca7dff4c74b709401d03972addd2a0328e354a750589,,valid,G0012,lines/valid/SYN2-09515_00.png
+SYN2-09529_00,SYN2-09529,lines/train/SYN2-09529_00.png,route_text,rendered,TIONG BAHRU RD,1a552c7262cd32eefc3c995eb9d972005cb06cce903cea6bcfbbe83e72815fcc,,valid,G0012,lines/valid/SYN2-09529_00.png
+SYN2-09535_00,SYN2-09535,lines/train/SYN2-09535_00.png,route_text,rendered,TIONG BAHRU RD,25e8274af65b35253871402f49011cdb1ec6ac15d3643f0990df7696b72c10ba,,valid,G0012,lines/valid/SYN2-09535_00.png
+SYN2-09536_00,SYN2-09536,lines/train/SYN2-09536_00.png,route_text,rendered,TIONG BAHRU RD,672cc8bcd8f550267a95b1d20164048fad6f324a1b5b4803d6684254c8371d43,,valid,G0012,lines/valid/SYN2-09536_00.png
+SYN2-09571_00,SYN2-09571,lines/train/SYN2-09571_00.png,route_text,rendered,TIONG BAHRU RD,569046c3d486629f9aa44e29e51ba7e6bcac97f8bea63de9a29981188d71cd09,,valid,G0012,lines/valid/SYN2-09571_00.png
+SYN2-09645_00,SYN2-09645,lines/train/SYN2-09645_00.png,route_text,rendered,TIONG BAHRU RD,2149edf2321abdb4e43177516f29e006b8e707304ec7b0f8946587e79d00ecf6,,valid,G0012,lines/valid/SYN2-09645_00.png
+SYN2-09651_00,SYN2-09651,lines/train/SYN2-09651_00.png,route_text,rendered,TIONG BAHRU RD,0b48581d8983a1ffff21d2dc9a5841a779e90e5b0d3782636df1b412fc93d343,,valid,G0012,lines/valid/SYN2-09651_00.png
+SYN2-09673_00,SYN2-09673,lines/train/SYN2-09673_00.png,route_text,rendered,TIONG BAHRU RD,0996fb7564daa4e7db18ac127acc88df32f9182d3536bb94f3a47b09e2b17d39,,valid,G0012,lines/valid/SYN2-09673_00.png
+SYN2-09680_00,SYN2-09680,lines/train/SYN2-09680_00.png,route_text,rendered,TIONG BAHRU RD,c1bff0e4080c6553c21bd3b3005be85021e9d598d15f6227f8b827b8d07197c7,,valid,G0012,lines/valid/SYN2-09680_00.png
+SYN2-09692_00,SYN2-09692,lines/train/SYN2-09692_00.png,route_text,rendered,TIONG BAHRU RD,10b8d2ac3873b308dc477ea5aec66e8c8a206f478954ab938e57c9d72d808aca,,valid,G0012,lines/valid/SYN2-09692_00.png
+SYN2-09701_00,SYN2-09701,lines/train/SYN2-09701_00.png,route_text,rendered,TIONG BAHRU RD,93bca4a3c55c9a72107c4ef6b088703337b4842131a15e601db69be412d05217,,valid,G0012,lines/valid/SYN2-09701_00.png
+SYN2-09702_00,SYN2-09702,lines/train/SYN2-09702_00.png,route_text,rendered,TIONG BAHRU RD,4aa1d3d32c94133be112242da2bca7880712db3945f148514ecd73f73299b9ac,,valid,G0012,lines/valid/SYN2-09702_00.png
+SYN2-09719_00,SYN2-09719,lines/train/SYN2-09719_00.png,route_text,rendered,TIONG BAHRU RD,f352e7edab93d2c3127fa2170bd91eafdde3e03bbacadb7163454db8740c65a5,,valid,G0012,lines/valid/SYN2-09719_00.png
+SYN2-09744_00,SYN2-09744,lines/train/SYN2-09744_00.png,route_text,rendered,TIONG BAHRU RD,dcf82b66c05d451853d7a9fba7e5a811e70cb934f77bb319bb3fb1f8a55c0169,,valid,G0012,lines/valid/SYN2-09744_00.png
+SYN2-09761_00,SYN2-09761,lines/train/SYN2-09761_00.png,route_text,rendered,TIONG BAHRU RD,6a7346082f89d93188944b06ccf7a3806cb6aa2facb4efbdb40aa9fe5f5abcf9,,valid,G0012,lines/valid/SYN2-09761_00.png
+SYN2-09776_00,SYN2-09776,lines/train/SYN2-09776_00.png,route_text,rendered,TIONG BAHRU RD,5ee0b42854494e48274f882f4943f742748d6f657bb2f0228e0ca14d9c437085,,valid,G0012,lines/valid/SYN2-09776_00.png
+SYN2-09814_00,SYN2-09814,lines/train/SYN2-09814_00.png,route_text,rendered,TIONG BAHRU RD,fbb1d1ffa501f3669302fbb487ff7ee428ba828b173276aedfc6e3555bc02b88,,valid,G0012,lines/valid/SYN2-09814_00.png
+SYN2-09825_00,SYN2-09825,lines/train/SYN2-09825_00.png,route_text,rendered,TIONG BAHRU RD,ad09644cc0de01975a0e9fe19d280191440631634d8ad5b115bdddae42ba0cc2,,valid,G0012,lines/valid/SYN2-09825_00.png
+SYN2-09827_00,SYN2-09827,lines/train/SYN2-09827_00.png,route_text,rendered,TIONG BAHRU RD,caa13dbb4011086524364335c9840443d3a74aafdc09dfeab5dc461f34c67423,,valid,G0012,lines/valid/SYN2-09827_00.png
+SYN2-09838_00,SYN2-09838,lines/train/SYN2-09838_00.png,route_text,rendered,TIONG BAHRU RD,7ee82d68e2a92d08d6d4383750585f36c51b6bb4934240bd83d190caae960ace,,valid,G0012,lines/valid/SYN2-09838_00.png
+SYN2-09854_00,SYN2-09854,lines/train/SYN2-09854_00.png,route_text,rendered,TIONG BAHRU RD,0ee6238328c25c1ffa4d0407dcfc1da997c57678d78af73f2ef5b085dfdcb834,,valid,G0012,lines/valid/SYN2-09854_00.png
+SYN2-09876_00,SYN2-09876,lines/train/SYN2-09876_00.png,route_text,rendered,TIONG BAHRU RD,195bf75d352bba6372ac357b43044c69b3dec336dadaeb75d5d9618f7556d3b1,,valid,G0012,lines/valid/SYN2-09876_00.png
+SYN2-09894_00,SYN2-09894,lines/train/SYN2-09894_00.png,route_text,rendered,TIONG BAHRU RD,a005552168447b4d03f222693e46b6ae092bccef0ee8bbb82f650f0e132e7d29,,valid,G0012,lines/valid/SYN2-09894_00.png
+SYN2-09943_00,SYN2-09943,lines/train/SYN2-09943_00.png,route_text,rendered,TIONG BAHRU RD,7346a1f0f7e128fc77bdf9d6b91be61028609944d8e0b019693e3d1800026ed9,,valid,G0012,lines/valid/SYN2-09943_00.png
+SYN2-09948_00,SYN2-09948,lines/train/SYN2-09948_00.png,route_text,rendered,TIONG BAHRU RD,a2b9bd792f1db193f8943c27aef6d75a9205d6a607ae0f11c53fd66af1acdc0e,,valid,G0012,lines/valid/SYN2-09948_00.png
+SYN2-09963_00,SYN2-09963,lines/train/SYN2-09963_00.png,route_text,rendered,TIONG BAHRU RD,f142730f4878fc9345d2778b67c20c0b62cd41780a577db38630c90c57cb484a,,valid,G0012,lines/valid/SYN2-09963_00.png
+SYN2-09982_00,SYN2-09982,lines/train/SYN2-09982_00.png,route_text,rendered,TIONG BAHRU RD,fadb74dabe978a12f2bfec02f4df1d7fc905553bd4f251b134ba95604b940386,,valid,G0012,lines/valid/SYN2-09982_00.png
+SYN2-09995_00,SYN2-09995,lines/train/SYN2-09995_00.png,route_text,rendered,TIONG BAHRU RD,25603ee3b489bbb8dcea6c1fb304f368ef7e416f2eb1a01b643397621f3b8625,,valid,G0012,lines/valid/SYN2-09995_00.png

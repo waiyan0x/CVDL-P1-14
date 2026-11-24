@@ -1,0 +1,501 @@
+example_id,source_crop_id,source_path,field,origin,text,image_sha256,source_photo,split,group_id,image
+T0154_00,T0154,lines/train/T0154_00.png,bus_number,original_real,99,a9d68aa71219fe34ef5cd26f08f747367ec7d37b1b055a5df8e530f88f96cf8d,39312fb4-bus_1.jpg,test,G0023,lines/test/T0154_00.png
+T0157_00,T0157,lines/train/T0157_00.png,bus_number,original_real,99,347c8f7ce01622e52b9e7776cd7d90c152a307e5d4cad75b1fbf4e6d1b751a2a,39312fb4-bus_1.jpg,test,G0023,lines/test/T0157_00.png
+T0160_00,T0160,lines/train/T0160_00.png,bus_number,original_real,99,b41c3706cb65facdee3e307eb4aad172d60bc79096d2da46fa3d0af6a08c2b8f,39312fb4-bus_1.jpg,test,G0023,lines/test/T0160_00.png
+T0436_00,T0436,lines/train/T0436_00.png,bus_number,original_real,77,6897f57c6fb60d12bb06de78c5eb52886feab6b408a01aa16dcaa521709873d4,IMAGE_2026-10-23_21_59_20.jpg,test,G0035,lines/test/T0436_00.png
+T0439_00,T0439,lines/train/T0439_00.png,bus_number,original_real,77,d31b4ebea916861e90857c8606656a2c21c0154d687231aa81f8f0e714638c96,IMAGE_2026-10-23_21_59_20.jpg,test,G0035,lines/test/T0439_00.png
+T0442_00,T0442,lines/train/T0442_00.png,bus_number,original_real,77,93cb699399cfafc3ce2a5455310df7d0dbe2db77b552dfb88b5c143bb6cedb79,IMAGE_2026-10-23_21_59_20.jpg,test,G0035,lines/test/T0442_00.png
+T1207_00,T1207,lines/train/T1207_00.png,bus_number,original_real,974,ad22fb57e84c00a7a0a8794877bb74e646c31fe4d18d5fb8c70c2e9113977f22,Screenshot_2026-11-01-21-34-36-24_f9ee0578fe1cc94de7482bd41accb329.jpg,test,G0018,lines/test/T1207_00.png
+T1211_00,T1211,lines/train/T1211_00.png,bus_number,original_real,974,b9af11435d5ba84390cf391f83df10165f3af703db0325c522a1f54726dfa8d9,Screenshot_2026-11-01-21-34-36-24_f9ee0578fe1cc94de7482bd41accb329.jpg,test,G0018,lines/test/T1211_00.png
+T1215_00,T1215,lines/train/T1215_00.png,bus_number,original_real,974,b37a1abb78e2cefc1dc2bf6a0a8d5e7cc12a47acccc53079cd78f5c57b40248b,Screenshot_2026-11-01-21-34-36-24_f9ee0578fe1cc94de7482bd41accb329.jpg,test,G0018,lines/test/T1215_00.png
+T1254_00,T1254,lines/train/T1254_00.png,bus_number,original_real,166,1ee23c6de35dc335af4b8d1870daebe1d7b1686f47c731e0edb5787c91ce03d4,Screenshot_2026-11-01-21-37-36-07_f9ee0578fe1cc94de7482bd41accb329.jpg,test,G0025,lines/test/T1254_00.png
+T1258_00,T1258,lines/train/T1258_00.png,bus_number,original_real,166,a571566e04a296f6983649a6436d3cce9b509c82c172cfce2f47c997401f3610,Screenshot_2026-11-01-21-37-36-07_f9ee0578fe1cc94de7482bd41accb329.jpg,test,G0025,lines/test/T1258_00.png
+T1262_00,T1262,lines/train/T1262_00.png,bus_number,original_real,166,6a9bfbed8dbb99e0f66f7fe53009115990cafb07e6c8d3c1957ca88540bc121c,Screenshot_2026-11-01-21-37-36-07_f9ee0578fe1cc94de7482bd41accb329.jpg,test,G0025,lines/test/T1262_00.png
+T1435_00,T1435,lines/train/T1435_00.png,bus_number,original_real,32,96a64e498f1560252663ddc55f68bd6611feb3355e944ff5744f56213008b694,a0a83637__6b4e564e-321.jpg,test,G0017,lines/test/T1435_00.png
+T1438_00,T1438,lines/train/T1438_00.png,bus_number,original_real,32,57752a1b639112ae471d1c6029229c21e5c1550c65cd64e963d77ee818ff86c1,a0a83637__6b4e564e-321.jpg,test,G0017,lines/test/T1438_00.png
+T1441_00,T1441,lines/train/T1441_00.png,bus_number,original_real,32,aa95baf9ad9d557656ff55398f4262444b7a40374ab5fe55805a845b3e6af267,a0a83637__6b4e564e-321.jpg,test,G0017,lines/test/T1441_00.png
+T1537_00,T1537,lines/train/T1537_00.png,route_text,original_real,HOUGANG CENTRAL,19e5c770da7d7a1b93c82d19a95967991a132de39a61f40d5202d36e8466e440,b3800991-0f1d179a-27.jpg,test,G0047,lines/test/T1537_00.png
+T1538_00,T1538,lines/train/T1538_00.png,destination,original_real,> CHANGI AIRPORT (LOOP),291ba169f67c2e707b17cca73536e2dbaa9cc94f4c097bf60b1a7886e046e261,b3800991-0f1d179a-27.jpg,test,G0047,lines/test/T1538_00.png
+T1539_00,T1539,lines/train/T1539_00.png,bus_number,original_real,27,8e32d55cc1ba2d9e86f5e898632ff66e2ec19bf85569adccb4a63160f018d3b0,b3800991-0f1d179a-27.jpg,test,G0047,lines/test/T1539_00.png
+T1540_00,T1540,lines/train/T1540_00.png,route_text,original_real,HOUGANG CENTRAL,9c075183da28c6d8fac77ff28a53734f625a8584f98e2ca8d7c44b54eebb2b85,b3800991-0f1d179a-27.jpg,test,G0047,lines/test/T1540_00.png
+T1541_00,T1541,lines/train/T1541_00.png,destination,original_real,> CHANGI AIRPORT (LOOP),1b7c42ec501b7f9cf6d982758266b43ab657dbf7ad8c1e51a57be252098839d0,b3800991-0f1d179a-27.jpg,test,G0047,lines/test/T1541_00.png
+T1542_00,T1542,lines/train/T1542_00.png,bus_number,original_real,27,be12d185e5bf491ab5213085d058341a5b6f2702319e90c0194823491d7a309a,b3800991-0f1d179a-27.jpg,test,G0047,lines/test/T1542_00.png
+T1543_00,T1543,lines/train/T1543_00.png,route_text,original_real,HOUGANG CENTRAL,43e44851e669dc2dab73ce63bed75aebe71a93ac0cf77c84ef6517dedff1c69d,b3800991-0f1d179a-27.jpg,test,G0047,lines/test/T1543_00.png
+T1544_00,T1544,lines/train/T1544_00.png,destination,original_real,> CHANGI AIRPORT (LOOP),a3f1dd3018a775deb7ad630003841082ed656f917b024e1bde0f42a5ea5df9bc,b3800991-0f1d179a-27.jpg,test,G0047,lines/test/T1544_00.png
+T1545_00,T1545,lines/train/T1545_00.png,bus_number,original_real,27,fe95086025ac383cc9369372e25bcdcc2eb9fe57278cb964c88a7bac578f2308,b3800991-0f1d179a-27.jpg,test,G0047,lines/test/T1545_00.png
+SYN2-00050_00,SYN2-00050,lines/train/SYN2-00050_00.png,bus_number,rendered,32,d98798a6ed756f62166c9daff0040b055664715cabdbe8aa2429b4e20efc5d9f,,test,G0017,lines/test/SYN2-00050_00.png
+SYN2-00051_00,SYN2-00051,lines/train/SYN2-00051_00.png,bus_number,rendered,974,c0a9f60780923822a36badb78573f780712136dcf761948b15cb405a02ad7e0a,,test,G0018,lines/test/SYN2-00051_00.png
+SYN2-00067_00,SYN2-00067,lines/train/SYN2-00067_00.png,bus_number,rendered,99,6b4de1ced80db9b06e179861cf8ec8cebb7010b94a79d41dc3a2f6e86f7478ce,,test,G0023,lines/test/SYN2-00067_00.png
+SYN2-00074_00,SYN2-00074,lines/train/SYN2-00074_00.png,bus_number,rendered,166,88a78cf177f8dac8762658fc19cc6b2fe95ec0c7508145a3effc3f031229cbb8,,test,G0025,lines/test/SYN2-00074_00.png
+SYN2-00123_00,SYN2-00123,lines/train/SYN2-00123_00.png,bus_number,rendered,77,a41c94335259f3e7aa05a68739a90630a3266f2768555bb05d05816b0faede5a,,test,G0035,lines/test/SYN2-00123_00.png
+SYN2-00170_00,SYN2-00170,lines/train/SYN2-00170_00.png,bus_number,rendered,974,796932972740509bf67192aa3cf7831b378f6f757ec00495c6a2a61dc58537eb,,test,G0018,lines/test/SYN2-00170_00.png
+SYN2-00202_00,SYN2-00202,lines/train/SYN2-00202_00.png,bus_number,rendered,166,71ca01b37d305da8d5c067dd8cb3b087ea84b76949682bf7b8aaac8094cb152f,,test,G0025,lines/test/SYN2-00202_00.png
+SYN2-00205_00,SYN2-00205,lines/train/SYN2-00205_00.png,bus_number,rendered,27,9fa954028ed2210649ade1f65d850f5dff6c2625d54a1ccdaf8376e41922458b,,test,G0047,lines/test/SYN2-00205_00.png
+SYN2-00210_00,SYN2-00210,lines/train/SYN2-00210_00.png,bus_number,rendered,99,b2990ed8427a126af9e53447631e9cf4aa954dd612f3ee9eb77338831ea06d74,,test,G0023,lines/test/SYN2-00210_00.png
+SYN2-00214_00,SYN2-00214,lines/train/SYN2-00214_00.png,bus_number,rendered,77,9c5beec3eab863be8826e8022b02d62f9c98fb3b47d7d6c727f4c39ea3fadc64,,test,G0035,lines/test/SYN2-00214_00.png
+SYN2-00228_00,SYN2-00228,lines/train/SYN2-00228_00.png,bus_number,rendered,32,a65554d81f566b5babfa579b1dfc599c4f90e4d1d8eab3957a4635d282c0c304,,test,G0017,lines/test/SYN2-00228_00.png
+SYN2-00248_00,SYN2-00248,lines/train/SYN2-00248_00.png,bus_number,rendered,974,5fb80ee633cc641915dd6004c1f290794064776df13e3a2308ee6a7c8b5f8868,,test,G0018,lines/test/SYN2-00248_00.png
+SYN2-00252_00,SYN2-00252,lines/train/SYN2-00252_00.png,bus_number,rendered,32,0ceb9fe3d8716b984adb8301eecf019e2a30a09345509f6e94ad1962eeb42222,,test,G0017,lines/test/SYN2-00252_00.png
+SYN2-00277_00,SYN2-00277,lines/train/SYN2-00277_00.png,bus_number,rendered,32,03c369ecbe8b97b39b6df26fed6e14ba0f994bc0e8f562bc53de53ce538b8f75,,test,G0017,lines/test/SYN2-00277_00.png
+SYN2-00305_00,SYN2-00305,lines/train/SYN2-00305_00.png,bus_number,rendered,99,c548fb28cff2c99351f28c6b6af8652b32dda19c68718ebf13e09afb70dce38a,,test,G0023,lines/test/SYN2-00305_00.png
+SYN2-00310_00,SYN2-00310,lines/train/SYN2-00310_00.png,bus_number,rendered,77,498e48b618b7eb086437cdf40c620e30add29642d85befee2158bb7832ad7202,,test,G0035,lines/test/SYN2-00310_00.png
+SYN2-00314_00,SYN2-00314,lines/train/SYN2-00314_00.png,bus_number,rendered,99,983e1d40a58be405c5e606b94c131f862aa30281ce9dd9a9d1a77ff9cb2b8277,,test,G0023,lines/test/SYN2-00314_00.png
+SYN2-00318_00,SYN2-00318,lines/train/SYN2-00318_00.png,bus_number,rendered,77,d8c778823a96d5ee9ed8e54a96a23dc1825d66b6727ff03867af8af0896fed26,,test,G0035,lines/test/SYN2-00318_00.png
+SYN2-00372_00,SYN2-00372,lines/train/SYN2-00372_00.png,bus_number,rendered,77,f7b80465038d4714090b7cf9eb4b660bb3912a7ea18b0c6997ae7bacf49c6d23,,test,G0035,lines/test/SYN2-00372_00.png
+SYN2-00386_00,SYN2-00386,lines/train/SYN2-00386_00.png,bus_number,rendered,974,6e388d77a450db1120a6fee9b68931288ed529e2751f306dc1ba6bb8d5d670a4,,test,G0018,lines/test/SYN2-00386_00.png
+SYN2-00390_00,SYN2-00390,lines/train/SYN2-00390_00.png,bus_number,rendered,27,56c2f6ec36df9f47fa823dd00cd97d86d396cdbd833b13dc61e6a5b03fed3125,,test,G0047,lines/test/SYN2-00390_00.png
+SYN2-00403_00,SYN2-00403,lines/train/SYN2-00403_00.png,bus_number,rendered,77,33f959e28bfbdff6039d3f7989a4ec02a8f6cdf415ad557bc7ca8ed4a35c121a,,test,G0035,lines/test/SYN2-00403_00.png
+SYN2-00437_00,SYN2-00437,lines/train/SYN2-00437_00.png,bus_number,rendered,27,31e3632e3d23e0a2831e1e2d133b775ce9f2e1b7c30e293e038682e53f9e9aaa,,test,G0047,lines/test/SYN2-00437_00.png
+SYN2-00445_00,SYN2-00445,lines/train/SYN2-00445_00.png,bus_number,rendered,27,7b6ac4970d7ea1c86cac69ce3f305b2b80f50ee550cc2f7886700c3b9f280ddd,,test,G0047,lines/test/SYN2-00445_00.png
+SYN2-00447_00,SYN2-00447,lines/train/SYN2-00447_00.png,bus_number,rendered,27,10942e12f6a2cea92008caaf13fcff346daf4277fae5177ec3743e2037eedd59,,test,G0047,lines/test/SYN2-00447_00.png
+SYN2-00465_00,SYN2-00465,lines/train/SYN2-00465_00.png,bus_number,rendered,99,976e982f3ad3067da6c409164a07397eacc8221c94cd1409d64a2e76e9b43494,,test,G0023,lines/test/SYN2-00465_00.png
+SYN2-00495_00,SYN2-00495,lines/train/SYN2-00495_00.png,bus_number,rendered,166,a0e70095211571c1e7b19c75e1a41fae1a732a5347ba523eee361618d296452f,,test,G0025,lines/test/SYN2-00495_00.png
+SYN2-00527_00,SYN2-00527,lines/train/SYN2-00527_00.png,bus_number,rendered,166,79ddc1f84caacf0ef21a50af0e8ae80b2e41484f3d61cb8c4fc98a54e1fac88b,,test,G0025,lines/test/SYN2-00527_00.png
+SYN2-00528_00,SYN2-00528,lines/train/SYN2-00528_00.png,bus_number,rendered,99,3cabb27768326ade1c60c247bb1b7121c5c4cb53c63ac7e7d8ed83bfd051e50e,,test,G0023,lines/test/SYN2-00528_00.png
+SYN2-00538_00,SYN2-00538,lines/train/SYN2-00538_00.png,bus_number,rendered,99,95fabb6529a64a752f58c688068759555f7d064d098e6519dafba4d2b7be20e0,,test,G0023,lines/test/SYN2-00538_00.png
+SYN2-00549_00,SYN2-00549,lines/train/SYN2-00549_00.png,bus_number,rendered,32,d4f2fa280adb9f11f6600998f06cf91749f31a565519d2693f65cbad71657dc5,,test,G0017,lines/test/SYN2-00549_00.png
+SYN2-00555_00,SYN2-00555,lines/train/SYN2-00555_00.png,bus_number,rendered,166,cd1b7f6eab2e635c86c81c4020fc6e150542c9b1691fde07dcdd147ea01e1ced,,test,G0025,lines/test/SYN2-00555_00.png
+SYN2-00612_00,SYN2-00612,lines/train/SYN2-00612_00.png,bus_number,rendered,27,f7cb0534d898e378817acea39f9971ff1f1e412f0464d2c1deae2c2466aa398a,,test,G0047,lines/test/SYN2-00612_00.png
+SYN2-00645_00,SYN2-00645,lines/train/SYN2-00645_00.png,bus_number,rendered,27,c668416a96f114585d0bc47d5d8a989d482a8fea29fd57d5c8a6679d8d333577,,test,G0047,lines/test/SYN2-00645_00.png
+SYN2-00671_00,SYN2-00671,lines/train/SYN2-00671_00.png,bus_number,rendered,32,a838938b161f706884f2b88c366b3f12c6b965a81965f6cd0644470ce5d51248,,test,G0017,lines/test/SYN2-00671_00.png
+SYN2-00699_00,SYN2-00699,lines/train/SYN2-00699_00.png,bus_number,rendered,27,ae4ca207903bc684676e3e7627bd34685258f9bea4e03d618e90785a7d61849c,,test,G0047,lines/test/SYN2-00699_00.png
+SYN2-00702_00,SYN2-00702,lines/train/SYN2-00702_00.png,bus_number,rendered,77,de97f4a332f666d32564baac1d380a5217dd56436516594f65affd97dc781c41,,test,G0035,lines/test/SYN2-00702_00.png
+SYN2-00718_00,SYN2-00718,lines/train/SYN2-00718_00.png,bus_number,rendered,27,cbe6eba5fcca6931275901ef8138b5cdba62e7970548c457ee82fcc0263ff3f5,,test,G0047,lines/test/SYN2-00718_00.png
+SYN2-00720_00,SYN2-00720,lines/train/SYN2-00720_00.png,bus_number,rendered,32,a1fc625538a27333e19535fbd263adc66217b9879f31ae7f91c753e20c34f710,,test,G0017,lines/test/SYN2-00720_00.png
+SYN2-00755_00,SYN2-00755,lines/train/SYN2-00755_00.png,bus_number,rendered,166,42ccb041ea78c230058ae8e9774aa8819cfab076288ca482c629dc1e03c27268,,test,G0025,lines/test/SYN2-00755_00.png
+SYN2-00763_00,SYN2-00763,lines/train/SYN2-00763_00.png,bus_number,rendered,27,f8942df35e16c452fb1d7d4b491d9faa906818cac33d0b21f8380a6ba555ea19,,test,G0047,lines/test/SYN2-00763_00.png
+SYN2-00764_00,SYN2-00764,lines/train/SYN2-00764_00.png,bus_number,rendered,99,e02ace7e6b7937bfa735fec7867d41025660e006c21c6af28d1bca30c6935701,,test,G0023,lines/test/SYN2-00764_00.png
+SYN2-00828_00,SYN2-00828,lines/train/SYN2-00828_00.png,bus_number,rendered,974,e2e7a0df058bee971094b0db9db033c37cfaf5fe62544747c1f1d4bddd17fc47,,test,G0018,lines/test/SYN2-00828_00.png
+SYN2-00881_00,SYN2-00881,lines/train/SYN2-00881_00.png,bus_number,rendered,974,d2d514540cb3c4dbcd7154196aed8499eab349f9cfe0a1f0b66d44f351869c7f,,test,G0018,lines/test/SYN2-00881_00.png
+SYN2-00893_00,SYN2-00893,lines/train/SYN2-00893_00.png,bus_number,rendered,974,244a018266bc7dd99b9e274899d6a62f79c51c66659c85bc3d687ead757fe6e5,,test,G0018,lines/test/SYN2-00893_00.png
+SYN2-00911_00,SYN2-00911,lines/train/SYN2-00911_00.png,bus_number,rendered,77,ce40ac2b8dd290bd67c2c3d89f8aacc8dccc3c22f987d6639cdd4b24ca702af8,,test,G0035,lines/test/SYN2-00911_00.png
+SYN2-00913_00,SYN2-00913,lines/train/SYN2-00913_00.png,bus_number,rendered,166,9936f64530a243c0ae311e4bd86e884828617053c486a57b593a38bb65994377,,test,G0025,lines/test/SYN2-00913_00.png
+SYN2-00943_00,SYN2-00943,lines/train/SYN2-00943_00.png,bus_number,rendered,974,265ede45e4e1ec4a95a02fc06df1276e49b4cd3c292770e23a2c0d10ba2e899f,,test,G0018,lines/test/SYN2-00943_00.png
+SYN2-00946_00,SYN2-00946,lines/train/SYN2-00946_00.png,bus_number,rendered,32,06e5ad8839fcc67f31cf5c18d83ca451b69094c9be73a3d2d37decdc6763e874,,test,G0017,lines/test/SYN2-00946_00.png
+SYN2-00972_00,SYN2-00972,lines/train/SYN2-00972_00.png,bus_number,rendered,32,61904513f3f069bc298c54859b5b2270847c639ae609160531ec9cdac8d44e5c,,test,G0017,lines/test/SYN2-00972_00.png
+SYN2-01055_00,SYN2-01055,lines/train/SYN2-01055_00.png,bus_number,rendered,77,c3654bc95eaa15b6d37b913f275e1d95da6bdd45a43a6ad54f814967aafa2c51,,test,G0035,lines/test/SYN2-01055_00.png
+SYN2-01059_00,SYN2-01059,lines/train/SYN2-01059_00.png,bus_number,rendered,99,4a605c709d95de1d7d2f836047652425cd2e590687c8041218eaf2fc85cfdf2d,,test,G0023,lines/test/SYN2-01059_00.png
+SYN2-01109_00,SYN2-01109,lines/train/SYN2-01109_00.png,bus_number,rendered,27,98ba5ef3ee9b56cf3e389bd426fa6b44b8abe0a1b9b1695b6bbe762552962956,,test,G0047,lines/test/SYN2-01109_00.png
+SYN2-01111_00,SYN2-01111,lines/train/SYN2-01111_00.png,bus_number,rendered,77,1ca3cb1142d5a99ed823deedb2425c5b0b72d0a6eea83497f607d878fafe5f83,,test,G0035,lines/test/SYN2-01111_00.png
+SYN2-01117_00,SYN2-01117,lines/train/SYN2-01117_00.png,bus_number,rendered,77,9520b644f03ef577b674638fabc303b52f1542c2ee37baa699b3bdb908876a7b,,test,G0035,lines/test/SYN2-01117_00.png
+SYN2-01147_00,SYN2-01147,lines/train/SYN2-01147_00.png,bus_number,rendered,166,6937f89d1381571b3079a5138a954672160b28fc8ca602bf4a231e18bdcf86e6,,test,G0025,lines/test/SYN2-01147_00.png
+SYN2-01165_00,SYN2-01165,lines/train/SYN2-01165_00.png,bus_number,rendered,32,acdf22b44b530195c30e269859c1cf6790436db335e95ab65129d96f9b044319,,test,G0017,lines/test/SYN2-01165_00.png
+SYN2-01180_00,SYN2-01180,lines/train/SYN2-01180_00.png,bus_number,rendered,32,e26b18a2a9ac5896acc859b0859bf08a524d5af80362c2d1b66d47620da77eaa,,test,G0017,lines/test/SYN2-01180_00.png
+SYN2-01191_00,SYN2-01191,lines/train/SYN2-01191_00.png,bus_number,rendered,974,f06aea0ff0eb4d14370f6caa4cdf82e08b91ada449bcb96b8462ac05bbee2969,,test,G0018,lines/test/SYN2-01191_00.png
+SYN2-01220_00,SYN2-01220,lines/train/SYN2-01220_00.png,bus_number,rendered,974,7d24141ebc0b845b277ce06b05616ed59de12c08d79fd9886aee9db6238172ad,,test,G0018,lines/test/SYN2-01220_00.png
+SYN2-01225_00,SYN2-01225,lines/train/SYN2-01225_00.png,bus_number,rendered,27,f323578c407db2970158abc9d2cc59460691c575534317a4c43442e8e9ba13fb,,test,G0047,lines/test/SYN2-01225_00.png
+SYN2-01251_00,SYN2-01251,lines/train/SYN2-01251_00.png,bus_number,rendered,99,7553f908b33e6509f5df6fe3e7eb0bf0236605722e59eba536664f4c099323f7,,test,G0023,lines/test/SYN2-01251_00.png
+SYN2-01269_00,SYN2-01269,lines/train/SYN2-01269_00.png,bus_number,rendered,27,a18283c3a57a4d87ae1c503f432d1c5f78344d6cdb553909933f0b7e8161f8c2,,test,G0047,lines/test/SYN2-01269_00.png
+SYN2-01313_00,SYN2-01313,lines/train/SYN2-01313_00.png,bus_number,rendered,27,814b6fb68ffe7eca5b2de1db3a2bb2a3b34eef488bf1291820cfe8c6c9ee19f9,,test,G0047,lines/test/SYN2-01313_00.png
+SYN2-01314_00,SYN2-01314,lines/train/SYN2-01314_00.png,bus_number,rendered,77,631d8d52fbfb6d0bff631eee8d6eadf1dc1683cc0308ff178a2a081324caa58f,,test,G0035,lines/test/SYN2-01314_00.png
+SYN2-01319_00,SYN2-01319,lines/train/SYN2-01319_00.png,bus_number,rendered,166,76e474e6dcbd97896b7f51a7bce717ecc791c0de8a648130129127ebed984dea,,test,G0025,lines/test/SYN2-01319_00.png
+SYN2-01330_00,SYN2-01330,lines/train/SYN2-01330_00.png,bus_number,rendered,32,3da5904cc682e2ab049d026acee3d4ade81f4765c16b53421f274be4e50d99f1,,test,G0017,lines/test/SYN2-01330_00.png
+SYN2-01369_00,SYN2-01369,lines/train/SYN2-01369_00.png,bus_number,rendered,27,675896d5c597a97a26363887577a4f616032eee25f996333fbff6179eca15d22,,test,G0047,lines/test/SYN2-01369_00.png
+SYN2-01430_00,SYN2-01430,lines/train/SYN2-01430_00.png,bus_number,rendered,974,be58cbb7544554e899daefa9513c6a485bea760a4b6cdd2c949ffdc1321c1d8a,,test,G0018,lines/test/SYN2-01430_00.png
+SYN2-01432_00,SYN2-01432,lines/train/SYN2-01432_00.png,bus_number,rendered,27,9bbad52f6b8fbd4d956ca28bc5e5407b9b42381fd63f987d4ebc23925138e3d2,,test,G0047,lines/test/SYN2-01432_00.png
+SYN2-01453_00,SYN2-01453,lines/train/SYN2-01453_00.png,bus_number,rendered,99,091c906c32fc0eaaf93a3d6a0ddeb28f290530c4ab5d7cbeff4b92e0c80d5835,,test,G0023,lines/test/SYN2-01453_00.png
+SYN2-01487_00,SYN2-01487,lines/train/SYN2-01487_00.png,bus_number,rendered,99,ee0e2eafd48112d9b25a017e1132c494057ff4326eb09375e0fde101248756c1,,test,G0023,lines/test/SYN2-01487_00.png
+SYN2-01491_00,SYN2-01491,lines/train/SYN2-01491_00.png,bus_number,rendered,99,81f52a552c72b40f637770bcb073d8ebea59132fe971616fb4774a9ef5b32e33,,test,G0023,lines/test/SYN2-01491_00.png
+SYN2-01492_00,SYN2-01492,lines/train/SYN2-01492_00.png,bus_number,rendered,99,77e422b5dca7b1ed86e90f6014aac13651a00a9ac91a8490ff71c6d92c166f90,,test,G0023,lines/test/SYN2-01492_00.png
+SYN2-01515_00,SYN2-01515,lines/train/SYN2-01515_00.png,bus_number,rendered,27,e6147048091aa4e58dfe2c34b6a99d77cba35f04b1029b5dcbe658c96e6a0827,,test,G0047,lines/test/SYN2-01515_00.png
+SYN2-01534_00,SYN2-01534,lines/train/SYN2-01534_00.png,bus_number,rendered,166,366a7266d651b3383e1d2589c5c64d61070a0f80c090612378e448c89ea380bf,,test,G0025,lines/test/SYN2-01534_00.png
+SYN2-01540_00,SYN2-01540,lines/train/SYN2-01540_00.png,bus_number,rendered,166,9d30d7b24af923ef93e08c419ec3135a3b29259141c99440d7b618433210bae3,,test,G0025,lines/test/SYN2-01540_00.png
+SYN2-01555_00,SYN2-01555,lines/train/SYN2-01555_00.png,bus_number,rendered,27,7cd5cbda52805752e0acb57419a0bf7733a9ffc7be1e57780bf8bcce4f76fd2c,,test,G0047,lines/test/SYN2-01555_00.png
+SYN2-01577_00,SYN2-01577,lines/train/SYN2-01577_00.png,bus_number,rendered,99,f738c1bb0247621beb8aa836dc1aae0a6107d4a52a7b640cc32815ff37427b6f,,test,G0023,lines/test/SYN2-01577_00.png
+SYN2-01585_00,SYN2-01585,lines/train/SYN2-01585_00.png,bus_number,rendered,77,1031b59f3669493fad39d1d7749d99593cdac280460d87a73316eb1ccb04ccb8,,test,G0035,lines/test/SYN2-01585_00.png
+SYN2-01619_00,SYN2-01619,lines/train/SYN2-01619_00.png,bus_number,rendered,32,471c56b3904ff9f9bff143b60d891554dbdad10c3c483bec0fff75423ee1e086,,test,G0017,lines/test/SYN2-01619_00.png
+SYN2-01622_00,SYN2-01622,lines/train/SYN2-01622_00.png,bus_number,rendered,27,aa0ff110be42752f1b23efaf195b8420064216357f1d33063dcd88cf16673583,,test,G0047,lines/test/SYN2-01622_00.png
+SYN2-01666_00,SYN2-01666,lines/train/SYN2-01666_00.png,bus_number,rendered,32,7e82f38fd3efdfdfe8bcf71dc7251ba634bb1dbf0df2f0377da84222324c5960,,test,G0017,lines/test/SYN2-01666_00.png
+SYN2-01671_00,SYN2-01671,lines/train/SYN2-01671_00.png,bus_number,rendered,32,9c9290b4caf00883a35616bcaf922cb66396f6f60e7e243a3ca4df344c61f778,,test,G0017,lines/test/SYN2-01671_00.png
+SYN2-01673_00,SYN2-01673,lines/train/SYN2-01673_00.png,bus_number,rendered,974,699a9d7cd10b069a0af4d0f1325c0599bfdd12541ca5530c67e494203fc9f017,,test,G0018,lines/test/SYN2-01673_00.png
+SYN2-01698_00,SYN2-01698,lines/train/SYN2-01698_00.png,bus_number,rendered,166,50f2ce8f32454832d4966580a781ce0f21acbb29b11d9076ffe6d024bf8b066c,,test,G0025,lines/test/SYN2-01698_00.png
+SYN2-01719_00,SYN2-01719,lines/train/SYN2-01719_00.png,bus_number,rendered,32,caae8976bd116adc4eeb09cbc93bc6fd9a571028a1f35bc1567353bdb6fb622b,,test,G0017,lines/test/SYN2-01719_00.png
+SYN2-01743_00,SYN2-01743,lines/train/SYN2-01743_00.png,bus_number,rendered,974,7ce862318d8cba4a9993fb743f321a952e43fc740965408572b42052e23df7ee,,test,G0018,lines/test/SYN2-01743_00.png
+SYN2-01748_00,SYN2-01748,lines/train/SYN2-01748_00.png,bus_number,rendered,99,bd9d4b1b39cba9dca1194aa7b73d07e23ee693a6a1edbae700b0c75201859c96,,test,G0023,lines/test/SYN2-01748_00.png
+SYN2-01753_00,SYN2-01753,lines/train/SYN2-01753_00.png,bus_number,rendered,99,43895930c49cc8a8a0d5db2dfc68cf510d1357829fe8615c85f4d86f946f5064,,test,G0023,lines/test/SYN2-01753_00.png
+SYN2-01769_00,SYN2-01769,lines/train/SYN2-01769_00.png,bus_number,rendered,166,7c0e10edd5d0755f31b5a6ad8b727ca836036ee46515e0adf399936aa8f6c54f,,test,G0025,lines/test/SYN2-01769_00.png
+SYN2-01779_00,SYN2-01779,lines/train/SYN2-01779_00.png,bus_number,rendered,974,1178cd38f728a10c7cc3239895e9ff82aab58dae4d2746cfdd824df666e265dc,,test,G0018,lines/test/SYN2-01779_00.png
+SYN2-01783_00,SYN2-01783,lines/train/SYN2-01783_00.png,bus_number,rendered,32,6b78bed622dd3dac3dbf290f9573c1cfbffc54dd3a81a81cbedb7c7b727024c2,,test,G0017,lines/test/SYN2-01783_00.png
+SYN2-01815_00,SYN2-01815,lines/train/SYN2-01815_00.png,bus_number,rendered,99,511f8a35c59ef3241fd3b073db356c6a35f3dc22ce932f60dd3e7f31841004e9,,test,G0023,lines/test/SYN2-01815_00.png
+SYN2-01836_00,SYN2-01836,lines/train/SYN2-01836_00.png,bus_number,rendered,27,83d1cf095fad613fbd4846f9ac9c273bc1e4774139b710db7f01c66b934bdf4a,,test,G0047,lines/test/SYN2-01836_00.png
+SYN2-01862_00,SYN2-01862,lines/train/SYN2-01862_00.png,bus_number,rendered,99,3eeea2b9d4974d95891a936f49b12966cb2790901bdca2fb8677d307cedb70b0,,test,G0023,lines/test/SYN2-01862_00.png
+SYN2-01865_00,SYN2-01865,lines/train/SYN2-01865_00.png,bus_number,rendered,99,df97ee51f1d32ea85a7e611f3653cae835f8c132657e96e45a12175f3cb13b07,,test,G0023,lines/test/SYN2-01865_00.png
+SYN2-01873_00,SYN2-01873,lines/train/SYN2-01873_00.png,bus_number,rendered,27,e123e35f3be97a789e236c8feaee2e401d9b5980d5adeef69d8f532b3a6a857f,,test,G0047,lines/test/SYN2-01873_00.png
+SYN2-01899_00,SYN2-01899,lines/train/SYN2-01899_00.png,bus_number,rendered,99,4f892f532dbb3a0f21d91302606d89bdf954b134863d449cb1475862a5954abc,,test,G0023,lines/test/SYN2-01899_00.png
+SYN2-01981_00,SYN2-01981,lines/train/SYN2-01981_00.png,bus_number,rendered,99,6517bd4c380d2ed2cafa6f590d2f6d41390df832bc0378cde3ea59f4847e951f,,test,G0023,lines/test/SYN2-01981_00.png
+SYN2-01985_00,SYN2-01985,lines/train/SYN2-01985_00.png,bus_number,rendered,27,24001fdcc981d32570ba630e912783aea461608ef8e8fb5161098bd1c8461719,,test,G0047,lines/test/SYN2-01985_00.png
+SYN2-02009_00,SYN2-02009,lines/train/SYN2-02009_00.png,bus_number,rendered,77,6db7cf4b67356f9c01895deb5b386626f19841844a4509a1622a5fa9e1a5ce1d,,test,G0035,lines/test/SYN2-02009_00.png
+SYN2-02027_00,SYN2-02027,lines/train/SYN2-02027_00.png,bus_number,rendered,99,6f6ddc899a3554eb7ef19c7a60a9d40b982e63f57589a63a51995ff4fb278bfe,,test,G0023,lines/test/SYN2-02027_00.png
+SYN2-02041_00,SYN2-02041,lines/train/SYN2-02041_00.png,bus_number,rendered,27,680ec0235facb309e823ffe6d3aeaf349158801bb4020a0eedb789756cf8c02c,,test,G0047,lines/test/SYN2-02041_00.png
+SYN2-02061_00,SYN2-02061,lines/train/SYN2-02061_00.png,bus_number,rendered,77,21845aba6b15bf6a4d28109ce15feda72981703678db239c44f489eb85ba3a81,,test,G0035,lines/test/SYN2-02061_00.png
+SYN2-02065_00,SYN2-02065,lines/train/SYN2-02065_00.png,bus_number,rendered,166,8a39ff873e970403e934eeb0decaa53617cf6f5b6597265949b0133600696ddf,,test,G0025,lines/test/SYN2-02065_00.png
+SYN2-02074_00,SYN2-02074,lines/train/SYN2-02074_00.png,bus_number,rendered,32,1fe8bae0bc7fd19d622a1c9665e9890b97568f5c85cf8d9b47cc3d189d018277,,test,G0017,lines/test/SYN2-02074_00.png
+SYN2-02092_00,SYN2-02092,lines/train/SYN2-02092_00.png,bus_number,rendered,166,af7b0857f1aa28214d99cd7863fecb9218fd7aeb6959ff47f3863d7cf7a81ab0,,test,G0025,lines/test/SYN2-02092_00.png
+SYN2-02107_00,SYN2-02107,lines/train/SYN2-02107_00.png,bus_number,rendered,99,2787c49e4b3b3ac50e3f8e0d38403f2613a54b62ec715e600698c661e7e5f6be,,test,G0023,lines/test/SYN2-02107_00.png
+SYN2-02117_00,SYN2-02117,lines/train/SYN2-02117_00.png,bus_number,rendered,99,315126e65bab59829c53a72e37e4547b52ebb474fa2f038d519e998f21af40b1,,test,G0023,lines/test/SYN2-02117_00.png
+SYN2-02122_00,SYN2-02122,lines/train/SYN2-02122_00.png,bus_number,rendered,166,32d566623687371c69fca922cbae9da3fbcb98ecbcda5e6512622b43748c663a,,test,G0025,lines/test/SYN2-02122_00.png
+SYN2-02123_00,SYN2-02123,lines/train/SYN2-02123_00.png,bus_number,rendered,77,5372ab37d604de36994a69d439dfc26b9a29b8196a0698830884b3b6fa48373b,,test,G0035,lines/test/SYN2-02123_00.png
+SYN2-02145_00,SYN2-02145,lines/train/SYN2-02145_00.png,bus_number,rendered,166,62bf059e3423cde272fc2731473d5ea9d0c1a93d3cf761d9a0a5f40c602e6b67,,test,G0025,lines/test/SYN2-02145_00.png
+SYN2-02205_00,SYN2-02205,lines/train/SYN2-02205_00.png,bus_number,rendered,166,9b76450b270f846d5142d91c6c729586ab381b9d9b51953907bffbf525b3e181,,test,G0025,lines/test/SYN2-02205_00.png
+SYN2-02224_00,SYN2-02224,lines/train/SYN2-02224_00.png,bus_number,rendered,27,89f93815875b1940fcdd7a2052a0dcaf491de0b9dafca8110bfd042b05392694,,test,G0047,lines/test/SYN2-02224_00.png
+SYN2-02316_00,SYN2-02316,lines/train/SYN2-02316_00.png,bus_number,rendered,32,ae481b2c1e89370ad812571cdbd2256a67e17b2790e9a35aafab15902646fdd8,,test,G0017,lines/test/SYN2-02316_00.png
+SYN2-02343_00,SYN2-02343,lines/train/SYN2-02343_00.png,bus_number,rendered,27,16704e850b7aed8039bf863c91ba59cd97eb6519289a3d7526eb9e22fbff7e0a,,test,G0047,lines/test/SYN2-02343_00.png
+SYN2-02356_00,SYN2-02356,lines/train/SYN2-02356_00.png,bus_number,rendered,77,513b51f4da4080adaa0444de1c0a2468eed08fa233ad2c915ba9a0b7ae8815d4,,test,G0035,lines/test/SYN2-02356_00.png
+SYN2-02377_00,SYN2-02377,lines/train/SYN2-02377_00.png,bus_number,rendered,99,17bc802d0aef237fe108f8f9533097978c5fde22b1bf87179d42b7cd761c2f34,,test,G0023,lines/test/SYN2-02377_00.png
+SYN2-02399_00,SYN2-02399,lines/train/SYN2-02399_00.png,bus_number,rendered,99,0123f6ad485d983e5c0b8388eaa7aacdb19f1963e7bde3b35646a63a1577ea1c,,test,G0023,lines/test/SYN2-02399_00.png
+SYN2-02421_00,SYN2-02421,lines/train/SYN2-02421_00.png,bus_number,rendered,77,68ba47504b92d1bbbbaa6d241d39b2b28aa527a26b191daa2b6c01a720216a2f,,test,G0035,lines/test/SYN2-02421_00.png
+SYN2-02440_00,SYN2-02440,lines/train/SYN2-02440_00.png,bus_number,rendered,27,7250c374b8fb32f2ccfcea7baf48ffdde09d45f686c3968a9d7797b9c4007697,,test,G0047,lines/test/SYN2-02440_00.png
+SYN2-02467_00,SYN2-02467,lines/train/SYN2-02467_00.png,bus_number,rendered,974,4bff20c66ea931fffd95dd7d5df7375b3a5ed85a76ab48c4a74dfb573df4ece0,,test,G0018,lines/test/SYN2-02467_00.png
+SYN2-02539_00,SYN2-02539,lines/train/SYN2-02539_00.png,bus_number,rendered,99,0869ed03a4e13e54cb24fd534ce9f9db21769a38ea778c7ba66ad9c8e29f6a9e,,test,G0023,lines/test/SYN2-02539_00.png
+SYN2-02593_00,SYN2-02593,lines/train/SYN2-02593_00.png,bus_number,rendered,166,b71a0b002cef11a73691a3a1f3f759f3cd89da8a272d20992e4fd990c22068d9,,test,G0025,lines/test/SYN2-02593_00.png
+SYN2-02609_00,SYN2-02609,lines/train/SYN2-02609_00.png,bus_number,rendered,99,b1c712c0313e03f3020870e0a00e8ee4016b860a7c062de1084e1a0c7f4258df,,test,G0023,lines/test/SYN2-02609_00.png
+SYN2-02612_00,SYN2-02612,lines/train/SYN2-02612_00.png,bus_number,rendered,974,c062fff814a0f31ade618ccfa17047ddac099277179a89d7fa2d2a1de8f66dd0,,test,G0018,lines/test/SYN2-02612_00.png
+SYN2-02639_00,SYN2-02639,lines/train/SYN2-02639_00.png,bus_number,rendered,99,19d2727d105bb537b8704f19afd8e6c41634c3e1b57c3c12806588374d5f99f5,,test,G0023,lines/test/SYN2-02639_00.png
+SYN2-02643_00,SYN2-02643,lines/train/SYN2-02643_00.png,bus_number,rendered,166,39ee597bbbe0f3c4d3bfc5d60dee4f4c718919c856a1ba4d93ec249ec89d4614,,test,G0025,lines/test/SYN2-02643_00.png
+SYN2-02656_00,SYN2-02656,lines/train/SYN2-02656_00.png,bus_number,rendered,166,c36d8dc77757ec38475aa79b1f21e06ca38c3d51fa779c6c36194090b565b21d,,test,G0025,lines/test/SYN2-02656_00.png
+SYN2-02667_00,SYN2-02667,lines/train/SYN2-02667_00.png,bus_number,rendered,974,c4081809368eb8299263f0c78815dd39231cb7bfa6681d9dbb4518e15dfa7dec,,test,G0018,lines/test/SYN2-02667_00.png
+SYN2-02685_00,SYN2-02685,lines/train/SYN2-02685_00.png,bus_number,rendered,99,26e61e71aa02344b697293785ce38ca90a16fced665620be15e4d8a61898a37c,,test,G0023,lines/test/SYN2-02685_00.png
+SYN2-02690_00,SYN2-02690,lines/train/SYN2-02690_00.png,bus_number,rendered,974,109f460ccbea9447048969f0935cd002f08a500d803883770c0f185d00eb7f6e,,test,G0018,lines/test/SYN2-02690_00.png
+SYN2-02696_00,SYN2-02696,lines/train/SYN2-02696_00.png,bus_number,rendered,27,bc1a3b7a050cf2c2661cd62f44a091852d54d7e31909d119d4c1ff6c21fd7cb3,,test,G0047,lines/test/SYN2-02696_00.png
+SYN2-02703_00,SYN2-02703,lines/train/SYN2-02703_00.png,bus_number,rendered,166,1f01faaa6b2f2f17e12cb4c7ec458f1a9c5ffcc96a730fddd730fb1e21bb78d3,,test,G0025,lines/test/SYN2-02703_00.png
+SYN2-02711_00,SYN2-02711,lines/train/SYN2-02711_00.png,bus_number,rendered,99,343495239f31ed1eeeacb3c1f2248f63f4a4db356e64822cb450957f496a0b9f,,test,G0023,lines/test/SYN2-02711_00.png
+SYN2-02756_00,SYN2-02756,lines/train/SYN2-02756_00.png,bus_number,rendered,32,0ea87224b6a1dac6ccf71768a48f18ecd464430527bb00d35f9302a0da2f4430,,test,G0017,lines/test/SYN2-02756_00.png
+SYN2-02765_00,SYN2-02765,lines/train/SYN2-02765_00.png,bus_number,rendered,77,60b2c07f8240316cc54ce5aa2367de635760bd1d4aa1e5a88796ecb63cc9dcb8,,test,G0035,lines/test/SYN2-02765_00.png
+SYN2-02766_00,SYN2-02766,lines/train/SYN2-02766_00.png,bus_number,rendered,32,bb1eed69c31e3b7cc36e06d0d47e2ecbde9636bf16bf1686de6aa7361a492edf,,test,G0017,lines/test/SYN2-02766_00.png
+SYN2-02795_00,SYN2-02795,lines/train/SYN2-02795_00.png,bus_number,rendered,99,bf46aa68dd995144405c5e2c5a0cbfc84dd5ddc844c2d51d08cb5c3a75ba5726,,test,G0023,lines/test/SYN2-02795_00.png
+SYN2-02811_00,SYN2-02811,lines/train/SYN2-02811_00.png,bus_number,rendered,27,ad4deadeebdfefc70585f36a412fdccbc87842ab99ade6e2df55118d6537ddab,,test,G0047,lines/test/SYN2-02811_00.png
+SYN2-02829_00,SYN2-02829,lines/train/SYN2-02829_00.png,bus_number,rendered,32,da79caddb53a0b39843248db1aac3163b2616e16f0d13a0e3f636fd386911274,,test,G0017,lines/test/SYN2-02829_00.png
+SYN2-02874_00,SYN2-02874,lines/train/SYN2-02874_00.png,bus_number,rendered,166,eb4b0d576409c00bea98c1ae9628cbbdbc9daffe38fd793d20fbdaa4a6060ead,,test,G0025,lines/test/SYN2-02874_00.png
+SYN2-02905_00,SYN2-02905,lines/train/SYN2-02905_00.png,bus_number,rendered,974,5bc9623accd911a9996535bc5288af9bdba0651594e242935b5da05e15531b11,,test,G0018,lines/test/SYN2-02905_00.png
+SYN2-02910_00,SYN2-02910,lines/train/SYN2-02910_00.png,bus_number,rendered,27,255949eb79a56be6a3c0b1a4fdab1dda1c32ce0e21358eb97da019db7bed9531,,test,G0047,lines/test/SYN2-02910_00.png
+SYN2-02956_00,SYN2-02956,lines/train/SYN2-02956_00.png,bus_number,rendered,27,8f90114772cc8c25aec8c05f6aac31b58b64786ffe4bfda9c75853b913e2bfb6,,test,G0047,lines/test/SYN2-02956_00.png
+SYN2-02971_00,SYN2-02971,lines/train/SYN2-02971_00.png,bus_number,rendered,27,b8fec0e545aef74ae79e3af8ebe4b138cf9bb10aa030656e7edf22af3ffdc86d,,test,G0047,lines/test/SYN2-02971_00.png
+SYN2-02979_00,SYN2-02979,lines/train/SYN2-02979_00.png,bus_number,rendered,77,097d3c00711c2e0208e2c074fe1073bf1657868509d27d0a6a917f33de38ef1b,,test,G0035,lines/test/SYN2-02979_00.png
+SYN2-02986_00,SYN2-02986,lines/train/SYN2-02986_00.png,bus_number,rendered,32,42e5dea9c823dfcb9fa431de70d5e29aedc6ddbbcde15e3cb4814445fdf924b5,,test,G0017,lines/test/SYN2-02986_00.png
+SYN2-03009_00,SYN2-03009,lines/train/SYN2-03009_00.png,bus_number,rendered,974,79a12a2f741f8dfe8e93d778f562f3075e1163998724b40ff9cff7f73f6adfbe,,test,G0018,lines/test/SYN2-03009_00.png
+SYN2-03044_00,SYN2-03044,lines/train/SYN2-03044_00.png,bus_number,rendered,974,e475642ab1837c8bac6158f16c8c4793816b6efb56501a1ddea6ffd7e7a62927,,test,G0018,lines/test/SYN2-03044_00.png
+SYN2-03050_00,SYN2-03050,lines/train/SYN2-03050_00.png,bus_number,rendered,974,97ca0860aede7fa2340eb0fc087826430dfde99dc2c484aa7f6e98aa1c513b4d,,test,G0018,lines/test/SYN2-03050_00.png
+SYN2-03057_00,SYN2-03057,lines/train/SYN2-03057_00.png,bus_number,rendered,974,de5e6c190a4e3e2ee25cceb8bdf1dca06c35e387799e7a67756c6cd10256156d,,test,G0018,lines/test/SYN2-03057_00.png
+SYN2-03083_00,SYN2-03083,lines/train/SYN2-03083_00.png,bus_number,rendered,32,886f081e25f05337ebdf91842484a03c1109f4636d1065c10f95d66aa890fc70,,test,G0017,lines/test/SYN2-03083_00.png
+SYN2-03085_00,SYN2-03085,lines/train/SYN2-03085_00.png,bus_number,rendered,77,90909c44668155b1b1a7b3d7d5ffee1b076f0278f2cb0818842668f3be4c110e,,test,G0035,lines/test/SYN2-03085_00.png
+SYN2-03093_00,SYN2-03093,lines/train/SYN2-03093_00.png,bus_number,rendered,99,f484f6aab30fc834db4dc3b751ed65ae37fc52cbea999bd4cb31559915424b9e,,test,G0023,lines/test/SYN2-03093_00.png
+SYN2-03135_00,SYN2-03135,lines/train/SYN2-03135_00.png,bus_number,rendered,99,8e65e913978b3b352d31412fec1758172e8fd9d0d1f78ae1c1b57f725a017f32,,test,G0023,lines/test/SYN2-03135_00.png
+SYN2-03169_00,SYN2-03169,lines/train/SYN2-03169_00.png,bus_number,rendered,99,4f9a850a757bd4b4f2011b80481591fa047a4b3aff1876894300a13984ccf10a,,test,G0023,lines/test/SYN2-03169_00.png
+SYN2-03180_00,SYN2-03180,lines/train/SYN2-03180_00.png,bus_number,rendered,974,f4e7c1060489494ee8eb35f23fcfcf968b0186b1c57dd932d7eb8f4e21ecdf8a,,test,G0018,lines/test/SYN2-03180_00.png
+SYN2-03229_00,SYN2-03229,lines/train/SYN2-03229_00.png,bus_number,rendered,77,b26cf89fc7c35addd2ee59a30a9c3bc1dd5156b5f980e5b83f9d9a94d576381e,,test,G0035,lines/test/SYN2-03229_00.png
+SYN2-03236_00,SYN2-03236,lines/train/SYN2-03236_00.png,bus_number,rendered,974,c83ead1f974cae202847ee2a716dfa290dd451687f14d8d50ea863252b4d8681,,test,G0018,lines/test/SYN2-03236_00.png
+SYN2-03257_00,SYN2-03257,lines/train/SYN2-03257_00.png,bus_number,rendered,974,efbf056d53a95fc49c2de782568d5877d2438eac0a0e93a1d011dfd063d8862b,,test,G0018,lines/test/SYN2-03257_00.png
+SYN2-03271_00,SYN2-03271,lines/train/SYN2-03271_00.png,bus_number,rendered,974,cda41a3dfda7236fdd83c172f900c5397104dc6ee8867f34705c040cb20616dc,,test,G0018,lines/test/SYN2-03271_00.png
+SYN2-03279_00,SYN2-03279,lines/train/SYN2-03279_00.png,bus_number,rendered,99,6988712a24450f35f3d1c1e0dcc4e6c84a4e2e12cb5c174907ac2743b6289715,,test,G0023,lines/test/SYN2-03279_00.png
+SYN2-03286_00,SYN2-03286,lines/train/SYN2-03286_00.png,bus_number,rendered,27,341d388459ff097222262eb9051951f4e7808c9a043e0f3709e4cabfd85b9ea8,,test,G0047,lines/test/SYN2-03286_00.png
+SYN2-03287_00,SYN2-03287,lines/train/SYN2-03287_00.png,bus_number,rendered,77,f3bc2c8fbf40a912d940a0a3de1cd6c0c6e5791f0ab575e5af601df87d1065a3,,test,G0035,lines/test/SYN2-03287_00.png
+SYN2-03288_00,SYN2-03288,lines/train/SYN2-03288_00.png,bus_number,rendered,974,e8b3728db5582b44bc80654df32c2fa35779d2bedcbbb8bc80eca9d5ad5b9d61,,test,G0018,lines/test/SYN2-03288_00.png
+SYN2-03291_00,SYN2-03291,lines/train/SYN2-03291_00.png,bus_number,rendered,27,afe501b0c9e2e3b7396fb3ea65a2b391a4b06005e7c2582f4d8e9ed393cfad79,,test,G0047,lines/test/SYN2-03291_00.png
+SYN2-03292_00,SYN2-03292,lines/train/SYN2-03292_00.png,bus_number,rendered,166,531fe6ae0881ce3e060a37d7290f6c732fcc4e80e176754dfb0b2f0d3d19628a,,test,G0025,lines/test/SYN2-03292_00.png
+SYN2-03309_00,SYN2-03309,lines/train/SYN2-03309_00.png,bus_number,rendered,974,1d965a151e2d9a69f06778398c81e120176955101326c781fe24e2cb48ff5165,,test,G0018,lines/test/SYN2-03309_00.png
+SYN2-03324_00,SYN2-03324,lines/train/SYN2-03324_00.png,bus_number,rendered,166,959dc507c44866e6134572ec2f5c4380bc6be4de6dcebe395fcd96f0bfd0804a,,test,G0025,lines/test/SYN2-03324_00.png
+SYN2-03350_00,SYN2-03350,lines/train/SYN2-03350_00.png,bus_number,rendered,77,00a1c41409480b21a34f583cc88b1cfbc732b31e0343f791be08da064021b1b9,,test,G0035,lines/test/SYN2-03350_00.png
+SYN2-03450_00,SYN2-03450,lines/train/SYN2-03450_00.png,bus_number,rendered,32,9b2700fb9bb6d025873244fa973300d6ede5aaa2de89ab84dd8512248ad2e210,,test,G0017,lines/test/SYN2-03450_00.png
+SYN2-03464_00,SYN2-03464,lines/train/SYN2-03464_00.png,bus_number,rendered,166,42b99e01b8b73becf4ae9f3e5624cf4082d2eee368060df5d465320d22a16c4b,,test,G0025,lines/test/SYN2-03464_00.png
+SYN2-03475_00,SYN2-03475,lines/train/SYN2-03475_00.png,bus_number,rendered,27,f07e8cdcb06fa9a8827c36690c6fb63bd12b545564ce165c9d13643646088316,,test,G0047,lines/test/SYN2-03475_00.png
+SYN2-03508_00,SYN2-03508,lines/train/SYN2-03508_00.png,bus_number,rendered,77,222c05310cb64afa4f0fca6c3011f7ac0261c4f1baf6370450dd245381fe8a70,,test,G0035,lines/test/SYN2-03508_00.png
+SYN2-03510_00,SYN2-03510,lines/train/SYN2-03510_00.png,bus_number,rendered,27,05f60f4727d0633f8bda7a1881932ac07ef650f48507507785eb2901819568fc,,test,G0047,lines/test/SYN2-03510_00.png
+SYN2-03540_00,SYN2-03540,lines/train/SYN2-03540_00.png,bus_number,rendered,27,aa72b0fc33766ee4a23dc49dcb9e656fd71a44606bf35b2a4779250344857d8d,,test,G0047,lines/test/SYN2-03540_00.png
+SYN2-03550_00,SYN2-03550,lines/train/SYN2-03550_00.png,bus_number,rendered,166,b4b11b4c10b194931506d91ffcee40d9ff1c90cb0574148c55899619f58a87fe,,test,G0025,lines/test/SYN2-03550_00.png
+SYN2-03551_00,SYN2-03551,lines/train/SYN2-03551_00.png,bus_number,rendered,99,14fdd9efda96b511b72a92a6558d48ad29cf60571d00a786f91f3e1423917645,,test,G0023,lines/test/SYN2-03551_00.png
+SYN2-03568_00,SYN2-03568,lines/train/SYN2-03568_00.png,bus_number,rendered,27,a7d22d38a2886bb4d75f138836b1d0dc47889ef7a9efbc21e6474c87f7435609,,test,G0047,lines/test/SYN2-03568_00.png
+SYN2-03605_00,SYN2-03605,lines/train/SYN2-03605_00.png,bus_number,rendered,27,807dd8202bf51a625ed95752791da1359774598b8cc0be8c23e8b07084d31e66,,test,G0047,lines/test/SYN2-03605_00.png
+SYN2-03624_00,SYN2-03624,lines/train/SYN2-03624_00.png,bus_number,rendered,166,882ea02f13afc685e62f1b2631220c2e59ef3272a483f2a652a674c96de0afdb,,test,G0025,lines/test/SYN2-03624_00.png
+SYN2-03633_00,SYN2-03633,lines/train/SYN2-03633_00.png,bus_number,rendered,99,22cfd30beb8071c58db727a1a40fde835f4c8f08711a8b713d6867033ab8d7ba,,test,G0023,lines/test/SYN2-03633_00.png
+SYN2-03650_00,SYN2-03650,lines/train/SYN2-03650_00.png,bus_number,rendered,166,e1b59790b694c6776ac94ddcc540f0bfd1d66195f709b7d8ba7d4c5c685c17f7,,test,G0025,lines/test/SYN2-03650_00.png
+SYN2-03676_00,SYN2-03676,lines/train/SYN2-03676_00.png,bus_number,rendered,166,d3298a18de593d3de8370daaf89dcad0ea1b1b0d16a607baded1a39c2b598ffb,,test,G0025,lines/test/SYN2-03676_00.png
+SYN2-03736_00,SYN2-03736,lines/train/SYN2-03736_00.png,bus_number,rendered,27,8b2f96a6ea502716593783a88684b9835370cb3908416348e6277c2694ea7b06,,test,G0047,lines/test/SYN2-03736_00.png
+SYN2-03776_00,SYN2-03776,lines/train/SYN2-03776_00.png,bus_number,rendered,166,4c6ad39eefa8ba79811d0533d3633dac4a1538dd101730593ef4a7f341a6f066,,test,G0025,lines/test/SYN2-03776_00.png
+SYN2-03802_00,SYN2-03802,lines/train/SYN2-03802_00.png,bus_number,rendered,974,2178d227ec46d66a2d2d922f363a2de68fd27732ff30fdcbb266f98a3e285b17,,test,G0018,lines/test/SYN2-03802_00.png
+SYN2-03808_00,SYN2-03808,lines/train/SYN2-03808_00.png,bus_number,rendered,99,f9a415969d8529580d4aeff56204c0a1270709f0f686c301477d09e936736e97,,test,G0023,lines/test/SYN2-03808_00.png
+SYN2-03831_00,SYN2-03831,lines/train/SYN2-03831_00.png,bus_number,rendered,27,cba14fb52b9e5da907841c04b2d549a055f1459910d831f46ebb08ab831e30b9,,test,G0047,lines/test/SYN2-03831_00.png
+SYN2-03832_00,SYN2-03832,lines/train/SYN2-03832_00.png,bus_number,rendered,32,a30d1bba283719d20f1f28540d04730e594dd671a4ac0e9b55a3ddc7bf3dfe5c,,test,G0017,lines/test/SYN2-03832_00.png
+SYN2-03856_00,SYN2-03856,lines/train/SYN2-03856_00.png,bus_number,rendered,166,fb86152d50fa147ff4337f4783dfb3bf34f8e611b74fae37754628ef485665f1,,test,G0025,lines/test/SYN2-03856_00.png
+SYN2-03862_00,SYN2-03862,lines/train/SYN2-03862_00.png,bus_number,rendered,974,064a9cb47f02d0b388e7dca12d1aeadc20de8038cf7bd4bf3ef867053179341e,,test,G0018,lines/test/SYN2-03862_00.png
+SYN2-03884_00,SYN2-03884,lines/train/SYN2-03884_00.png,bus_number,rendered,77,1846cd9c46804b72b82d885aefaeba253d4970db7b2fea8a387647a607418d5f,,test,G0035,lines/test/SYN2-03884_00.png
+SYN2-03924_00,SYN2-03924,lines/train/SYN2-03924_00.png,bus_number,rendered,27,671ec21b0f08ca4d48dc1ed7f99897375ee7ec40a710af5154a60c5bcf3ea424,,test,G0047,lines/test/SYN2-03924_00.png
+SYN2-03958_00,SYN2-03958,lines/train/SYN2-03958_00.png,bus_number,rendered,974,17ab36f4293bda1b55318cbaa7a89d95c7eff2d6d45b2784264da480c25d726f,,test,G0018,lines/test/SYN2-03958_00.png
+SYN2-03976_00,SYN2-03976,lines/train/SYN2-03976_00.png,bus_number,rendered,974,62801e896b57d257ca40f49a382bcadd6d375e67b699225222cf9a553e3241cf,,test,G0018,lines/test/SYN2-03976_00.png
+SYN2-03996_00,SYN2-03996,lines/train/SYN2-03996_00.png,bus_number,rendered,32,7aa6a9ddb6836600fcdda061e98807fc5a323778dfb9c4138060123689b2d9ab,,test,G0017,lines/test/SYN2-03996_00.png
+SYN2-04009_00,SYN2-04009,lines/train/SYN2-04009_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),2a391fb6cda13d28b27342fda3055c31d10678bd8728b617fe3258cbfb014c91,,test,G0047,lines/test/SYN2-04009_00.png
+SYN2-04024_00,SYN2-04024,lines/train/SYN2-04024_00.png,destination,rendered,Yishun Road,ea1ce6b1c54b525f9b8f3c0579c341c7e8f5a8807ab923f4342573d3cbfa1428,,test,G0066,lines/test/SYN2-04024_00.png
+SYN2-04063_00,SYN2-04063,lines/train/SYN2-04063_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),cbaaa584aba2f9860315b40890acec86af3a4908cdee2fe65387a0c08651d60f,,test,G0047,lines/test/SYN2-04063_00.png
+SYN2-04079_00,SYN2-04079,lines/train/SYN2-04079_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),0bda4c7c9ed740431c1d9d2a245b3424f36a065c5a4b15a4a1084b187fcba406,,test,G0047,lines/test/SYN2-04079_00.png
+SYN2-04084_00,SYN2-04084,lines/train/SYN2-04084_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),89a4f2e00cff1ed5b3445b61395457e3d948204c0b15f5eaa6019eda0acb6659,,test,G0047,lines/test/SYN2-04084_00.png
+SYN2-04102_00,SYN2-04102,lines/train/SYN2-04102_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),192be32e3c28fae2e294f27c96e0d5dd106d6cb7e1fc2b378cdc77d55466314e,,test,G0047,lines/test/SYN2-04102_00.png
+SYN2-04113_00,SYN2-04113,lines/train/SYN2-04113_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),6d16fe1e207c4ad21c574a737570885bd404cd00384ceb858a415700b4dd0030,,test,G0047,lines/test/SYN2-04113_00.png
+SYN2-04125_00,SYN2-04125,lines/train/SYN2-04125_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),53374746cee2042bca61768b32e0effb8b9303daf4d9faa01d77a6384a4c29f4,,test,G0047,lines/test/SYN2-04125_00.png
+SYN2-04146_00,SYN2-04146,lines/train/SYN2-04146_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),fe53c564b84757d6584158a9410b47fd945a9d5621d84c1f564eb27bf6142fe0,,test,G0047,lines/test/SYN2-04146_00.png
+SYN2-04174_00,SYN2-04174,lines/train/SYN2-04174_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),112cb0c9302ee57d82ff6594ec7b949a1e9985f4a0e5fba5db85952b66ea181a,,test,G0047,lines/test/SYN2-04174_00.png
+SYN2-04178_00,SYN2-04178,lines/train/SYN2-04178_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),6d723a0bc7bd9c50f38fcdd3ea5da4bfa44266aa43c32fac8f2c701e02550c4e,,test,G0047,lines/test/SYN2-04178_00.png
+SYN2-04237_00,SYN2-04237,lines/train/SYN2-04237_00.png,destination,rendered,Towner Road,18adf3a94daa7d49fe5e5f7a2f7b952ed8d89ccff693c16f9f86f81d0e6d2916,,test,G0101,lines/test/SYN2-04237_00.png
+SYN2-04266_00,SYN2-04266,lines/train/SYN2-04266_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),7d6aa22ddc310fdbb3ac6e27d2f4eeee562b991edccb2bc13f9700cd8d017fcd,,test,G0047,lines/test/SYN2-04266_00.png
+SYN2-04290_00,SYN2-04290,lines/train/SYN2-04290_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),1da5e0d23396847a68b637ed560b3a62f9162152877313abdddaef6d1cb13279,,test,G0047,lines/test/SYN2-04290_00.png
+SYN2-04294_00,SYN2-04294,lines/train/SYN2-04294_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),53a631434e12abbe48ea1395502fcbd05e511465dc013a8472a0fe6cf1538ad8,,test,G0047,lines/test/SYN2-04294_00.png
+SYN2-04311_00,SYN2-04311,lines/train/SYN2-04311_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),6fc223c26600e8209d11dcd964134d1413a177aeb928b9bd1dc523a866a64291,,test,G0047,lines/test/SYN2-04311_00.png
+SYN2-04312_00,SYN2-04312,lines/train/SYN2-04312_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),407e0031f8c54b24356d1d9fad69f44a9f4d8750e0f8a0e33b9726767451c394,,test,G0047,lines/test/SYN2-04312_00.png
+SYN2-04315_00,SYN2-04315,lines/train/SYN2-04315_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),bf2faf433a26ea1d6df20beab64d18f354289599b7c3e191d50d46e30870a3f6,,test,G0047,lines/test/SYN2-04315_00.png
+SYN2-04349_00,SYN2-04349,lines/train/SYN2-04349_00.png,destination,rendered,Yishun Road,8231db60d3914f8436c9f20885e5a2d78e6c4e1040071fcb1ecfcc4721a6a595,,test,G0066,lines/test/SYN2-04349_00.png
+SYN2-04363_00,SYN2-04363,lines/train/SYN2-04363_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),be82ecc83409884ab41ea302c9b27afcd3345da0cc330ae9ee5bd5c9f2b2626e,,test,G0047,lines/test/SYN2-04363_00.png
+SYN2-04366_00,SYN2-04366,lines/train/SYN2-04366_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),233ca464ef38d50814b091c2cb3ad1139db746528f778f602283624bc23aa577,,test,G0047,lines/test/SYN2-04366_00.png
+SYN2-04386_00,SYN2-04386,lines/train/SYN2-04386_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),eb74218ad2108d2af7c634ad0331a44c0c871ee0507cc53711056838d3fe6b47,,test,G0047,lines/test/SYN2-04386_00.png
+SYN2-04406_00,SYN2-04406,lines/train/SYN2-04406_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),9806fc806d4765c547e9659850785911a92f7aa4aeee5f145714e956f61292d3,,test,G0047,lines/test/SYN2-04406_00.png
+SYN2-04485_00,SYN2-04485,lines/train/SYN2-04485_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),449df5667946dcccf453c2bb6d09b2b73da48bf0be21e523893d18450b84a3de,,test,G0047,lines/test/SYN2-04485_00.png
+SYN2-04513_00,SYN2-04513,lines/train/SYN2-04513_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),33bed471bceed7c75bafbafb58d9a4ce4f655121d29f6cb0762f6b7a4a7fb939,,test,G0047,lines/test/SYN2-04513_00.png
+SYN2-04514_00,SYN2-04514,lines/train/SYN2-04514_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),1e33f29202fc0bcfa855af8dd88700327aac37d29a287bd5aedb961f9bafe942,,test,G0047,lines/test/SYN2-04514_00.png
+SYN2-04558_00,SYN2-04558,lines/train/SYN2-04558_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),3939f586163703b9890755a93cb4084cddfc185a6a723b8840163b5327211f3a,,test,G0047,lines/test/SYN2-04558_00.png
+SYN2-04588_00,SYN2-04588,lines/train/SYN2-04588_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),0aca997143af68b9e07eae3bf44007f76ca9432bf731d26f275e97734956ead6,,test,G0047,lines/test/SYN2-04588_00.png
+SYN2-04614_00,SYN2-04614,lines/train/SYN2-04614_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),0a05afc08691f971421757e8aaf84e1af5afb83aa12a2928d0257c2eccd058a8,,test,G0047,lines/test/SYN2-04614_00.png
+SYN2-04624_00,SYN2-04624,lines/train/SYN2-04624_00.png,destination,rendered,SIMS INT,478b37bd00bfba7f5d1b6537923da827e4b616ad2c5273985b6c7c632481ed30,,test,G0140,lines/test/SYN2-04624_00.png
+SYN2-04673_00,SYN2-04673,lines/train/SYN2-04673_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),c3f87bbc2a4962705012d6ef66164297b87e457b59a5f7a4585d2d933b990872,,test,G0047,lines/test/SYN2-04673_00.png
+SYN2-04676_00,SYN2-04676,lines/train/SYN2-04676_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),d86868866a0a76c47b84d476289f40f4421a93fbdb4bab2b658bfb981814aae1,,test,G0047,lines/test/SYN2-04676_00.png
+SYN2-04687_00,SYN2-04687,lines/train/SYN2-04687_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),9fc843117ff742e9fdca1cc23bd6ae93012135978caeec8d48758a5c254a3f3c,,test,G0047,lines/test/SYN2-04687_00.png
+SYN2-04723_00,SYN2-04723,lines/train/SYN2-04723_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),5414620bf3a9430dbf82fb164277c8cbadf9ff3896c6b2d809928ed6ae3d9d73,,test,G0047,lines/test/SYN2-04723_00.png
+SYN2-04813_00,SYN2-04813,lines/train/SYN2-04813_00.png,destination,rendered,SIMS INT,612287167dc25401859e492fcea54bd0e62970aa872b626fceac07961ea23da3,,test,G0140,lines/test/SYN2-04813_00.png
+SYN2-04870_00,SYN2-04870,lines/train/SYN2-04870_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),5a096b9a9a2f1513e2bb5b331839712df2581f582e72a26679b14e7bdd351757,,test,G0047,lines/test/SYN2-04870_00.png
+SYN2-04872_00,SYN2-04872,lines/train/SYN2-04872_00.png,destination,rendered,RIVERVALE INT,342aa9d384161db782f7e49f0a67c3a3b3eb3c7dd23f1627303f2425d490c775,,test,G0166,lines/test/SYN2-04872_00.png
+SYN2-04889_00,SYN2-04889,lines/train/SYN2-04889_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),7020f43332a46f3ad0bef2e9b2672984c6d8eacc0545501bf72d291ebbac704d,,test,G0047,lines/test/SYN2-04889_00.png
+SYN2-04895_00,SYN2-04895,lines/train/SYN2-04895_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),a55d8c58d4e42f2ad08f71671af800d48c5d3bf79d5a8fa7983ebb2e7908bee0,,test,G0047,lines/test/SYN2-04895_00.png
+SYN2-04896_00,SYN2-04896,lines/train/SYN2-04896_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),7a0d95db9c021bee574bf12e77a6e9721cbaeebaf4144572d53ab0f70b798ce5,,test,G0047,lines/test/SYN2-04896_00.png
+SYN2-04936_00,SYN2-04936,lines/train/SYN2-04936_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),9ee04bcc88f82347bc8c9c76df999795b77b092ff0cb9e7d4ceebeab68b89e10,,test,G0047,lines/test/SYN2-04936_00.png
+SYN2-04941_00,SYN2-04941,lines/train/SYN2-04941_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),853c5fc85cae1a71b5932a7b0f57bfc43267beede09c1659de74a5f2dc6c359f,,test,G0047,lines/test/SYN2-04941_00.png
+SYN2-04967_00,SYN2-04967,lines/train/SYN2-04967_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),4a59b93fd3ae921dd8641618c71df6667296c97c182b921368338e12a957d392,,test,G0047,lines/test/SYN2-04967_00.png
+SYN2-04971_00,SYN2-04971,lines/train/SYN2-04971_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),21af7b553faf6142bfe8b71e3041e46f172314516b89a0c953ff5a8ca12a8a78,,test,G0047,lines/test/SYN2-04971_00.png
+SYN2-04976_00,SYN2-04976,lines/train/SYN2-04976_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),c1dabbbf8396ab7246f3d350d457b2d63ab5c0e87812ad553d87dbef3759c49f,,test,G0047,lines/test/SYN2-04976_00.png
+SYN2-04979_00,SYN2-04979,lines/train/SYN2-04979_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),3e652ff4df630e441999e6d4d66cb38bab6037e4a41e1ee3d5e1f0ebacb5013e,,test,G0047,lines/test/SYN2-04979_00.png
+SYN2-05016_00,SYN2-05016,lines/train/SYN2-05016_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),eaaa07b8e116f593e293bc9a25e481641b85fb6f4724e10c79c8464ffa957846,,test,G0047,lines/test/SYN2-05016_00.png
+SYN2-05025_00,SYN2-05025,lines/train/SYN2-05025_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),731af9c1af61d84d7b732ac4f5336d5551a0ab2c6834e90b0c1c6ee871ec28b5,,test,G0047,lines/test/SYN2-05025_00.png
+SYN2-05066_00,SYN2-05066,lines/train/SYN2-05066_00.png,destination,rendered,RIVERVALE INT,a4c17a2806b36167345b9f176f712d413575bd64006c21f1b640ce5ffaf9f901,,test,G0166,lines/test/SYN2-05066_00.png
+SYN2-05124_00,SYN2-05124,lines/train/SYN2-05124_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),3f78afed734ab9232a27554c5681f4369d18d5c270ad39d888d05e03e8e53047,,test,G0047,lines/test/SYN2-05124_00.png
+SYN2-05144_00,SYN2-05144,lines/train/SYN2-05144_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),f7d7f8963af43e3655895acb8830c7aabb0732d403b050fc2d8574dcf8d374ab,,test,G0047,lines/test/SYN2-05144_00.png
+SYN2-05163_00,SYN2-05163,lines/train/SYN2-05163_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),ce17f8d2832572050600aaa789478eed8b6ee1ebba4dab49ad9937e6782ea4b1,,test,G0047,lines/test/SYN2-05163_00.png
+SYN2-05180_00,SYN2-05180,lines/train/SYN2-05180_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),e72460057e4ea4ae72287500267023728547432181880087b38f9ea79c58c4f1,,test,G0047,lines/test/SYN2-05180_00.png
+SYN2-05186_00,SYN2-05186,lines/train/SYN2-05186_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),14beab99483a985d9cd942ad0c5dfdce03212f18ce5be9b8d529bab9a6cb4042,,test,G0047,lines/test/SYN2-05186_00.png
+SYN2-05208_00,SYN2-05208,lines/train/SYN2-05208_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),f9d0f0c7c439971df760d9bbfe9253911c866a6f72e4f7584a993f1f97437ef6,,test,G0047,lines/test/SYN2-05208_00.png
+SYN2-05250_00,SYN2-05250,lines/train/SYN2-05250_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),95fea69f1c99f3a0e3b98a6812a30c2572c3ae69d6f362ea0b02801d7e7948ee,,test,G0047,lines/test/SYN2-05250_00.png
+SYN2-05252_00,SYN2-05252,lines/train/SYN2-05252_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),95c62df53ed0cf5a0da9f30f5dbfb1017fa5522c8c02ad47663776d390c81fa1,,test,G0047,lines/test/SYN2-05252_00.png
+SYN2-05284_00,SYN2-05284,lines/train/SYN2-05284_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),d37610c07722f1c289b526579033e3b80530d09424024db0fe7492903032c6c8,,test,G0047,lines/test/SYN2-05284_00.png
+SYN2-05302_00,SYN2-05302,lines/train/SYN2-05302_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),f70a4078166c09d9a62eba78f2595325cb9f33fb59541e909df43260fb61b11b,,test,G0047,lines/test/SYN2-05302_00.png
+SYN2-05335_00,SYN2-05335,lines/train/SYN2-05335_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),f59f152ecefaee9eb2e24d0bae1126960b73e2f3dd618d318a56c5006750a979,,test,G0047,lines/test/SYN2-05335_00.png
+SYN2-05342_00,SYN2-05342,lines/train/SYN2-05342_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),c12d499e899b4af44f1a4c0915b7a59b9a8ddca390c291131192062172eb1509,,test,G0047,lines/test/SYN2-05342_00.png
+SYN2-05366_00,SYN2-05366,lines/train/SYN2-05366_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),10c87a2be0d19512229103a10d08e646244e845e5fe13bf7e045d42f1f451063,,test,G0047,lines/test/SYN2-05366_00.png
+SYN2-05377_00,SYN2-05377,lines/train/SYN2-05377_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),f83a33cc1018e0c134f5354717477ef4fd7c65b27dd7ae9a9f33c21570c38fa1,,test,G0047,lines/test/SYN2-05377_00.png
+SYN2-05409_00,SYN2-05409,lines/train/SYN2-05409_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),a2bcf334d17fe360fffc1e2a0d074dbce1378219fff8c08eb4ca86b6b1239fa8,,test,G0047,lines/test/SYN2-05409_00.png
+SYN2-05456_00,SYN2-05456,lines/train/SYN2-05456_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),658c9830fa88435aef01ef55ddabb04e6a6756208ddea7d702e3dcce3555c3b2,,test,G0047,lines/test/SYN2-05456_00.png
+SYN2-05523_00,SYN2-05523,lines/train/SYN2-05523_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),8779d4b805a4b4aa43b65cd2532d7579e7e4a1bc4d18526a2b25d0e7ef3435f9,,test,G0047,lines/test/SYN2-05523_00.png
+SYN2-05538_00,SYN2-05538,lines/train/SYN2-05538_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),4f94999d6e40872dd823bace2215d2a450d1ce54a9a2e9c4df44d2899972bc58,,test,G0047,lines/test/SYN2-05538_00.png
+SYN2-05565_00,SYN2-05565,lines/train/SYN2-05565_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),b464a0710182ac9b661aa8990d9f2b4ea5a4bc97fec1ea777868e156f3d72836,,test,G0047,lines/test/SYN2-05565_00.png
+SYN2-05615_00,SYN2-05615,lines/train/SYN2-05615_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),06cab84c8d98df5a9347068d85800b0d84c6c2fd3f92af8b54816812041d6969,,test,G0047,lines/test/SYN2-05615_00.png
+SYN2-05635_00,SYN2-05635,lines/train/SYN2-05635_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),07ad32c965be7cf3c3c83f4d87750c1027e88e0c2ca08cca7900dc11934cc9d0,,test,G0047,lines/test/SYN2-05635_00.png
+SYN2-05656_00,SYN2-05656,lines/train/SYN2-05656_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),b1bbd3cc7a99f33a4c4444b418518087d33513988955ea045df2e6031bfce80d,,test,G0047,lines/test/SYN2-05656_00.png
+SYN2-05696_00,SYN2-05696,lines/train/SYN2-05696_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),0e5e5e765e45ef120a47e707661bc124de7085cbe94d391995dc94f3a21d5a6b,,test,G0047,lines/test/SYN2-05696_00.png
+SYN2-05699_00,SYN2-05699,lines/train/SYN2-05699_00.png,destination,rendered,VICTORIA DIRECT,c2616e4a67eb4e3813273e873a79064887b19f0110e9ee79f1cd464a4629a0e9,,test,G0230,lines/test/SYN2-05699_00.png
+SYN2-05713_00,SYN2-05713,lines/train/SYN2-05713_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),65fb4349a972b673c12b8a6ecb06df1b2c48fd427a69b3d64715742c2e4c0070,,test,G0047,lines/test/SYN2-05713_00.png
+SYN2-05729_00,SYN2-05729,lines/train/SYN2-05729_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),4bc7a1182edd42f18e7127e2c7a32ce7db9bded905ea8f1072375ff69b89dbd6,,test,G0047,lines/test/SYN2-05729_00.png
+SYN2-05734_00,SYN2-05734,lines/train/SYN2-05734_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),839e97c1d515a5d11981f643445ba406e0a858601fa08071148ac69678a578d4,,test,G0047,lines/test/SYN2-05734_00.png
+SYN2-05735_00,SYN2-05735,lines/train/SYN2-05735_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),fd299d5605a03df2f2dd8b62c5f08ad5e933d377d266ef4df095eace681ed9e7,,test,G0047,lines/test/SYN2-05735_00.png
+SYN2-05738_00,SYN2-05738,lines/train/SYN2-05738_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),f1f6476759331e9314786cf1d89cdfa2074d5fa86812387378fa94111236dc58,,test,G0047,lines/test/SYN2-05738_00.png
+SYN2-05743_00,SYN2-05743,lines/train/SYN2-05743_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),e3e481bbbb0a36b1380ab757fe4bdf6921c98bf2372276590134789ea63daefd,,test,G0047,lines/test/SYN2-05743_00.png
+SYN2-05757_00,SYN2-05757,lines/train/SYN2-05757_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),928f681e64d93ec7aa28f377652e9c4e199e9bd92366ce0a15692417b624b853,,test,G0047,lines/test/SYN2-05757_00.png
+SYN2-05789_00,SYN2-05789,lines/train/SYN2-05789_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),ca73e2ad88411c3d8f8cfd56ef150a0c46dba78479b0b11351e4ebbc0731a2b8,,test,G0047,lines/test/SYN2-05789_00.png
+SYN2-05794_00,SYN2-05794,lines/train/SYN2-05794_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),c5b2c2d5ef1ce7d49e0d4b2f29dff40f04f78152341b81c2e403b4c9e3e01cbe,,test,G0047,lines/test/SYN2-05794_00.png
+SYN2-05800_00,SYN2-05800,lines/train/SYN2-05800_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),57624a95e00e06adceaf9e2b3f9c68cf40ab028414470a5f36cd0f19596bc07a,,test,G0047,lines/test/SYN2-05800_00.png
+SYN2-05818_00,SYN2-05818,lines/train/SYN2-05818_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),280641acd78e8f01906d903e5f327c7ca138168adcb3076fafc2116038767382,,test,G0047,lines/test/SYN2-05818_00.png
+SYN2-05826_00,SYN2-05826,lines/train/SYN2-05826_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),f491ffb981897077b090aabb41d0e457e87028b4dcd4fd70ffc26a64a6c21a46,,test,G0047,lines/test/SYN2-05826_00.png
+SYN2-05909_00,SYN2-05909,lines/train/SYN2-05909_00.png,destination,rendered,Towner Road,e2c1fa7c9a1f8524abfa1a11ae8bf9ea37a8638092eeda0db8240c47b6f83c3a,,test,G0101,lines/test/SYN2-05909_00.png
+SYN2-05926_00,SYN2-05926,lines/train/SYN2-05926_00.png,destination,rendered,Yishun Road,b5e91c1591fa665bffa78f464afeb5dabd6f6ba8f1e8c4132af68f0b79d6c5ce,,test,G0066,lines/test/SYN2-05926_00.png
+SYN2-05935_00,SYN2-05935,lines/train/SYN2-05935_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),9a88c45f6dfee431cf919afa2457c3815fc490cad6eb3ccad7b65126d2f1f393,,test,G0047,lines/test/SYN2-05935_00.png
+SYN2-05951_00,SYN2-05951,lines/train/SYN2-05951_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),392c102a225244909888dd9c3ed8c798a3d511ae75ab9a6f2df4a757f9a5e2d7,,test,G0047,lines/test/SYN2-05951_00.png
+SYN2-05956_00,SYN2-05956,lines/train/SYN2-05956_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),33d7bf829ba4d8d789944d1b39c2d30d40ec41f5342b2da82e61a1d6a3cb2993,,test,G0047,lines/test/SYN2-05956_00.png
+SYN2-05973_00,SYN2-05973,lines/train/SYN2-05973_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),c5168bfc01d651d47c3dad782cccd0a9022d29b60e9a9a20df99b6d515c79ca1,,test,G0047,lines/test/SYN2-05973_00.png
+SYN2-05982_00,SYN2-05982,lines/train/SYN2-05982_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),86dea76f21ff02e0baec7c89d1d095f12d7be643569377631fdfd7272ae8dc33,,test,G0047,lines/test/SYN2-05982_00.png
+SYN2-05989_00,SYN2-05989,lines/train/SYN2-05989_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),6e6ec3ea29e71cf2b9b2debafea5eaec940e81b2d3413e14658abb2f4441acbd,,test,G0047,lines/test/SYN2-05989_00.png
+SYN2-05996_00,SYN2-05996,lines/train/SYN2-05996_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),9ad9fb95430484d42e93f61bbd87d6f90e5106ff40f248022456f60637536c10,,test,G0047,lines/test/SYN2-05996_00.png
+SYN2-06007_00,SYN2-06007,lines/train/SYN2-06007_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),915feb96ac5e2cdd2f0b0611bb64de10f6d5c2faa8795b6094e45f4788aa71af,,test,G0047,lines/test/SYN2-06007_00.png
+SYN2-06028_00,SYN2-06028,lines/train/SYN2-06028_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),2eea645fa3b45757de86e5c6d411a1543ffbe54538e58c264a6e2f2ff034fe14,,test,G0047,lines/test/SYN2-06028_00.png
+SYN2-06049_00,SYN2-06049,lines/train/SYN2-06049_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),6507d3243a00622d7c05ae0b1def876578c3adc73fdaa846743a456b9a388b17,,test,G0047,lines/test/SYN2-06049_00.png
+SYN2-06126_00,SYN2-06126,lines/train/SYN2-06126_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),a1bfb5a8cc7e91a3606fab210b8c5b5041e68df7c0d1263940dd3bb09c77bdee,,test,G0047,lines/test/SYN2-06126_00.png
+SYN2-06127_00,SYN2-06127,lines/train/SYN2-06127_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),5874761d2c27918fc69efdc23c352f21cbb8c368e135aee38710a72fd378e54f,,test,G0047,lines/test/SYN2-06127_00.png
+SYN2-06186_00,SYN2-06186,lines/train/SYN2-06186_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),24ca6679c6c52aaed07e51cbab9ed26d810af0f39ed65f9a7f5efb94d73861a9,,test,G0047,lines/test/SYN2-06186_00.png
+SYN2-06200_00,SYN2-06200,lines/train/SYN2-06200_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),e839357a23dc5f1fcfea515e1801fe0d69c0410289410adc2620c80e2ca9b26d,,test,G0047,lines/test/SYN2-06200_00.png
+SYN2-06211_00,SYN2-06211,lines/train/SYN2-06211_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),1687c49e054e44ec5391f6e311519deabdb3be9fd032271cd61abaafc46003a3,,test,G0047,lines/test/SYN2-06211_00.png
+SYN2-06239_00,SYN2-06239,lines/train/SYN2-06239_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),957fbdf5829aadee43548f32761f2c68a9385b4769da7cb484dbe7691e9df0ff,,test,G0047,lines/test/SYN2-06239_00.png
+SYN2-06281_00,SYN2-06281,lines/train/SYN2-06281_00.png,destination,rendered,RIVERVALE INT,070ce6a40be96d3aa24e0381117da3310fd0c416abb0db7c4f786b42cb10f75f,,test,G0166,lines/test/SYN2-06281_00.png
+SYN2-06315_00,SYN2-06315,lines/train/SYN2-06315_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),89a9e7f1dc833453a1aaa0362712affd3050260e5f7daa5f6397e328ac74276d,,test,G0047,lines/test/SYN2-06315_00.png
+SYN2-06363_00,SYN2-06363,lines/train/SYN2-06363_00.png,destination,rendered,VICTORIA DIRECT,7fac483d4e6cd74fd6d78bf39eb65db8ca2782c4243fdd883f386be872c2d8a0,,test,G0230,lines/test/SYN2-06363_00.png
+SYN2-06369_00,SYN2-06369,lines/train/SYN2-06369_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),caef7c871596b332c0f5779547fc24d7293f0067086e0208fdeac82303621ed5,,test,G0047,lines/test/SYN2-06369_00.png
+SYN2-06422_00,SYN2-06422,lines/train/SYN2-06422_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),fc3664bc041b648bed96e059023b092d8eb97480dfa766c2c6bfc178ce862f05,,test,G0047,lines/test/SYN2-06422_00.png
+SYN2-06426_00,SYN2-06426,lines/train/SYN2-06426_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),7f0a1ee9daf4c236fc8133a794d87d6c7291bf8c50a498686af9b1e63d13bfd4,,test,G0047,lines/test/SYN2-06426_00.png
+SYN2-06431_00,SYN2-06431,lines/train/SYN2-06431_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),f7cb641573e8b554329a6985dbe19fdb702443e08720d4be8619a2d46028fb8c,,test,G0047,lines/test/SYN2-06431_00.png
+SYN2-06447_00,SYN2-06447,lines/train/SYN2-06447_00.png,destination,rendered,VICTORIA DIRECT,15070faab38f88dfaabd811cc71d68c2238154b9a05e7e988b3c08a7b052ddc4,,test,G0230,lines/test/SYN2-06447_00.png
+SYN2-06448_00,SYN2-06448,lines/train/SYN2-06448_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),35394994a617000d2c98bc891977900c73500365acdcc0f69df892fd63828905,,test,G0047,lines/test/SYN2-06448_00.png
+SYN2-06449_00,SYN2-06449,lines/train/SYN2-06449_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),ead97feb72a30938a04fa6cdd8bfe2f41ced4a5235b14c3fe2c04514c5ec8ab3,,test,G0047,lines/test/SYN2-06449_00.png
+SYN2-06450_00,SYN2-06450,lines/train/SYN2-06450_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),8618baeb6b85015f32912dc743ca372fb3820caf6080afa252d45a5a16eebb5e,,test,G0047,lines/test/SYN2-06450_00.png
+SYN2-06536_00,SYN2-06536,lines/train/SYN2-06536_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),695ebb360c9ba31e16fc320438795bc237812b74cd7768e14f7b777bc544532c,,test,G0047,lines/test/SYN2-06536_00.png
+SYN2-06552_00,SYN2-06552,lines/train/SYN2-06552_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),ada1fd211671c0e5ad415a413ca7562c18bb7d3b3623f96a84135610b1560cc3,,test,G0047,lines/test/SYN2-06552_00.png
+SYN2-06570_00,SYN2-06570,lines/train/SYN2-06570_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),ee75f38b4cfd96801ba1bcb7b16ba6a7b033b8eb887b102122073c11221d1bf1,,test,G0047,lines/test/SYN2-06570_00.png
+SYN2-06610_00,SYN2-06610,lines/train/SYN2-06610_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),0f992afe150d287c03c5d9301f4c464dc87e06b9cd0da712d59caaeb5d203e21,,test,G0047,lines/test/SYN2-06610_00.png
+SYN2-06612_00,SYN2-06612,lines/train/SYN2-06612_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),b539981cf4505154900bae338f9d7c8c43742599edbaf0b7edff0fab8981f396,,test,G0047,lines/test/SYN2-06612_00.png
+SYN2-06663_00,SYN2-06663,lines/train/SYN2-06663_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),e5c7e513981caf88f0ed87c332807f7d2e268230ca8dbe2547bce87beb336373,,test,G0047,lines/test/SYN2-06663_00.png
+SYN2-06748_00,SYN2-06748,lines/train/SYN2-06748_00.png,destination,rendered,Towner Road,fd92e9ec016f766dba00f9228402dea04b730b4608484ae4c60fefc1619160b3,,test,G0101,lines/test/SYN2-06748_00.png
+SYN2-06777_00,SYN2-06777,lines/train/SYN2-06777_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),9984f50fcb47d062e6b3487310ebf7746f7e01d7201463684e2f50cdc45637ff,,test,G0047,lines/test/SYN2-06777_00.png
+SYN2-06779_00,SYN2-06779,lines/train/SYN2-06779_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),456cea0e8e856ed7f6869971db4ecf981892c9ebf70da64699c2beaefb289b47,,test,G0047,lines/test/SYN2-06779_00.png
+SYN2-06782_00,SYN2-06782,lines/train/SYN2-06782_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),8a9005b915104652ce1297f6977dad76646f64a363c74779e8749d537a69a1dc,,test,G0047,lines/test/SYN2-06782_00.png
+SYN2-06811_00,SYN2-06811,lines/train/SYN2-06811_00.png,destination,rendered,RIVERVALE INT,c3f4c738f517026f2e681eaf608fe0e24c11dae0fdae8cdbc3f03acbdf9f3c2c,,test,G0166,lines/test/SYN2-06811_00.png
+SYN2-06819_00,SYN2-06819,lines/train/SYN2-06819_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),6ed4fd80047e83458cf3cf9098cf20b419f6d97b43c9a9f81e25efff2ab50e34,,test,G0047,lines/test/SYN2-06819_00.png
+SYN2-06827_00,SYN2-06827,lines/train/SYN2-06827_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),b7ac9bcfddb9da98aaa60ac4daff8858f328d9d69b8e62d8488208de3ffaa50c,,test,G0047,lines/test/SYN2-06827_00.png
+SYN2-06841_00,SYN2-06841,lines/train/SYN2-06841_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),973e50add14a08f95cde802fa19146cb7249fd5a4835c89ccecb2ad3c39d55e2,,test,G0047,lines/test/SYN2-06841_00.png
+SYN2-06911_00,SYN2-06911,lines/train/SYN2-06911_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),8852596919ee0922f7177956d563ca97ca91b567d424d3f33451d34e44a22e90,,test,G0047,lines/test/SYN2-06911_00.png
+SYN2-06927_00,SYN2-06927,lines/train/SYN2-06927_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),fdea5da8a998b32d0639294a67a44d3c63c611c3142f9346139bbe429183b984,,test,G0047,lines/test/SYN2-06927_00.png
+SYN2-06942_00,SYN2-06942,lines/train/SYN2-06942_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),aa168d6125e91330fbb3e2842bab682e997f40e53f8fe0b89462e5201ab8c0c7,,test,G0047,lines/test/SYN2-06942_00.png
+SYN2-06986_00,SYN2-06986,lines/train/SYN2-06986_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),f3516316e56e09ae7ff6b38ec3d1e0b273093c4093b01fc6b1a7b09d3847539b,,test,G0047,lines/test/SYN2-06986_00.png
+SYN2-07028_00,SYN2-07028,lines/train/SYN2-07028_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),0dc2f1c8a22e02306e939c2b4f6da2179eded9a865d9398edb6bfaeb31c61aa9,,test,G0047,lines/test/SYN2-07028_00.png
+SYN2-07120_00,SYN2-07120,lines/train/SYN2-07120_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),c970c533f88c62d734a2b4525805185d855df516b21bdbc1593ab0fc1497b53d,,test,G0047,lines/test/SYN2-07120_00.png
+SYN2-07150_00,SYN2-07150,lines/train/SYN2-07150_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),a1a28dc9fd3e68201c139eca303b0d57b86ef8ccb06f28bd468004c1cb210449,,test,G0047,lines/test/SYN2-07150_00.png
+SYN2-07172_00,SYN2-07172,lines/train/SYN2-07172_00.png,destination,rendered,VICTORIA DIRECT,0e66e4f1c3747653665b40b2ac718a569a08574eb4197f1e7968b59f326538ad,,test,G0230,lines/test/SYN2-07172_00.png
+SYN2-07208_00,SYN2-07208,lines/train/SYN2-07208_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),e8571387df076298036afdbda807bffc4e3076d7527ee4c34f95ff52164c356a,,test,G0047,lines/test/SYN2-07208_00.png
+SYN2-07216_00,SYN2-07216,lines/train/SYN2-07216_00.png,destination,rendered,SIMS INT,5b292355e1a1e775dc36b9ee7b30af5bd3ad7844af9594e0e124242eb66d28b5,,test,G0140,lines/test/SYN2-07216_00.png
+SYN2-07219_00,SYN2-07219,lines/train/SYN2-07219_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),716c7e5fb47d0e43524ade1de4591e5edee9721f03fd140114212db4745c682f,,test,G0047,lines/test/SYN2-07219_00.png
+SYN2-07231_00,SYN2-07231,lines/train/SYN2-07231_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),97cfa1b0f4e7a05869a65adf9cfdca27665bfe8857cae6a79296806033f26773,,test,G0047,lines/test/SYN2-07231_00.png
+SYN2-07242_00,SYN2-07242,lines/train/SYN2-07242_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),ef007805bb8302b72c59387d212cb951bea5dce211fd1af6b647f0de8fce8734,,test,G0047,lines/test/SYN2-07242_00.png
+SYN2-07295_00,SYN2-07295,lines/train/SYN2-07295_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),f2201b7508ea9babbaaed4fd4be646801acdfc97d3acaccab0bb7234b82280ee,,test,G0047,lines/test/SYN2-07295_00.png
+SYN2-07297_00,SYN2-07297,lines/train/SYN2-07297_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),49c013be4cfe24ac8dcf2339fd2f8cca7792a30b83299853050fb8532b21138e,,test,G0047,lines/test/SYN2-07297_00.png
+SYN2-07318_00,SYN2-07318,lines/train/SYN2-07318_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),cf19b96e6c97e5d89bdb15de6bfe030788245731d384940ea7321cb643a90f39,,test,G0047,lines/test/SYN2-07318_00.png
+SYN2-07353_00,SYN2-07353,lines/train/SYN2-07353_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),78f4a078aea9a3a92c4e9b1d581d842189631be4dedc60de445f780601c04b83,,test,G0047,lines/test/SYN2-07353_00.png
+SYN2-07439_00,SYN2-07439,lines/train/SYN2-07439_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),91b71c9fa7a414ae44a2ee58adec0418b5fa6dc48428ef6dd99df96ec8fe4a8f,,test,G0047,lines/test/SYN2-07439_00.png
+SYN2-07517_00,SYN2-07517,lines/train/SYN2-07517_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),e0f78162baf2869caea8d6203bbdbb230841f889c9e63e6f2e1d46dd6e2848e6,,test,G0047,lines/test/SYN2-07517_00.png
+SYN2-07547_00,SYN2-07547,lines/train/SYN2-07547_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),9134bdc88f5327948506417441a298b85c521d115ad6c74422326ff468a84cd6,,test,G0047,lines/test/SYN2-07547_00.png
+SYN2-07592_00,SYN2-07592,lines/train/SYN2-07592_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),865c0b5e8362190c491f4144a73756f6d2fc92c699394b9f3b25709f0c1a3f60,,test,G0047,lines/test/SYN2-07592_00.png
+SYN2-07619_00,SYN2-07619,lines/train/SYN2-07619_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),71a456645f279c027e2af1428a9580d41a86a6a29c66a1adb204dddf4cf10f7b,,test,G0047,lines/test/SYN2-07619_00.png
+SYN2-07644_00,SYN2-07644,lines/train/SYN2-07644_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),9457948bf016c45a6bc384b2ed2a25349ac46b6639a19c8e7677679d010ec679,,test,G0047,lines/test/SYN2-07644_00.png
+SYN2-07664_00,SYN2-07664,lines/train/SYN2-07664_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),f102e82ff81a84647c0b7f5550f08287d3d255db23b570b2b87d553259f990ff,,test,G0047,lines/test/SYN2-07664_00.png
+SYN2-07683_00,SYN2-07683,lines/train/SYN2-07683_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),b030390c2da2f9e3ac07a09144789bc26dca2d29d73592c6c2013c35eb20e4fc,,test,G0047,lines/test/SYN2-07683_00.png
+SYN2-07698_00,SYN2-07698,lines/train/SYN2-07698_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),ce0e3c45c8525eaf396d96503c447ff91a50ef89d608e8b698a187a25cb569bf,,test,G0047,lines/test/SYN2-07698_00.png
+SYN2-07699_00,SYN2-07699,lines/train/SYN2-07699_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),2f5de228c49ffac60ab7a86b3224bf610759f9a8576d9cee192c40c731242757,,test,G0047,lines/test/SYN2-07699_00.png
+SYN2-07715_00,SYN2-07715,lines/train/SYN2-07715_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),af64bafd3a7b58006b3e2c25c589d52a3d94a2a458228b826cbe03c8ec18dd71,,test,G0047,lines/test/SYN2-07715_00.png
+SYN2-07754_00,SYN2-07754,lines/train/SYN2-07754_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),ea3b0c93ab0ba5fbb83af75dc30e90d951a68acaef1bab6cd4de0ae8efcf73ea,,test,G0047,lines/test/SYN2-07754_00.png
+SYN2-07794_00,SYN2-07794,lines/train/SYN2-07794_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),560ef1ea7f115f323874e06f9cfa72112f2ceb2201c06d11a7c1d548636ddc99,,test,G0047,lines/test/SYN2-07794_00.png
+SYN2-07813_00,SYN2-07813,lines/train/SYN2-07813_00.png,destination,rendered,Yishun Road,6b441cccc1385cccf2eec214f931eb2d7af712b13e76732c594178c88a3c143a,,test,G0066,lines/test/SYN2-07813_00.png
+SYN2-07842_00,SYN2-07842,lines/train/SYN2-07842_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),aaf251d2c54c8d4ddee6f0764a22a3129af3fafd923c3130970c5e7bcc9cbd9e,,test,G0047,lines/test/SYN2-07842_00.png
+SYN2-07843_00,SYN2-07843,lines/train/SYN2-07843_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),037a2f36ba6c1ef36baf631a9bf14819014838ecced97c8f06b50b2964c5ddcc,,test,G0047,lines/test/SYN2-07843_00.png
+SYN2-07845_00,SYN2-07845,lines/train/SYN2-07845_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),7156e6edbda74c3c684a6eaefc4309b4a2343ecb7c01f601dde38e9720a50555,,test,G0047,lines/test/SYN2-07845_00.png
+SYN2-07848_00,SYN2-07848,lines/train/SYN2-07848_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),d8b9e3e92cdec2ba6d1f3c9a16d14929918943efe3ade5ea426bd33830c62ba7,,test,G0047,lines/test/SYN2-07848_00.png
+SYN2-07866_00,SYN2-07866,lines/train/SYN2-07866_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),c34e0421cd4bcc757a38d308b804b7add8fdc4ad0fa05b58bda12811d103cd6d,,test,G0047,lines/test/SYN2-07866_00.png
+SYN2-07878_00,SYN2-07878,lines/train/SYN2-07878_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),0a2bcc536ddba09dda65042a1c5d2daca3a440159a292bfeba47ba69770f64cd,,test,G0047,lines/test/SYN2-07878_00.png
+SYN2-07897_00,SYN2-07897,lines/train/SYN2-07897_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),dc5d41e75c7995912f4ad64826960b10415926bb008f8bc4f0a7af5f97365b3a,,test,G0047,lines/test/SYN2-07897_00.png
+SYN2-07911_00,SYN2-07911,lines/train/SYN2-07911_00.png,destination,rendered,SIMS INT,c2b7e6aca07a31b256a7a2c7a0f998a46a003d3f7a3b66a7e10067ab7d2a1043,,test,G0140,lines/test/SYN2-07911_00.png
+SYN2-07934_00,SYN2-07934,lines/train/SYN2-07934_00.png,destination,rendered,> TOMLINSON CTRL INT,b50202dc6a70dc156405a7102a24f3e244fb4bd25cced4282b2a7dead0e097a1,,test,G0287,lines/test/SYN2-07934_00.png
+SYN2-07966_00,SYN2-07966,lines/train/SYN2-07966_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),e7488347b0f29c2b2c88fd536b463dd0ef2e0f3f345dbf2b95221d113a2ebf34,,test,G0047,lines/test/SYN2-07966_00.png
+SYN2-07981_00,SYN2-07981,lines/train/SYN2-07981_00.png,destination,rendered,> CHANGI AIRPORT (LOOP),8469c26b85409636c841ef5f224b06a22c3fe420f1daa5eea0aa9eaf192d2ec3,,test,G0047,lines/test/SYN2-07981_00.png
+SYN2-08026_00,SYN2-08026,lines/train/SYN2-08026_00.png,route_text,rendered,HOUGANG CENTRAL,ad827a28ba367d741511f49ef46975e952a5d9b31da105c08c41ff1e2c3a9cda,,test,G0047,lines/test/SYN2-08026_00.png
+SYN2-08045_00,SYN2-08045,lines/train/SYN2-08045_00.png,route_text,rendered,HOUGANG CENTRAL,87a51f69dfe3fda10ddbce77fd0181a6427f5ac93bf02942df58826fe95bc248,,test,G0047,lines/test/SYN2-08045_00.png
+SYN2-08046_00,SYN2-08046,lines/train/SYN2-08046_00.png,route_text,rendered,HOUGANG CENTRAL,9d9799897988a26eedd3b01c2ce8b530d74fe231a899a49ce375be3c8c5ee400,,test,G0047,lines/test/SYN2-08046_00.png
+SYN2-08072_00,SYN2-08072,lines/train/SYN2-08072_00.png,route_text,rendered,HOUGANG CENTRAL,a1b821d62c64a9ea73ac3497623d86da860038234c563b996120bb733e8faaf1,,test,G0047,lines/test/SYN2-08072_00.png
+SYN2-08090_00,SYN2-08090,lines/train/SYN2-08090_00.png,route_text,rendered,HOUGANG CENTRAL,12caaac1186334619ca4ac96dbaae990abb7b7e7504228879af7eec238c2e30e,,test,G0047,lines/test/SYN2-08090_00.png
+SYN2-08091_00,SYN2-08091,lines/train/SYN2-08091_00.png,route_text,rendered,HOUGANG CENTRAL,f39e33804528ca98a75b4c9c95109251664ec86a110a0f210567531f2d60f3df,,test,G0047,lines/test/SYN2-08091_00.png
+SYN2-08099_00,SYN2-08099,lines/train/SYN2-08099_00.png,route_text,rendered,HOUGANG CENTRAL,5e33b8fd037cdf0ef52d3ef1e24ba13ea6ea83b5b73b56f5300a1f61a3086f53,,test,G0047,lines/test/SYN2-08099_00.png
+SYN2-08104_00,SYN2-08104,lines/train/SYN2-08104_00.png,route_text,rendered,HOUGANG CENTRAL,5e034c710424c4d5444eceb2cab2f2885dcd23ebee1e54c83bb49deac3a7398c,,test,G0047,lines/test/SYN2-08104_00.png
+SYN2-08148_00,SYN2-08148,lines/train/SYN2-08148_00.png,route_text,rendered,HOUGANG CENTRAL,42b080fb1725a2774eb6c216839dd1e880fa1b9be3b2a7c08e628a7f9efdce16,,test,G0047,lines/test/SYN2-08148_00.png
+SYN2-08164_00,SYN2-08164,lines/train/SYN2-08164_00.png,route_text,rendered,HOUGANG CENTRAL,fab860bd6cb13d4539ff6e8726833af36d0e9df08e6778871fb3cfc2b1de8dbb,,test,G0047,lines/test/SYN2-08164_00.png
+SYN2-08181_00,SYN2-08181,lines/train/SYN2-08181_00.png,route_text,rendered,HOUGANG CENTRAL,769579fe8cac74ff99ca10657d26d5717f5c8263c2a75a3508d0e95065b21c4c,,test,G0047,lines/test/SYN2-08181_00.png
+SYN2-08183_00,SYN2-08183,lines/train/SYN2-08183_00.png,route_text,rendered,HOUGANG CENTRAL,b0a96dd2e4c5ec3810405d11d6ed51212cbbcc21d42b2f6eaf638fddc2268868,,test,G0047,lines/test/SYN2-08183_00.png
+SYN2-08187_00,SYN2-08187,lines/train/SYN2-08187_00.png,route_text,rendered,HOUGANG CENTRAL,313d95f3ac8892ef803e33ac84b53130a367ccf198dc85a09940f986d77c3df8,,test,G0047,lines/test/SYN2-08187_00.png
+SYN2-08206_00,SYN2-08206,lines/train/SYN2-08206_00.png,route_text,rendered,HOUGANG CENTRAL,4142ef3e56997182daed5d81639414738e4ab0278520caf604e1b85abed78c84,,test,G0047,lines/test/SYN2-08206_00.png
+SYN2-08278_00,SYN2-08278,lines/train/SYN2-08278_00.png,route_text,rendered,HOUGANG CENTRAL,dbcc964cfb298d7232c9adc312c3e6ef1e3674a9cc1a14d976a8bb9921858684,,test,G0047,lines/test/SYN2-08278_00.png
+SYN2-08284_00,SYN2-08284,lines/train/SYN2-08284_00.png,route_text,rendered,HOUGANG CENTRAL,a7c337a0046fc9fb6d42480308ff43d81dfc9a8ef01035f5d4aaf771fd0023f0,,test,G0047,lines/test/SYN2-08284_00.png
+SYN2-08319_00,SYN2-08319,lines/train/SYN2-08319_00.png,route_text,rendered,HOUGANG CENTRAL,31f133e4ac700173a75769c2d8b9e3a009b473445e07b7332c394a3a9d5c07e3,,test,G0047,lines/test/SYN2-08319_00.png
+SYN2-08329_00,SYN2-08329,lines/train/SYN2-08329_00.png,route_text,rendered,HOUGANG CENTRAL,5feab63896c55005e5e2a8da7ff4cc993872542140cd150c4c928fbdea5ed698,,test,G0047,lines/test/SYN2-08329_00.png
+SYN2-08340_00,SYN2-08340,lines/train/SYN2-08340_00.png,route_text,rendered,HOUGANG CENTRAL,05ba8797d2fe520892ac54d63b0ec6aca3fa170e594780973374f97482c12be7,,test,G0047,lines/test/SYN2-08340_00.png
+SYN2-08354_00,SYN2-08354,lines/train/SYN2-08354_00.png,route_text,rendered,HOUGANG CENTRAL,3f6e972b441e06111a6293c7a702981a0202988852cc9f72753a9690f6b27a7b,,test,G0047,lines/test/SYN2-08354_00.png
+SYN2-08363_00,SYN2-08363,lines/train/SYN2-08363_00.png,route_text,rendered,HOUGANG CENTRAL,7482033d23d41f473406bc743632d2f9260df43e80dca37f32b1f25cb07925e8,,test,G0047,lines/test/SYN2-08363_00.png
+SYN2-08372_00,SYN2-08372,lines/train/SYN2-08372_00.png,route_text,rendered,HOUGANG CENTRAL,f8343f575698ac31720f43f3b56c11da52ea098615b28b327188374574b50fb3,,test,G0047,lines/test/SYN2-08372_00.png
+SYN2-08374_00,SYN2-08374,lines/train/SYN2-08374_00.png,route_text,rendered,HOUGANG CENTRAL,90a71dab8119d1e4ccd04a83065afa8e5ffdeb438fbadb198eff3b50f0bd88c5,,test,G0047,lines/test/SYN2-08374_00.png
+SYN2-08420_00,SYN2-08420,lines/train/SYN2-08420_00.png,route_text,rendered,HOUGANG CENTRAL,d0f404b4d5b873ee5f5d4877078aec1eb52408ad99a94517f8f9148d7aa94c4c,,test,G0047,lines/test/SYN2-08420_00.png
+SYN2-08424_00,SYN2-08424,lines/train/SYN2-08424_00.png,route_text,rendered,HOUGANG CENTRAL,3abb2b6d7e010a8de0f73199ac3e8d048b9f691dc7ab02def882965a80215112,,test,G0047,lines/test/SYN2-08424_00.png
+SYN2-08436_00,SYN2-08436,lines/train/SYN2-08436_00.png,route_text,rendered,HOUGANG CENTRAL,cc85aa85b1619d0259a626ad88604c55de8f2f71cf72e8ad4478ceb653f2e58a,,test,G0047,lines/test/SYN2-08436_00.png
+SYN2-08471_00,SYN2-08471,lines/train/SYN2-08471_00.png,route_text,rendered,HOUGANG CENTRAL,60b99e26b2f189ca92a37401ec8abf16bb19499da9f94912023318f722fdb9bc,,test,G0047,lines/test/SYN2-08471_00.png
+SYN2-08494_00,SYN2-08494,lines/train/SYN2-08494_00.png,route_text,rendered,HOUGANG CENTRAL,44277ed2e151d2a7ddc9d3e74789c510aaea12a0998b5aabed4ff1966e73241d,,test,G0047,lines/test/SYN2-08494_00.png
+SYN2-08548_00,SYN2-08548,lines/train/SYN2-08548_00.png,route_text,rendered,HOUGANG CENTRAL,aeca3a7db6f2d17ba66b773c1feef01418abc6d798a2df7ae6384b4d9dee664c,,test,G0047,lines/test/SYN2-08548_00.png
+SYN2-08561_00,SYN2-08561,lines/train/SYN2-08561_00.png,route_text,rendered,HOUGANG CENTRAL,ec037f797ef163b7ce74dbdaf856ace46115cf3399ad6c6bf23781a67456a51e,,test,G0047,lines/test/SYN2-08561_00.png
+SYN2-08574_00,SYN2-08574,lines/train/SYN2-08574_00.png,route_text,rendered,HOUGANG CENTRAL,c6c502d8c8316cdb2a0dab71b526d2108f55c5c150cf0b5e5d2725648660a9fe,,test,G0047,lines/test/SYN2-08574_00.png
+SYN2-08592_00,SYN2-08592,lines/train/SYN2-08592_00.png,route_text,rendered,HOUGANG CENTRAL,7a65551efddced496e2957869c17d43be3d920a44531518cefb651ea13d63304,,test,G0047,lines/test/SYN2-08592_00.png
+SYN2-08611_00,SYN2-08611,lines/train/SYN2-08611_00.png,route_text,rendered,HOUGANG CENTRAL,66eeaf20ac76cb6fafe514b58c28cf77f98062c076b915db6dbe1e3259d74e1a,,test,G0047,lines/test/SYN2-08611_00.png
+SYN2-08632_00,SYN2-08632,lines/train/SYN2-08632_00.png,route_text,rendered,HOUGANG CENTRAL,f8f98a6901b64ecf8c53ed1e744fc1e62c8a9cbd03cf4eaa0ed2eaaa44820906,,test,G0047,lines/test/SYN2-08632_00.png
+SYN2-08659_00,SYN2-08659,lines/train/SYN2-08659_00.png,route_text,rendered,HOUGANG CENTRAL,4956de2510f559f826982b15940353db49e93aed93e9000e4aa94cfed2a07a32,,test,G0047,lines/test/SYN2-08659_00.png
+SYN2-08670_00,SYN2-08670,lines/train/SYN2-08670_00.png,route_text,rendered,HOUGANG CENTRAL,3ff5cb6cd2dfebf18ac08d9bb5c8141a4d6fc89f8e730ab10f0cfc5319dd928e,,test,G0047,lines/test/SYN2-08670_00.png
+SYN2-08671_00,SYN2-08671,lines/train/SYN2-08671_00.png,route_text,rendered,HOUGANG CENTRAL,73fbc3c11c75ab8ef33b68ea94bead67ee91297bcd68bd18e2ae137d3edb575b,,test,G0047,lines/test/SYN2-08671_00.png
+SYN2-08675_00,SYN2-08675,lines/train/SYN2-08675_00.png,route_text,rendered,HOUGANG CENTRAL,e4545e67bc505f335cae8d24dcd7e1dbe963147e6175ae365ee8cad146016713,,test,G0047,lines/test/SYN2-08675_00.png
+SYN2-08716_00,SYN2-08716,lines/train/SYN2-08716_00.png,route_text,rendered,HOUGANG CENTRAL,4c2e67b8309c4c49f7ec553cdc6c1f5b9673cbf585444a84fd616faa5ba731f6,,test,G0047,lines/test/SYN2-08716_00.png
+SYN2-08720_00,SYN2-08720,lines/train/SYN2-08720_00.png,route_text,rendered,HOUGANG CENTRAL,59761e545db7eabee6a2e7c6c578edb25a9a90a9327538a3907371aeef593c77,,test,G0047,lines/test/SYN2-08720_00.png
+SYN2-08723_00,SYN2-08723,lines/train/SYN2-08723_00.png,route_text,rendered,HOUGANG CENTRAL,517e30d8db59c42c1f2ab85922426149a4a765821cad4d9e0d61c3afba66ed2e,,test,G0047,lines/test/SYN2-08723_00.png
+SYN2-08747_00,SYN2-08747,lines/train/SYN2-08747_00.png,route_text,rendered,HOUGANG CENTRAL,56274ee6c8da2168a70a1ece8788615dfdeca266fa8ad1c96c5f25d4e3766390,,test,G0047,lines/test/SYN2-08747_00.png
+SYN2-08791_00,SYN2-08791,lines/train/SYN2-08791_00.png,route_text,rendered,HOUGANG CENTRAL,76850dfbe82ca71f9702ad57a86bcb14277d1619b140a3ea3e4fa6bf861ac884,,test,G0047,lines/test/SYN2-08791_00.png
+SYN2-08809_00,SYN2-08809,lines/train/SYN2-08809_00.png,route_text,rendered,HOUGANG CENTRAL,e66c72896ede0a7d08d9e55e4dc628d17f1fd3df6253ab1b123abaa0fdb1698c,,test,G0047,lines/test/SYN2-08809_00.png
+SYN2-08811_00,SYN2-08811,lines/train/SYN2-08811_00.png,route_text,rendered,HOUGANG CENTRAL,8e9099d048dc0e2fdfb721e436df9f284155be1a6894ce02eb7e50244108a21f,,test,G0047,lines/test/SYN2-08811_00.png
+SYN2-08819_00,SYN2-08819,lines/train/SYN2-08819_00.png,route_text,rendered,HOUGANG CENTRAL,cb83b1e5040a8d84d6da5e086c0c3e22485bd667cdf910cd7c86fdeec8fbf98d,,test,G0047,lines/test/SYN2-08819_00.png
+SYN2-08827_00,SYN2-08827,lines/train/SYN2-08827_00.png,route_text,rendered,HOUGANG CENTRAL,7931ceaa2f7ab71dcd705ed07f350a598234e0c8b98754ce7a00ce14c4979fb3,,test,G0047,lines/test/SYN2-08827_00.png
+SYN2-08831_00,SYN2-08831,lines/train/SYN2-08831_00.png,route_text,rendered,HOUGANG CENTRAL,708fb210ba5359be47e67eb23905b293549b1ab0d023533a269fc67e669887d6,,test,G0047,lines/test/SYN2-08831_00.png
+SYN2-08852_00,SYN2-08852,lines/train/SYN2-08852_00.png,route_text,rendered,HOUGANG CENTRAL,82431be1921ccf169c909c8ef06e262fc0cc209a5f8bb26aa62ab710670a430c,,test,G0047,lines/test/SYN2-08852_00.png
+SYN2-08881_00,SYN2-08881,lines/train/SYN2-08881_00.png,route_text,rendered,HOUGANG CENTRAL,b8637225d4ecbdd1557f899b529195830d99aa11e866941e5f2ccf78d2aec371,,test,G0047,lines/test/SYN2-08881_00.png
+SYN2-08891_00,SYN2-08891,lines/train/SYN2-08891_00.png,route_text,rendered,HOUGANG CENTRAL,092d6307e936d17910ebed6f758489f56abf6d6bc79d40bee32c1366f1dc67b5,,test,G0047,lines/test/SYN2-08891_00.png
+SYN2-08899_00,SYN2-08899,lines/train/SYN2-08899_00.png,route_text,rendered,HOUGANG CENTRAL,694d91e316bd108797717281d433863a1a1c5185143cf5982787fa5194e0e247,,test,G0047,lines/test/SYN2-08899_00.png
+SYN2-09028_00,SYN2-09028,lines/train/SYN2-09028_00.png,route_text,rendered,HOUGANG CENTRAL,a32c94a76527ac61016052b4e4bc982da8581c03ddd8fafe5298b0355d91de2d,,test,G0047,lines/test/SYN2-09028_00.png
+SYN2-09052_00,SYN2-09052,lines/train/SYN2-09052_00.png,route_text,rendered,HOUGANG CENTRAL,01df7d16f60707fc89b8faa508f89492ad8039fc323308e553b2fb5280c34fee,,test,G0047,lines/test/SYN2-09052_00.png
+SYN2-09053_00,SYN2-09053,lines/train/SYN2-09053_00.png,route_text,rendered,HOUGANG CENTRAL,ca98cf0c30a12e7d9031227e22523b7914a64f67b5c992b4a35bc1e4c6084b8f,,test,G0047,lines/test/SYN2-09053_00.png
+SYN2-09066_00,SYN2-09066,lines/train/SYN2-09066_00.png,route_text,rendered,HOUGANG CENTRAL,4d3232a426c3d8d7ce71c501dab18ce69f7df7fa557b822289d844adabfcfd6a,,test,G0047,lines/test/SYN2-09066_00.png
+SYN2-09111_00,SYN2-09111,lines/train/SYN2-09111_00.png,route_text,rendered,HOUGANG CENTRAL,171467f778fd64cfbd9b0b433b8307a57d8e227683d39ed9a0e662db7406ab6c,,test,G0047,lines/test/SYN2-09111_00.png
+SYN2-09116_00,SYN2-09116,lines/train/SYN2-09116_00.png,route_text,rendered,HOUGANG CENTRAL,e6426f38635df3976c0d457a9b312b009c5a96439668381e566034c36e20b08f,,test,G0047,lines/test/SYN2-09116_00.png
+SYN2-09119_00,SYN2-09119,lines/train/SYN2-09119_00.png,route_text,rendered,HOUGANG CENTRAL,3cb16cef54c985031c5d5e054c9eba95af9c696f8e60b28de213ec97941cbb21,,test,G0047,lines/test/SYN2-09119_00.png
+SYN2-09120_00,SYN2-09120,lines/train/SYN2-09120_00.png,route_text,rendered,HOUGANG CENTRAL,d2b23f238e347e7f5b2da5d30528526b0ac130fcef827813ff8374525dc2d678,,test,G0047,lines/test/SYN2-09120_00.png
+SYN2-09122_00,SYN2-09122,lines/train/SYN2-09122_00.png,route_text,rendered,HOUGANG CENTRAL,5ea7babf3c10226067b01f35cfd66cf926ef624ce53c1c04a5996c98ca27a83c,,test,G0047,lines/test/SYN2-09122_00.png
+SYN2-09130_00,SYN2-09130,lines/train/SYN2-09130_00.png,route_text,rendered,HOUGANG CENTRAL,30e1c520a511bb78eae7e7194b2879ee9a0e6e75120468d7099cfa5a80250522,,test,G0047,lines/test/SYN2-09130_00.png
+SYN2-09142_00,SYN2-09142,lines/train/SYN2-09142_00.png,route_text,rendered,HOUGANG CENTRAL,131d3badc0f7258a7594ae1b66f5b532c193ab515f786ae35c2169ef1fc41cc6,,test,G0047,lines/test/SYN2-09142_00.png
+SYN2-09145_00,SYN2-09145,lines/train/SYN2-09145_00.png,route_text,rendered,HOUGANG CENTRAL,27718dd7114b8d90d11fbf93ae2e5578f0517d210d5d1e182fc57630e3986108,,test,G0047,lines/test/SYN2-09145_00.png
+SYN2-09153_00,SYN2-09153,lines/train/SYN2-09153_00.png,route_text,rendered,HOUGANG CENTRAL,15c2bc4766b109106dab5bb870e119fe1a5ae8793435d2d9930a5cb6fa714485,,test,G0047,lines/test/SYN2-09153_00.png
+SYN2-09155_00,SYN2-09155,lines/train/SYN2-09155_00.png,route_text,rendered,HOUGANG CENTRAL,b50bfe8c36b863bac0dd9a3e07c7a3b961b970a55f5f60c69bed02c4a9db74f6,,test,G0047,lines/test/SYN2-09155_00.png
+SYN2-09172_00,SYN2-09172,lines/train/SYN2-09172_00.png,route_text,rendered,HOUGANG CENTRAL,4bcd7810d4bb557a1698598a78043b823904c11f6544e3c848c6df1caac2b945,,test,G0047,lines/test/SYN2-09172_00.png
+SYN2-09178_00,SYN2-09178,lines/train/SYN2-09178_00.png,route_text,rendered,HOUGANG CENTRAL,7c9f1673c0decc7ec906b506bde0ea9654bd051dab5bc8c79ad52078613658b1,,test,G0047,lines/test/SYN2-09178_00.png
+SYN2-09183_00,SYN2-09183,lines/train/SYN2-09183_00.png,route_text,rendered,HOUGANG CENTRAL,d4a2df3385502cd357be4c51702dfb27f3af2d6dd315989aca5fb3f5071015b7,,test,G0047,lines/test/SYN2-09183_00.png
+SYN2-09218_00,SYN2-09218,lines/train/SYN2-09218_00.png,route_text,rendered,HOUGANG CENTRAL,26d1610bbb54f28abcb5ae73ad6e1ca47b331e0c261ad9a3c867dccb3c6d975d,,test,G0047,lines/test/SYN2-09218_00.png
+SYN2-09256_00,SYN2-09256,lines/train/SYN2-09256_00.png,route_text,rendered,HOUGANG CENTRAL,a4c32ddab930b37d7238b63977c8dc87c9f388e0975a3693c9ad7c1c52ada76a,,test,G0047,lines/test/SYN2-09256_00.png
+SYN2-09277_00,SYN2-09277,lines/train/SYN2-09277_00.png,route_text,rendered,HOUGANG CENTRAL,e777fbb25319c77cb864e7a1a9c846efa1a257a5a1163057bec41ec648c0a458,,test,G0047,lines/test/SYN2-09277_00.png
+SYN2-09278_00,SYN2-09278,lines/train/SYN2-09278_00.png,route_text,rendered,HOUGANG CENTRAL,d1b1b7259f94afc4cf9975383a5595d8643ff2452754040f5390196753349c00,,test,G0047,lines/test/SYN2-09278_00.png
+SYN2-09280_00,SYN2-09280,lines/train/SYN2-09280_00.png,route_text,rendered,HOUGANG CENTRAL,11c9d5886c7329fc09fcb95bf18c4670512acf58d5f2d37b793e6d8447120106,,test,G0047,lines/test/SYN2-09280_00.png
+SYN2-09317_00,SYN2-09317,lines/train/SYN2-09317_00.png,route_text,rendered,HOUGANG CENTRAL,3b64aea480f59be002f4723ba32a39ccdc6adb76ea365ae0a59fd56f6d56fe9b,,test,G0047,lines/test/SYN2-09317_00.png
+SYN2-09319_00,SYN2-09319,lines/train/SYN2-09319_00.png,route_text,rendered,HOUGANG CENTRAL,96e6cb00efac9e6690e473438ecd1e89daa6415d17673c9280f8f59ac5baa265,,test,G0047,lines/test/SYN2-09319_00.png
+SYN2-09342_00,SYN2-09342,lines/train/SYN2-09342_00.png,route_text,rendered,HOUGANG CENTRAL,bd833c01ac98cd1133c9f4a42003093f972fe1c8cdc947d9f6a645b5cd6ccc74,,test,G0047,lines/test/SYN2-09342_00.png
+SYN2-09348_00,SYN2-09348,lines/train/SYN2-09348_00.png,route_text,rendered,HOUGANG CENTRAL,5394910a88f29d1caad22783d1a687b1a3112e45bdfd0fc3fae11e7f1dc70409,,test,G0047,lines/test/SYN2-09348_00.png
+SYN2-09376_00,SYN2-09376,lines/train/SYN2-09376_00.png,route_text,rendered,HOUGANG CENTRAL,585c1dc16b3298cd2edf161f1f3f9dbc7200c98fedeeb242ebfbe9a5ffb89fec,,test,G0047,lines/test/SYN2-09376_00.png
+SYN2-09379_00,SYN2-09379,lines/train/SYN2-09379_00.png,route_text,rendered,HOUGANG CENTRAL,152ab507f8a47ba552b474117c8405e7b0c83ddf77af9c63ef0eb1d0c35a0af1,,test,G0047,lines/test/SYN2-09379_00.png
+SYN2-09402_00,SYN2-09402,lines/train/SYN2-09402_00.png,route_text,rendered,HOUGANG CENTRAL,b9a8ec7929b6cd8c64f4da01824d6c59a2c5efa9747eb74947c43a110b6519da,,test,G0047,lines/test/SYN2-09402_00.png
+SYN2-09406_00,SYN2-09406,lines/train/SYN2-09406_00.png,route_text,rendered,HOUGANG CENTRAL,e6d3977336ef63d9bbdad1f7a8229ed9c2b4b669ed8477979c2489e20fbed182,,test,G0047,lines/test/SYN2-09406_00.png
+SYN2-09413_00,SYN2-09413,lines/train/SYN2-09413_00.png,route_text,rendered,HOUGANG CENTRAL,f0bd75918a86c596a96575b2265b6e424fa285a59440f439f0f134135b515d99,,test,G0047,lines/test/SYN2-09413_00.png
+SYN2-09416_00,SYN2-09416,lines/train/SYN2-09416_00.png,route_text,rendered,HOUGANG CENTRAL,d19e70a39565f2af80d7dd517dd221d2e271076c65e96f591a76eac1cff7c7d9,,test,G0047,lines/test/SYN2-09416_00.png
+SYN2-09447_00,SYN2-09447,lines/train/SYN2-09447_00.png,route_text,rendered,HOUGANG CENTRAL,4c334d8ed4f50a2170b0877172096db34f40c35c2440ad61160186da983242a8,,test,G0047,lines/test/SYN2-09447_00.png
+SYN2-09473_00,SYN2-09473,lines/train/SYN2-09473_00.png,route_text,rendered,HOUGANG CENTRAL,d20841eb1bb38d92a325bc562def1bfaa09ef78de7a1fbb993d4da030339012f,,test,G0047,lines/test/SYN2-09473_00.png
+SYN2-09479_00,SYN2-09479,lines/train/SYN2-09479_00.png,route_text,rendered,HOUGANG CENTRAL,5b87daf3da08285e960812155f767cf6e4326085c35f2f113f3b40f6cb60125f,,test,G0047,lines/test/SYN2-09479_00.png
+SYN2-09489_00,SYN2-09489,lines/train/SYN2-09489_00.png,route_text,rendered,HOUGANG CENTRAL,af9f48c7eecf8ee562863b62d14a9eea793fabd0a829d3b6d6d2327b4cc34f3f,,test,G0047,lines/test/SYN2-09489_00.png
+SYN2-09501_00,SYN2-09501,lines/train/SYN2-09501_00.png,route_text,rendered,HOUGANG CENTRAL,2faa145df8e5eb600afcad5ea0f70ad273fa3c2bb6dd1c001fdd79d9cf0e1476,,test,G0047,lines/test/SYN2-09501_00.png
+SYN2-09579_00,SYN2-09579,lines/train/SYN2-09579_00.png,route_text,rendered,HOUGANG CENTRAL,f746cbb304224c2c1e9701e90d284e9c8072d5dec62d2aca1f16cdb17bd42602,,test,G0047,lines/test/SYN2-09579_00.png
+SYN2-09625_00,SYN2-09625,lines/train/SYN2-09625_00.png,route_text,rendered,HOUGANG CENTRAL,fd66e5ef0ae05f7efe053c00af4a92acf2e856d902dfde1e464c8e555e614e72,,test,G0047,lines/test/SYN2-09625_00.png
+SYN2-09641_00,SYN2-09641,lines/train/SYN2-09641_00.png,route_text,rendered,HOUGANG CENTRAL,b18290bc5644d31ca13c3ddd3b7a8dac3c4157490aa9cd13435c258acb694402,,test,G0047,lines/test/SYN2-09641_00.png
+SYN2-09676_00,SYN2-09676,lines/train/SYN2-09676_00.png,route_text,rendered,HOUGANG CENTRAL,4d27e9bbf6c88b7c96d9bb86a56828fa1d9a274f49d4c2a1abff0688d83acce5,,test,G0047,lines/test/SYN2-09676_00.png
+SYN2-09686_00,SYN2-09686,lines/train/SYN2-09686_00.png,route_text,rendered,HOUGANG CENTRAL,c6676eb0f7b26d0f7d646ef7a66e542f8cbf01d1adc20ecc876355bf305b37eb,,test,G0047,lines/test/SYN2-09686_00.png
+SYN2-09689_00,SYN2-09689,lines/train/SYN2-09689_00.png,route_text,rendered,HOUGANG CENTRAL,f73d6a0ac6edfef7de410ab099e41ed858b737cdc3db99a5cd9207d3c9852ad8,,test,G0047,lines/test/SYN2-09689_00.png
+SYN2-09690_00,SYN2-09690,lines/train/SYN2-09690_00.png,route_text,rendered,HOUGANG CENTRAL,dbeb2e2b765821a0f05497bd2dfeeb005bac3aa3408a06df2e03b8ede6593338,,test,G0047,lines/test/SYN2-09690_00.png
+SYN2-09723_00,SYN2-09723,lines/train/SYN2-09723_00.png,route_text,rendered,HOUGANG CENTRAL,43fabb7f6091b7b6d0d555122a094748adaab55fc6fedb90abd021719a2c9b8a,,test,G0047,lines/test/SYN2-09723_00.png
+SYN2-09737_00,SYN2-09737,lines/train/SYN2-09737_00.png,route_text,rendered,HOUGANG CENTRAL,6d85847b4bc2e7115dff01b729b56cdcb24ae5fe77d7b872bebd4989ec2557c9,,test,G0047,lines/test/SYN2-09737_00.png
+SYN2-09742_00,SYN2-09742,lines/train/SYN2-09742_00.png,route_text,rendered,HOUGANG CENTRAL,f4afdfc9e26ff29186ca7e8863a5998ac56474ccaf09e148ddbaca12ef1de1a8,,test,G0047,lines/test/SYN2-09742_00.png
+SYN2-09771_00,SYN2-09771,lines/train/SYN2-09771_00.png,route_text,rendered,HOUGANG CENTRAL,b054eaf4ecdc4d9230cf3b660e484834d3b3a027141d738e4d5c4bfaf8dc0455,,test,G0047,lines/test/SYN2-09771_00.png
+SYN2-09812_00,SYN2-09812,lines/train/SYN2-09812_00.png,route_text,rendered,HOUGANG CENTRAL,598c6310425387193a2b6f9e0a874fc9286ee9be95dd90bcae2a077edd0e41f3,,test,G0047,lines/test/SYN2-09812_00.png
+SYN2-09944_00,SYN2-09944,lines/train/SYN2-09944_00.png,route_text,rendered,HOUGANG CENTRAL,72ca264add16a8ad34f729f6906d009b04440cc072a54e14c08db0ae30a79713,,test,G0047,lines/test/SYN2-09944_00.png
+SYN2-09962_00,SYN2-09962,lines/train/SYN2-09962_00.png,route_text,rendered,HOUGANG CENTRAL,42d07eac8ab0f0c09da32c2809161485da38b3f2628607966ed6874ebf3d614a,,test,G0047,lines/test/SYN2-09962_00.png
+SYN2-09970_00,SYN2-09970,lines/train/SYN2-09970_00.png,route_text,rendered,HOUGANG CENTRAL,6d12d24d3e7ec16aee553a6b93904ab265080e2c23ee446cfac7d5656694bf6c,,test,G0047,lines/test/SYN2-09970_00.png
+SYN2-09976_00,SYN2-09976,lines/train/SYN2-09976_00.png,route_text,rendered,HOUGANG CENTRAL,b666633b3418acd041f8537cdff70c73b4ea8461317443eda89668376a6990b1,,test,G0047,lines/test/SYN2-09976_00.png
+SYN2-09988_00,SYN2-09988,lines/train/SYN2-09988_00.png,route_text,rendered,HOUGANG CENTRAL,6f9d22ce00e691b64716905bcb6cfba13713e15b01b6ab4a030da9543e5751b8,,test,G0047,lines/test/SYN2-09988_00.png
+SYN2-09999_00,SYN2-09999,lines/train/SYN2-09999_00.png,route_text,rendered,HOUGANG CENTRAL,e54b73c20fa32f3866802f7a8a87f3bd44d4fb5773c795b263e47910abde3f7f,,test,G0047,lines/test/SYN2-09999_00.png

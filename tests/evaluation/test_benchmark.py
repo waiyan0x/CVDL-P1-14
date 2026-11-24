@@ -17,7 +17,7 @@ class ComparisonFixture:
     def models(self):
         return {"detector": {"id": "detector", "artifact_files": self.artifacts},
                 "ocr_engines": [{"id": engine, "available": engine != "trocr", "artifact_files": self.artifacts}
-                                for engine in ("easyocr", "tesseract", "trocr")], "runtime_hardware": {"machine": "test"}}
+                                for engine in ("easyocr", "paddleocr", "trocr")], "runtime_hardware": {"machine": "test"}}
 
     def compare(self, path, options):
         self.calls = getattr(self, "calls", 0) + 1
@@ -26,7 +26,7 @@ class ComparisonFixture:
              "result": {"results": [{"screen": {"box": [0, 0, 50, 20]},
                                      "fields": {"bus_number": {"raw": "3"}}}],
                         "timings": {"total_ms": 8, "ocr_ms": 5}}},
-            {"backend": "tesseract", "status": "error", "result": None, "error": "OCR failed"},
+            {"backend": "paddleocr", "status": "error", "result": None, "error": "OCR failed"},
             {"backend": "trocr", "status": "unavailable", "result": None, "error": "Missing weights"}]}
 
 
@@ -44,8 +44,8 @@ def test_benchmark_records_warmup_failures_identity_and_missing_engine_without_i
     assert fixture.calls == 3
     assert report["protocol"]["warmup_requests"] == 2
     assert report["engines"]["easyocr"]["metrics"]["complete_exact_accuracy"] == 1
-    assert report["engines"]["tesseract"]["metrics"]["complete_exact_accuracy"] == 0
-    assert report["engines"]["tesseract"]["failure_count"] == 1
+    assert report["engines"]["paddleocr"]["metrics"]["complete_exact_accuracy"] == 0
+    assert report["engines"]["paddleocr"]["failure_count"] == 1
     assert report["engines"]["trocr"]["metrics"] is None
     assert report["engines"]["trocr"]["failure_count"] == 0
     assert report["engines"]["easyocr"]["metrics"]["latency_ms"]["count"] == 1

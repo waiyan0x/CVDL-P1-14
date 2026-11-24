@@ -1,4 +1,4 @@
-"""Export reviewed-v4 train or validation EDS crops for the OCR handoff."""
+"""Export reviewed-v4 train, validation or test EDS crops for the OCR handoff."""
 
 import argparse
 import csv
@@ -15,8 +15,7 @@ from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src"))
-from data_preparation.manifests import verify_export
+
 
 
 CLASS_NAMES = ("front_eds", "front_eds_num", "front_eds_route", "front_eds_destination")
@@ -32,6 +31,33 @@ def sha256(path):
         for chunk in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def verify_export(root):
+    root = Path(root).resolve()
+    manifests = [root / name for name in ("augmentation_manifest.json", "preparation_manifest.json")
+                 if (root / name).is_file()]
+    if len(manifests) > 1:
+        raise ValueError("Ambiguous dataset export manifests")
+    if not manifests:
+        return None
+    path = manifests[0]
+    saved = json.loads(path.read_text(encoding="utf-8"))
+    checksums = saved.get("checksums")
+    if not isinstance(checksums, dict) or not checksums:
+        raise ValueError("Export manifest must contain file checksums")
+    for name in checksums:
+        target = (root / name).resolve()
+        if not target.is_relative_to(root) or target == path or target == root:
+            raise ValueError("Invalid export checksum path")
+    actual = {p.relative_to(root).as_posix() for p in root.rglob("*") if p.is_file() and p != path}
+    if actual != set(checksums):
+        raise ValueError("Export file list changed; restore the frozen dataset")
+    for name, digest in checksums.items():
+        if sha256(root / name) != digest:
+            raise ValueError(f"Export checksum mismatch: {name}")
+    return saved
+
 
 
 def clip_box(box, width, height):
@@ -63,8 +89,8 @@ def save_crop(image, box, output, kind, label, stem):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dataset", type=Path, default=DEFAULT_DATASET)
-    parser.add_argument("--split", choices=("train", "valid"), default="valid",
-                        help="Train exports annotation crops only; validation also exports detector predictions.")
+    parser.add_argument("--split", choices=("train", "valid", "test"), default="valid",
+                        help="Train exports annotation crops only; validation/test also export detector predictions.")
     parser.add_argument("--checkpoint", type=Path, default=DEFAULT_CHECKPOINT)
     parser.add_argument("--output", type=Path, help="New output folder; defaults to .runtime/ocr_handoff/v4-reviewed-01-<split>.")
     parser.add_argument("--confidence", type=float, default=0.50)
@@ -72,9 +98,9 @@ def main():
     parser.add_argument("--image-size", type=int, default=640)
     parser.add_argument("--zip", action="store_true", help="Create a portable ZIP next to the output folder.")
     args = parser.parse_args()
-    default_output = DEFAULT_OUTPUT_PARENT / f"v4-reviewed-01-{'training' if args.split == 'train' else 'validation'}"
+    default_output = DEFAULT_OUTPUT_PARENT / f"v4-reviewed-01-{args.split}"
     dataset = args.dataset.resolve()
-    checkpoint = args.checkpoint.resolve() if args.split == "valid" else None
+    checkpoint = args.checkpoint.resolve() if args.split != "train" else None
     output = (args.output or default_output).resolve()
     if not 0 < args.confidence < 1 or not 0 < args.nms_iou < 1:
         parser.error("confidence and nms-iou must be between 0 and 1")

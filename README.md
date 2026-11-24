@@ -124,7 +124,7 @@ On the configured Mac, double-click `start.command` or run:
 bash scripts/run.sh
 ```
 
-Open **http://127.0.0.1:8000/detect**. The server loads the detector once and uses
+Open **http://127.0.0.1:8000/**. The server loads the detector once and uses
 local OCR caches. Stop it with Ctrl+C in the launch terminal.
 
 For a fresh Python environment:
@@ -133,8 +133,29 @@ For a fresh Python environment:
 bash scripts/setup.sh
 ```
 
-Tesseract is optional and must be installed separately with English language
-data. The supplied TrOCR weight in Git is an LFS pointer; retrieve the real
+The selected OCR model, fine-tuned PaddleOCR, is in `models/paddleocr-finetuned/`
+(hash-checked against its `provenance.json` at start-up). PaddlePaddle does not
+support the app's Python version, so it runs in a separate Python 3.12
+environment that the app starts as a worker process. It defaults to
+`.cache/paddle-baseline-env/bin/python`; set `EDS_PADDLE_PYTHON` (and optionally
+`EDS_PADDLE_MODEL`) to use another one. Create it with:
+
+```sh
+python3.12 -m venv .cache/paddle-baseline-env
+.cache/paddle-baseline-env/bin/pip install paddlepaddle==3.2.2 paddleocr==3.3.2
+```
+
+With the `paddleocr` engine, if a display has no usable number or destination
+crop (none detected, or no text read), the public pretrained PaddleOCR in
+`models/paddleocr-pretrained/` reads the whole display instead. The first
+service-shaped token becomes the number and the rest the destination. These
+fields are marked `ocr_source: whole_display_fallback` in the response. On whole
+displays the pretrained model matched 11 of 41 displays and the fine-tuned model 5,
+both far below field crops; see
+`evaluation/ocr_scoring/whole-display-fallback-20261121/`. The fallback worker
+starts on first use. Worker messages go to `.runtime/logs/paddle_worker.log`. If the environment or
+weights are missing, PaddleOCR is reported as unavailable and the other engines
+still work. The supplied TrOCR weight in Git is an LFS pointer; retrieve the real
 checkpoint using authenticated GitHub CLI access:
 
 ```sh
@@ -148,16 +169,31 @@ setup, not inference. Individual unavailable OCR engines are reported separately
 
 | Page | Purpose |
 | --- | --- |
+| `/` | Project home page with an illustrated bus arrival and a link to Live. |
 | `/detect` | Upload an image, select a sample, or capture a single camera frame; inspect boxes, crops, OCR and matching. |
 | `/live` | Continuous camera input or server-decoded uploaded video with configurable sampling and start/stop/restart/reset. |
-| `/evaluation` | Run all three OCR pipelines on one shared set of detections; inspect measured timing and published evaluation evidence. |
+| `/evaluation` | Run all three OCR pipelines on one shared set of detections and compare their readings, confidence scores and processing times. |
 | `/models` | Check model provenance, confidence definitions and pipeline methods. |
 | `/docs` | FastAPI's generated API documentation. |
 
-The interface takes its layout cues from [TinyBus](https://tinybus.phrypy.dev/)
-in black, white and grey only, with self-hosted Space Grotesk and IBM Plex Mono
-fonts. Photographs and cropped regions retain their original colours. Results
-come from inference; design-mockup predictions are not used.
+The reader pages use a monochrome layout. The home page illustrates Singapore’s
+green public buses at a stop. Photographs and cropped regions retain their
+original colours, and displayed recognition results come from inference.
+
+## Spoken bus announcements
+
+On Detect or Live, choose **Read result aloud** to hear the latest bus service
+and any matched reference destination. On Live, enable **Automatic announcements**
+to hear new readings after two consistent frames. The app uses the browser's
+speech synthesis and prefers an installed English voice.
+
+For a distance estimate, start a Live camera session. With the camera fixed and
+one bus facing it, open **Calibrate distance** and set the measured distance to
+the sign. The app compares the current sign width with the reference width and
+rounds the result to five metres. Use the same bus, camera position and zoom.
+The estimate requires a fresh frame with a single, fully visible model-detected
+sign and the same recognised service. Stopping the camera clears calibration.
+This estimate is for demonstration. Use station guidance when boarding.
 
 ## Structure
 
@@ -229,9 +265,44 @@ duration, count and expiry.
 
 Detection confidence, OCR confidence and reference similarity remain separate.
 OCR scores use different definitions across engines and are not calibrated
-accuracy. Matching requires an exact recognised service and adequate endpoint
-similarity; it does not infer travel direction or verify every road name.
+accuracy. Matching requires an exact recognised service (a number missing from
+the reference gives "unable to detect") and a destination that reaches the
+similarity cutoff (default 65 of 100, the `similarity` option .65) while leading
+the next distinct reference endpoint by 10 points; otherwise the value is
+withheld and the raw OCR is kept. Both text sides pass through
+`data/reference/abbreviations.csv` before scoring. If a destination fits another
+service better than the number read, the number is kept and the result is
+flagged as a conflict. Matching does not infer travel direction or verify road
+names. Rules, settings and results: `docs/REFERENCE_MATCHING.md`.
 Processing FPS is reciprocal inference time, not sustained camera/display FPS.
+
+## Reference matching
+
+Matching code: `backend/app/services/reference_matching.py` (used by
+`matching.py`). Reference: `data/reference/bus_information.cleaned.csv`, a cleaned
+copy of `data/bus_information.csv` (`data/reference/README.md`). Try it from a
+terminal without the web app:
+
+```sh
+python scripts/match_reference.py --number 14E --destination "> TAMP1NES INT"
+python scripts/match_reference.py --crop-dir runs/matching/bus_374
+python scripts/match_reference.py --photo data/samples/distance-and-image-quality/close-readable-eds.jpg --save-dir runs/matching
+python scripts/evaluate_reference_matching.py
+```
+
+Model weights for the terminal tool live in `models/local/` (gitignored): `paddleocr/` (fine-tuned
+PaddleOCR, reads number, destination and route crops), `paddleocr-pretrained/` (reads whole-display
+crops), `yolo/best.pt` (fine-tuned YOLO11s). Check which
+PaddleOCR weights are installed in `docs/REFERENCE_MATCHING.md` (hash table). Cutoff and line-swap benchmark on 40
+labelled photos: `evaluation/photo_benchmark/PHOTO_BENCHMARK.md` (`scripts/benchmark_photo_threshold.py`,
+`scripts/benchmark_crop_confidence.py`). Photo mode also reads the whole display line by line when the field
+crops leave gaps (`backend/app/services/panel_lines.py`). Each result also carries a one-line `announcement`, e.g.
+`Bus 174 to Kampong Bahru Bus Terminal, via Corporation Rd.` (rules in `docs/REFERENCE_MATCHING.md`).
+
+Settings in use: `ratio` scoring, cutoff 65, margin 10, line swap on, conflict policy
+`keep_number`, route crop fallback `check`. Full usage, decision rules and
+validation/test results: `docs/REFERENCE_MATCHING.md` and
+`evaluation/reference_matching/REFERENCE_MATCHING_RESULTS.md`.
 
 ## Configuration
 
@@ -257,8 +328,9 @@ server. Camera checks use a simulated camera, and video fixtures are generated
 from still images; these checks do not establish performance on real bus video.
 
 For a reproducible OCR benchmark, prepare a reviewed transcription manifest and
-run `scripts/evaluate.py --help`. The evaluation page separates current-input
-comparisons, historical detector metadata and verified reports. There is no
+run `scripts/evaluate.py --help`. The evaluation page shows current-input
+comparisons. Historical detector metadata and verified reports are available at
+`/api/evaluation`. There is no
 reviewed OCR ground truth in the bundled data, so no verified OCR accuracy is
 claimed. Existing dataset splits contain exact train/validation/test overlap;
 the evaluation tooling reports it and never treats filenames or CSV endpoints

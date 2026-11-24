@@ -1,6 +1,8 @@
 """Status decisions keep observations separate from reference guesses."""
 import re
 
+from .matching import SERVICE_ID
+
 MESSAGES = {
     'no_eds': 'No EDS display regions detected.',
     'unreadable': 'Display detected, but no readable text passed the OCR threshold.',
@@ -18,11 +20,14 @@ def accepted_text(field, threshold):
 def match_fields(fields, matcher, options):
     number = fields.get('bus_number', {})
     destination = fields.get('destination', {})
+    route = fields.get('route', {})
     number_read = accepted_text(number, options.ocr_threshold)
     destination_read = accepted_text(destination, options.ocr_threshold)
     service = re.sub(r'\s+', '', number.get('raw', '').upper())
-    usable_service = number_read and re.fullmatch(r'[0-9]{1,3}[A-Z]{0,2}', service)
-    match = matcher.match(service if usable_service else '', destination.get('raw', '') if destination_read else '', options.similarity)
+    usable_service = number_read and SERVICE_ID.fullmatch(service)
+    route_text = route.get('raw', '') if accepted_text(route, options.ocr_threshold) else ''
+    match = matcher.match(service if usable_service else '', destination.get('raw', '') if destination_read else '',
+                          options.similarity, route=route_text)
     if not number_read and not destination_read:
         status = 'unreadable'
     elif not number_read or not destination_read:

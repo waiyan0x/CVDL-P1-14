@@ -9,8 +9,10 @@ function confidence(label, value) { return el('div', {}, el('dt', {}, label), el
 function fieldCard(field, label, result, number, idPrefix = '') {
   const card = el('article', {class: 'panel field-card', id: `result-${idPrefix}${field.id}`, tabindex: '-1'},
     el('div', {class: 'field-label'}, el('span', {class: 'field-number'}, String(number)), roles[label]));
-  if (field.crop) card.append(el('img', {class: 'crop', src: field.crop, alt: `${roles[label]} crop`}));
-  const reading = field.raw?.trim() ? [el('span', {class: 'raw-label'}, 'OCR reads'), el('span', {class: `raw-value${label === 'bus_number' ? ' service-badge' : ''}`}, field.raw)] : 'OCR could not read this region';
+  const fromDisplay = field.ocr_source === 'whole_display_fallback';
+  if (fromDisplay) card.append(el('p', {class: 'small muted'}, 'No usable field crop: read from the whole display with pretrained PaddleOCR (less accurate).'));
+  if (field.crop) card.append(el('img', {class: 'crop', src: field.crop, alt: fromDisplay ? 'Whole display crop' : `${roles[label]} crop`}));
+  const reading = field.raw?.trim() ? `OCR reads ${field.raw}` : 'OCR could not read this region';
   const text = el('div', {class: 'field-text'}, el('div', {class: 'raw-text'}, reading));
   const match = result.match || {};
   const matched = label === 'bus_number' ? match.service : label === 'destination' && match.status === 'matched' ? match.endpoint : null;
@@ -27,6 +29,8 @@ function routeCard(result) {
   const description = result.message || match.reason || 'No reference match is available.';
   const card = el('section', {class: 'panel route-card'}, el('span', {class: 'small muted'}, 'Route match'),
     el('h3', {class: 'matched-text'}, titles[result.status] || 'Reading complete'));
+  // One-line message built from what was confirmed (backend/app/services/announcement.py).
+  if (match.announcement) card.append(el('p', {class: 'announcement'}, match.announcement));
   if (result.status === 'matched') {
     card.append(el('p', {}, 'The observed service and destination agree with a reference endpoint. Travel direction is unverified.'));
   } else if (description !== titles[result.status]) card.append(el('p', {}, description));

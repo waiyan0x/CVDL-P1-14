@@ -1,0 +1,136 @@
+review_id,crop_set,label,crop,original_text,original_legibility,ai_proposed_text,ai_proposed_legibility,ai_proposed_field_status,ai_disposition,visual_note,human_decision,final_transcription,final_legibility,final_field_status,human_reviewer,human_reviewed_at,human_notes
+A009,annotation,front_eds_route,ground_truth/front_eds_route/003_249ec93f__442bbe08-1203_jpg.rf.1e28d958b7d0f63ae15c32cde5c26853_a97.png,TELOK BLANGAH HTS,partial,TELOK BLANGAH [UNK],partial,present,unknown_spans_or_illegibility_recorded,Final word remains uncertain under bloom.,,,,,,,
+A010,annotation,front_eds_route,ground_truth/front_eds_route/004_43629406-262f1fba-30_jpg.rf.5eebf69313045f1d0758cfd27dd2a4b7_a182.png,CHANGI RD,partial,CHANGI RD,full,present,full_text_candidate,All glyphs readable; low contrast alone does not imply partial text.,,,,,,,
+A014,annotation,front_eds_route,ground_truth/front_eds_route/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_a99.png,T. PAYOH INT - POTONG P. AVE 1,partial,T. PAYOH INT - POTONG P. AVE [UNK],partial,present,unknown_spans_or_illegibility_recorded,Trailing token unresolved; do not guess its digit.,,,,,,,
+A015,annotation,front_eds_destination,ground_truth/front_eds_destination/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_a100.png,LOR 6 TOA PAYOH,partial,LOR 6 TOA PAYOH,full,present,full_text_candidate,Complete visible line readable despite low contrast.,,,,,,,
+A019,annotation,front_eds_route,ground_truth/front_eds_route/006_55268784-1459_jpg.rf.6d4f6aada379953b9175e74d5dbbfa91_a80.png,HENDERSON RD,partial,[UNK] RD,partial,present,unknown_spans_or_illegibility_recorded,First word saturated; only final RD retained as reliable.,,,,,,,
+A020,annotation,front_eds_destination,ground_truth/front_eds_destination/006_55268784-1459_jpg.rf.6d4f6aada379953b9175e74d5dbbfa91_a81.png,> TOA PAYOH INT,partial,> TOA [UNK] INT,partial,present,unknown_spans_or_illegibility_recorded,Middle word heavily bloomed.,,,,,,,
+A035,annotation,front_eds_destination,ground_truth/front_eds_destination/010_8c3cf30a__afc6ed73-1452_jpg.rf.e35d4960b3b8665b61127cf0543185b3_a119.png,> TOA PAYOH INT,partial,> TOA PAYOH [UNK],partial,present,unknown_spans_or_illegibility_recorded,Right-hand token too bloomed to establish all glyphs.,,,,,,,
+A036,annotation,front_eds_route,ground_truth/front_eds_route/010_8c3cf30a__afc6ed73-1452_jpg.rf.e35d4960b3b8665b61127cf0543185b3_a120.png,BALESTIER RD,partial,BALESTIER RD,full,present,full_text_candidate,Complete visible line readable.,,,,,,,
+A045,annotation,front_eds_destination,ground_truth/front_eds_destination/014_IMAGE_2026-10-23_21_55_18_jpg.rf.be7598ff20f19315830bc4be8ab67506_a70.png,PUNGGOL INT,partial,PUNGGOL INT,full,present,full_text_candidate,All text readable despite underexposure.,,,,,,,
+A046,annotation,front_eds_route,ground_truth/front_eds_route/014_IMAGE_2026-10-23_21_55_18_jpg.rf.be7598ff20f19315830bc4be8ab67506_a71.png,SUMANG LINK,partial,SUMANG LINK,full,present,full_text_candidate,Complete visible line readable despite underexposure.,,,,,,,
+A058,annotation,front_eds_num,ground_truth/front_eds_num/021_Screenshot_2026-10-24-20-30-42-44_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5f4a82cedac27b574d6a0e5c258a0137_a206.png,46,partial,48,full,present,full_text_candidate,Reinspection shows closed upper and lower loops in second digit; proposal differs from submitted 46.,,,,,,,
+A077,annotation,front_eds_num,ground_truth/front_eds_num/027_Screenshot_2026-10-24-20-33-23-69_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.f8ebc4a1b1382ac231a91138da225b16_a72.png,162M,partial,[UNK],illegible,present,unknown_spans_or_illegibility_recorded,Bloom prevents reliable complete identifier or individual glyphs; submitted identifier not assumed.,,,,,,,
+A086,annotation,front_eds_num,ground_truth/front_eds_num/029_Screenshot_2026-11-01-21-24-54-37_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8426e428e2374a35578635ee2f47d9ca_a213.png,965,partial,[UNK]65,partial,present,unknown_spans_or_illegibility_recorded,Leading digit unresolved; trailing 65 remains readable.,,,,,,,
+A088,annotation,front_eds_num,ground_truth/front_eds_num/030_Screenshot_2026-11-01-21-24-57-36_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3790146ee9a6b2d6053f29be51ad4411_a139.png,965,partial,965,full,present,full_text_candidate,All three glyphs readable on enlarged native crop.,,,,,,,
+A089,annotation,front_eds_destination,ground_truth/front_eds_destination/030_Screenshot_2026-11-01-21-24-57-36_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3790146ee9a6b2d6053f29be51ad4411_a140.png,BUANGKOK,partial,BU[UNK],partial,present,unknown_spans_or_illegibility_recorded,Only initial BU reliably readable; dark remaining glyphs unresolved.,,,,,,,
+A090,annotation,front_eds_route,ground_truth/front_eds_route/030_Screenshot_2026-11-01-21-24-57-36_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3790146ee9a6b2d6053f29be51ad4411_a141.png,YISHUN AVE 7,partial,YISHUN AVE 7,full,present,full_text_candidate,Complete line including final 7 readable on reinspection.,,,,,,,
+A091,annotation,front_eds_num,ground_truth/front_eds_num/032_Screenshot_2026-11-01-21-30-25-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3b5482518e4cd89d40f6e855a5966fa7_a150.png,302,partial,[UNK],illegible,present,unknown_spans_or_illegibility_recorded,No reliable glyphs at the supplied contrast.,,,,,,,
+A109,annotation,front_eds_num,ground_truth/front_eds_num/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_a163.png,963,partial,[UNK],illegible,present,unknown_spans_or_illegibility_recorded,Very small blurred identifier cannot support submitted completion.,,,,,,,
+A117,annotation,front_eds_destination,ground_truth/front_eds_destination/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_a127.png,PASIR RIS,partial,PASIR RI[UNK],partial,present,unknown_spans_or_illegibility_recorded,Uppercase glyphs readable; final right-edge span unresolved/clipped.,,,,,,,
+A131,annotation,front_eds_destination,ground_truth/front_eds_destination/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_a41.png,Pasir Ris,partial,P[UNK] R[UNK],partial,present,unknown_spans_or_illegibility_recorded,Initial capitals readable; lowercase spans and case cannot be independently resolved.,,,,,,,
+A132,annotation,front_eds_num,ground_truth/front_eds_num/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_a42.png,12,partial,12,full,present,full_text_candidate,Both digits readable after nearest-neighbour reinspection.,,,,,,,
+A134,annotation,front_eds_destination,ground_truth/front_eds_destination/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_a44.png,> [UNK],illegible,> [UNK],partial,present,unknown_spans_or_illegibility_recorded,"Readable leading arrow means partial, not wholly illegible.",,,,,,,
+A154,annotation,front_eds_route,ground_truth/front_eds_route/053_fe6f9f51-bus_22_jpg.rf.63a66e19926e89ba20df8db74744695b_a106.png,BEDOK NORTH AVE 3,partial,[UNK],illegible,present,unknown_spans_or_illegibility_recorded,Washed-out native glyphs do not support a reliable text span.,,,,,,,
+A155,annotation,front_eds_destination,ground_truth/front_eds_destination/053_fe6f9f51-bus_22_jpg.rf.63a66e19926e89ba20df8db74744695b_a107.png,> BEDOK INT,partial,> [UNK],partial,present,unknown_spans_or_illegibility_recorded,Leading arrow readable; following text unresolved.,,,,,,,
+P002,prediction,front_eds_destination,predicted/front_eds_destination/001_14488614-bus_8_jpg.rf.f42edf43192002dc5ef10238a21c7e38_p002.png,"SEMBAWANG v[UNK]
+[UNK]",partial,"SEMBAWANG v[UNK]
+[UNK]",partial,present,mixed_fields_confirmed,Destination line has unresolved suffix; second line clipped and object overlaps crop.,,,,,,,
+P003,prediction,front_eds_route,predicted/front_eds_route/001_14488614-bus_8_jpg.rf.f42edf43192002dc5ef10238a21c7e38_p003.png,"[UNK]BAWANG v[UNK]
+ROCHOR RD",partial,"[UNK]
+ROCHOR RD",partial,present,mixed_fields_confirmed,Upper line cut through glyph bodies; lower line readable.,,,,,,,
+P005,prediction,front_eds_destination,predicted/front_eds_destination/002_19cc8b3d__44945929-45_jpg.rf.6939708a0cf9266df26b734ed9aeac56_p002.png,[UNK],illegible,[UNK],illegible,,unreadable_panel_field_presence_unresolved,"Lit oblique panel is visible, not a blank field; intended field isolation unresolved.",,,,,,,
+P006,prediction,front_eds_destination,predicted/front_eds_destination/002_19cc8b3d__44945929-45_jpg.rf.6939708a0cf9266df26b734ed9aeac56_p003.png,"[UNK]
+> ANG MO KIO DEPOT",partial,"[UNK]
+> ANG MO KIO DEPOT",partial,present,mixed_fields_confirmed,Extra upper line is clipped; lower line readable.,,,,,,,
+P009,prediction,front_eds_route,predicted/front_eds_route/003_249ec93f__442bbe08-1203_jpg.rf.1e28d958b7d0f63ae15c32cde5c26853_p002.png,"[UNK]
+[UNK] TELOK BLANGAH HTS",partial,"[UNK]
+[UNK] TELOK BLANGAH [UNK]",partial,present,mixed_fields_confirmed,Upper fragments and ends of lower line unresolved.,,,,,,,
+P010,prediction,front_eds_route,predicted/front_eds_route/003_249ec93f__442bbe08-1203_jpg.rf.1e28d958b7d0f63ae15c32cde5c26853_p003.png,TELOK BLANGAH HTS,partial,TELOK BLANGAH [UNK],partial,present,unknown_spans_or_illegibility_recorded,Final word remains uncertain under bloom.,,,,,,,
+P011,prediction,front_eds_destination,predicted/front_eds_destination/003_249ec93f__442bbe08-1203_jpg.rf.1e28d958b7d0f63ae15c32cde5c26853_p004.png,TELOK BLANGAH HTS,partial,TELOK BLANGAH [UNK],partial,wrong_field,field_mismatch_confirmed_against_annotations,Crop covers annotation route region despite predicted destination label; text independently inspected.,,,,,,,
+P012,prediction,front_eds_route,predicted/front_eds_route/004_43629406-262f1fba-30_jpg.rf.5eebf69313045f1d0758cfd27dd2a4b7_p000.png,CHANGI RD,partial,CHANGI RD,full,present,full_text_candidate,All glyphs readable on this crop.,,,,,,,
+P014,prediction,front_eds_destination,predicted/front_eds_destination/004_43629406-262f1fba-30_jpg.rf.5eebf69313045f1d0758cfd27dd2a4b7_p003.png,"[UNK]
+> BOON LAY",partial,"[UNK]
+> BOON LAY",partial,present,mixed_fields_confirmed,Upper clipped fragments retained separately.,,,,,,,
+P018,prediction,front_eds_destination,predicted/front_eds_destination/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_p005.png,T. PAYOH INT-POTONG P. AVE,partial,T. PAYOH INT - POTONG P. AVE [UNK],partial,wrong_field,field_mismatch_confirmed_against_annotations,Lower annotated route region; trailing token clipped/unresolved.,,,,,,,
+P021,prediction,front_eds_route,predicted/front_eds_route/006_55268784-1459_jpg.rf.6d4f6aada379953b9175e74d5dbbfa91_p002.png,HENDERSON RD,partial,[UNK] RD,partial,present,unknown_spans_or_illegibility_recorded,Saturated first word unresolved.,,,,,,,
+P022,prediction,front_eds_destination,predicted/front_eds_destination/006_55268784-1459_jpg.rf.6d4f6aada379953b9175e74d5dbbfa91_p003.png,> TOA PAYOH INT,partial,> TOA [UNK] INT,partial,present,unknown_spans_or_illegibility_recorded,Bloom obscures middle word.,,,,,,,
+P024,prediction,front_eds_destination,predicted/front_eds_destination/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_p002.png,"[UNK]
+> CLEMENTI INT",partial,"[UNK]
+> CLEMENTI INT",partial,present,mixed_fields_confirmed,Clipped upper line retained as unknown.,,,,,,,
+P026,prediction,front_eds_route,predicted/front_eds_route/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_p004.png,"ORCHARD BOULEVARD
+> CLEMENTI INT",full,"ORCHARD BOULEVARD
+> CLEMENTI INT",full,present,mixed_fields_confirmed,"Both visible lines readable, but they belong to distinct fields.",,,,,,,
+P027,prediction,front_eds_route,predicted/front_eds_route/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_p005.png,"[UNK]RCHARD BOULEVA[UNK]
+> CLEMENTI INT",partial,"[UNK]RCHARD BOULEVA[UNK]
+> CLEMENTI INT",partial,present,mixed_fields_confirmed,Top/right clipping of upper line retained.,,,,,,,
+P029,prediction,front_eds_route,predicted/front_eds_route/008_5c28dd2e-426352df-66_jpg.rf.9fd217a1de1df695a431714e5ba75de6_p002.png,"[UNK]
+BUKIT BATOK CENTRAL",partial,"[UNK]
+BUKIT BATOK CENTRAL",partial,present,mixed_fields_confirmed,Upper clipped line retained separately.,,,,,,,
+P033,prediction,front_eds_route,predicted/front_eds_route/010_8c3cf30a__afc6ed73-1452_jpg.rf.e35d4960b3b8665b61127cf0543185b3_p002.png,BALESTIER RD,partial,BALESTIER RD,full,present,full_text_candidate,Complete line readable.,,,,,,,
+P034,prediction,front_eds_destination,predicted/front_eds_destination/010_8c3cf30a__afc6ed73-1452_jpg.rf.e35d4960b3b8665b61127cf0543185b3_p003.png,> TOA PAYOH INT,partial,> TOA PAYOH [UNK],partial,present,unknown_spans_or_illegibility_recorded,Last token bloomed; do not infer it from another crop.,,,,,,,
+P037,prediction,front_eds_destination,predicted/front_eds_destination/012_9d711368-151_jpg.rf.52e6fe7d763f6a58bc1cea0bdf888d9e_p002.png,"[UNK]
+> KENT RIDGE TER",partial,"[UNK]
+> KENT RIDGE TER",partial,present,mixed_fields_confirmed,Extra top-line fragments retained.,,,,,,,
+P041,prediction,front_eds_destination,predicted/front_eds_destination/014_IMAGE_2026-10-23_21_55_18_jpg.rf.be7598ff20f19315830bc4be8ab67506_p001.png,"PUNGGOL INT
+[UNK]",partial,"PUNGGOL INT
+[UNK]",partial,present,mixed_fields_confirmed,Destination readable; cropped lower-line fragments unresolved.,,,,,,,
+P043,prediction,front_eds_route,predicted/front_eds_route/014_IMAGE_2026-10-23_21_55_18_jpg.rf.be7598ff20f19315830bc4be8ab67506_p003.png,"[UNK]
+[UNK] SUMANG LINK",partial,"[UNK]
+[UNK] SUMANG LINK",partial,present,mixed_fields_confirmed,Upper line and lower leading text unresolved.,,,,,,,
+P047,prediction,front_eds_route,predicted/front_eds_route/019_IMG20261025142927_jpg.rf.ede965e38351e7ab43c3a1934f2ea538_p002.png,"[UNK]
+[UNK] 1 (LOOP)",partial,"[UNK]
+[UNK] 1 (LOOP)",partial,present,mixed_fields_confirmed,Multiple field fragments; lower leading words unresolved.,,,,,,,
+P048,prediction,front_eds_destination,predicted/front_eds_destination/019_IMG20261025142927_jpg.rf.ede965e38351e7ab43c3a1934f2ea538_p003.png,"[UNK] INT
+[UNK]",partial,"[UNK] INT
+[UNK]",partial,present,mixed_fields_confirmed,Bloomed leading destination and clipped lower line unresolved.,,,,,,,
+P049,prediction,front_eds_num,predicted/front_eds_num/021_Screenshot_2026-10-24-20-30-42-44_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5f4a82cedac27b574d6a0e5c258a0137_p001.png,46,partial,48,full,present,full_text_candidate,Independent reinspection shows two closed loops in second digit; proposal differs from submitted 46.,,,,,,,
+P051,prediction,front_eds_destination,predicted/front_eds_destination/021_Screenshot_2026-10-24-20-30-42-44_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5f4a82cedac27b574d6a0e5c258a0137_p003.png,"[UNK]
+> BEDOK NTH DEPOT",partial,"[UNK]
+> BEDOK NTH DEPOT",partial,present,mixed_fields_confirmed,Upper clipped fragments retained; lower line readable.,,,,,,,
+P062,prediction,front_eds_num,predicted/front_eds_num/029_Screenshot_2026-11-01-21-24-54-37_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8426e428e2374a35578635ee2f47d9ca_p002.png,965,partial,[UNK]65,partial,present,unknown_spans_or_illegibility_recorded,Leading red digit unresolved under defocus.,,,,,,,
+P063,prediction,front_eds_destination,predicted/front_eds_destination/030_Screenshot_2026-11-01-21-24-57-36_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3790146ee9a6b2d6053f29be51ad4411_p001.png,BUANGKOK,partial,BU[UNK],partial,present,unknown_spans_or_illegibility_recorded,Only initial BU sufficiently readable.,,,,,,,
+P064,prediction,front_eds_route,predicted/front_eds_route/030_Screenshot_2026-11-01-21-24-57-36_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3790146ee9a6b2d6053f29be51ad4411_p002.png,"[UNK]
+YISHUN AVE 7",partial,"[UNK]
+YISHUN AVE 7",partial,present,mixed_fields_confirmed,Extra upper fragments retained; lower line readable.,,,,,,,
+P065,prediction,front_eds_num,predicted/front_eds_num/032_Screenshot_2026-11-01-21-30-25-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3b5482518e4cd89d40f6e855a5966fa7_p001.png,302,partial,[UNK],illegible,present,unknown_spans_or_illegibility_recorded,No reliable glyph at supplied contrast.,,,,,,,
+P067,prediction,front_eds_route,predicted/front_eds_route/032_Screenshot_2026-11-01-21-30-25-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3b5482518e4cd89d40f6e855a5966fa7_p003.png,INT [UNK] MRT [UNK],partial,[UNK],illegible,wrong_field,field_mismatch_confirmed_against_annotations,Blurred lower destination region; no reliable text retained.,,,,,,,
+P068,prediction,front_eds_route,predicted/front_eds_route/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_p001.png,"CHOA CHU KANG INT via
+[UNK]",partial,"CHOA CHU KANG INT vi[UNK]
+[UNK]",partial,wrong_field,field_mismatch_confirmed_against_annotations,Destination text in predicted route crop; right suffix and lower fragments unresolved.,,,,,,,
+P070,prediction,front_eds_route,predicted/front_eds_route/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_p004.png,"[UNK]
+BUKIT BATOK ST 11",partial,"[UNK]
+BUKIT BATOK ST 11",partial,present,mixed_fields_confirmed,Extra clipped upper line retained.,,,,,,,
+P071,prediction,front_eds_destination,predicted/front_eds_destination/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_p005.png,"CHOA CHU KANG INT via
+[UNK]",partial,"CHOA CHU KANG INT vi[UNK]
+[UNK]",partial,present,mixed_fields_confirmed,Upper suffix and clipped lower line unresolved.,,,,,,,
+P072,prediction,front_eds_destination,predicted/front_eds_destination/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_p006.png,"[UNK]
+BUKIT BATOK ST 11",partial,"[UNK]
+BUKIT BATOK ST 11",partial,wrong_field,field_mismatch_confirmed_against_annotations,Annotated route line dominates predicted destination crop; upper fragments retained.,,,,,,,
+P080,prediction,front_eds_destination,predicted/front_eds_destination/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_p003.png,"[UNK]
+> SHENTON WAY TER",partial,"[UNK]
+> SHENTON WAY TER",partial,present,mixed_fields_confirmed,Upper clipped fragments retained.,,,,,,,
+P082,prediction,front_eds_route,predicted/front_eds_route/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_p005.png,PASIR [UNK],partial,PASIR RI[UNK],partial,wrong_field,field_mismatch_confirmed_against_annotations,Predicted route covers annotated destination; right-edge span uncertain.,,,,,,,
+P083,prediction,front_eds_destination,predicted/front_eds_destination/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_p007.png,"PASIR RIS
+[UNK]",partial,"PASIR RI[UNK]
+[UNK]",partial,present,mixed_fields_confirmed,Right span and lower line remain unresolved.,,,,,,,
+P085,prediction,front_eds_route,predicted/front_eds_route/042_Screenshot_2026-11-01-21-50-28-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6eeb960f8013e60d9aa08e33b09e8112_p002.png,MARINA CTR [UNK],partial,MARINA CTR [UNK],partial,wrong_field,field_mismatch_confirmed_against_annotations,Destination covered by predicted route; continuation clipped at right.,,,,,,,
+P086,prediction,front_eds_destination,predicted/front_eds_destination/042_Screenshot_2026-11-01-21-50-28-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6eeb960f8013e60d9aa08e33b09e8112_p003.png,"[UNK]
+C'WEALTH AVE (LOOP)",partial,"[UNK]
+C'WEALTH AVE (LOOP)",partial,wrong_field,field_mismatch_confirmed_against_annotations,Annotated route dominates predicted destination; clipped upper line retained.,,,,,,,
+P087,prediction,front_eds_route,predicted/front_eds_route/042_Screenshot_2026-11-01-21-50-28-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6eeb960f8013e60d9aa08e33b09e8112_p004.png,"[UNK]
+MARINA CTR -
+[UNK]",partial,"MARINA CTR -
+[UNK]",partial,wrong_field,field_mismatch_confirmed_against_annotations,Destination and clipped lower line; no separate readable upper text line is established.,,,,,,,
+P088,prediction,front_eds_route,predicted/front_eds_route/042_Screenshot_2026-11-01-21-50-28-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6eeb960f8013e60d9aa08e33b09e8112_p005.png,"[UNK]
+C'WEALTH AVE (LOOP)",partial,"[UNK]
+C'WEALTH AVE (LOOP)",partial,present,mixed_fields_confirmed,Upper fragments retained separately from readable lower line.,,,,,,,
+P089,prediction,front_eds_num,predicted/front_eds_num/043_Screenshot_2026-11-01-21-50-57-21_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0354c411714c712b496a4d958c8aed06_p001.png,36T,full,"[UNK]TING AT
+[UNK]PORT TER 2 36T",partial,present,mixed_fields_confirmed,Adjacent text must not be silently discarded from number crop; multicolumn reading order still needs protocol.,,,,,,,
+P094,prediction,front_eds_destination,predicted/front_eds_destination/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_p003.png,Pasir Ris,partial,P[UNK] R[UNK],partial,present,unknown_spans_or_illegibility_recorded,Initial capitals reliable; smaller blurred letter spans/case unresolved.,,,,,,,
+P097,prediction,front_eds_route,predicted/front_eds_route/048_c22dd64d__8c462f49-51A_jpg.rf.5300246fc163a164b228fa2cf942410e_p002.png,TERMINATE AT,full,TERMINATE AT,full,wrong_field,field_mismatch_confirmed_against_annotations,Text readable; supplied route prediction covers annotated destination/status line.,,,,,,,
+P098,prediction,front_eds_destination,predicted/front_eds_destination/048_c22dd64d__8c462f49-51A_jpg.rf.5300246fc163a164b228fa2cf942410e_p003.png,PANDAN GARDENS (BLK 407),full,PANDAN GARDENS (BLK 407),full,wrong_field,field_mismatch_confirmed_against_annotations,Text readable; predicted destination covers annotated route region.,,,,,,,
+P100,prediction,front_eds_route,predicted/front_eds_route/049_d4ac80eb-185_jpg.rf.c8bb643ea964667d96dfa6f8d2648ef9_p002.png,BUONA VISTA TER vi[UNK],full,BUONA VISTA TER vi[UNK],partial,wrong_field,field_mismatch_confirmed_against_annotations,Right-edge continuation visibly clipped; full label incompatible with unknown span.,,,,,,,
+P101,prediction,front_eds_destination,predicted/front_eds_destination/049_d4ac80eb-185_jpg.rf.c8bb643ea964667d96dfa6f8d2648ef9_p003.png,"[UNK]
+PIONEER RD NTH",partial,"[UNK]
+PIONEER RD NTH",partial,wrong_field,field_mismatch_confirmed_against_annotations,Clipped upper destination fragments retained; lower annotated route readable.,,,,,,,
+P104,prediction,front_eds_destination,predicted/front_eds_destination/050_e273f0c9-8d3c1a80-132_jpg.rf.1fd6f21632e707a1913f6e07d8b68d6c_p003.png,"[UNK]
+[UNK] CTR INT",partial,"[UNK]
+[UNK] CTR INT",partial,present,mixed_fields_confirmed,Upper fragments and lower leading token unresolved.,,,,,,,
+P105,prediction,front_eds_destination,predicted/front_eds_destination/050_e273f0c9-8d3c1a80-132_jpg.rf.1fd6f21632e707a1913f6e07d8b68d6c_p004.png,UPPER THOMSON RD,full,UPPER THOMSON RD,full,wrong_field,field_mismatch_confirmed_against_annotations,Text readable; predicted destination covers annotated route region.,,,,,,,
+P106,prediction,front_eds_num,predicted/front_eds_num/051_e9d46895-80ec3d7b-130_jpg.rf.fd2a56684a1867fdd26bfefc26e8ecd8_p000.png,[UNK]130,partial,[UNK]130,partial,present,mixed_fields_confirmed,Clipped neighboring glyph precedes readable identifier.,,,,,,,
+P107,prediction,front_eds_destination,predicted/front_eds_destination/051_e9d46895-80ec3d7b-130_jpg.rf.fd2a56684a1867fdd26bfefc26e8ecd8_p002.png,"THOMSON RD
+> SHENTON [UNK]",partial,"THOMSON RD
+> SHENTON [UNK]",partial,present,mixed_fields_confirmed,Route line plus clipped lower destination; preserve both.,,,,,,,
+P108,prediction,front_eds_num,predicted/front_eds_num/051_e9d46895-80ec3d7b-130_jpg.rf.fd2a56684a1867fdd26bfefc26e8ecd8_p003.png,130,full,TER 130,full,present,mixed_fields_confirmed,Adjacent TER is visibly included; record entire visible text rather than only 130. Mixed layout needs field-target decision.,,,,,,,
+P110,prediction,front_eds_route,predicted/front_eds_route/052_ede50404__6aabd2de-3_jpg.rf.c68bb136544861b9c1736f7397d61be7_p002.png,PUNGGOL,full,PUNGGOL,full,wrong_field,field_mismatch_confirmed_against_annotations,Text readable; predicted route covers annotated destination.,,,,,,,

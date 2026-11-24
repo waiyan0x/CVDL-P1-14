@@ -1,0 +1,40 @@
+{
+  "authority": "User attachment, first sentence",
+  "instruction": "A091 is right, P065 302 should be wrong_field too.",
+  "attachment_sha256": "b1be5470850ccadd31ca3b19194b64a1d15c390ce0fd49a43848157066eab8e0",
+  "original_export": "validation.checks.cods.2026-11-16.csv",
+  "original_export_sha256": "c266ff68ca5885631e762ee4a6b403a5520b6c8ab20916d862cc76b51275348a",
+  "review_id": "P065",
+  "before": {
+    "review_id": "P065",
+    "crop": "crops/P065.png",
+    "field": "bus_number",
+    "input_set": "prediction",
+    "text": "302",
+    "legibility": "full",
+    "field_status": "present",
+    "reviewer": "cods",
+    "reviewed_at": "2026-11-16",
+    "annotation_source": "human_visual_review",
+    "human_verified": "TRUE",
+    "evaluation_candidate": "TRUE"
+  },
+  "after": {
+    "review_id": "P065",
+    "crop": "crops/P065.png",
+    "field": "bus_number",
+    "input_set": "prediction",
+    "text": "302",
+    "legibility": "full",
+    "field_status": "wrong_field",
+    "reviewer": "cody",
+    "reviewed_at": "2026-11-16",
+    "annotation_source": "human_visual_review",
+    "human_verified": "TRUE",
+    "evaluation_candidate": "TRUE"
+  },
+  "A091": "wrong_field unchanged",
+  "reviewer_name": "cody, explicitly confirmed by user in chat; original cods export preserved",
+  "P089_P107": "Suggestions not applied without confirmation",
+  "reviewer_name_applies_to_rows": 258
+}

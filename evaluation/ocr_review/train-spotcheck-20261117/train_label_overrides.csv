@@ -1,0 +1,7 @@
+training_review_id,spotcheck_id,original_text,original_legibility,text,legibility,source,scope
+T0808,S018,"RIVERVALE DR
+JALAN KAYU",full,"RIVER VALLEY DR
+JALAN KAYU",full,"cody final spot-check (v3), applied 2026-11-17 by user instruction",diagnostic train scoring only; fine-tuning used original_text
+T0911,S041,CITY DIRECT,full,[UNK] CITY DREL,partial,"cody final spot-check (v3), applied 2026-11-17 by user instruction",diagnostic train scoring only; fine-tuning used original_text
+T1758,S046,67,full,167 [UNK],partial,"cody final spot-check (v3), applied 2026-11-17 by user instruction",diagnostic train scoring only; fine-tuning used original_text
+T1333,S050,11,full,77 [UNK],partial,"cody final spot-check (v3), applied 2026-11-17 by user instruction",diagnostic train scoring only; fine-tuning used original_text

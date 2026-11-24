@@ -1,0 +1,61 @@
+variant,standard,kind,note
+INTERCHANGE,INT,word,Short standard form keeps generic words from inflating scores between different places
+INTCHG,INT,word,
+TERMINAL,TER,word,
+TERM,TER,word,
+STATION,STN,word,
+NORTH,NTH,word,
+SOUTH,STH,word,
+CENTRE,CTR,word,
+CENTER,CTR,word,US spelling
+CTRE,CTR,word,
+AVENUE,AVE,word,
+AV,AVE,word,
+ROAD,RD,word,
+STREET,ST,word,
+DRIVE,DR,word,
+CRESCENT,CRES,word,
+LORONG,LOR,word,
+JALAN,JLN,word,
+UPPER,UPP,word,
+PARK,PK,word,
+INDUSTRIAL,IND,word,
+BOULEVARD,BLVD,word,
+BLOCK,BLK,word,
+OPPOSITE,OPP,word,
+GARDENS,GDNS,word,
+GARDEN,GDN,word,
+HEIGHTS,HTS,word,
+POINT,PT,word,
+WDL,WOODLANDS,place,Place short form seen on EDS (WDL INT/MRT); the reference spells places out
+AMK,ANG MO KIO,place,
+CCK,CHOA CHU KANG,place,
+TPY,TOA PAYOH,place,
+HBF,HARBOURFRONT,place,
+BUSINESS,BIZ,word,EDS: TAMPINES-CHANGI BIZ PK (service 20)
+BUILDING,BLDG,word,
+BEFORE,BEF,word,Reference annotations use Bef/Aft
+AFTER,AFT,word,
+INTERNATIONAL,INTL,word,
+TECHNOLOGICAL,TECH,word,
+TECHNOLOGY,TECH,word,
+POLYTECHNIC,POLY,word,
+UNIVERSITY,UNI,word,
+PRIMARY,PRI,word,
+SECONDARY,SEC,word,
+SCHOOL,SCH,word,
+HOSPITAL,HOSP,word,
+BUKIT,BT,word,EDS: BT BATOK / BT MERAH / BT PANJANG
+BKT,BT,word,
+TANJONG,TG,word,EDS: TG PAGAR
+KAMPONG,KG,word,EDS: KG BAHRU
+MOUNT,MT,word,
+PLACE,PL,word,
+CLOSE,CL,word,
+LANE,LN,word,
+SQUARE,SQ,word,
+JUNCTION,JCT,word,
+ESTATE,EST,word,
+CBP,CHANGI BIZ PK,place,Changi Business Park
+NTU,NANYANG TECH UNI,place,Nanyang Technological University
+CENTRAL,CTRL,word,EDS: HOUGANG CTRL INT (service 151)

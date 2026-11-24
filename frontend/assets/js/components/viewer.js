@@ -13,25 +13,46 @@ export function fieldNumbers(data) {
 }
 
 export class Viewer {
-  constructor(container, caption) { this.container = container; this.caption = caption; this.last = null; }
+  constructor(container, caption, {boxesButton} = {}) {
+    this.container = container;
+    this.caption = caption;
+    this.last = null;
+    this.boxesButton = boxesButton;
+    this.boxesVisible = true;
+    boxesButton?.addEventListener('click', () => {
+      this.boxesVisible = !this.boxesVisible;
+      boxesButton.textContent = this.boxesVisible ? 'Hide detection boxes' : 'Show detection boxes';
+      this.updateDetectionBoxes();
+    });
+  }
+
+  updateDetectionBoxes() {
+    const boxes = this.container.querySelectorAll('.box');
+    if (this.boxesButton) this.boxesButton.hidden = boxes.length === 0;
+    if (!boxes.length) return;
+    boxes.forEach(box => { box.hidden = !this.boxesVisible; });
+    this.container.querySelector('img').alt = this.boxesVisible ? 'Processed frame with numbered detected regions' : 'Processed frame';
+  }
 
   clear(text = '') {
     this.last = null;
     this.container.replaceChildren();
     this.container.hidden = true;
     this.caption.textContent = text;
+    this.updateDetectionBoxes();
   }
 
   preview(url, label) {
     this.container.hidden = false;
     this.container.replaceChildren(el('img', {src: url, alt: label}));
     this.caption.textContent = label;
+    this.updateDetectionBoxes();
   }
 
   render(data, {numbers = fieldNumbers(data), state = 'Processed', label = '', idPrefix = ''} = {}) {
     this.last = data;
     this.container.hidden = false;
-    const image = el('img', {src: data.image, alt: 'Processed frame with numbered detected regions', width: data.width, height: data.height});
+    const image = el('img', {src: data.image, alt: 'Processed frame', width: data.width, height: data.height});
     const fragment = document.createDocumentFragment();
     fragment.append(image);
     const detections = [...data.detections].sort((a, b) => Number(b.label === 'eds') - Number(a.label === 'eds'));
@@ -50,6 +71,7 @@ export class Viewer {
       fragment.append(box);
     }
     this.container.replaceChildren(fragment);
+    this.updateDetectionBoxes();
     const frame = data.frame || {};
     const timestamp = ['video', 'camera'].includes(frame.source) ? ` · ${mediaTime(frame.source_timestamp_ms)}` : '';
     this.caption.textContent = `${state}${label ? ` · ${label}` : ''} · Frame ${frame.frame_id ?? 0}${timestamp} · ${data.width} × ${data.height}`;

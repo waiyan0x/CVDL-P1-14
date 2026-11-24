@@ -1,0 +1,262 @@
+{
+  "validation_crops": 271,
+  "layout_sha256": "218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd",
+  "shared_crop_layout_sources_identical": true,
+  "models": [
+    {
+      "model": "easyocr",
+      "device": "mps:0",
+      "attempted": 271,
+      "completed": 251,
+      "failed": 20,
+      "empty_successes": 3
+    },
+    {
+      "model": "trocr",
+      "device": "mps:0",
+      "attempted": 271,
+      "completed": 250,
+      "failed": 21,
+      "empty_successes": 0
+    },
+    {
+      "model": "paddleocr",
+      "device": "cpu",
+      "attempted": 271,
+      "completed": 251,
+      "failed": 20,
+      "empty_successes": 3
+    }
+  ],
+  "retained_failures": 61,
+  "evidence": {
+    "easyocr": {
+      "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/easyocr-v4-mps-fixed-lines-20261112-01",
+      "identity": {
+        "report_sha256": "127226b31d9c44ea78467a80745afec1a9307ddc6ffefe7f7e00d14caec9ff8e",
+        "predictions_sha256": "af355be8728ba6512fcd95827a7d67059737ff3329e8a998bb9a25fee72e384f",
+        "engine": "easyocr",
+        "model": "EasyOCR English generation-2 pretrained recognizer",
+        "model_provenance": {
+          "easyocr_version": "1.7.2"
+        },
+        "model_sha256_before": "e2272681d9d67a04e2dff396b6e95077bc19001f8f6d3593c307b9852e1c29e8",
+        "model_sha256_after": "e2272681d9d67a04e2dff396b6e95077bc19001f8f6d3593c307b9852e1c29e8",
+        "model_files_sha256": {
+          "craft_mlt_25k.pth": "4a5efbfb48b4081100544e75e1e2b57f8de3d84f213004b14b85fd4b3748db17",
+          "english_g2.pth": "e2272681d9d67a04e2dff396b6e95077bc19001f8f6d3593c307b9852e1c29e8"
+        },
+        "recognition_settings": {
+          "detector": false,
+          "decoder": "greedy",
+          "batch_size": 1,
+          "languages": [
+            "en"
+          ],
+          "allowlist": null,
+          "blocklist": null,
+          "workers": 0,
+          "contrast_ths": 0.0,
+          "paragraph": false,
+          "reformat": false,
+          "download_enabled": false
+        },
+        "preprocessing": {
+          "external_resize": null,
+          "external_padding": null,
+          "conversion": "Pillow RGB then OpenCV RGB-to-grayscale",
+          "line_segmentation": {
+            "method": "reviewed_full_width_separators_v1",
+            "transform": "Horizontal regions: exact slicing. Sloping full-width regions: perspective rectify to original width and maximum side height, INTER_LINEAR/BORDER_REPLICATE",
+            "unresolved_policy": "No recognition regions and no automatic/full-crop fallback; retain crop ID and explicit error"
+          },
+          "recognizer_resize": "Unmodified EasyOCR internal height/aspect-dependent width preprocessing"
+        },
+        "frozen_line_layout": {
+          "version": "v4-lines-v1",
+          "sha256": "218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd",
+          "reviewer_type": "AI",
+          "summary": {
+            "total": 271,
+            "accepted": 251,
+            "unresolved": 20,
+            "multiline_crops": 29,
+            "line_regions": 280,
+            "changed_from_proposal": 50
+          }
+        },
+        "actual_device": "mps:0",
+        "timing": {
+          "preprocessing_ms": "File read, SHA-256 check, image decode, RGB/grayscale conversion and line segmentation",
+          "recognition_ms": "Sum of synchronized wall times around each Reader.recognize call, including internal resize/transfer/forward/decode",
+          "crop_total_ms": "Wall time for preprocessing, synchronized recognition and result assembly",
+          "excluded": "Model initialization, warmups, preflight/integrity hashing, previews and result-file writes",
+          "percentile": "Linear interpolation at (n-1)*q across successful heterogeneous crops, separately by set/field"
+        },
+        "warmup_policy": "First accepted-layout annotation crop per field (or first crop in automatic mode), repeated before measurements; unseen shapes can incur first-use costs",
+        "warmup_runs_per_field": 3,
+        "run_name": "easyocr-v4-mps-fixed-lines-20261112-01",
+        "split": "valid"
+      },
+      "core_source_sha256": "ecfb26bd68cfd089e9c2f33547b6475c91d98cba400dc841fc8a6d9236fa2cd7",
+      "layout_source_sha256": "034672aea31613a26fabf44f30a76a709c545b29d39bf37da9bdd75c7a000899"
+    },
+    "trocr": {
+      "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_runs/trocr-base-printed-v4-mps-fixed-lines-20261112-01",
+      "identity": {
+        "report_sha256": "2c577fca30f3e3419e7b8918e35c995b493b8726243609b4d3d0128639be9c5a",
+        "predictions_sha256": "1fd17b4fdd7567dd89e446685906567568fe54128720d4b32461ad72bd04cddc",
+        "engine": "trocr",
+        "model": "microsoft/trocr-base-printed (public pretrained)",
+        "model_provenance": {
+          "repository": "microsoft/trocr-base-printed",
+          "revision": "93450be3f1ed40a930690d951ef3932687cc1892"
+        },
+        "model_sha256_before": "1cf4a6eedab26afaaf505f1c7f73d9634944924dbd1ed049d569db98039cd596",
+        "model_sha256_after": "1cf4a6eedab26afaaf505f1c7f73d9634944924dbd1ed049d569db98039cd596",
+        "model_files_sha256": {
+          "config.json": "5bda1deab455661feb3d91906656e5600e2ca520d5c00a2a03836614b850c93e",
+          "generation_config.json": "41149cdcffec4d657f32dfcddd9b208037f01286c9e07945c724908c58ed0193",
+          "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+          "model.safetensors": "1cf4a6eedab26afaaf505f1c7f73d9634944924dbd1ed049d569db98039cd596",
+          "preprocessor_config.json": "2fcc0da9466ee00be0403b26027373039e032820ebac409e207b32e52e52119d",
+          "provenance.json": "b6401b3a2237b39a26a9584c5a7aea233cf8183b57bd8cf2c050ef42e6de0a5c",
+          "special_tokens_map.json": "c611b1f7d416eb001ee4f293d903ea8c88e703463f1d403f1866a0352743fd00",
+          "tokenizer_config.json": "5a1356884c6ae736a621841535264ba7c5bebd52f169258add2c48fcbb32d50a",
+          "vocab.json": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab"
+        },
+        "recognition_settings": {
+          "detector": false,
+          "decoder": "greedy",
+          "num_beams": 1,
+          "do_sample": false,
+          "batch_size": 1,
+          "use_cache": true,
+          "forced_eos_token_id": null,
+          "max_new_tokens": 64,
+          "missing_eos_policy": "explicit error; retained token history",
+          "local_files_only": true,
+          "character_restriction": null
+        },
+        "preprocessing": {
+          "external_resize": null,
+          "external_padding": null,
+          "conversion": "Pillow RGB then OpenCV RGB-to-grayscale",
+          "line_segmentation": {
+            "method": "reviewed_full_width_separators_v1",
+            "transform": "Horizontal regions: exact slicing. Sloping full-width regions: perspective rectify to original width and maximum side height, INTER_LINEAR/BORDER_REPLICATE",
+            "unresolved_policy": "No recognition regions and no automatic/full-crop fallback; retain crop ID and explicit error"
+          },
+          "recognizer_resize": {
+            "_processor_class": null,
+            "image_processor_type": "ViTImageProcessor",
+            "do_resize": true,
+            "do_rescale": true,
+            "do_normalize": true,
+            "size": {
+              "height": 384,
+              "width": 384
+            },
+            "resample": 2,
+            "rescale_factor": 0.00392156862745098,
+            "image_mean": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "image_std": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "do_convert_rgb": null
+          },
+          "processor_input": "Shared grayscale region replicated to three RGB channels"
+        },
+        "frozen_line_layout": {
+          "version": "v4-lines-v1",
+          "sha256": "218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd",
+          "reviewer_type": "AI",
+          "summary": {
+            "total": 271,
+            "accepted": 251,
+            "unresolved": 20,
+            "multiline_crops": 29,
+            "line_regions": 280,
+            "changed_from_proposal": 50
+          }
+        },
+        "actual_device": "mps:0",
+        "timing": {
+          "preprocessing_ms": "File read, SHA-256 check, image decode, RGB/grayscale conversion and line segmentation",
+          "recognition_ms": "Sum of synchronized wall times around line processor resize/normalization, device transfer, generation, token confidence and text decode",
+          "crop_total_ms": "Wall time for preprocessing, synchronized recognition and result assembly",
+          "excluded": "Model initialization, warmups, preflight/integrity hashing, previews and result-file writes",
+          "percentile": "Linear interpolation at (n-1)*q across successful heterogeneous crops, separately by set/field"
+        },
+        "warmup_policy": "First accepted-layout annotation crop per field (or first crop in automatic mode), repeated before measurements; unseen shapes can incur first-use costs",
+        "warmup_runs_per_field": 3,
+        "run_name": "trocr-base-printed-v4-mps-fixed-lines-20261112-01",
+        "split": "valid"
+      },
+      "core_source_sha256": "ecfb26bd68cfd089e9c2f33547b6475c91d98cba400dc841fc8a6d9236fa2cd7",
+      "layout_source_sha256": "034672aea31613a26fabf44f30a76a709c545b29d39bf37da9bdd75c7a000899",
+      "engine_history_sha256": "e724201b086f5f1ce6b197f06cf2768ab2949471c6f2d9b08e8ad33eb9e4a56e"
+    },
+    "paddleocr": {
+      "run_dir": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr-baselines/paddle-en-v5-cpu-20261113-01",
+      "identity": {
+        "report_sha256": "f42e3ea879faeffc8306814f4381899e4396e8dca2623cabf538fad1072a8463",
+        "predictions_sha256": "cfdae43ed61aaa909d6f9e147f0d4b48f52ae2bbfd85e9b04492428dbdadd2bd",
+        "engine": "paddleocr",
+        "model": "en_PP-OCRv5_mobile_rec (public pretrained)",
+        "model_provenance": {
+          "repository": "PaddlePaddle/en_PP-OCRv5_mobile_rec",
+          "revision": "267c36e24c331595590fe7bd72bde2436fd286f2",
+          "files_sha256": {
+            "inference.json": "fd1b6ec722ea841a72d3ba43e527df1d1066d5d7808e0503ee3eec7265188753",
+            "inference.pdiparams": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b",
+            "inference.yml": "27e91d0582f40168aa218303c76e184bc78fa7a5d105aad0cfbad8458b441067"
+          },
+          "role": "public_pretrained_baseline"
+        },
+        "model_sha256_before": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b",
+        "model_sha256_after": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b",
+        "model_files_sha256": {
+          "provenance.json": "58dc4c6444318f18f814ac98b2c157fcc33af6c948e0ca2a78118f081813bd41",
+          "inference.json": "fd1b6ec722ea841a72d3ba43e527df1d1066d5d7808e0503ee3eec7265188753",
+          "inference.pdiparams": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b",
+          "inference.yml": "27e91d0582f40168aa218303c76e184bc78fa7a5d105aad0cfbad8458b441067"
+        },
+        "recognition_settings": {
+          "batch_size": 1,
+          "cpu_threads": 2,
+          "enable_mkldnn": false,
+          "seed": 0
+        },
+        "preprocessing": "Shared frozen grayscale line extraction; RGB replication; native Paddle resize/normalization",
+        "frozen_line_layout": {
+          "sha256": "218b06343d85a241e8eb2eb08076736c5b9afe5e52b17ee5e22263b9c73907fd",
+          "version": "v4-lines-v1",
+          "reviewer_type": "AI"
+        },
+        "actual_device": "cpu",
+        "timing": {
+          "crop_total_ms": "Wall time for file/hash/decode, shared layout extraction, CPU prediction and assembly",
+          "recognition_ms": "Sum of wall times around adapter line calls, including native processor and decode",
+          "excluded": "Model loading, warmups, preflight hashing and output writes"
+        },
+        "warmup_policy": "First accepted crop per field; discarded before measured pass",
+        "warmup_runs_per_field": 3,
+        "run_name": "paddle-en-v5-cpu-20261113-01",
+        "split": "valid"
+      },
+      "core_source_sha256": "ecfb26bd68cfd089e9c2f33547b6475c91d98cba400dc841fc8a6d9236fa2cd7",
+      "layout_source_sha256": "034672aea31613a26fabf44f30a76a709c545b29d39bf37da9bdd75c7a000899"
+    }
+  },
+  "empty_definition": "Successful raw output is empty or whitespace-only; saved text is unchanged.",
+  "accuracy_calculated": false,
+  "reserved_test_accessed": false,
+  "limit": "Saved identities, geometry and shared code agree; historical line pixel buffers were not independently hashed."
+}

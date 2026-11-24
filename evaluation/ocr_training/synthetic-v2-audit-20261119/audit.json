@@ -1,0 +1,311 @@
+{
+  "source_archive": "synthetic-eds-v2-20261119-test.zip",
+  "source_archive_sha256": "1a609c5ed9656579e8ca0e6e4d55a93c66ea6ec3e096bc248c662bb6a222d24d",
+  "crop_count": 10000,
+  "crop_hashes_verified": true,
+  "crc_passed": true,
+  "held_out_collisions": 0,
+  "held_out_sources": [
+    {
+      "path": "evaluation/ocr_review/human-verification-20261116/validation.source.corrected-P065.csv",
+      "column": "transcription",
+      "rows_used": 271,
+      "sha256": "88ad565d3211047307f1b7cb58eeb3fd96c195c55b8757b61dabc2daf39e40dc"
+    },
+    {
+      "path": "evaluation/ocr_review/test-confirmation-20261117/test.source.confirmed.csv",
+      "column": "transcription",
+      "rows_used": 118,
+      "sha256": "0a16c8768effd0d14ca58684ed78504b18c2b83019aa89298cdf288b0738afbd"
+    },
+    {
+      "path": "evaluation/ocr_review/route-holdout-20261117/route_holdout.source.csv",
+      "column": "transcription",
+      "rows_used": 139,
+      "sha256": "5bd8fd86d48f7472675c9b7fd2bdd89004ae62645aede98bee1d7861ca76cc88"
+    },
+    {
+      "path": "evaluation/ocr_review/route-holdout-20261117/route_holdout_partial.inventory.csv",
+      "column": "transcription",
+      "rows_used": 49,
+      "sha256": "208d7d856ddd3bab3fc769a7c68daa55febf04654c8d577ae4ac357746e4ea78"
+    },
+    {
+      "path": "evaluation/ocr_dataset/labels.csv",
+      "column": "text",
+      "rows_used": 376,
+      "sha256": "255868f811f5ce272b41e832908ba70217ee8aaa8b051425eb614f70539b87e3"
+    }
+  ],
+  "source_hashes_match": true,
+  "fields": {
+    "bus_number": 4000,
+    "destination": 4000,
+    "route_text": 2000
+  },
+  "unique_texts": {
+    "bus_number": 60,
+    "destination": 268,
+    "route_text": 8
+  },
+  "synthetic_label_provenance": "rendered text with automated checks; 100-crop human sample accepted by bulk user chat confirmation; remaining crops not individually reviewed",
+  "human_spotcheck_complete": true,
+  "generator_source_missing": [
+    "v2 generator source",
+    "eds_dot_matrix_glyphs.py"
+  ],
+  "benchmark_snapshot": "normalised-v8-layoutv3",
+  "score_reports_reproduced": [
+    "evaluation/ocr_scoring/normalised-v8-layoutv3",
+    "evaluation/ocr_scoring/normalised-v8-layoutv3/syn"
+  ],
+  "existing_scores": [
+    {
+      "split": "valid",
+      "input_set": "annotation",
+      "eligible": 79,
+      "cer": 0.2536115569823435,
+      "wer": 0.47435897435897434,
+      "exact_match": 0.569620253164557,
+      "model": "easyocr",
+      "version": "fine"
+    },
+    {
+      "split": "valid",
+      "input_set": "prediction",
+      "eligible": 51,
+      "cer": 0.28173374613003094,
+      "wer": 0.4883720930232558,
+      "exact_match": 0.6470588235294118,
+      "model": "easyocr",
+      "version": "fine"
+    },
+    {
+      "split": "test",
+      "input_set": "annotation",
+      "eligible": 45,
+      "cer": 0.21635883905013192,
+      "wer": 0.4574468085106383,
+      "exact_match": 0.6,
+      "model": "easyocr",
+      "version": "fine"
+    },
+    {
+      "split": "valid",
+      "input_set": "annotation",
+      "eligible": 79,
+      "cer": 0.12038523274478331,
+      "wer": 0.3141025641025641,
+      "exact_match": 0.6582278481012658,
+      "model": "trocr",
+      "version": "fine"
+    },
+    {
+      "split": "valid",
+      "input_set": "prediction",
+      "eligible": 51,
+      "cer": 0.19504643962848298,
+      "wer": 0.27906976744186046,
+      "exact_match": 0.7254901960784313,
+      "model": "trocr",
+      "version": "fine"
+    },
+    {
+      "split": "test",
+      "input_set": "annotation",
+      "eligible": 45,
+      "cer": 0.1741424802110818,
+      "wer": 0.3829787234042553,
+      "exact_match": 0.6222222222222222,
+      "model": "trocr",
+      "version": "fine"
+    },
+    {
+      "split": "valid",
+      "input_set": "annotation",
+      "eligible": 79,
+      "cer": 0.07223113964686999,
+      "wer": 0.16025641025641027,
+      "exact_match": 0.7848101265822784,
+      "model": "paddleocr",
+      "version": "fine"
+    },
+    {
+      "split": "valid",
+      "input_set": "prediction",
+      "eligible": 51,
+      "cer": 0.09597523219814241,
+      "wer": 0.19767441860465115,
+      "exact_match": 0.7843137254901961,
+      "model": "paddleocr",
+      "version": "fine"
+    },
+    {
+      "split": "test",
+      "input_set": "annotation",
+      "eligible": 45,
+      "cer": 0.08179419525065963,
+      "wer": 0.19148936170212766,
+      "exact_match": 0.8222222222222222,
+      "model": "paddleocr",
+      "version": "fine"
+    },
+    {
+      "split": "valid",
+      "input_set": "annotation",
+      "eligible": 79,
+      "cer": 0.18298555377207062,
+      "wer": 0.3782051282051282,
+      "exact_match": 0.6075949367088608,
+      "model": "easyocr",
+      "version": "fine+syn"
+    },
+    {
+      "split": "valid",
+      "input_set": "prediction",
+      "eligible": 51,
+      "cer": 0.19814241486068113,
+      "wer": 0.3488372093023256,
+      "exact_match": 0.7058823529411765,
+      "model": "easyocr",
+      "version": "fine+syn"
+    },
+    {
+      "split": "test",
+      "input_set": "annotation",
+      "eligible": 45,
+      "cer": 0.19525065963060687,
+      "wer": 0.425531914893617,
+      "exact_match": 0.5555555555555556,
+      "model": "easyocr",
+      "version": "fine+syn"
+    },
+    {
+      "split": "valid",
+      "input_set": "annotation",
+      "eligible": 79,
+      "cer": 0.4189406099518459,
+      "wer": 0.7435897435897436,
+      "exact_match": 0.379746835443038,
+      "model": "trocr",
+      "version": "fine+syn"
+    },
+    {
+      "split": "valid",
+      "input_set": "prediction",
+      "eligible": 51,
+      "cer": 0.4179566563467492,
+      "wer": 0.7209302325581395,
+      "exact_match": 0.4117647058823529,
+      "model": "trocr",
+      "version": "fine+syn"
+    },
+    {
+      "split": "test",
+      "input_set": "annotation",
+      "eligible": 45,
+      "cer": 0.34564643799472294,
+      "wer": 0.6808510638297872,
+      "exact_match": 0.4,
+      "model": "trocr",
+      "version": "fine+syn"
+    },
+    {
+      "split": "valid",
+      "input_set": "annotation",
+      "eligible": 79,
+      "cer": 0.06420545746388442,
+      "wer": 0.16666666666666666,
+      "exact_match": 0.7974683544303798,
+      "model": "paddleocr",
+      "version": "fine+syn"
+    },
+    {
+      "split": "valid",
+      "input_set": "prediction",
+      "eligible": 51,
+      "cer": 0.09287925696594428,
+      "wer": 0.20930232558139536,
+      "exact_match": 0.7843137254901961,
+      "model": "paddleocr",
+      "version": "fine+syn"
+    },
+    {
+      "split": "test",
+      "input_set": "annotation",
+      "eligible": 45,
+      "cer": 0.09762532981530343,
+      "wer": 0.2127659574468085,
+      "exact_match": 0.8,
+      "model": "paddleocr",
+      "version": "fine+syn"
+    }
+  ],
+  "candidate_bundle": {
+    "filename": "ocr_finetune_bundle-20261119-synv2-candidate.zip",
+    "sha256": "c21a9904d720cea0ad8eac99a156efc4ccdc3b09aa857792c189923a5857abcb",
+    "code_filename": "ocr_finetune_code-20261120-earlystop.zip",
+    "code_sha256": "df561fa3fa1daef863f5fa66acb889c27cffdab3616e141fdd65bcd106914ead",
+    "training_run_completed": false,
+    "notebook_code_cells_parse": true
+  },
+  "candidate_checks": {
+    "counts": {
+      "train_crops": 387,
+      "train_groups": 129,
+      "train_pairs": 10562,
+      "valid_crops": 130,
+      "valid_pairs": 130,
+      "valid_images": 130,
+      "test_files": 0,
+      "synthetic_crops": 10000,
+      "synthetic_crops_used": 10000,
+      "synthetic_pairs": 10196,
+      "real_train_pairs": 366
+    },
+    "all_payload_hashes_pass": true,
+    "zip_crc_pass": true,
+    "valid_lines_and_labels_identical_to_real_v3_bundle": true,
+    "real_training_pairs_unchanged": true,
+    "test_data_absent": true,
+    "synthetic_export_skips": 0,
+    "joined_synthetic_crops": 513,
+    "synthetic_pair_share": 0.9653474720696837,
+    "preparation_tests_passed": 7,
+    "scorer_tests_passed": 17,
+    "config_data_hash_recording_check": true,
+    "validation_texts_equal_current_benchmark": true
+  },
+  "human_review": {
+    "review_scope": "100 displayed sample crops compared with text labels",
+    "reviewer": "user_chat_confirmation",
+    "reviewed_at": "2026-11-19",
+    "confirmation_quote": "Yep, after looking through the text labels with the different cropping boxes, it looks accurate in terms of matching of the image to text.",
+    "preceding_clarification": "Have you compared all 100 crops with their text labels, or are you still partway through?",
+    "method": "bulk user chat attestation; assistant transcribed confirmation into CSV",
+    "independent_blind_review": false,
+    "entire_10000_crop_dataset_reviewed": false,
+    "source_template_sha256": "f5b40615c41e13a6dcd5ea89a03ad29524118de0b25616ef4c7823dd2aefce66",
+    "confirmed_csv_sha256": "2cc30b64944f21a8463ee88c72df51fd68d8908e38c477feaf29dd149d33df6b",
+    "rows": 100
+  },
+  "proposed_training_configuration": {
+    "batch_size": 32,
+    "requested_on": "2026-11-20",
+    "gpu": "Colab T4",
+    "gpu_memory_fit_tested": false,
+    "training_pairs": 10562,
+    "planned_steps_per_epoch": 331,
+    "max_epochs": 20,
+    "planned_max_steps": 6620,
+    "note": "Batch increased from historical 8 by user request; not an isolated data-only experiment. CPU smoke checks do not test full batch memory.",
+    "early_stopping": {
+      "monitor": "val_crop_CER",
+      "mode": "min",
+      "patience": 3,
+      "min_delta": 0,
+      "all_three_models": true,
+      "paddle_colab_execution_verified": false
+    }
+  }
+}

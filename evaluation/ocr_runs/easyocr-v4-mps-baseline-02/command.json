@@ -1,0 +1,12 @@
+[
+  "/Users/tanyilin/Downloads/CVDL-P1-14/.venv/bin/python",
+  "scripts/run_easyocr_crops.py",
+  "--device",
+  "mps",
+  "--warmup",
+  "3",
+  "--seed",
+  "0",
+  "--output",
+  "evaluation/ocr_runs/easyocr-v4-mps-baseline-02"
+]

@@ -1,0 +1,259 @@
+review_id,crop,field,input_set,text,legibility,field_status,reviewer,reviewed_at,annotation_source,human_verified,evaluation_candidate
+A001,crops/A001.png,bus_number,annotation,980,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A002,crops/A002.png,destination,annotation,SEMBAWANG [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A003,crops/A003.png,route_text,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A004,crops/A004.png,route_text,annotation,HOUGANG AVE 3,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A005,crops/A005.png,destination,annotation,> ANG MO KIO DEPOT,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A006,crops/A006.png,bus_number,annotation,45,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A007,crops/A007.png,bus_number,annotation,120,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A008,crops/A008.png,destination,annotation,[UNK] TELOK BLANGAH [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A009,crops/A009.png,route_text,annotation,TELOK BLANGAH [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A010,crops/A010.png,route_text,annotation,CHANGI RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A011,crops/A011.png,destination,annotation,> BOON LAY,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A012,crops/A012.png,bus_number,annotation,30,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A013,crops/A013.png,bus_number,annotation,142,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A014,crops/A014.png,route_text,annotation,[UNK] POTONG PASIR,partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A015,crops/A015.png,destination,annotation,LOR 6 TOA PAYOH,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A016,crops/A016.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A017,crops/A017.png,bus_number,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A018,crops/A018.png,bus_number,annotation,145,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A019,crops/A019.png,route_text,annotation,HENDERSON RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A020,crops/A020.png,destination,annotation,> TOA PAYOH INT,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A021,crops/A021.png,bus_number,annotation,7,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A022,crops/A022.png,destination,annotation,> CLEMENTI INT,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A023,crops/A023.png,route_text,annotation,ORCHARD BOULEVARD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A024,crops/A024.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A025,crops/A025.png,route_text,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A026,crops/A026.png,bus_number,annotation,66,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A027,crops/A027.png,destination,annotation,BEDOK,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A028,crops/A028.png,route_text,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A029,crops/A029.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A030,crops/A030.png,route_text,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A031,crops/A031.png,bus_number,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A032,crops/A032.png,bus_number,annotation,965,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A033,crops/A033.png,destination,annotation,SENGKANG,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A034,crops/A034.png,bus_number,annotation,145,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A035,crops/A035.png,destination,annotation,> TOA PAYOH INT,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A036,crops/A036.png,route_text,annotation,BALESTIER RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A037,crops/A037.png,bus_number,annotation,49,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A038,crops/A038.png,destination,annotation,JURONG EAST,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A039,crops/A039.png,bus_number,annotation,151,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A040,crops/A040.png,destination,annotation,> KENT RIDGE TER,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A041,crops/A041.png,route_text,annotation,BUKIT TIMAH RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A049,crops/A049.png,route_text,annotation,AIRLINE RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A050,crops/A050.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A051,crops/A051.png,bus_number,annotation,19,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A052,crops/A052.png,bus_number,annotation,14E,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A053,crops/A053.png,bus_number,annotation,148,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A054,crops/A054.png,destination,annotation,[UNK] INT [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A055,crops/A055.png,route_text,annotation,[UNK] PASIR [UNK] 1 (LOOP),partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A056,crops/A056.png,destination,annotation,[UNK] -,partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A057,crops/A057.png,route_text,annotation,[UNK] AVE 1,partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A058,crops/A058.png,bus_number,annotation,48,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A059,crops/A059.png,destination,annotation,> BEDOK NTH DEPOT,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A060,crops/A060.png,route_text,annotation,FARRER RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A061,crops/A061.png,bus_number,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A062,crops/A062.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A063,crops/A063.png,route_text,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A064,crops/A064.png,bus_number,annotation,110,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A065,crops/A065.png,bus_number,annotation,110,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A066,crops/A066.png,destination,annotation,[UNK] AIRPORT via,partial,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A067,crops/A067.png,destination,annotation,[UNK] AIRPORT via,partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A068,crops/A068.png,route_text,annotation,[UNK] ST,partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A069,crops/A069.png,route_text,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A070,crops/A070.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A071,crops/A071.png,route_text,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A072,crops/A072.png,bus_number,annotation,359,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A073,crops/A073.png,bus_number,annotation,350,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A074,crops/A074.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A075,crops/A075.png,bus_number,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A076,crops/A076.png,bus_number,annotation,[UNK]30,partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A077,crops/A077.png,bus_number,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A078,crops/A078.png,destination,annotation,[UNK] INT [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A079,crops/A079.png,route_text,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A080,crops/A080.png,bus_number,annotation,87,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A081,crops/A081.png,route_text,annotation,BEDOK NORTH RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A082,crops/A082.png,destination,annotation,> BEDOK INT,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A083,crops/A083.png,bus_number,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A084,crops/A084.png,route_text,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A085,crops/A085.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A086,crops/A086.png,bus_number,annotation,965,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A087,crops/A087.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A088,crops/A088.png,bus_number,annotation,965,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A089,crops/A089.png,destination,annotation,BUKIT [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A090,crops/A090.png,route_text,annotation,[UNK] AVE 7,partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A091,crops/A091.png,bus_number,annotation,302,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A092,crops/A092.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A093,crops/A093.png,bus_number,annotation,991,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A094,crops/A094.png,destination,annotation,CHOA CHU KANG INT,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A095,crops/A095.png,route_text,annotation,BUKIT BATOK ST 11,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A096,crops/A096.png,route_text,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A097,crops/A097.png,bus_number,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A098,crops/A098.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A099,crops/A099.png,route_text,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A100,crops/A100.png,bus_number,annotation,269,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A101,crops/A101.png,bus_number,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A102,crops/A102.png,bus_number,annotation,187,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A103,crops/A103.png,destination,annotation,WOODLANDS [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A104,crops/A104.png,route_text,annotation,[UNK] AVENUE 3,partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A105,crops/A105.png,bus_number,annotation,966,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A106,crops/A106.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A107,crops/A107.png,bus_number,annotation,966,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A108,crops/A108.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A109,crops/A109.png,bus_number,annotation,963,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A110,crops/A110.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A111,crops/A111.png,bus_number,annotation,196,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A112,crops/A112.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A113,crops/A113.png,route_text,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A114,crops/A114.png,route_text,annotation,LAVENDER ST,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A115,crops/A115.png,destination,annotation,> SHENTON WAY TER,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A116,crops/A116.png,bus_number,annotation,133,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A117,crops/A117.png,destination,annotation,PASIR RIS,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A118,crops/A118.png,route_text,annotation,[UNK] CENTRAL,partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A119,crops/A119.png,bus_number,annotation,518,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A120,crops/A120.png,bus_number,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A121,crops/A121.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A122,crops/A122.png,bus_number,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A123,crops/A123.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A124,crops/A124.png,route_text,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A125,crops/A125.png,bus_number,annotation,195,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A126,crops/A126.png,destination,annotation,MARINA CTR -,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A127,crops/A127.png,route_text,annotation,C'WEALTH AVE (LOOP),full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A128,crops/A128.png,bus_number,annotation,36T,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A129,crops/A129.png,destination,annotation,CHANGI AIRPORT TER 2,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A130,crops/A130.png,route_text,annotation,TERMINATING AT,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A131,crops/A131.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A132,crops/A132.png,bus_number,annotation,12,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A133,crops/A133.png,route_text,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A134,crops/A134.png,destination,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A135,crops/A135.png,bus_number,annotation,124,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A136,crops/A136.png,bus_number,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A137,crops/A137.png,bus_number,annotation,16,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A138,crops/A138.png,destination,annotation,BUKIT MERAH INT,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A139,crops/A139.png,bus_number,annotation,51A,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A140,crops/A140.png,destination,annotation,TERMINATE AT,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A141,crops/A141.png,route_text,annotation,PANDAN GARDENS (BLK 407),full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A142,crops/A142.png,bus_number,annotation,185,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A143,crops/A143.png,destination,annotation,BUONA VISTA TER via,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A144,crops/A144.png,route_text,annotation,PIONEER RD NTH,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A145,crops/A145.png,bus_number,annotation,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A146,crops/A146.png,destination,annotation,[UNK] INT,partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A147,crops/A147.png,route_text,annotation,UPPER THOMSON RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A148,crops/A148.png,bus_number,annotation,130,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A149,crops/A149.png,destination,annotation,> SHENTON WAY TER,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A150,crops/A150.png,route_text,annotation,THOMSON RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A151,crops/A151.png,destination,annotation,PUNGGOL,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A152,crops/A152.png,route_text,annotation,PASIR RIS DR 4 / 3 / 8 / 1,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A153,crops/A153.png,bus_number,annotation,3,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A154,crops/A154.png,route_text,annotation,BEDOK NORTH AVE [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+A155,crops/A155.png,destination,annotation,> BEDOK INT,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A156,crops/A156.png,bus_number,annotation,69,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+A157,crops/A157.png,bus_number,annotation,69,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P001,crops/P001.png,bus_number,prediction,980,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P002,crops/P002.png,destination,prediction,SEMBAWANG [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P003,crops/P003.png,route_text,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P004,crops/P004.png,route_text,prediction,HOUGANG AVE 3,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P005,crops/P005.png,destination,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P006,crops/P006.png,destination,prediction,> ANG MO KIO DEPOT,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P007,crops/P007.png,bus_number,prediction,45,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P008,crops/P008.png,bus_number,prediction,120,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P009,crops/P009.png,route_text,prediction,[UNK] TELOK BLANGAH [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P010,crops/P010.png,route_text,prediction,TELOK BLANGAH [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P011,crops/P011.png,destination,prediction,TELOK BLANGAH [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P012,crops/P012.png,route_text,prediction,CHANGI RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P013,crops/P013.png,bus_number,prediction,30,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P014,crops/P014.png,destination,prediction,> BOON LAY,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P015,crops/P015.png,bus_number,prediction,142,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P016,crops/P016.png,route_text,prediction,LOR 6 TOA PAYOH,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P017,crops/P017.png,bus_number,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P018,crops/P018.png,destination,prediction,[UNK] PAYOH INT-POTONG [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P019,crops/P019.png,route_text,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P020,crops/P020.png,bus_number,prediction,145,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P021,crops/P021.png,route_text,prediction,HENDERSON RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P022,crops/P022.png,destination,prediction,> TOA PAYOH INT,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P023,crops/P023.png,bus_number,prediction,7,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P024,crops/P024.png,destination,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P025,crops/P025.png,route_text,prediction,ORCHARD BOULEVARD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P026,crops/P026.png,route_text,prediction,ORCHARD BOULEVARD,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P027,crops/P027.png,route_text,prediction,ORCHARD BOULEV[UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P028,crops/P028.png,bus_number,prediction,66,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P029,crops/P029.png,route_text,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P030,crops/P030.png,bus_number,prediction,965,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P031,crops/P031.png,destination,prediction,SENGKANG,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P032,crops/P032.png,bus_number,prediction,145,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P033,crops/P033.png,route_text,prediction,BALESTIER RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P034,crops/P034.png,destination,prediction,> TOA PAYOH INT,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P035,crops/P035.png,bus_number,prediction,49,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P036,crops/P036.png,bus_number,prediction,151,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P037,crops/P037.png,destination,prediction,> KENT RIDGE TER,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P038,crops/P038.png,route_text,prediction,BUKIT TIMAH RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P045,crops/P045.png,bus_number,prediction,19,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P046,crops/P046.png,bus_number,prediction,14E,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P047,crops/P047.png,route_text,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P048,crops/P048.png,destination,prediction,[UNK] INT,partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P049,crops/P049.png,bus_number,prediction,48,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P050,crops/P050.png,route_text,prediction,FARRER RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P051,crops/P051.png,destination,prediction,> BEDOK NTH DEPOT,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P052,crops/P052.png,bus_number,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P053,crops/P053.png,bus_number,prediction,110,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P054,crops/P054.png,bus_number,prediction,110,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P055,crops/P055.png,bus_number,prediction,359,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P056,crops/P056.png,destination,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P057,crops/P057.png,route_text,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P058,crops/P058.png,bus_number,prediction,87,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P059,crops/P059.png,route_text,prediction,BEDOK NORTH RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P060,crops/P060.png,destination,prediction,> BEDOK INT,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P061,crops/P061.png,destination,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P062,crops/P062.png,bus_number,prediction,965,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P063,crops/P063.png,destination,prediction,BUKIT [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P064,crops/P064.png,route_text,prediction,[UNK] AVE 7,partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P065,crops/P065.png,bus_number,prediction,302,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P066,crops/P066.png,destination,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P067,crops/P067.png,route_text,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P068,crops/P068.png,route_text,prediction,CHOA CHU KANG INT [UNK],partial,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P069,crops/P069.png,bus_number,prediction,991,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P070,crops/P070.png,route_text,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P071,crops/P071.png,destination,prediction,CHOA CHU KANG INT [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P072,crops/P072.png,destination,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P073,crops/P073.png,bus_number,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P074,crops/P074.png,bus_number,prediction,269,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P075,crops/P075.png,bus_number,prediction,187,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P076,crops/P076.png,bus_number,prediction,196,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P077,crops/P077.png,destination,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P078,crops/P078.png,bus_number,prediction,133,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P079,crops/P079.png,bus_number,prediction,518,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P080,crops/P080.png,destination,prediction,> SHENTON WAY TER,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P081,crops/P081.png,route_text,prediction,LAVENDER ST,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P082,crops/P082.png,route_text,prediction,PASIR RIS,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P083,crops/P083.png,destination,prediction,PASIR RIS,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P084,crops/P084.png,bus_number,prediction,195,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P085,crops/P085.png,route_text,prediction,MARINA CTR,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P086,crops/P086.png,destination,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P087,crops/P087.png,route_text,prediction,MARINA CTR -,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P088,crops/P088.png,route_text,prediction,C'WEALTH AVE (LOOP),full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P089,crops/P089.png,bus_number,prediction,[UNK]TING AT,partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P090,crops/P090.png,bus_number,prediction,36T,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P091,crops/P091.png,route_text,prediction,TERMINATING AT,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P092,crops/P092.png,bus_number,prediction,124,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P093,crops/P093.png,route_text,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P094,crops/P094.png,destination,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P095,crops/P095.png,destination,prediction,BUKIT MERAH INT,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P096,crops/P096.png,bus_number,prediction,51A,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P097,crops/P097.png,route_text,prediction,TERMINATE AT,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P098,crops/P098.png,destination,prediction,PANDAN GARDENS (BLK 407),full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P099,crops/P099.png,bus_number,prediction,185,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P100,crops/P100.png,route_text,prediction,BUONA VISTA TER vi[UNK],partial,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P101,crops/P101.png,destination,prediction,PIONEER RD NTH,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P102,crops/P102.png,bus_number,prediction,[UNK],illegible,uncertain,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P103,crops/P103.png,route_text,prediction,UPPER THOMSON RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P104,crops/P104.png,destination,prediction,[UNK] INT,partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P105,crops/P105.png,destination,prediction,UPPER THOMSON RD,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P106,crops/P106.png,bus_number,prediction,130,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P107,crops/P107.png,destination,prediction,THOMSON RD,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P108,crops/P108.png,bus_number,prediction,TER 130,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P109,crops/P109.png,bus_number,prediction,3,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P110,crops/P110.png,route_text,prediction,PUNGGOL,full,wrong_field,cody,2026-11-16,human_visual_review,TRUE,FALSE
+P111,crops/P111.png,route_text,prediction,PASIR RIS DR 4 / 3 / 8 / 1,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P112,crops/P112.png,destination,prediction,PUNGGOL,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P113,crops/P113.png,bus_number,prediction,69,full,present,cody,2026-11-16,human_visual_review,TRUE,TRUE
+P114,crops/P114.png,route_text,prediction,BEDOK NORTH AVE [UNK],partial,present,cody,2026-11-16,human_visual_review,TRUE,FALSE

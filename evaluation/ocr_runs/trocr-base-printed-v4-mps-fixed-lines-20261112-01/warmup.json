@@ -1,0 +1,371 @@
+[
+  {
+    "review_id": "A001",
+    "field": "front_eds_num",
+    "iteration": 1,
+    "status": "success",
+    "error": null,
+    "engine_lines": [
+      {
+        "token_ids": [
+          36824,
+          2
+        ],
+        "raw_text": "980",
+        "token_log_probabilities": [
+          -0.0029744927305728197
+        ],
+        "token_geometric_mean_confidence": 0.9970299266899986,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A001",
+    "field": "front_eds_num",
+    "iteration": 2,
+    "status": "success",
+    "error": null,
+    "engine_lines": [
+      {
+        "token_ids": [
+          36824,
+          2
+        ],
+        "raw_text": "980",
+        "token_log_probabilities": [
+          -0.0029744927305728197
+        ],
+        "token_geometric_mean_confidence": 0.9970299266899986,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A001",
+    "field": "front_eds_num",
+    "iteration": 3,
+    "status": "success",
+    "error": null,
+    "engine_lines": [
+      {
+        "token_ids": [
+          36824,
+          2
+        ],
+        "raw_text": "980",
+        "token_log_probabilities": [
+          -0.0029744927305728197
+        ],
+        "token_geometric_mean_confidence": 0.9970299266899986,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A003",
+    "field": "front_eds_route",
+    "iteration": 1,
+    "status": "success",
+    "error": null,
+    "engine_lines": [
+      {
+        "token_ids": [
+          15057,
+          2
+        ],
+        "raw_text": "***",
+        "token_log_probabilities": [
+          -0.4620027244091034
+        ],
+        "token_geometric_mean_confidence": 0.6300206235056521,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          8727,
+          3764,
+          3411,
+          30198,
+          2
+        ],
+        "raw_text": "ROCHOR RD",
+        "token_log_probabilities": [
+          -0.06148894876241684,
+          -0.0025018127635121346,
+          -1.4185804502631072e-05,
+          -0.10387878119945526
+        ],
+        "token_geometric_mean_confidence": 0.9588976532773412,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A003",
+    "field": "front_eds_route",
+    "iteration": 2,
+    "status": "success",
+    "error": null,
+    "engine_lines": [
+      {
+        "token_ids": [
+          15057,
+          2
+        ],
+        "raw_text": "***",
+        "token_log_probabilities": [
+          -0.4620027244091034
+        ],
+        "token_geometric_mean_confidence": 0.6300206235056521,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          8727,
+          3764,
+          3411,
+          30198,
+          2
+        ],
+        "raw_text": "ROCHOR RD",
+        "token_log_probabilities": [
+          -0.06148894876241684,
+          -0.0025018127635121346,
+          -1.4185804502631072e-05,
+          -0.10387878119945526
+        ],
+        "token_geometric_mean_confidence": 0.9588976532773412,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A003",
+    "field": "front_eds_route",
+    "iteration": 3,
+    "status": "success",
+    "error": null,
+    "engine_lines": [
+      {
+        "token_ids": [
+          15057,
+          2
+        ],
+        "raw_text": "***",
+        "token_log_probabilities": [
+          -0.4620027244091034
+        ],
+        "token_geometric_mean_confidence": 0.6300206235056521,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          8727,
+          3764,
+          3411,
+          30198,
+          2
+        ],
+        "raw_text": "ROCHOR RD",
+        "token_log_probabilities": [
+          -0.06148894876241684,
+          -0.0025018127635121346,
+          -1.4185804502631072e-05,
+          -0.10387878119945526
+        ],
+        "token_geometric_mean_confidence": 0.9588976532773412,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A005",
+    "field": "front_eds_destination",
+    "iteration": 1,
+    "status": "success",
+    "error": null,
+    "engine_lines": [
+      {
+        "token_ids": [
+          15698,
+          44552,
+          8228,
+          229,
+          2688,
+          5885,
+          510,
+          3293,
+          2
+        ],
+        "raw_text": "> ANG NO KID DEPOT",
+        "token_log_probabilities": [
+          -0.529009997844696,
+          -0.0151024479418993,
+          -0.001997025217860937,
+          -0.0008693729760125279,
+          -0.5378406047821045,
+          -0.0035672858357429504,
+          -0.0010604002745822072,
+          -0.001527096494100988
+        ],
+        "token_geometric_mean_confidence": 0.8725181883112092,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A005",
+    "field": "front_eds_destination",
+    "iteration": 2,
+    "status": "success",
+    "error": null,
+    "engine_lines": [
+      {
+        "token_ids": [
+          15698,
+          44552,
+          8228,
+          229,
+          2688,
+          5885,
+          510,
+          3293,
+          2
+        ],
+        "raw_text": "> ANG NO KID DEPOT",
+        "token_log_probabilities": [
+          -0.529009997844696,
+          -0.0151024479418993,
+          -0.001997025217860937,
+          -0.0008693729760125279,
+          -0.5378406047821045,
+          -0.0035672858357429504,
+          -0.0010604002745822072,
+          -0.001527096494100988
+        ],
+        "token_geometric_mean_confidence": 0.8725181883112092,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A005",
+    "field": "front_eds_destination",
+    "iteration": 3,
+    "status": "success",
+    "error": null,
+    "engine_lines": [
+      {
+        "token_ids": [
+          15698,
+          44552,
+          8228,
+          229,
+          2688,
+          5885,
+          510,
+          3293,
+          2
+        ],
+        "raw_text": "> ANG NO KID DEPOT",
+        "token_log_probabilities": [
+          -0.529009997844696,
+          -0.0151024479418993,
+          -0.001997025217860937,
+          -0.0008693729760125279,
+          -0.5378406047821045,
+          -0.0035672858357429504,
+          -0.0010604002745822072,
+          -0.001527096494100988
+        ],
+        "token_geometric_mean_confidence": 0.8725181883112092,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  }
+]

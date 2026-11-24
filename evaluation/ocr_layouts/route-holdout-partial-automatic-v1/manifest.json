@@ -1,0 +1,2591 @@
+{
+  "schema_version": 1,
+  "method": "frozen_automatic_full_width_separators_v1",
+  "version": "route-holdout-partial-automatic-v1",
+  "frozen": true,
+  "reviewer_type": "algorithm",
+  "generated_at": "2026-11-17T09:31:04.637667+00:00",
+  "split": "train",
+  "source_review_sha256": "208d7d856ddd3bab3fc769a7c68daa55febf04654c8d577ae4ac357746e4ea78",
+  "segmentation": {
+    "id": "row_projection_v2",
+    "foreground": "Otsu/border polarity; for bright text, use warm/green chromatic support when >=1% of pixels and >=12% of Otsu support",
+    "chromatic_support": "max(R,G)-B>12, max(R,G,B)-min(R,G,B)>20, grayscale>max(20,0.5*Otsu)",
+    "active_row": "foreground count >= max(1, 0.02*width, 0.20*peak row count)",
+    "close_vertical_gaps": "base max(1,floor(height*0.025)); with >=3 bands, bridge up to twice the median of the smaller half of gaps, capped at floor(height/5)",
+    "minimum_band_height": "max(2, floor(crop_height * 0.06)) pixels",
+    "regions": "full-width partitions at midpoints between retained bands; preserve all rows",
+    "max_lines": 8,
+    "layout_verification": "All regions are heuristic and unverified; inspect saved overlays"
+  },
+  "transformation": "Frozen horizontal partitions; original grayscale pixels; exact slices",
+  "unresolved_policy": "Explicit errors, including policy quarantine; no OCR fallback",
+  "summary": {
+    "total": 49,
+    "accepted": 49,
+    "unresolved": 0,
+    "policy_excluded": 0,
+    "multiline_crops": 4,
+    "line_regions": 53
+  },
+  "entries": [
+    {
+      "review_id": "RH0004",
+      "crop_id": "crops/015_11c0e4ce__0efd8c24-16_jpg.rf.f86d36a29d66a05126fbf1aff6f7432d_a1374.png",
+      "crop_sha256": "2387245d61d57fe417e3eddfcdb415aa4b3af5b9f053e1897e7334463c4af2ea",
+      "input_width": 273,
+      "input_height": 52,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            273,
+            0
+          ],
+          [
+            273,
+            52
+          ],
+          [
+            0,
+            52
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 125.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            8,
+            52
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0007",
+      "crop_id": "crops/023_1c601ef2__7bcb756c-751_jpg.rf.ccee24db52e21a30e8c56427c73200a4_a1891.png",
+      "crop_sha256": "e951d8a3de5b31da79b93103f11fbff737e7e4a98b4ce8a65114d6af7fdf452c",
+      "input_width": 201,
+      "input_height": 50,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            201,
+            0
+          ],
+          [
+            201,
+            50
+          ],
+          [
+            0,
+            50
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 145.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            47
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0011",
+      "crop_id": "crops/036_31841d0d-41f83d00-400_jpg.rf.cc04c19305261a3f93815a4304886411_a1648.png",
+      "crop_sha256": "2295b8e9d770b9240a33b6c50a1dad5903ea61a1aec01e170bdb0668b9550eb2",
+      "input_width": 99,
+      "input_height": 22,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            99,
+            0
+          ],
+          [
+            99,
+            22
+          ],
+          [
+            0,
+            22
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 60.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            4,
+            22
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0013",
+      "crop_id": "crops/042_352eed8b__1433d18a-1325_jpg.rf.e9c94834aeff425935b365889c342e51_a71.png",
+      "crop_sha256": "ddf85b33b6d0fbad17e09740ac945a8dd28add4390a425170188f0f556e840f0",
+      "input_width": 112,
+      "input_height": 31,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            112,
+            0
+          ],
+          [
+            112,
+            31
+          ],
+          [
+            0,
+            31
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 66.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            28,
+            31
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0014",
+      "crop_id": "crops/043_3730c0a0__817a2cb5-1321_jpg.rf.389cad46b595147f6adbcee6a755ca31_a606.png",
+      "crop_sha256": "c8009c63ee3fd858434ff0bd8287aa6c483fde552cd0613046f7526d5d7ca82f",
+      "input_width": 42,
+      "input_height": 12,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            42,
+            0
+          ],
+          [
+            42,
+            12
+          ],
+          [
+            0,
+            12
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 121.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            2,
+            12
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0016",
+      "crop_id": "crops/054_404c1c1b-bus_2_png.rf.f481ded52b45f9aa451f13ca5bf6bc61_a1869.png",
+      "crop_sha256": "42c1365deca6a9f7b844f8d78ec850b0222069a0bfe76d29c5a1cf03b4c72b77",
+      "input_width": 139,
+      "input_height": 23,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            139,
+            0
+          ],
+          [
+            139,
+            23
+          ],
+          [
+            0,
+            23
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 152.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            23
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0018",
+      "crop_id": "crops/075_7768179e-bus_16_jpg.rf.7d0ffa0f89a2613062b924ec7642e393_a2713.png",
+      "crop_sha256": "78d1267f9d1decaa1cb40c666c201bfc75fe9df7a5e7112eb6611ef35b9f8cc9",
+      "input_width": 83,
+      "input_height": 35,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [
+        [
+          20,
+          20
+        ]
+      ],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            83,
+            0
+          ],
+          [
+            83,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        [
+          [
+            0,
+            20
+          ],
+          [
+            83,
+            20
+          ],
+          [
+            83,
+            35
+          ],
+          [
+            0,
+            35
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. split_candidate",
+      "automatic_details": {
+        "status": "split_candidate",
+        "needs_review": true,
+        "threshold": 142.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            6,
+            16
+          ],
+          [
+            24,
+            27
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0021",
+      "crop_id": "crops/083_88ceca91__c40d16a8-131M_jpg.rf.bdb1d62c817e53c37bf4c532108bb60f_a622.png",
+      "crop_sha256": "191133b1378336b752fa94a6694d9ae16946b1be9d2eb9255622daf651449fee",
+      "input_width": 197,
+      "input_height": 45,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            197,
+            0
+          ],
+          [
+            197,
+            45
+          ],
+          [
+            0,
+            45
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 164.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            45
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0022",
+      "crop_id": "crops/087_8b89ab51-bus_26_jpg.rf.97a2bfa42d8699dee602e033ed4b3a07_a1763.png",
+      "crop_sha256": "b1a29d970255c8a45a459281637457dae741312e01d558dada1f310f913534fc",
+      "input_width": 185,
+      "input_height": 38,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            185,
+            0
+          ],
+          [
+            185,
+            38
+          ],
+          [
+            0,
+            38
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 141.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            37
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0024",
+      "crop_id": "crops/093_8d6d224a__5e37e4fd-1204_jpg.rf.af955d531feaabed582051a0fe00ca93_a1367.png",
+      "crop_sha256": "73db38e2f59ac30b7ab86a4358a9213f72984910837875ad94f388f629d89c8d",
+      "input_width": 59,
+      "input_height": 15,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            59,
+            0
+          ],
+          [
+            59,
+            15
+          ],
+          [
+            0,
+            15
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 158.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            15
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0025",
+      "crop_id": "crops/094_8d8f6ec7-bus_33_jpg.rf.4543a02d3e140bd635ea3c2dee9faf63_a2351.png",
+      "crop_sha256": "4a915bda2a88e099599a09126af10665210c721fa46cdf746095d9c4a70021f5",
+      "input_width": 87,
+      "input_height": 33,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            87,
+            0
+          ],
+          [
+            87,
+            33
+          ],
+          [
+            0,
+            33
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 138.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            5,
+            24
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0034",
+      "crop_id": "crops/141_IMAGE_2026-10-23_21_57_34_jpg.rf.cae782b9c33c72c3d29aa8b16ca09a2c_a613.png",
+      "crop_sha256": "16501bfaa57c31c3c215f54ef48e7556034b5b87f8538addbb391b32f15ad1a2",
+      "input_width": 78,
+      "input_height": 16,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            78,
+            0
+          ],
+          [
+            78,
+            16
+          ],
+          [
+            0,
+            16
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 127.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            1,
+            16
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0036",
+      "crop_id": "crops/145_IMAGE_2026-10-23_22_00_52_jpg.rf.b89b7f7c33340f70d97f58a098011837_a280.png",
+      "crop_sha256": "41b14cbe9969584ac6b5124a214c9973dd1372818e5ab0163255d7548e02669a",
+      "input_width": 177,
+      "input_height": 40,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            177,
+            0
+          ],
+          [
+            177,
+            40
+          ],
+          [
+            0,
+            40
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 56.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            37
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0037",
+      "crop_id": "crops/153_IMAGE_2026-10-23_22_12_50_jpg.rf.fc8eb34a0cad5359caa31ca5c1c70c52_a1040.png",
+      "crop_sha256": "4a94435cd5e38e7ce3ecf57bead883220acaca47c12ef29d61f5897a9df66aae",
+      "input_width": 97,
+      "input_height": 33,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            97,
+            0
+          ],
+          [
+            97,
+            33
+          ],
+          [
+            0,
+            33
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 87.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            33
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0038",
+      "crop_id": "crops/164_IMAGE_2026-10-25_14_42_15_jpg.rf.76786bbfe5f6172db7c973a76b0e7827_a708.png",
+      "crop_sha256": "870d2577fb29f4d9c8221840e3778347f8d0ac1a1818cf9deae5e067168c398d",
+      "input_width": 169,
+      "input_height": 35,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            169,
+            0
+          ],
+          [
+            169,
+            35
+          ],
+          [
+            0,
+            35
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 91.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            5,
+            35
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0039",
+      "crop_id": "crops/170_IMAGE_2026-10-25_14_42_24_jpg.rf.238f3e7d31c9805acd88fba1b6f0fffe_a67.png",
+      "crop_sha256": "1db1afcf4878d70327ae2a8951fa37885d193303d2317c26b1c095acc7efe6e1",
+      "input_width": 152,
+      "input_height": 45,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            152,
+            0
+          ],
+          [
+            152,
+            45
+          ],
+          [
+            0,
+            45
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 69.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            35
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0042",
+      "crop_id": "crops/206_IMG20261024203802_jpg.rf.c5e8fd87132ace9212f960b5dcb4a3f5_a1897.png",
+      "crop_sha256": "92e8ee1a1a60bb777b6002da9a4f29004b0e810043bd6ee6b3a54602ffdb7647",
+      "input_width": 431,
+      "input_height": 86,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            431,
+            0
+          ],
+          [
+            431,
+            86
+          ],
+          [
+            0,
+            86
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 131.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 2,
+        "foreground_bands": [
+          [
+            0,
+            80
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0045",
+      "crop_id": "crops/227_IMG20261024204155_jpg.rf.bed112594fd94a2a078986e2dfb6c8f1_a1164.png",
+      "crop_sha256": "35f68e8074ab54a2527a0b2b881d9ffd9c598949b2ae56fd8355398281f66e37",
+      "input_width": 249,
+      "input_height": 65,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            249,
+            0
+          ],
+          [
+            249,
+            65
+          ],
+          [
+            0,
+            65
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 94.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            58
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0046",
+      "crop_id": "crops/230_IMG20261024204212_jpg.rf.233bbbfa9bea4317751be43e8aa3c39e_a818.png",
+      "crop_sha256": "01823c0b377f127502c218b9bd9b7fdf8039b4d7653707a96d7ea02e3024b926",
+      "input_width": 311,
+      "input_height": 76,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            311,
+            0
+          ],
+          [
+            311,
+            76
+          ],
+          [
+            0,
+            76
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 101.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            65
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0047",
+      "crop_id": "crops/236_IMG20261024204444_jpg.rf.722e526867e232c8ea5343b3ad84d6a7_a2022.png",
+      "crop_sha256": "4b001201d3371bda67e9e209eef47977a064e1bc0009836eeb7b2dac16d15f2a",
+      "input_width": 400,
+      "input_height": 94,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            400,
+            0
+          ],
+          [
+            400,
+            94
+          ],
+          [
+            0,
+            94
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 88.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 2,
+        "foreground_bands": [
+          [
+            16,
+            82
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0050",
+      "crop_id": "crops/261_IMG_20261026_182754_jpg.rf.cfdda7044fc343a21ea340c62a9a2520_a526.png",
+      "crop_sha256": "8648830defd4791201bce734065fbacc6675f334ce99f5fd6d12a3a2ce2b9ef4",
+      "input_width": 115,
+      "input_height": 33,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            115,
+            0
+          ],
+          [
+            115,
+            33
+          ],
+          [
+            0,
+            33
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 69.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            31
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0053",
+      "crop_id": "crops/280_Screenshot_2026-10-24-20-31-51-31_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.32c5d262f49d8ea4c1eb85b368a71c1a_a2313.png",
+      "crop_sha256": "71992b9d9d60a9dd8b488a755414fc8fe0ef6ce87d6ff9a1b7ec00d36cedf833",
+      "input_width": 269,
+      "input_height": 88,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            269,
+            0
+          ],
+          [
+            269,
+            88
+          ],
+          [
+            0,
+            88
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 122.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 2,
+        "foreground_bands": [
+          [
+            15,
+            77
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0055",
+      "crop_id": "crops/290_Screenshot_2026-10-24-20-33-30-00_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.590700a271e31861c255d64a344a9469_a2743.png",
+      "crop_sha256": "597f5c4729c20db4d51035f2dd39382a2807d6026317d43d2c1c25c591ae1251",
+      "input_width": 359,
+      "input_height": 73,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            359,
+            0
+          ],
+          [
+            359,
+            73
+          ],
+          [
+            0,
+            73
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 41.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            73
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0057",
+      "crop_id": "crops/298_Screenshot_2026-10-24-20-34-51-48_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.593476c9ed722b3b838d90abe83cee5c_a1579.png",
+      "crop_sha256": "d24299ec5a83a565b57ee81c927257f3e2ccac293b837d24d1ace15691672078",
+      "input_width": 158,
+      "input_height": 38,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            158,
+            0
+          ],
+          [
+            158,
+            38
+          ],
+          [
+            0,
+            38
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 146.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            38
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0060",
+      "crop_id": "crops/330_Screenshot_2026-11-01-21-16-33-38_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.dfcd5f099fb5dde8c6c26f14b9f928ab_a421.png",
+      "crop_sha256": "3b9ad436f5ef7fa88b4e585eef2baec8099239c0926814126828eb57fb2bb2fc",
+      "input_width": 60,
+      "input_height": 24,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            60,
+            0
+          ],
+          [
+            60,
+            24
+          ],
+          [
+            0,
+            24
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 172.0,
+        "polarity": "bright",
+        "foreground_mode": "grayscale",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            3,
+            24
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0063",
+      "crop_id": "crops/348_Screenshot_2026-11-01-21-17-28-68_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.bbaeb762d465f9d009bf262bfcbe692d_a1218.png",
+      "crop_sha256": "c33e2ecae20ffae2011d05394d820cfa2920038be95dcb09affa05d4881b90c1",
+      "input_width": 212,
+      "input_height": 61,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            212,
+            0
+          ],
+          [
+            212,
+            61
+          ],
+          [
+            0,
+            61
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 113.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            8,
+            61
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0067",
+      "crop_id": "crops/367_Screenshot_2026-11-01-21-19-09-44_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a0b2323ced295ae700595bfc1ff2cc70_a345.png",
+      "crop_sha256": "f4de8e2d5c12ccb371544312b9272bf12bf03c6f9f797d3b4bbb3602a339ec87",
+      "input_width": 164,
+      "input_height": 42,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [
+        [
+          22,
+          22
+        ]
+      ],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            164,
+            0
+          ],
+          [
+            164,
+            22
+          ],
+          [
+            0,
+            22
+          ]
+        ],
+        [
+          [
+            0,
+            22
+          ],
+          [
+            164,
+            22
+          ],
+          [
+            164,
+            42
+          ],
+          [
+            0,
+            42
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. split_candidate",
+      "automatic_details": {
+        "status": "split_candidate",
+        "needs_review": true,
+        "threshold": 128.0,
+        "polarity": "dark",
+        "foreground_mode": "grayscale",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            13
+          ],
+          [
+            31,
+            42
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0069",
+      "crop_id": "crops/382_Screenshot_2026-11-01-21-24-47-63_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.95cc5f2061e0d337d4698f223f38934b_a1007.png",
+      "crop_sha256": "0065742b916d13c9956e552f50c19e2a7d1d67e6b3d7844af8c8faf729e97c89",
+      "input_width": 187,
+      "input_height": 63,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            187,
+            0
+          ],
+          [
+            187,
+            63
+          ],
+          [
+            0,
+            63
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 46.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            47
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0071",
+      "crop_id": "crops/399_Screenshot_2026-11-01-21-30-10-17_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3fb1b41d4b274a495e59658001a9df94_a1639.png",
+      "crop_sha256": "041a55f68ea8588de8cc3a2a8efb2d20dea2f538ee4304a2802ca8b7bfd73c0e",
+      "input_width": 137,
+      "input_height": 38,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            137,
+            0
+          ],
+          [
+            137,
+            38
+          ],
+          [
+            0,
+            38
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 59.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            29
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0076",
+      "crop_id": "crops/419_Screenshot_2026-11-01-21-31-19-42_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.67e0734f71985eb8a292839b71b431a0_a1621.png",
+      "crop_sha256": "bc1bd370ef8500c8bef80ccf5c02ca25d9e7f618624b2f143cf53a99a76e6373",
+      "input_width": 144,
+      "input_height": 31,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [
+        [
+          17,
+          17
+        ]
+      ],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            144,
+            0
+          ],
+          [
+            144,
+            17
+          ],
+          [
+            0,
+            17
+          ]
+        ],
+        [
+          [
+            0,
+            17
+          ],
+          [
+            144,
+            17
+          ],
+          [
+            144,
+            31
+          ],
+          [
+            0,
+            31
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. split_candidate",
+      "automatic_details": {
+        "status": "split_candidate",
+        "needs_review": true,
+        "threshold": 81.0,
+        "polarity": "dark",
+        "foreground_mode": "grayscale",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            4,
+            13
+          ],
+          [
+            21,
+            31
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0077",
+      "crop_id": "crops/423_Screenshot_2026-11-01-21-31-28-16_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a6a430701def89e9e54c369330260d0e_a1474.png",
+      "crop_sha256": "307a1e3549b475f54ba1573c183f67531e1d47e79d122cf3aaf4b9aa44f4a9a7",
+      "input_width": 208,
+      "input_height": 35,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            208,
+            0
+          ],
+          [
+            208,
+            35
+          ],
+          [
+            0,
+            35
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 76.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            29
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0081",
+      "crop_id": "crops/439_Screenshot_2026-11-01-21-33-28-29_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.4354b64a6f2c196061232642798e4f2d_a776.png",
+      "crop_sha256": "4080bd6dc4dea99e3c3304104bc09b7545c0b8cbadc639ac9f93056d60a9e68c",
+      "input_width": 150,
+      "input_height": 62,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [
+        [
+          35,
+          35
+        ]
+      ],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            150,
+            0
+          ],
+          [
+            150,
+            35
+          ],
+          [
+            0,
+            35
+          ]
+        ],
+        [
+          [
+            0,
+            35
+          ],
+          [
+            150,
+            35
+          ],
+          [
+            150,
+            62
+          ],
+          [
+            0,
+            62
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. split_candidate",
+      "automatic_details": {
+        "status": "split_candidate",
+        "needs_review": true,
+        "threshold": 84.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            6,
+            33
+          ],
+          [
+            37,
+            42
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0083",
+      "crop_id": "crops/458_Screenshot_2026-11-01-21-34-22-54_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6fc5a5dc98f95b7afa9116f61b10262a_a334.png",
+      "crop_sha256": "d96095efcb036a0e01b7ad56f163f7b21996ff398171bd528a0dfbb6802833df",
+      "input_width": 239,
+      "input_height": 70,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            239,
+            0
+          ],
+          [
+            239,
+            70
+          ],
+          [
+            0,
+            70
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 108.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            11,
+            70
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0087",
+      "crop_id": "crops/484_Screenshot_2026-11-01-21-35-36-13_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0ee0d90bde7f9d81609af13f69a348de_a84.png",
+      "crop_sha256": "d03555e313b17c6d79da9ca4cf990bd66c638b26ada0a989d75b5e62c64536ee",
+      "input_width": 181,
+      "input_height": 42,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            181,
+            0
+          ],
+          [
+            181,
+            42
+          ],
+          [
+            0,
+            42
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 154.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            39
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0090",
+      "crop_id": "crops/503_Screenshot_2026-11-01-21-37-36-07_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5ef33362c8978d581297e208858fa9b1_a2033.png",
+      "crop_sha256": "a1f41597f9dcea14d6b847e8897574416aeb679cf203b149c5c748cee21f1321",
+      "input_width": 327,
+      "input_height": 88,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            327,
+            0
+          ],
+          [
+            327,
+            88
+          ],
+          [
+            0,
+            88
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 135.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 2,
+        "foreground_bands": [
+          [
+            0,
+            88
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0094",
+      "crop_id": "crops/544_Screenshot_2026-11-01-21-48-31-72_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.02bb474614e65b5e037818eec282d050_a1710.png",
+      "crop_sha256": "7b1c033e8081558feec6a7434e9abb600ff535a399eb6a94035e56e1091ee29f",
+      "input_width": 173,
+      "input_height": 51,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            173,
+            0
+          ],
+          [
+            173,
+            51
+          ],
+          [
+            0,
+            51
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 119.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            36
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0096",
+      "crop_id": "crops/559_Screenshot_2026-11-01-21-49-25-49_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.09ace2461d61048dde1debc4f1417f9a_a864.png",
+      "crop_sha256": "1bb6d06733b1002587558659daabeffaae0fe1c420193ab9494f80345488fd64",
+      "input_width": 441,
+      "input_height": 73,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            441,
+            0
+          ],
+          [
+            441,
+            73
+          ],
+          [
+            0,
+            73
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 110.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            63
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0098",
+      "crop_id": "crops/572_Screenshot_2026-11-01-21-50-41-91_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ae0cac133ef91c95c8bc46acbc826986_a617.png",
+      "crop_sha256": "ba9fa5cfc8ed587ec1d3a16873df8743d326ccf994adc36d912c6b0f812fb5da",
+      "input_width": 117,
+      "input_height": 35,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            117,
+            0
+          ],
+          [
+            117,
+            35
+          ],
+          [
+            0,
+            35
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 93.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            6,
+            35
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0104",
+      "crop_id": "crops/599_a1a1a399-bus_32_jpg.rf.2faf361dd02af53f2da1033890fe011d_a429.png",
+      "crop_sha256": "76c2cc1aa601e4ab252a32e40132ec5e4d29e9f852dd688f443780f63ee3d19e",
+      "input_width": 72,
+      "input_height": 34,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            72,
+            0
+          ],
+          [
+            72,
+            34
+          ],
+          [
+            0,
+            34
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 97.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            2,
+            32
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0109",
+      "crop_id": "crops/615_abe85849__42d5920a-646_jpg.rf.820542f9c56b16434431aeb1ca48c347_a2676.png",
+      "crop_sha256": "f1d1461e22610be144c8842e964e8fb0da543e78162c44432c9358dabed81736",
+      "input_width": 60,
+      "input_height": 20,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            60,
+            0
+          ],
+          [
+            60,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 111.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            4,
+            20
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0114",
+      "crop_id": "crops/634_ba3436db__aca85bfb-58_jpg.rf.18f3bc2586a6ed912114cc530a3cb7cb_a1519.png",
+      "crop_sha256": "40b8b8c812bbe51a014b2cb41bf8a37dcd1412343a042761dc6828203a9c5d24",
+      "input_width": 103,
+      "input_height": 25,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            103,
+            0
+          ],
+          [
+            103,
+            25
+          ],
+          [
+            0,
+            25
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 84.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            3,
+            25
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0115",
+      "crop_id": "crops/638_ba67cfc3-a6daa64e-74_jpg.rf.92808b42968d06200ec1c626b559bcd3_a1490.png",
+      "crop_sha256": "e79660ab698ed1eea62f1494e3b4d9a6a1437e1390298d9f4ee1dfa6bb312f8b",
+      "input_width": 83,
+      "input_height": 31,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            83,
+            0
+          ],
+          [
+            83,
+            31
+          ],
+          [
+            0,
+            31
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 110.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            6,
+            31
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0129",
+      "crop_id": "crops/702_e8f74339-bus_24_jpg.rf.5b9dec1dffcb4b433a0375f1b9b782ec_a2117.png",
+      "crop_sha256": "8c87ce3f72ea6577480a5a5c90c3d8da5f374579560c402b400dd626b308d211",
+      "input_width": 137,
+      "input_height": 32,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            137,
+            0
+          ],
+          [
+            137,
+            32
+          ],
+          [
+            0,
+            32
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 204.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            29
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0131",
+      "crop_id": "crops/706_ea005707__9aebe21b-3_jpg.rf.5262066cc542a4049e1b17473785f197_a1596.png",
+      "crop_sha256": "9aa3b2c1d866c33ead7a591da7808dbd3833e97282f95dfb781b906a43322481",
+      "input_width": 69,
+      "input_height": 19,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            69,
+            0
+          ],
+          [
+            69,
+            19
+          ],
+          [
+            0,
+            19
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 38.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            4,
+            16
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0133",
+      "crop_id": "crops/714_f0bdaf50__836ba5f2-1201_jpg.rf.a5fbc1e2f9d3df4704570f89084b6461_a1655.png",
+      "crop_sha256": "caf08f922eb0c0ec7fec0f602d41603246a59fde5ec184157c00310f6def64a9",
+      "input_width": 133,
+      "input_height": 21,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            133,
+            0
+          ],
+          [
+            133,
+            21
+          ],
+          [
+            0,
+            21
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 189.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            3,
+            21
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0134",
+      "crop_id": "crops/719_f2649b54-bus_31_jpg.rf.e9fa899e93b89da952077a56e83b2312_a676.png",
+      "crop_sha256": "032c4c989308da34d5c001f2052574f5bae2b3c5693763f92c4e6de677767006",
+      "input_width": 86,
+      "input_height": 19,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            86,
+            0
+          ],
+          [
+            86,
+            19
+          ],
+          [
+            0,
+            19
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 135.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            19
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0135",
+      "crop_id": "crops/721_f530945b-43ba0cf3-31_jpg.rf.15c94fc2a4d6e441744f7a287af6a02b_a2698.png",
+      "crop_sha256": "8e318e66b8a3ba0fe3127992081e2fc01304a0bbda2bf2d66d3949f410d34fa2",
+      "input_width": 86,
+      "input_height": 22,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            86,
+            0
+          ],
+          [
+            86,
+            22
+          ],
+          [
+            0,
+            22
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 129.0,
+        "polarity": "dark",
+        "foreground_mode": "grayscale",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            22
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0136",
+      "crop_id": "crops/726_f9f4e357__bf3282e2-14_jpg.rf.f97d22be6c0d0ca6a8d304a6a6c42dbe_a1063.png",
+      "crop_sha256": "645ed85c88a6eaff0b338b1d7e4b5fab46e22b346de7ac303eef481faeecdd27",
+      "input_width": 95,
+      "input_height": 38,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            95,
+            0
+          ],
+          [
+            95,
+            38
+          ],
+          [
+            0,
+            38
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 65.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            22,
+            38
+          ]
+        ]
+      },
+      "policy_excluded": false
+    },
+    {
+      "review_id": "RH0139",
+      "crop_id": "crops/734_photo_2026-10-29_10-22-00_jpg.rf.e4b5fed1bbb9bff34d0019201661c0da_a567.png",
+      "crop_sha256": "c2e1b31e51da6d9e255d9bdec16029cc3324cf5f87ca5b194c0419b160f15a28",
+      "input_width": 66,
+      "input_height": 12,
+      "layout_method": "frozen_automatic_full_width_separators_v1",
+      "reviewer": "row_projection_v2",
+      "reviewer_type": "algorithm",
+      "reviewed_at": "2026-11-17T09:31:04.637667+00:00",
+      "independent_human_review": false,
+      "review_status": "accepted",
+      "separators": [],
+      "line_quads": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            66,
+            0
+          ],
+          [
+            66,
+            12
+          ],
+          [
+            0,
+            12
+          ]
+        ]
+      ],
+      "reason": "Frozen automatic geometry; no visual review. single_band_unverified",
+      "automatic_details": {
+        "status": "single_band_unverified",
+        "needs_review": true,
+        "threshold": 99.0,
+        "polarity": "bright",
+        "foreground_mode": "chromatic_led_support",
+        "bridged_gap_pixels": 1,
+        "foreground_bands": [
+          [
+            0,
+            9
+          ]
+        ]
+      },
+      "policy_excluded": false
+    }
+  ]
+}

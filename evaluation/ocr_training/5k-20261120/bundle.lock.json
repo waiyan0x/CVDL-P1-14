@@ -1,0 +1,27 @@
+{
+  "bundle": "ocr_finetune_bundle-20261120-5k.zip",
+  "sha256": "94f27152c521db48f542fb1fbfc2005c80df17444d4441901e977763b0c8dcb4",
+  "counts": {
+    "train_crops": 387,
+    "train_groups": 129,
+    "train_pairs": 5000,
+    "valid_crops": 130,
+    "valid_pairs": 130,
+    "valid_images": 130,
+    "test_files": 0,
+    "synthetic_crops": 10000,
+    "synthetic_crops_used": 4548,
+    "synthetic_pairs": 4634,
+    "real_train_pairs": 366
+  },
+  "real_pairs_unchanged": true,
+  "validation_unchanged": true,
+  "test_data_absent": true,
+  "all_payload_hashes_verified": true,
+  "training_completed": false,
+  "trainer_loader_check_passed": true,
+  "notebook": "colab/ocr_finetune/ocr_finetune_5k.ipynb",
+  "notebook_sha256": "50d07253de6c68137c7ded4ddd59eebc67163212c090aad8dedcea754e6f230f",
+  "steps_per_epoch": 157,
+  "max_steps_at_20_epochs": 3140
+}

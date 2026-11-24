@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "engine": "paddleocr",
+  "fine_tuned": true,
+  "finetuned_from": "DRIVE/CVDL-OCR-finetune/paddleocr/20261117-031848",
+  "inputs": 163,
+  "split": "valid/test",
+  "field": "front_eds",
+  "actual_device": "cpu",
+  "source": "Brendan class/detector exports; no detector rerun",
+  "segmentation": "row_projection_v2; automatic unreviewed; explicit errors; no fallback",
+  "model_files_sha256": {
+    "provenance.json": "371bfcfb38fc1110282262c726f90d4ff8fc124c66dc2dce992f3f30d3e517ac",
+    "inference.json": "35f4f35169126745e8ad1de97fdebd7211165839cb3733a59ada9e4c07e5ac8b",
+    "inference.pdiparams": "bff740481388e5cfec374d7c53893099f489e80bec0cdf8a789f9123075641cd",
+    "inference.yml": "27e91d0582f40168aa218303c76e184bc78fa7a5d105aad0cfbad8458b441067"
+  },
+  "accuracy_calculated": false,
+  "reference_matching_used": false,
+  "predictions_sha256": "bcdc63e176db7b47d0bc61601178fb4fade094414ede8ff8b0248f5a7f32551b"
+}

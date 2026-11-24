@@ -1,0 +1,19 @@
+{
+  "source_archives": {
+    "v4-reviewed-01-training.zip": "eed81556629f1223529ada839dd23c0f575961315ef46ebd2878f6d719ed6bd8"
+  },
+  "manifest_matches": null,
+  "train_coco_matches": null,
+  "text_rows": 1917,
+  "training_families": 245,
+  "groups": 297,
+  "holdout_linked_training_sources": 9,
+  "source_image_root": "/Users/tanyilin/Downloads/2026-11-05-roboflow-v4-reviewed-full.zip",
+  "crop_root": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/source",
+  "review_root": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review",
+  "full_dataset_available_during_review": false,
+  "full_dataset_expected_path": "/Users/tanyilin/Downloads/2026-11-05-roboflow-v4-reviewed-full.zip",
+  "full_dataset_prior_turn_sha256": "e76f9cfaf1b1b502a38085111dec56bb851116ffc9d22062a27251d2f355c88f",
+  "prior_turn_observation": "Previous conversation turn verified 735/53/53 splits and archive checksums. Not rerun here because file was missing.",
+  "test_policy": "No test image decoded or viewed in this task. Full v4 ZIP was unavailable; v4 test group comparison could not be repeated."
+}

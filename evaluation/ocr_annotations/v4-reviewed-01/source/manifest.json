@@ -1,0 +1,5481 @@
+{
+  "dataset": "C:\\Users\\brend\\CVDL-P1-14\\data\\training\\2026-11-05-roboflow-v4-reviewed",
+  "split": "valid",
+  "dataset_manifest_sha256": "01760a84133353028e203b0f06a4c7dd5d012be7b67c0c02f52fd3e4128180e0",
+  "validation_coco_sha256": "d0655277d63a999a540256d00325c5a4b9bd24e9d2959541777eb77a9df6550c",
+  "checkpoint": "C:\\Users\\brend\\CVDL-P1-14\\.runtime\\object_detection_benchmark\\01760a841333\\runs\\v4-reviewed-01\\yolo11s\\weights\\best.pt",
+  "checkpoint_sha256": "97150601de39a999754015648cad2ef930842d52e8e37eb77d7576ffe2da33b5",
+  "model": "yolo11s",
+  "device": "cuda",
+  "confidence": 0.5,
+  "nms_iou": 0.7,
+  "image_size": 640,
+  "image_count": 53,
+  "counts": {
+    "gt_front_eds": 64,
+    "gt_front_eds_destination": 55,
+    "gt_front_eds_num": 60,
+    "gt_front_eds_route": 42,
+    "negative_images": 10,
+    "pred_front_eds": 46,
+    "pred_front_eds_destination": 35,
+    "pred_front_eds_num": 42,
+    "pred_front_eds_route": 37,
+    "predictions_on_negative_images": 0
+  },
+  "images": [
+    {
+      "image": "14488614-bus_8_jpg.rf.f42edf43192002dc5ef10238a21c7e38.jpg",
+      "image_id": 1,
+      "image_sha256": "d40382e6fa3f79a54b0cfa180cb914601563ae43c28dbe55ae9edf67645581ec",
+      "width": 867,
+      "height": 1390,
+      "ground_truth": [
+        {
+          "annotation_id": 9,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            251,
+            751,
+            578,
+            817
+          ],
+          "crop": "ground_truth/front_eds/001_14488614-bus_8_jpg.rf.f42edf43192002dc5ef10238a21c7e38_a9.png"
+        },
+        {
+          "annotation_id": 10,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            500,
+            770,
+            567,
+            813
+          ],
+          "crop": "ground_truth/front_eds_num/001_14488614-bus_8_jpg.rf.f42edf43192002dc5ef10238a21c7e38_a10.png"
+        },
+        {
+          "annotation_id": 11,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            266,
+            755,
+            436,
+            788
+          ],
+          "crop": "ground_truth/front_eds_destination/001_14488614-bus_8_jpg.rf.f42edf43192002dc5ef10238a21c7e38_a11.png"
+        },
+        {
+          "annotation_id": 12,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            297,
+            767,
+            488,
+            808
+          ],
+          "crop": "ground_truth/front_eds_route/001_14488614-bus_8_jpg.rf.f42edf43192002dc5ef10238a21c7e38_a12.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            234,
+            739,
+            588,
+            825
+          ],
+          "confidence": 0.952208,
+          "crop": "predicted/front_eds/001_14488614-bus_8_jpg.rf.f42edf43192002dc5ef10238a21c7e38_p000.png",
+          "matched_gt_annotation_id_at_iou50": 9,
+          "best_same_class_iou": 0.708908
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            499,
+            770,
+            570,
+            815
+          ],
+          "confidence": 0.946728,
+          "crop": "predicted/front_eds_num/001_14488614-bus_8_jpg.rf.f42edf43192002dc5ef10238a21c7e38_p001.png",
+          "matched_gt_annotation_id_at_iou50": 10,
+          "best_same_class_iou": 0.901721
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            261,
+            753,
+            466,
+            787
+          ],
+          "confidence": 0.86005,
+          "crop": "predicted/front_eds_destination/001_14488614-bus_8_jpg.rf.f42edf43192002dc5ef10238a21c7e38_p002.png",
+          "matched_gt_annotation_id_at_iou50": 11,
+          "best_same_class_iou": 0.761905
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            264,
+            774,
+            457,
+            810
+          ],
+          "confidence": 0.784331,
+          "crop": "predicted/front_eds_route/001_14488614-bus_8_jpg.rf.f42edf43192002dc5ef10238a21c7e38_p003.png",
+          "matched_gt_annotation_id_at_iou50": 12,
+          "best_same_class_iou": 0.582503
+        }
+      ]
+    },
+    {
+      "image": "19cc8b3d__44945929-45_jpg.rf.6939708a0cf9266df26b734ed9aeac56.jpg",
+      "image_id": 29,
+      "image_sha256": "6c7511edb3127fe302f10cd00abf7c44b374ba23296bc052ab80ff4ccf50a717",
+      "width": 1080,
+      "height": 1080,
+      "ground_truth": [
+        {
+          "annotation_id": 130,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            204,
+            424,
+            309,
+            445
+          ],
+          "crop": "ground_truth/front_eds_route/002_19cc8b3d__44945929-45_jpg.rf.6939708a0cf9266df26b734ed9aeac56_a130.png"
+        },
+        {
+          "annotation_id": 131,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            204,
+            445,
+            334,
+            469
+          ],
+          "crop": "ground_truth/front_eds_destination/002_19cc8b3d__44945929-45_jpg.rf.6939708a0cf9266df26b734ed9aeac56_a131.png"
+        },
+        {
+          "annotation_id": 132,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            401,
+            411,
+            449,
+            464
+          ],
+          "crop": "ground_truth/front_eds_num/002_19cc8b3d__44945929-45_jpg.rf.6939708a0cf9266df26b734ed9aeac56_a132.png"
+        },
+        {
+          "annotation_id": 133,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            198,
+            407,
+            463,
+            480
+          ],
+          "crop": "ground_truth/front_eds/002_19cc8b3d__44945929-45_jpg.rf.6939708a0cf9266df26b734ed9aeac56_a133.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            204,
+            422,
+            312,
+            448
+          ],
+          "confidence": 0.962099,
+          "crop": "predicted/front_eds_route/002_19cc8b3d__44945929-45_jpg.rf.6939708a0cf9266df26b734ed9aeac56_p000.png",
+          "matched_gt_annotation_id_at_iou50": 130,
+          "best_same_class_iou": 0.785256
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            195,
+            407,
+            457,
+            476
+          ],
+          "confidence": 0.960898,
+          "crop": "predicted/front_eds/002_19cc8b3d__44945929-45_jpg.rf.6939708a0cf9266df26b734ed9aeac56_p001.png",
+          "matched_gt_annotation_id_at_iou50": 133,
+          "best_same_class_iou": 0.914024
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            706,
+            280,
+            835,
+            330
+          ],
+          "confidence": 0.90699,
+          "crop": "predicted/front_eds_destination/002_19cc8b3d__44945929-45_jpg.rf.6939708a0cf9266df26b734ed9aeac56_p002.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.0
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            206,
+            444,
+            334,
+            470
+          ],
+          "confidence": 0.903583,
+          "crop": "predicted/front_eds_destination/002_19cc8b3d__44945929-45_jpg.rf.6939708a0cf9266df26b734ed9aeac56_p003.png",
+          "matched_gt_annotation_id_at_iou50": 131,
+          "best_same_class_iou": 0.909953
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            400,
+            412,
+            452,
+            464
+          ],
+          "confidence": 0.848254,
+          "crop": "predicted/front_eds_num/002_19cc8b3d__44945929-45_jpg.rf.6939708a0cf9266df26b734ed9aeac56_p004.png",
+          "matched_gt_annotation_id_at_iou50": 132,
+          "best_same_class_iou": 0.906977
+        }
+      ]
+    },
+    {
+      "image": "249ec93f__442bbe08-1203_jpg.rf.1e28d958b7d0f63ae15c32cde5c26853.jpg",
+      "image_id": 23,
+      "image_sha256": "0d56e76961ae3e96af4174700531ca08a34166c977c462c9b614b7cd4861fab3",
+      "width": 1080,
+      "height": 878,
+      "ground_truth": [
+        {
+          "annotation_id": 94,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            720,
+            389,
+            881,
+            435
+          ],
+          "crop": "ground_truth/front_eds/003_249ec93f__442bbe08-1203_jpg.rf.1e28d958b7d0f63ae15c32cde5c26853_a94.png"
+        },
+        {
+          "annotation_id": 95,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            841,
+            392,
+            878,
+            428
+          ],
+          "crop": "ground_truth/front_eds_num/003_249ec93f__442bbe08-1203_jpg.rf.1e28d958b7d0f63ae15c32cde5c26853_a95.png"
+        },
+        {
+          "annotation_id": 96,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            726,
+            411,
+            839,
+            428
+          ],
+          "crop": "ground_truth/front_eds_destination/003_249ec93f__442bbe08-1203_jpg.rf.1e28d958b7d0f63ae15c32cde5c26853_a96.png"
+        },
+        {
+          "annotation_id": 97,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            726,
+            397,
+            819,
+            414
+          ],
+          "crop": "ground_truth/front_eds_route/003_249ec93f__442bbe08-1203_jpg.rf.1e28d958b7d0f63ae15c32cde5c26853_a97.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            714,
+            382,
+            901,
+            439
+          ],
+          "confidence": 0.959436,
+          "crop": "predicted/front_eds/003_249ec93f__442bbe08-1203_jpg.rf.1e28d958b7d0f63ae15c32cde5c26853_p000.png",
+          "matched_gt_annotation_id_at_iou50": 94,
+          "best_same_class_iou": 0.694812
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            841,
+            394,
+            879,
+            428
+          ],
+          "confidence": 0.949745,
+          "crop": "predicted/front_eds_num/003_249ec93f__442bbe08-1203_jpg.rf.1e28d958b7d0f63ae15c32cde5c26853_p001.png",
+          "matched_gt_annotation_id_at_iou50": 95,
+          "best_same_class_iou": 0.920937
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            727,
+            408,
+            841,
+            428
+          ],
+          "confidence": 0.896611,
+          "crop": "predicted/front_eds_route/003_249ec93f__442bbe08-1203_jpg.rf.1e28d958b7d0f63ae15c32cde5c26853_p002.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.166818
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            726,
+            396,
+            818,
+            415
+          ],
+          "confidence": 0.726157,
+          "crop": "predicted/front_eds_route/003_249ec93f__442bbe08-1203_jpg.rf.1e28d958b7d0f63ae15c32cde5c26853_p003.png",
+          "matched_gt_annotation_id_at_iou50": 97,
+          "best_same_class_iou": 0.886119
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            728,
+            395,
+            820,
+            415
+          ],
+          "confidence": 0.71953,
+          "crop": "predicted/front_eds_destination/003_249ec93f__442bbe08-1203_jpg.rf.1e28d958b7d0f63ae15c32cde5c26853_p004.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.108459
+        }
+      ]
+    },
+    {
+      "image": "43629406-262f1fba-30_jpg.rf.5eebf69313045f1d0758cfd27dd2a4b7.jpg",
+      "image_id": 41,
+      "image_sha256": "9918beff1f8fc421cd71f0d88dbf27efd257403139fe306d1899cda8e3d6b97d",
+      "width": 1280,
+      "height": 720,
+      "ground_truth": [
+        {
+          "annotation_id": 181,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            556,
+            265,
+            820,
+            320
+          ],
+          "crop": "ground_truth/front_eds/004_43629406-262f1fba-30_jpg.rf.5eebf69313045f1d0758cfd27dd2a4b7_a181.png"
+        },
+        {
+          "annotation_id": 182,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            564,
+            272,
+            639,
+            288
+          ],
+          "crop": "ground_truth/front_eds_route/004_43629406-262f1fba-30_jpg.rf.5eebf69313045f1d0758cfd27dd2a4b7_a182.png"
+        },
+        {
+          "annotation_id": 183,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            563,
+            289,
+            694,
+            314
+          ],
+          "crop": "ground_truth/front_eds_destination/004_43629406-262f1fba-30_jpg.rf.5eebf69313045f1d0758cfd27dd2a4b7_a183.png"
+        },
+        {
+          "annotation_id": 184,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            772,
+            274,
+            814,
+            316
+          ],
+          "crop": "ground_truth/front_eds_num/004_43629406-262f1fba-30_jpg.rf.5eebf69313045f1d0758cfd27dd2a4b7_a184.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            563,
+            271,
+            642,
+            291
+          ],
+          "confidence": 0.948933,
+          "crop": "predicted/front_eds_route/004_43629406-262f1fba-30_jpg.rf.5eebf69313045f1d0758cfd27dd2a4b7_p000.png",
+          "matched_gt_annotation_id_at_iou50": 182,
+          "best_same_class_iou": 0.759494
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            552,
+            262,
+            825,
+            328
+          ],
+          "confidence": 0.946955,
+          "crop": "predicted/front_eds/004_43629406-262f1fba-30_jpg.rf.5eebf69313045f1d0758cfd27dd2a4b7_p001.png",
+          "matched_gt_annotation_id_at_iou50": 181,
+          "best_same_class_iou": 0.805861
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            769,
+            274,
+            814,
+            318
+          ],
+          "confidence": 0.945858,
+          "crop": "predicted/front_eds_num/004_43629406-262f1fba-30_jpg.rf.5eebf69313045f1d0758cfd27dd2a4b7_p002.png",
+          "matched_gt_annotation_id_at_iou50": 184,
+          "best_same_class_iou": 0.890909
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            564,
+            285,
+            694,
+            317
+          ],
+          "confidence": 0.938836,
+          "crop": "predicted/front_eds_destination/004_43629406-262f1fba-30_jpg.rf.5eebf69313045f1d0758cfd27dd2a4b7_p003.png",
+          "matched_gt_annotation_id_at_iou50": 183,
+          "best_same_class_iou": 0.776583
+        }
+      ]
+    },
+    {
+      "image": "4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5.jpg",
+      "image_id": 24,
+      "image_sha256": "cdc7414f6df953b79dce15290cb8e0bc033dc27f723e964703f8fd7004dffc19",
+      "width": 800,
+      "height": 533,
+      "ground_truth": [
+        {
+          "annotation_id": 98,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            134,
+            195,
+            160,
+            216
+          ],
+          "crop": "ground_truth/front_eds_num/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_a98.png"
+        },
+        {
+          "annotation_id": 99,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            32,
+            204,
+            132,
+            214
+          ],
+          "crop": "ground_truth/front_eds_route/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_a99.png"
+        },
+        {
+          "annotation_id": 100,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            32,
+            193,
+            103,
+            204
+          ],
+          "crop": "ground_truth/front_eds_destination/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_a100.png"
+        },
+        {
+          "annotation_id": 101,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            23,
+            190,
+            163,
+            219
+          ],
+          "crop": "ground_truth/front_eds/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_a101.png"
+        },
+        {
+          "annotation_id": 102,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            553,
+            246,
+            650,
+            256
+          ],
+          "crop": "ground_truth/front_eds_destination/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_a102.png"
+        },
+        {
+          "annotation_id": 103,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            664,
+            238,
+            706,
+            256
+          ],
+          "crop": "ground_truth/front_eds_num/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_a103.png"
+        },
+        {
+          "annotation_id": 104,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            522,
+            228,
+            730,
+            269
+          ],
+          "crop": "ground_truth/front_eds/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_a104.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            527,
+            225,
+            728,
+            271
+          ],
+          "confidence": 0.958382,
+          "crop": "predicted/front_eds/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_p000.png",
+          "matched_gt_annotation_id_at_iou50": 104,
+          "best_same_class_iou": 0.864471
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            23,
+            186,
+            179,
+            222
+          ],
+          "confidence": 0.949821,
+          "crop": "predicted/front_eds/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_p001.png",
+          "matched_gt_annotation_id_at_iou50": 101,
+          "best_same_class_iou": 0.722934
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            133,
+            193,
+            161,
+            219
+          ],
+          "confidence": 0.946051,
+          "crop": "predicted/front_eds_num/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_p002.png",
+          "matched_gt_annotation_id_at_iou50": 98,
+          "best_same_class_iou": 0.75
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            30,
+            191,
+            101,
+            205
+          ],
+          "confidence": 0.925188,
+          "crop": "predicted/front_eds_route/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_p003.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.035844
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            664,
+            234,
+            707,
+            257
+          ],
+          "confidence": 0.895267,
+          "crop": "predicted/front_eds_num/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_p004.png",
+          "matched_gt_annotation_id_at_iou50": 103,
+          "best_same_class_iou": 0.764408
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            32,
+            202,
+            128,
+            216
+          ],
+          "confidence": 0.83591,
+          "crop": "predicted/front_eds_destination/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_p005.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.071609
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            559,
+            243,
+            650,
+            259
+          ],
+          "confidence": 0.55579,
+          "crop": "predicted/front_eds_route/005_4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5_p006.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.0
+        }
+      ]
+    },
+    {
+      "image": "55268784-1459_jpg.rf.6d4f6aada379953b9175e74d5dbbfa91.jpg",
+      "image_id": 19,
+      "image_sha256": "d9a90a19ff57ed503450020d9e4955e109ab315f0a3c3fcb5567e1020846f9df",
+      "width": 1080,
+      "height": 810,
+      "ground_truth": [
+        {
+          "annotation_id": 79,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            888,
+            373,
+            927,
+            414
+          ],
+          "crop": "ground_truth/front_eds_num/006_55268784-1459_jpg.rf.6d4f6aada379953b9175e74d5dbbfa91_a79.png"
+        },
+        {
+          "annotation_id": 80,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            720,
+            368,
+            816,
+            391
+          ],
+          "crop": "ground_truth/front_eds_route/006_55268784-1459_jpg.rf.6d4f6aada379953b9175e74d5dbbfa91_a80.png"
+        },
+        {
+          "annotation_id": 81,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            721,
+            390,
+            827,
+            414
+          ],
+          "crop": "ground_truth/front_eds_destination/006_55268784-1459_jpg.rf.6d4f6aada379953b9175e74d5dbbfa91_a81.png"
+        },
+        {
+          "annotation_id": 82,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            718,
+            368,
+            929,
+            418
+          ],
+          "crop": "ground_truth/front_eds/006_55268784-1459_jpg.rf.6d4f6aada379953b9175e74d5dbbfa91_a82.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            887,
+            372,
+            929,
+            415
+          ],
+          "confidence": 0.960486,
+          "crop": "predicted/front_eds_num/006_55268784-1459_jpg.rf.6d4f6aada379953b9175e74d5dbbfa91_p000.png",
+          "matched_gt_annotation_id_at_iou50": 79,
+          "best_same_class_iou": 0.885382
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            714,
+            360,
+            934,
+            425
+          ],
+          "confidence": 0.957596,
+          "crop": "predicted/front_eds/006_55268784-1459_jpg.rf.6d4f6aada379953b9175e74d5dbbfa91_p001.png",
+          "matched_gt_annotation_id_at_iou50": 82,
+          "best_same_class_iou": 0.737762
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            718,
+            365,
+            817,
+            391
+          ],
+          "confidence": 0.929145,
+          "crop": "predicted/front_eds_route/006_55268784-1459_jpg.rf.6d4f6aada379953b9175e74d5dbbfa91_p002.png",
+          "matched_gt_annotation_id_at_iou50": 80,
+          "best_same_class_iou": 0.857809
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            719,
+            388,
+            830,
+            415
+          ],
+          "confidence": 0.921413,
+          "crop": "predicted/front_eds_destination/006_55268784-1459_jpg.rf.6d4f6aada379953b9175e74d5dbbfa91_p003.png",
+          "matched_gt_annotation_id_at_iou50": 81,
+          "best_same_class_iou": 0.848849
+        }
+      ]
+    },
+    {
+      "image": "57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88.jpg",
+      "image_id": 26,
+      "image_sha256": "81da65601787597dcacd700486fbd0d271eba5b46359d6350ca3e8e3be1516a1",
+      "width": 1080,
+      "height": 810,
+      "ground_truth": [
+        {
+          "annotation_id": 111,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            188,
+            354,
+            432,
+            416
+          ],
+          "crop": "ground_truth/front_eds/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_a111.png"
+        },
+        {
+          "annotation_id": 112,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            406,
+            375,
+            420,
+            405
+          ],
+          "crop": "ground_truth/front_eds_num/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_a112.png"
+        },
+        {
+          "annotation_id": 113,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            198,
+            390,
+            318,
+            405
+          ],
+          "crop": "ground_truth/front_eds_destination/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_a113.png"
+        },
+        {
+          "annotation_id": 114,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            198,
+            379,
+            355,
+            390
+          ],
+          "crop": "ground_truth/front_eds_route/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_a114.png"
+        },
+        {
+          "annotation_id": 115,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            584,
+            442,
+            634,
+            481
+          ],
+          "crop": "ground_truth/front_eds/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_a115.png"
+        },
+        {
+          "annotation_id": 116,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            591,
+            463,
+            626,
+            475
+          ],
+          "crop": "ground_truth/front_eds_destination/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_a116.png"
+        },
+        {
+          "annotation_id": 117,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            591,
+            450,
+            623,
+            462
+          ],
+          "crop": "ground_truth/front_eds_route/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_a117.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            186,
+            364,
+            433,
+            418
+          ],
+          "confidence": 0.960057,
+          "crop": "predicted/front_eds/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_p000.png",
+          "matched_gt_annotation_id_at_iou50": 111,
+          "best_same_class_iou": 0.804158
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            402,
+            373,
+            422,
+            406
+          ],
+          "confidence": 0.955532,
+          "crop": "predicted/front_eds_num/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_p001.png",
+          "matched_gt_annotation_id_at_iou50": 112,
+          "best_same_class_iou": 0.636364
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            199,
+            385,
+            327,
+            409
+          ],
+          "confidence": 0.868979,
+          "crop": "predicted/front_eds_destination/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_p002.png",
+          "matched_gt_annotation_id_at_iou50": 113,
+          "best_same_class_iou": 0.578231
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            198,
+            373,
+            356,
+            394
+          ],
+          "confidence": 0.864138,
+          "crop": "predicted/front_eds_route/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_p003.png",
+          "matched_gt_annotation_id_at_iou50": 114,
+          "best_same_class_iou": 0.520494
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            197,
+            374,
+            356,
+            408
+          ],
+          "confidence": 0.841333,
+          "crop": "predicted/front_eds_route/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_p004.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.31946
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            198,
+            383,
+            331,
+            409
+          ],
+          "confidence": 0.518834,
+          "crop": "predicted/front_eds_route/007_57ca1bf5__7bd6608a-7_jpg.rf.25c566a443488b9db54941fa46bd2f88_p005.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.218853
+        }
+      ]
+    },
+    {
+      "image": "5c28dd2e-426352df-66_jpg.rf.9fd217a1de1df695a431714e5ba75de6.jpg",
+      "image_id": 0,
+      "image_sha256": "288412e09d4a04fbf5494a63e77388eca47fb6397a47177b1210d0c10bb9d2f7",
+      "width": 1280,
+      "height": 720,
+      "ground_truth": [
+        {
+          "annotation_id": 1,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            534,
+            207,
+            588,
+            259
+          ],
+          "crop": "ground_truth/front_eds_num/008_5c28dd2e-426352df-66_jpg.rf.9fd217a1de1df695a431714e5ba75de6_a1.png"
+        },
+        {
+          "annotation_id": 2,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            410,
+            218,
+            474,
+            248
+          ],
+          "crop": "ground_truth/front_eds_destination/008_5c28dd2e-426352df-66_jpg.rf.9fd217a1de1df695a431714e5ba75de6_a2.png"
+        },
+        {
+          "annotation_id": 3,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            370,
+            244,
+            502,
+            270
+          ],
+          "crop": "ground_truth/front_eds_route/008_5c28dd2e-426352df-66_jpg.rf.9fd217a1de1df695a431714e5ba75de6_a3.png"
+        },
+        {
+          "annotation_id": 4,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            342,
+            200,
+            593,
+            278
+          ],
+          "crop": "ground_truth/front_eds/008_5c28dd2e-426352df-66_jpg.rf.9fd217a1de1df695a431714e5ba75de6_a4.png"
+        },
+        {
+          "annotation_id": 5,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            748,
+            349,
+            788,
+            389
+          ],
+          "crop": "ground_truth/front_eds/008_5c28dd2e-426352df-66_jpg.rf.9fd217a1de1df695a431714e5ba75de6_a5.png"
+        },
+        {
+          "annotation_id": 6,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            762,
+            350,
+            781,
+            373
+          ],
+          "crop": "ground_truth/front_eds_destination/008_5c28dd2e-426352df-66_jpg.rf.9fd217a1de1df695a431714e5ba75de6_a6.png"
+        },
+        {
+          "annotation_id": 7,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            758,
+            372,
+            787,
+            388
+          ],
+          "crop": "ground_truth/front_eds_route/008_5c28dd2e-426352df-66_jpg.rf.9fd217a1de1df695a431714e5ba75de6_a7.png"
+        },
+        {
+          "annotation_id": 8,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            748,
+            350,
+            756,
+            383
+          ],
+          "crop": "ground_truth/front_eds_num/008_5c28dd2e-426352df-66_jpg.rf.9fd217a1de1df695a431714e5ba75de6_a8.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            329,
+            199,
+            595,
+            278
+          ],
+          "confidence": 0.962568,
+          "crop": "predicted/front_eds/008_5c28dd2e-426352df-66_jpg.rf.9fd217a1de1df695a431714e5ba75de6_p000.png",
+          "matched_gt_annotation_id_at_iou50": 4,
+          "best_same_class_iou": 0.931665
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            533,
+            207,
+            588,
+            260
+          ],
+          "confidence": 0.954116,
+          "crop": "predicted/front_eds_num/008_5c28dd2e-426352df-66_jpg.rf.9fd217a1de1df695a431714e5ba75de6_p001.png",
+          "matched_gt_annotation_id_at_iou50": 1,
+          "best_same_class_iou": 0.963293
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            372,
+            243,
+            501,
+            270
+          ],
+          "confidence": 0.776523,
+          "crop": "predicted/front_eds_route/008_5c28dd2e-426352df-66_jpg.rf.9fd217a1de1df695a431714e5ba75de6_p002.png",
+          "matched_gt_annotation_id_at_iou50": 3,
+          "best_same_class_iou": 0.94187
+        }
+      ]
+    },
+    {
+      "image": "8a7bda49-965_jpg.rf.48cada476a3828b5b805c0dfeb0aedb8.jpg",
+      "image_id": 50,
+      "image_sha256": "9edf09de3aa0846dbe13d414d05b3a8669c89a3bc90e471d45c727d3f8a14961",
+      "width": 1440,
+      "height": 1080,
+      "ground_truth": [
+        {
+          "annotation_id": 216,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            713,
+            592,
+            775,
+            627
+          ],
+          "crop": "ground_truth/front_eds_num/009_8a7bda49-965_jpg.rf.48cada476a3828b5b805c0dfeb0aedb8_a216.png"
+        },
+        {
+          "annotation_id": 217,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            588,
+            593,
+            685,
+            617
+          ],
+          "crop": "ground_truth/front_eds_destination/009_8a7bda49-965_jpg.rf.48cada476a3828b5b805c0dfeb0aedb8_a217.png"
+        },
+        {
+          "annotation_id": 218,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            521,
+            578,
+            786,
+            634
+          ],
+          "crop": "ground_truth/front_eds/009_8a7bda49-965_jpg.rf.48cada476a3828b5b805c0dfeb0aedb8_a218.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            710,
+            590,
+            776,
+            627
+          ],
+          "confidence": 0.945471,
+          "crop": "predicted/front_eds_num/009_8a7bda49-965_jpg.rf.48cada476a3828b5b805c0dfeb0aedb8_p000.png",
+          "matched_gt_annotation_id_at_iou50": 216,
+          "best_same_class_iou": 0.888616
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            524,
+            581,
+            790,
+            633
+          ],
+          "confidence": 0.93231,
+          "crop": "predicted/front_eds/009_8a7bda49-965_jpg.rf.48cada476a3828b5b805c0dfeb0aedb8_p001.png",
+          "matched_gt_annotation_id_at_iou50": 218,
+          "best_same_class_iou": 0.905369
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            587,
+            590,
+            688,
+            619
+          ],
+          "confidence": 0.893816,
+          "crop": "predicted/front_eds_destination/009_8a7bda49-965_jpg.rf.48cada476a3828b5b805c0dfeb0aedb8_p002.png",
+          "matched_gt_annotation_id_at_iou50": 217,
+          "best_same_class_iou": 0.794811
+        }
+      ]
+    },
+    {
+      "image": "8c3cf30a__afc6ed73-1452_jpg.rf.e35d4960b3b8665b61127cf0543185b3.jpg",
+      "image_id": 27,
+      "image_sha256": "7877e2496f29a5eb84a7a312c0992d95edf19718176b7a2e0a6b7aa77985538c",
+      "width": 1080,
+      "height": 810,
+      "ground_truth": [
+        {
+          "annotation_id": 118,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            712,
+            408,
+            744,
+            433
+          ],
+          "crop": "ground_truth/front_eds_num/010_8c3cf30a__afc6ed73-1452_jpg.rf.e35d4960b3b8665b61127cf0543185b3_a118.png"
+        },
+        {
+          "annotation_id": 119,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            611,
+            422,
+            698,
+            434
+          ],
+          "crop": "ground_truth/front_eds_destination/010_8c3cf30a__afc6ed73-1452_jpg.rf.e35d4960b3b8665b61127cf0543185b3_a119.png"
+        },
+        {
+          "annotation_id": 120,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            611,
+            411,
+            678,
+            422
+          ],
+          "crop": "ground_truth/front_eds_route/010_8c3cf30a__afc6ed73-1452_jpg.rf.e35d4960b3b8665b61127cf0543185b3_a120.png"
+        },
+        {
+          "annotation_id": 121,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            610,
+            405,
+            746,
+            437
+          ],
+          "crop": "ground_truth/front_eds/010_8c3cf30a__afc6ed73-1452_jpg.rf.e35d4960b3b8665b61127cf0543185b3_a121.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            597,
+            403,
+            763,
+            445
+          ],
+          "confidence": 0.934242,
+          "crop": "predicted/front_eds/010_8c3cf30a__afc6ed73-1452_jpg.rf.e35d4960b3b8665b61127cf0543185b3_p000.png",
+          "matched_gt_annotation_id_at_iou50": 121,
+          "best_same_class_iou": 0.624211
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            712,
+            407,
+            745,
+            436
+          ],
+          "confidence": 0.916329,
+          "crop": "predicted/front_eds_num/010_8c3cf30a__afc6ed73-1452_jpg.rf.e35d4960b3b8665b61127cf0543185b3_p001.png",
+          "matched_gt_annotation_id_at_iou50": 118,
+          "best_same_class_iou": 0.835946
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            608,
+            409,
+            681,
+            424
+          ],
+          "confidence": 0.827439,
+          "crop": "predicted/front_eds_route/010_8c3cf30a__afc6ed73-1452_jpg.rf.e35d4960b3b8665b61127cf0543185b3_p002.png",
+          "matched_gt_annotation_id_at_iou50": 120,
+          "best_same_class_iou": 0.673059
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            608,
+            421,
+            695,
+            437
+          ],
+          "confidence": 0.748025,
+          "crop": "predicted/front_eds_destination/010_8c3cf30a__afc6ed73-1452_jpg.rf.e35d4960b3b8665b61127cf0543185b3_p003.png",
+          "matched_gt_annotation_id_at_iou50": 119,
+          "best_same_class_iou": 0.705882
+        }
+      ]
+    },
+    {
+      "image": "8c8975f2__d9140853-49_jpg.rf.fde9762e364b5676dc33da3ff5a2b99d.jpg",
+      "image_id": 33,
+      "image_sha256": "a010779fabfa7bd2db54887d8bdef1ecf6100868d4be1d29bc131151c257da8a",
+      "width": 1080,
+      "height": 810,
+      "ground_truth": [
+        {
+          "annotation_id": 146,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            259,
+            177,
+            735,
+            284
+          ],
+          "crop": "ground_truth/front_eds/011_8c8975f2__d9140853-49_jpg.rf.fde9762e364b5676dc33da3ff5a2b99d_a146.png"
+        },
+        {
+          "annotation_id": 147,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            612,
+            201,
+            678,
+            261
+          ],
+          "crop": "ground_truth/front_eds_num/011_8c8975f2__d9140853-49_jpg.rf.fde9762e364b5676dc33da3ff5a2b99d_a147.png"
+        },
+        {
+          "annotation_id": 148,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            363,
+            206,
+            572,
+            245
+          ],
+          "crop": "ground_truth/front_eds_destination/011_8c8975f2__d9140853-49_jpg.rf.fde9762e364b5676dc33da3ff5a2b99d_a148.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            611,
+            201,
+            679,
+            258
+          ],
+          "confidence": 0.956841,
+          "crop": "predicted/front_eds_num/011_8c8975f2__d9140853-49_jpg.rf.fde9762e364b5676dc33da3ff5a2b99d_p000.png",
+          "matched_gt_annotation_id_at_iou50": 147,
+          "best_same_class_iou": 0.923417
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            364,
+            194,
+            687,
+            251
+          ],
+          "confidence": 0.938674,
+          "crop": "predicted/front_eds/011_8c8975f2__d9140853-49_jpg.rf.fde9762e364b5676dc33da3ff5a2b99d_p001.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.361482
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            357,
+            188,
+            687,
+            269
+          ],
+          "confidence": 0.616236,
+          "crop": "predicted/front_eds/011_8c8975f2__d9140853-49_jpg.rf.fde9762e364b5676dc33da3ff5a2b99d_p002.png",
+          "matched_gt_annotation_id_at_iou50": 146,
+          "best_same_class_iou": 0.524817
+        }
+      ]
+    },
+    {
+      "image": "9d711368-151_jpg.rf.52e6fe7d763f6a58bc1cea0bdf888d9e.jpg",
+      "image_id": 21,
+      "image_sha256": "b2989ea6eb398494982b81b35c905ce3ad36ba2d58f33e2a6c17ca1843bef823",
+      "width": 1280,
+      "height": 853,
+      "ground_truth": [
+        {
+          "annotation_id": 86,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            765,
+            287,
+            1018,
+            345
+          ],
+          "crop": "ground_truth/front_eds/012_9d711368-151_jpg.rf.52e6fe7d763f6a58bc1cea0bdf888d9e_a86.png"
+        },
+        {
+          "annotation_id": 87,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            960,
+            298,
+            998,
+            339
+          ],
+          "crop": "ground_truth/front_eds_num/012_9d711368-151_jpg.rf.52e6fe7d763f6a58bc1cea0bdf888d9e_a87.png"
+        },
+        {
+          "annotation_id": 88,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            787,
+            316,
+            895,
+            334
+          ],
+          "crop": "ground_truth/front_eds_destination/012_9d711368-151_jpg.rf.52e6fe7d763f6a58bc1cea0bdf888d9e_a88.png"
+        },
+        {
+          "annotation_id": 89,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            786,
+            298,
+            878,
+            315
+          ],
+          "crop": "ground_truth/front_eds_route/012_9d711368-151_jpg.rf.52e6fe7d763f6a58bc1cea0bdf888d9e_a89.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            956,
+            295,
+            1002,
+            342
+          ],
+          "confidence": 0.925346,
+          "crop": "predicted/front_eds_num/012_9d711368-151_jpg.rf.52e6fe7d763f6a58bc1cea0bdf888d9e_p000.png",
+          "matched_gt_annotation_id_at_iou50": 87,
+          "best_same_class_iou": 0.720629
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            777,
+            279,
+            1021,
+            353
+          ],
+          "confidence": 0.916229,
+          "crop": "predicted/front_eds/012_9d711368-151_jpg.rf.52e6fe7d763f6a58bc1cea0bdf888d9e_p001.png",
+          "matched_gt_annotation_id_at_iou50": 86,
+          "best_same_class_iou": 0.745414
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            789,
+            312,
+            896,
+            337
+          ],
+          "confidence": 0.88719,
+          "crop": "predicted/front_eds_destination/012_9d711368-151_jpg.rf.52e6fe7d763f6a58bc1cea0bdf888d9e_p002.png",
+          "matched_gt_annotation_id_at_iou50": 88,
+          "best_same_class_iou": 0.703799
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            787,
+            293,
+            880,
+            316
+          ],
+          "confidence": 0.872624,
+          "crop": "predicted/front_eds_route/012_9d711368-151_jpg.rf.52e6fe7d763f6a58bc1cea0bdf888d9e_p003.png",
+          "matched_gt_annotation_id_at_iou50": 89,
+          "best_same_class_iou": 0.717532
+        }
+      ]
+    },
+    {
+      "image": "IMAGE_2026-10-23_21_55_06_jpg.rf.23f5ecc056568d0dbda1dad8077166a5.jpg",
+      "image_id": 20,
+      "image_sha256": "5be2441e96d7431f95efd4996c696a2d3243e41eb5e01f03f3813f973483acdb",
+      "width": 960,
+      "height": 1280,
+      "ground_truth": [
+        {
+          "annotation_id": 83,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            268,
+            499,
+            601,
+            568
+          ],
+          "crop": "ground_truth/front_eds/013_IMAGE_2026-10-23_21_55_06_jpg.rf.23f5ecc056568d0dbda1dad8077166a5_a83.png"
+        },
+        {
+          "annotation_id": 84,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            488,
+            509,
+            570,
+            550
+          ],
+          "crop": "ground_truth/front_eds_num/013_IMAGE_2026-10-23_21_55_06_jpg.rf.23f5ecc056568d0dbda1dad8077166a5_a84.png"
+        },
+        {
+          "annotation_id": 85,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            351,
+            513,
+            452,
+            557
+          ],
+          "crop": "ground_truth/front_eds_destination/013_IMAGE_2026-10-23_21_55_06_jpg.rf.23f5ecc056568d0dbda1dad8077166a5_a85.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            269,
+            491,
+            603,
+            576
+          ],
+          "confidence": 0.964499,
+          "crop": "predicted/front_eds/013_IMAGE_2026-10-23_21_55_06_jpg.rf.23f5ecc056568d0dbda1dad8077166a5_p000.png",
+          "matched_gt_annotation_id_at_iou50": 83,
+          "best_same_class_iou": 0.804947
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            484,
+            505,
+            571,
+            554
+          ],
+          "confidence": 0.961032,
+          "crop": "predicted/front_eds_num/013_IMAGE_2026-10-23_21_55_06_jpg.rf.23f5ecc056568d0dbda1dad8077166a5_p001.png",
+          "matched_gt_annotation_id_at_iou50": 84,
+          "best_same_class_iou": 0.788646
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            348,
+            514,
+            453,
+            553
+          ],
+          "confidence": 0.59462,
+          "crop": "predicted/front_eds_destination/013_IMAGE_2026-10-23_21_55_06_jpg.rf.23f5ecc056568d0dbda1dad8077166a5_p002.png",
+          "matched_gt_annotation_id_at_iou50": 85,
+          "best_same_class_iou": 0.856304
+        }
+      ]
+    },
+    {
+      "image": "IMAGE_2026-10-23_21_55_18_jpg.rf.be7598ff20f19315830bc4be8ab67506.jpg",
+      "image_id": 16,
+      "image_sha256": "24c87c57ec98ee87885aaf5864777a8466296ab4b6dac7f34b5c7328fdb3c45e",
+      "width": 960,
+      "height": 1280,
+      "ground_truth": [
+        {
+          "annotation_id": 68,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            339,
+            564,
+            511,
+            628
+          ],
+          "crop": "ground_truth/front_eds/014_IMAGE_2026-10-23_21_55_18_jpg.rf.be7598ff20f19315830bc4be8ab67506_a68.png"
+        },
+        {
+          "annotation_id": 69,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            344,
+            577,
+            392,
+            618
+          ],
+          "crop": "ground_truth/front_eds_num/014_IMAGE_2026-10-23_21_55_18_jpg.rf.be7598ff20f19315830bc4be8ab67506_a69.png"
+        },
+        {
+          "annotation_id": 70,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            398,
+            571,
+            499,
+            596
+          ],
+          "crop": "ground_truth/front_eds_destination/014_IMAGE_2026-10-23_21_55_18_jpg.rf.be7598ff20f19315830bc4be8ab67506_a70.png"
+        },
+        {
+          "annotation_id": 71,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            403,
+            595,
+            498,
+            616
+          ],
+          "crop": "ground_truth/front_eds_route/014_IMAGE_2026-10-23_21_55_18_jpg.rf.be7598ff20f19315830bc4be8ab67506_a71.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            341,
+            562,
+            509,
+            626
+          ],
+          "confidence": 0.955694,
+          "crop": "predicted/front_eds/014_IMAGE_2026-10-23_21_55_18_jpg.rf.be7598ff20f19315830bc4be8ab67506_p000.png",
+          "matched_gt_annotation_id_at_iou50": 68,
+          "best_same_class_iou": 0.918195
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            396,
+            572,
+            501,
+            597
+          ],
+          "confidence": 0.89108,
+          "crop": "predicted/front_eds_destination/014_IMAGE_2026-10-23_21_55_18_jpg.rf.be7598ff20f19315830bc4be8ab67506_p001.png",
+          "matched_gt_annotation_id_at_iou50": 70,
+          "best_same_class_iou": 0.889215
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            389,
+            593,
+            504,
+            617
+          ],
+          "confidence": 0.88506,
+          "crop": "predicted/front_eds_route/014_IMAGE_2026-10-23_21_55_18_jpg.rf.be7598ff20f19315830bc4be8ab67506_p002.png",
+          "matched_gt_annotation_id_at_iou50": 71,
+          "best_same_class_iou": 0.722826
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            340,
+            588,
+            503,
+            617
+          ],
+          "confidence": 0.794417,
+          "crop": "predicted/front_eds_route/014_IMAGE_2026-10-23_21_55_18_jpg.rf.be7598ff20f19315830bc4be8ab67506_p003.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.422044
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            362,
+            571,
+            501,
+            595
+          ],
+          "confidence": 0.75223,
+          "crop": "predicted/front_eds_destination/014_IMAGE_2026-10-23_21_55_18_jpg.rf.be7598ff20f19315830bc4be8ab67506_p004.png",
+          "matched_gt_annotation_id_at_iou50": 70,
+          "best_same_class_iou": 0.705266
+        }
+      ]
+    },
+    {
+      "image": "IMAGE_2026-10-23_21_56_09_jpg.rf.b74dd5352c689be9c7dcc6a048280656.jpg",
+      "image_id": 7,
+      "image_sha256": "a372a87e3f7cffbadc4b4e415d117db37edac36fff2f5359d0c165be2c5903e9",
+      "width": 960,
+      "height": 1280,
+      "ground_truth": [],
+      "predictions": []
+    },
+    {
+      "image": "IMAGE_2026-10-23_22_00_10_jpg.rf.e727927a614ecd87c4489e5e75b54552.jpg",
+      "image_id": 48,
+      "image_sha256": "33a37f50c2a8356c25f8ea537f0f2050c8fe9a8783d3ea07de7bd4fa39fb16e8",
+      "width": 1280,
+      "height": 693,
+      "ground_truth": [],
+      "predictions": []
+    },
+    {
+      "image": "IMG20261022115934_jpg.rf.f6c25dff53df98e8715a852ebeafa8cd.jpg",
+      "image_id": 18,
+      "image_sha256": "a1f1686fe5df277ba2245146c93c56a523d284e054c5ce10112e94396688ff11",
+      "width": 913,
+      "height": 2048,
+      "ground_truth": [
+        {
+          "annotation_id": 76,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            493,
+            894,
+            558,
+            922
+          ],
+          "crop": "ground_truth/front_eds/017_IMG20261022115934_jpg.rf.f6c25dff53df98e8715a852ebeafa8cd_a76.png"
+        },
+        {
+          "annotation_id": 77,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            496,
+            899,
+            511,
+            920
+          ],
+          "crop": "ground_truth/front_eds_num/017_IMG20261022115934_jpg.rf.f6c25dff53df98e8715a852ebeafa8cd_a77.png"
+        },
+        {
+          "annotation_id": 78,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            511,
+            899,
+            547,
+            912
+          ],
+          "crop": "ground_truth/front_eds_destination/017_IMG20261022115934_jpg.rf.f6c25dff53df98e8715a852ebeafa8cd_a78.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            494,
+            898,
+            553,
+            924
+          ],
+          "confidence": 0.780162,
+          "crop": "predicted/front_eds/017_IMG20261022115934_jpg.rf.f6c25dff53df98e8715a852ebeafa8cd_p000.png",
+          "matched_gt_annotation_id_at_iou50": 76,
+          "best_same_class_iou": 0.73065
+        }
+      ]
+    },
+    {
+      "image": "IMG20261024204347_jpg.rf.374f98643a981cf187b027c863bd2685.jpg",
+      "image_id": 6,
+      "image_sha256": "7d0f46bb214a53753f91b202fa1e0ed6bd57576f0f338b16fcc46e8273b8c77e",
+      "width": 1152,
+      "height": 2048,
+      "ground_truth": [
+        {
+          "annotation_id": 17,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            0,
+            628,
+            239,
+            674
+          ],
+          "crop": "ground_truth/front_eds_route/018_IMG20261024204347_jpg.rf.374f98643a981cf187b027c863bd2685_a17.png"
+        },
+        {
+          "annotation_id": 18,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            0,
+            663,
+            606,
+            723
+          ],
+          "crop": "ground_truth/front_eds_destination/018_IMG20261024204347_jpg.rf.374f98643a981cf187b027c863bd2685_a18.png"
+        },
+        {
+          "annotation_id": 19,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            632,
+            616,
+            710,
+            723
+          ],
+          "crop": "ground_truth/front_eds_num/018_IMG20261024204347_jpg.rf.374f98643a981cf187b027c863bd2685_a19.png"
+        },
+        {
+          "annotation_id": 20,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            0,
+            614,
+            712,
+            725
+          ],
+          "crop": "ground_truth/front_eds/018_IMG20261024204347_jpg.rf.374f98643a981cf187b027c863bd2685_a20.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            629,
+            619,
+            708,
+            720
+          ],
+          "confidence": 0.953507,
+          "crop": "predicted/front_eds_num/018_IMG20261024204347_jpg.rf.374f98643a981cf187b027c863bd2685_p000.png",
+          "matched_gt_annotation_id_at_iou50": 19,
+          "best_same_class_iou": 0.887501
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            69,
+            604,
+            742,
+            733
+          ],
+          "confidence": 0.915493,
+          "crop": "predicted/front_eds/018_IMG20261024204347_jpg.rf.374f98643a981cf187b027c863bd2685_p001.png",
+          "matched_gt_annotation_id_at_iou50": 20,
+          "best_same_class_iou": 0.755462
+        }
+      ]
+    },
+    {
+      "image": "IMG20261025142927_jpg.rf.ede965e38351e7ab43c3a1934f2ea538.jpg",
+      "image_id": 42,
+      "image_sha256": "6602c3661fb3c990c1bde9ca98dc9134c156eb30c6ba9e3c438c0160a2ccd2f0",
+      "width": 1152,
+      "height": 2048,
+      "ground_truth": [
+        {
+          "annotation_id": 185,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            396,
+            719,
+            576,
+            774
+          ],
+          "crop": "ground_truth/front_eds/019_IMG20261025142927_jpg.rf.ede965e38351e7ab43c3a1934f2ea538_a185.png"
+        },
+        {
+          "annotation_id": 186,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            870,
+            796,
+            956,
+            828
+          ],
+          "crop": "ground_truth/front_eds/019_IMG20261025142927_jpg.rf.ede965e38351e7ab43c3a1934f2ea538_a186.png"
+        },
+        {
+          "annotation_id": 187,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            539,
+            719,
+            576,
+            766
+          ],
+          "crop": "ground_truth/front_eds_num/019_IMG20261025142927_jpg.rf.ede965e38351e7ab43c3a1934f2ea538_a187.png"
+        },
+        {
+          "annotation_id": 188,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            870,
+            796,
+            895,
+            824
+          ],
+          "crop": "ground_truth/front_eds_num/019_IMG20261025142927_jpg.rf.ede965e38351e7ab43c3a1934f2ea538_a188.png"
+        },
+        {
+          "annotation_id": 189,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            425,
+            727,
+            512,
+            750
+          ],
+          "crop": "ground_truth/front_eds_destination/019_IMG20261025142927_jpg.rf.ede965e38351e7ab43c3a1934f2ea538_a189.png"
+        },
+        {
+          "annotation_id": 190,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            396,
+            747,
+            539,
+            774
+          ],
+          "crop": "ground_truth/front_eds_route/019_IMG20261025142927_jpg.rf.ede965e38351e7ab43c3a1934f2ea538_a190.png"
+        },
+        {
+          "annotation_id": 191,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            901,
+            798,
+            952,
+            811
+          ],
+          "crop": "ground_truth/front_eds_destination/019_IMG20261025142927_jpg.rf.ede965e38351e7ab43c3a1934f2ea538_a191.png"
+        },
+        {
+          "annotation_id": 192,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            897,
+            811,
+            956,
+            828
+          ],
+          "crop": "ground_truth/front_eds_route/019_IMG20261025142927_jpg.rf.ede965e38351e7ab43c3a1934f2ea538_a192.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            537,
+            721,
+            576,
+            767
+          ],
+          "confidence": 0.962476,
+          "crop": "predicted/front_eds_num/019_IMG20261025142927_jpg.rf.ede965e38351e7ab43c3a1934f2ea538_p000.png",
+          "matched_gt_annotation_id_at_iou50": 187,
+          "best_same_class_iou": 0.891328
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            378,
+            714,
+            583,
+            782
+          ],
+          "confidence": 0.911765,
+          "crop": "predicted/front_eds/019_IMG20261025142927_jpg.rf.ede965e38351e7ab43c3a1934f2ea538_p001.png",
+          "matched_gt_annotation_id_at_iou50": 185,
+          "best_same_class_iou": 0.710187
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            393,
+            742,
+            559,
+            777
+          ],
+          "confidence": 0.902046,
+          "crop": "predicted/front_eds_route/019_IMG20261025142927_jpg.rf.ede965e38351e7ab43c3a1934f2ea538_p002.png",
+          "matched_gt_annotation_id_at_iou50": 190,
+          "best_same_class_iou": 0.664544
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            412,
+            726,
+            503,
+            754
+          ],
+          "confidence": 0.790136,
+          "crop": "predicted/front_eds_destination/019_IMG20261025142927_jpg.rf.ede965e38351e7ab43c3a1934f2ea538_p003.png",
+          "matched_gt_annotation_id_at_iou50": 189,
+          "best_same_class_iou": 0.65118
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-10-24-20-30-27-50_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.057678f7be595a3d3b6e0f357e93a858.jpg",
+      "image_id": 39,
+      "image_sha256": "c9b05ab5ce051286463728fdee1735c03830e590609d5115df1b2e22293fe259",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [],
+      "predictions": []
+    },
+    {
+      "image": "Screenshot_2026-10-24-20-30-42-44_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5f4a82cedac27b574d6a0e5c258a0137.jpg",
+      "image_id": 46,
+      "image_sha256": "21438f59e9cc396113de39ffbdbee8e72581240be3b1dd8de3d8a7579234706b",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 205,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            501,
+            235,
+            1006,
+            338
+          ],
+          "crop": "ground_truth/front_eds/021_Screenshot_2026-10-24-20-30-42-44_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5f4a82cedac27b574d6a0e5c258a0137_a205.png"
+        },
+        {
+          "annotation_id": 206,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            874,
+            252,
+            945,
+            315
+          ],
+          "crop": "ground_truth/front_eds_num/021_Screenshot_2026-10-24-20-30-42-44_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5f4a82cedac27b574d6a0e5c258a0137_a206.png"
+        },
+        {
+          "annotation_id": 207,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            571,
+            287,
+            846,
+            312
+          ],
+          "crop": "ground_truth/front_eds_destination/021_Screenshot_2026-10-24-20-30-42-44_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5f4a82cedac27b574d6a0e5c258a0137_a207.png"
+        },
+        {
+          "annotation_id": 208,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            571,
+            256,
+            705,
+            278
+          ],
+          "crop": "ground_truth/front_eds_route/021_Screenshot_2026-10-24-20-30-42-44_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5f4a82cedac27b574d6a0e5c258a0137_a208.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            508,
+            234,
+            975,
+            332
+          ],
+          "confidence": 0.95242,
+          "crop": "predicted/front_eds/021_Screenshot_2026-10-24-20-30-42-44_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5f4a82cedac27b574d6a0e5c258a0137_p000.png",
+          "matched_gt_annotation_id_at_iou50": 205,
+          "best_same_class_iou": 0.863134
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            875,
+            249,
+            946,
+            313
+          ],
+          "confidence": 0.943859,
+          "crop": "predicted/front_eds_num/021_Screenshot_2026-10-24-20-30-42-44_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5f4a82cedac27b574d6a0e5c258a0137_p001.png",
+          "matched_gt_annotation_id_at_iou50": 206,
+          "best_same_class_iou": 0.899515
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            567,
+            247,
+            706,
+            279
+          ],
+          "confidence": 0.914512,
+          "crop": "predicted/front_eds_route/021_Screenshot_2026-10-24-20-30-42-44_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5f4a82cedac27b574d6a0e5c258a0137_p002.png",
+          "matched_gt_annotation_id_at_iou50": 208,
+          "best_same_class_iou": 0.66277
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            575,
+            274,
+            860,
+            313
+          ],
+          "confidence": 0.868049,
+          "crop": "predicted/front_eds_destination/021_Screenshot_2026-10-24-20-30-42-44_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5f4a82cedac27b574d6a0e5c258a0137_p003.png",
+          "matched_gt_annotation_id_at_iou50": 207,
+          "best_same_class_iou": 0.604102
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-10-24-20-31-16-62_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.d73b1f74f51077d3d45081954fbd31e2.jpg",
+      "image_id": 30,
+      "image_sha256": "ef83f7b36e261324fde5bb5fab8c8300398ca5583a24a61cbe97ed2358f24c8c",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 134,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1027,
+            188,
+            1684,
+            321
+          ],
+          "crop": "ground_truth/front_eds/022_Screenshot_2026-10-24-20-31-16-62_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.d73b1f74f51077d3d45081954fbd31e2_a134.png"
+        },
+        {
+          "annotation_id": 135,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1485,
+            212,
+            1602,
+            282
+          ],
+          "crop": "ground_truth/front_eds_num/022_Screenshot_2026-10-24-20-31-16-62_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.d73b1f74f51077d3d45081954fbd31e2_a135.png"
+        },
+        {
+          "annotation_id": 136,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1183,
+            209,
+            1428,
+            243
+          ],
+          "crop": "ground_truth/front_eds_destination/022_Screenshot_2026-10-24-20-31-16-62_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.d73b1f74f51077d3d45081954fbd31e2_a136.png"
+        },
+        {
+          "annotation_id": 137,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1146,
+            252,
+            1454,
+            277
+          ],
+          "crop": "ground_truth/front_eds_route/022_Screenshot_2026-10-24-20-31-16-62_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.d73b1f74f51077d3d45081954fbd31e2_a137.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1045,
+            182,
+            1676,
+            318
+          ],
+          "confidence": 0.958328,
+          "crop": "predicted/front_eds/022_Screenshot_2026-10-24-20-31-16-62_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.d73b1f74f51077d3d45081954fbd31e2_p000.png",
+          "matched_gt_annotation_id_at_iou50": 134,
+          "best_same_class_iou": 0.899777
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1484,
+            208,
+            1608,
+            278
+          ],
+          "confidence": 0.818485,
+          "crop": "predicted/front_eds_num/022_Screenshot_2026-10-24-20-31-16-62_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.d73b1f74f51077d3d45081954fbd31e2_p001.png",
+          "matched_gt_annotation_id_at_iou50": 135,
+          "best_same_class_iou": 0.844119
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-10-24-20-31-36-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.b4fe44d87019b561182e4c5d1020bea4.jpg",
+      "image_id": 45,
+      "image_sha256": "c57c1f2a57c7c5b72395abd35c8c80a610328865282a1a934c55f8b6cf2a6625",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 197,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1038,
+            252,
+            1383,
+            362
+          ],
+          "crop": "ground_truth/front_eds/023_Screenshot_2026-10-24-20-31-36-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.b4fe44d87019b561182e4c5d1020bea4_a197.png"
+        },
+        {
+          "annotation_id": 198,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1394,
+            254,
+            1690,
+            354
+          ],
+          "crop": "ground_truth/front_eds/023_Screenshot_2026-10-24-20-31-36-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.b4fe44d87019b561182e4c5d1020bea4_a198.png"
+        },
+        {
+          "annotation_id": 199,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1249,
+            268,
+            1321,
+            330
+          ],
+          "crop": "ground_truth/front_eds_num/023_Screenshot_2026-10-24-20-31-36-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.b4fe44d87019b561182e4c5d1020bea4_a199.png"
+        },
+        {
+          "annotation_id": 200,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1570,
+            267,
+            1635,
+            325
+          ],
+          "crop": "ground_truth/front_eds_num/023_Screenshot_2026-10-24-20-31-36-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.b4fe44d87019b561182e4c5d1020bea4_a200.png"
+        },
+        {
+          "annotation_id": 201,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1038,
+            260,
+            1235,
+            298
+          ],
+          "crop": "ground_truth/front_eds_destination/023_Screenshot_2026-10-24-20-31-36-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.b4fe44d87019b561182e4c5d1020bea4_a201.png"
+        },
+        {
+          "annotation_id": 202,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1396,
+            271,
+            1557,
+            304
+          ],
+          "crop": "ground_truth/front_eds_destination/023_Screenshot_2026-10-24-20-31-36-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.b4fe44d87019b561182e4c5d1020bea4_a202.png"
+        },
+        {
+          "annotation_id": 203,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1058,
+            295,
+            1211,
+            330
+          ],
+          "crop": "ground_truth/front_eds_route/023_Screenshot_2026-10-24-20-31-36-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.b4fe44d87019b561182e4c5d1020bea4_a203.png"
+        },
+        {
+          "annotation_id": 204,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1423,
+            303,
+            1475,
+            321
+          ],
+          "crop": "ground_truth/front_eds_route/023_Screenshot_2026-10-24-20-31-36-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.b4fe44d87019b561182e4c5d1020bea4_a204.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1572,
+            266,
+            1635,
+            323
+          ],
+          "confidence": 0.940727,
+          "crop": "predicted/front_eds_num/023_Screenshot_2026-10-24-20-31-36-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.b4fe44d87019b561182e4c5d1020bea4_p000.png",
+          "matched_gt_annotation_id_at_iou50": 200,
+          "best_same_class_iou": 0.920428
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1251,
+            266,
+            1317,
+            327
+          ],
+          "confidence": 0.939891,
+          "crop": "predicted/front_eds_num/023_Screenshot_2026-10-24-20-31-36-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.b4fe44d87019b561182e4c5d1020bea4_p001.png",
+          "matched_gt_annotation_id_at_iou50": 199,
+          "best_same_class_iou": 0.847258
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1387,
+            256,
+            1639,
+            334
+          ],
+          "confidence": 0.938669,
+          "crop": "predicted/front_eds/023_Screenshot_2026-10-24-20-31-36-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.b4fe44d87019b561182e4c5d1020bea4_p002.png",
+          "matched_gt_annotation_id_at_iou50": 198,
+          "best_same_class_iou": 0.633915
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1033,
+            251,
+            1328,
+            343
+          ],
+          "confidence": 0.888512,
+          "crop": "predicted/front_eds/023_Screenshot_2026-10-24-20-31-36-84_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.b4fe44d87019b561182e4c5d1020bea4_p003.png",
+          "matched_gt_annotation_id_at_iou50": 197,
+          "best_same_class_iou": 0.681912
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-10-24-20-31-40-58_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ce4f52a860a17d913800b7fba68e8ea8.jpg",
+      "image_id": 14,
+      "image_sha256": "18e34014dfef4c60907c4a07704d62e67de93cd19aa60806ccd8fe6498dbbb2a",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 54,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            483,
+            451,
+            600,
+            483
+          ],
+          "crop": "ground_truth/front_eds_destination/024_Screenshot_2026-10-24-20-31-40-58_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ce4f52a860a17d913800b7fba68e8ea8_a54.png"
+        },
+        {
+          "annotation_id": 55,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            472,
+            477,
+            609,
+            498
+          ],
+          "crop": "ground_truth/front_eds_route/024_Screenshot_2026-10-24-20-31-40-58_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ce4f52a860a17d913800b7fba68e8ea8_a55.png"
+        },
+        {
+          "annotation_id": 56,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            632,
+            457,
+            707,
+            506
+          ],
+          "crop": "ground_truth/front_eds_num/024_Screenshot_2026-10-24-20-31-40-58_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ce4f52a860a17d913800b7fba68e8ea8_a56.png"
+        },
+        {
+          "annotation_id": 57,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            395,
+            440,
+            742,
+            519
+          ],
+          "crop": "ground_truth/front_eds/024_Screenshot_2026-10-24-20-31-40-58_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ce4f52a860a17d913800b7fba68e8ea8_a57.png"
+        },
+        {
+          "annotation_id": 58,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1269,
+            542,
+            1305,
+            567
+          ],
+          "crop": "ground_truth/front_eds_num/024_Screenshot_2026-10-24-20-31-40-58_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ce4f52a860a17d913800b7fba68e8ea8_a58.png"
+        },
+        {
+          "annotation_id": 59,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1216,
+            544,
+            1256,
+            564
+          ],
+          "crop": "ground_truth/front_eds_destination/024_Screenshot_2026-10-24-20-31-40-58_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ce4f52a860a17d913800b7fba68e8ea8_a59.png"
+        },
+        {
+          "annotation_id": 60,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1214,
+            537,
+            1324,
+            574
+          ],
+          "crop": "ground_truth/front_eds/024_Screenshot_2026-10-24-20-31-40-58_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ce4f52a860a17d913800b7fba68e8ea8_a60.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            633,
+            456,
+            704,
+            499
+          ],
+          "confidence": 0.942336,
+          "crop": "predicted/front_eds_num/024_Screenshot_2026-10-24-20-31-40-58_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ce4f52a860a17d913800b7fba68e8ea8_p000.png",
+          "matched_gt_annotation_id_at_iou50": 56,
+          "best_same_class_iou": 0.796049
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            404,
+            439,
+            738,
+            517
+          ],
+          "confidence": 0.936662,
+          "crop": "predicted/front_eds/024_Screenshot_2026-10-24-20-31-40-58_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ce4f52a860a17d913800b7fba68e8ea8_p001.png",
+          "matched_gt_annotation_id_at_iou50": 57,
+          "best_same_class_iou": 0.926875
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            480,
+            450,
+            599,
+            476
+          ],
+          "confidence": 0.912609,
+          "crop": "predicted/front_eds_destination/024_Screenshot_2026-10-24-20-31-40-58_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ce4f52a860a17d913800b7fba68e8ea8_p002.png",
+          "matched_gt_annotation_id_at_iou50": 54,
+          "best_same_class_iou": 0.736414
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            476,
+            471,
+            608,
+            496
+          ],
+          "confidence": 0.872894,
+          "crop": "predicted/front_eds_route/024_Screenshot_2026-10-24-20-31-40-58_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.ce4f52a860a17d913800b7fba68e8ea8_p003.png",
+          "matched_gt_annotation_id_at_iou50": 55,
+          "best_same_class_iou": 0.683565
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-10-24-20-32-46-63_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.043a748f5c1d2ca0776802bddc596025.jpg",
+      "image_id": 43,
+      "image_sha256": "fb64a907c6ac3de4d8cfd3919bbcd6387c26ac5bfb44856a672727acfce89695",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [],
+      "predictions": []
+    },
+    {
+      "image": "Screenshot_2026-10-24-20-32-58-90_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.f02b2ea011d556e222dab13a4840ca78.jpg",
+      "image_id": 32,
+      "image_sha256": "e3949c07067f2f025b24a5d1d28e51fe33c2694589d5101c7b7c45097a79b37d",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 142,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            861,
+            252,
+            1160,
+            354
+          ],
+          "crop": "ground_truth/front_eds/026_Screenshot_2026-10-24-20-32-58-90_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.f02b2ea011d556e222dab13a4840ca78_a142.png"
+        },
+        {
+          "annotation_id": 143,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            968,
+            273,
+            1053,
+            327
+          ],
+          "crop": "ground_truth/front_eds_num/026_Screenshot_2026-10-24-20-32-58-90_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.f02b2ea011d556e222dab13a4840ca78_a143.png"
+        },
+        {
+          "annotation_id": 144,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1394,
+            288,
+            1516,
+            340
+          ],
+          "crop": "ground_truth/front_eds/026_Screenshot_2026-10-24-20-32-58-90_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.f02b2ea011d556e222dab13a4840ca78_a144.png"
+        },
+        {
+          "annotation_id": 145,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1431,
+            299,
+            1471,
+            332
+          ],
+          "crop": "ground_truth/front_eds_num/026_Screenshot_2026-10-24-20-32-58-90_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.f02b2ea011d556e222dab13a4840ca78_a145.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            855,
+            251,
+            1142,
+            347
+          ],
+          "confidence": 0.823218,
+          "crop": "predicted/front_eds/026_Screenshot_2026-10-24-20-32-58-90_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.f02b2ea011d556e222dab13a4840ca78_p000.png",
+          "matched_gt_annotation_id_at_iou50": 142,
+          "best_same_class_iou": 0.851379
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-10-24-20-33-23-69_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.f8ebc4a1b1382ac231a91138da225b16.jpg",
+      "image_id": 17,
+      "image_sha256": "acdcbc269ac579e8148da55ff118c3b389a06ad7ca83bb1923846ec13f9e38e5",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 72,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            534,
+            418,
+            576,
+            444
+          ],
+          "crop": "ground_truth/front_eds_num/027_Screenshot_2026-10-24-20-33-23-69_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.f8ebc4a1b1382ac231a91138da225b16_a72.png"
+        },
+        {
+          "annotation_id": 73,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            575,
+            415,
+            642,
+            432
+          ],
+          "crop": "ground_truth/front_eds_destination/027_Screenshot_2026-10-24-20-33-23-69_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.f8ebc4a1b1382ac231a91138da225b16_a73.png"
+        },
+        {
+          "annotation_id": 74,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            573,
+            429,
+            639,
+            444
+          ],
+          "crop": "ground_truth/front_eds_route/027_Screenshot_2026-10-24-20-33-23-69_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.f8ebc4a1b1382ac231a91138da225b16_a74.png"
+        },
+        {
+          "annotation_id": 75,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            532,
+            414,
+            643,
+            446
+          ],
+          "crop": "ground_truth/front_eds/027_Screenshot_2026-10-24-20-33-23-69_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.f8ebc4a1b1382ac231a91138da225b16_a75.png"
+        }
+      ],
+      "predictions": []
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-18-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a17d9dbec0341a9fb2e548527dc30278.jpg",
+      "image_id": 38,
+      "image_sha256": "044701577d21acc5427ca3e1e15c6201d83ba7ab98182e0dfa9fa2738711add8",
+      "width": 2048,
+      "height": 1856,
+      "ground_truth": [
+        {
+          "annotation_id": 169,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            227,
+            670,
+            763,
+            782
+          ],
+          "crop": "ground_truth/front_eds/028_Screenshot_2026-11-01-21-18-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a17d9dbec0341a9fb2e548527dc30278_a169.png"
+        },
+        {
+          "annotation_id": 170,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            657,
+            673,
+            756,
+            767
+          ],
+          "crop": "ground_truth/front_eds_num/028_Screenshot_2026-11-01-21-18-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a17d9dbec0341a9fb2e548527dc30278_a170.png"
+        },
+        {
+          "annotation_id": 171,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            251,
+            681,
+            488,
+            715
+          ],
+          "crop": "ground_truth/front_eds_route/028_Screenshot_2026-11-01-21-18-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a17d9dbec0341a9fb2e548527dc30278_a171.png"
+        },
+        {
+          "annotation_id": 172,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            246,
+            720,
+            503,
+            767
+          ],
+          "crop": "ground_truth/front_eds_destination/028_Screenshot_2026-11-01-21-18-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a17d9dbec0341a9fb2e548527dc30278_a172.png"
+        },
+        {
+          "annotation_id": 173,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1105,
+            919,
+            1211,
+            994
+          ],
+          "crop": "ground_truth/front_eds/028_Screenshot_2026-11-01-21-18-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a17d9dbec0341a9fb2e548527dc30278_a173.png"
+        },
+        {
+          "annotation_id": 174,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1109,
+            924,
+            1133,
+            987
+          ],
+          "crop": "ground_truth/front_eds_num/028_Screenshot_2026-11-01-21-18-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a17d9dbec0341a9fb2e548527dc30278_a174.png"
+        },
+        {
+          "annotation_id": 175,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1134,
+            926,
+            1203,
+            953
+          ],
+          "crop": "ground_truth/front_eds_route/028_Screenshot_2026-11-01-21-18-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a17d9dbec0341a9fb2e548527dc30278_a175.png"
+        },
+        {
+          "annotation_id": 176,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1134,
+            957,
+            1190,
+            988
+          ],
+          "crop": "ground_truth/front_eds_destination/028_Screenshot_2026-11-01-21-18-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a17d9dbec0341a9fb2e548527dc30278_a176.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            657,
+            669,
+            757,
+            771
+          ],
+          "confidence": 0.967309,
+          "crop": "predicted/front_eds_num/028_Screenshot_2026-11-01-21-18-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a17d9dbec0341a9fb2e548527dc30278_p000.png",
+          "matched_gt_annotation_id_at_iou50": 170,
+          "best_same_class_iou": 0.912353
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            249,
+            675,
+            489,
+            721
+          ],
+          "confidence": 0.957316,
+          "crop": "predicted/front_eds_route/028_Screenshot_2026-11-01-21-18-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a17d9dbec0341a9fb2e548527dc30278_p001.png",
+          "matched_gt_annotation_id_at_iou50": 171,
+          "best_same_class_iou": 0.729891
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            218,
+            658,
+            773,
+            789
+          ],
+          "confidence": 0.954509,
+          "crop": "predicted/front_eds/028_Screenshot_2026-11-01-21-18-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a17d9dbec0341a9fb2e548527dc30278_p002.png",
+          "matched_gt_annotation_id_at_iou50": 169,
+          "best_same_class_iou": 0.825693
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            247,
+            714,
+            502,
+            774
+          ],
+          "confidence": 0.912867,
+          "crop": "predicted/front_eds_destination/028_Screenshot_2026-11-01-21-18-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a17d9dbec0341a9fb2e548527dc30278_p003.png",
+          "matched_gt_annotation_id_at_iou50": 172,
+          "best_same_class_iou": 0.77855
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1106,
+            919,
+            1208,
+            977
+          ],
+          "confidence": 0.70879,
+          "crop": "predicted/front_eds/028_Screenshot_2026-11-01-21-18-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.a17d9dbec0341a9fb2e548527dc30278_p004.png",
+          "matched_gt_annotation_id_at_iou50": 173,
+          "best_same_class_iou": 0.744151
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-24-54-37_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8426e428e2374a35578635ee2f47d9ca.jpg",
+      "image_id": 49,
+      "image_sha256": "e8f92ecf92f2d253a4ecf0312867444efe098db6fb70bc52031c0dbcb77de8f5",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 213,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1026,
+            259,
+            1112,
+            312
+          ],
+          "crop": "ground_truth/front_eds_num/029_Screenshot_2026-11-01-21-24-54-37_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8426e428e2374a35578635ee2f47d9ca_a213.png"
+        },
+        {
+          "annotation_id": 214,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            837,
+            273,
+            998,
+            318
+          ],
+          "crop": "ground_truth/front_eds_destination/029_Screenshot_2026-11-01-21-24-54-37_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8426e428e2374a35578635ee2f47d9ca_a214.png"
+        },
+        {
+          "annotation_id": 215,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            800,
+            252,
+            1118,
+            330
+          ],
+          "crop": "ground_truth/front_eds/029_Screenshot_2026-11-01-21-24-54-37_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8426e428e2374a35578635ee2f47d9ca_a215.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            783,
+            241,
+            1122,
+            339
+          ],
+          "confidence": 0.955481,
+          "crop": "predicted/front_eds/029_Screenshot_2026-11-01-21-24-54-37_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8426e428e2374a35578635ee2f47d9ca_p000.png",
+          "matched_gt_annotation_id_at_iou50": 215,
+          "best_same_class_iou": 0.746614
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            831,
+            269,
+            993,
+            322
+          ],
+          "confidence": 0.8917,
+          "crop": "predicted/front_eds_destination/029_Screenshot_2026-11-01-21-24-54-37_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8426e428e2374a35578635ee2f47d9ca_p001.png",
+          "matched_gt_annotation_id_at_iou50": 214,
+          "best_same_class_iou": 0.796731
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1027,
+            253,
+            1116,
+            309
+          ],
+          "confidence": 0.885932,
+          "crop": "predicted/front_eds_num/029_Screenshot_2026-11-01-21-24-54-37_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8426e428e2374a35578635ee2f47d9ca_p002.png",
+          "matched_gt_annotation_id_at_iou50": 213,
+          "best_same_class_iou": 0.803099
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-24-57-36_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3790146ee9a6b2d6053f29be51ad4411.jpg",
+      "image_id": 31,
+      "image_sha256": "d167b2b6cd248bf862b8a4c35966a5f625a5eb14edfb4d2b5848167cb406910e",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 138,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1470,
+            450,
+            1833,
+            568
+          ],
+          "crop": "ground_truth/front_eds/030_Screenshot_2026-11-01-21-24-57-36_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3790146ee9a6b2d6053f29be51ad4411_a138.png"
+        },
+        {
+          "annotation_id": 139,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1485,
+            457,
+            1577,
+            549
+          ],
+          "crop": "ground_truth/front_eds_num/030_Screenshot_2026-11-01-21-24-57-36_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3790146ee9a6b2d6053f29be51ad4411_a139.png"
+        },
+        {
+          "annotation_id": 140,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1629,
+            463,
+            1778,
+            519
+          ],
+          "crop": "ground_truth/front_eds_destination/030_Screenshot_2026-11-01-21-24-57-36_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3790146ee9a6b2d6053f29be51ad4411_a140.png"
+        },
+        {
+          "annotation_id": 141,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1601,
+            516,
+            1807,
+            562
+          ],
+          "crop": "ground_truth/front_eds_route/030_Screenshot_2026-11-01-21-24-57-36_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3790146ee9a6b2d6053f29be51ad4411_a141.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1461,
+            445,
+            1798,
+            572
+          ],
+          "confidence": 0.940698,
+          "crop": "predicted/front_eds/030_Screenshot_2026-11-01-21-24-57-36_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3790146ee9a6b2d6053f29be51ad4411_p000.png",
+          "matched_gt_annotation_id_at_iou50": 138,
+          "best_same_class_iou": 0.824735
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1626,
+            457,
+            1776,
+            521
+          ],
+          "confidence": 0.928631,
+          "crop": "predicted/front_eds_destination/030_Screenshot_2026-11-01-21-24-57-36_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3790146ee9a6b2d6053f29be51ad4411_p001.png",
+          "matched_gt_annotation_id_at_iou50": 140,
+          "best_same_class_iou": 0.847611
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1618,
+            511,
+            1803,
+            561
+          ],
+          "confidence": 0.841629,
+          "crop": "predicted/front_eds_route/030_Screenshot_2026-11-01-21-24-57-36_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3790146ee9a6b2d6053f29be51ad4411_p002.png",
+          "matched_gt_annotation_id_at_iou50": 141,
+          "best_same_class_iou": 0.800404
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-25-07-05_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.777229f8c994d5ad421d16279e2e8b87.jpg",
+      "image_id": 5,
+      "image_sha256": "c1efc920fe8ae7f4d6545ad1273f4409e8b5bc02895574de04652f3a8bda987c",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [],
+      "predictions": []
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-30-25-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3b5482518e4cd89d40f6e855a5966fa7.jpg",
+      "image_id": 34,
+      "image_sha256": "7aac9313477d612349965540fc1473c716e731bd6a8fd78080cb828cf4965573",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 149,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            989,
+            418,
+            1293,
+            498
+          ],
+          "crop": "ground_truth/front_eds/032_Screenshot_2026-11-01-21-30-25-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3b5482518e4cd89d40f6e855a5966fa7_a149.png"
+        },
+        {
+          "annotation_id": 150,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1210,
+            447,
+            1274,
+            486
+          ],
+          "crop": "ground_truth/front_eds_num/032_Screenshot_2026-11-01-21-30-25-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3b5482518e4cd89d40f6e855a5966fa7_a150.png"
+        },
+        {
+          "annotation_id": 151,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1020,
+            445,
+            1182,
+            484
+          ],
+          "crop": "ground_truth/front_eds_destination/032_Screenshot_2026-11-01-21-30-25-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3b5482518e4cd89d40f6e855a5966fa7_a151.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            982,
+            420,
+            1286,
+            495
+          ],
+          "confidence": 0.945137,
+          "crop": "predicted/front_eds/032_Screenshot_2026-11-01-21-30-25-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3b5482518e4cd89d40f6e855a5966fa7_p000.png",
+          "matched_gt_annotation_id_at_iou50": 149,
+          "best_same_class_iou": 0.896559
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1210,
+            443,
+            1274,
+            483
+          ],
+          "confidence": 0.926495,
+          "crop": "predicted/front_eds_num/032_Screenshot_2026-11-01-21-30-25-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3b5482518e4cd89d40f6e855a5966fa7_p001.png",
+          "matched_gt_annotation_id_at_iou50": 150,
+          "best_same_class_iou": 0.837209
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1022,
+            436,
+            1182,
+            477
+          ],
+          "confidence": 0.914919,
+          "crop": "predicted/front_eds_destination/032_Screenshot_2026-11-01-21-30-25-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3b5482518e4cd89d40f6e855a5966fa7_p002.png",
+          "matched_gt_annotation_id_at_iou50": 151,
+          "best_same_class_iou": 0.659964
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1026,
+            458,
+            1182,
+            486
+          ],
+          "confidence": 0.776718,
+          "crop": "predicted/front_eds_route/032_Screenshot_2026-11-01-21-30-25-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3b5482518e4cd89d40f6e855a5966fa7_p003.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.0
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee.jpg",
+      "image_id": 9,
+      "image_sha256": "4f0354ca3ae6d6527a0a4f205209215ce4af3948f737d3ef8efa76bfd88e8090",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 25,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1366,
+            352,
+            1667,
+            438
+          ],
+          "crop": "ground_truth/front_eds/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_a25.png"
+        },
+        {
+          "annotation_id": 26,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            248,
+            472,
+            426,
+            510
+          ],
+          "crop": "ground_truth/front_eds/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_a26.png"
+        },
+        {
+          "annotation_id": 27,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1603,
+            377,
+            1659,
+            428
+          ],
+          "crop": "ground_truth/front_eds_num/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_a27.png"
+        },
+        {
+          "annotation_id": 28,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1388,
+            362,
+            1539,
+            396
+          ],
+          "crop": "ground_truth/front_eds_destination/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_a28.png"
+        },
+        {
+          "annotation_id": 29,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1405,
+            389,
+            1549,
+            421
+          ],
+          "crop": "ground_truth/front_eds_route/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_a29.png"
+        },
+        {
+          "annotation_id": 30,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1538,
+            375,
+            1565,
+            396
+          ],
+          "crop": "ground_truth/front_eds_route/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_a30.png"
+        },
+        {
+          "annotation_id": 31,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            381,
+            477,
+            422,
+            505
+          ],
+          "crop": "ground_truth/front_eds_num/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_a31.png"
+        },
+        {
+          "annotation_id": 32,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            262,
+            474,
+            347,
+            493
+          ],
+          "crop": "ground_truth/front_eds_destination/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_a32.png"
+        },
+        {
+          "annotation_id": 33,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            274,
+            486,
+            347,
+            505
+          ],
+          "crop": "ground_truth/front_eds_route/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_a33.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1366,
+            349,
+            1675,
+            436
+          ],
+          "confidence": 0.943763,
+          "crop": "predicted/front_eds/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_p000.png",
+          "matched_gt_annotation_id_at_iou50": 25,
+          "best_same_class_iou": 0.91992
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1386,
+            357,
+            1558,
+            393
+          ],
+          "confidence": 0.933206,
+          "crop": "predicted/front_eds_route/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_p001.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.056338
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1604,
+            372,
+            1662,
+            428
+          ],
+          "confidence": 0.922822,
+          "crop": "predicted/front_eds_num/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_p002.png",
+          "matched_gt_annotation_id_at_iou50": 27,
+          "best_same_class_iou": 0.850258
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            265,
+            468,
+            424,
+            508
+          ],
+          "confidence": 0.909724,
+          "crop": "predicted/front_eds/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_p003.png",
+          "matched_gt_annotation_id_at_iou50": 26,
+          "best_same_class_iou": 0.773514
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1395,
+            383,
+            1562,
+            418
+          ],
+          "confidence": 0.866029,
+          "crop": "predicted/front_eds_route/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_p004.png",
+          "matched_gt_annotation_id_at_iou50": 29,
+          "best_same_class_iou": 0.665286
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1395,
+            359,
+            1565,
+            397
+          ],
+          "confidence": 0.825975,
+          "crop": "predicted/front_eds_destination/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_p005.png",
+          "matched_gt_annotation_id_at_iou50": 28,
+          "best_same_class_iou": 0.730964
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1398,
+            383,
+            1555,
+            418
+          ],
+          "confidence": 0.823918,
+          "crop": "predicted/front_eds_destination/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_p006.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.20839
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            380,
+            475,
+            421,
+            505
+          ],
+          "confidence": 0.804644,
+          "crop": "predicted/front_eds_num/033_Screenshot_2026-11-01-21-31-13-04_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5e3f8df4889f070fdf4514f52d30e2ee_p007.png",
+          "matched_gt_annotation_id_at_iou50": 31,
+          "best_same_class_iou": 0.890302
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-32-38-38_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5b4d76d3fd3adb549bd510977d8d36f8.jpg",
+      "image_id": 3,
+      "image_sha256": "2fe9d2362584756a814f24ce27a00b833fcf973fe92ab4e017ebdea100ea6cd3",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 13,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1189,
+            288,
+            1446,
+            350
+          ],
+          "crop": "ground_truth/front_eds/034_Screenshot_2026-11-01-21-32-38-38_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5b4d76d3fd3adb549bd510977d8d36f8_a13.png"
+        },
+        {
+          "annotation_id": 14,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1272,
+            292,
+            1358,
+            338
+          ],
+          "crop": "ground_truth/front_eds_num/034_Screenshot_2026-11-01-21-32-38-38_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5b4d76d3fd3adb549bd510977d8d36f8_a14.png"
+        },
+        {
+          "annotation_id": 15,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            0,
+            385,
+            47,
+            413
+          ],
+          "crop": "ground_truth/front_eds/034_Screenshot_2026-11-01-21-32-38-38_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5b4d76d3fd3adb549bd510977d8d36f8_a15.png"
+        },
+        {
+          "annotation_id": 16,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            3,
+            389,
+            44,
+            411
+          ],
+          "crop": "ground_truth/front_eds_num/034_Screenshot_2026-11-01-21-32-38-38_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5b4d76d3fd3adb549bd510977d8d36f8_a16.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1268,
+            291,
+            1361,
+            336
+          ],
+          "confidence": 0.7266,
+          "crop": "predicted/front_eds_num/034_Screenshot_2026-11-01-21-32-38-38_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5b4d76d3fd3adb549bd510977d8d36f8_p000.png",
+          "matched_gt_annotation_id_at_iou50": 14,
+          "best_same_class_iou": 0.868487
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144.jpg",
+      "image_id": 35,
+      "image_sha256": "276c35e1e219fb0519e8b9d498f9baf19fe138d6c640fc113b14f6f5d073ae31",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 152,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            774,
+            486,
+            955,
+            519
+          ],
+          "crop": "ground_truth/front_eds/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_a152.png"
+        },
+        {
+          "annotation_id": 153,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            909,
+            493,
+            945,
+            517
+          ],
+          "crop": "ground_truth/front_eds_num/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_a153.png"
+        },
+        {
+          "annotation_id": 154,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            788,
+            493,
+            899,
+            506
+          ],
+          "crop": "ground_truth/front_eds_destination/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_a154.png"
+        },
+        {
+          "annotation_id": 155,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            800,
+            504,
+            898,
+            517
+          ],
+          "crop": "ground_truth/front_eds_route/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_a155.png"
+        },
+        {
+          "annotation_id": 156,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            880,
+            367,
+            1000,
+            394
+          ],
+          "crop": "ground_truth/front_eds/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_a156.png"
+        },
+        {
+          "annotation_id": 157,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            964,
+            371,
+            994,
+            387
+          ],
+          "crop": "ground_truth/front_eds_num/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_a157.png"
+        },
+        {
+          "annotation_id": 158,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            909,
+            373,
+            959,
+            385
+          ],
+          "crop": "ground_truth/front_eds_destination/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_a158.png"
+        },
+        {
+          "annotation_id": 159,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            768,
+            292,
+            862,
+            315
+          ],
+          "crop": "ground_truth/front_eds/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_a159.png"
+        },
+        {
+          "annotation_id": 160,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            835,
+            298,
+            859,
+            312
+          ],
+          "crop": "ground_truth/front_eds_num/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_a160.png"
+        },
+        {
+          "annotation_id": 161,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            790,
+            299,
+            830,
+            309
+          ],
+          "crop": "ground_truth/front_eds_destination/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_a161.png"
+        },
+        {
+          "annotation_id": 162,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            608,
+            237,
+            693,
+            260
+          ],
+          "crop": "ground_truth/front_eds/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_a162.png"
+        },
+        {
+          "annotation_id": 163,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            665,
+            243,
+            689,
+            255
+          ],
+          "crop": "ground_truth/front_eds_num/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_a163.png"
+        },
+        {
+          "annotation_id": 164,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            624,
+            242,
+            658,
+            253
+          ],
+          "crop": "ground_truth/front_eds_destination/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_a164.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            787,
+            487,
+            946,
+            520
+          ],
+          "confidence": 0.969677,
+          "crop": "predicted/front_eds/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_p000.png",
+          "matched_gt_annotation_id_at_iou50": 152,
+          "best_same_class_iou": 0.829746
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            908,
+            491,
+            943,
+            515
+          ],
+          "confidence": 0.959845,
+          "crop": "predicted/front_eds_num/035_Screenshot_2026-11-01-21-32-47-74_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c0ddf8bf525d6e753f216640a3ceb144_p001.png",
+          "matched_gt_annotation_id_at_iou50": 153,
+          "best_same_class_iou": 0.782427
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-36-19-63_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.c30e888739fab44ab5783bade46d419e.jpg",
+      "image_id": 2,
+      "image_sha256": "71c2c8aab91a838f31611bfbc510788cdc56ebb2f22d33946dd1558f14837a14",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [],
+      "predictions": []
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-36-44-99_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.eaf9a7aa8ec0b244dd23bcf226b5f4f8.jpg",
+      "image_id": 10,
+      "image_sha256": "194b2e3d4c7958f4cbf44ccfa1ac967c85a8b7a2e9f39824ea840973d25d700d",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 34,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1286,
+            477,
+            1530,
+            528
+          ],
+          "crop": "ground_truth/front_eds/037_Screenshot_2026-11-01-21-36-44-99_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.eaf9a7aa8ec0b244dd23bcf226b5f4f8_a34.png"
+        },
+        {
+          "annotation_id": 35,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1470,
+            477,
+            1530,
+            525
+          ],
+          "crop": "ground_truth/front_eds_num/037_Screenshot_2026-11-01-21-36-44-99_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.eaf9a7aa8ec0b244dd23bcf226b5f4f8_a35.png"
+        },
+        {
+          "annotation_id": 36,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1323,
+            501,
+            1453,
+            528
+          ],
+          "crop": "ground_truth/front_eds_destination/037_Screenshot_2026-11-01-21-36-44-99_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.eaf9a7aa8ec0b244dd23bcf226b5f4f8_a36.png"
+        },
+        {
+          "annotation_id": 37,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1325,
+            479,
+            1450,
+            502
+          ],
+          "crop": "ground_truth/front_eds_route/037_Screenshot_2026-11-01-21-36-44-99_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.eaf9a7aa8ec0b244dd23bcf226b5f4f8_a37.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1471,
+            470,
+            1531,
+            521
+          ],
+          "confidence": 0.951268,
+          "crop": "predicted/front_eds_num/037_Screenshot_2026-11-01-21-36-44-99_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.eaf9a7aa8ec0b244dd23bcf226b5f4f8_p000.png",
+          "matched_gt_annotation_id_at_iou50": 35,
+          "best_same_class_iou": 0.776316
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1284,
+            460,
+            1539,
+            531
+          ],
+          "confidence": 0.934462,
+          "crop": "predicted/front_eds/037_Screenshot_2026-11-01-21-36-44-99_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.eaf9a7aa8ec0b244dd23bcf226b5f4f8_p001.png",
+          "matched_gt_annotation_id_at_iou50": 34,
+          "best_same_class_iou": 0.687324
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1294,
+            489,
+            1450,
+            523
+          ],
+          "confidence": 0.608304,
+          "crop": "predicted/front_eds_destination/037_Screenshot_2026-11-01-21-36-44-99_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.eaf9a7aa8ec0b244dd23bcf226b5f4f8_p002.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.46412
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43.jpg",
+      "image_id": 28,
+      "image_sha256": "66c488211f7ee3e71aade114bf9be835c15df530cdd75e7604c1652a1f451e1d",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 122,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            12,
+            152,
+            494,
+            263
+          ],
+          "crop": "ground_truth/front_eds/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_a122.png"
+        },
+        {
+          "annotation_id": 123,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            32,
+            167,
+            210,
+            200
+          ],
+          "crop": "ground_truth/front_eds_route/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_a123.png"
+        },
+        {
+          "annotation_id": 124,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            32,
+            202,
+            379,
+            250
+          ],
+          "crop": "ground_truth/front_eds_destination/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_a124.png"
+        },
+        {
+          "annotation_id": 125,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            378,
+            172,
+            467,
+            250
+          ],
+          "crop": "ground_truth/front_eds_num/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_a125.png"
+        },
+        {
+          "annotation_id": 126,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1384,
+            310,
+            1690,
+            377
+          ],
+          "crop": "ground_truth/front_eds/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_a126.png"
+        },
+        {
+          "annotation_id": 127,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1427,
+            318,
+            1555,
+            343
+          ],
+          "crop": "ground_truth/front_eds_destination/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_a127.png"
+        },
+        {
+          "annotation_id": 128,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1431,
+            342,
+            1547,
+            362
+          ],
+          "crop": "ground_truth/front_eds_route/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_a128.png"
+        },
+        {
+          "annotation_id": 129,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1608,
+            326,
+            1682,
+            368
+          ],
+          "crop": "ground_truth/front_eds_num/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_a129.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            378,
+            169,
+            470,
+            249
+          ],
+          "confidence": 0.957266,
+          "crop": "predicted/front_eds_num/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_p000.png",
+          "matched_gt_annotation_id_at_iou50": 125,
+          "best_same_class_iou": 0.919989
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            23,
+            153,
+            478,
+            258
+          ],
+          "confidence": 0.951247,
+          "crop": "predicted/front_eds/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_p001.png",
+          "matched_gt_annotation_id_at_iou50": 122,
+          "best_same_class_iou": 0.892957
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1605,
+            320,
+            1681,
+            367
+          ],
+          "confidence": 0.937914,
+          "crop": "predicted/front_eds_num/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_p002.png",
+          "matched_gt_annotation_id_at_iou50": 129,
+          "best_same_class_iou": 0.811771
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            30,
+            192,
+            381,
+            251
+          ],
+          "confidence": 0.921899,
+          "crop": "predicted/front_eds_destination/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_p003.png",
+          "matched_gt_annotation_id_at_iou50": 124,
+          "best_same_class_iou": 0.804288
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            28,
+            160,
+            211,
+            201
+          ],
+          "confidence": 0.920279,
+          "crop": "predicted/front_eds_route/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_p004.png",
+          "matched_gt_annotation_id_at_iou50": 123,
+          "best_same_class_iou": 0.782887
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1425,
+            309,
+            1556,
+            339
+          ],
+          "confidence": 0.85113,
+          "crop": "predicted/front_eds_route/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_p005.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.0
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1341,
+            299,
+            1688,
+            373
+          ],
+          "confidence": 0.820309,
+          "crop": "predicted/front_eds/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_p006.png",
+          "matched_gt_annotation_id_at_iou50": 126,
+          "best_same_class_iou": 0.708598
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1426,
+            327,
+            1554,
+            362
+          ],
+          "confidence": 0.52761,
+          "crop": "predicted/front_eds_destination/038_Screenshot_2026-11-01-21-37-09-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.5737f47f970b3df09a1b6f0078558e43_p007.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.359773
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-44-52-46_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.3cef9594b39ddffaa3e1a2ec5039732c.jpg",
+      "image_id": 36,
+      "image_sha256": "20e751611dd14cb3c403e71715d3b175f1763a0c8b6c9547108c85b906e85bde",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [],
+      "predictions": []
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-45-36-80_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.1526081eb2dd5146662b93802e896f4b.jpg",
+      "image_id": 11,
+      "image_sha256": "6c0fb59ff4d63c428a4393b3cf39f2b83f273a2c32f3ec682ad9828690a50a84",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [],
+      "predictions": []
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-48-02-73_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8e51c9b53e9e6745706c886f0505ad47.jpg",
+      "image_id": 15,
+      "image_sha256": "8e29c51e5da052d8f5e29ad150ce078db0cfccee079082988810a0b83fb1fe63",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 61,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            456,
+            273,
+            629,
+            340
+          ],
+          "crop": "ground_truth/front_eds/041_Screenshot_2026-11-01-21-48-02-73_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8e51c9b53e9e6745706c886f0505ad47_a61.png"
+        },
+        {
+          "annotation_id": 62,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            565,
+            281,
+            625,
+            327
+          ],
+          "crop": "ground_truth/front_eds_num/041_Screenshot_2026-11-01-21-48-02-73_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8e51c9b53e9e6745706c886f0505ad47_a62.png"
+        },
+        {
+          "annotation_id": 63,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            462,
+            293,
+            568,
+            337
+          ],
+          "crop": "ground_truth/front_eds_destination/041_Screenshot_2026-11-01-21-48-02-73_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8e51c9b53e9e6745706c886f0505ad47_a63.png"
+        },
+        {
+          "annotation_id": 64,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            927,
+            477,
+            1028,
+            516
+          ],
+          "crop": "ground_truth/front_eds/041_Screenshot_2026-11-01-21-48-02-73_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8e51c9b53e9e6745706c886f0505ad47_a64.png"
+        },
+        {
+          "annotation_id": 65,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            930,
+            480,
+            969,
+            512
+          ],
+          "crop": "ground_truth/front_eds_num/041_Screenshot_2026-11-01-21-48-02-73_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8e51c9b53e9e6745706c886f0505ad47_a65.png"
+        },
+        {
+          "annotation_id": 66,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            966,
+            480,
+            1017,
+            498
+          ],
+          "crop": "ground_truth/front_eds_destination/041_Screenshot_2026-11-01-21-48-02-73_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8e51c9b53e9e6745706c886f0505ad47_a66.png"
+        },
+        {
+          "annotation_id": 67,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            966,
+            496,
+            1027,
+            511
+          ],
+          "crop": "ground_truth/front_eds_route/041_Screenshot_2026-11-01-21-48-02-73_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.8e51c9b53e9e6745706c886f0505ad47_a67.png"
+        }
+      ],
+      "predictions": []
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-50-28-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6eeb960f8013e60d9aa08e33b09e8112.jpg",
+      "image_id": 44,
+      "image_sha256": "6d057337e6a50a8bec01ab5fbe9b8ef51a5910ff3f5e4bb0eb8d5451a2dc4fe7",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 193,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1013,
+            293,
+            1367,
+            376
+          ],
+          "crop": "ground_truth/front_eds/042_Screenshot_2026-11-01-21-50-28-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6eeb960f8013e60d9aa08e33b09e8112_a193.png"
+        },
+        {
+          "annotation_id": 194,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1273,
+            307,
+            1350,
+            362
+          ],
+          "crop": "ground_truth/front_eds_num/042_Screenshot_2026-11-01-21-50-28-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6eeb960f8013e60d9aa08e33b09e8112_a194.png"
+        },
+        {
+          "annotation_id": 195,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1085,
+            311,
+            1219,
+            341
+          ],
+          "crop": "ground_truth/front_eds_destination/042_Screenshot_2026-11-01-21-50-28-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6eeb960f8013e60d9aa08e33b09e8112_a195.png"
+        },
+        {
+          "annotation_id": 196,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1038,
+            336,
+            1262,
+            368
+          ],
+          "crop": "ground_truth/front_eds_route/042_Screenshot_2026-11-01-21-50-28-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6eeb960f8013e60d9aa08e33b09e8112_a196.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            967,
+            287,
+            1382,
+            389
+          ],
+          "confidence": 0.949863,
+          "crop": "predicted/front_eds/042_Screenshot_2026-11-01-21-50-28-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6eeb960f8013e60d9aa08e33b09e8112_p000.png",
+          "matched_gt_annotation_id_at_iou50": 193,
+          "best_same_class_iou": 0.694118
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1275,
+            306,
+            1351,
+            363
+          ],
+          "confidence": 0.945438,
+          "crop": "predicted/front_eds_num/042_Screenshot_2026-11-01-21-50-28-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6eeb960f8013e60d9aa08e33b09e8112_p001.png",
+          "matched_gt_annotation_id_at_iou50": 194,
+          "best_same_class_iou": 0.928636
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1080,
+            303,
+            1210,
+            340
+          ],
+          "confidence": 0.938956,
+          "crop": "predicted/front_eds_route/042_Screenshot_2026-11-01-21-50-28-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6eeb960f8013e60d9aa08e33b09e8112_p002.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.045383
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1038,
+            327,
+            1260,
+            368
+          ],
+          "confidence": 0.844324,
+          "crop": "predicted/front_eds_destination/042_Screenshot_2026-11-01-21-50-28-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6eeb960f8013e60d9aa08e33b09e8112_p003.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.166815
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1031,
+            302,
+            1215,
+            341
+          ],
+          "confidence": 0.821909,
+          "crop": "predicted/front_eds_route/042_Screenshot_2026-11-01-21-50-28-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6eeb960f8013e60d9aa08e33b09e8112_p004.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.065755
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1036,
+            332,
+            1265,
+            368
+          ],
+          "confidence": 0.811061,
+          "crop": "predicted/front_eds_route/042_Screenshot_2026-11-01-21-50-28-88_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6eeb960f8013e60d9aa08e33b09e8112_p005.png",
+          "matched_gt_annotation_id_at_iou50": 196,
+          "best_same_class_iou": 0.869481
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-50-57-21_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0354c411714c712b496a4d958c8aed06.jpg",
+      "image_id": 47,
+      "image_sha256": "a834497a6fa1051605918286f3ac53ba0f25dabcc179006958ec8ad164b7576a",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 209,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            909,
+            311,
+            1252,
+            382
+          ],
+          "crop": "ground_truth/front_eds/043_Screenshot_2026-11-01-21-50-57-21_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0354c411714c712b496a4d958c8aed06_a209.png"
+        },
+        {
+          "annotation_id": 210,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1143,
+            320,
+            1241,
+            375
+          ],
+          "crop": "ground_truth/front_eds_num/043_Screenshot_2026-11-01-21-50-57-21_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0354c411714c712b496a4d958c8aed06_a210.png"
+        },
+        {
+          "annotation_id": 211,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            915,
+            346,
+            1137,
+            372
+          ],
+          "crop": "ground_truth/front_eds_destination/043_Screenshot_2026-11-01-21-50-57-21_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0354c411714c712b496a4d958c8aed06_a211.png"
+        },
+        {
+          "annotation_id": 212,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            948,
+            318,
+            1104,
+            345
+          ],
+          "crop": "ground_truth/front_eds_route/043_Screenshot_2026-11-01-21-50-57-21_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0354c411714c712b496a4d958c8aed06_a212.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            867,
+            297,
+            1282,
+            396
+          ],
+          "confidence": 0.957922,
+          "crop": "predicted/front_eds/043_Screenshot_2026-11-01-21-50-57-21_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0354c411714c712b496a4d958c8aed06_p000.png",
+          "matched_gt_annotation_id_at_iou50": 209,
+          "best_same_class_iou": 0.592747
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1025,
+            317,
+            1247,
+            376
+          ],
+          "confidence": 0.954723,
+          "crop": "predicted/front_eds_num/043_Screenshot_2026-11-01-21-50-57-21_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0354c411714c712b496a4d958c8aed06_p001.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.411513
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1139,
+            319,
+            1242,
+            375
+          ],
+          "confidence": 0.931915,
+          "crop": "predicted/front_eds_num/043_Screenshot_2026-11-01-21-50-57-21_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0354c411714c712b496a4d958c8aed06_p002.png",
+          "matched_gt_annotation_id_at_iou50": 210,
+          "best_same_class_iou": 0.934466
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            933,
+            312,
+            1106,
+            345
+          ],
+          "confidence": 0.918294,
+          "crop": "predicted/front_eds_route/043_Screenshot_2026-11-01-21-50-57-21_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0354c411714c712b496a4d958c8aed06_p003.png",
+          "matched_gt_annotation_id_at_iou50": 212,
+          "best_same_class_iou": 0.737782
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c.jpg",
+      "image_id": 12,
+      "image_sha256": "800f543aab6ece938174ffaddcd44cf1ae096936a9ce09730462b0e8312d4b6d",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 38,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1330,
+            528,
+            1549,
+            577
+          ],
+          "crop": "ground_truth/front_eds/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_a38.png"
+        },
+        {
+          "annotation_id": 39,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            565,
+            581,
+            756,
+            613
+          ],
+          "crop": "ground_truth/front_eds/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_a39.png"
+        },
+        {
+          "annotation_id": 40,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            399,
+            601,
+            433,
+            623
+          ],
+          "crop": "ground_truth/front_eds/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_a40.png"
+        },
+        {
+          "annotation_id": 41,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            614,
+            584,
+            689,
+            611
+          ],
+          "crop": "ground_truth/front_eds_destination/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_a41.png"
+        },
+        {
+          "annotation_id": 42,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            717,
+            584,
+            748,
+            611
+          ],
+          "crop": "ground_truth/front_eds_num/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_a42.png"
+        },
+        {
+          "annotation_id": 43,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1362,
+            533,
+            1446,
+            554
+          ],
+          "crop": "ground_truth/front_eds_route/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_a43.png"
+        },
+        {
+          "annotation_id": 44,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1362,
+            550,
+            1479,
+            573
+          ],
+          "crop": "ground_truth/front_eds_destination/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_a44.png"
+        },
+        {
+          "annotation_id": 45,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1485,
+            535,
+            1526,
+            574
+          ],
+          "crop": "ground_truth/front_eds_num/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_a45.png"
+        },
+        {
+          "annotation_id": 46,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            221,
+            611,
+            283,
+            627
+          ],
+          "crop": "ground_truth/front_eds/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_a46.png"
+        },
+        {
+          "annotation_id": 47,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            262,
+            611,
+            281,
+            626
+          ],
+          "crop": "ground_truth/front_eds_num/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_a47.png"
+        },
+        {
+          "annotation_id": 48,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            898,
+            590,
+            967,
+            606
+          ],
+          "crop": "ground_truth/front_eds/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_a48.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1355,
+            524,
+            1534,
+            576
+          ],
+          "confidence": 0.964717,
+          "crop": "predicted/front_eds/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_p000.png",
+          "matched_gt_annotation_id_at_iou50": 38,
+          "best_same_class_iou": 0.75059
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1481,
+            532,
+            1529,
+            569
+          ],
+          "confidence": 0.933017,
+          "crop": "predicted/front_eds_num/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_p001.png",
+          "matched_gt_annotation_id_at_iou50": 45,
+          "best_same_class_iou": 0.703685
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1363,
+            529,
+            1447,
+            555
+          ],
+          "confidence": 0.841483,
+          "crop": "predicted/front_eds_route/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_p002.png",
+          "matched_gt_annotation_id_at_iou50": 43,
+          "best_same_class_iou": 0.790476
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            616,
+            583,
+            689,
+            610
+          ],
+          "confidence": 0.750405,
+          "crop": "predicted/front_eds_destination/044_Screenshot_2026-11-01-21-51-28-14_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.0bcbe0af5c513abf4a5bdcfbe1a9690c_p003.png",
+          "matched_gt_annotation_id_at_iou50": 41,
+          "best_same_class_iou": 0.904671
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-52-11-00_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.38a302ec38dc024e2529c663c56e0b35.jpg",
+      "image_id": 52,
+      "image_sha256": "346e5feb38306a39acc47531c4b81ee20ab5ee8fa356392bc6a15fc3766c4206",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [],
+      "predictions": []
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-52-15-83_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6093f813d94ce6e5ef2c11aa873d8270.jpg",
+      "image_id": 51,
+      "image_sha256": "42e7eceb57e3609e9e3c66dd5dd153e9e1da98b4f4fa69b00bfd9afd0de3d408",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [
+        {
+          "annotation_id": 219,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1308,
+            486,
+            1526,
+            543
+          ],
+          "crop": "ground_truth/front_eds/046_Screenshot_2026-11-01-21-52-15-83_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6093f813d94ce6e5ef2c11aa873d8270_a219.png"
+        },
+        {
+          "annotation_id": 220,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1474,
+            496,
+            1504,
+            537
+          ],
+          "crop": "ground_truth/front_eds_num/046_Screenshot_2026-11-01-21-52-15-83_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6093f813d94ce6e5ef2c11aa873d8270_a220.png"
+        },
+        {
+          "annotation_id": 221,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1326,
+            494,
+            1446,
+            534
+          ],
+          "crop": "ground_truth/front_eds_destination/046_Screenshot_2026-11-01-21-52-15-83_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6093f813d94ce6e5ef2c11aa873d8270_a221.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1320,
+            481,
+            1513,
+            539
+          ],
+          "confidence": 0.897284,
+          "crop": "predicted/front_eds/046_Screenshot_2026-11-01-21-52-15-83_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6093f813d94ce6e5ef2c11aa873d8270_p000.png",
+          "matched_gt_annotation_id_at_iou50": 219,
+          "best_same_class_iou": 0.763871
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1323,
+            490,
+            1445,
+            529
+          ],
+          "confidence": 0.895003,
+          "crop": "predicted/front_eds_destination/046_Screenshot_2026-11-01-21-52-15-83_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.6093f813d94ce6e5ef2c11aa873d8270_p001.png",
+          "matched_gt_annotation_id_at_iou50": 221,
+          "best_same_class_iou": 0.772297
+        }
+      ]
+    },
+    {
+      "image": "Screenshot_2026-11-01-21-52-54-19_f9ee0578fe1cc94de7482bd41accb329_jpg.rf.bf9f89a52ef7a8823fe17bc934b37b66.jpg",
+      "image_id": 4,
+      "image_sha256": "812274108b38bd8878ad3a32e79ffb2858936cc736e69ae97280442953441e0a",
+      "width": 2048,
+      "height": 892,
+      "ground_truth": [],
+      "predictions": []
+    },
+    {
+      "image": "c22dd64d__8c462f49-51A_jpg.rf.5300246fc163a164b228fa2cf942410e.jpg",
+      "image_id": 22,
+      "image_sha256": "21cfffc043a61b07d6898be8064b9dbec7c3b3f2594c1c4ef8447a1e55d3d6e3",
+      "width": 1080,
+      "height": 916,
+      "ground_truth": [
+        {
+          "annotation_id": 90,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            828,
+            381,
+            891,
+            427
+          ],
+          "crop": "ground_truth/front_eds_num/048_c22dd64d__8c462f49-51A_jpg.rf.5300246fc163a164b228fa2cf942410e_a90.png"
+        },
+        {
+          "annotation_id": 91,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            681,
+            385,
+            762,
+            404
+          ],
+          "crop": "ground_truth/front_eds_destination/048_c22dd64d__8c462f49-51A_jpg.rf.5300246fc163a164b228fa2cf942410e_a91.png"
+        },
+        {
+          "annotation_id": 92,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            645,
+            406,
+            805,
+            429
+          ],
+          "crop": "ground_truth/front_eds_route/048_c22dd64d__8c462f49-51A_jpg.rf.5300246fc163a164b228fa2cf942410e_a92.png"
+        },
+        {
+          "annotation_id": 93,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            612,
+            372,
+            901,
+            436
+          ],
+          "crop": "ground_truth/front_eds/048_c22dd64d__8c462f49-51A_jpg.rf.5300246fc163a164b228fa2cf942410e_a93.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            829,
+            380,
+            893,
+            428
+          ],
+          "confidence": 0.957861,
+          "crop": "predicted/front_eds_num/048_c22dd64d__8c462f49-51A_jpg.rf.5300246fc163a164b228fa2cf942410e_p000.png",
+          "matched_gt_annotation_id_at_iou50": 90,
+          "best_same_class_iou": 0.914689
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            620,
+            373,
+            907,
+            437
+          ],
+          "confidence": 0.953429,
+          "crop": "predicted/front_eds/048_c22dd64d__8c462f49-51A_jpg.rf.5300246fc163a164b228fa2cf942410e_p001.png",
+          "matched_gt_annotation_id_at_iou50": 93,
+          "best_same_class_iou": 0.923908
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            687,
+            383,
+            762,
+            406
+          ],
+          "confidence": 0.819603,
+          "crop": "predicted/front_eds_route/048_c22dd64d__8c462f49-51A_jpg.rf.5300246fc163a164b228fa2cf942410e_p002.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.0
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            637,
+            404,
+            806,
+            429
+          ],
+          "confidence": 0.714616,
+          "crop": "predicted/front_eds_destination/048_c22dd64d__8c462f49-51A_jpg.rf.5300246fc163a164b228fa2cf942410e_p003.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.0
+        }
+      ]
+    },
+    {
+      "image": "d4ac80eb-185_jpg.rf.c8bb643ea964667d96dfa6f8d2648ef9.jpg",
+      "image_id": 8,
+      "image_sha256": "263170a5d7398d277cfe1c075b1d9913220ffd23b7e601c3f2eb2b772c578eaa",
+      "width": 1332,
+      "height": 999,
+      "ground_truth": [
+        {
+          "annotation_id": 21,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            638,
+            171,
+            1126,
+            279
+          ],
+          "crop": "ground_truth/front_eds/049_d4ac80eb-185_jpg.rf.c8bb643ea964667d96dfa6f8d2648ef9_a21.png"
+        },
+        {
+          "annotation_id": 22,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            992,
+            195,
+            1086,
+            255
+          ],
+          "crop": "ground_truth/front_eds_num/049_d4ac80eb-185_jpg.rf.c8bb643ea964667d96dfa6f8d2648ef9_a22.png"
+        },
+        {
+          "annotation_id": 23,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            687,
+            195,
+            966,
+            221
+          ],
+          "crop": "ground_truth/front_eds_destination/049_d4ac80eb-185_jpg.rf.c8bb643ea964667d96dfa6f8d2648ef9_a23.png"
+        },
+        {
+          "annotation_id": 24,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            698,
+            227,
+            952,
+            253
+          ],
+          "crop": "ground_truth/front_eds_route/049_d4ac80eb-185_jpg.rf.c8bb643ea964667d96dfa6f8d2648ef9_a24.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            990,
+            190,
+            1088,
+            254
+          ],
+          "confidence": 0.965764,
+          "crop": "predicted/front_eds_num/049_d4ac80eb-185_jpg.rf.c8bb643ea964667d96dfa6f8d2648ef9_p000.png",
+          "matched_gt_annotation_id_at_iou50": 22,
+          "best_same_class_iou": 0.871191
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            667,
+            172,
+            1104,
+            272
+          ],
+          "confidence": 0.958485,
+          "crop": "predicted/front_eds/049_d4ac80eb-185_jpg.rf.c8bb643ea964667d96dfa6f8d2648ef9_p001.png",
+          "matched_gt_annotation_id_at_iou50": 21,
+          "best_same_class_iou": 0.829159
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            679,
+            186,
+            957,
+            226
+          ],
+          "confidence": 0.956007,
+          "crop": "predicted/front_eds_route/049_d4ac80eb-185_jpg.rf.c8bb643ea964667d96dfa6f8d2648ef9_p002.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.0
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            690,
+            219,
+            961,
+            260
+          ],
+          "confidence": 0.907449,
+          "crop": "predicted/front_eds_destination/049_d4ac80eb-185_jpg.rf.c8bb643ea964667d96dfa6f8d2648ef9_p003.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.03041
+        }
+      ]
+    },
+    {
+      "image": "e273f0c9-8d3c1a80-132_jpg.rf.1fd6f21632e707a1913f6e07d8b68d6c.jpg",
+      "image_id": 13,
+      "image_sha256": "16d92e0b264175355e85f79a54ada77bea608493066e8c960b281669f966ec04",
+      "width": 1080,
+      "height": 810,
+      "ground_truth": [
+        {
+          "annotation_id": 49,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            594,
+            296,
+            864,
+            328
+          ],
+          "crop": "ground_truth/front_eds/050_e273f0c9-8d3c1a80-132_jpg.rf.1fd6f21632e707a1913f6e07d8b68d6c_a49.png"
+        },
+        {
+          "annotation_id": 50,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            799,
+            296,
+            864,
+            323
+          ],
+          "crop": "ground_truth/front_eds_num/050_e273f0c9-8d3c1a80-132_jpg.rf.1fd6f21632e707a1913f6e07d8b68d6c_a50.png"
+        },
+        {
+          "annotation_id": 51,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            600,
+            309,
+            783,
+            325
+          ],
+          "crop": "ground_truth/front_eds_destination/050_e273f0c9-8d3c1a80-132_jpg.rf.1fd6f21632e707a1913f6e07d8b68d6c_a51.png"
+        },
+        {
+          "annotation_id": 52,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            595,
+            299,
+            735,
+            311
+          ],
+          "crop": "ground_truth/front_eds_route/050_e273f0c9-8d3c1a80-132_jpg.rf.1fd6f21632e707a1913f6e07d8b68d6c_a52.png"
+        },
+        {
+          "annotation_id": 53,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            130,
+            379,
+            161,
+            401
+          ],
+          "crop": "ground_truth/front_eds/050_e273f0c9-8d3c1a80-132_jpg.rf.1fd6f21632e707a1913f6e07d8b68d6c_a53.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            588,
+            282,
+            877,
+            333
+          ],
+          "confidence": 0.960084,
+          "crop": "predicted/front_eds/050_e273f0c9-8d3c1a80-132_jpg.rf.1fd6f21632e707a1913f6e07d8b68d6c_p000.png",
+          "matched_gt_annotation_id_at_iou50": 49,
+          "best_same_class_iou": 0.5862
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            802,
+            294,
+            863,
+            324
+          ],
+          "confidence": 0.945902,
+          "crop": "predicted/front_eds_num/050_e273f0c9-8d3c1a80-132_jpg.rf.1fd6f21632e707a1913f6e07d8b68d6c_p001.png",
+          "matched_gt_annotation_id_at_iou50": 50,
+          "best_same_class_iou": 0.849845
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            594,
+            296,
+            737,
+            314
+          ],
+          "confidence": 0.895299,
+          "crop": "predicted/front_eds_route/050_e273f0c9-8d3c1a80-132_jpg.rf.1fd6f21632e707a1913f6e07d8b68d6c_p002.png",
+          "matched_gt_annotation_id_at_iou50": 52,
+          "best_same_class_iou": 0.652681
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            595,
+            307,
+            785,
+            326
+          ],
+          "confidence": 0.574299,
+          "crop": "predicted/front_eds_destination/050_e273f0c9-8d3c1a80-132_jpg.rf.1fd6f21632e707a1913f6e07d8b68d6c_p003.png",
+          "matched_gt_annotation_id_at_iou50": 51,
+          "best_same_class_iou": 0.81108
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            597,
+            295,
+            750,
+            314
+          ],
+          "confidence": 0.571984,
+          "crop": "predicted/front_eds_destination/050_e273f0c9-8d3c1a80-132_jpg.rf.1fd6f21632e707a1913f6e07d8b68d6c_p004.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.147493
+        }
+      ]
+    },
+    {
+      "image": "e9d46895-80ec3d7b-130_jpg.rf.fd2a56684a1867fdd26bfefc26e8ecd8.jpg",
+      "image_id": 37,
+      "image_sha256": "565aa2c734dd1401ca64ee93f8a91de2448d8dbe4521541855437cce4b19f75b",
+      "width": 2048,
+      "height": 1365,
+      "ground_truth": [
+        {
+          "annotation_id": 165,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1038,
+            569,
+            1317,
+            628
+          ],
+          "crop": "ground_truth/front_eds/051_e9d46895-80ec3d7b-130_jpg.rf.fd2a56684a1867fdd26bfefc26e8ecd8_a165.png"
+        },
+        {
+          "annotation_id": 166,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1235,
+            583,
+            1282,
+            614
+          ],
+          "crop": "ground_truth/front_eds_num/051_e9d46895-80ec3d7b-130_jpg.rf.fd2a56684a1867fdd26bfefc26e8ecd8_a166.png"
+        },
+        {
+          "annotation_id": 167,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1075,
+            595,
+            1233,
+            613
+          ],
+          "crop": "ground_truth/front_eds_destination/051_e9d46895-80ec3d7b-130_jpg.rf.fd2a56684a1867fdd26bfefc26e8ecd8_a167.png"
+        },
+        {
+          "annotation_id": 168,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            1077,
+            580,
+            1165,
+            594
+          ],
+          "crop": "ground_truth/front_eds_route/051_e9d46895-80ec3d7b-130_jpg.rf.fd2a56684a1867fdd26bfefc26e8ecd8_a168.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1233,
+            576,
+            1287,
+            614
+          ],
+          "confidence": 0.935901,
+          "crop": "predicted/front_eds_num/051_e9d46895-80ec3d7b-130_jpg.rf.fd2a56684a1867fdd26bfefc26e8ecd8_p000.png",
+          "matched_gt_annotation_id_at_iou50": 166,
+          "best_same_class_iou": 0.710039
+        },
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            1038,
+            562,
+            1299,
+            623
+          ],
+          "confidence": 0.922281,
+          "crop": "predicted/front_eds/051_e9d46895-80ec3d7b-130_jpg.rf.fd2a56684a1867fdd26bfefc26e8ecd8_p001.png",
+          "matched_gt_annotation_id_at_iou50": 165,
+          "best_same_class_iou": 0.770669
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            1079,
+            580,
+            1165,
+            606
+          ],
+          "confidence": 0.842901,
+          "crop": "predicted/front_eds_destination/051_e9d46895-80ec3d7b-130_jpg.rf.fd2a56684a1867fdd26bfefc26e8ecd8_p002.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.228834
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            1206,
+            576,
+            1287,
+            615
+          ],
+          "confidence": 0.732551,
+          "crop": "predicted/front_eds_num/051_e9d46895-80ec3d7b-130_jpg.rf.fd2a56684a1867fdd26bfefc26e8ecd8_p003.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.461222
+        }
+      ]
+    },
+    {
+      "image": "ede50404__6aabd2de-3_jpg.rf.c68bb136544861b9c1736f7397d61be7.jpg",
+      "image_id": 40,
+      "image_sha256": "ef96f29235772e4be59fe37a193dc0b04622b774e2f7f364616507906f951693",
+      "width": 1080,
+      "height": 839,
+      "ground_truth": [
+        {
+          "annotation_id": 177,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            640,
+            309,
+            961,
+            383
+          ],
+          "crop": "ground_truth/front_eds/052_ede50404__6aabd2de-3_jpg.rf.c68bb136544861b9c1736f7397d61be7_a177.png"
+        },
+        {
+          "annotation_id": 178,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            726,
+            320,
+            829,
+            343
+          ],
+          "crop": "ground_truth/front_eds_destination/052_ede50404__6aabd2de-3_jpg.rf.c68bb136544861b9c1736f7397d61be7_a178.png"
+        },
+        {
+          "annotation_id": 179,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            698,
+            342,
+            859,
+            361
+          ],
+          "crop": "ground_truth/front_eds_route/052_ede50404__6aabd2de-3_jpg.rf.c68bb136544861b9c1736f7397d61be7_a179.png"
+        },
+        {
+          "annotation_id": 180,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            888,
+            326,
+            909,
+            364
+          ],
+          "crop": "ground_truth/front_eds_num/052_ede50404__6aabd2de-3_jpg.rf.c68bb136544861b9c1736f7397d61be7_a180.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            637,
+            311,
+            950,
+            378
+          ],
+          "confidence": 0.956503,
+          "crop": "predicted/front_eds/052_ede50404__6aabd2de-3_jpg.rf.c68bb136544861b9c1736f7397d61be7_p000.png",
+          "matched_gt_annotation_id_at_iou50": 177,
+          "best_same_class_iou": 0.867042
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            887,
+            323,
+            912,
+            364
+          ],
+          "confidence": 0.939412,
+          "crop": "predicted/front_eds_num/052_ede50404__6aabd2de-3_jpg.rf.c68bb136544861b9c1736f7397d61be7_p001.png",
+          "matched_gt_annotation_id_at_iou50": 180,
+          "best_same_class_iou": 0.778537
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            726,
+            317,
+            825,
+            345
+          ],
+          "confidence": 0.884656,
+          "crop": "predicted/front_eds_route/052_ede50404__6aabd2de-3_jpg.rf.c68bb136544861b9c1736f7397d61be7_p002.png",
+          "matched_gt_annotation_id_at_iou50": null,
+          "best_same_class_iou": 0.053668
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            696,
+            341,
+            859,
+            363
+          ],
+          "confidence": 0.882616,
+          "crop": "predicted/front_eds_route/052_ede50404__6aabd2de-3_jpg.rf.c68bb136544861b9c1736f7397d61be7_p003.png",
+          "matched_gt_annotation_id_at_iou50": 179,
+          "best_same_class_iou": 0.85304
+        },
+        {
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            709,
+            318,
+            825,
+            345
+          ],
+          "confidence": 0.868188,
+          "crop": "predicted/front_eds_destination/052_ede50404__6aabd2de-3_jpg.rf.c68bb136544861b9c1736f7397d61be7_p004.png",
+          "matched_gt_annotation_id_at_iou50": 178,
+          "best_same_class_iou": 0.706266
+        }
+      ]
+    },
+    {
+      "image": "fe6f9f51-bus_22_jpg.rf.63a66e19926e89ba20df8db74744695b.jpg",
+      "image_id": 25,
+      "image_sha256": "afaf09bb11e127bd588cd809414e2eeebda4a9a93a17d8ce207f204ffef98de5",
+      "width": 960,
+      "height": 640,
+      "ground_truth": [
+        {
+          "annotation_id": 105,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            275,
+            336,
+            396,
+            365
+          ],
+          "crop": "ground_truth/front_eds/053_fe6f9f51-bus_22_jpg.rf.63a66e19926e89ba20df8db74744695b_a105.png"
+        },
+        {
+          "annotation_id": 106,
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            281,
+            339,
+            341,
+            349
+          ],
+          "crop": "ground_truth/front_eds_route/053_fe6f9f51-bus_22_jpg.rf.63a66e19926e89ba20df8db74744695b_a106.png"
+        },
+        {
+          "annotation_id": 107,
+          "class_id": 3,
+          "label": "front_eds_destination",
+          "box_xyxy": [
+            281,
+            351,
+            320,
+            360
+          ],
+          "crop": "ground_truth/front_eds_destination/053_fe6f9f51-bus_22_jpg.rf.63a66e19926e89ba20df8db74744695b_a107.png"
+        },
+        {
+          "annotation_id": 108,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            376,
+            339,
+            396,
+            362
+          ],
+          "crop": "ground_truth/front_eds_num/053_fe6f9f51-bus_22_jpg.rf.63a66e19926e89ba20df8db74744695b_a108.png"
+        },
+        {
+          "annotation_id": 109,
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            482,
+            405,
+            499,
+            427
+          ],
+          "crop": "ground_truth/front_eds/053_fe6f9f51-bus_22_jpg.rf.63a66e19926e89ba20df8db74744695b_a109.png"
+        },
+        {
+          "annotation_id": 110,
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            486,
+            405,
+            498,
+            427
+          ],
+          "crop": "ground_truth/front_eds_num/053_fe6f9f51-bus_22_jpg.rf.63a66e19926e89ba20df8db74744695b_a110.png"
+        }
+      ],
+      "predictions": [
+        {
+          "class_id": 0,
+          "label": "front_eds",
+          "box_xyxy": [
+            270,
+            331,
+            403,
+            367
+          ],
+          "confidence": 0.93759,
+          "crop": "predicted/front_eds/053_fe6f9f51-bus_22_jpg.rf.63a66e19926e89ba20df8db74744695b_p000.png",
+          "matched_gt_annotation_id_at_iou50": 105,
+          "best_same_class_iou": 0.732874
+        },
+        {
+          "class_id": 1,
+          "label": "front_eds_num",
+          "box_xyxy": [
+            376,
+            336,
+            397,
+            363
+          ],
+          "confidence": 0.921712,
+          "crop": "predicted/front_eds_num/053_fe6f9f51-bus_22_jpg.rf.63a66e19926e89ba20df8db74744695b_p001.png",
+          "matched_gt_annotation_id_at_iou50": 108,
+          "best_same_class_iou": 0.811287
+        },
+        {
+          "class_id": 2,
+          "label": "front_eds_route",
+          "box_xyxy": [
+            279,
+            336,
+            340,
+            350
+          ],
+          "confidence": 0.749666,
+          "crop": "predicted/front_eds_route/053_fe6f9f51-bus_22_jpg.rf.63a66e19926e89ba20df8db74744695b_p002.png",
+          "matched_gt_annotation_id_at_iou50": 106,
+          "best_same_class_iou": 0.68287
+        }
+      ]
+    }
+  ]
+}

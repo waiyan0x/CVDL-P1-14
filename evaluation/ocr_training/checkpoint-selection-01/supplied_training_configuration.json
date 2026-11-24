@@ -1,0 +1,33 @@
+{
+  "classification": "observed_serialized_configuration_not_verified_training_execution",
+  "source_path": "models/trocr-finetuned/training_args.bin",
+  "source_sha256": "182987138951826a521f06bd6efb2bcbff8aa1010fdeaa00b4101b1c0115cba0",
+  "method": "Static pickle opcode inspection of scalar key/value pairs; no unpickling, checkpoint loading or training. Enum/non-scalar fields omitted.",
+  "values": {
+    "output_dir": "./trocr-finetuned-new",
+    "do_train": false,
+    "do_eval": true,
+    "per_device_train_batch_size": 8,
+    "per_device_eval_batch_size": 8,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 5e-05,
+    "weight_decay": 0.0,
+    "num_train_epochs": 3,
+    "max_steps": -1,
+    "warmup_steps": 500,
+    "save_steps": 500,
+    "seed": 42,
+    "bf16": false,
+    "fp16": false,
+    "eval_steps": 100,
+    "load_best_model_at_end": true,
+    "metric_for_best_model": "exact_match_accuracy",
+    "greater_is_better": true
+  },
+  "limits": [
+    "num_train_epochs is configured duration, not actual checkpoint epoch",
+    "do_train=false is a saved argument value, not proof training did not occur",
+    "No trainer-state history or data split manifests available",
+    "Saved best-model metric is exact_match_accuracy, not requested validation CER"
+  ]
+}

@@ -1,0 +1,532 @@
+model,variant,review_id,reference,raw_ocr_text,prediction_status,readable_chars,errors
+easyocr,pretrained,RH0004,"NICOLL HIGHWAY
+[UNK]",NICOLL HIGHWAY,success,14,0
+easyocr,pretrained,RH0007,[UNK] CITY,Gatedar,success,4,4
+easyocr,pretrained,RH0011,[UNK] BOULEVARD,NARHA BCULEVED,success,9,3
+easyocr,pretrained,RH0013,ANG MO KIO AVE [UNK],"ANG MQ QAVE,",success,14,5
+easyocr,pretrained,RH0014,TAMPINES [UNK],Thirldiee,success,8,6
+easyocr,pretrained,RH0016,YISHUN INT - SEMBAWANG RD[UNK],Mshuai 5 eangrd,success,25,13
+easyocr,pretrained,RH0018,"[UNK]
+THOMSON ROAD","aelereneMal ea
+Ae Ann",success,12,11
+easyocr,pretrained,RH0021,LOWER DELTA RD [UNK],UMRDELTARD,success,14,6
+easyocr,pretrained,RH0022,JURONG WEST AVE [UNK],JURONG WEST AVE 5,success,15,0
+easyocr,pretrained,RH0024,[UNK] RD,DIDD,success,2,1
+easyocr,pretrained,RH0025,[UNK] AVE,Unachananses,success,3,3
+easyocr,pretrained,RH0034,BOON LAY AVE [UNK],Cnc,success,12,11
+easyocr,pretrained,RH0036,"[UNK]
+SINGAPORE",SicapopE,success,9,3
+easyocr,pretrained,RH0037,"[UNK] INT via
+SENGKANG","SNOREM """,success,16,14
+easyocr,pretrained,RH0038,YISHUN AVE 7[UNK],YISHUN AVE >,success,12,1
+easyocr,pretrained,RH0039,"WOODLANDS INT via
+[UNK]",Vl Traik OkcFoi,success,17,13
+easyocr,pretrained,RH0042,CLEMENTI MRT[UNK],clenentihat,success,12,4
+easyocr,pretrained,RH0045,[UNK] ST 52,IOCIT,success,5,4
+easyocr,pretrained,RH0046,via CHINATOWN [UNK],va CHINATOWN,success,13,1
+easyocr,pretrained,RH0047,[UNK] (DHOBY GHAUT STN),TonokaV Ml6 %pio,success,17,15
+easyocr,pretrained,RH0050,"[UNK]
+UPP BT TIMAH RD",WpCttnlienB5,success,15,12
+easyocr,pretrained,RH0053,Tomlinson Rd [UNK],TouthsmF,success,12,9
+easyocr,pretrained,RH0055,JLN BT MERAH [UNK],Jalaeweet Merah,success,12,6
+easyocr,pretrained,RH0057,TOA PAYOH CENTRAL [UNK],Toneavonccataat,success,17,10
+easyocr,pretrained,RH0060,[UNK] S AVE,6Gus,success,5,4
+easyocr,pretrained,RH0063,COMPASSVALE [UNK],cohpassual,success,11,3
+easyocr,pretrained,RH0067,ANG MO KIO AVE 6 [UNK],"Eenn
+Lnls",success,16,15
+easyocr,pretrained,RH0069,[UNK]DTL SHUTTLE,aillutn,success,11,8
+easyocr,pretrained,RH0071,C.C.K STREET 52 [UNK],"C,CKSTREET52",success,15,4
+easyocr,pretrained,RH0076,[UNK] STEVENS ROAD,"5n
+1",success,12,10
+easyocr,pretrained,RH0077,UPP BUKIT TIMAH RD [UNK],WPE BUEnATIron Ao,success,18,11
+easyocr,pretrained,RH0081,SHUTTLE 7 [UNK],"FaGuuTl e ate
+I",success,9,6
+easyocr,pretrained,RH0083,JALAN BESAR [UNK],Jalanbesar,success,11,1
+easyocr,pretrained,RH0087,UPP THOMSON RD [UNK],CTecm,success,14,12
+easyocr,pretrained,RH0090,[UNK] COMMONWEALTH AVE WEST,On  enat,success,21,16
+easyocr,pretrained,RH0094,TAMPINES AVE 7 [UNK],TaetesruE 7,success,14,7
+easyocr,pretrained,RH0096,[UNK] SELETAR [UNK],SaEta r,success,7,3
+easyocr,pretrained,RH0098,STAMFORD RD [UNK],STAt@mo,success,11,8
+easyocr,pretrained,RH0104,JLN BUKIT MERAH [UNK],Teh,success,15,12
+easyocr,pretrained,RH0109,ALJUNIED RD [UNK],AJIld@,success,11,7
+easyocr,pretrained,RH0114,PASIR RIS DR 3 [UNK],PaSIR RXS DE :,success,14,3
+easyocr,pretrained,RH0115,HOUGANG AVE 9 [UNK],Houganeaue9,success,13,4
+easyocr,pretrained,RH0129,TUAS STH AVE [UNK],AU AEmax,success,12,8
+easyocr,pretrained,RH0131,[UNK] ST,Toebnet,success,2,1
+easyocr,pretrained,RH0133,JALAN BUKIT MERAH [UNK],SueuaHnu Loluez Vaht,success,17,13
+easyocr,pretrained,RH0134,[UNK] RD,Mfcgeicud,success,2,1
+easyocr,pretrained,RH0135,[UNK]ER RD, ERRD,success,5,1
+easyocr,pretrained,RH0136,EAST COAST RD [UNK],Shstcoestar,success,13,6
+easyocr,pretrained,RH0139,[UNK]ORCHARD RD,DealoPl,success,10,9
+easyocr,finetuned,RH0004,"NICOLL HIGHWAY
+[UNK]",NICOLL HIGHWAY,success,14,0
+easyocr,finetuned,RH0007,[UNK] CITY,G DRBN,success,4,4
+easyocr,finetuned,RH0011,[UNK] BOULEVARD,MIARINA BOULEVARD,success,9,0
+easyocr,finetuned,RH0013,ANG MO KIO AVE [UNK],ANG MQ GOAVE,success,14,4
+easyocr,finetuned,RH0014,TAMPINES [UNK],TNIALIIET,success,8,6
+easyocr,finetuned,RH0016,YISHUN INT - SEMBAWANG RD[UNK],VISMUM IONT S EK NANG RO,success,25,11
+easyocr,finetuned,RH0018,"[UNK]
+THOMSON ROAD","elctene MN IA
+KGNE IN ANNAR",success,12,10
+easyocr,finetuned,RH0021,LOWER DELTA RD [UNK],LOWER DELTA RD,success,14,0
+easyocr,finetuned,RH0022,JURONG WEST AVE [UNK],JURONG IYEST AVE S,success,15,2
+easyocr,finetuned,RH0024,[UNK] RD,RDONDMD,success,2,1
+easyocr,finetuned,RH0025,[UNK] AVE,RSH NANE,success,3,1
+easyocr,finetuned,RH0034,BOON LAY AVE [UNK],BOONAN AAN,success,12,5
+easyocr,finetuned,RH0036,"[UNK]
+SINGAPORE",SINCAPORE,success,9,1
+easyocr,finetuned,RH0037,"[UNK] INT via
+SENGKANG","SEMNGR EIN ""a",success,16,12
+easyocr,finetuned,RH0038,YISHUN AVE 7[UNK],YISHUN AVE >,success,12,1
+easyocr,finetuned,RH0039,"WOODLANDS INT via
+[UNK]",VOL TAANN CHEGRFOIN ,success,17,12
+easyocr,finetuned,RH0042,CLEMENTI MRT[UNK],CLEMEMTI MAT,success,12,2
+easyocr,finetuned,RH0045,[UNK] ST 52,BNSTCKKS 7,success,5,3
+easyocr,finetuned,RH0046,via CHINATOWN [UNK],Va CHINATOWN,success,13,1
+easyocr,finetuned,RH0047,[UNK] (DHOBY GHAUT STN),TONOHA VA MHS A S TKP i0,success,17,14
+easyocr,finetuned,RH0050,"[UNK]
+UPP BT TIMAH RD",VPS CT N ENAN B,success,15,10
+easyocr,finetuned,RH0053,Tomlinson Rd [UNK],Tomdhsmn Fd,success,12,5
+easyocr,finetuned,RH0055,JLN BT MERAH [UNK],JALAM EWEIT MERAA,success,12,8
+easyocr,finetuned,RH0057,TOA PAYOH CENTRAL [UNK],T0D CAAVDON CEAT INAL,success,17,11
+easyocr,finetuned,RH0060,[UNK] S AVE,SAUE,success,5,2
+easyocr,finetuned,RH0063,COMPASSVALE [UNK],compASsVAL,success,11,1
+easyocr,finetuned,RH0067,ANG MO KIO AVE 6 [UNK],"BENNNAGNT
+MNIAWASO",success,16,15
+easyocr,finetuned,RH0069,[UNK]DTL SHUTTLE,BNNNNNR,success,11,11
+easyocr,finetuned,RH0071,C.C.K STREET 52 [UNK],"C,C KSTRECT 52",success,15,4
+easyocr,finetuned,RH0076,[UNK] STEVENS ROAD,"14444
+1",success,12,11
+easyocr,finetuned,RH0077,UPP BUKIT TIMAH RD [UNK],WPT BUKTNT TINON RO,success,18,8
+easyocr,finetuned,RH0081,SHUTTLE 7 [UNK],"1SHUTTI Eced
+1",success,9,4
+easyocr,finetuned,RH0083,JALAN BESAR [UNK],JALAN BESAR,success,11,0
+easyocr,finetuned,RH0087,UPP THOMSON RD [UNK],BP T NHONSOTRD,success,14,7
+easyocr,finetuned,RH0090,[UNK] COMMONWEALTH AVE WEST,ONNA ONNTNRT,success,21,16
+easyocr,finetuned,RH0094,TAMPINES AVE 7 [UNK],TAPDES RUE 7,success,14,5
+easyocr,finetuned,RH0096,[UNK] SELETAR [UNK],INNOUETRRA ARY,success,7,4
+easyocr,finetuned,RH0098,STAMFORD RD [UNK],STAAEEORD RD,success,11,3
+easyocr,finetuned,RH0104,JLN BUKIT MERAH [UNK],TEEN INH,success,15,12
+easyocr,finetuned,RH0109,ALJUNIED RD [UNK],ALJUNEDRD,success,11,2
+easyocr,finetuned,RH0114,PASIR RIS DR 3 [UNK],PASIR RIS BR ?,success,14,2
+easyocr,finetuned,RH0115,HOUGANG AVE 9 [UNK],HOUGAND ANE 9,success,13,2
+easyocr,finetuned,RH0129,TUAS STH AVE [UNK],TUKS STH WAY,success,12,4
+easyocr,finetuned,RH0131,[UNK] ST,TT ESAET,success,2,1
+easyocr,finetuned,RH0133,JALAN BUKIT MERAH [UNK],ALKNN BUR I LRKN,success,17,10
+easyocr,finetuned,RH0134,[UNK] RD,KRIPONG BRHEUED,success,2,1
+easyocr,finetuned,RH0135,[UNK]ER RD,MNN ERRD,success,5,1
+easyocr,finetuned,RH0136,EAST COAST RD [UNK],CHSTCOESTRR,success,13,6
+easyocr,finetuned,RH0139,[UNK]ORCHARD RD,DHOAARD RL,success,10,4
+easyocr,finetunedsyn,RH0004,"NICOLL HIGHWAY
+[UNK]",NICOLL HIGHWAY,success,14,0
+easyocr,finetunedsyn,RH0007,[UNK] CITY,SRNI AR SN,success,4,4
+easyocr,finetunedsyn,RH0011,[UNK] BOULEVARD,WARINA BOULEVARD,success,9,0
+easyocr,finetunedsyn,RH0013,ANG MO KIO AVE [UNK],ANG NO IGO AVE ,success,14,3
+easyocr,finetunedsyn,RH0014,TAMPINES [UNK],TWGLIIRC,success,8,6
+easyocr,finetunedsyn,RH0016,YISHUN INT - SEMBAWANG RD[UNK],VISHUR NNT-S EHOIANG RD,success,25,10
+easyocr,finetunedsyn,RH0018,"[UNK]
+THOMSON ROAD","ielcene OL31a
+KOHEINOR",success,12,9
+easyocr,finetunedsyn,RH0021,LOWER DELTA RD [UNK],OVER DELTA RD,success,14,2
+easyocr,finetunedsyn,RH0022,JURONG WEST AVE [UNK],JURONG IVEST AVE 5,success,15,2
+easyocr,finetunedsyn,RH0024,[UNK] RD,RDNDMB,success,2,2
+easyocr,finetunedsyn,RH0025,[UNK] AVE,HOROH RNG ER,success,3,3
+easyocr,finetunedsyn,RH0034,BOON LAY AVE [UNK],BOON LAY AUm,success,12,2
+easyocr,finetunedsyn,RH0036,"[UNK]
+SINGAPORE",SINGAPORE,success,9,0
+easyocr,finetunedsyn,RH0037,"[UNK] INT via
+SENGKANG",RHIONG INT via,success,16,9
+easyocr,finetunedsyn,RH0038,YISHUN AVE 7[UNK],YISHUN AVE >,success,12,1
+easyocr,finetunedsyn,RH0039,"WOODLANDS INT via
+[UNK]",HOLTARVia ,success,17,12
+easyocr,finetunedsyn,RH0042,CLEMENTI MRT[UNK],CLENENTI MRT,success,12,1
+easyocr,finetunedsyn,RH0045,[UNK] ST 52,PPRANTNT S 7,success,5,3
+easyocr,finetunedsyn,RH0046,via CHINATOWN [UNK],vii CHINATOWN,success,13,1
+easyocr,finetunedsyn,RH0047,[UNK] (DHOBY GHAUT STN),TOVUIV AI A9HNP K0,success,17,15
+easyocr,finetunedsyn,RH0050,"[UNK]
+UPP BT TIMAH RD",SPPTITTNES 533,success,15,11
+easyocr,finetunedsyn,RH0053,Tomlinson Rd [UNK],Tondlson Ri,success,12,5
+easyocr,finetunedsyn,RH0055,JLN BT MERAH [UNK],JALRN BVETT HERAH,success,12,6
+easyocr,finetunedsyn,RH0057,TOA PAYOH CENTRAL [UNK],T9A MROR CERTRAL,success,17,6
+easyocr,finetunedsyn,RH0060,[UNK] S AVE,S AUE,success,5,1
+easyocr,finetunedsyn,RH0063,COMPASSVALE [UNK],coMpaSSVaL,success,11,1
+easyocr,finetunedsyn,RH0067,ANG MO KIO AVE 6 [UNK],"BVE NONIN CTT /
+HINN IID IAN IIMSS D",success,16,11
+easyocr,finetunedsyn,RH0069,[UNK]DTL SHUTTLE,Ri,success,11,11
+easyocr,finetunedsyn,RH0071,C.C.K STREET 52 [UNK],"C,CKSTREET 52",success,15,3
+easyocr,finetunedsyn,RH0076,[UNK] STEVENS ROAD,"T T/ 9
+",success,12,10
+easyocr,finetunedsyn,RH0077,UPP BUKIT TIMAH RD [UNK],PP BOENT TIHAN RD,success,18,6
+easyocr,finetunedsyn,RH0081,SHUTTLE 7 [UNK],"SIUT TL 5 evea
+3i ",success,9,4
+easyocr,finetunedsyn,RH0083,JALAN BESAR [UNK],JALAN BESAP,success,11,1
+easyocr,finetunedsyn,RH0087,UPP THOMSON RD [UNK],BAP HOHGONRD,success,14,6
+easyocr,finetunedsyn,RH0090,[UNK] COMMONWEALTH AVE WEST,OHEONRRRT,success,21,17
+easyocr,finetunedsyn,RH0094,TAMPINES AVE 7 [UNK],TIAPIES E 7,success,14,5
+easyocr,finetunedsyn,RH0096,[UNK] SELETAR [UNK],SGLETRRANARRE,success,7,2
+easyocr,finetunedsyn,RH0098,STAMFORD RD [UNK],STAHFORD RD,success,11,1
+easyocr,finetunedsyn,RH0104,JLN BUKIT MERAH [UNK],RCHN JA,success,15,13
+easyocr,finetunedsyn,RH0109,ALJUNIED RD [UNK],ALJLNED RD,success,11,2
+easyocr,finetunedsyn,RH0114,PASIR RIS DR 3 [UNK],PRSTR RIS BR 9,success,14,4
+easyocr,finetunedsyn,RH0115,HOUGANG AVE 9 [UNK],HOUGANG AUE 9,success,13,1
+easyocr,finetunedsyn,RH0129,TUAS STH AVE [UNK],TUAS STH WAY,success,12,3
+easyocr,finetunedsyn,RH0131,[UNK] ST,77ES0E7,success,2,2
+easyocr,finetunedsyn,RH0133,JALAN BUKIT MERAH [UNK],JALAN BUR I MLHAN,success,17,6
+easyocr,finetunedsyn,RH0134,[UNK] RD,KRIPONG BRHEU ED,success,2,1
+easyocr,finetunedsyn,RH0135,[UNK]ER RD,NENERRD,success,5,1
+easyocr,finetunedsyn,RH0136,EAST COAST RD [UNK],SISTCOESTRD,success,13,5
+easyocr,finetunedsyn,RH0139,[UNK]ORCHARD RD,OHOHARD RD,success,10,2
+trocr,pretrained,RH0004,"NICOLL HIGHWAY
+[UNK]","NICOLL,HIGHWAY",success,14,1
+trocr,pretrained,RH0007,[UNK] CITY,AMOUNT ITEMS SDN,success,4,4
+trocr,pretrained,RH0011,[UNK] BOULEVARD,MARINA SQULEUARD,success,9,3
+trocr,pretrained,RH0013,ANG MO KIO AVE [UNK],ANG MO LIP AVE,success,14,2
+trocr,pretrained,RH0014,TAMPINES [UNK],TANGULAR:,success,8,5
+trocr,pretrained,RH0016,YISHUN INT - SEMBAWANG RD[UNK],VISITUN INT-SERBANNING RD,success,25,9
+trocr,pretrained,RH0018,"[UNK]
+THOMSON ROAD","WELCOME ONTEARIA
+TOWER DAMPLI",success,12,11
+trocr,pretrained,RH0021,LOWER DELTA RD [UNK],LOWER DEL TA RD,success,14,1
+trocr,pretrained,RH0022,JURONG WEST AVE [UNK],JURONG WEST AVE 5,success,15,0
+trocr,pretrained,RH0024,[UNK] RD,RUDONOA ID,success,2,1
+trocr,pretrained,RH0025,[UNK] AVE,***,success,3,3
+trocr,pretrained,RH0034,BOON LAY AVE [UNK],POON LAY NUM,success,12,4
+trocr,pretrained,RH0036,"[UNK]
+SINGAPORE",SINGAPORE,success,9,0
+trocr,pretrained,RH0037,"[UNK] INT via
+SENGKANG",SENIANENT ***,success,16,11
+trocr,pretrained,RH0038,YISHUN AVE 7[UNK],YISHWN AVE S,success,12,2
+trocr,pretrained,RH0039,"WOODLANDS INT via
+[UNK]",GOL TAM OR GFOINT,success,17,12
+trocr,pretrained,RH0042,CLEMENTI MRT[UNK],CLEMENT MRT,success,12,1
+trocr,pretrained,RH0045,[UNK] ST 52,VISCOUNT S?,success,5,3
+trocr,pretrained,RH0046,via CHINATOWN [UNK],6% CHINATION,success,13,5
+trocr,pretrained,RH0047,[UNK] (DHOBY GHAUT STN),"ST REGULAR AND 9"" $4.49 NO",success,17,13
+trocr,pretrained,RH0050,"[UNK]
+UPP BT TIMAH RD",UPPORT ITEMS 9%,success,15,8
+trocr,pretrained,RH0053,Tomlinson Rd [UNK],TEMILNSON RO,success,12,4
+trocr,pretrained,RH0055,JLN BT MERAH [UNK],SALAN BWEY HERAN,success,12,8
+trocr,pretrained,RH0057,TOA PAYOH CENTRAL [UNK],TOTAL PAYMENT NAME,success,17,9
+trocr,pretrained,RH0060,[UNK] S AVE,SAVE,success,5,1
+trocr,pretrained,RH0063,COMPASSVALE [UNK],COMPASSUAL,success,11,2
+trocr,pretrained,RH0067,ANG MO KIO AVE 6 [UNK],"ANG NUMBER
+KNINVIMEO",success,16,11
+trocr,pretrained,RH0069,[UNK]DTL SHUTTLE,***,success,11,11
+trocr,pretrained,RH0071,C.C.K STREET 52 [UNK],C.C.KSTREET 52,success,15,1
+trocr,pretrained,RH0076,[UNK] STEVENS ROAD,"AMOUNT
+WWW.",success,12,10
+trocr,pretrained,RH0077,UPP BUKIT TIMAH RD [UNK],UPP GUAT TIMON AD,success,18,6
+trocr,pretrained,RH0081,SHUTTLE 7 [UNK],"SUNTE LESS
+WWW.",success,9,4
+trocr,pretrained,RH0083,JALAN BESAR [UNK],JALAN BESAR,success,11,0
+trocr,pretrained,RH0087,UPP THOMSON RD [UNK],@6 TRANOSED,success,14,10
+trocr,pretrained,RH0090,[UNK] COMMONWEALTH AVE WEST,COMPANY-DOMPLEIPT,success,21,15
+trocr,pretrained,RH0094,TAMPINES AVE 7 [UNK],THANKS ARE 7%,success,14,6
+trocr,pretrained,RH0096,[UNK] SELETAR [UNK],AMOUNT-SELEMBASSNICE,success,7,3
+trocr,pretrained,RH0098,STAMFORD RD [UNK],STAMPORD RD,success,11,1
+trocr,pretrained,RH0104,JLN BUKIT MERAH [UNK],***,success,15,15
+trocr,pretrained,RH0109,ALJUNIED RD [UNK],ALJUNED RO,success,11,2
+trocr,pretrained,RH0114,PASIR RIS DR 3 [UNK],PASIR RIS DR 3,success,14,0
+trocr,pretrained,RH0115,HOUGANG AVE 9 [UNK],HOUDAHIG ALUE &,success,13,6
+trocr,pretrained,RH0129,TUAS STH AVE [UNK],TUAS STN WAY,success,12,4
+trocr,pretrained,RH0131,[UNK] ST,TRIPDESIVE?,success,2,2
+trocr,pretrained,RH0133,JALAN BUKIT MERAH [UNK],JALAN BUKI MGRRN,success,17,4
+trocr,pretrained,RH0134,[UNK] RD,KRMPONG SAMPU RD,success,2,0
+trocr,pretrained,RH0135,[UNK]ER RD,MANAGER RD,success,5,0
+trocr,pretrained,RH0136,EAST COAST RD [UNK],EXST COAST RD,success,13,1
+trocr,pretrained,RH0139,[UNK]ORCHARD RD,SROMARD AD,success,10,4
+trocr,finetuned,RH0004,"NICOLL HIGHWAY
+[UNK]",NICOLL HIGHWAY,success,14,0
+trocr,finetuned,RH0007,[UNK] CITY,SUMI OWN,success,4,4
+trocr,finetuned,RH0011,[UNK] BOULEVARD,MARINA SQULEVARD,success,9,2
+trocr,finetuned,RH0013,ANG MO KIO AVE [UNK],ANG NO NO AVE,success,14,3
+trocr,finetuned,RH0014,TAMPINES [UNK],TANGUN RD,success,8,5
+trocr,finetuned,RH0016,YISHUN INT - SEMBAWANG RD[UNK],VISIUM INT-SEMANG RD,success,25,8
+trocr,finetuned,RH0018,"[UNK]
+THOMSON ROAD","VICTODE INION
+10VEL DOMINT",success,12,9
+trocr,finetuned,RH0021,LOWER DELTA RD [UNK],LOWER DEL TA RD,success,14,1
+trocr,finetuned,RH0022,JURONG WEST AVE [UNK],JURONG WEST AVE 5,success,15,0
+trocr,finetuned,RH0024,[UNK] RD,KDONOA RD,success,2,0
+trocr,finetuned,RH0025,[UNK] AVE,VPAKAWAY,success,3,2
+trocr,finetuned,RH0034,BOON LAY AVE [UNK],POON LAY AM,success,12,3
+trocr,finetuned,RH0036,"[UNK]
+SINGAPORE",SINCAPORE,success,9,1
+trocr,finetuned,RH0037,"[UNK] INT via
+SENGKANG",SENIA LINT,success,16,11
+trocr,finetuned,RH0038,YISHUN AVE 7[UNK],YISHWN AVE 7,success,12,1
+trocr,finetuned,RH0039,"WOODLANDS INT via
+[UNK]",VOL THAN OK OFOUT,success,17,12
+trocr,finetuned,RH0042,CLEMENTI MRT[UNK],CLEMENT MRT,success,12,1
+trocr,finetuned,RH0045,[UNK] ST 52,VISIDEON ST,success,5,3
+trocr,finetuned,RH0046,via CHINATOWN [UNK],6% CHINATION,success,13,5
+trocr,finetuned,RH0047,[UNK] (DHOBY GHAUT STN),YOURVAYAYAYAYAY,success,17,15
+trocr,finetuned,RH0050,"[UNK]
+UPP BT TIMAH RD",OFFURATIONS,success,15,12
+trocr,finetuned,RH0053,Tomlinson Rd [UNK],TOMinson RD,success,12,1
+trocr,finetuned,RH0055,JLN BT MERAH [UNK],JALAN BUKAY MERN,success,12,8
+trocr,finetuned,RH0057,TOA PAYOH CENTRAL [UNK],TRA PAYON CENT,success,17,5
+trocr,finetuned,RH0060,[UNK] S AVE,SAVE,success,5,1
+trocr,finetuned,RH0063,COMPASSVALE [UNK],COMPASSUAL,success,11,2
+trocr,finetuned,RH0067,ANG MO KIO AVE 6 [UNK],"SNGKOYMAY
+KAINVINCO",success,16,11
+trocr,finetuned,RH0069,[UNK]DTL SHUTTLE,DISI - SDN INION,success,11,9
+trocr,finetuned,RH0071,C.C.K STREET 52 [UNK],C.C.K STREET 52,success,15,0
+trocr,finetuned,RH0076,[UNK] STEVENS ROAD,"ST 10000080594
+***",success,12,11
+trocr,finetuned,RH0077,UPP BUKIT TIMAH RD [UNK],UPP BUGY TIM,success,18,8
+trocr,finetuned,RH0081,SHUTTLE 7 [UNK],"SIMPLE,K
+NET",success,9,6
+trocr,finetuned,RH0083,JALAN BESAR [UNK],JALAN BESAR,success,11,0
+trocr,finetuned,RH0087,UPP THOMSON RD [UNK],UNO THONSON RD,success,14,3
+trocr,finetuned,RH0090,[UNK] COMMONWEALTH AVE WEST,CASH GSTOM,success,21,17
+trocr,finetuned,RH0094,TAMPINES AVE 7 [UNK],THANKENS M,success,14,10
+trocr,finetuned,RH0096,[UNK] SELETAR [UNK],AMOUNT-SALEMAYSVE,success,7,3
+trocr,finetuned,RH0098,STAMFORD RD [UNK],STAWFOOD RD,success,11,2
+trocr,finetuned,RH0104,JLN BUKIT MERAH [UNK],AMOUNT M,success,15,11
+trocr,finetuned,RH0109,ALJUNIED RD [UNK],ALJUNED RD,success,11,1
+trocr,finetuned,RH0114,PASIR RIS DR 3 [UNK],PASIR RIS DR 3,success,14,0
+trocr,finetuned,RH0115,HOUGANG AVE 9 [UNK],HOUDANG AVE &,success,13,2
+trocr,finetuned,RH0129,TUAS STH AVE [UNK],TUAS STN WAY,success,12,4
+trocr,finetuned,RH0131,[UNK] ST,TELEDERIE 7,success,2,2
+trocr,finetuned,RH0133,JALAN BUKIT MERAH [UNK],JALAN BUKI MUN,success,17,5
+trocr,finetuned,RH0134,[UNK] RD,KRMPONG SAMU RD,success,2,0
+trocr,finetuned,RH0135,[UNK]ER RD,MEMBERIER RD,success,5,0
+trocr,finetuned,RH0136,EAST COAST RD [UNK],SYST COAST RD,success,13,2
+trocr,finetuned,RH0139,[UNK]ORCHARD RD,SNOMARD RD,success,10,3
+trocr,finetunedsyn,RH0004,"NICOLL HIGHWAY
+[UNK]",MOLLOWANG BU K,success,14,9
+trocr,finetunedsyn,RH0007,[UNK] CITY,ISH,success,4,3
+trocr,finetunedsyn,RH0011,[UNK] BOULEVARD,HG -ANGALE,success,9,7
+trocr,finetunedsyn,RH0013,ANG MO KIO AVE [UNK],ANG NO NO AVE,success,14,3
+trocr,finetunedsyn,RH0014,TAMPINES [UNK],THGOK,success,8,7
+trocr,finetunedsyn,RH0016,YISHUN INT - SEMBAWANG RD[UNK],YISH MER-ISHANG RD HG -ANG,success,25,12
+trocr,finetunedsyn,RH0018,"[UNK]
+THOMSON ROAD","VOR CH,
+JOK INT",success,12,9
+trocr,finetunedsyn,RH0021,LOWER DELTA RD [UNK],L KBOK RD,success,14,9
+trocr,finetunedsyn,RH0022,JURONG WEST AVE [UNK],JNG WG -VEVE,success,15,7
+trocr,finetunedsyn,RH0024,[UNK] RD,LLOW,success,2,2
+trocr,finetunedsyn,RH0025,[UNK] AVE,VOR CH K,success,3,3
+trocr,finetunedsyn,RH0034,BOON LAY AVE [UNK],BO L M,success,12,7
+trocr,finetunedsyn,RH0036,"[UNK]
+SINGAPORE",SIMSACEVE,success,9,5
+trocr,finetunedsyn,RH0037,"[UNK] INT via
+SENGKANG",SUKANG INT,success,16,12
+trocr,finetunedsyn,RH0038,YISHUN AVE 7[UNK],YISH AVE,success,12,4
+trocr,finetunedsyn,RH0039,"WOODLANDS INT via
+[UNK]","VOL TH, HG -ISH A",success,17,12
+trocr,finetunedsyn,RH0042,CLEMENTI MRT[UNK],C L K INT M,success,12,8
+trocr,finetunedsyn,RH0045,[UNK] ST 52,"V ST, M",success,5,3
+trocr,finetunedsyn,RH0046,via CHINATOWN [UNK],WH CH CH K,success,13,10
+trocr,finetunedsyn,RH0047,[UNK] (DHOBY GHAUT STN),"HOUANGVE,VE,",success,17,14
+trocr,finetunedsyn,RH0050,"[UNK]
+UPP BT TIMAH RD",INT MG -ANGES,success,15,12
+trocr,finetunedsyn,RH0053,Tomlinson Rd [UNK],TomlSON RD,success,12,2
+trocr,finetunedsyn,RH0055,JLN BT MERAH [UNK],JNUANG ST HERAH,success,12,6
+trocr,finetunedsyn,RH0057,TOA PAYOH CENTRAL [UNK],Tom H K CENT,success,17,9
+trocr,finetunedsyn,RH0060,[UNK] S AVE,SAUVE,success,5,2
+trocr,finetunedsyn,RH0063,COMPASSVALE [UNK],COMPHS,success,11,6
+trocr,finetunedsyn,RH0067,ANG MO KIO AVE 6 [UNK],"AM K INT
+HOUANG RD",success,16,10
+trocr,finetunedsyn,RH0069,[UNK]DTL SHUTTLE,BILL -ANG -ANG,success,11,10
+trocr,finetunedsyn,RH0071,C.C.K STREET 52 [UNK],C. K ST K RD,success,15,8
+trocr,finetunedsyn,RH0076,[UNK] STEVENS ROAD,"HG -ANG -ANG
+BOK RD K RD,",success,12,10
+trocr,finetunedsyn,RH0077,UPP BUKIT TIMAH RD [UNK],UPYPORT TH,success,18,12
+trocr,finetunedsyn,RH0081,SHUTTLE 7 [UNK],"SIMALE
+M",success,9,5
+trocr,finetunedsyn,RH0083,JALAN BESAR [UNK],"JN RD B, SR",success,11,7
+trocr,finetunedsyn,RH0087,UPP THOMSON RD [UNK],BUK INT RD HG RD HG -ANG,success,14,10
+trocr,finetunedsyn,RH0090,[UNK] COMMONWEALTH AVE WEST,OM HG -RTRTRTRTRTRT,success,21,17
+trocr,finetunedsyn,RH0094,TAMPINES AVE 7 [UNK],TH KSVEVE 7,success,14,8
+trocr,finetunedsyn,RH0096,[UNK] SELETAR [UNK],SIM SV ST H A,success,7,5
+trocr,finetunedsyn,RH0098,STAMFORD RD [UNK],ST HF RD,success,11,5
+trocr,finetunedsyn,RH0104,JLN BUKIT MERAH [UNK],TH K INT M,success,15,11
+trocr,finetunedsyn,RH0109,ALJUNIED RD [UNK],PL JN RD,success,11,6
+trocr,finetunedsyn,RH0114,PASIR RIS DR 3 [UNK],PASIR R DR 3 3,success,14,2
+trocr,finetunedsyn,RH0115,HOUGANG AVE 9 [UNK],HOUANGANGVE 9 91,success,13,4
+trocr,finetunedsyn,RH0129,TUAS STH AVE [UNK],TO'S ST W,success,12,6
+trocr,finetunedsyn,RH0131,[UNK] ST,T HGOKES,success,2,1
+trocr,finetunedsyn,RH0133,JALAN BUKIT MERAH [UNK],JAN BU K,success,17,10
+trocr,finetunedsyn,RH0134,[UNK] RD,K RDK SR RD,success,2,0
+trocr,finetunedsyn,RH0135,[UNK]ER RD,IVERED,success,5,2
+trocr,finetunedsyn,RH0136,EAST COAST RD [UNK],BOKONT RD M,success,13,8
+trocr,finetunedsyn,RH0139,[UNK]ORCHARD RD,BO L RD,success,10,6
+paddleocr,pretrained,RH0004,"NICOLL HIGHWAY
+[UNK]",NICOLL HIGHWAY,success,14,0
+paddleocr,pretrained,RH0007,[UNK] CITY,caul ti allv,success,4,4
+paddleocr,pretrained,RH0011,[UNK] BOULEVARD,MARINA BOULEVARD,success,9,0
+paddleocr,pretrained,RH0013,ANG MO KIO AVE [UNK],ANG MO HIO AVE,success,14,1
+paddleocr,pretrained,RH0014,TAMPINES [UNK],TANGLOIRC,success,8,5
+paddleocr,pretrained,RH0016,YISHUN INT - SEMBAWANG RD[UNK],YISHUN INT-SEMBSLIANG RD,success,25,5
+paddleocr,pretrained,RH0018,"[UNK]
+THOMSON ROAD","Welcene Anteard
+Tower Iransit",success,12,11
+paddleocr,pretrained,RH0021,LOWER DELTA RD [UNK],LOWER DELTA RD,success,14,0
+paddleocr,pretrained,RH0022,JURONG WEST AVE [UNK],JURONG WEST AVE,success,15,0
+paddleocr,pretrained,RH0024,[UNK] RD,ALEXIOMID,success,2,1
+paddleocr,pretrained,RH0025,[UNK] AVE,HOATHUAE,success,3,1
+paddleocr,pretrained,RH0034,BOON LAY AVE [UNK],BOON LAY AUE,success,12,1
+paddleocr,pretrained,RH0036,"[UNK]
+SINGAPORE",SINGAPORE,success,9,0
+paddleocr,pretrained,RH0037,"[UNK] INT via
+SENGKANG",SEHONG,success,16,12
+paddleocr,pretrained,RH0038,YISHUN AVE 7[UNK],YISHUN AVEZ,success,12,2
+paddleocr,pretrained,RH0039,"WOODLANDS INT via
+[UNK]",WDL TRADN CHEPOINT,success,17,11
+paddleocr,pretrained,RH0042,CLEMENTI MRT[UNK],CLEMENTI MRT,success,12,0
+paddleocr,pretrained,RH0045,[UNK] ST 52,VISTMES?,success,5,4
+paddleocr,pretrained,RH0046,via CHINATOWN [UNK],V CHINATOWN,success,13,2
+paddleocr,pretrained,RH0047,[UNK] (DHOBY GHAUT STN),TERU L  RD,success,17,15
+paddleocr,pretrained,RH0050,"[UNK]
+UPP BT TIMAH RD",UPP BT TEM AMD D,success,15,5
+paddleocr,pretrained,RH0053,Tomlinson Rd [UNK],Tondhson Ad,success,12,5
+paddleocr,pretrained,RH0055,JLN BT MERAH [UNK],JALAN EUKIT HERAH,success,12,7
+paddleocr,pretrained,RH0057,TOA PAYOH CENTRAL [UNK],TOR PAYON CENTAAL,success,17,3
+paddleocr,pretrained,RH0060,[UNK] S AVE,SAVE,success,5,1
+paddleocr,pretrained,RH0063,COMPASSVALE [UNK],COMPASSUAL,success,11,2
+paddleocr,pretrained,RH0067,ANG MO KIO AVE 6 [UNK],"AUEMOVCIIES
+INIUNUREO",success,16,11
+paddleocr,pretrained,RH0069,[UNK]DTL SHUTTLE,BUI- UA,success,11,9
+paddleocr,pretrained,RH0071,C.C.K STREET 52 [UNK],C.C.K STREET 52,success,15,0
+paddleocr,pretrained,RH0076,[UNK] STEVENS ROAD,"STENEMSS
+0n0",success,12,7
+paddleocr,pretrained,RH0077,UPP BUKIT TIMAH RD [UNK],UPP BUCIT TIMAN AD,success,18,3
+paddleocr,pretrained,RH0081,SHUTTLE 7 [UNK],"SHUTTLEHERAN
+T",success,9,2
+paddleocr,pretrained,RH0083,JALAN BESAR [UNK],JALAN BESAR,success,11,0
+paddleocr,pretrained,RH0087,UPP THOMSON RD [UNK],UPP THEPSIN RD,success,14,3
+paddleocr,pretrained,RH0090,[UNK] COMMONWEALTH AVE WEST,CRA,success,21,19
+paddleocr,pretrained,RH0094,TAMPINES AVE 7 [UNK],TI ES UE?,success,14,8
+paddleocr,pretrained,RH0096,[UNK] SELETAR [UNK],NWN-SELETMPPRE,success,7,2
+paddleocr,pretrained,RH0098,STAMFORD RD [UNK],STANFORD RD,success,11,1
+paddleocr,pretrained,RH0104,JLN BUKIT MERAH [UNK],JH BR,success,15,11
+paddleocr,pretrained,RH0109,ALJUNIED RD [UNK],ALJUNEDRD,success,11,2
+paddleocr,pretrained,RH0114,PASIR RIS DR 3 [UNK],PASIR RIS DR 3,success,14,0
+paddleocr,pretrained,RH0115,HOUGANG AVE 9 [UNK],HOUGANG AUES,success,13,3
+paddleocr,pretrained,RH0129,TUAS STH AVE [UNK],TUAS STH WAY,success,12,3
+paddleocr,pretrained,RH0131,[UNK] ST,TRIPDESRIE?,success,2,2
+paddleocr,pretrained,RH0133,JALAN BUKIT MERAH [UNK],JALAN BUKI MCHAM,success,17,4
+paddleocr,pretrained,RH0134,[UNK] RD,KRMPONG BRHSURD,success,2,0
+paddleocr,pretrained,RH0135,[UNK]ER RD,B0EERRD,success,5,1
+paddleocr,pretrained,RH0136,EAST COAST RD [UNK],EASTCOST RD,success,13,2
+paddleocr,pretrained,RH0139,[UNK]ORCHARD RD,ORCHARD RD,success,10,0
+paddleocr,finetuned,RH0004,"NICOLL HIGHWAY
+[UNK]",NICOLL HIGHWAY,success,14,0
+paddleocr,finetuned,RH0007,[UNK] CITY,GOONT MGRLD CIIV INT ClT,success,4,2
+paddleocr,finetuned,RH0011,[UNK] BOULEVARD,MARINA BOULEVARD,success,9,0
+paddleocr,finetuned,RH0013,ANG MO KIO AVE [UNK],ANG MO GO AVE TINT V,success,14,2
+paddleocr,finetuned,RH0014,TAMPINES [UNK],TANGLNIRD,success,8,5
+paddleocr,finetuned,RH0016,YISHUN INT - SEMBAWANG RD[UNK],YISHUN INT-SEMSALIANG RD,success,25,5
+paddleocr,finetuned,RH0018,"[UNK]
+THOMSON ROAD","Weleme Anbear
+lower Inesit",success,12,11
+paddleocr,finetuned,RH0021,LOWER DELTA RD [UNK],LOWER DELTA RD,success,14,0
+paddleocr,finetuned,RH0022,JURONG WEST AVE [UNK],JURONG WEST AVE 5,success,15,0
+paddleocr,finetuned,RH0024,[UNK] RD,RLEXRNONA N,success,2,2
+paddleocr,finetuned,RH0025,[UNK] AVE,KACHOGIGG INT LIKMT,success,3,3
+paddleocr,finetuned,RH0034,BOON LAY AVE [UNK],BOON LAY AVR,success,12,1
+paddleocr,finetuned,RH0036,"[UNK]
+SINGAPORE",SINGAPORE,success,9,0
+paddleocr,finetuned,RH0037,"[UNK] INT via
+SENGKANG",SENDONGIN  INT I TWT,success,16,10
+paddleocr,finetuned,RH0038,YISHUN AVE 7[UNK],YISHUN AVE >,success,12,1
+paddleocr,finetuned,RH0039,"WOODLANDS INT via
+[UNK]",HOL TRAD GK KMPOINT,success,17,12
+paddleocr,finetuned,RH0042,CLEMENTI MRT[UNK],CLEMENTI MRT,success,12,0
+paddleocr,finetuned,RH0045,[UNK] ST 52,VISAGI CUE S.7 ,success,5,4
+paddleocr,finetuned,RH0046,via CHINATOWN [UNK],VIA CHINATOWN,success,13,0
+paddleocr,finetuned,RH0047,[UNK] (DHOBY GHAUT STN),TOYOAV ALA SHD D,success,17,13
+paddleocr,finetuned,RH0050,"[UNK]
+UPP BT TIMAH RD",'P'P BT NIS M RD NT RDT,success,15,11
+paddleocr,finetuned,RH0053,Tomlinson Rd [UNK],Toolason Ad,success,12,4
+paddleocr,finetuned,RH0055,JLN BT MERAH [UNK],JCLAN EUNIT MERAH,success,12,6
+paddleocr,finetuned,RH0057,TOA PAYOH CENTRAL [UNK],TOA PAVON CEATRL,success,17,4
+paddleocr,finetuned,RH0060,[UNK] S AVE,SAVE,success,5,1
+paddleocr,finetuned,RH0063,COMPASSVALE [UNK],COMPASSVAL,success,11,1
+paddleocr,finetuned,RH0067,ANG MO KIO AVE 6 [UNK],"AVS MO VOD CLC S
+VOTNNU IVS 0",success,16,9
+paddleocr,finetuned,RH0069,[UNK]DTL SHUTTLE,RIGS - MUIT NGT MURT,success,11,7
+paddleocr,finetuned,RH0071,C.C.K STREET 52 [UNK],C. C K STREET 52,success,15,2
+paddleocr,finetuned,RH0076,[UNK] STEVENS ROAD,"STE NG HO OGS
+GNNND AUND",success,12,8
+paddleocr,finetuned,RH0077,UPP BUKIT TIMAH RD [UNK],UPP BUKIT TIMAN RD,success,18,1
+paddleocr,finetuned,RH0081,SHUTTLE 7 [UNK],"SHUT TLE TNEN
+T 9",success,9,2
+paddleocr,finetuned,RH0083,JALAN BESAR [UNK],JALAN BESAR,success,11,0
+paddleocr,finetuned,RH0087,UPP THOMSON RD [UNK],SPP THOMSON RD ,success,14,1
+paddleocr,finetuned,RH0090,[UNK] COMMONWEALTH AVE WEST,COMMGAOMMINTINT NT,success,21,14
+paddleocr,finetuned,RH0094,TAMPINES AVE 7 [UNK],TI N T N ITS AUVE T,success,14,10
+paddleocr,finetuned,RH0096,[UNK] SELETAR [UNK],NWWWN-SELET W SVACE,success,7,2
+paddleocr,finetuned,RH0098,STAMFORD RD [UNK],STAFORD RD,success,11,1
+paddleocr,finetuned,RH0104,JLN BUKIT MERAH [UNK],KI BK MK A N K AT,success,15,9
+paddleocr,finetuned,RH0109,ALJUNIED RD [UNK],ALJUNED RD,success,11,1
+paddleocr,finetuned,RH0114,PASIR RIS DR 3 [UNK],PASIR RIS DR 3,success,14,0
+paddleocr,finetuned,RH0115,HOUGANG AVE 9 [UNK],HOUGANG AUE &,success,13,2
+paddleocr,finetuned,RH0129,TUAS STH AVE [UNK],TUAS STH WAY,success,12,3
+paddleocr,finetuned,RH0131,[UNK] ST,TEMPDES RIE ?,success,2,2
+paddleocr,finetuned,RH0133,JALAN BUKIT MERAH [UNK],VALAN BUK I MCHAIM,success,17,6
+paddleocr,finetuned,RH0134,[UNK] RD,KRMPONG BOHRU RD,success,2,0
+paddleocr,finetuned,RH0135,[UNK]ER RD,MADEKER RD,success,5,0
+paddleocr,finetuned,RH0136,EAST COAST RD [UNK],EAST COST RDR,success,13,1
+paddleocr,finetuned,RH0139,[UNK]ORCHARD RD,ONGHARD RD,success,10,2
+paddleocr,finetunedsyn,RH0004,"NICOLL HIGHWAY
+[UNK]",NICOLL HIGHNAY ,success,14,1
+paddleocr,finetunedsyn,RH0007,[UNK] CITY,GIHENT CERLE vivIEERE C,success,4,3
+paddleocr,finetunedsyn,RH0011,[UNK] BOULEVARD,HARINA BOULEVARD,success,9,0
+paddleocr,finetunedsyn,RH0013,ANG MO KIO AVE [UNK],ANG MO NO AVE SI,success,14,2
+paddleocr,finetunedsyn,RH0014,TAMPINES [UNK],TANGU9 R,success,8,5
+paddleocr,finetunedsyn,RH0016,YISHUN INT - SEMBAWANG RD[UNK],YISHUN INT-SEMSRLIANG RDRD,success,25,6
+paddleocr,finetunedsyn,RH0018,"[UNK]
+THOMSON ROAD","Welceme Anlean
+lower In'nsit",success,12,11
+paddleocr,finetunedsyn,RH0021,LOWER DELTA RD [UNK],LOWER DELTA RD,success,14,0
+paddleocr,finetunedsyn,RH0022,JURONG WEST AVE [UNK],JURONG NVNEST AVE 5,success,15,3
+paddleocr,finetunedsyn,RH0024,[UNK] RD,RLOONONS RD,success,2,0
+paddleocr,finetunedsyn,RH0025,[UNK] AVE,KOA CHUKANG Ei IA THU KAKRER,success,3,3
+paddleocr,finetunedsyn,RH0034,BOON LAY AVE [UNK],BOON LAY AUE,success,12,1
+paddleocr,finetunedsyn,RH0036,"[UNK]
+SINGAPORE",SINGAPORE,success,9,0
+paddleocr,finetunedsyn,RH0037,"[UNK] INT via
+SENGKANG",SEMON INT via SENL URST,success,16,6
+paddleocr,finetunedsyn,RH0038,YISHUN AVE 7[UNK],YISHUN AVE 7,success,12,0
+paddleocr,finetunedsyn,RH0039,"WOODLANDS INT via
+[UNK]",WOLTRIN CENPONT HRT  GERET,success,17,11
+paddleocr,finetunedsyn,RH0042,CLEMENTI MRT[UNK],CLEMENTI MRTN ,success,12,0
+paddleocr,finetunedsyn,RH0045,[UNK] ST 52,VISMN IME S 2,success,5,2
+paddleocr,finetunedsyn,RH0046,via CHINATOWN [UNK],via CHINATOWN,success,13,0
+paddleocr,finetunedsyn,RH0047,[UNK] (DHOBY GHAUT STN),TEYNRIT ATINT STHD DTVASTRD,success,17,13
+paddleocr,finetunedsyn,RH0050,"[UNK]
+UPP BT TIMAH RD",UPP BTINES vi 29 BPTES H D,success,15,9
+paddleocr,finetunedsyn,RH0053,Tomlinson Rd [UNK],Tomdlnson Rid,success,12,3
+paddleocr,finetunedsyn,RH0055,JLN BT MERAH [UNK],JELAE BUNIT MERAH,success,12,6
+paddleocr,finetunedsyn,RH0057,TOA PAYOH CENTRAL [UNK],TOA PAYON CEN RAL RN CNTRAL,success,17,2
+paddleocr,finetunedsyn,RH0060,[UNK] S AVE,S AVE,success,5,0
+paddleocr,finetunedsyn,RH0063,COMPASSVALE [UNK],COMPASSUAL,success,11,2
+paddleocr,finetunedsyn,RH0067,ANG MO KIO AVE 6 [UNK],"AVS MO YTG GUE 6
+HENTU NU NVE D",success,16,7
+paddleocr,finetunedsyn,RH0069,[UNK]DTL SHUTTLE,RUST- MT NUR JU /BMNT NHUR,success,11,7
+paddleocr,finetunedsyn,RH0071,C.C.K STREET 52 [UNK],C C K STREET 52,success,15,2
+paddleocr,finetunedsyn,RH0076,[UNK] STEVENS ROAD,"STENEMD WTN S
+NMNONAT RP SU SD",success,12,9
+paddleocr,finetunedsyn,RH0077,UPP BUKIT TIMAH RD [UNK],UPP BUKIT TIMAN RD,success,18,1
+paddleocr,finetunedsyn,RH0081,SHUTTLE 7 [UNK],"SHT TL E NTN vaRSIT NEER
+TWSNNNTT",success,9,4
+paddleocr,finetunedsyn,RH0083,JALAN BESAR [UNK],JALAN BESAR,success,11,0
+paddleocr,finetunedsyn,RH0087,UPP THOMSON RD [UNK],UPP THOHSON RD THTHO NO RD,success,14,1
+paddleocr,finetunedsyn,RH0090,[UNK] COMMONWEALTH AVE WEST,COMMGN  NTINGENAMHT,success,21,13
+paddleocr,finetunedsyn,RH0094,TAMPINES AVE 7 [UNK],TIMPYNES AVE 7 TITES AUET,success,14,2
+paddleocr,finetunedsyn,RH0096,[UNK] SELETAR [UNK],HNONG-SELEMMRASPACE,success,7,2
+paddleocr,finetunedsyn,RH0098,STAMFORD RD [UNK],STANFORD RD,success,11,1
+paddleocr,finetunedsyn,RH0104,JLN BUKIT MERAH [UNK],IN RKENE 9 INGBTE SD,success,15,11
+paddleocr,finetunedsyn,RH0109,ALJUNIED RD [UNK],ALJUNED RD,success,11,1
+paddleocr,finetunedsyn,RH0114,PASIR RIS DR 3 [UNK],PASIR RIS DR 3,success,14,0
+paddleocr,finetunedsyn,RH0115,HOUGANG AVE 9 [UNK],HOUSANG AVE 8 HIG AES,success,13,2
+paddleocr,finetunedsyn,RH0129,TUAS STH AVE [UNK],TUAS STH WAY,success,12,3
+paddleocr,finetunedsyn,RH0131,[UNK] ST,TAIPOES RIER,success,2,2
+paddleocr,finetunedsyn,RH0133,JALAN BUKIT MERAH [UNK],JALAN BUK I MLKAH,success,17,4
+paddleocr,finetunedsyn,RH0134,[UNK] RD,KIRMPONG 9R H U RD,success,2,0
+paddleocr,finetunedsyn,RH0135,[UNK]ER RD,HIRPETER RD,success,5,0
+paddleocr,finetunedsyn,RH0136,EAST COAST RD [UNK],SAST COST R0 SIT ORS RD,success,13,3
+paddleocr,finetunedsyn,RH0139,[UNK]ORCHARD RD,OACHARD RD,success,10,1

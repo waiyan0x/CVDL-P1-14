@@ -1,0 +1,328 @@
+{
+  "reviewer": "Codex",
+  "reviewer_type": "AI",
+  "reviewed_on": "2026-11-09",
+  "independent_second_review": false,
+  "initial_text_rows": 1917,
+  "source_named_families_inventoried": 245,
+  "source_policy": "Only first supplied annotation panel per source variant compared; missing panel is not a reviewed negative",
+  "reinspection_initially_full_non_number_rows": 315,
+  "additional_targeted_rows": 78,
+  "sheets": {
+    "crops_01.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_01.png",
+      "sha256": "f4aeedca7a24e5dca4976b2c866a21ab08d8fe879eebbdcc490d166027fc4e5f",
+      "purpose": "text_first_pass"
+    },
+    "crops_02.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_02.png",
+      "sha256": "e561f511536e67c92dab9d2741c24ebb0bc943f1485ad0d5585e20354f3cbf06",
+      "purpose": "text_first_pass"
+    },
+    "crops_03.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_03.png",
+      "sha256": "1d9208d716bd361f43309d9f5c097e1c71209e1272d88f0cef331bf13797fbe3",
+      "purpose": "text_first_pass"
+    },
+    "crops_04.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_04.png",
+      "sha256": "c6cf4145896113751c77492fa7a08cb93d89063c51ea6ee9bbd5571a0c3c02b1",
+      "purpose": "text_first_pass"
+    },
+    "crops_05.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_05.png",
+      "sha256": "b4291451cb4d563c1dff163933e646007d5a8c29fbadc205074806484f26385a",
+      "purpose": "text_first_pass"
+    },
+    "crops_06.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_06.png",
+      "sha256": "647c4c54b1bfe0b60e447d543c41fb790d80b68af65b82d6f341a470c8a3bfbb",
+      "purpose": "text_first_pass"
+    },
+    "crops_07.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_07.png",
+      "sha256": "debc6ee53d329cbeaf9afe2c092e45dbd3dd91097d57ae6a34121cd1fde64adf",
+      "purpose": "text_first_pass"
+    },
+    "crops_08.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_08.png",
+      "sha256": "cde55d05a74c847b91b65c2fb19d977005a916a238b221ef59f63ee576131f4a",
+      "purpose": "text_first_pass"
+    },
+    "crops_09.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_09.png",
+      "sha256": "89eea50b31c7916336d5f9a3bc0f6f1fc9ac1bca94158dd622c26f51ce490076",
+      "purpose": "text_first_pass"
+    },
+    "crops_10.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_10.png",
+      "sha256": "d7811518c2ac518c88f58ae7ef2a8186d5f27f7c2041c3a5c07a3485f227ecdf",
+      "purpose": "text_first_pass"
+    },
+    "crops_11.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_11.png",
+      "sha256": "1d4c414ffd78a0e6a170c6d66216748ca60df8e283be2059fadb4473975ae28f",
+      "purpose": "text_first_pass"
+    },
+    "crops_12.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_12.png",
+      "sha256": "17e73a185ff6816c30ca7f3cdafe3adad174a36be9992fe20f44fe2ea54d9d86",
+      "purpose": "text_first_pass"
+    },
+    "crops_13.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_13.png",
+      "sha256": "0cf4b15bb7237f0a5ec8f3a9d00d85157737482884d4bb885888ac22dfd93325",
+      "purpose": "text_first_pass"
+    },
+    "crops_14.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_14.png",
+      "sha256": "1b5bb7438671ef35acd288d409fbfdee2a0c36bfbebf33d45a5ec912a74950f1",
+      "purpose": "text_first_pass"
+    },
+    "crops_15.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_15.png",
+      "sha256": "7972f776eb730e599d9f50444b6a5a4ea6094ba81220a67c1a61c672a2be154b",
+      "purpose": "text_first_pass"
+    },
+    "crops_16.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_16.png",
+      "sha256": "48558a10ae31f39cbb9b5784add6ca46262ab2a1c0ce264d51d33e3755649577",
+      "purpose": "text_first_pass"
+    },
+    "crops_17.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_17.png",
+      "sha256": "0e3e44f84a1f787f06aedfbe9c9a570b7614e167400db347332de97906077f56",
+      "purpose": "text_first_pass"
+    },
+    "crops_18.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_18.png",
+      "sha256": "81a36fcb6ae5f68e24cb94f7a9c1fbd77127238eb5d9a88ab8d9453e6168f595",
+      "purpose": "text_first_pass"
+    },
+    "crops_19.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_19.png",
+      "sha256": "987bcf2dc1b44b6a67fe5826804532b5c9d2af960d3134fd83dd6c649cdb4e7a",
+      "purpose": "text_first_pass"
+    },
+    "crops_20.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_20.png",
+      "sha256": "7302c48f769f97a99a4d4256dbbc6e2d1cffac54fb41344253468e329805d546",
+      "purpose": "text_first_pass"
+    },
+    "crops_21.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_21.png",
+      "sha256": "c3a80967c02b0ec848744ee7206a61c7f89aa6a618e2290aa78d4ba1fb60b5b3",
+      "purpose": "text_first_pass"
+    },
+    "crops_22.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_22.png",
+      "sha256": "2d7cf790b351e9f84d11e1ea6b60ca2aa0ea7011c8582d7512903bad9e230b6c",
+      "purpose": "text_first_pass"
+    },
+    "crops_23.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_23.png",
+      "sha256": "e7b8466add3b75dabfa7295d16cc999b7d301aa66f3036edbeabad0badcfacfa",
+      "purpose": "text_first_pass"
+    },
+    "crops_24.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_24.png",
+      "sha256": "22f357cc8eff4a1fe12f2f521c4bc9c375a765ba60b468e331d9e8859003c087",
+      "purpose": "text_first_pass"
+    },
+    "crops_25.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_25.png",
+      "sha256": "9b760156c901c88f5548d61dd8347859ad03aab85d1c0c02415fd54ca19f500c",
+      "purpose": "text_first_pass"
+    },
+    "crops_26.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_26.png",
+      "sha256": "5ed9f80d9ba44ae5cad9adac055e06e29eb6054cee544bc9fc132e734e941f48",
+      "purpose": "text_first_pass"
+    },
+    "crops_27.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_27.png",
+      "sha256": "5417bb3c96e09938bce8c25ed8b704540c3bcec4f5abc544e95fdfed133062a1",
+      "purpose": "text_first_pass"
+    },
+    "crops_28.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_28.png",
+      "sha256": "7dc7051b7e8aaaac9c9810948b8eda8b716be85ab8f094de8b56b6b80df6f3ff",
+      "purpose": "text_first_pass"
+    },
+    "crops_29.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_29.png",
+      "sha256": "4359727a9d98a069979f0ee24e8e868fceeaa3db0b482256c63758beaaf1cafe",
+      "purpose": "text_first_pass"
+    },
+    "crops_30.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_30.png",
+      "sha256": "764670130d43c121e27014fcd6d82d1209916317c17049f23b788a55a335186f",
+      "purpose": "text_first_pass"
+    },
+    "crops_31.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_31.png",
+      "sha256": "624aaa1d3d90715d75ad8ebe3493dfac7b035c225bca7cac7f125a00e8cb3104",
+      "purpose": "text_first_pass"
+    },
+    "crops_32.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_32.png",
+      "sha256": "9e8fd58ea38c4a5830b97e1f6e793549af544015f2781157480d240cb8b50cb0",
+      "purpose": "text_first_pass"
+    },
+    "crops_33.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_33.png",
+      "sha256": "654242c435261bdc379ed3f155df046a56254d2e2895e2ca2e1a1083218f6068",
+      "purpose": "text_first_pass"
+    },
+    "crops_34.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_34.png",
+      "sha256": "bae2d55ef1c016462b0873d083d3032bc4bfb9fa6c0f28d4e7198a1f5ab9af82",
+      "purpose": "text_first_pass"
+    },
+    "crops_35.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_35.png",
+      "sha256": "3ce417cf5e672e14e291174623f7646eb3ffea8b1e59e9e51d0de869b66de23e",
+      "purpose": "text_first_pass"
+    },
+    "crops_36.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_36.png",
+      "sha256": "1e7ea57467a5e1ed9f151a644796845304d45d3423a15882de817bf23b7414fb",
+      "purpose": "text_first_pass"
+    },
+    "crops_37.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_37.png",
+      "sha256": "9d2a48ba701661a7bd9409d13c2ec9c9be16d1a74484dc6944a9a4fd90f085de",
+      "purpose": "text_first_pass"
+    },
+    "crops_38.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_38.png",
+      "sha256": "907ae8f66121c6292c32c4450da3df0eae6e27edf498a5038f52d71f58187c81",
+      "purpose": "text_first_pass"
+    },
+    "crops_39.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_39.png",
+      "sha256": "9ed9d3413f73af50928e8666de1047af4573da90ebc5ba2c712772346d9fdc63",
+      "purpose": "text_first_pass"
+    },
+    "crops_40.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/crops_40.png",
+      "sha256": "54ce6d76bc2430b9b77a70d99f81d2d53616f2412eaeefc7475d32e9f8e0fd80",
+      "purpose": "text_first_pass"
+    },
+    "letters_01.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/letters_01.png",
+      "sha256": "6c8c8a03905c2e59845d192a816278c808cee83540afdd5280e6ab489715be7a",
+      "purpose": "same_ai_reinspection"
+    },
+    "letters_02.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/letters_02.png",
+      "sha256": "27f8f3f48959c3863e557289ae702470cad02c404af1cbad2a184c9ee161b1d4",
+      "purpose": "same_ai_reinspection"
+    },
+    "letters_03.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/letters_03.png",
+      "sha256": "11c9adf6c57d85eb432c2f0544e97b5df32c1ec699badff4687da35a34d3b613",
+      "purpose": "same_ai_reinspection"
+    },
+    "letters_04.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/letters_04.png",
+      "sha256": "49b71184b689d2ead0a4d641f7ddbf928f3f4b74fd991e715c561192f8b80cb0",
+      "purpose": "same_ai_reinspection"
+    },
+    "letters_05.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/letters_05.png",
+      "sha256": "470a8d0f7258d3e32601c850a16028257fac0312f1bb168981abfc9bb0e5055d",
+      "purpose": "same_ai_reinspection"
+    },
+    "letters_06.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/letters_06.png",
+      "sha256": "27d5fe622dc5d64a14ae61387ad9c5facc44f81f51b128753263ae02539df942",
+      "purpose": "same_ai_reinspection"
+    },
+    "letters_07.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/letters_07.png",
+      "sha256": "a04cb579cc964a831af264e674d2419b87f873f2426dad60e90f3897244787cd",
+      "purpose": "same_ai_reinspection"
+    },
+    "letters_08.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/letters_08.png",
+      "sha256": "2de50bc99cd750e9e1dced88a412832831eb4a96bbda8dd4a2bcbba8a22d46d0",
+      "purpose": "same_ai_reinspection"
+    },
+    "letters_09.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/letters_09.png",
+      "sha256": "638e9f01197fcbeff57aaf6c5452bb0b8a8340a29d5e4f6d3ae0cb90b95e3d78",
+      "purpose": "same_ai_reinspection"
+    },
+    "sources_01.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/sources_01.png",
+      "sha256": "d043b057e99428002e4e452aad59e76b06f01f3dfc34e61dbedddf850e6b7ec6",
+      "purpose": "source_first_panel_variant_review"
+    },
+    "sources_02.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/sources_02.png",
+      "sha256": "d14779fc1936033f8d2f9746b12c36269fc5615973b49647a40e62b31b61c7e0",
+      "purpose": "source_first_panel_variant_review"
+    },
+    "sources_03.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/sources_03.png",
+      "sha256": "3dcab758a1fd43169aeb338248b2a7fc3fae94bfc5f2c5736f72e4efafab3206",
+      "purpose": "source_first_panel_variant_review"
+    },
+    "sources_04.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/sources_04.png",
+      "sha256": "5c8aae6779c3f7caad4c0d4dd34260680451df8fb1eac79eb7229c7c554d8d92",
+      "purpose": "source_first_panel_variant_review"
+    },
+    "sources_05.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/sources_05.png",
+      "sha256": "79eaf693dcb677132f9a638bd9da7881e1848e742f7d8c9d4eba9dad10ecf690",
+      "purpose": "source_first_panel_variant_review"
+    },
+    "sources_06.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/sources_06.png",
+      "sha256": "3bff2b6fc6f6e3b6cb701dd29ca6d9ee0d20449807bb11af078116ddee2c5690",
+      "purpose": "source_first_panel_variant_review"
+    },
+    "sources_07.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/sources_07.png",
+      "sha256": "9861d3c4608cc2c1a120364ff03aea80ee5808fe7bbfbe1a5534a6b67a8f2ca1",
+      "purpose": "source_first_panel_variant_review"
+    },
+    "sources_08.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/sources_08.png",
+      "sha256": "e06952a900141152957c64a40ffe7c25585f194af272ae3da97dacce78657f43",
+      "purpose": "source_first_panel_variant_review"
+    },
+    "sources_09.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/sources_09.png",
+      "sha256": "78f90ab3d7aed45a3cf2966d02d0aefe5807c3c7fd56934c594183ae596f9c4c",
+      "purpose": "source_first_panel_variant_review"
+    },
+    "sources_10.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/sources_10.png",
+      "sha256": "b5128209f4c94f3ecd8dba8f1dab67798e4ff0bdeddd3e3b6d680cb1a1ca0436",
+      "purpose": "source_first_panel_variant_review"
+    },
+    "sources_11.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/sources_11.png",
+      "sha256": "98ebbd22005793e10537756acf5ffb365590ae63f4c35002c219f54c4048a2d8",
+      "purpose": "source_first_panel_variant_review"
+    },
+    "target_01.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/target_01.png",
+      "sha256": "a128b4fbaaa8662609aa100122b2272fca2007963a2581acb05ace14d56ef02d",
+      "purpose": "same_ai_reinspection"
+    },
+    "target_02.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/target_02.png",
+      "sha256": "3eb50f85de890524b5e00362ca2797f892f34dc286ffbc3a25e6af113b811834",
+      "purpose": "same_ai_reinspection"
+    },
+    "target_03.png": {
+      "path": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/review/target_03.png",
+      "sha256": "f6fa91b812cb11c6151bba4aabf28f34096218c69cf8774769123c41b5d9e1c9",
+      "purpose": "same_ai_reinspection"
+    }
+  }
+}

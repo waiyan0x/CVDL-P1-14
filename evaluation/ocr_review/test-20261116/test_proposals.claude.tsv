@@ -1,0 +1,119 @@
+review_id	text	legibility	note
+TEST_A0169	983	full	
+TEST_A0170	[UNK]KANG via	partial	prefix occluded by foreground object
+TEST_A0171	[UNK]AVE 4, 5	partial	prefix occluded by foreground object
+TEST_A0147	ANG MO KIO AVE [UNK]	partial	last glyph clipped
+TEST_A0148	> ANG MO KIO	full	
+TEST_A0149	133	full	
+TEST_A0100	913[UNK]	partial	4th glyph clipped at crop edge (looks like T)
+TEST_A0102	WOODLANDS INT via	full	
+TEST_A0103	WOODLANDS AVE 7, 6	full	
+TEST_A0104	904	full	
+TEST_A0017	LAVENDER ST	full	blurred
+TEST_A0018	> BUONA VISTA TER	full	
+TEST_A0019	145	full	
+TEST_A0133	75	full	
+TEST_A0134	BUKIT PANJANG	full	
+TEST_A0136	75	full	16x31 px
+TEST_A0137	[UNK]	illegible	
+TEST_A0138	[UNK]	illegible	two lines, overexposed
+TEST_A0144	[UNK]	illegible	8x11 px; might be 54
+TEST_A0145	[UNK]	illegible	
+TEST_A0146	[UNK]	illegible	
+TEST_A0043	[UNK]	illegible	LED refresh: most dots unlit
+TEST_A0044	[UNK]	illegible	LED refresh
+TEST_A0045	[UNK]	illegible	LED refresh
+TEST_A0164	145	full	
+TEST_A0165	> BUONA VISTA TER	full	
+TEST_A0166	[UNK]ALESTIER RD	partial	first glyph half clipped (B)
+TEST_A0057	[UNK]	illegible	LED refresh
+TEST_A0058	[UNK]	illegible	LED refresh
+TEST_A0110	[UNK]	illegible	LED refresh
+TEST_A0112	[UNK]	illegible	LED refresh
+TEST_A0161	913T	full	
+TEST_A0162	[UNK]	illegible	dot-matrix glyphs ambiguous (…DS A…)
+TEST_A0163	WDL INT/MRT	full	
+TEST_A0002	62	full	20x24 px, blurred
+TEST_A0003	[UNK]	illegible	
+TEST_A0131	34	full	LED partly unlit
+TEST_A0132	Changi Airport	full	mixed case; last glyph at edge
+TEST_A0005	[UNK]	illegible	
+TEST_A0006	[UNK]	illegible	
+TEST_A0008	Pasir Ris	full	mixed case, blurred
+TEST_A0009	[UNK]	illegible	
+TEST_A0074	147e	full	
+TEST_A0114	[UNK]	illegible	starts with 9
+TEST_A0115	[UNK]	illegible	
+TEST_A0116	[UNK]	illegible	
+TEST_A0118	[UNK]	illegible	
+TEST_A0119	[UNK]	illegible	
+TEST_A0120	[UNK]	illegible	
+TEST_A0153	135	full	
+TEST_A0154	ANG MO KIO INT	full	
+TEST_A0107	141	full	
+TEST_A0108	TOA PAYOH INT	full	left edge tight
+TEST_A0061	190	full	
+TEST_A0062	CHOA CHU KANG	full	
+TEST_A0063	[UNK]OA CHU KANG via\nSCOTTS ROAD	partial	CH clipped; two lines
+TEST_A0157	[UNK]	illegible	LED refresh
+TEST_A0158	[UNK]	illegible	
+TEST_A0159	[UNK]	illegible	
+TEST_A0127	272	full	
+TEST_A0128	TELOK BLANGAH RISE	full	destination line bleeds in at bottom
+TEST_A0129	> BUKIT MERAH INT	full	blurred
+TEST_A0038	[UNK]	illegible	LED refresh
+TEST_A0039	[UNK]	illegible	LED refresh
+TEST_A0040	[UNK]	illegible	LED refresh
+TEST_A0055	74e	full	
+TEST_A0067	[UNK]	illegible	
+TEST_A0068	[UNK]	illegible	
+TEST_A0069	162	full	
+TEST_A0071	[UNK]	illegible	
+TEST_A0084	87	full	
+TEST_A0085	37	full	23x53 px
+TEST_A0086	> SENGKANG INT	full	
+TEST_A0087	KAKI BUKIT AVE 1	full	
+TEST_A0088	[UNK]	illegible	two tiny lines
+TEST_A0152	163[UNK]	partial	bright glyph fragment after 163
+TEST_A0142	3[UNK]	partial	second digit 5 or 6
+TEST_A0065	118	full	
+TEST_A0066	[UNK]	illegible	
+TEST_A0090	[UNK]	illegible	
+TEST_A0091	[UNK]	illegible	
+TEST_A0093	[UNK]	illegible	ends RD
+TEST_A0094	> ANG MO KIO INT	full	blurred
+TEST_A0095	130	full	
+TEST_A0075	KAMPONG BAHRU [UNK]	partial	tail occluded by glare
+TEST_A0076	ORCHARD [UNK]	partial	second word glare (likely ROAD)
+TEST_A0077	190	full	
+TEST_A0079	[UNK]	illegible	17x15 px
+TEST_A0081	[UNK]	illegible	
+TEST_A0051	247	full	
+TEST_A0052	TUAS TER	full	
+TEST_A0053	TUAS TER via\nTUAS CRES	full	two lines
+TEST_A0011	97[UNK]	partial	bloom; last glyph unclear
+TEST_A0012	[UNK]	illegible	
+TEST_A0022	16	full	
+TEST_A0023	NICOLL HIGHWAY	full	last glyph at edge
+TEST_A0024	> BUKIT MERAH INT	full	
+TEST_A0026	70M	full	
+TEST_A0027	[UNK]	illegible	
+TEST_A0028	[UNK]	illegible	
+TEST_A0034	75	full	
+TEST_A0035	BUKIT MERAH	full	
+TEST_A0036	BUKIT MERAH via\nJLN BT MERAH	full	two lines
+TEST_A0014	[UNK]	illegible	20x20 px
+TEST_A0015	[UNK]	illegible	
+TEST_A0016	[UNK]	illegible	
+TEST_A0097	62	full	
+TEST_A0098	SIMS AVE	full	
+TEST_A0099	UPP PAYA LEBAR RD	full	glare streak
+TEST_A0122	HENDERSON RD	full	
+TEST_A0123	> BUKIT MERAH INT	full	
+TEST_A0124	272	full	
+TEST_A0030	21	full	10x13 px
+TEST_A0031	> [UNK] INT	partial	38x8 px
+TEST_A0032	[UNK]	illegible	
+TEST_A0047	30	full	
+TEST_A0048	> BOON LAY INT	full	58x9 px
+TEST_A0049	OLD AIRPORT RD	full	41x6 px - verify

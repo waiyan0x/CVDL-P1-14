@@ -1,0 +1,62 @@
+{
+  "seed": 0,
+  "search_attempt_selected": 47,
+  "unit": "exported line-image/text pairs",
+  "ratios": {
+    "train": 0.8,
+    "valid": 0.1,
+    "test": 0.1
+  },
+  "counts": {
+    "train": {
+      "pairs": 4000,
+      "fields": {
+        "bus_number": 1688,
+        "route_text": 758,
+        "destination": 1554
+      },
+      "origins": {
+        "original_real": 297,
+        "rendered": 3703
+      }
+    },
+    "valid": {
+      "pairs": 500,
+      "fields": {
+        "destination": 186,
+        "bus_number": 212,
+        "route_text": 102
+      },
+      "origins": {
+        "original_real": 45,
+        "rendered": 455
+      }
+    },
+    "test": {
+      "pairs": 500,
+      "fields": {
+        "bus_number": 217,
+        "route_text": 110,
+        "destination": 173
+      },
+      "origins": {
+        "original_real": 24,
+        "rendered": 476
+      }
+    }
+  },
+  "connected_groups": 304,
+  "grouping": [
+    "normalised exact line text",
+    "original source crop",
+    "original real source photo",
+    "identical PNG SHA-256"
+  ],
+  "pairwise_group_and_text_overlap": 0,
+  "parent_bundle": "ocr_finetune_bundle-20261120-5k.zip",
+  "parent_sha256": "94f27152c521db48f542fb1fbfc2005c80df17444d4441901e977763b0c8dcb4",
+  "old_real_validation_replaced": true,
+  "old_validation_images_in_new_training_bundle": false,
+  "earlier_finetuned_models_not_independent_on_new_test": true,
+  "source_glyph_family_and_template_independence_not_established": true
+}

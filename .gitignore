@@ -30,3 +30,12 @@ test-results/
 playwright-report/
 /agents.md
 /skills.md
+/skills/bus-eds-ocr/
+/audit.md
+
+# Local model weights and test photos (never committed)
+models/local/
+/runs/
+
+# git bundles used to move commits between machines
+*.bundle

@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "run_name": "easyocr-v4-mps-baseline-02",
+  "started_at_utc": "2026-11-08T13:47:33.295666+00:00",
+  "finished_at_utc": "2026-11-08T13:47:40.728538+00:00",
+  "dataset": "/Users/tanyilin/Downloads/CVDL-P1-14/evaluation/ocr_annotations/v4-reviewed-01",
+  "split": "valid",
+  "inputs": 271,
+  "model": "EasyOCR English generation-2 pretrained recognizer",
+  "easyocr_version": "1.7.2",
+  "model_sha256_before": "e2272681d9d67a04e2dff396b6e95077bc19001f8f6d3593c307b9852e1c29e8",
+  "model_sha256_after": "e2272681d9d67a04e2dff396b6e95077bc19001f8f6d3593c307b9852e1c29e8",
+  "cached_weights_unchanged": true,
+  "source_workspace_unchanged": true,
+  "actual_device": "mps:0",
+  "seed": 0,
+  "warmup_runs_per_field": 3,
+  "measured_runs_per_crop": 1,
+  "warmup_policy": "First annotation crop per field, repeated before measurements; unseen shapes can incur first-use costs",
+  "recognition_settings": {
+    "detector": false,
+    "decoder": "greedy",
+    "batch_size": 1,
+    "languages": [
+      "en"
+    ],
+    "allowlist": null,
+    "blocklist": null,
+    "workers": 0,
+    "contrast_ths": 0.0,
+    "paragraph": false,
+    "reformat": false,
+    "download_enabled": false
+  },
+  "preprocessing": {
+    "external_resize": null,
+    "external_padding": null,
+    "conversion": "Pillow RGB then OpenCV RGB-to-grayscale",
+    "line_segmentation": {
+      "id": "row_projection_v2",
+      "foreground": "Otsu/border polarity; for bright text, use warm/green chromatic support when >=1% of pixels and >=12% of Otsu support",
+      "chromatic_support": "max(R,G)-B>12, max(R,G,B)-min(R,G,B)>20, grayscale>max(20,0.5*Otsu)",
+      "active_row": "foreground count >= max(1, 0.02*width, 0.20*peak row count)",
+      "close_vertical_gaps": "base max(1,floor(height*0.025)); with >=3 bands, bridge up to twice the median of the smaller half of gaps, capped at floor(height/5)",
+      "minimum_band_height": "max(2, floor(crop_height * 0.06)) pixels",
+      "regions": "full-width partitions at midpoints between retained bands; preserve all rows",
+      "max_lines": 8,
+      "layout_verification": "All regions are heuristic and unverified; inspect saved overlays"
+    },
+    "recognizer_resize": "Unmodified EasyOCR internal height/aspect-dependent width preprocessing"
+  },
+  "confidence_method": "Character-count-weighted mean of EasyOCR returned region confidences, excluding inserted newlines; empty output has null score",
+  "raw_text_assembly": "Preserve each returned string; join regions/lines top-to-bottom with actual newlines; no spelling/case/reference correction",
+  "timing": {
+    "preprocessing_ms": "File read, SHA-256 check, image decode, RGB/grayscale conversion and line segmentation",
+    "recognition_ms": "Sum of synchronized wall times around each Reader.recognize call, including internal resize/transfer/forward/decode",
+    "crop_total_ms": "Wall time for preprocessing, synchronized recognition and result assembly",
+    "excluded": "Model initialization, warmups, preflight/integrity hashing, previews and result-file writes",
+    "percentile": "Linear interpolation at (n-1)*q across successful heterogeneous crops, separately by set/field"
+  },
+  "summary": [
+    {
+      "crop_set": "annotation",
+      "field": "front_eds_num",
+      "attempted": 60,
+      "completed": 60,
+      "errors": 0,
+      "empty_outputs": 1,
+      "multiline_candidates": 1,
+      "segmentation_status_counts": {
+        "single_band_unverified": 59,
+        "split_candidate": 1
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.5455209975480102,
+      "preprocessing_ms_p95": 1.5607851033564637,
+      "recognition_ms_median": 8.079479004663881,
+      "recognition_ms_p95": 26.542413896822808,
+      "crop_total_ms_median": 8.704271000169683,
+      "crop_total_ms_p95": 27.119274699361966
+    },
+    {
+      "crop_set": "annotation",
+      "field": "front_eds_route",
+      "attempted": 42,
+      "completed": 42,
+      "errors": 0,
+      "empty_outputs": 1,
+      "multiline_candidates": 1,
+      "segmentation_status_counts": {
+        "single_band_unverified": 41,
+        "split_candidate": 1
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.6160835037007928,
+      "preprocessing_ms_p95": 1.625688155036186,
+      "recognition_ms_median": 15.780916502990294,
+      "recognition_ms_p95": 61.23681425087851,
+      "crop_total_ms_median": 16.39408350456506,
+      "crop_total_ms_p95": 61.72749345496412
+    },
+    {
+      "crop_set": "annotation",
+      "field": "front_eds_destination",
+      "attempted": 55,
+      "completed": 55,
+      "errors": 0,
+      "empty_outputs": 2,
+      "multiline_candidates": 0,
+      "segmentation_status_counts": {
+        "single_band_unverified": 55
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.5627909995382652,
+      "preprocessing_ms_p95": 2.450508005858864,
+      "recognition_ms_median": 13.510290998965502,
+      "recognition_ms_p95": 56.63183390570338,
+      "crop_total_ms_median": 14.081833011005074,
+      "crop_total_ms_p95": 58.262766707048286
+    },
+    {
+      "crop_set": "annotation",
+      "field": "all",
+      "attempted": 157,
+      "completed": 157,
+      "errors": 0,
+      "empty_outputs": 4,
+      "multiline_candidates": 2,
+      "segmentation_status_counts": {
+        "single_band_unverified": 155,
+        "split_candidate": 2
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.5560419958783314,
+      "preprocessing_ms_p95": 1.848157803760836,
+      "recognition_ms_median": 11.747749987989664,
+      "recognition_ms_p95": 54.13148320221805,
+      "crop_total_ms_median": 12.425499997334555,
+      "crop_total_ms_p95": 54.78743340354408
+    },
+    {
+      "crop_set": "prediction",
+      "field": "front_eds_num",
+      "attempted": 42,
+      "completed": 42,
+      "errors": 0,
+      "empty_outputs": 0,
+      "multiline_candidates": 0,
+      "segmentation_status_counts": {
+        "single_band_unverified": 42
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.5830420050187968,
+      "preprocessing_ms_p95": 1.3920646008045867,
+      "recognition_ms_median": 6.992020993493497,
+      "recognition_ms_p95": 11.584414240496699,
+      "crop_total_ms_median": 7.689541998843197,
+      "crop_total_ms_p95": 12.387712848430965
+    },
+    {
+      "crop_set": "prediction",
+      "field": "front_eds_route",
+      "attempted": 37,
+      "completed": 37,
+      "errors": 0,
+      "empty_outputs": 0,
+      "multiline_candidates": 0,
+      "segmentation_status_counts": {
+        "single_band_unverified": 37
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.6782919954275712,
+      "preprocessing_ms_p95": 1.2215163937071336,
+      "recognition_ms_median": 12.21070899919141,
+      "recognition_ms_p95": 17.713125390582718,
+      "crop_total_ms_median": 13.00704199820757,
+      "crop_total_ms_p95": 18.689775004168037
+    },
+    {
+      "crop_set": "prediction",
+      "field": "front_eds_destination",
+      "attempted": 35,
+      "completed": 35,
+      "errors": 0,
+      "empty_outputs": 0,
+      "multiline_candidates": 4,
+      "segmentation_status_counts": {
+        "single_band_unverified": 31,
+        "split_candidate": 4
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.6981670012464747,
+      "preprocessing_ms_p95": 1.5668794963858073,
+      "recognition_ms_median": 11.729667006875388,
+      "recognition_ms_p95": 189.88725439994502,
+      "crop_total_ms_median": 12.565458004246466,
+      "crop_total_ms_p95": 191.8940125047802
+    },
+    {
+      "crop_set": "prediction",
+      "field": "all",
+      "attempted": 114,
+      "completed": 114,
+      "errors": 0,
+      "empty_outputs": 0,
+      "multiline_candidates": 4,
+      "segmentation_status_counts": {
+        "single_band_unverified": 110,
+        "split_candidate": 4
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.6552499980898574,
+      "preprocessing_ms_p95": 1.3742538496444467,
+      "recognition_ms_median": 10.382041495176964,
+      "recognition_ms_p95": 21.773408353328684,
+      "crop_total_ms_median": 11.212062490812968,
+      "crop_total_ms_p95": 25.020264254999343
+    }
+  ],
+  "accuracy_calculated": false,
+  "reference_matching_used": false,
+  "limitations": [
+    "Line regions are unverified heuristic candidates; single-band results may conceal touching/overlapping lines",
+    "No foreground/fragmented layouts return an explicit error, never an unreported full-crop fallback",
+    "One timed pass per crop; timings include varying image/line counts and first-use shape costs, not sustained end-to-end FPS",
+    "Only existing crops are recognized; missing detections and zero-box images are outside this crop-only run",
+    "Ground-truth resolution, related-frame group review and prediction correspondence remain outstanding",
+    "English pretrained vocabulary may not cover every visible symbol or script",
+    "No accuracy, independence, training, model selection or fine-tuning claim is made"
+  ]
+}

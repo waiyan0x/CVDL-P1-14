@@ -1,0 +1,55 @@
+{
+  "status": "training_run_not_located_validation_gate_unresolved",
+  "date": "2026-11-09",
+  "local_search": {
+    "root": "/Users/tanyilin",
+    "targets": [
+      "trainer_state.json",
+      "eval_results.json",
+      "all_results.json",
+      "training_args.bin",
+      "OCR/TrOCR/checkpoint archives",
+      "safetensors checkpoints"
+    ],
+    "excluded_paths": "Virtual environments, node_modules, Git internals and site-packages; filesystem access errors were suppressed, so this is not an exhaustive accessible-storage guarantee.",
+    "matching_project_artifacts": [
+      "models/trocr-finetuned/training_args.bin",
+      "models/trocr-finetuned/model.safetensors (LFS pointer)",
+      ".cache/trocr-base-printed/model.safetensors (public pretrained baseline, not a training run)"
+    ]
+  },
+  "github": {
+    "repository": "waiyan0x/CVDL-P1-14",
+    "connector_result": "search and search_branches returned Unknown tool",
+    "fallback": "Read-only git ls-remote succeeded with network sandbox escalation; remote heads matched existing origin refs. No fetch, merge, branch switch or model download needed.",
+    "refs": [
+      "77f0cb46623d8ecfe1397d1d25b3bd5b1483c1f9 refs/remotes/origin/HEAD",
+      "35ee0d9f7c295f70b7b9b4efcf90c9ee02f1845e refs/remotes/origin/OCR",
+      "4e58c3750d34b8859b9a06797c5d6ea67cd2c065 refs/remotes/origin/Sitt_dev",
+      "ce7c2c989859d945f22c9afdfb434e5eeee1a0b2 refs/remotes/origin/WY",
+      "f2e4ef0d02275dc30a0f657540439b41e5761d41 refs/remotes/origin/bren-data-preparation",
+      "7daa2d6cd0dee651097473d73acb8c091e128a18 refs/remotes/origin/bren-object-detection",
+      "0f1e36f9270853c0b71b642c0d9f0a3523b8c3a9 refs/remotes/origin/jy-data-preparation",
+      "567d3d997a3d61c361ba77a3026a4935bbaadb48 refs/remotes/origin/jy-object-detection",
+      "77f0cb46623d8ecfe1397d1d25b3bd5b1483c1f9 refs/remotes/origin/main"
+    ],
+    "history_result": "No OCR trainer-state/evaluation reports or training notebooks found in available branch histories; recorded checkpoint/run reports concern object detection, not OCR CER."
+  },
+  "connected_drive": {
+    "queries": [
+      "trocr",
+      "CVDL",
+      "OCR",
+      "checkpoint"
+    ],
+    "result": "No relevant OCR training run found. Irrelevant search results were not fetched."
+  },
+  "validation": {
+    "source": "evaluation/ocr_annotations/v4-reviewed-01/submissions/codi-01/README.md",
+    "status": "Human submission exists but not scoring-ready",
+    "issues": "77 distinct rows require resolution/inspection; all 271 A/P group IDs pending; predicted crop correspondence pending. Annotation A subset must be frozen only after its relevant text and grouping gates are resolved.",
+    "comparison_performed": false
+  },
+  "test_boundary": "No test image/crop was opened, used for training or inference, or used as a checkpoint-selection metric in this discovery task. Historical training provenance remains unknown.",
+  "required_input": "Actual training environment/run folder path or authenticated shared export link; checkpoints, trainer history, training configuration and split manifests."
+}

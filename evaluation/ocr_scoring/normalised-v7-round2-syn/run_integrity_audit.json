@@ -1,0 +1,498 @@
+{
+  "groups": {
+    "valid-layoutv2": {
+      "runs": 9,
+      "records_per_run": 271,
+      "identities_and_layouts_equal": true
+    },
+    "test": {
+      "runs": 9,
+      "records_per_run": 118,
+      "identities_and_layouts_equal": true
+    },
+    "train": {
+      "runs": 9,
+      "records_per_run": 1917,
+      "identities_and_layouts_equal": true
+    },
+    "routeholdout": {
+      "runs": 9,
+      "records_per_run": 139,
+      "identities_and_layouts_equal": true
+    },
+    "routeholdout-partial": {
+      "runs": 9,
+      "records_per_run": 49,
+      "identities_and_layouts_equal": true
+    }
+  },
+  "runs": [
+    {
+      "run": "easyocr-pretrained-valid-layoutv2",
+      "records": 271,
+      "identity_sha256": "e198e1e043fbffd435e3b7d54a13a5d8d24b6432ef6e426079b974d473292f92",
+      "layout_sha256": "d1dd79be9e2b8a4599c86d0c2021a8fb049427b4dc5ca16122bf862b92435b7c",
+      "predictions_sha256": "cafba1a69b8121225c3a3c4bbee12eea8dce96c32cbbd883253d6e374cbd36c8",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 20
+      }
+    },
+    {
+      "run": "easyocr-finetuned-valid-layoutv2",
+      "records": 271,
+      "identity_sha256": "e198e1e043fbffd435e3b7d54a13a5d8d24b6432ef6e426079b974d473292f92",
+      "layout_sha256": "d1dd79be9e2b8a4599c86d0c2021a8fb049427b4dc5ca16122bf862b92435b7c",
+      "predictions_sha256": "5699bcb57064e5d10ecb3c83284d18016b73236e11eb6cd2a47b70fbe50c579a",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 20
+      }
+    },
+    {
+      "run": "easyocr-finetunedsyn-valid-layoutv2",
+      "records": 271,
+      "identity_sha256": "e198e1e043fbffd435e3b7d54a13a5d8d24b6432ef6e426079b974d473292f92",
+      "layout_sha256": "d1dd79be9e2b8a4599c86d0c2021a8fb049427b4dc5ca16122bf862b92435b7c",
+      "predictions_sha256": "946cef41e1a1865bce4b2ba6c041a885a716f30e49d9a7b0a81bcc9282493895",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 20
+      }
+    },
+    {
+      "run": "trocr-pretrained-valid-layoutv2",
+      "records": 271,
+      "identity_sha256": "e198e1e043fbffd435e3b7d54a13a5d8d24b6432ef6e426079b974d473292f92",
+      "layout_sha256": "d1dd79be9e2b8a4599c86d0c2021a8fb049427b4dc5ca16122bf862b92435b7c",
+      "predictions_sha256": "16252b53a5badffa349a90363a304bf54806c838c2f5a4678599f032e49d79e3",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 20,
+        "RuntimeError: TrOCR did not emit EOS within 64 tokens; output retained in engine_history.json": 1
+      }
+    },
+    {
+      "run": "trocr-finetuned-valid-layoutv2",
+      "records": 271,
+      "identity_sha256": "e198e1e043fbffd435e3b7d54a13a5d8d24b6432ef6e426079b974d473292f92",
+      "layout_sha256": "d1dd79be9e2b8a4599c86d0c2021a8fb049427b4dc5ca16122bf862b92435b7c",
+      "predictions_sha256": "080bee2167b3ad7fb42d272ba0e275f81118310519b7784488d28d5a7bcad382",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 20
+      }
+    },
+    {
+      "run": "trocr-finetunedsyn-valid-layoutv2",
+      "records": 271,
+      "identity_sha256": "e198e1e043fbffd435e3b7d54a13a5d8d24b6432ef6e426079b974d473292f92",
+      "layout_sha256": "d1dd79be9e2b8a4599c86d0c2021a8fb049427b4dc5ca16122bf862b92435b7c",
+      "predictions_sha256": "8df6bfd7f281a913ca22ac6c7663149e0cbce6da8ae549c77ea032b7f54e9988",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 20
+      }
+    },
+    {
+      "run": "paddleocr-pretrained-valid-layoutv2",
+      "records": 271,
+      "identity_sha256": "e198e1e043fbffd435e3b7d54a13a5d8d24b6432ef6e426079b974d473292f92",
+      "layout_sha256": "d1dd79be9e2b8a4599c86d0c2021a8fb049427b4dc5ca16122bf862b92435b7c",
+      "predictions_sha256": "c0b17db007edd997dc6860dcd472001a7bdc6e6d3fe7e48907a66b84ce28d8e6",
+      "recognizer_device": "cpu",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 20
+      }
+    },
+    {
+      "run": "paddleocr-finetuned-valid-layoutv2",
+      "records": 271,
+      "identity_sha256": "e198e1e043fbffd435e3b7d54a13a5d8d24b6432ef6e426079b974d473292f92",
+      "layout_sha256": "d1dd79be9e2b8a4599c86d0c2021a8fb049427b4dc5ca16122bf862b92435b7c",
+      "predictions_sha256": "4a8983f83d55aec851d84ec843425392d3ebab6bbeda9c275e14e7ca586ca17c",
+      "recognizer_device": "cpu",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 20
+      }
+    },
+    {
+      "run": "paddleocr-finetunedsyn-valid-layoutv2",
+      "records": 271,
+      "identity_sha256": "e198e1e043fbffd435e3b7d54a13a5d8d24b6432ef6e426079b974d473292f92",
+      "layout_sha256": "d1dd79be9e2b8a4599c86d0c2021a8fb049427b4dc5ca16122bf862b92435b7c",
+      "predictions_sha256": "ff1b21b525abe849abdbddbadc450e230a5088aeabf1e120b6082ab832b9ef4d",
+      "recognizer_device": "cpu",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 20
+      }
+    },
+    {
+      "run": "easyocr-pretrained-test",
+      "records": 118,
+      "identity_sha256": "be8b571b58fcb189a70a4db7d31a6fcfa539ce13d2fb4e44a2dc0918a4883f8b",
+      "layout_sha256": "094a31b1ec45e12bb94597201a8a6452c1463391bf6a349eb28f43f71c66ea41",
+      "predictions_sha256": "6e4ff26694533d3ff5fbda7df6d67ab436c305bca45dc264d22952e236fde1d9",
+      "recognizer_device": "mps:0",
+      "errors": {}
+    },
+    {
+      "run": "easyocr-finetuned-test",
+      "records": 118,
+      "identity_sha256": "be8b571b58fcb189a70a4db7d31a6fcfa539ce13d2fb4e44a2dc0918a4883f8b",
+      "layout_sha256": "094a31b1ec45e12bb94597201a8a6452c1463391bf6a349eb28f43f71c66ea41",
+      "predictions_sha256": "df170117fb425e31c4422ea1098237a571a2d890c72d5687da202388c4bf9a93",
+      "recognizer_device": "mps:0",
+      "errors": {}
+    },
+    {
+      "run": "easyocr-finetunedsyn-test",
+      "records": 118,
+      "identity_sha256": "be8b571b58fcb189a70a4db7d31a6fcfa539ce13d2fb4e44a2dc0918a4883f8b",
+      "layout_sha256": "094a31b1ec45e12bb94597201a8a6452c1463391bf6a349eb28f43f71c66ea41",
+      "predictions_sha256": "adec5c8c56fab5cb8ad2a275ce6d0ab34a12df72f283499b2a3d05f858b4f1af",
+      "recognizer_device": "mps:0",
+      "errors": {}
+    },
+    {
+      "run": "trocr-pretrained-test",
+      "records": 118,
+      "identity_sha256": "be8b571b58fcb189a70a4db7d31a6fcfa539ce13d2fb4e44a2dc0918a4883f8b",
+      "layout_sha256": "094a31b1ec45e12bb94597201a8a6452c1463391bf6a349eb28f43f71c66ea41",
+      "predictions_sha256": "31e5984f02b5241fa7930027f6e9b472069c6504e95c9a33c0e2a7e9a923fda1",
+      "recognizer_device": "mps:0",
+      "errors": {}
+    },
+    {
+      "run": "trocr-finetuned-test",
+      "records": 118,
+      "identity_sha256": "be8b571b58fcb189a70a4db7d31a6fcfa539ce13d2fb4e44a2dc0918a4883f8b",
+      "layout_sha256": "094a31b1ec45e12bb94597201a8a6452c1463391bf6a349eb28f43f71c66ea41",
+      "predictions_sha256": "61586d2d1f4fcf974ff271077019dc97df63ac6345b4a859e86db4e3bfa42feb",
+      "recognizer_device": "mps:0",
+      "errors": {}
+    },
+    {
+      "run": "trocr-finetunedsyn-test",
+      "records": 118,
+      "identity_sha256": "be8b571b58fcb189a70a4db7d31a6fcfa539ce13d2fb4e44a2dc0918a4883f8b",
+      "layout_sha256": "094a31b1ec45e12bb94597201a8a6452c1463391bf6a349eb28f43f71c66ea41",
+      "predictions_sha256": "c516fcaebb1791429ae591fb56111ac56ad63991eb6ee4fddd41190061e75573",
+      "recognizer_device": "mps:0",
+      "errors": {}
+    },
+    {
+      "run": "paddleocr-pretrained-test",
+      "records": 118,
+      "identity_sha256": "be8b571b58fcb189a70a4db7d31a6fcfa539ce13d2fb4e44a2dc0918a4883f8b",
+      "layout_sha256": "094a31b1ec45e12bb94597201a8a6452c1463391bf6a349eb28f43f71c66ea41",
+      "predictions_sha256": "42d25c6934cea87edc1738ce77741ed1c80b11db3246733870e59eb843aba03c",
+      "recognizer_device": "cpu",
+      "errors": {}
+    },
+    {
+      "run": "paddleocr-finetuned-test",
+      "records": 118,
+      "identity_sha256": "be8b571b58fcb189a70a4db7d31a6fcfa539ce13d2fb4e44a2dc0918a4883f8b",
+      "layout_sha256": "094a31b1ec45e12bb94597201a8a6452c1463391bf6a349eb28f43f71c66ea41",
+      "predictions_sha256": "b24ce719c522f5399e175c4261c6bacb0282a3098885bc6cc3435b63223f46ad",
+      "recognizer_device": "cpu",
+      "errors": {}
+    },
+    {
+      "run": "paddleocr-finetunedsyn-test",
+      "records": 118,
+      "identity_sha256": "be8b571b58fcb189a70a4db7d31a6fcfa539ce13d2fb4e44a2dc0918a4883f8b",
+      "layout_sha256": "094a31b1ec45e12bb94597201a8a6452c1463391bf6a349eb28f43f71c66ea41",
+      "predictions_sha256": "258f4a8eeec18f3222e4e4483f23b1dc352a6911de617c97c865da41c1db3386",
+      "recognizer_device": "cpu",
+      "errors": {}
+    },
+    {
+      "run": "easyocr-pretrained-train",
+      "records": 1917,
+      "identity_sha256": "6b66598aebd29caf1a01de176482d1317b7f769c5cff20a3991d4e82bce6f8f2",
+      "layout_sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+      "predictions_sha256": "303f46ed15113f97f3250df9d484347d71de66b1c2f73d307b4e2991c57dccd0",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 1396
+      }
+    },
+    {
+      "run": "easyocr-finetuned-train",
+      "records": 1917,
+      "identity_sha256": "6b66598aebd29caf1a01de176482d1317b7f769c5cff20a3991d4e82bce6f8f2",
+      "layout_sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+      "predictions_sha256": "7d78d33d784da5e2540c63a77bc64762d12bcb323ed7e4606e457f1b541197da",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 1396
+      }
+    },
+    {
+      "run": "easyocr-finetunedsyn-train",
+      "records": 1917,
+      "identity_sha256": "6b66598aebd29caf1a01de176482d1317b7f769c5cff20a3991d4e82bce6f8f2",
+      "layout_sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+      "predictions_sha256": "93fbb357909a4694cd337edeef91c7113dcaecac8181a45a582939015617117b",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 1396
+      }
+    },
+    {
+      "run": "trocr-pretrained-train",
+      "records": 1917,
+      "identity_sha256": "6b66598aebd29caf1a01de176482d1317b7f769c5cff20a3991d4e82bce6f8f2",
+      "layout_sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+      "predictions_sha256": "fe9da989f0ad78e4acbb54eba6a33604db5c729dfca96c3fbab8ddf7b47c808f",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 1396
+      }
+    },
+    {
+      "run": "trocr-finetuned-train",
+      "records": 1917,
+      "identity_sha256": "6b66598aebd29caf1a01de176482d1317b7f769c5cff20a3991d4e82bce6f8f2",
+      "layout_sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+      "predictions_sha256": "3011e6f3427afb63d38c5fa56eb2c15bf85dc54ec5417da8e0dbf76cd6178ece",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 1396
+      }
+    },
+    {
+      "run": "trocr-finetunedsyn-train",
+      "records": 1917,
+      "identity_sha256": "6b66598aebd29caf1a01de176482d1317b7f769c5cff20a3991d4e82bce6f8f2",
+      "layout_sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+      "predictions_sha256": "b9212b3cb16e270e45efa99eb5a6258fb9b8bd2ad4f6c1458662eeef6ce86c8d",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 1396,
+        "RuntimeError: TrOCR did not emit EOS within 64 tokens; output retained in engine_history.json": 2
+      }
+    },
+    {
+      "run": "paddleocr-pretrained-train",
+      "records": 1917,
+      "identity_sha256": "6b66598aebd29caf1a01de176482d1317b7f769c5cff20a3991d4e82bce6f8f2",
+      "layout_sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+      "predictions_sha256": "a99482eebd28b134141cb3719e39672ec45783f6facb2b8e36428a7086a574b0",
+      "recognizer_device": "cpu",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 1396
+      }
+    },
+    {
+      "run": "paddleocr-finetuned-train",
+      "records": 1917,
+      "identity_sha256": "6b66598aebd29caf1a01de176482d1317b7f769c5cff20a3991d4e82bce6f8f2",
+      "layout_sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+      "predictions_sha256": "b7794c581cc31b62395f1c4e9efcaed803368ca8d4ee38f7fc6cb04dc65be821",
+      "recognizer_device": "cpu",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 1396
+      }
+    },
+    {
+      "run": "paddleocr-finetunedsyn-train",
+      "records": 1917,
+      "identity_sha256": "6b66598aebd29caf1a01de176482d1317b7f769c5cff20a3991d4e82bce6f8f2",
+      "layout_sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+      "predictions_sha256": "dd6318fb3e9052950cf3fd4e0ac48693c05ad172a27bfd2ad248a72f38b3e24e",
+      "recognizer_device": "cpu",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 1396
+      }
+    },
+    {
+      "run": "easyocr-pretrained-routeholdout",
+      "records": 139,
+      "identity_sha256": "c46bc0e7897c9d8987603288003b3c676e5c442cc1f050248d43ce9239f281fb",
+      "layout_sha256": "ebcfe28da8af72675abadfc25b7190531d511954b8b9fb347c49ecd481255080",
+      "predictions_sha256": "9c25256c07aabad16addba864a020ec65bcfb55df1da4a68a3229dfea34e0033",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 112
+      }
+    },
+    {
+      "run": "easyocr-finetuned-routeholdout",
+      "records": 139,
+      "identity_sha256": "c46bc0e7897c9d8987603288003b3c676e5c442cc1f050248d43ce9239f281fb",
+      "layout_sha256": "ebcfe28da8af72675abadfc25b7190531d511954b8b9fb347c49ecd481255080",
+      "predictions_sha256": "dffeadd01b7197ebe3425d43ddeb27f01dda38c60013c589ae408a99d2336642",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 112
+      }
+    },
+    {
+      "run": "easyocr-finetunedsyn-routeholdout",
+      "records": 139,
+      "identity_sha256": "c46bc0e7897c9d8987603288003b3c676e5c442cc1f050248d43ce9239f281fb",
+      "layout_sha256": "ebcfe28da8af72675abadfc25b7190531d511954b8b9fb347c49ecd481255080",
+      "predictions_sha256": "e0e5c3f1b3d362d6cc76627731f62da6565cfc7ed556a32a63f239f8b2ce23fb",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 112
+      }
+    },
+    {
+      "run": "trocr-pretrained-routeholdout",
+      "records": 139,
+      "identity_sha256": "c46bc0e7897c9d8987603288003b3c676e5c442cc1f050248d43ce9239f281fb",
+      "layout_sha256": "ebcfe28da8af72675abadfc25b7190531d511954b8b9fb347c49ecd481255080",
+      "predictions_sha256": "b25c6b82f2c580cdaf00eabea2d279edc17d60fcc6dd8e599303792688fc8469",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 112
+      }
+    },
+    {
+      "run": "trocr-finetuned-routeholdout",
+      "records": 139,
+      "identity_sha256": "c46bc0e7897c9d8987603288003b3c676e5c442cc1f050248d43ce9239f281fb",
+      "layout_sha256": "ebcfe28da8af72675abadfc25b7190531d511954b8b9fb347c49ecd481255080",
+      "predictions_sha256": "abef22720dd58659e68f0a3512b55c7e44b61a030dd6394148abb9a081b3dde0",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 112
+      }
+    },
+    {
+      "run": "trocr-finetunedsyn-routeholdout",
+      "records": 139,
+      "identity_sha256": "c46bc0e7897c9d8987603288003b3c676e5c442cc1f050248d43ce9239f281fb",
+      "layout_sha256": "ebcfe28da8af72675abadfc25b7190531d511954b8b9fb347c49ecd481255080",
+      "predictions_sha256": "8a3e4e898293dfaa2f1049dd54326a3c89e6d5deffccf56e0f8085ff3ffd0d56",
+      "recognizer_device": "mps:0",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 112
+      }
+    },
+    {
+      "run": "paddleocr-pretrained-routeholdout",
+      "records": 139,
+      "identity_sha256": "c46bc0e7897c9d8987603288003b3c676e5c442cc1f050248d43ce9239f281fb",
+      "layout_sha256": "ebcfe28da8af72675abadfc25b7190531d511954b8b9fb347c49ecd481255080",
+      "predictions_sha256": "50b2d047f35fca6f211f320d50cc71e6a7b9799be3b59fd4eff7b2bc89ee67b0",
+      "recognizer_device": "cpu",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 112
+      }
+    },
+    {
+      "run": "paddleocr-finetuned-routeholdout",
+      "records": 139,
+      "identity_sha256": "c46bc0e7897c9d8987603288003b3c676e5c442cc1f050248d43ce9239f281fb",
+      "layout_sha256": "ebcfe28da8af72675abadfc25b7190531d511954b8b9fb347c49ecd481255080",
+      "predictions_sha256": "2f09231da437052ae5b0d06ca4d6eaf8a95f3f430c626de3a457164df75e6ae0",
+      "recognizer_device": "cpu",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 112
+      }
+    },
+    {
+      "run": "paddleocr-finetunedsyn-routeholdout",
+      "records": 139,
+      "identity_sha256": "c46bc0e7897c9d8987603288003b3c676e5c442cc1f050248d43ce9239f281fb",
+      "layout_sha256": "ebcfe28da8af72675abadfc25b7190531d511954b8b9fb347c49ecd481255080",
+      "predictions_sha256": "f551e3da7f4b38164e893ae80f8a49d8040f773e299c60ae0adf063b0e1310de",
+      "recognizer_device": "cpu",
+      "errors": {
+        "ValueError: Line segmentation unresolved: fixed_layout_unresolved; full-crop recognition was not substituted": 112
+      }
+    },
+    {
+      "run": "easyocr-pretrained-routeholdout-partial",
+      "records": 49,
+      "identity_sha256": "6f30a59d900b5fa9487c1bed68de5a694798f05200eff1e8641945e2a83013fc",
+      "layout_sha256": "f6a61b159515a1a996b2119cbec1a61ad817bec2debbb1baa56b1e9511dd5fa1",
+      "predictions_sha256": "9b548be3ef73085648f85f9053037c67777931703ea71835e6748ece24426ee3",
+      "recognizer_device": "mps:0",
+      "errors": {}
+    },
+    {
+      "run": "easyocr-finetuned-routeholdout-partial",
+      "records": 49,
+      "identity_sha256": "6f30a59d900b5fa9487c1bed68de5a694798f05200eff1e8641945e2a83013fc",
+      "layout_sha256": "f6a61b159515a1a996b2119cbec1a61ad817bec2debbb1baa56b1e9511dd5fa1",
+      "predictions_sha256": "98764f9daafc6fdec5755080d08229f1dfb5c33e93fabc63816d93d1962823c8",
+      "recognizer_device": "mps:0",
+      "errors": {}
+    },
+    {
+      "run": "easyocr-finetunedsyn-routeholdout-partial",
+      "records": 49,
+      "identity_sha256": "6f30a59d900b5fa9487c1bed68de5a694798f05200eff1e8641945e2a83013fc",
+      "layout_sha256": "f6a61b159515a1a996b2119cbec1a61ad817bec2debbb1baa56b1e9511dd5fa1",
+      "predictions_sha256": "db1c8d04641fdf2e5b97d502d9efd8e8e99d438b5967eba0942c1975dab2ff5d",
+      "recognizer_device": "mps:0",
+      "errors": {}
+    },
+    {
+      "run": "trocr-pretrained-routeholdout-partial",
+      "records": 49,
+      "identity_sha256": "6f30a59d900b5fa9487c1bed68de5a694798f05200eff1e8641945e2a83013fc",
+      "layout_sha256": "f6a61b159515a1a996b2119cbec1a61ad817bec2debbb1baa56b1e9511dd5fa1",
+      "predictions_sha256": "e932afe6c5cdd64efed87791a1f61667422d5cd4d6df76ebe665f9aaf5deac8c",
+      "recognizer_device": "mps:0",
+      "errors": {}
+    },
+    {
+      "run": "trocr-finetuned-routeholdout-partial",
+      "records": 49,
+      "identity_sha256": "6f30a59d900b5fa9487c1bed68de5a694798f05200eff1e8641945e2a83013fc",
+      "layout_sha256": "f6a61b159515a1a996b2119cbec1a61ad817bec2debbb1baa56b1e9511dd5fa1",
+      "predictions_sha256": "ee484ea168429344b1cd6d2dcb9d97f14fa2041d9ef1516edf2e5200888e45d5",
+      "recognizer_device": "mps:0",
+      "errors": {}
+    },
+    {
+      "run": "trocr-finetunedsyn-routeholdout-partial",
+      "records": 49,
+      "identity_sha256": "6f30a59d900b5fa9487c1bed68de5a694798f05200eff1e8641945e2a83013fc",
+      "layout_sha256": "f6a61b159515a1a996b2119cbec1a61ad817bec2debbb1baa56b1e9511dd5fa1",
+      "predictions_sha256": "3e0b87bd3d45d7af0b001c214f0b8fec99cda5eaff81ef5ad92de3a6882f4680",
+      "recognizer_device": "mps:0",
+      "errors": {}
+    },
+    {
+      "run": "paddleocr-pretrained-routeholdout-partial",
+      "records": 49,
+      "identity_sha256": "6f30a59d900b5fa9487c1bed68de5a694798f05200eff1e8641945e2a83013fc",
+      "layout_sha256": "f6a61b159515a1a996b2119cbec1a61ad817bec2debbb1baa56b1e9511dd5fa1",
+      "predictions_sha256": "6e865f6015d81f9786c916b87d21e0e2336abe75893e7c015276bf6a91c3f4cf",
+      "recognizer_device": "cpu",
+      "errors": {}
+    },
+    {
+      "run": "paddleocr-finetuned-routeholdout-partial",
+      "records": 49,
+      "identity_sha256": "6f30a59d900b5fa9487c1bed68de5a694798f05200eff1e8641945e2a83013fc",
+      "layout_sha256": "f6a61b159515a1a996b2119cbec1a61ad817bec2debbb1baa56b1e9511dd5fa1",
+      "predictions_sha256": "610c828f65937467a0e64b9331475f7b665a717a581957176367c5740b5a6e26",
+      "recognizer_device": "cpu",
+      "errors": {}
+    },
+    {
+      "run": "paddleocr-finetunedsyn-routeholdout-partial",
+      "records": 49,
+      "identity_sha256": "6f30a59d900b5fa9487c1bed68de5a694798f05200eff1e8641945e2a83013fc",
+      "layout_sha256": "f6a61b159515a1a996b2119cbec1a61ad817bec2debbb1baa56b1e9511dd5fa1",
+      "predictions_sha256": "e49965adada0b60c2fa983707cb09d82319148a518ed49751049b52e911b0b77",
+      "recognizer_device": "cpu",
+      "errors": {}
+    }
+  ],
+  "scoring_verification": {
+    "round1_report_reproduces_exactly": true,
+    "round2_report_reproduces_exactly": true,
+    "scored_cell_integer_totals_verified": true,
+    "scorer_unit_checks_passed": 17
+  }
+}

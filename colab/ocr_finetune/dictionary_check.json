@@ -1,0 +1,21 @@
+{
+  "charset": " '(),-/0123456789>ABCDEFGHIJKLMNOPRSTUVWXYadegilmnostuv",
+  "easyocr_missing": [],
+  "paddle_missing": [],
+  "trocr_missing": [],
+  "trocr_check": "Base-vocab ASCII byte-token coverage; full tokenizer round trips run on Colab.",
+  "sources": {
+    "easyocr": "https://raw.githubusercontent.com/JaidedAI/EasyOCR/v1.7.2/easyocr/config.py",
+    "paddle": "https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/v3.3.2/ppocr/utils/dict/ppocrv5_en_dict.txt"
+  },
+  "source_sha256": {
+    "easyocr_config": "9c36d6c674fe32b05bda27192211ff6b63bf22f00b8439d40d33b35e3e2c1f8d",
+    "paddle_dictionary": "e025a66d31f327ba0c232e03f407ae8d105e1e709e7ccb3f408aa778c24e70d6",
+    "trocr_vocab": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab"
+  },
+  "extensions": {
+    "easyocr": [],
+    "paddleocr": [],
+    "trocr": []
+  }
+}

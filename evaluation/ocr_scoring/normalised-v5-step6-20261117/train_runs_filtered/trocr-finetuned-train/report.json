@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "run_name": "trocr-finetuned-train",
+  "started_at_utc": "2026-11-17T05:19:51.451119+00:00",
+  "finished_at_utc": "2026-11-17T05:48:13.549034+00:00",
+  "dataset": "/Users/tanyilin/Downloads/CVDL-P1-14/.cache/ocr_training/v4-reviewed-01-ai-01/source",
+  "split": "train",
+  "inputs": 1917,
+  "engine": "trocr",
+  "model": "microsoft/trocr-base-printed (fine-tuned)",
+  "model_provenance": {
+    "repository": "microsoft/trocr-base-printed",
+    "fine_tuned": true,
+    "initial_sha256": {
+      "config.json": "5bda1deab455661feb3d91906656e5600e2ca520d5c00a2a03836614b850c93e",
+      "generation_config.json": "41149cdcffec4d657f32dfcddd9b208037f01286c9e07945c724908c58ed0193",
+      "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+      "model.safetensors": "1cf4a6eedab26afaaf505f1c7f73d9634944924dbd1ed049d569db98039cd596",
+      "preprocessor_config.json": "2fcc0da9466ee00be0403b26027373039e032820ebac409e207b32e52e52119d",
+      "provenance.json": "b6401b3a2237b39a26a9584c5a7aea233cf8183b57bd8cf2c050ef42e6de0a5c",
+      "special_tokens_map.json": "c611b1f7d416eb001ee4f293d903ea8c88e703463f1d403f1866a0352743fd00",
+      "tokenizer_config.json": "5a1356884c6ae736a621841535264ba7c5bebd52f169258add2c48fcbb32d50a",
+      "vocab.json": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab"
+    },
+    "selection_metric": "minimum val_crop_CER",
+    "finetuned_from": "DRIVE/CVDL-OCR-finetune/trocr/20261117-031848"
+  },
+  "fine_tuned": true,
+  "finetuned_from": "DRIVE/CVDL-OCR-finetune/trocr/20261117-031848",
+  "model_sha256_before": "282d3c5ce69abf4568a547d4345c8ce44b9e733f467a86bd770125fa3eda59c8",
+  "model_sha256_after": "282d3c5ce69abf4568a547d4345c8ce44b9e733f467a86bd770125fa3eda59c8",
+  "cached_weights_unchanged": true,
+  "model_files_sha256": {
+    "config.json": "bd6071030c1e1e9fff502aee543a7d9e8cbce3960750178bee64eba082d2af5f",
+    "generation_config.json": "5a57df37f0f961d9749112028fc0ce47b10f85065a1195882ceee9898198cffd",
+    "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "model.safetensors": "282d3c5ce69abf4568a547d4345c8ce44b9e733f467a86bd770125fa3eda59c8",
+    "preprocessor_config.json": "96fd208e04b8eb30aace1a1d9188a82fdc0001281f4032788f8e357a52d1a847",
+    "provenance.json": "904eec7b06ead2eec25f2a476d47d020350d86ce5e639727ce79096559780200",
+    "special_tokens_map.json": "8293ae960b0a0852d4d3813118030a1149a3ed9fe37bc2e1e7b3c2e62eb2d4b7",
+    "tokenizer_config.json": "ce86b739c63fc036e97ab3c456d950ea4e483cae52f45a485dafeb26b3f69ec4",
+    "training_args.bin": "8dec15af02372385c1b8dd0fca396ec5958d679a007d7f90e3e96b3b2767ad57",
+    "vocab.json": "32b29acf82d3333462eb4b13416760f2aef956052e8fea1749fe5b20f866a4bf"
+  },
+  "source_workspace_unchanged": true,
+  "actual_device": "mps:0",
+  "seed": 0,
+  "warmup_runs_per_field": 3,
+  "measured_runs_per_crop": 1,
+  "warmup_policy": "First accepted-layout annotation crop per field (or first crop in automatic mode), repeated before measurements; unseen shapes can incur first-use costs",
+  "frozen_line_layout": {
+    "version": "train-auto-20261115-01",
+    "sha256": "4f8fcddc0a85f6a3392aa755d0d19860acb4d3ea24e15c8a348fd3d92d691706",
+    "reviewer_type": "algorithm",
+    "summary": {
+      "total": 1917,
+      "accepted": 521,
+      "unresolved": 1396,
+      "policy_excluded": 1395,
+      "multiline_crops": 12,
+      "line_regions": 533
+    }
+  },
+  "recognition_settings": {
+    "detector": false,
+    "decoder": "greedy",
+    "num_beams": 1,
+    "do_sample": false,
+    "batch_size": 1,
+    "use_cache": true,
+    "forced_eos_token_id": null,
+    "max_new_tokens": 64,
+    "missing_eos_policy": "explicit error; retained token history",
+    "local_files_only": true,
+    "character_restriction": null
+  },
+  "preprocessing": {
+    "external_resize": null,
+    "external_padding": null,
+    "conversion": "Pillow RGB then OpenCV RGB-to-grayscale",
+    "line_segmentation": {
+      "method": "frozen_automatic_full_width_separators_v1",
+      "transform": "Frozen horizontal partitions; original grayscale pixels; exact slices",
+      "unresolved_policy": "Explicit errors, including policy quarantine; no OCR fallback"
+    },
+    "recognizer_resize": {
+      "_processor_class": "TrOCRProcessor",
+      "image_processor_type": "ViTImageProcessor",
+      "do_resize": true,
+      "do_rescale": true,
+      "do_normalize": true,
+      "size": {
+        "height": 384,
+        "width": 384
+      },
+      "resample": 2,
+      "rescale_factor": 0.00392156862745098,
+      "image_mean": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "image_std": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "do_convert_rgb": null
+    },
+    "processor_input": "Shared grayscale region replicated to three RGB channels"
+  },
+  "confidence_method": "Per-line geometric mean of generated token probabilities excluding special tokens; crop character-weighted mean of line scores; not calibrated or comparable with EasyOCR confidence",
+  "raw_text_assembly": "Preserve each returned string; join regions/lines top-to-bottom with actual newlines; no spelling/case/reference correction",
+  "timing": {
+    "preprocessing_ms": "File read, SHA-256 check, image decode, RGB/grayscale conversion and line segmentation",
+    "recognition_ms": "Sum of synchronized wall times around line processor resize/normalization, device transfer, generation, token confidence and text decode",
+    "crop_total_ms": "Wall time for preprocessing, synchronized recognition and result assembly",
+    "excluded": "Model initialization, warmups, preflight/integrity hashing, previews and result-file writes",
+    "percentile": "Linear interpolation at (n-1)*q across successful heterogeneous crops, separately by set/field"
+  },
+  "summary": [
+    {
+      "crop_set": "annotation",
+      "field": "front_eds_num",
+      "attempted": 720,
+      "completed": 381,
+      "errors": 339,
+      "empty_outputs": 0,
+      "multiline_candidates": 7,
+      "segmentation_status_counts": {
+        "fixed_layout_unresolved": 339,
+        "fixed_layout_accepted": 381
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.5780420001428865,
+      "preprocessing_ms_p95": 1.3897499998165586,
+      "recognition_ms_median": 178.00233300022228,
+      "recognition_ms_p95": 328.81029200007106,
+      "crop_total_ms_median": 178.78874999996697,
+      "crop_total_ms_p95": 330.5346249999275
+    },
+    {
+      "crop_set": "annotation",
+      "field": "front_eds_route",
+      "attempted": 579,
+      "completed": 66,
+      "errors": 513,
+      "empty_outputs": 0,
+      "multiline_candidates": 4,
+      "segmentation_status_counts": {
+        "fixed_layout_unresolved": 513,
+        "fixed_layout_accepted": 66
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.9325209998678474,
+      "preprocessing_ms_p95": 2.093905999913659,
+      "recognition_ms_median": 336.1211875001118,
+      "recognition_ms_p95": 589.5706034997374,
+      "crop_total_ms_median": 337.31568749999497,
+      "crop_total_ms_p95": 591.5190107501758
+    },
+    {
+      "crop_set": "annotation",
+      "field": "front_eds_destination",
+      "attempted": 618,
+      "completed": 74,
+      "errors": 544,
+      "empty_outputs": 0,
+      "multiline_candidates": 1,
+      "segmentation_status_counts": {
+        "fixed_layout_unresolved": 544,
+        "fixed_layout_accepted": 74
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.9251040000890498,
+      "preprocessing_ms_p95": 2.6319232500327403,
+      "recognition_ms_median": 293.85572949991,
+      "recognition_ms_p95": 788.0817518500862,
+      "crop_total_ms_median": 294.86145850000867,
+      "crop_total_ms_p95": 790.217502400219
+    },
+    {
+      "crop_set": "annotation",
+      "field": "all",
+      "attempted": 1917,
+      "completed": 521,
+      "errors": 1396,
+      "empty_outputs": 0,
+      "multiline_candidates": 12,
+      "segmentation_status_counts": {
+        "fixed_layout_unresolved": 1396,
+        "fixed_layout_accepted": 521
+      },
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": 0.6457920003413165,
+      "preprocessing_ms_p95": 1.7904999999700522,
+      "recognition_ms_median": 188.22199999976874,
+      "recognition_ms_p95": 455.6977090005603,
+      "crop_total_ms_median": 189.22950000023775,
+      "crop_total_ms_p95": 457.33154199979253
+    },
+    {
+      "crop_set": "prediction",
+      "field": "front_eds_num",
+      "attempted": 0,
+      "completed": 0,
+      "errors": 0,
+      "empty_outputs": 0,
+      "multiline_candidates": 0,
+      "segmentation_status_counts": {},
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": null,
+      "preprocessing_ms_p95": null,
+      "recognition_ms_median": null,
+      "recognition_ms_p95": null,
+      "crop_total_ms_median": null,
+      "crop_total_ms_p95": null
+    },
+    {
+      "crop_set": "prediction",
+      "field": "front_eds_route",
+      "attempted": 0,
+      "completed": 0,
+      "errors": 0,
+      "empty_outputs": 0,
+      "multiline_candidates": 0,
+      "segmentation_status_counts": {},
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": null,
+      "preprocessing_ms_p95": null,
+      "recognition_ms_median": null,
+      "recognition_ms_p95": null,
+      "crop_total_ms_median": null,
+      "crop_total_ms_p95": null
+    },
+    {
+      "crop_set": "prediction",
+      "field": "front_eds_destination",
+      "attempted": 0,
+      "completed": 0,
+      "errors": 0,
+      "empty_outputs": 0,
+      "multiline_candidates": 0,
+      "segmentation_status_counts": {},
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": null,
+      "preprocessing_ms_p95": null,
+      "recognition_ms_median": null,
+      "recognition_ms_p95": null,
+      "crop_total_ms_median": null,
+      "crop_total_ms_p95": null
+    },
+    {
+      "crop_set": "prediction",
+      "field": "all",
+      "attempted": 0,
+      "completed": 0,
+      "errors": 0,
+      "empty_outputs": 0,
+      "multiline_candidates": 0,
+      "segmentation_status_counts": {},
+      "timing_population": "successful crops only; error counts and individual error times retained",
+      "preprocessing_ms_median": null,
+      "preprocessing_ms_p95": null,
+      "recognition_ms_median": null,
+      "recognition_ms_p95": null,
+      "crop_total_ms_median": null,
+      "crop_total_ms_p95": null
+    }
+  ],
+  "accuracy_calculated": false,
+  "reference_matching_used": false,
+  "limitations": [
+    "Frozen automatic line geometry is unreviewed; shared unchanged across engines; not equivalent to the earlier AI-reviewed validation geometry",
+    "No foreground/fragmented layouts return an explicit error, never an unreported full-crop fallback",
+    "One timed pass per crop; timings include varying image/line counts and first-use shape costs, not sustained end-to-end FPS",
+    "Only existing crops are recognized; missing detections and zero-box images are outside this crop-only run",
+    "Ground-truth resolution, related-frame group review and prediction correspondence remain outstanding",
+    "English pretrained vocabulary may not cover every visible symbol or script",
+    "No accuracy, independence, training, model selection or fine-tuning claim is made"
+  ]
+}

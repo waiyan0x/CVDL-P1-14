@@ -1,0 +1,21 @@
+review_id,crop_set,field,reason
+A002,annotation,front_eds_destination,Two visible text rows overlap in projection and the lower row leaves the crop at the right edge; reliable separate quadrilaterals cannot be fixed from this crop.
+A028,annotation,front_eds_route,A clipped upper text fragment meets the sloping lower line near the top edge; separate line boundaries remain ambiguous.
+A048,annotation,front_eds_destination,Very low-resolution blur does not support a reliable line-count decision.
+A052,annotation,front_eds_num,Refresh/overlapping glyph states cannot be separated confidently into spatial text lines.
+A055,annotation,front_eds_route,Clipped upper text fragments meet the main line near the crop edge; no reliable separator across the full width.
+A057,annotation,front_eds_route,A small upper fragment and main row merge at the edge; the layout cannot be separated confidently.
+A070,annotation,front_eds_destination,Bottom-edge strip cannot confidently be distinguished from display border/glow; do not invent an extra text line.
+A074,annotation,front_eds_destination,Blur leaves no defensible glyph-row boundary or line-count decision.
+A094,annotation,front_eds_destination,Very thin lower-edge fragment cannot be assigned a defensible separate text region.
+A120,annotation,front_eds_num,Saturation removes the internal text-row structure; line count cannot be established.
+A121,annotation,front_eds_destination,Severe bloom merges potential rows; a defensible line boundary is not visible.
+P002,prediction,front_eds_destination,Lower text row is clipped away toward the right while the upper line slopes into the same band; full-width separators would cut glyphs.
+P005,prediction,front_eds_destination,Small oblique whole-panel content is too blurred to establish reliable individual line geometry.
+P029,prediction,front_eds_route,Clipped upper fragments and sloping lower glyphs meet the top edge; reliable independent line regions cannot be placed.
+P041,prediction,front_eds_destination,A possible lower clipped text fragment is too thin to distinguish from background/glow.
+P046,prediction,front_eds_num,Display refresh states overlap spatially; no confident line separation.
+P048,prediction,front_eds_destination,Bottom-edge trace may be a clipped next line or glyph/border glow; independent adjudication required.
+P087,prediction,front_eds_route,Upper/lower clipped traces and the central row cannot all be separated confidently at native resolution.
+P089,prediction,front_eds_num,Adjacent two-line text and a tall service identifier occupy overlapping vertical ranges; full-width line partitions would cut the service glyphs.
+P105,prediction,front_eds_destination,A possible lower-edge text fragment is too clipped to distinguish from neighboring glare.

@@ -1,0 +1,10 @@
+{
+  "repository": "PaddlePaddle/en_PP-OCRv5_mobile_rec",
+  "revision": "267c36e24c331595590fe7bd72bde2436fd286f2",
+  "files_sha256": {
+    "inference.json": "fd1b6ec722ea841a72d3ba43e527df1d1066d5d7808e0503ee3eec7265188753",
+    "inference.pdiparams": "3ec8a97ed6cefe8568d3e2ee90bb193299b566a7661aa4fd52d224b96b59f66b",
+    "inference.yml": "27e91d0582f40168aa218303c76e184bc78fa7a5d105aad0cfbad8458b441067"
+  },
+  "role": "public_pretrained_baseline"
+}

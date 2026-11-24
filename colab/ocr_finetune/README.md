@@ -1,0 +1,263 @@
+# Colab OCR fine-tuning
+
+Latest training entry point: **ocr_finetune_5k_split.ipynb**. The 5,000 pairs
+are now divided into 4,000 train / 500 validation / 500 test, with exact-text
+and known source groups kept together. Upload `ocr_dataset-20261120-5k-train-valid.zip`,
+`ocr_finetune_code-20261120-earlystop.zip`, and `ocr_5k_split_review.csv` to
+My Drive/DRIVE. Keep `ocr_dataset-20261120-5k-test.zip` separate until testing.
+T4, batch 32, max 20 epochs, patience 3; up to 2,500 steps per model.
+[Split files and policy](../../evaluation/ocr_dataset/5k-split-20261120/README.md).
+Earlier all-training 5k/full-10k notebooks and bundles are preserved as different experiments.
+
+
+## Proposed synthetic v2 run — 19 November 2026
+
+Use the separate `ocr_finetune_synthetic_v2.ipynb` for the new 10,000-crop
+reference archive. It pins uniquely named candidate data/code ZIPs and uses
+validation layout v4-lines-v3. Preparation checks passed; Colab training has
+not been run. The notebook requires the supplied 100-crop human spot-check.
+Full audit, fixed benchmark comparison, step 2–8 status and upload instructions:
+[`synthetic-v2-audit-20261119`](../../evaluation/ocr_training/synthetic-v2-audit-20261119/README.md).
+The notebook below remains the historical old-synthetic workflow.
+
+
+GPU training completed for all three models in Colab run `20261117-031848`;
+results and checkpoint-selection limits are recorded below. The training code,
+results and fine-tuned runner support are committed in `bea9837`.
+**TEST was not used for training or checkpoint selection.**
+
+## Build and upload
+
+From the repository root:
+
+```sh
+.venv/bin/python scripts/export_ocr_finetune_bundle.py --output .runtime/ocr_finetune_bundle-20261117.zip
+# Optional: add synthetic training crops (train split only) -> the bundle the notebook now expects
+.venv/bin/python scripts/generate_synthetic_eds_crops.py          # .runtime/synthetic-eds-20261117/
+.venv/bin/python scripts/add_synthetic_to_bundle.py               # .runtime/ocr_finetune_bundle-20261118-syn.zip
+python3 -m zipfile -c .runtime/ocr_finetune_code.zip colab/ocr_finetune
+```
+
+The notebook's `EXPECTED_BUNDLE_SHA256` pins `ocr_finetune_bundle-20261118-syn.zip`
+(366 real + 2,169 synthetic train line pairs; validation unchanged). Synthetic
+lines are `lines/train/SYN*`; their labels come from the synthetic `labels.csv`,
+paired per line with automatic segmentation (12 crops skipped: 3 region/text
+mismatches and 9 whose joined label needs more than the 40 CTC steps PaddleOCR
+emits at 48x320, see `skipped.csv`; 258 two-line crops read as one region and
+labelled with the lines joined, as for real crops). The 17 November `-syn`
+bundle (SHA `7a8b86ae…`) failed the PaddleOCR dry run on those 9 labels. To
+train on real data only, revert that hash to
+`7db8ff380c56737e979b2d269d1d3eeff1c31d950d2bd886be7558694d80ab46` and upload
+the original bundle.
+
+The exporter refuses an existing output. Use a new name for another export;
+do not overwrite a previously reviewed bundle. Upload both ZIPs to `My Drive/DRIVE`. Rename the data ZIP to
+`ocr_finetune_bundle.zip`; keep `ocr_finetune_code.zip` unchanged. The notebook
+downloads and hash-verifies initial weights directly into
+`DRIVE/CVDL-OCR-inputs/weights/`; no manual weight upload is normally needed.
+If a download cannot match the lock, use the original packaged model files,
+including all HF processor/config files. Weights/checkpoints never belong in Git.
+
+Open `ocr_finetune.ipynb` in Colab, choose a T4 GPU, and configure `INPUT` and
+`OUTPUT`. The default output is
+`/content/drive/MyDrive/DRIVE/CVDL-OCR-finetune/<model>/<run_id>/`.
+Use your actual shared/team Drive path when needed. The notebook copies only
+the small data/code ZIPs to temporary Colab storage. Initial weights stay on
+Drive; Paddle's training checkpoint is downloaded directly to Drive and its
+official URL and SHA-256 are recorded. Existing inference `.pdiparams` cannot
+replace the training `.pdparams`.
+
+## Verified input policy
+
+The current export contains:
+
+| Item | Count |
+| --- | ---: |
+| Original training crops / groups | 387 / 129 |
+| Training line pairs | 366 |
+| Skipped training crops | 24 |
+| Joined two-label-line / one-region training crops | 9 |
+| Validation line pairs | 124 |
+| Validation inference region images | 128 |
+| Validation crops in crop CER | 130 |
+| Test files | 0 |
+
+All 129 augmented groups remain in their original training split. No new
+split is made. Eight training crops with two regions/one text line and sixteen
+with no region are skipped and listed individually in `skipped.csv`. Nine
+one-region/two-text-line labels are joined with one space, logged in `joined.csv`.
+Other text is preserved exactly. Literal charset is derived from exported
+training labels, not from this README or examples. See `charset.txt` and
+`dictionary_check.json`.
+
+**Validation assumption:** retain every eligible crop in crop CER. Four
+zero-region crops remain empty hypotheses. Two crops with two regions but one
+reference line have no invented line labels: their native inference regions
+are retained for crop-level recognition, while their line-label pairs are
+skipped. Thus six validation pairing issues are logged, but only four crops
+have no inference image. Line CER has 124 labelled pairs; crop CER has 130 crops.
+
+Line extraction imports the repository's `extract_region`: PIL RGB, OpenCV
+RGB-to-gray, frozen quadrilateral extraction, lossless grayscale PNG. TrOCR and
+Paddle replicate grayscale to RGB at load/decode time. Five seeded validation
+crops with regions passed readback equality against evaluation's grayscale
+pixel-array bytes. PNG compression bytes themselves are not the model input.
+The manifest records sampled IDs, pixel hashes, input file hashes, crop hashes,
+source commit and extraction source hash. Every source hash is checked again
+before the ZIP is completed to detect concurrent input edits.
+
+## Training and exports
+
+All three use seed 0, batch 8, initial learning rate 5e-5, at most 20 epochs,
+**no augmentation**, consistently across frameworks. Run `20261117-031848` used
+no synthetic text; the `-syn` bundle adds synthetic training lines (see above).
+Deterministic operations are requested where supported. Native optimisers and
+schedules differ and are recorded: HF AdamW/linear, EasyOCR Adam/constant,
+Paddle Adam/cosine. Do not call these identical optimisation algorithms.
+
+Each run writes `config.json`, `epoch_log.csv` and `best/`. CSV columns are
+`epoch,train_loss,val_line_CER,val_crop_CER,val_crop_exact`. CER/exact values are
+fractions, not percentages. Normalisation is copied from the repository:
+NFC, casefold, NFC, collapsed whitespace. Punctuation/abbreviations stay intact.
+Failed line predictions and absent regions contribute empty text. Best model
+selection always uses lowest **crop CER**, not line accuracy or exact match.
+
+- **TrOCR:** uses packaged `trocr-base-printed` only, verifies its hash lock,
+  checks tokenizer round trips, uses `Seq2SeqTrainer`, per-epoch validation,
+  `metric_for_best_model=cer`, `greater_is_better=False`, best-model reload and
+  early stopping patience 3. `best/` is HF model + processor + provenance.
+- **EasyOCR:** imports the official pinned `trainer/model.py` Model. An epoch
+  CTC loop selects by full crop CER; it does not use the upstream trainer's
+  default accuracy selector. The original English g2 alphabet/checkpoint is
+  retained with strict state loading. `best/` contains
+  `eds_english_g2.pth/.yaml/.py` and the exact `easyocr.Reader` load call.
+- **Paddle:** clones tag `v3.3.2` and verifies its commit, derives the English
+  v5 mobile config and writes an explicit dictionary covering this charset.
+  The current dictionary needs **zero added characters**. Future missing
+  characters fail with an exact list rather than silently dropping labels or
+  resizing a pretrained head incorrectly. This is the fail-with-list option
+  in the task constraints; automatic head/dictionary expansion is not claimed.
+  Training uses `tools/train.py`; custom `cer_score=1/(1+crop_CER)` makes the
+  upstream maximum selector equivalent to minimum CER. The historical filename
+  `best_accuracy` therefore holds the CER-selected checkpoint. It is exported
+  with `tools/export_model.py`; the script requires `inference.json`,
+  `inference.pdiparams`, `inference.yml` and writes provenance under `best/`.
+
+Paddle's separate `eval_io_not_ground_truth.tsv` contains `?` placeholders
+only to satisfy its upstream label-encoding transform. Its metric ignores
+those labels and reads actual line/crop references from the bundle. The
+placeholders never enter `train.tsv`, `valid.tsv` or scoring truth.
+
+Pinned direct package versions are in the notebook. Actual resolved versions
+are saved with each runtime and each run.
+
+## Completed GPU runs — 17 November 2026
+
+Full training completed on a Colab T4 (compute capability 7.5) for all three
+models, run ID `20261117-031848`, outputs under
+`DRIVE/CVDL-OCR-finetune/<model>/20261117-031848/`. Each folder was checked for
+`config.json`, `epoch_log.csv`, `selection.json` and a populated `best/`.
+
+| Model | Lowest val crop CER | Exact | Selected epoch | Epochs run |
+| --- | ---: | ---: | ---: | ---: |
+| PaddleOCR | 0.1522 | 0.777 | 19 (tied with epoch 4; upstream keeps the later) | 20 |
+| TrOCR | 0.2019 | 0.685 | 2 | 5 (early stop) |
+| EasyOCR | 0.2896 | 0.600 | 10 | 13 (early stop) |
+
+- TrOCR untouched-model baseline (epoch 0, same validation pass): crop CER
+  0.2125, exact 0.592. Reloading `best/` reproduced 0.2019 / 0.685 exactly.
+  The `missing keys: decoder.output_projection.weight` warning is harmless:
+  that weight is tied to `embed_tokens` and is not stored separately.
+- The TrOCR run in this folder used the current `train_trocr.py` (10% warmup,
+  epoch-0 baseline, `validation_predictions.jsonl`). An earlier TrOCR run with
+  the previous script (no warmup; best crop CER 0.656 at epoch 3) wrote to the
+  same folder and was overwritten. Only its console log survives.
+- Validation line images `lines/valid/A095_00.png` (144×4) and
+  `lines/valid/P034_00.png` (87×3) are degenerate layout regions. In training
+  validation, P034_00 triggers an ambiguous-channel warning and is read
+  channels-first.
+- Measured training seconds on the T4: Paddle 313, TrOCR 450 (from
+  `selection.json`). EasyOCR time was not recorded here.
+- These validation scores chose the checkpoints, so they are optimistic. They
+  are not test results; see `evaluation/OCR_RESULTS.md` Table 3 for the
+  comparison with pretrained models.
+
+## CPU smoke checks
+
+Each trainer supports `--dry-run`: eight pairs, two CPU optimiser steps, no
+weight/checkpoint saving. On Colab, after the notebook installs both isolated
+environments and copies the inputs, run its dry-run cell, or these exact commands
+(replace `$RUN_ID` and the configurable Drive input path):
+
+```sh
+/content/ocr-torch-py312/bin/python /content/ocr-finetune/code/colab/ocr_finetune/train_trocr.py --data /content/ocr-finetune/data --pretrained /content/drive/MyDrive/DRIVE/CVDL-OCR-inputs/weights/trocr --output /content/drive/MyDrive/DRIVE/CVDL-OCR-finetune/trocr/$RUN_ID-dry --dry-run
+/content/ocr-torch-py312/bin/python /content/ocr-finetune/code/colab/ocr_finetune/train_easyocr.py --data /content/ocr-finetune/data --repo /content/EasyOCR --pretrained /content/drive/MyDrive/DRIVE/CVDL-OCR-inputs/weights/easyocr/english_g2.pth --output /content/drive/MyDrive/DRIVE/CVDL-OCR-finetune/easyocr/$RUN_ID-dry --dry-run
+/content/ocr-paddle-py312/bin/python /content/ocr-finetune/code/colab/ocr_finetune/train_paddle.py --data /content/ocr-finetune/data --repo /content/PaddleOCR --pretrained /content/drive/MyDrive/DRIVE/CVDL-OCR-inputs/weights/paddle-training/en_PP-OCRv5_mobile_rec_pretrained.pdparams --output /content/drive/MyDrive/DRIVE/CVDL-OCR-finetune/paddleocr/$RUN_ID-dry --dry-run
+```
+
+Model-loading dry runs were not run on the Mac. The checked local environment
+lacks Torch/Transformers/Paddle, and the official Paddle training checkpoint
+must be downloaded in Colab. Installing full frameworks or producing local
+checkpoints is outside this task. Static compilation and data/scoring tests
+are not substitutes for these pending smoke checks.
+
+## T4 runtime
+
+Measured training times for run `20261117-031848` are listed above. Setup and
+downloads were not timed. The original planning allowance was: reserve
+roughly 1–3 hours for setup/downloads and the three runs, with substantial
+variation from early stopping, Drive speed and GPU memory. This is not a
+benchmark, deadline or achieved result. Use the notebook's timers and first
+epoch to replace this allowance with measured timing. A successful two-step
+CPU smoke test does not establish GPU speed or model accuracy.
+
+## Step 6 runs (runner changes applied)
+
+`scripts/run_easyocr_crops.py` and `scripts/run_paddle_crops.py` accept
+`--finetuned-from <Drive run folder>`, which labels the report `fine_tuned: true`
+and checks that `best/provenance.json` agrees (TrOCR, Paddle). EasyOCR also takes
+`--recog-network eds_english_g2`, loading `.pth/.yaml/.py` from `--cache best/`.
+Without these flags the runners behave as before, so pretrained runs reproduce.
+
+1. Download each `DRIVE/CVDL-OCR-finetune/<model>/20261117-031848/best/` folder
+   to `.cache/finetuned/<model>/` (`easyocr`, `trocr`, `paddleocr`). Not Git.
+   Completed 17 November 2026 from the three user-supplied Drive ZIPs: 4
+   EasyOCR files, 10 TrOCR files and 4 PaddleOCR files, directly inside each
+   model directory. ZIP CRC checks passed; Paddle's exported file hashes match
+   its provenance. Local SHA-256 inventory and source archive/folder mappings:
+   `.cache/finetuned/import_manifest.json`. Extraction does not verify model reload.
+2. Run `scripts/run_finetuned_ocr.sh` (all three) or name models, e.g.
+   `scripts/run_finetuned_ocr.sh paddleocr`. Each model runs train, valid and
+   test with the same crops, frozen layouts, seed and warmup as its pretrained
+   runs; full outputs go to `.cache/ocr_runs/<model>-finetuned-<split>/` and
+   `predictions.jsonl` + `report.json` are copied to `evaluation/ocr_runs/`.
+3. `scripts/run_finetuned_ocr.sh pretrained-test` produces the missing
+   pretrained TrOCR and Paddle test runs.
+4. Score train/valid now. Score test only after the 118 test labels are
+   human-confirmed. Test predictions do not read labels.
+
+The local Paddle environment (paddle 3.2.2, paddleocr 3.3.2) has not yet loaded
+the Colab-exported fine-tuned `inference.json`; the first Paddle run is that check.
+Do not select the app model from validation; step 7 uses TEST annotation crops.
+
+## Official implementation references
+
+- [HF Trainer](https://huggingface.co/docs/transformers/v4.57.1/en/main_classes/trainer)
+- [EasyOCR v1.7.2 trainer](https://github.com/JaidedAI/EasyOCR/tree/v1.7.2/trainer)
+- [English Paddle v5 config](https://github.com/PaddlePaddle/PaddleOCR/blob/v3.3.2/configs/rec/PP-OCRv5/multi_language/en_PP-OCRv5_mobile_rec.yaml)
+- [Paddle training](https://github.com/PaddlePaddle/PaddleOCR/blob/v3.3.2/tools/train.py)
+- [Paddle recognition model list](https://github.com/PaddlePaddle/PaddleOCR/blob/v3.3.2/docs/version3.x/module_usage/text_recognition.en.md)
+
+## Colab run checklist and restart corrections
+
+- Use only the GPU allocated by Google Colab. `nvidia-smi` is a read-only diagnostic on that remote machine, not another GPU and not a Mac requirement. The first code cell checks it before any downloads. Select Runtime > Change runtime type > T4 GPU and reconnect if missing.
+- After a runtime restart, run cells from the top. Drive ZIPs, verified initial weights and saved model outputs persist; temporary environments and variables must be recreated. Valid existing weights are reused.
+- Keep the bundle/hash/test-use checks. Run all three CPU dry runs in Colab before full GPU training. Do not bypass failures.
+- Run one model at a time on that same Colab GPU. Record the exact model/run_id folder. Keep hyperparameters unchanged and report errors, including CUDA out of memory.
+- TrOCR and EasyOCR use patience-3 early stopping. Paddle runs its configured epochs and has no patience-3 early stopping. All three select their best checkpoint by lowest validation crop CER.
+- Preserve disconnected runs as incomplete. EasyOCR/Paddle checkpoints are on Drive; TrOCR keeps per-epoch checkpoints (model only, `save_only_model`) on Colab's local disk and saves only `best/` to Drive, so free Drive space is not exhausted. Automatic resume is not implemented. Do not assume everything is lost or overwrite a completed run. Keeping a tab open is not a guarantee against disconnection.
+- Do not blanket-ignore newly initialised/missing-weight warnings; inspect their parameter names first.
+- Check each completed run for config.json, epoch_log.csv, selection.json and a populated best/, then reload the model. Record its lowest val_crop_CER and Drive folder. Dry-run folders are separate and are not trained models.
+- When all three are complete and verified, disconnect/delete the Colab runtime to release it. Files on Drive remain. No TEST data is used in this notebook.
+
+Update — 20 November 2026: batch size 32, maximum 20 epochs, and validation crop-CER early stopping (patience 3) for all three models. The updated notebook requires `ocr_finetune_code-20261120-earlystop.zip`; the data ZIP is unchanged. Seven local preparation tests pass. Paddle early-stop/export integration still needs Colab verification.

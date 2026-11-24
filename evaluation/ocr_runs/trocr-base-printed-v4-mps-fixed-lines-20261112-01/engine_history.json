@@ -1,0 +1,8303 @@
+[
+  {
+    "review_id": "A001",
+    "lines": [
+      {
+        "token_ids": [
+          36824,
+          2
+        ],
+        "raw_text": "980",
+        "token_log_probabilities": [
+          -0.0029744927305728197
+        ],
+        "token_geometric_mean_confidence": 0.9970299266899986,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A002",
+    "lines": []
+  },
+  {
+    "review_id": "A003",
+    "lines": [
+      {
+        "token_ids": [
+          15057,
+          2
+        ],
+        "raw_text": "***",
+        "token_log_probabilities": [
+          -0.4620027244091034
+        ],
+        "token_geometric_mean_confidence": 0.6300206235056521,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          8727,
+          3764,
+          3411,
+          30198,
+          2
+        ],
+        "raw_text": "ROCHOR RD",
+        "token_log_probabilities": [
+          -0.06148894876241684,
+          -0.0025018127635121346,
+          -1.4185804502631072e-05,
+          -0.10387878119945526
+        ],
+        "token_geometric_mean_confidence": 0.9588976532773412,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A004",
+    "lines": [
+      {
+        "token_ids": [
+          725,
+          5061,
+          534,
+          9298,
+          83,
+          9162,
+          155,
+          2
+        ],
+        "raw_text": "HOUGANG AUE 3",
+        "token_log_probabilities": [
+          -0.49188780784606934,
+          -0.1699960082769394,
+          -0.09499338269233704,
+          -0.00025233422638848424,
+          -0.02290075272321701,
+          -0.4307016432285309,
+          -0.0002723561483435333
+        ],
+        "token_geometric_mean_confidence": 0.8411370999313559,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A005",
+    "lines": [
+      {
+        "token_ids": [
+          15698,
+          44552,
+          8228,
+          229,
+          2688,
+          5885,
+          510,
+          3293,
+          2
+        ],
+        "raw_text": "> ANG NO KID DEPOT",
+        "token_log_probabilities": [
+          -0.529009997844696,
+          -0.0151024479418993,
+          -0.001997025217860937,
+          -0.0008693729760125279,
+          -0.5378406047821045,
+          -0.0035672858357429504,
+          -0.0010604002745822072,
+          -0.001527096494100988
+        ],
+        "token_geometric_mean_confidence": 0.8725181883112092,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A006",
+    "lines": [
+      {
+        "token_ids": [
+          1898,
+          2
+        ],
+        "raw_text": "45",
+        "token_log_probabilities": [
+          -0.00019786784832831472
+        ],
+        "token_geometric_mean_confidence": 0.9998021517262233,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A007",
+    "lines": [
+      {
+        "token_ids": [
+          10213,
+          2
+        ],
+        "raw_text": "120",
+        "token_log_probabilities": [
+          -0.0025620989035815
+        ],
+        "token_geometric_mean_confidence": 0.9974411804705229,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A008",
+    "lines": [
+      {
+        "token_ids": [
+          2444,
+          32956,
+          9292,
+          12,
+          44299,
+          35557,
+          1862,
+          2
+        ],
+        "raw_text": "INVOICE-BUT RUNING",
+        "token_log_probabilities": [
+          -1.8292757272720337,
+          -1.5815536975860596,
+          -0.31266310811042786,
+          -0.22613589465618134,
+          -0.645033597946167,
+          -1.1117467880249023,
+          -0.47585737705230713
+        ],
+        "token_geometric_mean_confidence": 0.4134656313663067,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A009",
+    "lines": [
+      {
+        "token_ids": [
+          565,
+          3721,
+          26624,
+          12413,
+          1889,
+          2191,
+          100,
+          163,
+          2685,
+          2
+        ],
+        "raw_text": "TELAX BLANONI BTS",
+        "token_log_probabilities": [
+          -0.002537604421377182,
+          -0.003830359550192952,
+          -0.34669622778892517,
+          -0.9012108445167542,
+          -0.8607709407806396,
+          -0.39208897948265076,
+          -0.8220972418785095,
+          -0.2528085708618164,
+          -0.28405696153640747
+        ],
+        "token_geometric_mean_confidence": 0.6507912071669824,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A010",
+    "lines": [
+      {
+        "token_ids": [
+          3764,
+          9298,
+          100,
+          30198,
+          2
+        ],
+        "raw_text": "CHANGI RD",
+        "token_log_probabilities": [
+          -2.9205850296420977e-05,
+          -0.20721739530563354,
+          -0.6218482255935669,
+          -0.6672934293746948
+        ],
+        "token_geometric_mean_confidence": 0.6879101372574064,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A011",
+    "lines": [
+      {
+        "token_ids": [
+          15698,
+          3226,
+          9963,
+          2191,
+          226,
+          2547,
+          2
+        ],
+        "raw_text": ">* BOON LAY",
+        "token_log_probabilities": [
+          -0.013268507085740566,
+          -0.572964608669281,
+          -0.07647661864757538,
+          -0.029675083234906197,
+          -0.011373446322977543,
+          -0.021242601796984673
+        ],
+        "token_geometric_mean_confidence": 0.8861815163564655,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A012",
+    "lines": [
+      {
+        "token_ids": [
+          541,
+          2
+        ],
+        "raw_text": "30",
+        "token_log_probabilities": [
+          -0.08159288018941879
+        ],
+        "token_geometric_mean_confidence": 0.9216471031208489,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A013",
+    "lines": [
+      {
+        "token_ids": [
+          26738,
+          2
+        ],
+        "raw_text": "142",
+        "token_log_probabilities": [
+          -0.07950934767723083
+        ],
+        "token_geometric_mean_confidence": 0.9235693866997288,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A014",
+    "lines": [
+      {
+        "token_ids": [
+          565,
+          25011,
+          487,
+          3764,
+          19815,
+          12,
+          104,
+          3293,
+          4154,
+          673,
+          221,
+          248,
+          9162,
+          2
+        ],
+        "raw_text": "T PKNCH NT-SOTUNO P RUE",
+        "token_log_probabilities": [
+          -0.0013368725776672363,
+          -0.6598400473594666,
+          -1.0165709257125854,
+          -0.5431548953056335,
+          -0.20666231215000153,
+          -0.034889400005340576,
+          -0.7556862831115723,
+          -0.06791680306196213,
+          -1.2156237363815308,
+          -0.6939760446548462,
+          -0.15175002813339233,
+          -0.02500748448073864,
+          -0.13905231654644012
+        ],
+        "token_geometric_mean_confidence": 0.6544507063128321,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A015",
+    "lines": [
+      {
+        "token_ids": [
+          574,
+          3411,
+          231,
+          22331,
+          32800,
+          2191,
+          4,
+          2
+        ],
+        "raw_text": "LOR 6 TOR PAYON.",
+        "token_log_probabilities": [
+          -0.00284445658326149,
+          -0.0002859421947505325,
+          -0.0055740405805408955,
+          -0.6241304874420166,
+          -0.12869006395339966,
+          -0.17065554857254028,
+          -1.4263806343078613
+        ],
+        "token_geometric_mean_confidence": 0.7139535958800849,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A016",
+    "lines": [
+      {
+        "token_ids": [
+          15057,
+          2
+        ],
+        "raw_text": "***",
+        "token_log_probabilities": [
+          -1.5456045866012573
+        ],
+        "token_geometric_mean_confidence": 0.21318294470123564,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A017",
+    "lines": [
+      {
+        "token_ids": [
+          35,
+          2
+        ],
+        "raw_text": ":",
+        "token_log_probabilities": [
+          -0.16084200143814087
+        ],
+        "token_geometric_mean_confidence": 0.8514265846563019,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A018",
+    "lines": [
+      {
+        "token_ids": [
+          16504,
+          2
+        ],
+        "raw_text": "145",
+        "token_log_probabilities": [
+          -0.010237445123493671
+        ],
+        "token_geometric_mean_confidence": 0.9898147791515169,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A019",
+    "lines": [
+      {
+        "token_ids": [
+          14740,
+          7111,
+          14452,
+          787,
+          2
+        ],
+        "raw_text": "GOODSON @",
+        "token_log_probabilities": [
+          -1.883927583694458,
+          -0.19634787738323212,
+          -0.030888982117176056,
+          -1.0628879070281982
+        ],
+        "token_geometric_mean_confidence": 0.45225319613031834,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A020",
+    "lines": [
+      {
+        "token_ids": [
+          4,
+          255,
+          2191,
+          32800,
+          2191,
+          27329,
+          2
+        ],
+        "raw_text": ". TON PAYON ENT",
+        "token_log_probabilities": [
+          -0.10814906656742096,
+          -0.880617082118988,
+          -1.0942610502243042,
+          -1.4921760559082031,
+          -0.9134868383407593,
+          -0.4691934585571289
+        ],
+        "token_geometric_mean_confidence": 0.4376595625458265,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A021",
+    "lines": [
+      {
+        "token_ids": [
+          406,
+          2
+        ],
+        "raw_text": "7",
+        "token_log_probabilities": [
+          -0.0035596834495663643
+        ],
+        "token_geometric_mean_confidence": 0.9964466447125859,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A022",
+    "lines": [
+      {
+        "token_ids": [
+          347,
+          3196,
+          448,
+          5382,
+          100,
+          19815,
+          2
+        ],
+        "raw_text": "COSMENTI NT",
+        "token_log_probabilities": [
+          -1.1528010368347168,
+          -1.8118934631347656,
+          -0.6420927047729492,
+          -0.5028755068778992,
+          -0.13210932910442352,
+          -0.3625508248806
+        ],
+        "token_geometric_mean_confidence": 0.4642244365369975,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A023",
+    "lines": [
+      {
+        "token_ids": [
+          3411,
+          3764,
+          11250,
+          163,
+          5061,
+          3850,
+          846,
+          11250,
+          2
+        ],
+        "raw_text": "ORCHARD BOULEVARD",
+        "token_log_probabilities": [
+          -0.5461342930793762,
+          -0.000936189026106149,
+          -0.12330173701047897,
+          -0.04149109870195389,
+          -0.006514029111713171,
+          -0.011896023526787758,
+          -0.00529992301017046,
+          -0.0013500871136784554
+        ],
+        "token_geometric_mean_confidence": 0.9119998780977767,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A024",
+    "lines": [
+      {
+        "token_ids": [
+          15057,
+          2
+        ],
+        "raw_text": "***",
+        "token_log_probabilities": [
+          -0.7227904200553894
+        ],
+        "token_geometric_mean_confidence": 0.4853959059761286,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A025",
+    "lines": [
+      {
+        "token_ids": [
+          565,
+          47778,
+          27614,
+          2
+        ],
+        "raw_text": "TOTALBOOK",
+        "token_log_probabilities": [
+          -1.9478329420089722,
+          -0.13680687546730042,
+          -1.7765870094299316
+        ],
+        "token_geometric_mean_confidence": 0.2760769607137559,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A026",
+    "lines": [
+      {
+        "token_ids": [
+          4280,
+          2
+        ],
+        "raw_text": "66",
+        "token_log_probabilities": [
+          -0.0034014484845101833
+        ],
+        "token_geometric_mean_confidence": 0.9966043298879175,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A027",
+    "lines": [
+      {
+        "token_ids": [
+          387,
+          1691,
+          9335,
+          2
+        ],
+        "raw_text": "BEDOK",
+        "token_log_probabilities": [
+          -0.6585532426834106,
+          -0.0028117666952311993,
+          -0.042273957282304764
+        ],
+        "token_geometric_mean_confidence": 0.7909295954278239,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A028",
+    "lines": []
+  },
+  {
+    "review_id": "A029",
+    "lines": [
+      {
+        "token_ids": [
+          500,
+          2
+        ],
+        "raw_text": "R",
+        "token_log_probabilities": [
+          -0.11894213408231735
+        ],
+        "token_geometric_mean_confidence": 0.8878591760614921,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A030",
+    "lines": [
+      {
+        "token_ids": [
+          2068,
+          5330,
+          2
+        ],
+        "raw_text": "ITEM",
+        "token_log_probabilities": [
+          -0.8613425493240356,
+          -0.6501874923706055
+        ],
+        "token_geometric_mean_confidence": 0.4696511843152175,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A031",
+    "lines": [
+      {
+        "token_ids": [
+          565,
+          47778,
+          35,
+          2
+        ],
+        "raw_text": "TOTAL:",
+        "token_log_probabilities": [
+          -2.232956886291504,
+          -0.26749035716056824,
+          -0.8669936656951904
+        ],
+        "token_geometric_mean_confidence": 0.3254715246451921,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A032",
+    "lines": [
+      {
+        "token_ids": [
+          466,
+          3506,
+          2
+        ],
+        "raw_text": "965",
+        "token_log_probabilities": [
+          -0.000440262199845165,
+          -0.0004152389301452786
+        ],
+        "token_geometric_mean_confidence": 0.9995723409072348,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A033",
+    "lines": [
+      {
+        "token_ids": [
+          104,
+          25049,
+          530,
+          9298,
+          2
+        ],
+        "raw_text": "SENGKANG",
+        "token_log_probabilities": [
+          -0.0038134963251650333,
+          -0.02046867273747921,
+          -0.0036042272113263607,
+          -0.002612869720906019
+        ],
+        "token_geometric_mean_confidence": 0.9924041786735096,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A034",
+    "lines": [
+      {
+        "token_ids": [
+          16504,
+          2
+        ],
+        "raw_text": "145",
+        "token_log_probabilities": [
+          -0.0019425348145887256
+        ],
+        "token_geometric_mean_confidence": 0.9980593506850837,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A035",
+    "lines": [
+      {
+        "token_ids": [
+          3226,
+          255,
+          3765,
+          32800,
+          2191,
+          30497,
+          2
+        ],
+        "raw_text": "* TOM PAYON INT",
+        "token_log_probabilities": [
+          -0.9692354202270508,
+          -0.6871671080589294,
+          -1.1532642841339111,
+          -0.02017313987016678,
+          -0.071523517370224,
+          -0.24692702293395996
+        ],
+        "token_geometric_mean_confidence": 0.5917239330925153,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A036",
+    "lines": [
+      {
+        "token_ids": [
+          2191,
+          17945,
+          7536,
+          8228,
+          2
+        ],
+        "raw_text": "ONLEYIES NO",
+        "token_log_probabilities": [
+          -0.2415519803762436,
+          -0.9758209586143494,
+          -0.12761031091213226,
+          -0.20938122272491455
+        ],
+        "token_geometric_mean_confidence": 0.6780114399124276,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A037",
+    "lines": [
+      {
+        "token_ids": [
+          3414,
+          2
+        ],
+        "raw_text": "49",
+        "token_log_probabilities": [
+          -0.0001787979417713359
+        ],
+        "token_geometric_mean_confidence": 0.999821218041628,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A038",
+    "lines": [
+      {
+        "token_ids": [
+          863,
+          2492,
+          9672,
+          381,
+          10388,
+          2
+        ],
+        "raw_text": "JURONG EAST",
+        "token_log_probabilities": [
+          -0.0029634390957653522,
+          -0.013135449029505253,
+          -0.009993873536586761,
+          -0.19164329767227173,
+          -0.027413716539740562
+        ],
+        "token_geometric_mean_confidence": 0.952152607373546,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A039",
+    "lines": [
+      {
+        "token_ids": [
+          996,
+          2
+        ],
+        "raw_text": "15",
+        "token_log_probabilities": [
+          -0.012655424885451794
+        ],
+        "token_geometric_mean_confidence": 0.9874243182551536,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A040",
+    "lines": [
+      {
+        "token_ids": [
+          15698,
+          530,
+          5382,
+          248,
+          2688,
+          8800,
+          28107,
+          2
+        ],
+        "raw_text": ">KENT RIDGE TER",
+        "token_log_probabilities": [
+          -0.0018780466634780169,
+          -0.20664340257644653,
+          -6.031808152329177e-05,
+          -0.067477747797966,
+          -0.11168565601110458,
+          -0.00032455421751365066,
+          -0.001334610627964139
+        ],
+        "token_geometric_mean_confidence": 0.9458898154637344,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A041",
+    "lines": [
+      {
+        "token_ids": [
+          387,
+          10494,
+          2068,
+          18685,
+          15334,
+          34158,
+          2
+        ],
+        "raw_text": "BUKIT TIMAHRD",
+        "token_log_probabilities": [
+          -0.006080699153244495,
+          -0.003301885211840272,
+          -0.012841389514505863,
+          -0.7919315099716187,
+          -0.01404708530753851,
+          -0.400848388671875
+        ],
+        "token_geometric_mean_confidence": 0.814776182378823,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A042",
+    "lines": [
+      {
+        "token_ids": [
+          44789,
+          2
+        ],
+        "raw_text": "FREE",
+        "token_log_probabilities": [
+          -0.746452271938324
+        ],
+        "token_geometric_mean_confidence": 0.4740453570252679,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A043",
+    "lines": [
+      {
+        "token_ids": [
+          565,
+          47778,
+          2
+        ],
+        "raw_text": "TOTAL",
+        "token_log_probabilities": [
+          -0.5847163796424866,
+          -0.18021643161773682
+        ],
+        "token_geometric_mean_confidence": 0.6821768078915239,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A044",
+    "lines": [
+      {
+        "token_ids": [
+          246,
+          4,
+          844,
+          2
+        ],
+        "raw_text": "3.20",
+        "token_log_probabilities": [
+          -0.6108556985855103,
+          -1.1312936544418335,
+          -0.45672863721847534
+        ],
+        "token_geometric_mean_confidence": 0.48048497043043303,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A045",
+    "lines": [
+      {
+        "token_ids": [
+          510,
+          4154,
+          14740,
+          3384,
+          30497,
+          2
+        ],
+        "raw_text": "PUNGOOL INT",
+        "token_log_probabilities": [
+          -0.03150242567062378,
+          -0.2061966359615326,
+          -0.9734607338905334,
+          -0.10016614198684692,
+          -0.6827753186225891
+        ],
+        "token_geometric_mean_confidence": 0.6711113219494717,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A046",
+    "lines": [
+      {
+        "token_ids": [
+          104,
+          5725,
+          9298,
+          25838,
+          2
+        ],
+        "raw_text": "SUMANG LINK",
+        "token_log_probabilities": [
+          -0.00678153894841671,
+          -0.0012248402927070856,
+          -0.020546337589621544,
+          -0.0018250966677442193
+        ],
+        "token_geometric_mean_confidence": 0.9924343116222037,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A047",
+    "lines": [
+      {
+        "token_ids": [
+          2068,
+          2
+        ],
+        "raw_text": "IT",
+        "token_log_probabilities": [
+          -0.812715470790863
+        ],
+        "token_geometric_mean_confidence": 0.4436517057975685,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A048",
+    "lines": []
+  },
+  {
+    "review_id": "A049",
+    "lines": [
+      {
+        "token_ids": [
+          35518,
+          28302,
+          30198,
+          2
+        ],
+        "raw_text": "AIRLINE RD",
+        "token_log_probabilities": [
+          -0.03258049860596657,
+          -0.005834453739225864,
+          -0.08032605797052383
+        ],
+        "token_geometric_mean_confidence": 0.9611927317674985,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A050",
+    "lines": [
+      {
+        "token_ids": [
+          2444,
+          32956,
+          9292,
+          2808,
+          22065,
+          10002,
+          17345,
+          2
+        ],
+        "raw_text": "INVOICE INCLUSIVE WITH",
+        "token_log_probabilities": [
+          -1.657480001449585,
+          -0.10419849306344986,
+          -0.06548137217760086,
+          -0.7832980155944824,
+          -1.3027430772781372,
+          -0.5820379257202148,
+          -0.9189133644104004
+        ],
+        "token_geometric_mean_confidence": 0.46141827727311346,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          3764,
+          27917,
+          23464,
+          597,
+          4629,
+          30596,
+          230,
+          5216,
+          2
+        ],
+        "raw_text": "CHANGE AIRFREIGN CIR",
+        "token_log_probabilities": [
+          -0.008813764899969101,
+          -0.11379051953554153,
+          -0.06808720529079437,
+          -0.007359299808740616,
+          -0.37726229429244995,
+          -0.02083335444331169,
+          -0.6172144412994385,
+          -0.03358536958694458
+        ],
+        "token_geometric_mean_confidence": 0.8556718910705,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A051",
+    "lines": [
+      {
+        "token_ids": [
+          1646,
+          2
+        ],
+        "raw_text": "19",
+        "token_log_probabilities": [
+          -0.0012544866185635328
+        ],
+        "token_geometric_mean_confidence": 0.9987462999208391,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A052",
+    "lines": []
+  },
+  {
+    "review_id": "A053",
+    "lines": [
+      {
+        "token_ids": [
+          26300,
+          2
+        ],
+        "raw_text": "148",
+        "token_log_probabilities": [
+          -0.006933202035725117
+        ],
+        "token_geometric_mean_confidence": 0.9930907771599692,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A054",
+    "lines": [
+      {
+        "token_ids": [
+          2444,
+          22065,
+          19815,
+          111,
+          2
+        ],
+        "raw_text": "INCLUS NT -",
+        "token_log_probabilities": [
+          -0.46854367852211,
+          -1.0272610187530518,
+          -0.44404497742652893,
+          -0.051788896322250366
+        ],
+        "token_geometric_mean_confidence": 0.6077998515408926,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A055",
+    "lines": []
+  },
+  {
+    "review_id": "A056",
+    "lines": [
+      {
+        "token_ids": [
+          4154,
+          2068,
+          534,
+          11674,
+          111,
+          2
+        ],
+        "raw_text": "UNITGMT -",
+        "token_log_probabilities": [
+          -1.428357481956482,
+          -1.6640706062316895,
+          -1.0496711730957031,
+          -0.5523218512535095,
+          -0.23716235160827637
+        ],
+        "token_geometric_mean_confidence": 0.37294784575446777,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A057",
+    "lines": []
+  },
+  {
+    "review_id": "A058",
+    "lines": [
+      {
+        "token_ids": [
+          3761,
+          2
+        ],
+        "raw_text": "46",
+        "token_log_probabilities": [
+          -0.38165026903152466
+        ],
+        "token_geometric_mean_confidence": 0.6827337846047757,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A059",
+    "lines": [
+      {
+        "token_ids": [
+          3388,
+          42763,
+          234,
+          3732,
+          5885,
+          510,
+          3293,
+          2
+        ],
+        "raw_text": "SEBOX NTH DEPOT",
+        "token_log_probabilities": [
+          -1.4609013795852661,
+          -1.2321990728378296,
+          -1.2394475936889648,
+          -0.010602808557450771,
+          -0.022701848298311234,
+          -0.37137481570243835,
+          -0.0076126232743263245
+        ],
+        "token_geometric_mean_confidence": 0.5375726050987419,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A060",
+    "lines": [
+      {
+        "token_ids": [
+          597,
+          2747,
+          20196,
+          10033,
+          2
+        ],
+        "raw_text": "FARNER RO",
+        "token_log_probabilities": [
+          -1.135326623916626,
+          -0.006854236125946045,
+          -0.9713878631591797,
+          -0.7996216416358948
+        ],
+        "token_geometric_mean_confidence": 0.4827300949209263,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A061",
+    "lines": [
+      {
+        "token_ids": [
+          3847,
+          1000,
+          2
+        ],
+        "raw_text": "TAX",
+        "token_log_probabilities": [
+          -1.8956913948059082,
+          -0.06402021646499634
+        ],
+        "token_geometric_mean_confidence": 0.3753652204987306,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A062",
+    "lines": [
+      {
+        "token_ids": [
+          15057,
+          2
+        ],
+        "raw_text": "***",
+        "token_log_probabilities": [
+          -0.7761062383651733
+        ],
+        "token_geometric_mean_confidence": 0.4601944145937194,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A063",
+    "lines": [
+      {
+        "token_ids": [
+          565,
+          3721,
+          5457,
+          35,
+          31095,
+          12606,
+          2
+        ],
+        "raw_text": "TEL =: ******",
+        "token_log_probabilities": [
+          -1.7667999267578125,
+          -0.8782254457473755,
+          -1.0776121616363525,
+          -0.5558630228042603,
+          -1.694369912147522,
+          -1.0985634326934814
+        ],
+        "token_geometric_mean_confidence": 0.30771774855237316,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A064",
+    "lines": [
+      {
+        "token_ids": [
+          11670,
+          2
+        ],
+        "raw_text": "110",
+        "token_log_probabilities": [
+          -0.0029724722262471914
+        ],
+        "token_geometric_mean_confidence": 0.9970319411953134,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A065",
+    "lines": [
+      {
+        "token_ids": [
+          11670,
+          2
+        ],
+        "raw_text": "110",
+        "token_log_probabilities": [
+          -0.004331017844378948
+        ],
+        "token_geometric_mean_confidence": 0.9956783474880528,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A066",
+    "lines": [
+      {
+        "token_ids": [
+          15057,
+          3326,
+          20275,
+          9342,
+          2
+        ],
+        "raw_text": "*** AMPORT WA",
+        "token_log_probabilities": [
+          -1.7447001934051514,
+          -0.6908965110778809,
+          -0.4202572703361511,
+          -0.44515877962112427
+        ],
+        "token_geometric_mean_confidence": 0.43812405040154606,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A067",
+    "lines": [
+      {
+        "token_ids": [
+          21525,
+          23464,
+          20275,
+          384,
+          2889,
+          2
+        ],
+        "raw_text": "GI AIRPORT OIA",
+        "token_log_probabilities": [
+          -0.14473487436771393,
+          -0.0007364421617239714,
+          -0.0007578838267363608,
+          -0.6702482104301453,
+          -0.35148516297340393
+        ],
+        "token_geometric_mean_confidence": 0.7916843498708911,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A068",
+    "lines": [
+      {
+        "token_ids": [
+          487,
+          10494,
+          250,
+          1009,
+          4062,
+          2
+        ],
+        "raw_text": "NUKA * ST",
+        "token_log_probabilities": [
+          -0.12978026270866394,
+          -0.05920847877860069,
+          -0.1572876274585724,
+          -1.1948912143707275,
+          -0.5575450658798218
+        ],
+        "token_geometric_mean_confidence": 0.6572160115453333,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A069",
+    "lines": [
+      {
+        "token_ids": [
+          3847,
+          1000,
+          2
+        ],
+        "raw_text": "TAX",
+        "token_log_probabilities": [
+          -1.8714066743850708,
+          -0.168411523103714
+        ],
+        "token_geometric_mean_confidence": 0.36062772019575584,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A070",
+    "lines": []
+  },
+  {
+    "review_id": "A071",
+    "lines": [
+      {
+        "token_ids": [
+          2068,
+          5330,
+          13732,
+          2
+        ],
+        "raw_text": "ITEMABLE",
+        "token_log_probabilities": [
+          -0.49121779203414917,
+          -0.4454159736633301,
+          -1.6478345394134521
+        ],
+        "token_geometric_mean_confidence": 0.4225322790279981,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A072",
+    "lines": [
+      {
+        "token_ids": [
+          34414,
+          2
+        ],
+        "raw_text": "359",
+        "token_log_probabilities": [
+          -0.06644570082426071
+        ],
+        "token_geometric_mean_confidence": 0.935713722960811,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A073",
+    "lines": [
+      {
+        "token_ids": [
+          34392,
+          2
+        ],
+        "raw_text": "358",
+        "token_log_probabilities": [
+          -0.4093084931373596
+        ],
+        "token_geometric_mean_confidence": 0.6641093275479785,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A074",
+    "lines": []
+  },
+  {
+    "review_id": "A075",
+    "lines": [
+      {
+        "token_ids": [
+          36681,
+          2
+        ],
+        "raw_text": "899",
+        "token_log_probabilities": [
+          -0.5116899013519287
+        ],
+        "token_geometric_mean_confidence": 0.5994816574766153,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A076",
+    "lines": [
+      {
+        "token_ids": [
+          2076,
+          3416,
+          2
+        ],
+        "raw_text": "ER39",
+        "token_log_probabilities": [
+          -0.2577305734157562,
+          -0.02048187144100666
+        ],
+        "token_geometric_mean_confidence": 0.8701355956331297,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A077",
+    "lines": [
+      {
+        "token_ids": [
+          1549,
+          1978,
+          2
+        ],
+        "raw_text": "1624",
+        "token_log_probabilities": [
+          -0.9814471006393433,
+          -1.7137099504470825
+        ],
+        "token_geometric_mean_confidence": 0.2598687649616848,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A078",
+    "lines": [
+      {
+        "token_ids": [
+          16261,
+          16261,
+          2
+        ],
+        "raw_text": "MMMM",
+        "token_log_probabilities": [
+          -0.7400444149971008,
+          -0.3239419460296631
+        ],
+        "token_geometric_mean_confidence": 0.5874329421419521,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A079",
+    "lines": [
+      {
+        "token_ids": [
+          20904,
+          771,
+          2
+        ],
+        "raw_text": "WWW",
+        "token_log_probabilities": [
+          -1.239376425743103,
+          -0.08298438787460327
+        ],
+        "token_geometric_mean_confidence": 0.5162415995957101,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A080",
+    "lines": [
+      {
+        "token_ids": [
+          5677,
+          2
+        ],
+        "raw_text": "87",
+        "token_log_probabilities": [
+          -0.0014812698354944587
+        ],
+        "token_geometric_mean_confidence": 0.9985198267031783,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A081",
+    "lines": [
+      {
+        "token_ids": [
+          387,
+          1691,
+          9335,
+          18630,
+          3732,
+          30198,
+          2
+        ],
+        "raw_text": "BEDOK NORTH RD",
+        "token_log_probabilities": [
+          -0.3238368332386017,
+          -0.01773347333073616,
+          -0.028672413900494576,
+          -0.005676933564245701,
+          -4.684815212385729e-05,
+          -0.019843045622110367
+        ],
+        "token_geometric_mean_confidence": 0.9361605794590281,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A082",
+    "lines": [
+      {
+        "token_ids": [
+          15698,
+          163,
+          1691,
+          9335,
+          30497,
+          2
+        ],
+        "raw_text": "> BEDOK INT",
+        "token_log_probabilities": [
+          -0.014620312489569187,
+          -0.044932909309864044,
+          -0.014426453039050102,
+          -0.03938354551792145,
+          -0.04675592854619026
+        ],
+        "token_geometric_mean_confidence": 0.9684835030549006,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A083",
+    "lines": [
+      {
+        "token_ids": [
+          406,
+          2
+        ],
+        "raw_text": "7",
+        "token_log_probabilities": [
+          -1.2852778434753418
+        ],
+        "token_geometric_mean_confidence": 0.27657372874966996,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A084",
+    "lines": [
+      {
+        "token_ids": [
+          2068,
+          5330,
+          2
+        ],
+        "raw_text": "ITEM",
+        "token_log_probabilities": [
+          -0.441893070936203,
+          -0.23358801007270813
+        ],
+        "token_geometric_mean_confidence": 0.7133803571958601,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A085",
+    "lines": [
+      {
+        "token_ids": [
+          3732,
+          10227,
+          2
+        ],
+        "raw_text": "THANK",
+        "token_log_probabilities": [
+          -1.9650429487228394,
+          -0.0006324436399154365
+        ],
+        "token_geometric_mean_confidence": 0.3742475896510194,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A086",
+    "lines": [
+      {
+        "token_ids": [
+          466,
+          3118,
+          2
+        ],
+        "raw_text": "955",
+        "token_log_probabilities": [
+          -0.0019417019793763757,
+          -0.028956064954400063
+        ],
+        "token_geometric_mean_confidence": 0.9846698383737305,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A087",
+    "lines": [
+      {
+        "token_ids": [
+          7976,
+          14940,
+          2
+        ],
+        "raw_text": "BLACK",
+        "token_log_probabilities": [
+          -0.5770482420921326,
+          -1.2394465208053589
+        ],
+        "token_geometric_mean_confidence": 0.40323031402847875,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A088",
+    "lines": [
+      {
+        "token_ids": [
+          466,
+          3506,
+          2
+        ],
+        "raw_text": "965",
+        "token_log_probabilities": [
+          -0.0071372780948877335,
+          -0.02136886678636074
+        ],
+        "token_geometric_mean_confidence": 0.9858480217256123,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A089",
+    "lines": [
+      {
+        "token_ids": [
+          10803,
+          5054,
+          725,
+          3411,
+          2
+        ],
+        "raw_text": "BURNGHOR",
+        "token_log_probabilities": [
+          -0.10577954351902008,
+          -0.10861853510141373,
+          -0.3898470401763916,
+          -0.0025250001344829798
+        ],
+        "token_geometric_mean_confidence": 0.8592524347049653,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A090",
+    "lines": [
+      {
+        "token_ids": [
+          975,
+          11938,
+          4154,
+          83,
+          9162,
+          262,
+          2
+        ],
+        "raw_text": "YICHUN AUE 7",
+        "token_log_probabilities": [
+          -0.5030720233917236,
+          -0.7405790686607361,
+          -0.04821968078613281,
+          -0.06895100325345993,
+          -0.12428592890501022,
+          -0.0029577340465039015
+        ],
+        "token_geometric_mean_confidence": 0.7803514323230591,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A091",
+    "lines": [
+      {
+        "token_ids": [
+          29187,
+          2
+        ],
+        "raw_text": "302",
+        "token_log_probabilities": [
+          -0.023585598915815353
+        ],
+        "token_geometric_mean_confidence": 0.97669036745401,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A092",
+    "lines": [
+      {
+        "token_ids": [
+          17973,
+          612,
+          344,
+          11979,
+          16261,
+          2
+        ],
+        "raw_text": "SR00 JOHMM",
+        "token_log_probabilities": [
+          -1.3242831230163574,
+          -1.3567811250686646,
+          -1.3085187673568726,
+          -0.06412877887487411,
+          -2.5565707683563232
+        ],
+        "token_geometric_mean_confidence": 0.26658649937204343,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          13548,
+          256,
+          16966,
+          19246,
+          2
+        ],
+        "raw_text": "NET MNT ***",
+        "token_log_probabilities": [
+          -1.052544355392456,
+          -1.1273421049118042,
+          -0.806972086429596,
+          -2.0943026542663574
+        ],
+        "token_geometric_mean_confidence": 0.28075010812064466,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A093",
+    "lines": [
+      {
+        "token_ids": [
+          2831,
+          134,
+          2
+        ],
+        "raw_text": "991",
+        "token_log_probabilities": [
+          -0.0010109796421602368,
+          -0.0002300474588992074
+        ],
+        "token_geometric_mean_confidence": 0.9993796789281896,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A094",
+    "lines": []
+  },
+  {
+    "review_id": "A095",
+    "lines": [
+      {
+        "token_ids": [
+          26050,
+          24199,
+          4248,
+          382,
+          5121,
+          22065,
+          2
+        ],
+        "raw_text": "PLEASE AND US ONCLUS",
+        "token_log_probabilities": [
+          -2.393864154815674,
+          -0.06935615837574005,
+          -1.6301889419555664,
+          -1.5759854316711426,
+          -0.6890135407447815,
+          -0.5829015970230103
+        ],
+        "token_geometric_mean_confidence": 0.3144642220235496,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          387,
+          10494,
+          2068,
+          6823,
+          6390,
+          530,
+          4062,
+          365,
+          2
+        ],
+        "raw_text": "BUKIT BRTOK ST 11",
+        "token_log_probabilities": [
+          -0.013712374493479729,
+          -0.008863864466547966,
+          -0.0010715939570218325,
+          -1.0520318746566772,
+          -0.4656587243080139,
+          -0.0030017101671546698,
+          -0.18011309206485748,
+          -0.18009676039218903
+        ],
+        "token_geometric_mean_confidence": 0.7881485045627264,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A096",
+    "lines": [
+      {
+        "token_ids": [
+          4164,
+          2
+        ],
+        "raw_text": "GA",
+        "token_log_probabilities": [
+          -1.7420634031295776
+        ],
+        "token_geometric_mean_confidence": 0.17515860466687308,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A097",
+    "lines": [
+      {
+        "token_ids": [
+          17973,
+          2
+        ],
+        "raw_text": "SR",
+        "token_log_probabilities": [
+          -0.194244384765625
+        ],
+        "token_geometric_mean_confidence": 0.8234566394187203,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A098",
+    "lines": [
+      {
+        "token_ids": [
+          3847,
+          1000,
+          2
+        ],
+        "raw_text": "TAX",
+        "token_log_probabilities": [
+          -1.797229290008545,
+          -0.031615275889635086
+        ],
+        "token_geometric_mean_confidence": 0.40074807822536934,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A099",
+    "lines": [
+      {
+        "token_ids": [
+          2068,
+          5330,
+          2
+        ],
+        "raw_text": "ITEM",
+        "token_log_probabilities": [
+          -0.447992742061615,
+          -0.12543068826198578
+        ],
+        "token_geometric_mean_confidence": 0.7507281211791997,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A100",
+    "lines": [
+      {
+        "token_ids": [
+          31416,
+          2
+        ],
+        "raw_text": "269",
+        "token_log_probabilities": [
+          -0.010114132426679134
+        ],
+        "token_geometric_mean_confidence": 0.9899368434071626,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A101",
+    "lines": [
+      {
+        "token_ids": [
+          1729,
+          510,
+          2
+        ],
+        "raw_text": "ISP",
+        "token_log_probabilities": [
+          -1.716491937637329,
+          -0.12194984406232834
+        ],
+        "token_geometric_mean_confidence": 0.39882965190009284,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A102",
+    "lines": [
+      {
+        "token_ids": [
+          30024,
+          2
+        ],
+        "raw_text": "187",
+        "token_log_probabilities": [
+          -0.0028805925976485014
+        ],
+        "token_geometric_mean_confidence": 0.9971235523283054,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A103",
+    "lines": [
+      {
+        "token_ids": [
+          5273,
+          13083,
+          6597,
+          10942,
+          5121,
+          28302,
+          2
+        ],
+        "raw_text": "MAUDULINGS ONLINE",
+        "token_log_probabilities": [
+          -0.9980964660644531,
+          -0.8541659712791443,
+          -1.5086597204208374,
+          -0.2614041268825531,
+          -0.17236140370368958,
+          -1.1545037031173706
+        ],
+        "token_geometric_mean_confidence": 0.43829405653715375,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A104",
+    "lines": [
+      {
+        "token_ids": [
+          448,
+          3721,
+          17307,
+          13471,
+          155,
+          2
+        ],
+        "raw_text": "MEL AVENCE 3",
+        "token_log_probabilities": [
+          -0.8744467496871948,
+          -0.7121444344520569,
+          -0.4816713333129883,
+          -0.8139329552650452,
+          -0.003568236017599702
+        ],
+        "token_geometric_mean_confidence": 0.5614948134802696,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A105",
+    "lines": [
+      {
+        "token_ids": [
+          466,
+          4280,
+          2
+        ],
+        "raw_text": "966",
+        "token_log_probabilities": [
+          -0.03183608502149582,
+          -0.03064449317753315
+        ],
+        "token_geometric_mean_confidence": 0.9692426466495316,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A106",
+    "lines": [
+      {
+        "token_ids": [
+          4154,
+          28302,
+          2
+        ],
+        "raw_text": "UNLINE",
+        "token_log_probabilities": [
+          -1.1881558895111084,
+          -1.0427665710449219
+        ],
+        "token_geometric_mean_confidence": 0.32776406931823554,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A107",
+    "lines": [
+      {
+        "token_ids": [
+          466,
+          4280,
+          2
+        ],
+        "raw_text": "966",
+        "token_log_probabilities": [
+          -0.01182133611291647,
+          -0.0055499752052128315
+        ],
+        "token_geometric_mean_confidence": 0.9913519556762419,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A108",
+    "lines": [
+      {
+        "token_ids": [
+          12,
+          2
+        ],
+        "raw_text": "-",
+        "token_log_probabilities": [
+          -1.229756474494934
+        ],
+        "token_geometric_mean_confidence": 0.29236376704632744,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A109",
+    "lines": [
+      {
+        "token_ids": [
+          466,
+          3897,
+          2
+        ],
+        "raw_text": "943",
+        "token_log_probabilities": [
+          -0.6621326208114624,
+          -1.418727159500122
+        ],
+        "token_geometric_mean_confidence": 0.35330276792600057,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A110",
+    "lines": [
+      {
+        "token_ids": [
+          16261,
+          2
+        ],
+        "raw_text": "MM",
+        "token_log_probabilities": [
+          -1.0292366743087769
+        ],
+        "token_geometric_mean_confidence": 0.35727957718849296,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A111",
+    "lines": [
+      {
+        "token_ids": [
+          23688,
+          2
+        ],
+        "raw_text": "195",
+        "token_log_probabilities": [
+          -0.5542702674865723
+        ],
+        "token_geometric_mean_confidence": 0.5744913332771527,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A112",
+    "lines": [
+      {
+        "token_ids": [
+          20904,
+          771,
+          4,
+          10370,
+          2
+        ],
+        "raw_text": "WWW.COM",
+        "token_log_probabilities": [
+          -2.0872743129730225,
+          -0.6554591059684753,
+          -0.4361532926559448,
+          -1.0926666259765625
+        ],
+        "token_geometric_mean_confidence": 0.34373360200633135,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A113",
+    "lines": [
+      {
+        "token_ids": [
+          3732,
+          10227,
+          2
+        ],
+        "raw_text": "THANK",
+        "token_log_probabilities": [
+          -2.925752639770508,
+          -0.06574997305870056
+        ],
+        "token_geometric_mean_confidence": 0.22408018858932088,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          2620,
+          34494,
+          2
+        ],
+        "raw_text": "AMOUNT",
+        "token_log_probabilities": [
+          -2.0900983810424805,
+          -0.03987817466259003
+        ],
+        "token_geometric_mean_confidence": 0.34473189574165336,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A114",
+    "lines": [
+      {
+        "token_ids": [
+          574,
+          2118,
+          2796,
+          2076,
+          4062,
+          2
+        ],
+        "raw_text": "LALENER ST",
+        "token_log_probabilities": [
+          -0.6834004521369934,
+          -0.6351369023323059,
+          -1.4207651615142822,
+          -0.15909482538700104,
+          -0.05331119894981384
+        ],
+        "token_geometric_mean_confidence": 0.5541378989903349,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A115",
+    "lines": [
+      {
+        "token_ids": [
+          15698,
+          4584,
+          5330,
+          8081,
+          2604,
+          975,
+          28107,
+          2
+        ],
+        "raw_text": "> SHEMTON UNY TER",
+        "token_log_probabilities": [
+          -0.012745351530611515,
+          -0.055684976279735565,
+          -0.9467266798019409,
+          -0.008053449913859367,
+          -0.6386299729347229,
+          -0.009072626940906048,
+          -0.002887486945837736
+        ],
+        "token_geometric_mean_confidence": 0.7873248360170346,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A116",
+    "lines": [
+      {
+        "token_ids": [
+          25037,
+          2
+        ],
+        "raw_text": "133",
+        "token_log_probabilities": [
+          -0.006476010661572218
+        ],
+        "token_geometric_mean_confidence": 0.9935449135027364,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A117",
+    "lines": [
+      {
+        "token_ids": [
+          510,
+          2336,
+          2492,
+          31775,
+          2
+        ],
+        "raw_text": "PASUR RIS",
+        "token_log_probabilities": [
+          -0.06887300312519073,
+          -0.0024922997690737247,
+          -0.5066027641296387,
+          -0.07140875607728958
+        ],
+        "token_geometric_mean_confidence": 0.8501485281394221,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A118",
+    "lines": [
+      {
+        "token_ids": [
+          347,
+          34494,
+          787,
+          401,
+          207,
+          2
+        ],
+        "raw_text": "COUNT @6%",
+        "token_log_probabilities": [
+          -2.2133562564849854,
+          -1.0870448350906372,
+          -1.8075416088104248,
+          -1.0794634819030762,
+          -0.826253354549408
+        ],
+        "token_geometric_mean_confidence": 0.24592420325731432,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A119",
+    "lines": [
+      {
+        "token_ids": [
+          33213,
+          2
+        ],
+        "raw_text": "518",
+        "token_log_probabilities": [
+          -0.03211226314306259
+        ],
+        "token_geometric_mean_confidence": 0.9683978605890389,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A120",
+    "lines": []
+  },
+  {
+    "review_id": "A121",
+    "lines": []
+  },
+  {
+    "review_id": "A122",
+    "lines": [
+      {
+        "token_ids": [
+          2517,
+          771,
+          2
+        ],
+        "raw_text": "28W",
+        "token_log_probabilities": [
+          -1.2997568845748901,
+          -1.9075099229812622
+        ],
+        "token_geometric_mean_confidence": 0.20116427749166163,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A123",
+    "lines": [
+      {
+        "token_ids": [
+          565,
+          47778,
+          2
+        ],
+        "raw_text": "TOTAL",
+        "token_log_probabilities": [
+          -0.8593466281890869,
+          -0.007998934015631676
+        ],
+        "token_geometric_mean_confidence": 0.6481242993098397,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A124",
+    "lines": [
+      {
+        "token_ids": [
+          20904,
+          771,
+          2
+        ],
+        "raw_text": "WWW",
+        "token_log_probabilities": [
+          -1.2426797151565552,
+          -0.7186457514762878
+        ],
+        "token_geometric_mean_confidence": 0.3750624500851795,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A125",
+    "lines": [
+      {
+        "token_ids": [
+          23688,
+          2
+        ],
+        "raw_text": "195",
+        "token_log_probabilities": [
+          -0.001134109916165471
+        ],
+        "token_geometric_mean_confidence": 0.9988665329434381,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A126",
+    "lines": [
+      {
+        "token_ids": [
+          36659,
+          16712,
+          46824,
+          111,
+          2
+        ],
+        "raw_text": "MARINA CTR -",
+        "token_log_probabilities": [
+          -0.01593145914375782,
+          -0.01017278153449297,
+          -0.0011049362365156412,
+          -0.012208379805088043
+        ],
+        "token_geometric_mean_confidence": 0.9901940062136179,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A127",
+    "lines": [
+      {
+        "token_ids": [
+          347,
+          108,
+          9009,
+          33086,
+          248,
+          8856,
+          36,
+          19787,
+          5733,
+          43,
+          2
+        ],
+        "raw_text": "C'NEALTH RVE (LOOP)",
+        "token_log_probabilities": [
+          -0.680589497089386,
+          -1.0858474969863892,
+          -0.2625027894973755,
+          -0.7459508180618286,
+          -0.12159110605716705,
+          -0.010316144675016403,
+          -0.25105515122413635,
+          -0.5237058401107788,
+          -0.0023274733684957027,
+          -0.0015403084689751267
+        ],
+        "token_geometric_mean_confidence": 0.6917416975010978,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A128",
+    "lines": [
+      {
+        "token_ids": [
+          3367,
+          565,
+          2
+        ],
+        "raw_text": "36T",
+        "token_log_probabilities": [
+          -0.0008326877141371369,
+          -0.01829148270189762
+        ],
+        "token_geometric_mean_confidence": 0.9904834861606394,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A129",
+    "lines": [
+      {
+        "token_ids": [
+          3764,
+          27917,
+          23464,
+          20275,
+          28107,
+          132,
+          2
+        ],
+        "raw_text": "CHANGE AIRPORT TER 2",
+        "token_log_probabilities": [
+          -0.0001161031104857102,
+          -0.10663969814777374,
+          -0.0004917366313748062,
+          -0.001936228945851326,
+          -0.004220270086079836,
+          -0.002451511798426509
+        ],
+        "token_geometric_mean_confidence": 0.9808759714733049,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A130",
+    "lines": [
+      {
+        "token_ids": [
+          7831,
+          448,
+          2444,
+          18990,
+          10541,
+          2
+        ],
+        "raw_text": "TERMINATING RT",
+        "token_log_probabilities": [
+          -0.0007228621980175376,
+          -0.26882609724998474,
+          -0.6179282069206238,
+          -0.0008404298569075763,
+          -0.2596573531627655
+        ],
+        "token_geometric_mean_confidence": 0.79485546182863,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A131",
+    "lines": [
+      {
+        "token_ids": [
+          510,
+          1889,
+          2
+        ],
+        "raw_text": "PAN",
+        "token_log_probabilities": [
+          -1.6428276300430298,
+          -1.2574702501296997
+        ],
+        "token_geometric_mean_confidence": 0.23453535377645507,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A132",
+    "lines": [
+      {
+        "token_ids": [
+          1092,
+          2
+        ],
+        "raw_text": "12",
+        "token_log_probabilities": [
+          -0.6607204675674438
+        ],
+        "token_geometric_mean_confidence": 0.5164790939777184,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A133",
+    "lines": [
+      {
+        "token_ids": [
+          347,
+          13246,
+          2
+        ],
+        "raw_text": "CASH",
+        "token_log_probabilities": [
+          -1.609400749206543,
+          -0.116083525121212
+        ],
+        "token_geometric_mean_confidence": 0.42200330333703745,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A134",
+    "lines": [
+      {
+        "token_ids": [
+          4014,
+          5945,
+          2
+        ],
+        "raw_text": "STAND",
+        "token_log_probabilities": [
+          -1.2561074495315552,
+          -0.5890495777130127
+        ],
+        "token_geometric_mean_confidence": 0.3974927779936305,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A135",
+    "lines": [
+      {
+        "token_ids": [
+          28580,
+          2
+        ],
+        "raw_text": "RM",
+        "token_log_probabilities": [
+          -0.5267050266265869
+        ],
+        "token_geometric_mean_confidence": 0.5905476060909552,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A136",
+    "lines": [
+      {
+        "token_ids": [
+          347,
+          2
+        ],
+        "raw_text": "C",
+        "token_log_probabilities": [
+          -2.1902098655700684
+        ],
+        "token_geometric_mean_confidence": 0.11189326360951357,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A137",
+    "lines": [
+      {
+        "token_ids": [
+          401,
+          2
+        ],
+        "raw_text": "6",
+        "token_log_probabilities": [
+          -0.8682234883308411
+        ],
+        "token_geometric_mean_confidence": 0.41969648305957724,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A138",
+    "lines": [
+      {
+        "token_ids": [
+          2068,
+          5330,
+          2
+        ],
+        "raw_text": "ITEM",
+        "token_log_probabilities": [
+          -1.7886981964111328,
+          -0.5654486417770386
+        ],
+        "token_geometric_mean_confidence": 0.30817933187706836,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A139",
+    "lines": [
+      {
+        "token_ids": [
+          4708,
+          250,
+          2
+        ],
+        "raw_text": "51A",
+        "token_log_probabilities": [
+          -0.3341737985610962,
+          -0.0013750869547948241
+        ],
+        "token_geometric_mean_confidence": 0.8455445318699275,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A140",
+    "lines": [
+      {
+        "token_ids": [
+          7831,
+          448,
+          4154,
+          8625,
+          3263,
+          2
+        ],
+        "raw_text": "TERMUNATE AT",
+        "token_log_probabilities": [
+          -0.012734287418425083,
+          -0.7610443830490112,
+          -0.4025513529777527,
+          -6.8662193370983e-05,
+          -0.5642731189727783
+        ],
+        "token_geometric_mean_confidence": 0.7060040104914298,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A141",
+    "lines": [
+      {
+        "token_ids": [
+          3439,
+          725,
+          14356,
+          272,
+          11250,
+          12743,
+          36,
+          7976,
+          530,
+          843,
+          565,
+          43,
+          2
+        ],
+        "raw_text": "PAHOWN GARDENS (BLK 40T)",
+        "token_log_probabilities": [
+          -0.20951415598392487,
+          -0.2895118296146393,
+          -1.308479905128479,
+          -0.37540435791015625,
+          -0.018567796796560287,
+          -0.7540159225463867,
+          -0.0016011287225410342,
+          -0.23234155774116516,
+          -0.11071960628032684,
+          -0.05774194374680519,
+          -0.18780970573425293,
+          -0.005306563340127468
+        ],
+        "token_geometric_mean_confidence": 0.7438485157108709,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A142",
+    "lines": [
+      {
+        "token_ids": [
+          23334,
+          2
+        ],
+        "raw_text": "185",
+        "token_log_probabilities": [
+          -0.0032624374143779278
+        ],
+        "token_geometric_mean_confidence": 0.9967428785519896,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A143",
+    "lines": [
+      {
+        "token_ids": [
+          19159,
+          3765,
+          250,
+          36957,
+          2889,
+          28107,
+          9342,
+          2
+        ],
+        "raw_text": "BUOMA VISIA TER WA",
+        "token_log_probabilities": [
+          -0.0467686727643013,
+          -0.10709969699382782,
+          -0.0015947017818689346,
+          -0.049584873020648956,
+          -0.011404560878872871,
+          -0.0334593690931797,
+          -0.6728456020355225
+        ],
+        "token_geometric_mean_confidence": 0.8764965623459078,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A144",
+    "lines": [
+      {
+        "token_ids": [
+          510,
+          7744,
+          717,
+          2076,
+          10033,
+          17345,
+          2
+        ],
+        "raw_text": "PIONEER RO WITH",
+        "token_log_probabilities": [
+          -1.2559155225753784,
+          -0.0005902693956159055,
+          -0.039311911910772324,
+          -0.01101036835461855,
+          -0.336605966091156,
+          -0.5847171545028687
+        ],
+        "token_geometric_mean_confidence": 0.6897965829744817,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A145",
+    "lines": [
+      {
+        "token_ids": [
+          565,
+          3808,
+          2
+        ],
+        "raw_text": "TIP",
+        "token_log_probabilities": [
+          -1.026100993156433,
+          -0.4003213047981262
+        ],
+        "token_geometric_mean_confidence": 0.490067986777187,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A146",
+    "lines": [
+      {
+        "token_ids": [
+          6725,
+          3764,
+          16712,
+          43096,
+          8640,
+          100,
+          20124,
+          2
+        ],
+        "raw_text": "EXCHINAKER THI MIT",
+        "token_log_probabilities": [
+          -1.143859624862671,
+          -0.6310701966285706,
+          -1.8865172863006592,
+          -1.8739781379699707,
+          -0.4326854944229126,
+          -0.4145326614379883,
+          -0.6156327724456787
+        ],
+        "token_geometric_mean_confidence": 0.3679700466301837,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A147",
+    "lines": [
+      {
+        "token_ids": [
+          9673,
+          21260,
+          38,
+          38562,
+          104,
+          4154,
+          24099,
+          2
+        ],
+        "raw_text": "UPPER I HUMSUN MU",
+        "token_log_probabilities": [
+          -0.8898006677627563,
+          -0.011288936249911785,
+          -0.5253389477729797,
+          -0.2687610387802124,
+          -0.3675650656223297,
+          -0.10429655760526657,
+          -0.9570728540420532
+        ],
+        "token_geometric_mean_confidence": 0.6399895452797629,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A148",
+    "lines": [
+      {
+        "token_ids": [
+          11343,
+          2
+        ],
+        "raw_text": "130",
+        "token_log_probabilities": [
+          -0.006376634817570448
+        ],
+        "token_geometric_mean_confidence": 0.9936436527731374,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A149",
+    "lines": [
+      {
+        "token_ids": [
+          15698,
+          4584,
+          5382,
+          2191,
+          26727,
+          28107,
+          2
+        ],
+        "raw_text": "> SHENTON WAY TER",
+        "token_log_probabilities": [
+          -0.2837504744529724,
+          -0.004692257381975651,
+          -0.0772545337677002,
+          -0.0016175531782209873,
+          -0.34452584385871887,
+          -0.0009641766082495451
+        ],
+        "token_geometric_mean_confidence": 0.8879846638828427,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A150",
+    "lines": [
+      {
+        "token_ids": [
+          3732,
+          3765,
+          14452,
+          30198,
+          2
+        ],
+        "raw_text": "THOMSON RD",
+        "token_log_probabilities": [
+          -0.0003084660565946251,
+          -0.0005285535007715225,
+          -0.0003069168305955827,
+          -0.06839574128389359
+        ],
+        "token_geometric_mean_confidence": 0.9827653263634395,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A151",
+    "lines": [
+      {
+        "token_ids": [
+          510,
+          4154,
+          24592,
+          3384,
+          2
+        ],
+        "raw_text": "PUNGGOL",
+        "token_log_probabilities": [
+          -0.028324486687779427,
+          -0.0007871866691857576,
+          -0.017113983631134033,
+          -0.00026127262390218675
+        ],
+        "token_geometric_mean_confidence": 0.988445539073132,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A152",
+    "lines": [
+      {
+        "token_ids": [
+          4454,
+          104,
+          3808,
+          31775,
+          6532,
+          204,
+          1589,
+          155,
+          1589,
+          290,
+          1589,
+          112,
+          2
+        ],
+        "raw_text": "PRSIP RIS OR 4 / 3 / 8 / 1",
+        "token_log_probabilities": [
+          -0.8530144691467285,
+          -0.02009509690105915,
+          -0.2537555694580078,
+          -0.029107529670000076,
+          -0.3991577625274658,
+          -0.0013629442546516657,
+          -0.04511445015668869,
+          -0.013322618789970875,
+          -0.15017984807491302,
+          -0.001816648175008595,
+          -0.19943444430828094,
+          -0.004853372927755117
+        ],
+        "token_geometric_mean_confidence": 0.8485146775721322,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A153",
+    "lines": [
+      {
+        "token_ids": [
+          717,
+          2
+        ],
+        "raw_text": "E",
+        "token_log_probabilities": [
+          -0.894646406173706
+        ],
+        "token_geometric_mean_confidence": 0.4087521053119324,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A154",
+    "lines": [
+      {
+        "token_ids": [
+          8827,
+          19876,
+          17345,
+          248,
+          12027,
+          717,
+          2
+        ],
+        "raw_text": "BELLOW WITH RUBE",
+        "token_log_probabilities": [
+          -0.6784141659736633,
+          -0.9492008686065674,
+          -1.9547942876815796,
+          -0.438200980424881,
+          -1.1777993440628052,
+          -1.0789926052093506
+        ],
+        "token_geometric_mean_confidence": 0.3512582016688765,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A155",
+    "lines": [
+      {
+        "token_ids": [
+          15698,
+          39854,
+          19815,
+          2
+        ],
+        "raw_text": "> BOOK NT",
+        "token_log_probabilities": [
+          -0.06682723015546799,
+          -0.07469575107097626,
+          -0.059777624905109406
+        ],
+        "token_geometric_mean_confidence": 0.9351014975609361,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A156",
+    "lines": [
+      {
+        "token_ids": [
+          4563,
+          2
+        ],
+        "raw_text": "69",
+        "token_log_probabilities": [
+          -0.0016928878612816334
+        ],
+        "token_geometric_mean_confidence": 0.9983085442651167,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "A157",
+    "lines": [
+      {
+        "token_ids": [
+          401,
+          2
+        ],
+        "raw_text": "6",
+        "token_log_probabilities": [
+          -0.5132550001144409
+        ],
+        "token_geometric_mean_confidence": 0.5985441433188468,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P001",
+    "lines": [
+      {
+        "token_ids": [
+          36824,
+          2
+        ],
+        "raw_text": "980",
+        "token_log_probabilities": [
+          -0.003081337781623006
+        ],
+        "token_geometric_mean_confidence": 0.9969234046673596,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P002",
+    "lines": []
+  },
+  {
+    "review_id": "P003",
+    "lines": [
+      {
+        "token_ids": [
+          2620,
+          34494,
+          2
+        ],
+        "raw_text": "AMOUNT",
+        "token_log_probabilities": [
+          -1.1906189918518066,
+          -0.06553172320127487
+        ],
+        "token_geometric_mean_confidence": 0.5336178368675052,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          500,
+          18103,
+          2076,
+          30198,
+          2
+        ],
+        "raw_text": "ROUNDER RD",
+        "token_log_probabilities": [
+          -0.9696879386901855,
+          -0.9447742700576782,
+          -0.39418742060661316,
+          -0.2465715855360031
+        ],
+        "token_geometric_mean_confidence": 0.52792275479107,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P004",
+    "lines": [
+      {
+        "token_ids": [
+          725,
+          5061,
+          534,
+          9298,
+          83,
+          9162,
+          155,
+          2
+        ],
+        "raw_text": "HOUGANG AUE 3",
+        "token_log_probabilities": [
+          -0.2765316367149353,
+          -0.19133253395557404,
+          -0.006732163019478321,
+          -0.0005684667266905308,
+          -0.01273911353200674,
+          -0.16785049438476562,
+          -0.001998809864744544
+        ],
+        "token_geometric_mean_confidence": 0.9103148544093492,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P005",
+    "lines": []
+  },
+  {
+    "review_id": "P006",
+    "lines": [
+      {
+        "token_ids": [
+          6006,
+          2620,
+          1889,
+          14629,
+          8100,
+          2
+        ],
+        "raw_text": "LLAMANANA CITY",
+        "token_log_probabilities": [
+          -1.641284704208374,
+          -0.5027725100517273,
+          -0.7201040387153625,
+          -1.5143043994903564,
+          -1.604206919670105
+        ],
+        "token_geometric_mean_confidence": 0.30223980680878343,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          15698,
+          44552,
+          8228,
+          229,
+          2688,
+          5885,
+          510,
+          3293,
+          2
+        ],
+        "raw_text": "> ANG NO KID DEPOT",
+        "token_log_probabilities": [
+          -0.00971116591244936,
+          -0.009820008650422096,
+          -0.17061685025691986,
+          -0.003570492845028639,
+          -0.2819729447364807,
+          -0.0013090145075693727,
+          -0.0034020424354821444,
+          -0.0007085673278197646
+        ],
+        "token_geometric_mean_confidence": 0.941633744914107,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P007",
+    "lines": [
+      {
+        "token_ids": [
+          1898,
+          2
+        ],
+        "raw_text": "45",
+        "token_log_probabilities": [
+          -0.0002037079248111695
+        ],
+        "token_geometric_mean_confidence": 0.9997963128222394,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P008",
+    "lines": [
+      {
+        "token_ids": [
+          10213,
+          2
+        ],
+        "raw_text": "120",
+        "token_log_probabilities": [
+          -0.0022941718343645334
+        ],
+        "token_geometric_mean_confidence": 0.997708457766535,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P009",
+    "lines": [
+      {
+        "token_ids": [
+          27049,
+          2620,
+          1889,
+          1889,
+          1889,
+          2
+        ],
+        "raw_text": "LIAMANANAN",
+        "token_log_probabilities": [
+          -1.2204885482788086,
+          -1.0948532819747925,
+          -1.222712755203247,
+          -1.7004822492599487,
+          -1.7814339399337769
+        ],
+        "token_geometric_mean_confidence": 0.24561398186050534,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          20904,
+          20904,
+          4,
+          387,
+          2747,
+          574,
+          3755,
+          2
+        ],
+        "raw_text": "WWWW.BARLIM",
+        "token_log_probabilities": [
+          -1.071697473526001,
+          -1.0035362243652344,
+          -0.6541271805763245,
+          -1.516330599784851,
+          -0.6952818632125854,
+          -0.8704319596290588,
+          -0.1459592878818512
+        ],
+        "token_geometric_mean_confidence": 0.426965491943681,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P010",
+    "lines": [
+      {
+        "token_ids": [
+          565,
+          3721,
+          26624,
+          12413,
+          1889,
+          2191,
+          100,
+          248,
+          2685,
+          2
+        ],
+        "raw_text": "TELAX BLANONI RTS",
+        "token_log_probabilities": [
+          -0.0019199287053197622,
+          -0.005033558700233698,
+          -0.22539426386356354,
+          -0.4748914837837219,
+          -0.6120346188545227,
+          -0.9356526136398315,
+          -0.8203294277191162,
+          -0.8354761600494385,
+          -0.05008457601070404
+        ],
+        "token_geometric_mean_confidence": 0.6439779859213103,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P011",
+    "lines": [
+      {
+        "token_ids": [
+          565,
+          3721,
+          26624,
+          6019,
+          1889,
+          2191,
+          100,
+          163,
+          2685,
+          2
+        ],
+        "raw_text": "TELAX ALANONI BTS",
+        "token_log_probabilities": [
+          -0.0035292739048600197,
+          -0.0028047531377524137,
+          -0.2314692735671997,
+          -0.2594453990459442,
+          -0.8812750577926636,
+          -0.09839480370283127,
+          -1.5081707239151,
+          -0.3062286376953125,
+          -0.17701613903045654
+        ],
+        "token_geometric_mean_confidence": 0.6801986090596303,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P012",
+    "lines": [
+      {
+        "token_ids": [
+          3764,
+          9298,
+          100,
+          30198,
+          2
+        ],
+        "raw_text": "CHANGI RD",
+        "token_log_probabilities": [
+          -4.31528314948082e-05,
+          -0.27061551809310913,
+          -0.31892040371894836,
+          -0.6971872448921204
+        ],
+        "token_geometric_mean_confidence": 0.7249217363011539,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P013",
+    "lines": [
+      {
+        "token_ids": [
+          541,
+          2
+        ],
+        "raw_text": "30",
+        "token_log_probabilities": [
+          -0.04158978909254074
+        ],
+        "token_geometric_mean_confidence": 0.9592632001022828,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P014",
+    "lines": [
+      {
+        "token_ids": [
+          2620,
+          34494,
+          382,
+          5121,
+          2
+        ],
+        "raw_text": "AMOUNT US ON",
+        "token_log_probabilities": [
+          -0.5358239412307739,
+          -0.1169014498591423,
+          -2.203927993774414,
+          -1.1365479230880737
+        ],
+        "token_geometric_mean_confidence": 0.3685052476117355,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          15698,
+          3226,
+          163,
+          30696,
+          226,
+          2547,
+          2
+        ],
+        "raw_text": ">* BOUN LAY",
+        "token_log_probabilities": [
+          -0.023453325033187866,
+          -0.7528417110443115,
+          -1.0742568969726562,
+          -0.2384437620639801,
+          -0.008293593302369118,
+          -0.043036796152591705
+        ],
+        "token_geometric_mean_confidence": 0.6999677516335674,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P015",
+    "lines": [
+      {
+        "token_ids": [
+          26738,
+          2
+        ],
+        "raw_text": "142",
+        "token_log_probabilities": [
+          -0.009884105063974857
+        ],
+        "token_geometric_mean_confidence": 0.9901645821605636,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P016",
+    "lines": [
+      {
+        "token_ids": [
+          574,
+          3411,
+          231,
+          22331,
+          4729,
+          975,
+          37043,
+          4,
+          2
+        ],
+        "raw_text": "LOR 6 TOR PRYRON.",
+        "token_log_probabilities": [
+          -0.007145208306610584,
+          -0.00018094333063345402,
+          -0.05127532407641411,
+          -0.8385517597198486,
+          -0.1742894947528839,
+          -0.04212756082415581,
+          -1.0654751062393188,
+          -0.05391567572951317
+        ],
+        "token_geometric_mean_confidence": 0.7564490224167489,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P017",
+    "lines": [
+      {
+        "token_ids": [
+          35,
+          2
+        ],
+        "raw_text": ":",
+        "token_log_probabilities": [
+          -1.1808526515960693
+        ],
+        "token_geometric_mean_confidence": 0.3070168485605718,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P018",
+    "lines": [
+      {
+        "token_ids": [
+          565,
+          4729,
+          975,
+          2191,
+          19815,
+          12,
+          597,
+          3293,
+          2191,
+          673,
+          221,
+          248,
+          9162,
+          2
+        ],
+        "raw_text": "T PRYON NT-FOTONO P RUE",
+        "token_log_probabilities": [
+          -0.00020919041708111763,
+          -0.12003276497125626,
+          -0.4176684319972992,
+          -0.8760432004928589,
+          -0.12301169335842133,
+          -0.0028794039972126484,
+          -0.4248521029949188,
+          -0.009105348959565163,
+          -0.21156758069992065,
+          -0.7818150520324707,
+          -0.7348331212997437,
+          -0.1171538382768631,
+          -0.013743769377470016
+        ],
+        "token_geometric_mean_confidence": 0.7446509798786088,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P019",
+    "lines": [
+      {
+        "token_ids": [
+          565,
+          47778,
+          32800,
+          12613,
+          35,
+          4584,
+          3808,
+          2
+        ],
+        "raw_text": "TOTAL PAYMENT: SHIP",
+        "token_log_probabilities": [
+          -0.5557302832603455,
+          -0.11777731031179428,
+          -0.9045709371566772,
+          -0.2894881069660187,
+          -1.3858563899993896,
+          -1.4241548776626587,
+          -0.3398444950580597
+        ],
+        "token_geometric_mean_confidence": 0.48832474732137043,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P020",
+    "lines": [
+      {
+        "token_ids": [
+          16504,
+          2
+        ],
+        "raw_text": "145",
+        "token_log_probabilities": [
+          -0.027394115924835205
+        ],
+        "token_geometric_mean_confidence": 0.9729776999433217,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P021",
+    "lines": [
+      {
+        "token_ids": [
+          14740,
+          7111,
+          14452,
+          30198,
+          2
+        ],
+        "raw_text": "GOODSON RD",
+        "token_log_probabilities": [
+          -0.6341752409934998,
+          -0.30355122685432434,
+          -0.31740206480026245,
+          -0.5311827659606934
+        ],
+        "token_geometric_mean_confidence": 0.6398139649483373,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P022",
+    "lines": [
+      {
+        "token_ids": [
+          4,
+          36629,
+          4729,
+          487,
+          3765,
+          6823,
+          2
+        ],
+        "raw_text": ". TOM PRNOM BR",
+        "token_log_probabilities": [
+          -0.05819215252995491,
+          -0.8497264385223389,
+          -1.3499058485031128,
+          -0.628096342086792,
+          -1.2920931577682495,
+          -0.8746025562286377
+        ],
+        "token_geometric_mean_confidence": 0.4308036981869055,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P023",
+    "lines": [
+      {
+        "token_ids": [
+          406,
+          2
+        ],
+        "raw_text": "7",
+        "token_log_probabilities": [
+          -0.000962032878305763
+        ],
+        "token_geometric_mean_confidence": 0.9990384297269647,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P024",
+    "lines": [
+      {
+        "token_ids": [
+          3411,
+          45383,
+          8228,
+          4,
+          10370,
+          4,
+          25518,
+          2
+        ],
+        "raw_text": "ORCEPT NO.COM.MY",
+        "token_log_probabilities": [
+          -1.0356063842773438,
+          -1.7909637689590454,
+          -0.628844678401947,
+          -1.086402177810669,
+          -0.8810990452766418,
+          -0.15654857456684113,
+          -0.23298805952072144
+        ],
+        "token_geometric_mean_confidence": 0.43589652834128784,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          21631,
+          12613,
+          8228,
+          2
+        ],
+        "raw_text": "CLEMENT NO",
+        "token_log_probabilities": [
+          -0.21544069051742554,
+          -0.0669415146112442,
+          -1.0904123783111572
+        ],
+        "token_geometric_mean_confidence": 0.6328016883435017,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P025",
+    "lines": [
+      {
+        "token_ids": [
+          3411,
+          3764,
+          11250,
+          163,
+          5061,
+          3850,
+          846,
+          11250,
+          2
+        ],
+        "raw_text": "ORCHARD BOULEVARD",
+        "token_log_probabilities": [
+          -0.0037233568727970123,
+          -0.4370192885398865,
+          -0.04536180570721626,
+          -0.0019823915790766478,
+          -0.011242729611694813,
+          -0.014095747843384743,
+          -0.009575272910296917,
+          -2.6702524337451905e-05
+        ],
+        "token_geometric_mean_confidence": 0.9367129329361381,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P026",
+    "lines": [
+      {
+        "token_ids": [
+          3411,
+          3764,
+          11250,
+          163,
+          5061,
+          3850,
+          846,
+          11250,
+          2
+        ],
+        "raw_text": "ORCHARD BOULEVARD",
+        "token_log_probabilities": [
+          -0.001623861026018858,
+          -0.0927661880850792,
+          -0.012501801364123821,
+          -0.0017257335130125284,
+          -0.007144261617213488,
+          -0.023475797846913338,
+          -0.006796220783144236,
+          -2.3841574147809297e-05
+        ],
+        "token_geometric_mean_confidence": 0.9819084400369489,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          15698,
+          25511,
+          12613,
+          2808,
+          100,
+          2
+        ],
+        "raw_text": "> CLEMENT INI",
+        "token_log_probabilities": [
+          -0.8418026566505432,
+          -0.019797466695308685,
+          -0.02607283554971218,
+          -1.4883472919464111,
+          -1.849442481994629
+        ],
+        "token_geometric_mean_confidence": 0.42951760599126343,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P027",
+    "lines": [
+      {
+        "token_ids": [
+          3411,
+          3764,
+          5945,
+          163,
+          6597,
+          3850,
+          8856,
+          2
+        ],
+        "raw_text": "ORCHAND BULLEVE",
+        "token_log_probabilities": [
+          -0.6643601059913635,
+          -0.9053980708122253,
+          -0.4460584223270416,
+          -0.7729282379150391,
+          -0.5493564605712891,
+          -0.1159415990114212,
+          -0.03460823372006416
+        ],
+        "token_geometric_mean_confidence": 0.607514805478172,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          21631,
+          12613,
+          19815,
+          2
+        ],
+        "raw_text": "CLEMENT NT",
+        "token_log_probabilities": [
+          -0.4765552580356598,
+          -0.35913628339767456,
+          -0.1966795027256012
+        ],
+        "token_geometric_mean_confidence": 0.7088412521589427,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P028",
+    "lines": [
+      {
+        "token_ids": [
+          4280,
+          2
+        ],
+        "raw_text": "66",
+        "token_log_probabilities": [
+          -0.0038428285624831915
+        ],
+        "token_geometric_mean_confidence": 0.9961645456542227,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P029",
+    "lines": []
+  },
+  {
+    "review_id": "P030",
+    "lines": [
+      {
+        "token_ids": [
+          466,
+          3506,
+          2
+        ],
+        "raw_text": "965",
+        "token_log_probabilities": [
+          -0.000623032043222338,
+          -0.00030620177858509123
+        ],
+        "token_geometric_mean_confidence": 0.9995354910068192,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P031",
+    "lines": [
+      {
+        "token_ids": [
+          104,
+          25049,
+          530,
+          9298,
+          2
+        ],
+        "raw_text": "SENGKANG",
+        "token_log_probabilities": [
+          -0.0015718498034402728,
+          -0.035248056054115295,
+          -0.002636530203744769,
+          -0.0006405447493307292
+        ],
+        "token_geometric_mean_confidence": 0.9900258300812956,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P032",
+    "lines": [
+      {
+        "token_ids": [
+          16504,
+          2
+        ],
+        "raw_text": "145",
+        "token_log_probabilities": [
+          -0.0017652419628575444
+        ],
+        "token_geometric_mean_confidence": 0.9982363151603684,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P033",
+    "lines": [
+      {
+        "token_ids": [
+          495,
+          2118,
+          1723,
+          975,
+          2371,
+          5945,
+          2
+        ],
+        "raw_text": "DALESYICAND",
+        "token_log_probabilities": [
+          -0.0721372738480568,
+          -0.014141587540507317,
+          -0.5492802858352661,
+          -0.2409060299396515,
+          -0.43589237332344055,
+          -0.08513196557760239
+        ],
+        "token_geometric_mean_confidence": 0.7922209733371024,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P034",
+    "lines": [
+      {
+        "token_ids": [
+          35,
+          2
+        ],
+        "raw_text": ":",
+        "token_log_probabilities": [
+          -2.876965045928955
+        ],
+        "token_geometric_mean_confidence": 0.05630538805000279,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          3226,
+          36629,
+          32800,
+          4154,
+          30497,
+          2
+        ],
+        "raw_text": "* TOM PAYUN INT",
+        "token_log_probabilities": [
+          -0.47865742444992065,
+          -0.673322856426239,
+          -0.004020584747195244,
+          -0.5433225631713867,
+          -0.7673478722572327
+        ],
+        "token_geometric_mean_confidence": 0.6105871399657975,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P035",
+    "lines": [
+      {
+        "token_ids": [
+          3414,
+          2
+        ],
+        "raw_text": "49",
+        "token_log_probabilities": [
+          -0.00019941726350225508
+        ],
+        "token_geometric_mean_confidence": 0.9998006026187986,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P036",
+    "lines": [
+      {
+        "token_ids": [
+          27761,
+          2
+        ],
+        "raw_text": "151",
+        "token_log_probabilities": [
+          -0.14273595809936523
+        ],
+        "token_geometric_mean_confidence": 0.8669829585041169,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P037",
+    "lines": [
+      {
+        "token_ids": [
+          20904,
+          20904,
+          20904,
+          20904,
+          20904,
+          4,
+          2
+        ],
+        "raw_text": "WWWWWWWWWW.",
+        "token_log_probabilities": [
+          -1.7456917762756348,
+          -0.39056605100631714,
+          -0.2638348340988159,
+          -0.2977193593978882,
+          -0.8247889280319214,
+          -0.516350507736206
+        ],
+        "token_geometric_mean_confidence": 0.5100948571784053,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          530,
+          5382,
+          248,
+          2688,
+          8800,
+          28107,
+          2
+        ],
+        "raw_text": "KENT RIDGE TER",
+        "token_log_probabilities": [
+          -0.18590416014194489,
+          -4.446407547220588e-05,
+          -0.03176656737923622,
+          -0.014646509662270546,
+          -0.00021991695393808186,
+          -0.0013611585600301623
+        ],
+        "token_geometric_mean_confidence": 0.9617598816033149,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P038",
+    "lines": [
+      {
+        "token_ids": [
+          387,
+          10494,
+          2068,
+          18685,
+          15334,
+          30198,
+          2
+        ],
+        "raw_text": "BUKIT TIMAH RD",
+        "token_log_probabilities": [
+          -0.008419494144618511,
+          -0.0029981445986777544,
+          -0.0001784403866622597,
+          -0.49376335740089417,
+          -0.002923740306869149,
+          -0.10532644391059875
+        ],
+        "token_geometric_mean_confidence": 0.9027873283105227,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P039",
+    "lines": [
+      {
+        "token_ids": [
+          47031,
+          2
+        ],
+        "raw_text": "FACE",
+        "token_log_probabilities": [
+          -1.2450933456420898
+        ],
+        "token_geometric_mean_confidence": 0.28791403135625127,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P040",
+    "lines": [
+      {
+        "token_ids": [
+          16821,
+          2444,
+          17710,
+          2
+        ],
+        "raw_text": "PUINUAL",
+        "token_log_probabilities": [
+          -1.7457029819488525,
+          -1.565329909324646,
+          -0.8660874366760254
+        ],
+        "token_geometric_mean_confidence": 0.24848483967517404,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P041",
+    "lines": []
+  },
+  {
+    "review_id": "P042",
+    "lines": [
+      {
+        "token_ids": [
+          104,
+          5725,
+          9298,
+          25838,
+          2
+        ],
+        "raw_text": "SUMANG LINK",
+        "token_log_probabilities": [
+          -0.7013875842094421,
+          -0.004840085748583078,
+          -0.054273445159196854,
+          -0.00285206432454288
+        ],
+        "token_geometric_mean_confidence": 0.8262661888383226,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P043",
+    "lines": [
+      {
+        "token_ids": [
+          2068,
+          5330,
+          3243,
+          4729,
+          9292,
+          1039,
+          15057,
+          2
+        ],
+        "raw_text": "ITEM OF PRICE@***",
+        "token_log_probabilities": [
+          -1.0062484741210938,
+          -1.4002254009246826,
+          -1.2890524864196777,
+          -1.8889713287353516,
+          -0.0920931026339531,
+          -1.482523798942566,
+          -0.06984785944223404
+        ],
+        "token_geometric_mean_confidence": 0.3560411654235849,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          863,
+          3384,
+          791,
+          29214,
+          9298,
+          25838,
+          4,
+          2
+        ],
+        "raw_text": "JOLU SUMANG LINK.",
+        "token_log_probabilities": [
+          -0.3081916570663452,
+          -1.2265596389770508,
+          -1.0016508102416992,
+          -0.061306994408369064,
+          -0.01587783917784691,
+          -0.002765285549685359,
+          -0.5690674781799316
+        ],
+        "token_geometric_mean_confidence": 0.6344099290747791,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P044",
+    "lines": [
+      {
+        "token_ids": [
+          134,
+          35227,
+          36759,
+          487,
+          10207,
+          3384,
+          30497,
+          2
+        ],
+        "raw_text": "1^ PURNOGOL INT",
+        "token_log_probabilities": [
+          -0.774796187877655,
+          -0.9173794388771057,
+          -1.965876817703247,
+          -0.7487970590591431,
+          -1.1856201887130737,
+          -0.03644567355513573,
+          -0.5637827515602112
+        ],
+        "token_geometric_mean_confidence": 0.4128499126813687,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P045",
+    "lines": [
+      {
+        "token_ids": [
+          1646,
+          2
+        ],
+        "raw_text": "19",
+        "token_log_probabilities": [
+          -0.00093606993323192
+        ],
+        "token_geometric_mean_confidence": 0.9990643680435584,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P046",
+    "lines": []
+  },
+  {
+    "review_id": "P047",
+    "lines": [
+      {
+        "token_ids": [
+          20904,
+          771,
+          4,
+          20904,
+          771,
+          4,
+          20904,
+          4,
+          20904,
+          2
+        ],
+        "raw_text": "WWW.WWW.WW.WW",
+        "token_log_probabilities": [
+          -1.829118251800537,
+          -0.6661196351051331,
+          -0.8620076775550842,
+          -0.3143868148326874,
+          -0.9360389113426208,
+          -0.057643596082925797,
+          -0.5402891039848328,
+          -0.5900287628173828,
+          -1.3861976861953735
+        ],
+        "token_geometric_mean_confidence": 0.450237003702213,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          11674,
+          10537,
+          3703,
+          530,
+          12389,
+          226,
+          23825,
+          2
+        ],
+        "raw_text": "MTML ISK ALL LUMP",
+        "token_log_probabilities": [
+          -0.33833304047584534,
+          -0.8341251611709595,
+          -0.692790150642395,
+          -0.6344327926635742,
+          -1.0378504991531372,
+          -1.5038478374481201,
+          -1.3356918096542358
+        ],
+        "token_geometric_mean_confidence": 0.4021178056317564,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P048",
+    "lines": []
+  },
+  {
+    "review_id": "P049",
+    "lines": [
+      {
+        "token_ids": [
+          3761,
+          2
+        ],
+        "raw_text": "46",
+        "token_log_probabilities": [
+          -0.3317998945713043
+        ],
+        "token_geometric_mean_confidence": 0.7176309103286042,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P050",
+    "lines": [
+      {
+        "token_ids": [
+          597,
+          2747,
+          2336,
+          250,
+          30198,
+          2
+        ],
+        "raw_text": "FARASA RD",
+        "token_log_probabilities": [
+          -0.26670390367507935,
+          -0.0015503065660595894,
+          -1.048823595046997,
+          -0.42302945256233215,
+          -0.8400561809539795
+        ],
+        "token_geometric_mean_confidence": 0.5968838815578732,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P051",
+    "lines": [
+      {
+        "token_ids": [
+          20904,
+          771,
+          4,
+          20904,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530,
+          4,
+          530
+        ],
+        "raw_text": "WWW.WW.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K.K",
+        "token_log_probabilities": [
+          -2.0654008388519287,
+          -0.8632639646530151,
+          -0.2611590325832367,
+          -1.2170847654342651,
+          -0.5849176049232483,
+          -1.3639062643051147,
+          -0.12824848294258118,
+          -0.6118984818458557,
+          -0.0720808207988739,
+          -0.5233108997344971,
+          -0.061398256570100784,
+          -0.5065902471542358,
+          -0.06368783861398697,
+          -0.5228658318519592,
+          -0.06845518946647644,
+          -0.5247209668159485,
+          -0.07294062525033951,
+          -0.5228514671325684,
+          -0.07616537064313889,
+          -0.5216709971427917,
+          -0.07726336270570755,
+          -0.5284734964370728,
+          -0.07459518313407898,
+          -0.5376791954040527,
+          -0.07528378814458847,
+          -0.5532563924789429,
+          -0.07701527327299118,
+          -0.5607243180274963,
+          -0.07884810119867325,
+          -0.5767154097557068,
+          -0.08070793002843857,
+          -0.5933017730712891,
+          -0.08311647921800613,
+          -0.6080334186553955,
+          -0.087198905646801,
+          -0.6228890419006348,
+          -0.09239605814218521,
+          -0.6414905190467834,
+          -0.09677919000387192,
+          -0.6721901893615723,
+          -0.10074274241924286,
+          -0.7095713019371033,
+          -0.10573750734329224,
+          -0.7401492595672607,
+          -0.11157765239477158,
+          -0.7761147022247314,
+          -0.11808647215366364,
+          -0.8072513937950134,
+          -0.12428709119558334,
+          -0.8455599546432495,
+          -0.12764954566955566,
+          -0.8729356527328491,
+          -0.12820056080818176,
+          -0.8818731904029846,
+          -0.12962593138217926,
+          -0.8876600861549377,
+          -0.13173677027225494,
+          -0.8886126279830933,
+          -0.13468775153160095,
+          -0.8895987868309021,
+          -0.1357223242521286,
+          -0.8936455845832825,
+          -0.13637375831604004,
+          -0.8925169706344604
+        ],
+        "token_geometric_mean_confidence": 0.6364288105756594,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": false,
+        "generation_limit_reached": true
+      }
+    ]
+  },
+  {
+    "review_id": "P052",
+    "lines": [
+      {
+        "token_ids": [
+          5214,
+          2
+        ],
+        "raw_text": "=",
+        "token_log_probabilities": [
+          -1.6099294424057007
+        ],
+        "token_geometric_mean_confidence": 0.19990171816189323,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P053",
+    "lines": [
+      {
+        "token_ids": [
+          11670,
+          2
+        ],
+        "raw_text": "110",
+        "token_log_probabilities": [
+          -0.004293391015380621
+        ],
+        "token_geometric_mean_confidence": 0.9957158124118098,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P054",
+    "lines": [
+      {
+        "token_ids": [
+          11670,
+          2
+        ],
+        "raw_text": "110",
+        "token_log_probabilities": [
+          -0.004715631250292063
+        ],
+        "token_geometric_mean_confidence": 0.9952954698822815,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P055",
+    "lines": [
+      {
+        "token_ids": [
+          29961,
+          2
+        ],
+        "raw_text": "259",
+        "token_log_probabilities": [
+          -1.1075842380523682
+        ],
+        "token_geometric_mean_confidence": 0.3303560594852101,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P056",
+    "lines": [
+      {
+        "token_ids": [
+          43869,
+          24199,
+          14162,
+          2
+        ],
+        "raw_text": "PREASE GST",
+        "token_log_probabilities": [
+          -1.7365305423736572,
+          -1.9199132919311523,
+          -1.058549404144287
+        ],
+        "token_geometric_mean_confidence": 0.20769919729997663,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P057",
+    "lines": [
+      {
+        "token_ids": [
+          2620,
+          34494,
+          2
+        ],
+        "raw_text": "AMOUNT",
+        "token_log_probabilities": [
+          -0.60296630859375,
+          -0.013716724701225758
+        ],
+        "token_geometric_mean_confidence": 0.7346643750465135,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          2068,
+          38114,
+          849,
+          15057,
+          2
+        ],
+        "raw_text": "ITEMS #***",
+        "token_log_probabilities": [
+          -0.8229954242706299,
+          -0.7043437957763672,
+          -0.47449296712875366,
+          -1.4249733686447144
+        ],
+        "token_geometric_mean_confidence": 0.42456023414803834,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P058",
+    "lines": [
+      {
+        "token_ids": [
+          5677,
+          2
+        ],
+        "raw_text": "87",
+        "token_log_probabilities": [
+          -0.002047110814601183
+        ],
+        "token_geometric_mean_confidence": 0.997954983087682,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P059",
+    "lines": [
+      {
+        "token_ids": [
+          387,
+          1691,
+          9335,
+          18630,
+          3732,
+          30198,
+          2
+        ],
+        "raw_text": "BEDOK NORTH RD",
+        "token_log_probabilities": [
+          -0.135507270693779,
+          -0.2061992585659027,
+          -0.03855850175023079,
+          -0.012788310647010803,
+          -3.707340147229843e-05,
+          -0.016138633713126183
+        ],
+        "token_geometric_mean_confidence": 0.9340691178954496,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P060",
+    "lines": [
+      {
+        "token_ids": [
+          15698,
+          163,
+          1691,
+          9335,
+          30497,
+          2
+        ],
+        "raw_text": "> BEDOK INT",
+        "token_log_probabilities": [
+          -0.0209830179810524,
+          -0.03582582250237465,
+          -0.01827521249651909,
+          -0.03619471937417984,
+          -0.027320344001054764
+        ],
+        "token_geometric_mean_confidence": 0.9726608455624614,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P061",
+    "lines": [
+      {
+        "token_ids": [
+          1629,
+          1570,
+          4,
+          612,
+          2
+        ],
+        "raw_text": "$14.00",
+        "token_log_probabilities": [
+          -1.4619152545928955,
+          -0.973270058631897,
+          -0.003826915519312024,
+          -0.016637155786156654
+        ],
+        "token_geometric_mean_confidence": 0.5412292453726029,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P062",
+    "lines": [
+      {
+        "token_ids": [
+          466,
+          3118,
+          2
+        ],
+        "raw_text": "955",
+        "token_log_probabilities": [
+          -0.002313914941623807,
+          -0.2862265706062317
+        ],
+        "token_geometric_mean_confidence": 0.8656537797678034,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P063",
+    "lines": [
+      {
+        "token_ids": [
+          10803,
+          5054,
+          725,
+          3411,
+          2
+        ],
+        "raw_text": "BURNGHOR",
+        "token_log_probabilities": [
+          -0.05420727655291557,
+          -0.07878574728965759,
+          -0.2866353988647461,
+          -0.00800543837249279
+        ],
+        "token_geometric_mean_confidence": 0.8986079230595345,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P064",
+    "lines": [
+      {
+        "token_ids": [
+          2444,
+          32956,
+          9292,
+          27614,
+          2
+        ],
+        "raw_text": "INVOICEBOOK",
+        "token_log_probabilities": [
+          -2.489291191101074,
+          -0.07433204352855682,
+          -0.20537501573562622,
+          -0.8371362686157227
+        ],
+        "token_geometric_mean_confidence": 0.405946610302601,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          104,
+          11938,
+          4154,
+          83,
+          8856,
+          262,
+          2
+        ],
+        "raw_text": "SICHUN AVE 7",
+        "token_log_probabilities": [
+          -1.6512521505355835,
+          -0.5664206743240356,
+          -0.024253802374005318,
+          -0.10350371897220612,
+          -0.6068009734153748,
+          -0.002821514382958412
+        ],
+        "token_geometric_mean_confidence": 0.6110913599711174,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P065",
+    "lines": [
+      {
+        "token_ids": [
+          29187,
+          2
+        ],
+        "raw_text": "302",
+        "token_log_probabilities": [
+          -0.12207192927598953
+        ],
+        "token_geometric_mean_confidence": 0.885084702711082,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P066",
+    "lines": [
+      {
+        "token_ids": [
+          3764,
+          27917,
+          15823,
+          717,
+          32114,
+          2444,
+          8041,
+          2
+        ],
+        "raw_text": "CHANGE COME AGAINCE",
+        "token_log_probabilities": [
+          -0.6733579039573669,
+          -0.04592852294445038,
+          -0.6303806900978088,
+          -0.2254595309495926,
+          -0.4728434979915619,
+          -0.7273678183555603,
+          -0.37449315190315247
+        ],
+        "token_geometric_mean_confidence": 0.6376435353881426,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          2068,
+          5330,
+          10311,
+          2
+        ],
+        "raw_text": "ITEMPT",
+        "token_log_probabilities": [
+          -0.9784227609634399,
+          -0.5440030694007874,
+          -1.41339910030365
+        ],
+        "token_geometric_mean_confidence": 0.37583377909101867,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P067",
+    "lines": [
+      {
+        "token_ids": [
+          25518,
+          3326,
+          34494,
+          2
+        ],
+        "raw_text": "MY AMOUNT",
+        "token_log_probabilities": [
+          -0.46389642357826233,
+          -1.7299034595489502,
+          -0.7210996150970459
+        ],
+        "token_geometric_mean_confidence": 0.37846443782204664,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P068",
+    "lines": [
+      {
+        "token_ids": [
+          3764,
+          3411,
+          6532,
+          791,
+          229,
+          9298,
+          211,
+          2068,
+          382,
+          328,
+          2
+        ],
+        "raw_text": "CHOR ORU KANG DIT US!",
+        "token_log_probabilities": [
+          -0.4422459006309509,
+          -0.000734178873244673,
+          -0.7261848449707031,
+          -0.03244167938828468,
+          -0.5981442928314209,
+          -0.018731020390987396,
+          -0.6635214686393738,
+          -1.189789891242981,
+          -1.388379693031311,
+          -0.07517200708389282
+        ],
+        "token_geometric_mean_confidence": 0.5983768750475903,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P069",
+    "lines": [
+      {
+        "token_ids": [
+          2831,
+          134,
+          2
+        ],
+        "raw_text": "991",
+        "token_log_probabilities": [
+          -0.00215143826790154,
+          -9.142934868577868e-05
+        ],
+        "token_geometric_mean_confidence": 0.9988791947636103,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P070",
+    "lines": [
+      {
+        "token_ids": [
+          2620,
+          34494,
+          34300,
+          11126,
+          2
+        ],
+        "raw_text": "AMOUNT NUMBER",
+        "token_log_probabilities": [
+          -2.384974718093872,
+          -0.07147745788097382,
+          -0.3445276916027069,
+          -0.4504069685935974
+        ],
+        "token_geometric_mean_confidence": 0.44359348554368205,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          387,
+          10494,
+          2068,
+          33350,
+          9335,
+          4014,
+          365,
+          2
+        ],
+        "raw_text": "BUKIT BATOKST 11",
+        "token_log_probabilities": [
+          -0.01245941873639822,
+          -0.019938288256525993,
+          -0.0012888943310827017,
+          -0.09560026973485947,
+          -0.24296149611473083,
+          -0.5826860666275024,
+          -0.04265133664011955
+        ],
+        "token_geometric_mean_confidence": 0.8671769287774731,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P071",
+    "lines": [
+      {
+        "token_ids": [
+          495,
+          31259,
+          3858,
+          791,
+          229,
+          9298,
+          211,
+          14543,
+          121,
+          4629,
+          2
+        ],
+        "raw_text": "DIOR CHU KANG DTT URE",
+        "token_log_probabilities": [
+          -1.0608419179916382,
+          -1.0978174209594727,
+          -1.1835553646087646,
+          -0.28646320104599,
+          -0.8277074098587036,
+          -0.022817444056272507,
+          -0.2664729952812195,
+          -1.6080906391143799,
+          -1.6687521934509277,
+          -2.025148391723633
+        ],
+        "token_geometric_mean_confidence": 0.3661300437819457,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P072",
+    "lines": [
+      {
+        "token_ids": [
+          20904,
+          20904,
+          20904,
+          20904,
+          20904,
+          2
+        ],
+        "raw_text": "WWWWWWWWWW",
+        "token_log_probabilities": [
+          -1.7534527778625488,
+          -0.7678061127662659,
+          -0.3875557482242584,
+          -0.6658982038497925,
+          -0.8953579068183899
+        ],
+        "token_geometric_mean_confidence": 0.409010623109306,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          387,
+          10494,
+          2068,
+          6823,
+          6390,
+          530,
+          4062,
+          365,
+          2
+        ],
+        "raw_text": "BUKIT BRTOK ST 11",
+        "token_log_probabilities": [
+          -0.033151622861623764,
+          -0.035024773329496384,
+          -0.0005796659388579428,
+          -0.23949745297431946,
+          -0.5565241575241089,
+          -0.0022157898638397455,
+          -0.3895755410194397,
+          -0.032934561371803284
+        ],
+        "token_geometric_mean_confidence": 0.8511320895335757,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P073",
+    "lines": [
+      {
+        "token_ids": [
+          17973,
+          104,
+          2
+        ],
+        "raw_text": "SRS",
+        "token_log_probabilities": [
+          -0.4181836247444153,
+          -0.7833623290061951
+        ],
+        "token_geometric_mean_confidence": 0.5483875813038148,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P074",
+    "lines": [
+      {
+        "token_ids": [
+          31416,
+          2
+        ],
+        "raw_text": "269",
+        "token_log_probabilities": [
+          -0.006805692799389362
+        ],
+        "token_geometric_mean_confidence": 0.9932174134800557,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P075",
+    "lines": [
+      {
+        "token_ids": [
+          30024,
+          2
+        ],
+        "raw_text": "187",
+        "token_log_probabilities": [
+          -0.0032270282972604036
+        ],
+        "token_geometric_mean_confidence": 0.9967781729621805,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P076",
+    "lines": [
+      {
+        "token_ids": [
+          23688,
+          2
+        ],
+        "raw_text": "195",
+        "token_log_probabilities": [
+          -0.49175339937210083
+        ],
+        "token_geometric_mean_confidence": 0.6115531566315107,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P077",
+    "lines": [
+      {
+        "token_ids": [
+          2620,
+          34494,
+          2
+        ],
+        "raw_text": "AMOUNT",
+        "token_log_probabilities": [
+          -1.7139875888824463,
+          -0.0085983294993639
+        ],
+        "token_geometric_mean_confidence": 0.4226153045710027,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P078",
+    "lines": [
+      {
+        "token_ids": [
+          25037,
+          2
+        ],
+        "raw_text": "133",
+        "token_log_probabilities": [
+          -0.006975346710532904
+        ],
+        "token_geometric_mean_confidence": 0.9930489245540497,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P079",
+    "lines": [
+      {
+        "token_ids": [
+          33213,
+          2
+        ],
+        "raw_text": "518",
+        "token_log_probabilities": [
+          -0.040802616626024246
+        ],
+        "token_geometric_mean_confidence": 0.9600186029587041,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P080",
+    "lines": [
+      {
+        "token_ids": [
+          11350,
+          448,
+          10760,
+          35,
+          2
+        ],
+        "raw_text": "MANMARY:",
+        "token_log_probabilities": [
+          -1.2428014278411865,
+          -0.9912478923797607,
+          -0.03144397586584091,
+          -2.0038647651672363
+        ],
+        "token_geometric_mean_confidence": 0.3439223013417093,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          15698,
+          4584,
+          5330,
+          8081,
+          2604,
+          975,
+          28107,
+          2
+        ],
+        "raw_text": "> SHEMTON UNY TER",
+        "token_log_probabilities": [
+          -0.016108721494674683,
+          -0.020497053861618042,
+          -1.2282229661941528,
+          -0.0037783440202474594,
+          -0.3556816279888153,
+          -0.006996891926974058,
+          -0.003821927821263671
+        ],
+        "token_geometric_mean_confidence": 0.7916888817062847,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P081",
+    "lines": [
+      {
+        "token_ids": [
+          574,
+          2547,
+          359,
+          24975,
+          4062,
+          2
+        ],
+        "raw_text": "LAY & OUR ST",
+        "token_log_probabilities": [
+          -0.5952569842338562,
+          -1.109298586845398,
+          -1.8932350873947144,
+          -0.9334213733673096,
+          -0.05126864090561867
+        ],
+        "token_geometric_mean_confidence": 0.39991784736738434,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P082",
+    "lines": [
+      {
+        "token_ids": [
+          510,
+          2336,
+          2492,
+          31775,
+          2
+        ],
+        "raw_text": "PASUR RIS",
+        "token_log_probabilities": [
+          -0.02491946890950203,
+          -0.009444321505725384,
+          -0.3439632058143616,
+          -0.15689754486083984
+        ],
+        "token_geometric_mean_confidence": 0.874759633203943,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P083",
+    "lines": [
+      {
+        "token_ids": [
+          3764,
+          27917,
+          229,
+          1729,
+          2
+        ],
+        "raw_text": "CHANGE KIS",
+        "token_log_probabilities": [
+          -1.4049416780471802,
+          -0.5909047722816467,
+          -1.3992631435394287,
+          -0.8156308531761169
+        ],
+        "token_geometric_mean_confidence": 0.3489993875120347,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          2620,
+          34494,
+          2
+        ],
+        "raw_text": "AMOUNT",
+        "token_log_probabilities": [
+          -1.8181301355361938,
+          -0.0005791893927380443
+        ],
+        "token_geometric_mean_confidence": 0.40278407186012655,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P084",
+    "lines": [
+      {
+        "token_ids": [
+          23688,
+          2
+        ],
+        "raw_text": "195",
+        "token_log_probabilities": [
+          -0.0010879080509766936
+        ],
+        "token_geometric_mean_confidence": 0.9989126835064476,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P085",
+    "lines": [
+      {
+        "token_ids": [
+          36659,
+          16712,
+          46824,
+          2
+        ],
+        "raw_text": "MARINA CTR",
+        "token_log_probabilities": [
+          -0.022379465401172638,
+          -0.03535058721899986,
+          -0.002310941694304347
+        ],
+        "token_geometric_mean_confidence": 0.9801852792073814,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P086",
+    "lines": [
+      {
+        "token_ids": [
+          20904,
+          771,
+          4,
+          20904,
+          4,
+          20904,
+          2
+        ],
+        "raw_text": "WWW.WW.WW",
+        "token_log_probabilities": [
+          -2.2351627349853516,
+          -0.4569168984889984,
+          -0.1751147210597992,
+          -1.1623555421829224,
+          -0.6081181764602661,
+          -1.7677326202392578
+        ],
+        "token_geometric_mean_confidence": 0.34384414805983654,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          347,
+          108,
+          9009,
+          33086,
+          248,
+          8856,
+          5289,
+          5733,
+          43,
+          2
+        ],
+        "raw_text": "C'NEALTH RVE CLOP)",
+        "token_log_probabilities": [
+          -0.3633114993572235,
+          -0.6557672023773193,
+          -0.6225106716156006,
+          -0.8225733041763306,
+          -0.5900537371635437,
+          -0.002221499104052782,
+          -0.7483676075935364,
+          -0.2574370205402374,
+          -0.3612605035305023
+        ],
+        "token_geometric_mean_confidence": 0.6117079364609869,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P087",
+    "lines": []
+  },
+  {
+    "review_id": "P088",
+    "lines": [
+      {
+        "token_ids": [
+          20904,
+          771,
+          4,
+          20904,
+          4,
+          20904,
+          4,
+          2
+        ],
+        "raw_text": "WWW.WW.WW.",
+        "token_log_probabilities": [
+          -2.305954933166504,
+          -0.7298085689544678,
+          -0.20492331683635712,
+          -1.4551602602005005,
+          -0.8236124515533447,
+          -1.4392447471618652,
+          -0.85638827085495
+        ],
+        "token_geometric_mean_confidence": 0.32744283371815347,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          347,
+          108,
+          9009,
+          33086,
+          83,
+          8856,
+          29504,
+          5733,
+          43,
+          2
+        ],
+        "raw_text": "C'NEALTH AVE LOOP)",
+        "token_log_probabilities": [
+          -0.6292121410369873,
+          -0.7720088362693787,
+          -0.7626895308494568,
+          -0.4794153571128845,
+          -0.1605255901813507,
+          -0.00033968876232393086,
+          -0.231309711933136,
+          -0.0016300498973578215,
+          -0.12437140941619873
+        ],
+        "token_geometric_mean_confidence": 0.7037880489043874,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P089",
+    "lines": []
+  },
+  {
+    "review_id": "P090",
+    "lines": [
+      {
+        "token_ids": [
+          3367,
+          565,
+          2
+        ],
+        "raw_text": "36T",
+        "token_log_probabilities": [
+          -0.0006554362480528653,
+          -0.02911505475640297
+        ],
+        "token_geometric_mean_confidence": 0.9852249921154592,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P091",
+    "lines": [
+      {
+        "token_ids": [
+          7831,
+          448,
+          17831,
+          1862,
+          10541,
+          2
+        ],
+        "raw_text": "TERMINTING RT",
+        "token_log_probabilities": [
+          -0.0012045992771163583,
+          -0.06334035843610764,
+          -0.018879128620028496,
+          -0.000362807244528085,
+          -0.3365759253501892
+        ],
+        "token_geometric_mean_confidence": 0.9193645411031645,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P092",
+    "lines": [
+      {
+        "token_ids": [
+          28580,
+          2
+        ],
+        "raw_text": "RM",
+        "token_log_probabilities": [
+          -0.199503093957901
+        ],
+        "token_geometric_mean_confidence": 0.8191376864314864,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P093",
+    "lines": [
+      {
+        "token_ids": [
+          2620,
+          2
+        ],
+        "raw_text": "AM",
+        "token_log_probabilities": [
+          -1.4866777658462524
+        ],
+        "token_geometric_mean_confidence": 0.22612264139749452,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P094",
+    "lines": [
+      {
+        "token_ids": [
+          2620,
+          34494,
+          2
+        ],
+        "raw_text": "AMOUNT",
+        "token_log_probabilities": [
+          -1.6713354587554932,
+          -0.3874186873435974
+        ],
+        "token_geometric_mean_confidence": 0.35722941910690154,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P095",
+    "lines": [
+      {
+        "token_ids": [
+          448,
+          34494,
+          2
+        ],
+        "raw_text": "MOUNT",
+        "token_log_probabilities": [
+          -1.1351618766784668,
+          -0.8131589293479919
+        ],
+        "token_geometric_mean_confidence": 0.37750917610965784,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P096",
+    "lines": [
+      {
+        "token_ids": [
+          4708,
+          250,
+          2
+        ],
+        "raw_text": "51A",
+        "token_log_probabilities": [
+          -0.25330549478530884,
+          -0.001959786517545581
+        ],
+        "token_geometric_mean_confidence": 0.8801766608854952,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P097",
+    "lines": [
+      {
+        "token_ids": [
+          565,
+          5330,
+          2444,
+          8625,
+          3263,
+          2
+        ],
+        "raw_text": "TEMINATE AT",
+        "token_log_probabilities": [
+          -0.1203942820429802,
+          -0.2331116646528244,
+          -0.5923923254013062,
+          -0.0001618731184862554,
+          -0.030048800632357597
+        ],
+        "token_geometric_mean_confidence": 0.822652182476799,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P098",
+    "lines": [
+      {
+        "token_ids": [
+          3439,
+          725,
+          3765,
+          487,
+          272,
+          11250,
+          12743,
+          36,
+          7976,
+          530,
+          843,
+          565,
+          43,
+          2
+        ],
+        "raw_text": "PAHOMN GARDENS (BLK 40T)",
+        "token_log_probabilities": [
+          -0.6091009378433228,
+          -0.19407346844673157,
+          -0.5066906213760376,
+          -1.1157400608062744,
+          -0.5857359766960144,
+          -0.010550200939178467,
+          -0.2932146489620209,
+          -0.06113061308860779,
+          -0.1533268392086029,
+          -0.12121862173080444,
+          -0.1008073017001152,
+          -0.0565459206700325,
+          -0.002797501627355814
+        ],
+        "token_geometric_mean_confidence": 0.7459112376521431,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P099",
+    "lines": [
+      {
+        "token_ids": [
+          23334,
+          2
+        ],
+        "raw_text": "185",
+        "token_log_probabilities": [
+          -0.0012507957872003317
+        ],
+        "token_geometric_mean_confidence": 0.9987499861318093,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P100",
+    "lines": [
+      {
+        "token_ids": [
+          19159,
+          2191,
+          250,
+          36957,
+          3847,
+          28107,
+          468,
+          2889,
+          2
+        ],
+        "raw_text": "BUONA VISTA TER VIA",
+        "token_log_probabilities": [
+          -0.0018062957096844912,
+          -0.024371428415179253,
+          -0.0013868723763152957,
+          -0.23901697993278503,
+          -0.033353645354509354,
+          -0.0008629412623122334,
+          -1.3323312997817993,
+          -0.0028576513286679983
+        ],
+        "token_geometric_mean_confidence": 0.8150560547515628,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P101",
+    "lines": [
+      {
+        "token_ids": [
+          20904,
+          771,
+          4,
+          20904,
+          20904,
+          20904,
+          20904,
+          4,
+          2
+        ],
+        "raw_text": "WWW.WWWWWWWW.",
+        "token_log_probabilities": [
+          -0.5668488144874573,
+          -0.6956409215927124,
+          -0.4158034324645996,
+          -0.5527864098548889,
+          -0.44688811898231506,
+          -0.5837409496307373,
+          -0.8042583465576172,
+          -0.4550875425338745
+        ],
+        "token_geometric_mean_confidence": 0.5682852321582901,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          11337,
+          2191,
+          2076,
+          30198,
+          234,
+          3732,
+          2
+        ],
+        "raw_text": "PIONER RD NTH",
+        "token_log_probabilities": [
+          -1.230615496635437,
+          -0.013455298729240894,
+          -0.6099357604980469,
+          -0.004647287540137768,
+          -0.012442229315638542,
+          -0.0005477358354255557
+        ],
+        "token_geometric_mean_confidence": 0.7320249837780143,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P102",
+    "lines": [
+      {
+        "token_ids": [
+          6997,
+          176,
+          2
+        ],
+        "raw_text": "TR2",
+        "token_log_probabilities": [
+          -0.36808469891548157,
+          -0.09443774819374084
+        ],
+        "token_geometric_mean_confidence": 0.7935321496696277,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P103",
+    "lines": [
+      {
+        "token_ids": [
+          9673,
+          21260,
+          2808,
+          5725,
+          3721,
+          2191,
+          11707,
+          2
+        ],
+        "raw_text": "UPPER INUMELON PD",
+        "token_log_probabilities": [
+          -1.5164330005645752,
+          -0.005022409372031689,
+          -1.0010993480682373,
+          -0.41297879815101624,
+          -1.0643656253814697,
+          -0.719520092010498,
+          -0.37915897369384766
+        ],
+        "token_geometric_mean_confidence": 0.48269595271318594,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P104",
+    "lines": [
+      {
+        "token_ids": [
+          20904,
+          20904,
+          20904,
+          20904,
+          20904,
+          20904,
+          4,
+          2
+        ],
+        "raw_text": "WWWWWWWWWWWW.",
+        "token_log_probabilities": [
+          -1.9143257141113281,
+          -0.43853628635406494,
+          -0.2382487654685974,
+          -0.4247901439666748,
+          -0.49805641174316406,
+          -0.9044981598854065,
+          -0.9121063947677612
+        ],
+        "token_geometric_mean_confidence": 0.4669613255218228,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          3388,
+          2620,
+          100,
+          229,
+          5330,
+          17167,
+          27290,
+          289,
+          2068,
+          2
+        ],
+        "raw_text": "SEAMI KEMAPP TM HIT",
+        "token_log_probabilities": [
+          -1.129471778869629,
+          -0.23006269335746765,
+          -2.338899612426758,
+          -0.7625218033790588,
+          -0.40091824531555176,
+          -1.8658435344696045,
+          -0.6759912967681885,
+          -1.585446834564209,
+          -1.9880281686782837
+        ],
+        "token_geometric_mean_confidence": 0.2953225566715084,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P105",
+    "lines": []
+  },
+  {
+    "review_id": "P106",
+    "lines": [
+      {
+        "token_ids": [
+          11343,
+          2
+        ],
+        "raw_text": "130",
+        "token_log_probabilities": [
+          -0.00042465253500267863
+        ],
+        "token_geometric_mean_confidence": 0.9995754376171235,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P107",
+    "lines": [
+      {
+        "token_ids": [
+          3732,
+          3765,
+          14452,
+          30198,
+          2
+        ],
+        "raw_text": "THOMSON RD",
+        "token_log_probabilities": [
+          -0.002283705398440361,
+          -0.00018404220463708043,
+          -0.0011653067776933312,
+          -0.21780525147914886
+        ],
+        "token_geometric_mean_confidence": 0.946144875350503,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      },
+      {
+        "token_ids": [
+          10237,
+          5382,
+          2191,
+          2
+        ],
+        "raw_text": "SHENTON",
+        "token_log_probabilities": [
+          -0.0017184742027893662,
+          -0.014507995918393135,
+          -0.4784998595714569
+        ],
+        "token_geometric_mean_confidence": 0.847971055392857,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P108",
+    "lines": [
+      {
+        "token_ids": [
+          7831,
+          11343,
+          2
+        ],
+        "raw_text": "TER130",
+        "token_log_probabilities": [
+          -0.05586288124322891,
+          -0.01634342037141323
+        ],
+        "token_geometric_mean_confidence": 0.9645407951898287,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P109",
+    "lines": [
+      {
+        "token_ids": [
+          246,
+          2
+        ],
+        "raw_text": "3",
+        "token_log_probabilities": [
+          -0.0017832106677815318
+        ],
+        "token_geometric_mean_confidence": 0.9982183783077283,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P110",
+    "lines": [
+      {
+        "token_ids": [
+          510,
+          4154,
+          24592,
+          3384,
+          2
+        ],
+        "raw_text": "PUNGGOL",
+        "token_log_probabilities": [
+          -0.08220696449279785,
+          -0.0013183006085455418,
+          -0.06647939234972,
+          -0.0008665143977850676
+        ],
+        "token_geometric_mean_confidence": 0.9629846635977152,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P111",
+    "lines": [
+      {
+        "token_ids": [
+          4454,
+          534,
+          5216,
+          31775,
+          10994,
+          204,
+          1589,
+          155,
+          1589,
+          290,
+          1589,
+          112,
+          2
+        ],
+        "raw_text": "PRGIR RIS DR 4 / 3 / 8 / 1",
+        "token_log_probabilities": [
+          -0.8851029872894287,
+          -0.12245960533618927,
+          -0.2995537221431732,
+          -0.08562987297773361,
+          -0.5489518046379089,
+          -0.015974750742316246,
+          -0.003592824097722769,
+          -0.02382739447057247,
+          -0.030512457713484764,
+          -0.0011181537993252277,
+          -0.06569617241621017,
+          -0.002084703417494893
+        ],
+        "token_geometric_mean_confidence": 0.8405417083650448,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P112",
+    "lines": [
+      {
+        "token_ids": [
+          510,
+          4154,
+          24592,
+          3384,
+          2
+        ],
+        "raw_text": "PUNGGOL",
+        "token_log_probabilities": [
+          -0.012944008223712444,
+          -0.0010912423022091389,
+          -0.1519620269536972,
+          -0.0004493180604185909
+        ],
+        "token_geometric_mean_confidence": 0.9592422310369964,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P113",
+    "lines": [
+      {
+        "token_ids": [
+          4563,
+          2
+        ],
+        "raw_text": "69",
+        "token_log_probabilities": [
+          -0.0021418030373752117
+        ],
+        "token_geometric_mean_confidence": 0.9978604889861039,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  },
+  {
+    "review_id": "P114",
+    "lines": [
+      {
+        "token_ids": [
+          387,
+          3721,
+          7140,
+          18630,
+          3732,
+          248,
+          9292,
+          2
+        ],
+        "raw_text": "BELAK NORTH RICE",
+        "token_log_probabilities": [
+          -1.207909345626831,
+          -0.07718512415885925,
+          -0.8932387232780457,
+          -0.26909518241882324,
+          -0.005157617852091789,
+          -0.03955188766121864,
+          -0.3019678294658661
+        ],
+        "token_geometric_mean_confidence": 0.6708847209470389,
+        "processor_tensor_shape": [
+          1,
+          3,
+          384,
+          384
+        ],
+        "eos_observed": true,
+        "generation_limit_reached": false
+      }
+    ]
+  }
+]
