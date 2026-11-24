@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/assets/styles/base.css">
   <link rel="stylesheet" href="/assets/styles/analysis.css">
   <link rel="stylesheet" href="/assets/styles/research.css">
-  <script type="module" src="/assets/js/pages/evaluation.js?v=4"></script>
+  <script type="module" src="/assets/js/pages/evaluation.js?v=5"></script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -16,7 +16,7 @@
   <main id="main">
     <div class="page-heading">
       <h1>Evaluation</h1>
-      <p>Compare three OCR pipelines on the same regions, then inspect the evidence behind the metrics.</p>
+      <p>Compare OCR readings and confidence from three pipelines on the same image.</p>
     </div>
     <section class="stack" aria-labelledby="comparison-heading">
       <div class="section-heading"><div><h2 id="comparison-heading">Compare one image</h2><p>One detector pass supplies identical crops to EasyOCR, fine-tuned PaddleOCR and fine-tuned TrOCR. Confidence scores are engine-specific and do not measure accuracy.</p></div></div>
@@ -41,7 +41,6 @@
       <p id="comparison-confidence" class="panel notice" hidden></p>
       <div id="comparison-results" class="comparison-results"></div>
     </section>
-    <div id="evaluation" class="stack"><div class="message">Loading evaluation evidence…</div></div>
   </main>
   <noscript>This application needs JavaScript to compare OCR pipelines.</noscript>
 </body>

@@ -172,7 +172,7 @@ setup, not inference. Individual unavailable OCR engines are reported separately
 | `/` | Project home page with an illustrated bus arrival and a link to Live. |
 | `/detect` | Upload an image, select a sample, or capture a single camera frame; inspect boxes, crops, OCR and matching. |
 | `/live` | Continuous camera input or server-decoded uploaded video with configurable sampling and start/stop/restart/reset. |
-| `/evaluation` | Run all three OCR pipelines on one shared set of detections; inspect measured timing and published evaluation evidence. |
+| `/evaluation` | Run all three OCR pipelines on one shared set of detections and compare their readings, confidence scores and processing times. |
 | `/models` | Check model provenance, confidence definitions and pipeline methods. |
 | `/docs` | FastAPI's generated API documentation. |
 
@@ -328,8 +328,9 @@ server. Camera checks use a simulated camera, and video fixtures are generated
 from still images; these checks do not establish performance on real bus video.
 
 For a reproducible OCR benchmark, prepare a reviewed transcription manifest and
-run `scripts/evaluate.py --help`. The evaluation page separates current-input
-comparisons, historical detector metadata and verified reports. There is no
+run `scripts/evaluate.py --help`. The evaluation page shows current-input
+comparisons. Historical detector metadata and verified reports are available at
+`/api/evaluation`. There is no
 reviewed OCR ground truth in the bundled data, so no verified OCR accuracy is
 claimed. Existing dataset splits contain exact train/validation/test overlap;
 the evaluation tooling reports it and never treats filenames or CSV endpoints

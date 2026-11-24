@@ -11,7 +11,7 @@ module.exports = async function research(page) {
   await page.locator('#comparison-results .field-card').first().waitFor();
   const text = await page.locator('#comparison-results').innerText();
   for (const name of ['EasyOCR', 'PaddleOCR', 'TrOCR']) assert.match(text, new RegExp(name));
-  assert.match(await page.locator('#evaluation').innerText(), /13/);
+  assert.equal(await page.locator('#evaluation').count(), 0);
   await assertResponsive(page, '/evaluation');
   await assertAccessible(page);
   await page.screenshot({path: path.join(output, 'evaluation-desktop.png'), fullPage: true});
@@ -23,5 +23,5 @@ module.exports = async function research(page) {
   await assertResponsive(page, '/models');
   await assertAccessible(page);
   await page.screenshot({path: path.join(output, 'models-desktop.png'), fullPage: true});
-  console.log('Evaluation/Models: real comparison, evidence, responsive and accessibility passed.');
+  console.log('Evaluation/Models: real comparison, model information, responsive and accessibility passed.');
 };
