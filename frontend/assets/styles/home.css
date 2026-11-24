@@ -1,0 +1,128 @@
+.home {
+  gap: 32px;
+  padding-top: clamp(36px, 5.5vh, 56px);
+  padding-bottom: 40px;
+}
+
+.home-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 40px;
+}
+
+.home-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.home-intro h1 {
+  max-width: 12ch;
+  font-size: clamp(42px, 4.55vw, 64px);
+  letter-spacing: -.05em;
+  text-wrap: balance;
+}
+
+.home-intro p {
+  max-width: 46ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(16px, 1.6vw, 19px);
+}
+
+.home-action {
+  gap: 14px;
+  min-height: 48px;
+}
+
+.home-action:hover { background: #000; color: #fff; }
+
+.arrival {
+  position: relative;
+  border: 1px solid var(--hairline);
+  border-radius: 20px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.arrival canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2.05;
+  object-fit: cover;
+  object-position: center 76%;
+  image-rendering: pixelated;
+}
+
+.scene-announcement {
+  position: absolute;
+  top: clamp(10px, 5%, 28px);
+  right: clamp(10px, 4%, 40px);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  max-width: calc(100% - 24px);
+  margin: 0;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  font-size: clamp(13px, 1.4vw, 17px);
+  font-weight: 600;
+}
+
+.scene-announcement::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: clamp(22px, 6.8vw, 90px);
+  width: 9px;
+  height: 9px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.scene-wave {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 2px;
+  color: #25634f;
+}
+
+.scene-wave i {
+  width: 3px;
+  height: 16px;
+  background: currentColor;
+  transform: scaleY(.35);
+  animation: scene-wave 500ms steps(4, end) infinite alternate;
+}
+
+.scene-wave i:nth-child(2), .scene-wave i:nth-child(4) { animation-delay: -300ms; }
+.scene-wave i:nth-child(3) { animation-delay: -480ms; }
+
+@keyframes scene-wave {
+  to { transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-wave i { animation: none; }
+  .scene-wave i:nth-child(2), .scene-wave i:nth-child(4) { transform: scaleY(.68); }
+  .scene-wave i:nth-child(3) { transform: scaleY(1); }
+}
+
+@media (max-width: 800px) {
+  .home {
+    gap: 24px;
+    padding-top: 32px;
+  }
+
+  .home-intro { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .home-intro h1 { max-width: 18ch; }
+  .arrival canvas { aspect-ratio: 280 / 176; }
+}

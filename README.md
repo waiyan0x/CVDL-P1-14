@@ -124,7 +124,7 @@ On the configured Mac, double-click `start.command` or run:
 bash scripts/run.sh
 ```
 
-Open **http://127.0.0.1:8000/detect**. The server loads the detector once and uses
+Open **http://127.0.0.1:8000/**. The server loads the detector once and uses
 local OCR caches. Stop it with Ctrl+C in the launch terminal.
 
 For a fresh Python environment:
@@ -169,16 +169,16 @@ setup, not inference. Individual unavailable OCR engines are reported separately
 
 | Page | Purpose |
 | --- | --- |
+| `/` | Project home page with an illustrated bus arrival and a link to Live. |
 | `/detect` | Upload an image, select a sample, or capture a single camera frame; inspect boxes, crops, OCR and matching. |
 | `/live` | Continuous camera input or server-decoded uploaded video with configurable sampling and start/stop/restart/reset. |
 | `/evaluation` | Run all three OCR pipelines on one shared set of detections; inspect measured timing and published evaluation evidence. |
 | `/models` | Check model provenance, confidence definitions and pipeline methods. |
 | `/docs` | FastAPI's generated API documentation. |
 
-The interface takes its layout cues from [TinyBus](https://tinybus.phrypy.dev/)
-in black, white and grey only, with self-hosted Space Grotesk and IBM Plex Mono
-fonts. Photographs and cropped regions retain their original colours. Results
-come from inference; design-mockup predictions are not used.
+The reader pages use a monochrome layout. The home page illustrates Singapore’s
+green public buses at a stop. Photographs and cropped regions retain their
+original colours, and displayed recognition results come from inference.
 
 ## Spoken bus announcements
 

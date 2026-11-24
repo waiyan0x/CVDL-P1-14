@@ -1,4 +1,5 @@
 import {AnnouncementGate, busAnnouncement} from '../core/bus-announcements.js';
+import {createBusUtterance} from '../core/bus-voice.js';
 
 export class SpeechControls {
   constructor({read, stop, status, automatic, currentDistance = () => null}) {
@@ -51,11 +52,7 @@ export class SpeechControls {
   speak(text) {
     if (!this.supported || !text) return false;
     this.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    const voices = this.synth.getVoices().filter(voice => voice.localService && /^en\b/i.test(voice.lang));
-    utterance.voice = voices.find(voice => /^en[-_]sg$/i.test(voice.lang)) || voices[0] || null;
-    utterance.lang = utterance.voice?.lang || 'en-SG';
-    utterance.rate = .95;
+    const utterance = createBusUtterance(this.synth, text);
     this.active = utterance;
     this.setStatus('');
     utterance.onend = () => this.finish(utterance);

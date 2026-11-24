@@ -45,6 +45,9 @@ def create_app(settings=None, runtime_factory=Runtime):
         return FileResponse(settings.root / 'frontend/pages' / f'{name}.html')
 
     @app.get('/', include_in_schema=False)
+    def home_page():
+        return page('home')
+
     @app.get('/detect', include_in_schema=False)
     def detect_page():
         return page('detect')

@@ -12,7 +12,7 @@ function fieldCard(field, label, result, number, idPrefix = '') {
   const fromDisplay = field.ocr_source === 'whole_display_fallback';
   if (fromDisplay) card.append(el('p', {class: 'small muted'}, 'No usable field crop: read from the whole display with pretrained PaddleOCR (less accurate).'));
   if (field.crop) card.append(el('img', {class: 'crop', src: field.crop, alt: fromDisplay ? 'Whole display crop' : `${roles[label]} crop`}));
-  const reading = field.raw?.trim() ? [el('span', {class: 'raw-label'}, 'OCR reads'), el('span', {class: `raw-value${label === 'bus_number' ? ' service-badge' : ''}`}, field.raw)] : 'OCR could not read this region';
+  const reading = field.raw?.trim() ? `OCR reads ${field.raw}` : 'OCR could not read this region';
   const text = el('div', {class: 'field-text'}, el('div', {class: 'raw-text'}, reading));
   const match = result.match || {};
   const matched = label === 'bus_number' ? match.service : label === 'destination' && match.status === 'matched' ? match.endpoint : null;

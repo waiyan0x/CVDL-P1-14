@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EDS Reader reads Singapore bus displays aloud for blind and low-vision commuters.">
+  <title>EDS Reader</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/home.css">
+  <script type="module" src="/assets/js/pages/home.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header data-header></header>
+  <main class="home" id="main">
+    <div class="arrival">
+      <canvas id="bus-stop" width="280" height="176" role="img" aria-label="Pixel art of a commuter with a white cane using a phone to read a bus display at a Singapore bus stop."></canvas>
+      <p class="scene-announcement" id="demo-announcement" hidden>
+        <span class="scene-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <span id="demo-announcement-text"></span>
+      </p>
+    </div>
+
+    <div class="home-intro">
+      <h1>Hear which bus is coming.</h1>
+      <div class="home-details">
+        <p>EDS Reader uses your camera and computer vision to read bus service numbers and destinations aloud for blind and low-vision commuters in Singapore.</p>
+        <a class="button primary home-action" href="/live">Go to Live <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
