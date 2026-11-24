@@ -3,7 +3,7 @@ import {request} from '../core/api.js';
 import {el, message, percent} from '../core/dom.js';
 import {facts, list, section, table} from '../components/research.js';
 import {detectionReport, ocrReport} from '../components/evaluation-reports.js';
-import {initialiseComparison} from './comparison.js';
+import {initialiseComparison} from './comparison.js?v=4';
 
 initialiseComparison();
 const container = document.getElementById('evaluation');

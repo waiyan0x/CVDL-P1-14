@@ -6,14 +6,14 @@ import {FrameSession, SamplingLoop} from '../core/session.js';
 import {cameraObservation, estimateMetres} from '../core/bus-announcements.js';
 import {mediaTime, message, setSegments} from '../core/dom.js';
 import {Options} from '../components/options.js';
-import {Viewer} from '../components/viewer.js';
+import {Viewer} from '../components/viewer.js?v=2';
 import {renderResults} from '../components/results.js';
 import {dropFiles} from '../components/samples.js';
 import {SpeechControls} from '../components/speech.js';
 
 const $ = id => document.getElementById(id);
 const session = new FrameSession();
-const viewer = new Viewer($('viewer'), $('frame-label'));
+const viewer = new Viewer($('viewer'), $('frame-label'), {boxesButton: $('detection-boxes')});
 const camera = new Camera($('camera'));
 const video = new UploadedVideo();
 let mode = 'camera', running = false, starting = false, startTime = 0, position = 0, minimum = 100, maxBytes;
@@ -60,7 +60,6 @@ function buttons() {
 function clearResults() {
   speech.reset();
   viewer.clear();
-  $('legend').hidden = true;
   message($('results'), 'Ready when you are', mode === 'camera' ? 'Start the camera to process its first frame.' : 'Upload a video, then start processing.');
 }
 
@@ -185,7 +184,6 @@ async function processFrame() {
         Math.max(0, 3501 - (Date.now() - Date.parse(data.frame.captured_at))));
     }
     speech.update(data, metres, {announce: true});
-    $('legend').hidden = !data.detections.length;
     reportStatus(`Processing · ${Number(data.processing_fps || 0).toFixed(1)} frames/s for the latest frame`, 'Processing frames.');
     $('results').setAttribute('aria-busy', 'false');
     if (mode === 'camera') $('camera').hidden = true;

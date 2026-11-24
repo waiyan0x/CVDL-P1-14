@@ -6,10 +6,6 @@
 .box.estimated { border-style: dashed; border-radius: 6px; box-shadow: 0 0 0 1px #0007; }
 .box-number { position: absolute; bottom: 100%; left: -2px; margin-bottom: 3px; background: #fff; color: #000; border: 1px solid #000; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 5px; white-space: nowrap; }
 .box.estimated .box-number, .box.screen .box-number { top: 100%; bottom: auto; margin-top: 4px; background: #000; color: #fff; border-color: #fff; font-weight: 600; }
-.legend { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 13px; color: var(--muted); }
-.legend span { display: inline-flex; align-items: center; gap: 8px; }
-.legend i { width: 20px; border-top: 2px solid var(--ink); }
-.legend i.dashed { border-top-style: dashed; }
 .samples { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .sample { display: flex; flex-direction: column; gap: 8px; padding: 6px 6px 10px; background: #fff; border-radius: 14px; cursor: pointer; text-align: left; min-width: 0; border: 2px solid var(--hairline); }
 .sample[aria-pressed="true"] { border-color: var(--ink); }

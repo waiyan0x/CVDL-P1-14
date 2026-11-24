@@ -4,14 +4,14 @@ import {FrameSession} from '../core/session.js';
 import {Camera} from '../core/camera.js';
 import {message, setSegments} from '../core/dom.js';
 import {Options} from '../components/options.js';
-import {Viewer} from '../components/viewer.js';
+import {Viewer} from '../components/viewer.js?v=2';
 import {renderResults} from '../components/results.js';
 import {dropFiles, loadSamples} from '../components/samples.js';
 import {SpeechControls} from '../components/speech.js';
 
 const $ = id => document.getElementById(id);
 const session = new FrameSession();
-const viewer = new Viewer($('viewer'), $('frame-label'));
+const viewer = new Viewer($('viewer'), $('frame-label'), {boxesButton: $('detection-boxes')});
 const camera = new Camera($('camera'));
 const speech = new SpeechControls({read: $('speech-read'), stop: $('speech-stop'), status: $('speech-status')});
 let mode = 'samples', input = null, objectURL = null, sampleList, maxBytes;
@@ -25,7 +25,6 @@ function clearInput() {
   if (objectURL) URL.revokeObjectURL(objectURL);
   objectURL = null;
   viewer.clear();
-  $('legend').hidden = true;
   $('image-file').value = '';
   $('upload-zone').classList.remove('compact');
   $('camera').hidden = false;
@@ -60,12 +59,10 @@ async function processInput() {
     viewer.render(data, {label: selected.label});
     renderResults($('results'), data);
     speech.update(data);
-    $('legend').hidden = !data.detections.length;
     $('status').textContent = 'Analysis complete.';
   } catch (error) {
     if (!session.current(generation)) return;
     viewer.clear();
-    $('legend').hidden = true;
     $('status').textContent = 'Processing stopped.';
     message($('results'), 'Processing failed', error.message, {error: true, retry: processInput});
   } finally {
@@ -78,7 +75,6 @@ function selectSample(sample) {
   input = {sampleId: sample.id, source: 'sample', label: sample.name};
   message($('results'), 'Processing image', 'The result will appear here.');
   viewer.preview(sample.url, sample.name);
-  $('legend').hidden = true;
   processInput();
 }
 

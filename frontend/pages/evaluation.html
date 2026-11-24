@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/assets/styles/base.css">
   <link rel="stylesheet" href="/assets/styles/analysis.css">
   <link rel="stylesheet" href="/assets/styles/research.css">
-  <script type="module" src="/assets/js/pages/evaluation.js"></script>
+  <script type="module" src="/assets/js/pages/evaluation.js?v=4"></script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -21,13 +21,24 @@
     <section class="stack" aria-labelledby="comparison-heading">
       <div class="section-heading"><div><h2 id="comparison-heading">Compare one image</h2><p>One detector pass supplies identical crops to EasyOCR, fine-tuned PaddleOCR and fine-tuned TrOCR. Confidence scores are engine-specific and do not measure accuracy.</p></div></div>
       <div class="comparison-controls">
-        <label for="comparison-sample">Sample</label><select id="comparison-sample" aria-label="Comparison sample"><option value="">Loading samples…</option></select>
+        <label for="comparison-sample">Sample</label><select id="comparison-sample" aria-label="Comparison sample" aria-describedby="comparison-sample-help"><option value="">Loading samples…</option></select>
         <label class="button" for="comparison-file">Choose image</label><input type="file" id="comparison-file" class="visually-hidden" accept="image/jpeg,image/png,image/webp">
         <button type="button" id="compare" class="button primary" disabled>Compare pipelines</button>
         <button type="button" id="reset" class="button">Reset</button>
       </div>
-      <div class="comparison-input"><div class="stack tight"><div id="viewer" class="viewer" hidden></div><p id="frame-label" class="frame-label"></p></div><div id="options"></div></div>
+      <p id="comparison-sample-help" class="caption">These demo samples show large OCR confidence gaps. Detection confidence is shared across the three pipelines and varies between images.</p>
+      <div class="comparison-input">
+        <div class="stack tight">
+          <div id="viewer" class="viewer" hidden></div>
+          <div class="toolbar">
+            <p id="frame-label" class="frame-label"></p>
+            <button type="button" id="comparison-boxes" class="button push" aria-controls="viewer" hidden>Hide detection boxes</button>
+          </div>
+        </div>
+        <div id="options"></div>
+      </div>
       <p id="status" class="notice" role="status" aria-live="polite">Choose a sample or image to compare.</p>
+      <p id="comparison-confidence" class="panel notice" hidden></p>
       <div id="comparison-results" class="comparison-results"></div>
     </section>
     <div id="evaluation" class="stack"><div class="message">Loading evaluation evidence…</div></div>
