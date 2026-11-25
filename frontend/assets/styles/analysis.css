@@ -69,6 +69,10 @@ input[type="range"] { accent-color: var(--accent); width: 100%; }
 .route-card { display: flex; flex-direction: column; gap: 6px; }
 .route-card p { margin: 0; font-size: 14px; color: var(--muted); }
 .route-card p.announcement { font-size: 16px; font-weight: 600; color: var(--ink); }
+/* A confirmed route is highlighted in the deck's pale lime, with dark text only. */
+.route-card[data-status="matched"]::before { background: var(--accent-tint); }
+.route-card[data-status="matched"] .matched-text { color: var(--accent); }
+.route-card[data-status="matched"] p, .route-card[data-status="matched"] .muted { color: var(--ink); }
 .timings { display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
 .timings dl { display: flex; flex-direction: column; gap: 10px; margin: 0; }
 .timings dl div { display: flex; justify-content: space-between; gap: 12px; }
