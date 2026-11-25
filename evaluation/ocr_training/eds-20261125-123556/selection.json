@@ -1,0 +1,10 @@
+{
+  "metric": "minimum val_crop_CER",
+  "upstream_selected_prefix": "/content/CVDL-OCR-finetune/paddleocr-eds/20261125-123556/checkpoints/best_accuracy",
+  "seconds": 268.75127724699996,
+  "best_val_crop_CER": 0.14059196617336153,
+  "best_epoch": 6,
+  "stopped_early": true,
+  "early_stopping_patience": 3,
+  "validation_epochs": 9
+}
