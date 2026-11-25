@@ -25,11 +25,17 @@ function fieldCard(field, label, result, number, idPrefix = '') {
 }
 
 // The confirmed reading drawn large and high-contrast, for users with low vision: the same facts the voice
-// announces, readable at arm's length. Shown only for a confirmed service, destination or not-in-service bus.
+// announces, readable at arm's length. Every display gets this sign in the same place. When no service, destination
+// or not-in-service bus is confirmed it shows dashes and says so, never an unconfirmed number.
 function signCard(result) {
   const match = result.match || {};
   const notInService = /^Bus not in service\b/.test(match.announcement ?? '');
-  if (!match.service && !match.destination && !notInService) return null;
+  if (!match.service && !match.destination && !notInService) {
+    const text = result.status === 'unreadable' ? 'Sign not readable' : 'Bus not recognised';
+    return el('section', {class: 'sign-card unconfirmed', 'aria-label': text},
+      el('div', {class: 'sign-service', 'aria-hidden': 'true'}, '– – –'),
+      el('div', {class: 'sign-destination', 'aria-hidden': 'true'}, text));
+  }
   const label = [match.service && `Bus ${match.service}`, match.destination && `to ${match.destination}`].filter(Boolean).join(' ');
   return el('section', {class: 'sign-card', 'aria-label': notInService ? 'Bus not in service' : label},
     el('div', {class: 'sign-service', 'aria-hidden': 'true'}, match.service || '–'),
