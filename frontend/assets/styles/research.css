@@ -1,11 +1,19 @@
 .section-heading { display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 .section-heading p { margin: 10px 0 0; max-width: 70ch; color: var(--muted); font-size: 15px; }
 
-.doc-section { display: flex; flex-direction: column; gap: 16px; min-width: 0; padding-top: 24px; border-top: 1px solid var(--hairline); }
+/* Sections are divided by a dashed road marking. */
+.doc-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  padding-top: 28px;
+  background: repeating-linear-gradient(90deg, var(--road) 0 28px, transparent 28px 48px) left top / 100% 3px no-repeat;
+}
 .doc-section > h2 { font-size: clamp(26px, 2.6vw, 32px); text-wrap: balance; }
 .doc-section > :not(h2) { min-width: 0; }
 #models { gap: 32px; }
-#models > .doc-section:first-child { padding-top: 0; border-top: 0; }
+#models > .doc-section:first-child { padding-top: 0; background: none; }
 
 .research-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .research-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
