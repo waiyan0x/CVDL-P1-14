@@ -5,7 +5,14 @@ Standalone Python scripts own data preparation. The data visual-check notebook
 displays augmentation comparisons and representative scene categories; the
 separate detector benchmark notebook records model evaluation.
 
-Model dataset: **`data/training/2026-10-24/`**.
+**Detector dataset (25 Nov 2026):** YOLO is being retrained on **Roboflow Front EDS v9**:
+2,424 / 303 / 303 train / validation / test originals (3,030), with the training split augmented
+3× to **7,272** images (rotation ±5°, brightness ±20%, exposure ±15%, blur up to 2 px, noise up to
+1.49% of pixels; no preprocessing). Until the new weights are pushed, the app uses YOLO11s
+`v4-reviewed-01`, trained on the v4 export (735 / 53 / 53). Details:
+[training datasets](data/training/README.md).
+
+Earlier model dataset: **`data/training/2026-10-24/`**.
 Its current local export contains **420 training, 39 validation and 20 test
 images (479 total)**, verified against the COCO records on 2026-10-29.
 The training COCO groups outputs under 140 source names (three outputs each);

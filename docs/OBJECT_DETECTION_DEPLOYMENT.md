@@ -5,6 +5,10 @@ The application default is now **YOLO11s `v4-reviewed-01`**, checkpoint SHA-256
 It was selected using validation mAP50:95 before its held-out test. The old
 `baseline-01` detector and its results remain preserved for documentation.
 
+YOLO is being retrained on the larger Roboflow Front EDS v9 dataset (7,272 / 303 / 303 images
+after augmentation; see [training datasets](../data/training/README.md)). This page applies to
+`v4-reviewed-01` until the new checkpoint and its hash are pushed.
+
 See [the Cody handoff](OBJECT_DETECTION_HANDOFF.md) for the current evidence and
 remaining integration work.
 
