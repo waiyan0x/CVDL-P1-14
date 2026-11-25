@@ -1,5 +1,38 @@
 # Final datasets for model training
 
+## Roboflow v9 export: YOLO retraining in progress (25 Nov 2026)
+
+YOLO is being retrained on **Roboflow Front EDS v9**, the full dataset. Until that run finishes and
+its weights and results are pushed, the app and the terminal tools still use YOLO11s `v4-reviewed-01`
+(trained on the v4 export below: 735 / 53 / 53), and every detector score in the repo is from v4.
+The v9 export and checkpoints are local, ignored files like v4. The counts and settings below are
+taken from the Roboflow version page; they have not been checked against a local copy.
+
+| Split | Before augmentation | After augmentation (used for training) |
+| --- | ---: | ---: |
+| Train | 2,424 (80%) | **7,272** (92%) |
+| Validation | 303 (10%) | 303 (4%) |
+| Test | 303 (10%) | 303 (4%) |
+| **Total** | **3,030** | **7,878** |
+
+Only the training split is augmented: each training image gives **3 outputs**
+(2,424 × 3 = 7,272). Validation and test images are unchanged.
+
+| Setting | v9 value |
+| --- | --- |
+| Preprocessing | none |
+| Outputs per training example | 3 |
+| Rotation | −5° to +5° |
+| Brightness | −20% to +20% |
+| Exposure | −15% to +15% |
+| Blur | up to 2 px |
+| Noise | up to 1.49% of pixels |
+
+These Roboflow settings are wider than the repository's torchvision recipe further down
+(brightness ±10%, rotation ±3°, salt/pepper noise 1%, Gaussian blur sigma 0–1 px), which is
+not what produced v9. Following the run archive's rule, a changed dataset needs a new dataset
+fingerprint and run ID under `evaluation/object_detection/`; the v4 results stay as they are.
+
 ## New Roboflow v4 export (local, review required)
 
 The corrected version is now `data/training/2026-11-05-roboflow-v4-reviewed/`.
