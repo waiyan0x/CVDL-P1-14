@@ -57,7 +57,7 @@ export class Viewer {
     this.updateDetectionBoxes();
   }
 
-  render(data, {numbers = fieldNumbers(data), state = 'Processed', label = '', idPrefix = ''} = {}) {
+  render(data, {numbers = fieldNumbers(data), state = 'Processed', label = '', idPrefix = '', linkResults = true} = {}) {
     this.last = data;
     this.container.hidden = false;
     const image = el('img', {src: data.image, alt: 'Processed frame', width: data.width, height: data.height});
@@ -69,11 +69,12 @@ export class Viewer {
       const estimated = detection.source === 'field_union';
       const screen = detection.label === 'eds';
       const number = numbers.get(detection.id);
-      const box = el(number ? 'a' : 'span', {
+      const linked = linkResults && Boolean(number);
+      const box = el(linked ? 'a' : 'span', {
         class: `box${estimated ? ' estimated' : ''}${screen ? ' screen' : ''}`,
-        href: number ? `#result-${idPrefix}${detection.id}` : null,
-        'aria-label': number ? `Region ${number}, ${{bus_number: 'service number', route: 'route or landmark', destination: 'destination'}[detection.label]}: go to result` : null,
-        'aria-hidden': number ? null : 'true',
+        href: linked ? `#result-${idPrefix}${detection.id}` : null,
+        'aria-label': linked ? `Region ${number}, ${{bus_number: 'service number', route: 'route or landmark', destination: 'destination'}[detection.label]}: go to result` : null,
+        'aria-hidden': linked ? null : 'true',
       }, el('span', {class: 'box-number'}, screen ? `EDS${estimated ? ' · estimated' : ''}` : String(number || '')));
       Object.assign(box.style, {left: `${x1 / data.width * 100}%`, top: `${y1 / data.height * 100}%`, width: `${(x2 - x1) / data.width * 100}%`, height: `${(y2 - y1) / data.height * 100}%`});
       fragment.append(box);

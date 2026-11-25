@@ -1,6 +1,6 @@
 import {el} from '../core/dom.js';
 
-const pages = [['/detect', 'Detect'], ['/live', 'Live'], ['/evaluation', 'Evaluation'], ['/models', 'Models & Method']];
+const pages = [['/detect', 'Detect'], ['/live', 'Live'], ['/evaluation', 'Evaluation'], ['/models', 'How it works']];
 const current = location.pathname;
 const header = document.querySelector('[data-header]');
 if (header) {

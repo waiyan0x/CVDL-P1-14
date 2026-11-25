@@ -3,22 +3,64 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Models &amp; Method — EDS Reader</title>
+  <title>How it works — EDS Reader</title>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/analysis.css">
   <link rel="stylesheet" href="/assets/styles/research.css">
+  <link rel="stylesheet" href="/assets/styles/models.css">
   <script type="module" src="/assets/js/pages/models.js"></script>
 </head>
-<body>
+<body class="models-page">
   <a href="#main" class="skip-link">Skip to content</a>
   <header data-header></header>
   <main id="main">
     <div class="page-heading">
-      <h1>Models &amp; Method</h1>
-      <p>How an image becomes a service number, destination and reference match.</p>
+      <h1>How EDS Reader reads a bus</h1>
+      <p>Follow a bus photo from sign detection to a spoken service number and destination.</p>
     </div>
-    <div id="models" class="stack"><div class="message">Loading model information…</div></div>
+    <div id="models" class="stack">
+      <section class="doc-section" aria-labelledby="walkthrough-title">
+        <h2 id="walkthrough-title">Walk through one photo</h2>
+        <div class="segments walkthrough-steps" role="group" aria-label="Walkthrough steps">
+          <button type="button" data-mode="photo" aria-pressed="true" aria-controls="walkthrough-content">1. Photo</button>
+          <button type="button" data-mode="detect" aria-pressed="false" aria-controls="walkthrough-content" disabled>2. Find the sign</button>
+          <button type="button" data-mode="read" aria-pressed="false" aria-controls="walkthrough-content" disabled>3. Read the text</button>
+          <button type="button" data-mode="match" aria-pressed="false" aria-controls="walkthrough-content" disabled>4. Match the route</button>
+          <button type="button" data-mode="speak" aria-pressed="false" aria-controls="walkthrough-content" disabled>5. Say it</button>
+        </div>
+        <p id="walkthrough-status" class="notice" role="status">Loading the sample photo…</p>
+        <div id="walkthrough-content" class="walkthrough-layout">
+          <div>
+            <div id="walkthrough-viewer" class="viewer" hidden></div>
+            <div class="toolbar walkthrough-caption">
+              <p id="walkthrough-caption" class="caption"></p>
+              <button type="button" id="walkthrough-boxes" class="button" aria-controls="walkthrough-viewer" hidden>Hide detection boxes</button>
+            </div>
+          </div>
+          <div id="walkthrough-panel" class="panel research-card" hidden>
+            <div id="walkthrough-result" class="research-card"></div>
+            <div id="walkthrough-speech" class="stack tight" hidden>
+              <fieldset id="walkthrough-language" class="voice-language">
+                <legend>Voice language</legend>
+                <div class="segments">
+                  <label><input type="radio" name="walkthrough-language" value="en" checked> English</label>
+                  <label lang="zh"><input type="radio" name="walkthrough-language" value="zh"> 中文</label>
+                </div>
+              </fieldset>
+              <div class="toolbar">
+                <button type="button" id="walkthrough-play" class="button primary" disabled>Play announcement</button>
+                <button type="button" id="walkthrough-stop" class="button" disabled>Stop speech</button>
+              </div>
+              <p id="walkthrough-speech-status" class="notice" role="status"></p>
+            </div>
+          </div>
+        </div>
+        <div id="walkthrough-error" hidden></div>
+        <dl id="walkthrough-timings" class="walkthrough-timings" aria-label="Processing times for this photo" hidden></dl>
+      </section>
+    </div>
   </main>
-  <noscript>This application needs JavaScript to display current model information.</noscript>
+  <noscript>Enable JavaScript to use the photo walkthrough and see model information.</noscript>
 </body>
 </html>
