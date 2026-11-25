@@ -61,7 +61,7 @@
 │   ├── detection_dataset.py
 │   ├── evaluate.py
 │   ├── evaluate_detector.py
-│   ├── fetch_trocr.py
+│   ├── install_trocr.py
 │   ├── prepare_models.py
 │   ├── run.sh
 │   └── setup.sh

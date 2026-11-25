@@ -115,14 +115,14 @@ Repository setting: `backend/app/services/ocr/easyocr.py`.
   and original base checkpoint of the supplied fine-tuned **weights are unknown**
   from the repository; do not infer them from the software licence.
 - **Install — Repository/External:** `python -m pip install "transformers>=4.52,<5" torch safetensors pillow`,
-  then `python scripts/fetch_trocr.py` from this repository with authenticated
-  GitHub access to hydrate the LFS weight into `.cache/trocr/`.
+  then `python scripts/install_trocr.py --from <Drive download>` to install the
+  round 1 fine-tuned weights into `.cache/trocr/`.
 - **Why retain — Inference:** It is already supplied and may be informative, but
   only as a diagnostic until training provenance or a genuinely new held-out test
   set resolves leakage risk.
 
 Sources: `models/trocr-finetuned/config.json`,
-`backend/app/services/ocr/trocr.py`, `scripts/fetch_trocr.py`, Git commit
+`backend/app/services/ocr/trocr.py`, `scripts/install_trocr.py`, Git commit
 `a5cead0`; [TrOCR documentation](https://huggingface.co/docs/transformers/en/model_doc/trocr),
 [Transformers software licence](https://github.com/huggingface/transformers).
 

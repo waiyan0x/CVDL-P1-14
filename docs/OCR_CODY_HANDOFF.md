@@ -72,7 +72,7 @@ In another PowerShell terminal after the app is ready:
 venv\detector\Scripts\python.exe scripts\evaluate.py --manifest C:\path\to\reviewed-v4-ocr-validation.json --detection 0.50
 ```
 
-The benchmark saves JSON in `evaluation/reports/` by default. It uses the application's shared detection path, includes misses in end-to-end text scoring, and reports unavailable engines separately. The crop CSV is for direct crop-level OCR experiments; it is **not** accepted by `scripts/evaluate.py`. On a fresh machine, create the app environment with `requirements-app.txt` or the repo setup instructions first. Use [`install_selected_detector.py`](../scripts/install_selected_detector.py) with `--source PATH` when a verified v4 checkpoint is transferred. Install Tesseract separately and retrieve TrOCR weights using [`fetch_trocr.py`](../scripts/fetch_trocr.py) with the required authenticated access.
+The benchmark saves JSON in `evaluation/reports/` by default. It uses the application's shared detection path, includes misses in end-to-end text scoring, and reports unavailable engines separately. The crop CSV is for direct crop-level OCR experiments; it is **not** accepted by `scripts/evaluate.py`. On a fresh machine, create the app environment with `requirements-app.txt` or the repo setup instructions first. Use [`install_selected_detector.py`](../scripts/install_selected_detector.py) with `--source PATH` when a verified v4 checkpoint is transferred. Install Tesseract separately and install the fine-tuned TrOCR from its Drive download with [`install_trocr.py`](../scripts/install_trocr.py).
 
 ## Files Cody should leave for the next handoff
 

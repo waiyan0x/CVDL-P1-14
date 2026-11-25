@@ -21,6 +21,8 @@ __pycache__/
 .runtime/
 /evaluation/object_detection/**/checkpoints/*.pt
 /evaluation/object_detection/**/checkpoints/*.safetensors
+# The app's selected detector (18 MB, SHA-256 checked at start-up) is committed so a clone runs as is.
+!/evaluation/object_detection/01760a841333/runs/v4-reviewed-01/checkpoints/yolo11s-best.pt
 /evaluation/object_detection/**/checkpoints/*.bin
 /evaluation/object_detection/**/*.tmp
 .env
