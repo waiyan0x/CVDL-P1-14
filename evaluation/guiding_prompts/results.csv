@@ -1,0 +1,697 @@
+image,scenario,expected,code,outcome,detected,fieldsOnly,read,readService,hasService
+bus-and-operator-variety/advertising-wrapped-bus.jpg,centred,,,correct,true,false,true,true,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,left 0%,left,left,correct,true,false,true,true,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,right 0%,right,right,correct,true,false,true,true,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,top 0%,top,top,correct,true,false,false,false,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,bottom 0%,bottom,bottom,correct,true,false,true,false,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,left 20%,left,left,correct,true,false,true,true,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,right 20%,right,right,correct,true,false,true,false,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,top 20%,top,top,correct,true,false,true,true,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,bottom 20%,bottom,bottom,correct,true,false,false,false,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,left 40%,left,left,correct,true,false,true,true,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,right 40%,right,right,correct,true,false,true,false,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,top 40%,top,top,correct,true,true,true,true,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,left 60%,left,small,wrong: small,true,true,true,true,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,right 60%,right,right,correct,true,false,false,false,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,top 60%,top,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,small 7.0%,small,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/advertising-wrapped-bus.jpg,no sign,none,none,correct,false,false,false,false,true
+bus-and-operator-variety/articulated-bus.jpg,centred,,,correct,true,false,true,true,true
+bus-and-operator-variety/articulated-bus.jpg,left 0%,left,left,correct,true,false,true,true,true
+bus-and-operator-variety/articulated-bus.jpg,right 0%,right,right,correct,true,false,true,true,true
+bus-and-operator-variety/articulated-bus.jpg,top 0%,top,top,correct,true,false,true,true,true
+bus-and-operator-variety/articulated-bus.jpg,bottom 0%,bottom,bottom,correct,true,false,true,true,true
+bus-and-operator-variety/articulated-bus.jpg,left 20%,left,left,correct,true,false,true,true,true
+bus-and-operator-variety/articulated-bus.jpg,right 20%,right,right,correct,true,false,true,false,true
+bus-and-operator-variety/articulated-bus.jpg,top 20%,top,top,correct,true,false,true,true,true
+bus-and-operator-variety/articulated-bus.jpg,bottom 20%,bottom,bottom,correct,true,false,true,true,true
+bus-and-operator-variety/articulated-bus.jpg,left 40%,left,left,correct,true,false,true,true,true
+bus-and-operator-variety/articulated-bus.jpg,right 40%,right,right,correct,true,true,false,false,true
+bus-and-operator-variety/articulated-bus.jpg,top 40%,top,top,correct,true,false,true,true,true
+bus-and-operator-variety/articulated-bus.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/articulated-bus.jpg,left 60%,left,left,correct,true,false,true,true,true
+bus-and-operator-variety/articulated-bus.jpg,right 60%,right,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/articulated-bus.jpg,top 60%,top,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/articulated-bus.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/articulated-bus.jpg,fills 1.15x,wide,,no prompt,true,true,false,false,true
+bus-and-operator-variety/articulated-bus.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/articulated-bus.jpg,small 7.0%,small,small,correct,true,false,true,true,true
+bus-and-operator-variety/articulated-bus.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/articulated-bus.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/articulated-bus.jpg,no sign,none,none,correct,false,false,false,false,true
+bus-and-operator-variety/sbs-transit.jpg,centred,,,correct,true,false,true,true,true
+bus-and-operator-variety/sbs-transit.jpg,left 0%,left,left,correct,true,false,true,true,true
+bus-and-operator-variety/sbs-transit.jpg,right 0%,right,right,correct,true,false,true,true,true
+bus-and-operator-variety/sbs-transit.jpg,top 0%,top,top,correct,true,false,true,true,true
+bus-and-operator-variety/sbs-transit.jpg,bottom 0%,bottom,bottom,correct,true,false,true,true,true
+bus-and-operator-variety/sbs-transit.jpg,left 20%,left,left,correct,true,false,true,true,true
+bus-and-operator-variety/sbs-transit.jpg,right 20%,right,right,correct,true,false,true,false,true
+bus-and-operator-variety/sbs-transit.jpg,top 20%,top,top,correct,true,false,true,true,true
+bus-and-operator-variety/sbs-transit.jpg,bottom 20%,bottom,bottom,correct,true,false,true,true,true
+bus-and-operator-variety/sbs-transit.jpg,left 40%,left,left,correct,true,false,true,true,true
+bus-and-operator-variety/sbs-transit.jpg,right 40%,right,right,correct,true,true,true,false,true
+bus-and-operator-variety/sbs-transit.jpg,top 40%,top,top,correct,true,false,true,false,true
+bus-and-operator-variety/sbs-transit.jpg,bottom 40%,bottom,bottom,correct,true,false,true,true,true
+bus-and-operator-variety/sbs-transit.jpg,left 60%,left,small,wrong: small,true,true,true,true,true
+bus-and-operator-variety/sbs-transit.jpg,right 60%,right,,no prompt,true,true,true,false,true
+bus-and-operator-variety/sbs-transit.jpg,top 60%,top,top,correct,true,true,false,false,true
+bus-and-operator-variety/sbs-transit.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/sbs-transit.jpg,fills 1.15x,wide,,no prompt,true,true,false,false,true
+bus-and-operator-variety/sbs-transit.jpg,fills 1.40x,wide,,no prompt,true,true,false,false,true
+bus-and-operator-variety/sbs-transit.jpg,small 7.0%,small,small,correct,true,false,true,true,true
+bus-and-operator-variety/sbs-transit.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/sbs-transit.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/sbs-transit.jpg,no sign,none,none,correct,false,false,false,false,true
+bus-and-operator-variety/sg-bus-livery.jpg,centred,,,correct,true,false,true,true,true
+bus-and-operator-variety/sg-bus-livery.jpg,left 0%,left,left,correct,true,false,true,true,true
+bus-and-operator-variety/sg-bus-livery.jpg,right 0%,right,right,correct,true,false,true,true,true
+bus-and-operator-variety/sg-bus-livery.jpg,top 0%,top,top,correct,true,false,true,true,true
+bus-and-operator-variety/sg-bus-livery.jpg,bottom 0%,bottom,bottom,correct,true,false,true,true,true
+bus-and-operator-variety/sg-bus-livery.jpg,left 20%,left,left,correct,true,false,true,true,true
+bus-and-operator-variety/sg-bus-livery.jpg,right 20%,right,right,correct,true,false,true,false,true
+bus-and-operator-variety/sg-bus-livery.jpg,top 20%,top,top,correct,true,false,true,true,true
+bus-and-operator-variety/sg-bus-livery.jpg,bottom 20%,bottom,bottom,correct,true,true,true,true,true
+bus-and-operator-variety/sg-bus-livery.jpg,left 40%,left,small,wrong: small,true,true,true,true,true
+bus-and-operator-variety/sg-bus-livery.jpg,right 40%,right,right,correct,true,true,false,false,true
+bus-and-operator-variety/sg-bus-livery.jpg,top 40%,top,top,correct,true,false,true,true,true
+bus-and-operator-variety/sg-bus-livery.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/sg-bus-livery.jpg,left 60%,left,small,wrong: small,true,true,true,true,true
+bus-and-operator-variety/sg-bus-livery.jpg,right 60%,right,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/sg-bus-livery.jpg,top 60%,top,small,wrong: small,true,true,true,true,true
+bus-and-operator-variety/sg-bus-livery.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/sg-bus-livery.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/sg-bus-livery.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/sg-bus-livery.jpg,small 7.0%,small,small,correct,true,false,true,true,true
+bus-and-operator-variety/sg-bus-livery.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/sg-bus-livery.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/sg-bus-livery.jpg,no sign,none,small,wrong: small,true,true,true,false,true
+bus-and-operator-variety/smrt.jpg,centred,,,correct,true,false,true,true,true
+bus-and-operator-variety/smrt.jpg,left 0%,left,left,correct,true,false,true,true,true
+bus-and-operator-variety/smrt.jpg,right 0%,right,right,correct,true,false,true,true,true
+bus-and-operator-variety/smrt.jpg,top 0%,top,top,correct,true,false,true,true,true
+bus-and-operator-variety/smrt.jpg,bottom 0%,bottom,bottom,correct,true,false,true,true,true
+bus-and-operator-variety/smrt.jpg,left 20%,left,left,correct,true,false,true,true,true
+bus-and-operator-variety/smrt.jpg,right 20%,right,right,correct,true,false,true,false,true
+bus-and-operator-variety/smrt.jpg,top 20%,top,top,correct,true,false,true,true,true
+bus-and-operator-variety/smrt.jpg,bottom 20%,bottom,bottom,correct,true,false,true,true,true
+bus-and-operator-variety/smrt.jpg,left 40%,left,left,correct,true,false,true,true,true
+bus-and-operator-variety/smrt.jpg,right 40%,right,right,correct,true,false,true,false,true
+bus-and-operator-variety/smrt.jpg,top 40%,top,top,correct,true,false,true,false,true
+bus-and-operator-variety/smrt.jpg,bottom 40%,bottom,bottom,correct,true,true,false,false,true
+bus-and-operator-variety/smrt.jpg,left 60%,left,small,wrong: small,true,true,true,true,true
+bus-and-operator-variety/smrt.jpg,right 60%,right,right,correct,true,false,false,false,true
+bus-and-operator-variety/smrt.jpg,top 60%,top,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/smrt.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/smrt.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/smrt.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/smrt.jpg,small 7.0%,small,small,correct,true,false,true,true,true
+bus-and-operator-variety/smrt.jpg,small 5.0%,small,small,correct,true,false,true,false,true
+bus-and-operator-variety/smrt.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+bus-and-operator-variety/smrt.jpg,no sign,none,none,correct,false,false,false,false,true
+bus-and-operator-variety/tower-transit.jpg,centred,,,correct,true,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,left 0%,left,left,correct,true,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,right 0%,right,right,correct,true,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,top 0%,top,top,correct,true,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,bottom 0%,bottom,bottom,correct,true,true,false,false,false
+bus-and-operator-variety/tower-transit.jpg,left 20%,left,left,correct,true,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,right 20%,right,right,correct,true,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,top 20%,top,top,correct,true,false,true,false,false
+bus-and-operator-variety/tower-transit.jpg,bottom 20%,bottom,bottom,correct,true,true,false,false,false
+bus-and-operator-variety/tower-transit.jpg,left 40%,left,small,wrong: small,true,true,false,false,false
+bus-and-operator-variety/tower-transit.jpg,right 40%,right,right,correct,true,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,top 40%,top,top,correct,true,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,left 60%,left,small,wrong: small,true,true,false,false,false
+bus-and-operator-variety/tower-transit.jpg,right 60%,right,none,sign missed,false,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,top 60%,top,none,sign missed,false,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,small 7.0%,small,none,sign missed,false,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,small 5.0%,small,none,sign missed,false,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,small 3.5%,small,none,sign missed,false,false,false,false,false
+bus-and-operator-variety/tower-transit.jpg,no sign,none,none,correct,false,false,false,false,false
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,centred,,,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,left 0%,left,,no prompt,true,false,true,true,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,right 0%,right,right,correct,true,false,true,false,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,top 0%,top,,no prompt,true,false,true,true,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,bottom 0%,bottom,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,left 20%,left,left,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,right 20%,right,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,top 20%,top,,no prompt,true,false,true,true,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,bottom 20%,bottom,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,left 40%,left,left,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,right 40%,right,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,top 40%,top,,no prompt,true,false,true,true,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,left 60%,left,left,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,right 60%,right,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,top 60%,top,top,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,small 7.0%,small,small,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/multiple-buses-in-one-image.jpg,no sign,none,,no prompt,true,false,true,true,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,centred,,,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,left 0%,left,left,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,right 0%,right,right,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,top 0%,top,top,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,bottom 0%,bottom,bottom,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,left 20%,left,left,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,right 20%,right,right,correct,true,false,true,false,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,top 20%,top,top,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,bottom 20%,bottom,bottom,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,left 40%,left,left,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,right 40%,right,right,correct,true,false,true,false,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,top 40%,top,top,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,left 60%,left,small,wrong: small,true,true,true,true,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,right 60%,right,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,top 60%,top,top,correct,true,true,false,false,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,bottom 60%,bottom,bottom,correct,true,true,true,false,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,small 7.0%,small,small,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/people-in-the-foreground.jpg,no sign,none,none,correct,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,centred,,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,left 0%,left,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,right 0%,right,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,top 0%,top,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,bottom 0%,bottom,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,left 20%,left,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,right 20%,right,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,top 20%,top,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,bottom 20%,bottom,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,left 40%,left,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,right 40%,right,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,top 40%,top,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,left 60%,left,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,right 60%,right,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,top 60%,top,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,small 7.0%,small,bottom,wrong: bottom,true,true,false,false,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,small 5.0%,small,,no prompt,true,false,true,true,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,small 3.5%,small,small,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/photographed-through-glass.jpg,no sign,none,none,correct,false,false,false,false,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,centred,,,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,left 0%,left,left,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,right 0%,right,right,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,top 0%,top,,no prompt,true,false,true,true,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,bottom 0%,bottom,,no prompt,true,true,false,false,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,left 20%,left,left,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,right 20%,right,right,correct,true,false,false,false,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,top 20%,top,top,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,bottom 20%,bottom,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,left 40%,left,left,correct,true,true,true,true,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,right 40%,right,right,correct,true,false,false,false,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,top 40%,top,top,correct,true,false,true,true,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,left 60%,left,small,wrong: small,true,true,true,true,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,right 60%,right,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,top 60%,top,top,correct,true,false,false,false,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,fills 1.15x,wide,small,wrong: small,true,true,true,false,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,small 7.0%,small,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+crowded-or-obstructed-scenes/pole-or-pillar-blocking-the-bus.jpg,no sign,none,none,correct,false,false,false,false,true
+data-augmentation/brightness-minus-10-percent.png,centred,,,correct,true,false,true,true,true
+data-augmentation/brightness-minus-10-percent.png,left 0%,left,left,correct,true,false,true,true,true
+data-augmentation/brightness-minus-10-percent.png,right 0%,right,right,correct,true,false,true,true,true
+data-augmentation/brightness-minus-10-percent.png,top 0%,top,top,correct,true,false,true,true,true
+data-augmentation/brightness-minus-10-percent.png,bottom 0%,bottom,bottom,correct,true,false,true,true,true
+data-augmentation/brightness-minus-10-percent.png,left 20%,left,left,correct,true,false,true,true,true
+data-augmentation/brightness-minus-10-percent.png,right 20%,right,right,correct,true,false,true,false,true
+data-augmentation/brightness-minus-10-percent.png,top 20%,top,top,correct,true,false,true,true,true
+data-augmentation/brightness-minus-10-percent.png,bottom 20%,bottom,bottom,correct,true,false,true,true,true
+data-augmentation/brightness-minus-10-percent.png,left 40%,left,small,wrong: small,true,true,true,true,true
+data-augmentation/brightness-minus-10-percent.png,right 40%,right,right,correct,true,false,true,false,true
+data-augmentation/brightness-minus-10-percent.png,top 40%,top,top,correct,true,false,true,true,true
+data-augmentation/brightness-minus-10-percent.png,bottom 40%,bottom,bottom,correct,true,true,false,false,true
+data-augmentation/brightness-minus-10-percent.png,left 60%,left,small,wrong: small,true,false,true,true,true
+data-augmentation/brightness-minus-10-percent.png,right 60%,right,right,correct,true,false,true,false,true
+data-augmentation/brightness-minus-10-percent.png,top 60%,top,small,wrong: small,true,true,true,false,true
+data-augmentation/brightness-minus-10-percent.png,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+data-augmentation/brightness-minus-10-percent.png,fills 1.15x,wide,,no prompt,true,true,false,false,true
+data-augmentation/brightness-minus-10-percent.png,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+data-augmentation/brightness-minus-10-percent.png,small 7.0%,small,none,sign missed,false,false,false,false,true
+data-augmentation/brightness-minus-10-percent.png,small 5.0%,small,none,sign missed,false,false,false,false,true
+data-augmentation/brightness-minus-10-percent.png,small 3.5%,small,none,sign missed,false,false,false,false,true
+data-augmentation/brightness-minus-10-percent.png,no sign,none,small,wrong: small,true,false,true,false,true
+data-augmentation/gaussian-blur-sigma-1-px.png,centred,,,correct,true,false,true,true,true
+data-augmentation/gaussian-blur-sigma-1-px.png,left 0%,left,left,correct,true,false,true,true,true
+data-augmentation/gaussian-blur-sigma-1-px.png,right 0%,right,right,correct,true,false,true,true,true
+data-augmentation/gaussian-blur-sigma-1-px.png,top 0%,top,top,correct,true,false,true,true,true
+data-augmentation/gaussian-blur-sigma-1-px.png,bottom 0%,bottom,bottom,correct,true,false,true,true,true
+data-augmentation/gaussian-blur-sigma-1-px.png,left 20%,left,left,correct,true,false,true,true,true
+data-augmentation/gaussian-blur-sigma-1-px.png,right 20%,right,right,correct,true,false,true,false,true
+data-augmentation/gaussian-blur-sigma-1-px.png,top 20%,top,top,correct,true,false,true,true,true
+data-augmentation/gaussian-blur-sigma-1-px.png,bottom 20%,bottom,bottom,correct,true,true,true,true,true
+data-augmentation/gaussian-blur-sigma-1-px.png,left 40%,left,small,wrong: small,true,true,true,true,true
+data-augmentation/gaussian-blur-sigma-1-px.png,right 40%,right,right,correct,true,false,true,false,true
+data-augmentation/gaussian-blur-sigma-1-px.png,top 40%,top,top,correct,true,false,true,true,true
+data-augmentation/gaussian-blur-sigma-1-px.png,bottom 40%,bottom,bottom,correct,true,true,false,false,true
+data-augmentation/gaussian-blur-sigma-1-px.png,left 60%,left,small,wrong: small,true,false,true,true,true
+data-augmentation/gaussian-blur-sigma-1-px.png,right 60%,right,right,correct,true,false,true,false,true
+data-augmentation/gaussian-blur-sigma-1-px.png,top 60%,top,none,sign missed,false,false,false,false,true
+data-augmentation/gaussian-blur-sigma-1-px.png,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+data-augmentation/gaussian-blur-sigma-1-px.png,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+data-augmentation/gaussian-blur-sigma-1-px.png,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+data-augmentation/gaussian-blur-sigma-1-px.png,small 7.0%,small,none,sign missed,false,false,false,false,true
+data-augmentation/gaussian-blur-sigma-1-px.png,small 5.0%,small,none,sign missed,false,false,false,false,true
+data-augmentation/gaussian-blur-sigma-1-px.png,small 3.5%,small,none,sign missed,false,false,false,false,true
+data-augmentation/gaussian-blur-sigma-1-px.png,no sign,none,small,wrong: small,true,true,true,false,true
+data-augmentation/rotation-plus-3-degrees.png,centred,,,correct,true,false,true,true,true
+data-augmentation/rotation-plus-3-degrees.png,left 0%,left,left,correct,true,false,true,true,true
+data-augmentation/rotation-plus-3-degrees.png,right 0%,right,right,correct,true,false,true,true,true
+data-augmentation/rotation-plus-3-degrees.png,top 0%,top,top,correct,true,false,true,true,true
+data-augmentation/rotation-plus-3-degrees.png,bottom 0%,bottom,bottom,correct,true,false,true,true,true
+data-augmentation/rotation-plus-3-degrees.png,left 20%,left,left,correct,true,false,true,true,true
+data-augmentation/rotation-plus-3-degrees.png,right 20%,right,right,correct,true,false,true,false,true
+data-augmentation/rotation-plus-3-degrees.png,top 20%,top,top,correct,true,false,true,true,true
+data-augmentation/rotation-plus-3-degrees.png,bottom 20%,bottom,bottom,correct,true,true,true,true,true
+data-augmentation/rotation-plus-3-degrees.png,left 40%,left,left,correct,true,false,true,true,true
+data-augmentation/rotation-plus-3-degrees.png,right 40%,right,right,correct,true,false,true,false,true
+data-augmentation/rotation-plus-3-degrees.png,top 40%,top,top,correct,true,false,true,true,true
+data-augmentation/rotation-plus-3-degrees.png,bottom 40%,bottom,bottom,correct,true,true,true,true,true
+data-augmentation/rotation-plus-3-degrees.png,left 60%,left,small,wrong: small,true,false,true,true,true
+data-augmentation/rotation-plus-3-degrees.png,right 60%,right,right,correct,true,false,true,false,true
+data-augmentation/rotation-plus-3-degrees.png,top 60%,top,small,wrong: small,true,true,true,false,true
+data-augmentation/rotation-plus-3-degrees.png,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+data-augmentation/rotation-plus-3-degrees.png,fills 1.15x,wide,,no prompt,true,true,false,false,true
+data-augmentation/rotation-plus-3-degrees.png,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+data-augmentation/rotation-plus-3-degrees.png,small 7.0%,small,none,sign missed,false,false,false,false,true
+data-augmentation/rotation-plus-3-degrees.png,small 5.0%,small,none,sign missed,false,false,false,false,true
+data-augmentation/rotation-plus-3-degrees.png,small 3.5%,small,none,sign missed,false,false,false,false,true
+data-augmentation/rotation-plus-3-degrees.png,no sign,none,small,wrong: small,true,true,true,false,true
+data-augmentation/salt-pepper-noise-1-percent.png,centred,,,correct,true,false,true,true,true
+data-augmentation/salt-pepper-noise-1-percent.png,left 0%,left,left,correct,true,false,true,true,true
+data-augmentation/salt-pepper-noise-1-percent.png,right 0%,right,right,correct,true,false,true,true,true
+data-augmentation/salt-pepper-noise-1-percent.png,top 0%,top,top,correct,true,false,true,true,true
+data-augmentation/salt-pepper-noise-1-percent.png,bottom 0%,bottom,bottom,correct,true,false,true,true,true
+data-augmentation/salt-pepper-noise-1-percent.png,left 20%,left,left,correct,true,false,true,true,true
+data-augmentation/salt-pepper-noise-1-percent.png,right 20%,right,right,correct,true,false,true,false,true
+data-augmentation/salt-pepper-noise-1-percent.png,top 20%,top,top,correct,true,false,true,true,true
+data-augmentation/salt-pepper-noise-1-percent.png,bottom 20%,bottom,,no prompt,true,true,true,true,true
+data-augmentation/salt-pepper-noise-1-percent.png,left 40%,left,small,wrong: small,true,false,true,true,true
+data-augmentation/salt-pepper-noise-1-percent.png,right 40%,right,right,correct,true,false,true,false,true
+data-augmentation/salt-pepper-noise-1-percent.png,top 40%,top,top,correct,true,false,true,true,true
+data-augmentation/salt-pepper-noise-1-percent.png,bottom 40%,bottom,bottom,correct,true,true,false,false,true
+data-augmentation/salt-pepper-noise-1-percent.png,left 60%,left,small,wrong: small,true,true,true,true,true
+data-augmentation/salt-pepper-noise-1-percent.png,right 60%,right,right,correct,true,false,false,false,true
+data-augmentation/salt-pepper-noise-1-percent.png,top 60%,top,none,sign missed,false,false,false,false,true
+data-augmentation/salt-pepper-noise-1-percent.png,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+data-augmentation/salt-pepper-noise-1-percent.png,fills 1.15x,wide,,no prompt,true,true,false,false,true
+data-augmentation/salt-pepper-noise-1-percent.png,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+data-augmentation/salt-pepper-noise-1-percent.png,small 7.0%,small,none,sign missed,false,false,false,false,true
+data-augmentation/salt-pepper-noise-1-percent.png,small 5.0%,small,none,sign missed,false,false,false,false,true
+data-augmentation/salt-pepper-noise-1-percent.png,small 3.5%,small,none,sign missed,false,false,false,false,true
+data-augmentation/salt-pepper-noise-1-percent.png,no sign,none,small,wrong: small,true,false,true,false,true
+distance-and-image-quality/close-readable-eds.jpg,centred,,,correct,true,false,true,true,true
+distance-and-image-quality/close-readable-eds.jpg,left 0%,left,left,correct,true,false,true,true,true
+distance-and-image-quality/close-readable-eds.jpg,right 0%,right,right,correct,true,false,true,true,true
+distance-and-image-quality/close-readable-eds.jpg,top 0%,top,top,correct,true,false,true,true,true
+distance-and-image-quality/close-readable-eds.jpg,bottom 0%,bottom,bottom,correct,true,false,true,true,true
+distance-and-image-quality/close-readable-eds.jpg,left 20%,left,left,correct,true,false,true,true,true
+distance-and-image-quality/close-readable-eds.jpg,right 20%,right,right,correct,true,false,true,false,true
+distance-and-image-quality/close-readable-eds.jpg,top 20%,top,top,correct,true,false,true,true,true
+distance-and-image-quality/close-readable-eds.jpg,bottom 20%,bottom,bottom,correct,true,false,true,true,true
+distance-and-image-quality/close-readable-eds.jpg,left 40%,left,small,wrong: small,true,true,true,true,true
+distance-and-image-quality/close-readable-eds.jpg,right 40%,right,right,correct,true,false,true,false,true
+distance-and-image-quality/close-readable-eds.jpg,top 40%,top,top,correct,true,false,true,true,true
+distance-and-image-quality/close-readable-eds.jpg,bottom 40%,bottom,bottom,correct,true,true,false,false,true
+distance-and-image-quality/close-readable-eds.jpg,left 60%,left,small,wrong: small,true,false,true,true,true
+distance-and-image-quality/close-readable-eds.jpg,right 60%,right,right,correct,true,false,true,false,true
+distance-and-image-quality/close-readable-eds.jpg,top 60%,top,top,correct,true,false,true,false,true
+distance-and-image-quality/close-readable-eds.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+distance-and-image-quality/close-readable-eds.jpg,fills 1.15x,wide,,no prompt,true,true,false,false,true
+distance-and-image-quality/close-readable-eds.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+distance-and-image-quality/close-readable-eds.jpg,small 7.0%,small,none,sign missed,false,false,false,false,true
+distance-and-image-quality/close-readable-eds.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+distance-and-image-quality/close-readable-eds.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+distance-and-image-quality/close-readable-eds.jpg,no sign,none,small,wrong: small,true,false,true,false,true
+distance-and-image-quality/distant-small-bus.jpg,centred,,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,left 0%,left,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,right 0%,right,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,top 0%,top,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,bottom 0%,bottom,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,left 20%,left,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,right 20%,right,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,top 20%,top,small,wrong: small,true,true,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,bottom 20%,bottom,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,left 40%,left,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,right 40%,right,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,top 40%,top,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,left 60%,left,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,right 60%,right,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,top 60%,top,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,small 7.0%,small,small,correct,true,false,true,true,true
+distance-and-image-quality/distant-small-bus.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+distance-and-image-quality/distant-small-bus.jpg,no sign,none,none,correct,false,false,false,false,true
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,centred,,,correct,true,false,true,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,left 0%,left,,no prompt,true,false,true,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,right 0%,right,none,sign missed,false,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,top 0%,top,,no prompt,true,false,true,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,bottom 0%,bottom,none,sign missed,false,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,left 20%,left,,no prompt,true,false,true,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,right 20%,right,none,sign missed,false,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,top 20%,top,,no prompt,true,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,bottom 20%,bottom,none,sign missed,false,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,left 40%,left,,no prompt,true,false,true,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,right 40%,right,none,sign missed,false,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,top 40%,top,top,correct,true,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,left 60%,left,left,correct,true,false,true,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,right 60%,right,none,sign missed,false,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,top 60%,top,top,correct,true,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,small 7.0%,small,small,correct,true,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,small 5.0%,small,none,sign missed,false,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,small 3.5%,small,none,sign missed,false,false,false,false,false
+distance-and-image-quality/eds-cropped-at-the-image-edge.jpg,no sign,none,,no prompt,true,false,false,false,false
+distance-and-image-quality/low-resolution.jpg,centred,,,correct,true,false,true,true,true
+distance-and-image-quality/low-resolution.jpg,left 0%,left,left,correct,true,false,true,true,true
+distance-and-image-quality/low-resolution.jpg,right 0%,right,right,correct,true,false,true,true,true
+distance-and-image-quality/low-resolution.jpg,top 0%,top,top,correct,true,false,true,true,true
+distance-and-image-quality/low-resolution.jpg,bottom 0%,bottom,bottom,correct,true,false,true,true,true
+distance-and-image-quality/low-resolution.jpg,left 20%,left,left,correct,true,false,true,true,true
+distance-and-image-quality/low-resolution.jpg,right 20%,right,right,correct,true,false,false,false,true
+distance-and-image-quality/low-resolution.jpg,top 20%,top,top,correct,true,false,true,true,true
+distance-and-image-quality/low-resolution.jpg,bottom 20%,bottom,bottom,correct,true,true,true,true,true
+distance-and-image-quality/low-resolution.jpg,left 40%,left,left,correct,true,false,true,true,true
+distance-and-image-quality/low-resolution.jpg,right 40%,right,right,correct,true,false,false,false,true
+distance-and-image-quality/low-resolution.jpg,top 40%,top,top,correct,true,true,true,false,true
+distance-and-image-quality/low-resolution.jpg,bottom 40%,bottom,bottom,correct,true,true,true,true,true
+distance-and-image-quality/low-resolution.jpg,left 60%,left,small,wrong: small,true,true,true,true,true
+distance-and-image-quality/low-resolution.jpg,right 60%,right,right,correct,true,true,false,false,true
+distance-and-image-quality/low-resolution.jpg,top 60%,top,none,sign missed,false,false,false,false,true
+distance-and-image-quality/low-resolution.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+distance-and-image-quality/low-resolution.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+distance-and-image-quality/low-resolution.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+distance-and-image-quality/low-resolution.jpg,small 7.0%,small,small,correct,true,false,true,true,true
+distance-and-image-quality/low-resolution.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+distance-and-image-quality/low-resolution.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+distance-and-image-quality/low-resolution.jpg,no sign,none,none,correct,false,false,false,false,true
+distance-and-image-quality/motion-blur.jpg,centred,,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,left 0%,left,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,right 0%,right,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,top 0%,top,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,bottom 0%,bottom,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,left 20%,left,bottom,wrong: bottom,true,true,true,false,false
+distance-and-image-quality/motion-blur.jpg,right 20%,right,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,top 20%,top,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,bottom 20%,bottom,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,left 40%,left,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,right 40%,right,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,top 40%,top,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,left 60%,left,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,right 60%,right,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,top 60%,top,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,small 7.0%,small,,no prompt,true,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,small 5.0%,small,,no prompt,true,false,true,false,false
+distance-and-image-quality/motion-blur.jpg,small 3.5%,small,,no prompt,true,false,false,false,false
+distance-and-image-quality/motion-blur.jpg,no sign,none,none,correct,false,false,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,centred,,,correct,true,true,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,left 0%,left,,no prompt,true,true,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,right 0%,right,none,sign missed,false,false,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,top 0%,top,,no prompt,true,true,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,bottom 0%,bottom,none,sign missed,false,false,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,left 20%,left,,no prompt,true,false,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,right 20%,right,none,sign missed,false,false,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,top 20%,top,,no prompt,true,true,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,bottom 20%,bottom,none,sign missed,false,false,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,left 40%,left,,no prompt,true,true,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,right 40%,right,none,sign missed,false,false,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,top 40%,top,,no prompt,true,true,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,left 60%,left,left,correct,true,true,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,right 60%,right,none,sign missed,false,false,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,top 60%,top,,no prompt,true,true,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,small 7.0%,small,,no prompt,true,false,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,small 5.0%,small,none,sign missed,false,false,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,small 3.5%,small,none,sign missed,false,false,false,false,false
+distracting-text-and-hard-negatives/livery-text-on-the-bus-body.jpg,no sign,none,none,correct,false,false,false,false,false
+eds-text-and-layout/destination-via-route-number.jpg,centred,,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,left 0%,left,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,right 0%,right,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,top 0%,top,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,bottom 0%,bottom,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,left 20%,left,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,right 20%,right,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,top 20%,top,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,bottom 20%,bottom,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,left 40%,left,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,right 40%,right,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,top 40%,top,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,left 60%,left,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,right 60%,right,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,top 60%,top,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+eds-text-and-layout/destination-via-route-number.jpg,small 7.0%,small,,no prompt,true,false,true,true,true
+eds-text-and-layout/destination-via-route-number.jpg,small 5.0%,small,,no prompt,true,false,true,true,true
+eds-text-and-layout/destination-via-route-number.jpg,small 3.5%,small,,no prompt,true,false,true,true,true
+eds-text-and-layout/destination-via-route-number.jpg,no sign,none,none,correct,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,centred,,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,left 0%,left,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,right 0%,right,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,top 0%,top,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,bottom 0%,bottom,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,left 20%,left,left,correct,true,false,true,true,true
+eds-text-and-layout/number-only.jpg,right 20%,right,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,top 20%,top,top,correct,true,false,true,false,true
+eds-text-and-layout/number-only.jpg,bottom 20%,bottom,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,left 40%,left,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,right 40%,right,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,top 40%,top,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,left 60%,left,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,right 60%,right,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,top 60%,top,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,small 7.0%,small,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-only.jpg,no sign,none,none,correct,false,false,false,false,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,centred,,,correct,true,false,true,true,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,left 0%,left,,no prompt,true,false,true,true,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,right 0%,right,right,correct,true,false,true,true,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,top 0%,top,top,correct,true,false,true,true,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,bottom 0%,bottom,bottom,correct,true,false,true,true,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,left 20%,left,left,correct,true,false,true,true,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,right 20%,right,right,correct,true,false,true,false,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,top 20%,top,top,correct,true,false,true,true,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,bottom 20%,bottom,bottom,correct,true,true,true,true,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,left 40%,left,small,wrong: small,true,true,true,true,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,right 40%,right,right,correct,true,false,false,false,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,top 40%,top,top,correct,true,true,false,false,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,left 60%,left,small,wrong: small,true,true,true,true,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,right 60%,right,right,correct,true,true,false,false,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,top 60%,top,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,small 7.0%,small,small,correct,true,false,true,true,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+eds-text-and-layout/number-with-a-letter-suffix.jpg,no sign,none,none,correct,false,false,false,false,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,centred,,,correct,true,false,true,true,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,left 0%,left,left,correct,true,false,true,true,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,right 0%,right,,no prompt,true,false,true,true,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,top 0%,top,top,correct,true,false,true,true,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,bottom 0%,bottom,bottom,correct,true,false,true,true,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,left 20%,left,left,correct,true,false,true,true,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,right 20%,right,right,correct,true,false,true,false,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,top 20%,top,top,correct,true,false,true,true,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,bottom 20%,bottom,bottom,correct,true,true,true,true,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,left 40%,left,,no prompt,true,false,true,true,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,right 40%,right,right,correct,true,false,true,false,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,top 40%,top,top,correct,true,false,true,true,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,bottom 40%,bottom,bottom,correct,true,true,false,false,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,left 60%,left,left,correct,true,false,true,true,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,right 60%,right,right,correct,true,false,true,false,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,top 60%,top,top,correct,true,false,false,false,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,small 7.0%,small,small,correct,true,false,false,false,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+eds-text-and-layout/one-line-destination-number-no-route.jpg,no sign,none,small,wrong: small,true,false,false,false,true
+eds-text-and-layout/red-pink-led-text.jpg,centred,,,correct,true,false,true,false,false
+eds-text-and-layout/red-pink-led-text.jpg,left 0%,left,,no prompt,true,false,true,false,false
+eds-text-and-layout/red-pink-led-text.jpg,right 0%,right,none,sign missed,false,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,top 0%,top,,no prompt,true,false,true,false,false
+eds-text-and-layout/red-pink-led-text.jpg,bottom 0%,bottom,none,sign missed,false,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,left 20%,left,,no prompt,true,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,right 20%,right,none,sign missed,false,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,top 20%,top,,no prompt,true,false,true,false,false
+eds-text-and-layout/red-pink-led-text.jpg,bottom 20%,bottom,none,sign missed,false,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,left 40%,left,,no prompt,true,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,right 40%,right,none,sign missed,false,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,top 40%,top,,no prompt,true,false,true,false,false
+eds-text-and-layout/red-pink-led-text.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,left 60%,left,,no prompt,true,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,right 60%,right,none,sign missed,false,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,top 60%,top,top,correct,true,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,small 7.0%,small,,no prompt,true,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,small 5.0%,small,none,sign missed,false,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,small 3.5%,small,none,sign missed,false,false,false,false,false
+eds-text-and-layout/red-pink-led-text.jpg,no sign,none,,no prompt,true,false,true,false,false
+lighting-and-environment/backlit-sunset.jpg,centred,,,correct,true,false,true,false,true
+lighting-and-environment/backlit-sunset.jpg,left 0%,left,,no prompt,true,false,true,false,true
+lighting-and-environment/backlit-sunset.jpg,right 0%,right,right,correct,true,false,false,false,true
+lighting-and-environment/backlit-sunset.jpg,top 0%,top,,no prompt,true,false,true,false,true
+lighting-and-environment/backlit-sunset.jpg,bottom 0%,bottom,none,sign missed,false,false,false,false,true
+lighting-and-environment/backlit-sunset.jpg,left 20%,left,,no prompt,true,false,true,false,true
+lighting-and-environment/backlit-sunset.jpg,right 20%,right,right,correct,true,true,false,false,true
+lighting-and-environment/backlit-sunset.jpg,top 20%,top,,no prompt,true,false,true,false,true
+lighting-and-environment/backlit-sunset.jpg,bottom 20%,bottom,none,sign missed,false,false,false,false,true
+lighting-and-environment/backlit-sunset.jpg,left 40%,left,left,correct,true,false,true,false,true
+lighting-and-environment/backlit-sunset.jpg,right 40%,right,none,sign missed,false,false,false,false,true
+lighting-and-environment/backlit-sunset.jpg,top 40%,top,,no prompt,true,false,true,false,true
+lighting-and-environment/backlit-sunset.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,true
+lighting-and-environment/backlit-sunset.jpg,left 60%,left,left,correct,true,false,true,false,true
+lighting-and-environment/backlit-sunset.jpg,right 60%,right,none,sign missed,false,false,false,false,true
+lighting-and-environment/backlit-sunset.jpg,top 60%,top,,no prompt,true,false,true,false,true
+lighting-and-environment/backlit-sunset.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+lighting-and-environment/backlit-sunset.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+lighting-and-environment/backlit-sunset.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+lighting-and-environment/backlit-sunset.jpg,small 7.0%,small,,no prompt,true,false,true,false,true
+lighting-and-environment/backlit-sunset.jpg,small 5.0%,small,small,correct,true,false,false,false,true
+lighting-and-environment/backlit-sunset.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+lighting-and-environment/backlit-sunset.jpg,no sign,none,,no prompt,true,false,true,false,true
+lighting-and-environment/bright-daylight.jpg,centred,,,correct,true,false,true,false,false
+lighting-and-environment/bright-daylight.jpg,left 0%,left,left,correct,true,false,true,false,false
+lighting-and-environment/bright-daylight.jpg,right 0%,right,right,correct,true,false,false,false,false
+lighting-and-environment/bright-daylight.jpg,top 0%,top,top,correct,true,false,true,false,false
+lighting-and-environment/bright-daylight.jpg,bottom 0%,bottom,bottom,correct,true,false,true,false,false
+lighting-and-environment/bright-daylight.jpg,left 20%,left,left,correct,true,false,false,false,false
+lighting-and-environment/bright-daylight.jpg,right 20%,right,right,correct,true,false,true,false,false
+lighting-and-environment/bright-daylight.jpg,top 20%,top,top,correct,true,false,true,false,false
+lighting-and-environment/bright-daylight.jpg,bottom 20%,bottom,bottom,correct,true,true,false,false,false
+lighting-and-environment/bright-daylight.jpg,left 40%,left,small,wrong: small,true,true,true,false,false
+lighting-and-environment/bright-daylight.jpg,right 40%,right,right,correct,true,false,false,false,false
+lighting-and-environment/bright-daylight.jpg,top 40%,top,top,correct,true,false,false,false,false
+lighting-and-environment/bright-daylight.jpg,bottom 40%,bottom,bottom,correct,true,true,false,false,false
+lighting-and-environment/bright-daylight.jpg,left 60%,left,small,wrong: small,true,true,true,false,false
+lighting-and-environment/bright-daylight.jpg,right 60%,right,right,correct,true,false,false,false,false
+lighting-and-environment/bright-daylight.jpg,top 60%,top,none,sign missed,false,false,false,false,false
+lighting-and-environment/bright-daylight.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,false
+lighting-and-environment/bright-daylight.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,false
+lighting-and-environment/bright-daylight.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,false
+lighting-and-environment/bright-daylight.jpg,small 7.0%,small,none,sign missed,false,false,false,false,false
+lighting-and-environment/bright-daylight.jpg,small 5.0%,small,none,sign missed,false,false,false,false,false
+lighting-and-environment/bright-daylight.jpg,small 3.5%,small,none,sign missed,false,false,false,false,false
+lighting-and-environment/bright-daylight.jpg,no sign,none,none,correct,false,false,false,false,false
+lighting-and-environment/dim-covered-interchange.jpg,centred,,,correct,true,false,true,true,true
+lighting-and-environment/dim-covered-interchange.jpg,left 0%,left,,no prompt,true,false,true,true,true
+lighting-and-environment/dim-covered-interchange.jpg,right 0%,right,right,correct,true,false,true,true,true
+lighting-and-environment/dim-covered-interchange.jpg,top 0%,top,top,correct,true,false,true,true,true
+lighting-and-environment/dim-covered-interchange.jpg,bottom 0%,bottom,bottom,correct,true,false,true,true,true
+lighting-and-environment/dim-covered-interchange.jpg,left 20%,left,small,wrong: small,true,true,true,true,true
+lighting-and-environment/dim-covered-interchange.jpg,right 20%,right,right,correct,true,false,true,false,true
+lighting-and-environment/dim-covered-interchange.jpg,top 20%,top,top,correct,true,false,true,true,true
+lighting-and-environment/dim-covered-interchange.jpg,bottom 20%,bottom,,no prompt,true,true,true,true,true
+lighting-and-environment/dim-covered-interchange.jpg,left 40%,left,small,wrong: small,true,true,true,true,true
+lighting-and-environment/dim-covered-interchange.jpg,right 40%,right,right,correct,true,false,true,false,true
+lighting-and-environment/dim-covered-interchange.jpg,top 40%,top,top,correct,true,false,true,false,true
+lighting-and-environment/dim-covered-interchange.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,true
+lighting-and-environment/dim-covered-interchange.jpg,left 60%,left,small,wrong: small,true,true,true,true,true
+lighting-and-environment/dim-covered-interchange.jpg,right 60%,right,right,correct,true,true,true,false,true
+lighting-and-environment/dim-covered-interchange.jpg,top 60%,top,none,sign missed,false,false,false,false,true
+lighting-and-environment/dim-covered-interchange.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+lighting-and-environment/dim-covered-interchange.jpg,fills 1.15x,wide,left,wrong: left,true,false,false,false,true
+lighting-and-environment/dim-covered-interchange.jpg,fills 1.40x,wide,left,wrong: left,true,false,true,false,true
+lighting-and-environment/dim-covered-interchange.jpg,small 7.0%,small,none,sign missed,false,false,false,false,true
+lighting-and-environment/dim-covered-interchange.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+lighting-and-environment/dim-covered-interchange.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+lighting-and-environment/dim-covered-interchange.jpg,no sign,none,none,correct,false,false,false,false,true
+lighting-and-environment/night-with-headlight-glare.jpg,centred,,,correct,true,false,true,true,true
+lighting-and-environment/night-with-headlight-glare.jpg,left 0%,left,left,correct,true,false,true,true,true
+lighting-and-environment/night-with-headlight-glare.jpg,right 0%,right,right,correct,true,false,true,true,true
+lighting-and-environment/night-with-headlight-glare.jpg,top 0%,top,top,correct,true,false,true,true,true
+lighting-and-environment/night-with-headlight-glare.jpg,bottom 0%,bottom,bottom,correct,true,false,true,false,true
+lighting-and-environment/night-with-headlight-glare.jpg,left 20%,left,left,correct,true,false,true,true,true
+lighting-and-environment/night-with-headlight-glare.jpg,right 20%,right,right,correct,true,false,true,false,true
+lighting-and-environment/night-with-headlight-glare.jpg,top 20%,top,top,correct,true,false,true,false,true
+lighting-and-environment/night-with-headlight-glare.jpg,bottom 20%,bottom,bottom,correct,true,false,true,true,true
+lighting-and-environment/night-with-headlight-glare.jpg,left 40%,left,small,wrong: small,true,true,true,true,true
+lighting-and-environment/night-with-headlight-glare.jpg,right 40%,right,right,correct,true,false,true,false,true
+lighting-and-environment/night-with-headlight-glare.jpg,top 40%,top,top,correct,true,false,true,false,true
+lighting-and-environment/night-with-headlight-glare.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,true
+lighting-and-environment/night-with-headlight-glare.jpg,left 60%,left,small,wrong: small,true,true,true,true,true
+lighting-and-environment/night-with-headlight-glare.jpg,right 60%,right,right,correct,true,false,false,false,true
+lighting-and-environment/night-with-headlight-glare.jpg,top 60%,top,none,sign missed,false,false,false,false,true
+lighting-and-environment/night-with-headlight-glare.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+lighting-and-environment/night-with-headlight-glare.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+lighting-and-environment/night-with-headlight-glare.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+lighting-and-environment/night-with-headlight-glare.jpg,small 7.0%,small,none,sign missed,false,false,false,false,true
+lighting-and-environment/night-with-headlight-glare.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+lighting-and-environment/night-with-headlight-glare.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+lighting-and-environment/night-with-headlight-glare.jpg,no sign,none,none,correct,false,false,false,false,true
+lighting-and-environment/rain-wet-road.jpg,centred,,,correct,true,false,true,true,true
+lighting-and-environment/rain-wet-road.jpg,left 0%,left,left,correct,true,false,true,true,true
+lighting-and-environment/rain-wet-road.jpg,right 0%,right,,no prompt,true,false,true,true,true
+lighting-and-environment/rain-wet-road.jpg,top 0%,top,top,correct,true,false,true,true,true
+lighting-and-environment/rain-wet-road.jpg,bottom 0%,bottom,bottom,correct,true,false,true,false,true
+lighting-and-environment/rain-wet-road.jpg,left 20%,left,left,correct,true,false,true,true,true
+lighting-and-environment/rain-wet-road.jpg,right 20%,right,right,correct,true,false,true,false,true
+lighting-and-environment/rain-wet-road.jpg,top 20%,top,top,correct,true,false,true,true,true
+lighting-and-environment/rain-wet-road.jpg,bottom 20%,bottom,bottom,correct,true,false,false,false,true
+lighting-and-environment/rain-wet-road.jpg,left 40%,left,left,correct,true,false,true,true,true
+lighting-and-environment/rain-wet-road.jpg,right 40%,right,right,correct,true,false,true,false,true
+lighting-and-environment/rain-wet-road.jpg,top 40%,top,top,correct,true,false,true,false,true
+lighting-and-environment/rain-wet-road.jpg,bottom 40%,bottom,none,sign missed,false,false,false,false,true
+lighting-and-environment/rain-wet-road.jpg,left 60%,left,small,wrong: small,true,true,true,true,true
+lighting-and-environment/rain-wet-road.jpg,right 60%,right,right,correct,true,true,false,false,true
+lighting-and-environment/rain-wet-road.jpg,top 60%,top,top,correct,true,false,false,false,true
+lighting-and-environment/rain-wet-road.jpg,bottom 60%,bottom,none,sign missed,false,false,false,false,true
+lighting-and-environment/rain-wet-road.jpg,fills 1.15x,wide,none,sign missed,false,false,false,false,true
+lighting-and-environment/rain-wet-road.jpg,fills 1.40x,wide,none,sign missed,false,false,false,false,true
+lighting-and-environment/rain-wet-road.jpg,small 7.0%,small,small,correct,true,false,true,false,true
+lighting-and-environment/rain-wet-road.jpg,small 5.0%,small,none,sign missed,false,false,false,false,true
+lighting-and-environment/rain-wet-road.jpg,small 3.5%,small,none,sign missed,false,false,false,false,true
+lighting-and-environment/rain-wet-road.jpg,no sign,none,none,correct,false,false,false,false,true
+special-display-messages/express-and-limited-stop-branding.jpg,centred,,,correct,true,false,false,false,false
+special-display-messages/express-and-limited-stop-branding.jpg,left 0%,left,left,correct,true,false,true,false,false
+special-display-messages/express-and-limited-stop-branding.jpg,right 0%,right,right,correct,true,false,true,false,false
+special-display-messages/express-and-limited-stop-branding.jpg,top 0%,top,top,correct,true,true,false,false,false
+special-display-messages/express-and-limited-stop-branding.jpg,bottom 0%,bottom,bottom,correct,true,false,true,false,false
+special-display-messages/express-and-limited-stop-branding.jpg,left 20%,left,left,correct,true,false,false,false,false
