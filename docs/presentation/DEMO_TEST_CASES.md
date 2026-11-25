@@ -102,7 +102,6 @@ announcements.
 | A4 | Far | Show a small bus image in the middle | "Bus sign is small. The bus may still be far away." | [ ] |
 | A5 | No hint over a bus | Show a clear, readable bus | Bus is announced; no hint is spoken | [ ] |
 | A6 | Not repetitive | Leave A1 running for 30 s | Hint repeats at most every 15 s | [ ] |
-| A7 | Video mode | Switch to **Upload video** | No aiming hints shown | [ ] |
 
 ## 5. Recovery and robustness
 

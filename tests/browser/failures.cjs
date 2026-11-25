@@ -17,9 +17,6 @@ module.exports = async function failures(browser) {
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.getByText(/Camera permission was denied/).waitFor();
   assert.equal(await page.locator('#start').isDisabled(), false);
-  await page.getByRole('button', {name: 'Upload video', exact: true}).click();
-  await page.locator('#video-file').setInputFiles({name: 'unsupported.mp4', mimeType: 'video/mp4', buffer: Buffer.from('not a real video')});
-  await page.getByText('Video could not be opened', {exact: true}).waitFor();
   assert.equal(await page.locator('#viewer').isVisible(), false);
 
   await page.goto(`${base}/detect`);
@@ -65,5 +62,5 @@ module.exports = async function failures(browser) {
   } finally {
     await cameraContext.close();
   }
-  console.log('Failure lifecycle: camera denial, invalid video, delayed-result reset and busy-frame recovery passed.');
+  console.log('Failure lifecycle: camera denial, delayed-result reset and busy-frame recovery passed.');
 };

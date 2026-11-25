@@ -1,7 +1,5 @@
 const assert = require('node:assert/strict');
 const path = require('node:path');
-const fs = require('node:fs');
-const {spawnSync} = require('node:child_process');
 const AxeBuilder = require('@axe-core/playwright').default;
 
 const root = path.resolve(__dirname, '../..');
@@ -24,11 +22,4 @@ async function assertAccessible(page) {
   assert.deepEqual(failures, []);
 }
 
-function videoFixture() {
-  fs.mkdirSync(output, {recursive: true});
-  const result = spawnSync(path.join(root, '.venv/bin/python'), ['tests/browser/fixture.py'], {cwd: root, encoding: 'utf8'});
-  assert.equal(result.status, 0, result.stderr);
-  return path.join(output, 'test-still-video.avi');
-}
-
-module.exports = {assert, path, root, base, output, uploadSample, assertResponsive, assertAccessible, videoFixture};
+module.exports = {assert, path, root, base, output, uploadSample, assertResponsive, assertAccessible};

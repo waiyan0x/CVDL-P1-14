@@ -97,8 +97,8 @@ While processing retain the preceding result with its frame/time label. Stop or
 end retains the last completed processed frame explicitly labelled as stopped.
 Errors stop processing and clear current result; retry/restart remains available.
 Camera tracks, object URLs and backend uploads are cleaned on switching/reset
-and page exit. Uploaded video restart begins at zero; camera restart reacquires
-camera. Sample interval is user-configurable, never an asserted achieved FPS.
+and page exit. Camera restart reacquires the camera. (Live no longer offers video
+upload; the /api/videos endpoints remain.) Sample interval is user-configurable, never an asserted achieved FPS.
 
 Assign fields to detected screens before pairing leftovers by constrained
 geometry. Never pair across known screen owners. Screen-only detections remain

@@ -185,7 +185,7 @@ setup, not inference. Individual unavailable OCR engines are reported separately
 | --- | --- |
 | `/` | Project home page with an illustrated bus arrival and a link to Live. |
 | `/detect` | Upload an image, select a sample, or capture a single camera frame; inspect boxes, crops, OCR and matching. |
-| `/live` | Continuous camera input or server-decoded uploaded video with configurable sampling and start/stop/restart/reset. |
+| `/live` | Continuous camera input with configurable sampling and start/stop/restart/reset. (Video upload was removed from this page; the `/api/videos` endpoints remain.) |
 | `/evaluation` | Run all three OCR pipelines on one shared set of detections and compare their readings, confidence scores and processing times. |
 | `/models` | Check model provenance, confidence definitions and pipeline methods. |
 | `/docs` | Interactive OpenAPI documentation. |
