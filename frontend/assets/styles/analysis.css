@@ -105,6 +105,7 @@ input[type="range"] { accent-color: var(--accent); width: 100%; }
 .panel .voice-language .segments { --face: var(--hairline); }
 .panel .voice-language label { color: var(--ink); }
 .speech-status:empty { position: absolute; min-height: 0; }
+.speech-status[data-speaking] { position: static; min-height: 20px; }
 .distance-form { align-items: end; }
 .distance-form .control { flex: 1 1 160px; }
 
@@ -139,7 +140,8 @@ input[type="range"] { accent-color: var(--accent); width: 100%; }
 
 /* Motion, all of it off when the reader prefers reduced motion:
    - while Detect analyses or Evaluation compares, a small bus drives along a dashed road above the results;
-   - Detect's LED sign switches on left to right, once per result (Live redraws it every frame, so it stays still). */
+   - Detect's LED sign switches on left to right, once per result (Live redraws it every frame, so it stays still);
+   - pixel sound bars show while an announcement plays (speech.js sets data-speaking on the status line). */
 #results[aria-busy="true"]::before, #comparison-results[aria-busy="true"]::before {
   content: "";
   display: block;
@@ -149,10 +151,25 @@ input[type="range"] { accent-color: var(--accent); width: 100%; }
     url(../images/bus-side.webp) 0 0 / auto 26px no-repeat,
     linear-gradient(90deg, var(--road) 0 16px, transparent 16px 28px) 0 100% / 28px 3px repeat-x;
 }
+[data-speaking]::before {
+  content: "";
+  display: inline-block;
+  width: 23px;
+  height: 16px;
+  margin-right: 8px;
+  vertical-align: middle;
+  background:
+    linear-gradient(var(--accent) 0 0) 0 50% / 3px 10px no-repeat,
+    linear-gradient(var(--accent) 0 0) 5px 50% / 3px 16px no-repeat,
+    linear-gradient(var(--accent) 0 0) 10px 50% / 3px 8px no-repeat,
+    linear-gradient(var(--accent) 0 0) 15px 50% / 3px 14px no-repeat,
+    linear-gradient(var(--accent) 0 0) 20px 50% / 3px 6px no-repeat;
+}
 @media (prefers-reduced-motion: no-preference) {
   #results[aria-busy="true"]::before, #comparison-results[aria-busy="true"]::before { animation: bus-loading 1.6s linear infinite; }
   .detect-page .sign-card > * { animation: led-on 450ms steps(9, end) backwards; }
   .detect-page .sign-card > .sign-destination { animation-delay: 150ms; }
+  [data-speaking]::before { animation: speaking 600ms steps(1, end) infinite; }
 }
 @keyframes bus-loading {
   from { background-position: -80px 0, 0 100%; }
@@ -161,4 +178,9 @@ input[type="range"] { accent-color: var(--accent); width: 100%; }
 @keyframes led-on {
   from { clip-path: inset(0 100% 0 0); }
   to { clip-path: inset(0); }
+}
+@keyframes speaking {
+  0% { background-size: 3px 10px, 3px 16px, 3px 8px, 3px 14px, 3px 6px; }
+  33% { background-size: 3px 16px, 3px 6px, 3px 14px, 3px 8px, 3px 12px; }
+  66% { background-size: 3px 6px, 3px 12px, 3px 16px, 3px 10px, 3px 16px; }
 }

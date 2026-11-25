@@ -75,6 +75,8 @@ export class SpeechControls {
   refresh() {
     this.controls.read.disabled = !this.supported || !this.latest;
     this.controls.stop.disabled = !this.active;
+    // Shows animated sound bars beside the status line while an announcement is on (analysis.css); not announced.
+    this.controls.status.toggleAttribute('data-speaking', !!this.active);
   }
 
   update(data, distance = null, {announce = false} = {}) {
