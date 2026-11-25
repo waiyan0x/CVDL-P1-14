@@ -74,6 +74,29 @@ h2 { margin: 0; font-family: var(--pixel); font-size: 24px; line-height: 1.25; f
     linear-gradient(var(--bg) calc(100% - var(--scene) - 220px), var(--sky) calc(100% - var(--scene)));
 }
 .street-scene main { padding-bottom: calc(var(--scene) + 48px); }
+/* The street's bus is its own layer (layout.js adds it), parked where it sits in the picture: 464 x 156 source pixels,
+   298 left of the centre and 61 above the bottom. The first time the street scrolls into view, the bus drives in from
+   the left and stops at the bus stop. The box stays put so it can be watched; the bus is drawn on ::before. */
+.street-scene { position: relative; }
+.street-bus {
+  position: absolute;
+  left: calc(50% - 298 * var(--px));
+  bottom: calc(61 * var(--px));
+  width: calc(464 * var(--px));
+  height: calc(156 * var(--px));
+  pointer-events: none;
+}
+.street-bus::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url(../images/bus-side.webp) 0 0 / 100% 100% no-repeat;
+}
+.street-bus.waiting::before { transform: translateX(calc(-50vw - 100%)); }
+/* Slows to a stop over 2.8 s, bobbing a little while it moves. */
+.street-bus.arriving::before { animation: bus-arrive 2.8s cubic-bezier(.15, .6, .25, 1) both, bus-bob 200ms steps(1, end) 12; }
+@keyframes bus-arrive { from { transform: translateX(calc(-50vw - 100%)); } }
+@keyframes bus-bob { 50% { translate: 0 calc(-1.5 * var(--px)); } }
 h3 { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.35; }
 p { line-height: 1.5; }
 .muted { color: var(--muted); }

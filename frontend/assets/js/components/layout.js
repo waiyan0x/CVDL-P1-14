@@ -11,3 +11,20 @@ if (header) {
   pages.forEach(([href, label]) => nav.append(el('a', {href, 'aria-current': href === current ? 'page' : null}, label)));
   header.replaceChildren(nav);
 }
+
+// Pages with the street scene get its bus as a separate layer (styles in base.css). It is parked by default; with
+// motion allowed, it waits off-screen and drives in the first time the street scrolls into view.
+if (document.body.classList.contains('street-scene')) {
+  const bus = el('div', {class: 'street-bus', 'aria-hidden': 'true'});
+  const moving = 'IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (moving) bus.classList.add('waiting');
+  document.body.append(bus);
+  if (moving) {
+    const observer = new IntersectionObserver(entries => {
+      if (!entries.some(entry => entry.isIntersecting)) return;
+      observer.disconnect();
+      requestAnimationFrame(() => bus.classList.replace('waiting', 'arriving'));
+    }, {threshold: 0.6});
+    observer.observe(bus);
+  }
+}
