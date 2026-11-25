@@ -39,7 +39,7 @@ function signCard(result) {
 function routeCard(result) {
   const match = result.match || {};
   const description = result.message || match.reason || 'No reference match is available.';
-  const card = el('section', {class: 'panel route-card'}, el('span', {class: 'small muted'}, 'Route match'),
+  const card = el('section', {class: 'panel route-card', 'data-status': result.status}, el('span', {class: 'small muted'}, 'Route match'),
     el('h3', {class: 'matched-text'}, titles[result.status] || 'Reading complete'));
   // One-line message built from what was confirmed (backend/app/services/announcement.py).
   if (match.announcement) card.append(el('p', {class: 'announcement'}, match.announcement));
