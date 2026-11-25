@@ -7,7 +7,7 @@ import {Options} from '../components/options.js';
 import {Viewer} from '../components/viewer.js?v=2';
 import {renderResults} from '../components/results.js';
 import {dropFiles, loadSamples} from '../components/samples.js';
-import {SpeechControls} from '../components/speech.js';
+import {SpeechControls} from '../components/speech.js?v=2';
 
 const $ = id => document.getElementById(id);
 const session = new FrameSession();

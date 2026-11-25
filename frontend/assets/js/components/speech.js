@@ -1,6 +1,7 @@
 import {AnnouncementGate, busAnnouncement, localPhrase} from '../core/bus-announcements.js';
 import {createBusUtterance} from '../core/bus-voice.js';
 import {HintGate} from '../core/aiming.js';
+import {request} from '../core/api.js';
 
 // Speech uses the project's ElevenLabs voices (English or Chinese, POST /api/speech/tts) and falls back to the
 // browser's voice when ElevenLabs cannot be reached.
@@ -24,6 +25,7 @@ export class SpeechControls {
     this.browserVoice = !!this.synth && typeof window.SpeechSynthesisUtterance === 'function';
     this.audio = typeof window.Audio === 'function' ? new Audio() : null;
     this.supported = !!this.audio || this.browserVoice;
+    this.voiceStatus = this.audio ? request('/api/speech/status', {cache: 'no-store'}).catch(() => null) : null;
     this.clips = new Map();
     this.unlocked = false;
     this.language = storedLanguage();
@@ -116,6 +118,12 @@ export class SpeechControls {
 
   async play(job) {
     try {
+      const status = await this.voiceStatus;
+      if (this.active !== job) return;
+      if (!status?.available || !status.languages.includes(job.language)) {
+        this.fallback(job);
+        return;
+      }
       const url = await this.clip(job);
       if (this.active !== job) return;
       this.audio.onended = () => this.finish(job);

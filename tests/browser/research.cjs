@@ -3,6 +3,11 @@ const {assert, path, base, output, assertResponsive, assertAccessible} = require
 module.exports = async function research(page) {
   await page.goto(`${base}/evaluation`);
   await page.locator('#compare:not([disabled])').waitFor();
+  await page.locator('#comparison-sample').focus();
+  await page.keyboard.press('Tab');
+  assert.equal(await page.evaluate(() => document.activeElement.id), 'comparison-file');
+  const picker = page.locator('label[for="comparison-file"]');
+  assert.equal(await picker.evaluate(label => getComputedStyle(label).outlineStyle), 'solid');
   const response = page.waitForResponse(response => response.url().endsWith('/api/comparisons') && response.status() === 200);
   await page.getByRole('button', {name: 'Compare pipelines', exact: true}).click();
   const data = await (await response).json();
@@ -23,5 +28,7 @@ module.exports = async function research(page) {
   await assertResponsive(page, '/models');
   await assertAccessible(page);
   await page.screenshot({path: path.join(output, 'models-desktop.png'), fullPage: true});
+  await page.setViewportSize({width: 320, height: 1000});
+  await assertAccessible(page);
   console.log('Evaluation/Models: real comparison, model information, responsive and accessibility passed.');
 };

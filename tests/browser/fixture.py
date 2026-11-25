@@ -4,7 +4,10 @@ import cv2
 
 ROOT = Path(__file__).resolve().parents[2]
 output = ROOT / '.runtime/test-still-video.avi'
-image = cv2.imread(str(ROOT / 'data/samples/01-daylight-329.jpg'))
+source = ROOT / 'data/samples/distance-and-image-quality/eds-cropped-at-the-image-edge.jpg'
+image = cv2.imread(str(source))
+if image is None:
+    raise RuntimeError(f'Could not read the bundled sample: {source}')
 image = cv2.resize(image, (960, 640))
 cv2.putText(image, 'TEST FIXTURE - STILL PHOTO', (20, 620), cv2.FONT_HERSHEY_SIMPLEX,
             .6, (255, 255, 255), 2)

@@ -10,7 +10,7 @@ import {Options} from '../components/options.js';
 import {Viewer} from '../components/viewer.js?v=2';
 import {renderResults} from '../components/results.js';
 import {dropFiles} from '../components/samples.js';
-import {SpeechControls} from '../components/speech.js';
+import {SpeechControls} from '../components/speech.js?v=2';
 
 const $ = id => document.getElementById(id);
 const session = new FrameSession();
@@ -211,7 +211,14 @@ async function processFrame() {
     reportStatus(`Processing · ${Number(data.processing_fps || 0).toFixed(1)} frames/s for the latest frame`, 'Processing frames.');
     $('results').setAttribute('aria-busy', 'false');
     if (mode === 'camera') $('camera').hidden = true;
-  } catch (error) { if (session.current(generation)) fail(error); }
+  } catch (error) {
+    if (!session.current(generation)) return;
+    if (error.code === 'processing_busy') {
+      reportStatus('Waiting for the processor. The next frame will be tried automatically.', 'Waiting for the processor.');
+      return;
+    }
+    fail(error);
+  }
 }
 
 $('modes').addEventListener('click', event => {
