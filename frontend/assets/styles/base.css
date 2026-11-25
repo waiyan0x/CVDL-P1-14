@@ -93,7 +93,7 @@ p { line-height: 1.5; }
   border-bottom-width: var(--frame-bottom, 2px);
 }
 .button::before, .segments::before, .segments button::before, .voice-language label::before, .panel::before,
-.brand-mark, .viewer, .camera-preview, .arrival {
+.brand-mark, .sign-card, .viewer, .camera-preview, .arrival {
   clip-path: polygon(var(--n, 2px) 0, calc(100% - var(--n, 2px)) 0, calc(100% - var(--n, 2px)) var(--n, 2px), 100% var(--n, 2px),
     100% calc(100% - var(--n, 2px)), calc(100% - var(--n, 2px)) calc(100% - var(--n, 2px)), calc(100% - var(--n, 2px)) 100%,
     var(--n, 2px) 100%, var(--n, 2px) calc(100% - var(--n, 2px)), 0 calc(100% - var(--n, 2px)), 0 var(--n, 2px), var(--n, 2px) var(--n, 2px));

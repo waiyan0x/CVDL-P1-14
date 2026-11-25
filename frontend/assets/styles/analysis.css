@@ -47,10 +47,23 @@ input[type="range"] { accent-color: var(--accent); width: 100%; }
 .scores div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .scores dt { font-size: 12px; color: var(--muted); }
 .scores dd { margin: 0; font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; }
-/* Yellow on black (about 15:1 contrast), like the LED sign itself but solid and large. */
-.sign-card { display: flex; flex-direction: column; gap: 4px; padding: 20px 24px; border-radius: 20px; background: #000; color: #ffd60a; overflow-wrap: anywhere; }
-.sign-service { font-size: clamp(64px, 18vw, 112px); line-height: 1; font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
-.sign-destination { font-size: clamp(22px, 5vw, 32px); line-height: 1.2; font-weight: 700; text-transform: uppercase; }
+/* An LED bus sign in the deck's colours: amber pixel text in a charcoal housing, on a dark panel with a faint grid
+   of unlit LEDs. The amber is about 11:1 on the panel; the glow is kept small so the letters stay sharp. */
+.sign-card {
+  --n: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 24px 24px;
+  border: 6px solid var(--edge);
+  background: radial-gradient(circle, #ffffff12 0 1px, transparent 1.5px) 0 0 / 6px 6px, #141a19;
+  color: var(--amber);
+  font-family: var(--pixel);
+  text-shadow: 0 0 6px #ffb44a59;
+  overflow-wrap: anywhere;
+}
+.sign-service { font-size: clamp(64px, 18vw, 112px); line-height: .95; font-weight: 700; font-variant-numeric: tabular-nums; }
+.sign-destination { font-size: clamp(22px, 5vw, 30px); line-height: 1.2; font-weight: 600; text-transform: uppercase; letter-spacing: .02em; }
 @media (forced-colors: active) { .sign-card { border: 3px solid CanvasText; } }
 .route-card { display: flex; flex-direction: column; gap: 6px; }
 .route-card p { margin: 0; font-size: 14px; color: var(--muted); }
