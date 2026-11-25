@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import test from 'node:test';
-import {AnnouncementGate, busAnnouncement, cameraObservation, chineseAnnouncement, estimateMetres, localPhrase,
-  spokenAnnouncement, spokenPlace}
+import {AnnouncementGate, announcementKey, busAnnouncement, cameraObservation, chineseAnnouncement, estimateMetres,
+  localPhrase, spokenAnnouncement, spokenPlace}
   from '../../frontend/assets/js/core/bus-announcements.js';
 
 const captured = Date.parse('2026-11-21T00:00:00Z');
@@ -138,6 +138,30 @@ test('live announcements stabilise, deduplicate, and respect cooldown and stop',
   assert.equal(gate.ready('92B', 7500), true);
   gate.reset();
   assert.equal(gate.ready('92B', 8000), false);
+});
+
+test('live announcements: a full match is spoken on its first frame, a partial one needs two', () => {
+  const gate = new AnnouncementGate();
+  assert.equal(gate.ready('92B|Ghim Moh Terminal@', 0, 1), true);
+  gate.announced('92B|Ghim Moh Terminal@', 0);
+  assert.equal(gate.ready('92B|Ghim Moh Terminal@', 5000, 1), false); // the same bus is not repeated
+  assert.equal(gate.ready('174|@', 1000, 2), false);
+  assert.equal(gate.ready('174|@', 2000, 2), false); // a different bus waits 3 s after the last announcement
+  assert.equal(gate.ready('174|@', 3000, 2), true);
+});
+
+test('frames that confirm the same bus share a key, whatever the via road', () => {
+  const withVia = result();
+  withVia.results[0].match.announcement = 'Bus 92B to Ghim Moh Terminal, via Holland Rd.';
+  const plain = result();
+  assert.deepEqual(announcementKey(withVia), announcementKey(plain));
+  assert.deepEqual(announcementKey(plain), {key: '92B|Ghim Moh Terminal', full: true});
+  plain.results[0].match = {service: '92B', destination: null, status: 'service_only',
+    announcement: 'Bus 92B is approaching. Destination could not be read.'};
+  assert.deepEqual(announcementKey(plain), {key: '92B|', full: false});
+  plain.results[0].match = {service: null, destination: null, status: 'unmatched',
+    announcement: 'A bus is approaching. Bus number and destination could not be confirmed.'};
+  assert.deepEqual(announcementKey(plain), {key: null, full: false});
 });
 
 test('spells lettered shuttle codes like bus numbers', () => {

@@ -38,9 +38,9 @@ Use only the keyboard.
 | B1 | Reach the main content | Load `/live` and press Tab once | "Skip to content" is announced. Enter jumps past the navigation | [ ] |
 | B2 | Find and start the camera | Tab to **Start** and press Space | Each button is announced by name. The camera starts | [ ] |
 | B3 | Turn on hands-free announcements | Tab to **Automatic announcements** and press Space | You hear "Automatic bus announcements enabled." | [ ] |
-| B4 | Hear a bus | Hold a sample photo or phone image of a bus sign up to the camera | After 2 matching frames you hear e.g. "Bus 1 7 4 to Kampong Bahru Bus Terminal" | [ ] |
+| B4 | Hear a bus | Hold a sample photo or phone image of a bus sign up to the camera | A full match (service and destination) is heard from its first frame, a partial reading after 2 matching frames, e.g. "Bus 1 7 4 to Kampong Bahru Bus Terminal" | [ ] |
 | B5 | No repeat spam | Keep the same bus in view for 20 s | It is announced once, not on every frame | [ ] |
-| B6 | Second bus | Swap to a different bus image | The new bus is announced (at least 6 s after the first) | [ ] |
+| B6 | Second bus | Swap to a different bus image | The new bus is announced (at least 3 s after the first) | [ ] |
 | B7 | Repeat on demand | Tab to **Read result aloud** and press it | The latest result is spoken again | [ ] |
 | B8 | Silence it | Press **Stop speech** | Speech stops at once and automatic announcements turn off | [ ] |
 | B9 | Voices clash (known issue) | With VoiceOver on, let an announcement play | Check whether VoiceOver and the app voice talk over each other. If they do, demo with VoiceOver off and mention it as a planned fix | [ ] |

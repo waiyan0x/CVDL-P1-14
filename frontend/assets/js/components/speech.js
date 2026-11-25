@@ -1,4 +1,4 @@
-import {AnnouncementGate, busAnnouncement, localPhrase} from '../core/bus-announcements.js';
+import {AnnouncementGate, announcementKey, busAnnouncement, localPhrase} from '../core/bus-announcements.js';
 import {createBusUtterance} from '../core/bus-voice.js';
 import {HintGate} from '../core/aiming.js';
 import {request} from '../core/api.js';
@@ -84,8 +84,12 @@ export class SpeechControls {
     this.refresh();
     if (!announce || !this.controls.automatic?.checked) return;
     const text = busAnnouncement(data, {distance, confirmedOnly: true, language: this.language});
+    // Frames are compared by bus (and distance), not by sentence. A full match (service and destination both
+    // confirmed) is spoken on its first frame; a partial one needs two frames in a row.
+    const {key, full} = announcementKey(data);
+    const id = text && key ? `${key}@${distance ?? ''}` : null;
     const now = performance.now();
-    if (this.gate.ready(text, now) && !this.active && this.speak(text)) this.gate.announced(text, now);
+    if (this.gate.ready(id, now, full ? 1 : 2) && !this.active && this.speak(text)) this.gate.announced(id, now);
   }
 
   // Aiming hints are spoken only with automatic announcements on, never over other speech,

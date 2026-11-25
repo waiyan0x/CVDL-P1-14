@@ -136,6 +136,16 @@ export function busAnnouncement(data, {distance = null, confirmedOnly = false, l
   return phrases.slice(0, 3).join(zh ? '' : ' ') + more;
 }
 
+// Which buses a frame confirms (service and destination of each confirmed display, nearest first), so automatic
+// announcements compare frames by bus rather than by sentence: a "via" road read on one frame but not the next is
+// still the same bus. full: every confirmed display has both its service and its destination confirmed.
+export function announcementKey(data) {
+  const shown = [...data?.results ?? []].filter(result => confirmed(result.match)).sort((a, b) => area(b) - area(a));
+  const key = shown.map(({match}) => /^Bus not in service\b/.test(match?.announcement ?? '')
+    ? 'not in service' : `${serviceId(match?.service)}|${match?.destination ?? ''}`).join(';');
+  return {key: key || null, full: shown.length > 0 && shown.every(({match}) => !!(serviceId(match?.service) && match?.destination))};
+}
+
 export function cameraObservation(data, zoom = null, now = Date.now()) {
   const frame = data?.frame;
   if (frame?.source !== 'camera' || !frame.session_id || data.results?.length !== 1) return null;
@@ -165,8 +175,11 @@ export function estimateMetres(reference, current) {
   return distance >= 5 && distance <= 100 ? Math.round(distance / 5) * 5 : null;
 }
 
+// Decides when Live speaks. key names what a frame shows (announcementKey, plus the distance when calibrated); it
+// must appear on `frames` frames in a row (1 for a full match, 2 otherwise), differ from the last announcement, and
+// come at least `delay` ms after it, so the same bus is never repeated and two buses are not read back to back.
 export class AnnouncementGate {
-  constructor(delay = 6000) {
+  constructor(delay = 3000) {
     this.delay = delay;
     this.reset();
   }
@@ -178,10 +191,10 @@ export class AnnouncementGate {
     this.lastAt = -Infinity;
   }
 
-  ready(text, now) {
-    this.consecutive = text === this.candidate ? this.consecutive + 1 : 1;
-    this.candidate = text;
-    return !!text && this.consecutive >= 2 && text !== this.last && now - this.lastAt >= this.delay;
+  ready(key, now, frames = 2) {
+    this.consecutive = key === this.candidate ? this.consecutive + 1 : 1;
+    this.candidate = key;
+    return !!key && this.consecutive >= frames && key !== this.last && now - this.lastAt >= this.delay;
   }
 
   announced(text, now) {

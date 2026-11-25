@@ -236,9 +236,10 @@ From the synthesis logs (audio length per clip, all voices):
 The first wording (`Bus service 9 2 B. Reference destination: …`) took 6.7 s median
 and 8.4 s p95.
 
-The live page waits 6 s between automatic announcements (`AnnouncementGate`), and
-automatic mode never starts a new announcement while one is still being spoken. A
-longer one is therefore never cut off; the next one waits for it to finish.
+The live page waits 3 s between automatic announcements (`AnnouncementGate`; 6 s when
+this was measured), and automatic mode never starts a new announcement while one is
+still being spoken. A longer one is therefore never cut off; the next one waits for it
+to finish.
 
 Offline synthesis to a file takes about 15 ms per clip (p95 23 ms). That is not the
 browser's start-of-speech delay.
