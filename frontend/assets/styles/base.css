@@ -1,5 +1,7 @@
 @font-face { font-family: "IBM Plex Mono"; src: url(../fonts/ibm-plex-mono-400.woff2) format("woff2"); font-weight: 400; font-display: swap; }
 @font-face { font-family: "IBM Plex Mono"; src: url(../fonts/ibm-plex-mono-500.woff2) format("woff2"); font-weight: 500; font-display: swap; }
+/* Pixelify Sans (SIL Open Font License), Latin subset from Google Fonts: pixel headings that stay readable. */
+@font-face { font-family: "Pixelify Sans"; src: url(../fonts/pixelify-sans-variable.woff2) format("woff2"); font-weight: 400 700; font-display: swap; }
 
 :root {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
@@ -13,6 +15,8 @@
   --line: #d2d2d7;
   --hairline: #e5e5ea;
   --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --pixel: "Pixelify Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --sky: #e7edeb;
 }
 * { box-sizing: border-box; }
 body { margin: 0; }
@@ -37,13 +41,26 @@ header { border-bottom: 1px solid var(--hairline); }
 }
 .nav a { display: flex; align-items: center; min-height: 44px; text-decoration: none; font-size: 14px; color: var(--muted); white-space: nowrap; }
 .nav a[aria-current] { color: var(--ink); font-weight: 600; }
-.nav .brand { gap: 10px; margin-right: auto; color: var(--ink); font-size: 15px; font-weight: 600; letter-spacing: -.01em; }
+.nav .brand { gap: 10px; margin-right: auto; color: var(--ink); font-family: var(--pixel); font-size: 17px; font-weight: 600; }
 .brand-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--ink); display: grid; place-items: center; }
 main { max-width: 1248px; margin: 0 auto; padding: 56px 24px 96px; display: flex; flex-direction: column; gap: 40px; }
 .page-heading { display: flex; flex-direction: column; gap: 10px; }
-h1 { margin: 0; font-size: 48px; line-height: 1.05; font-weight: 600; letter-spacing: -.025em; }
+h1 { margin: 0; font-family: var(--pixel); font-size: 48px; line-height: 1.05; font-weight: 600; }
 .page-heading p { margin: 0; font-size: 19px; line-height: 1.45; color: var(--muted); max-width: 680px; }
-h2 { margin: 0; font-size: 24px; line-height: 1.25; font-weight: 600; letter-spacing: -.015em; }
+h2 { margin: 0; font-family: var(--pixel); font-size: 24px; line-height: 1.25; font-weight: 600; }
+/* Pixel street along the bottom of the tool pages, from a 1280 x 420 picture. Its sky is transparent so the
+   page draws it, and on screens wider than the picture the pavement, road and lane dashes carry on past it. */
+.street-scene {
+  --scene: clamp(170px, 26vw, 280px);
+  --px: calc(var(--scene) / 420);
+  min-height: 100vh;
+  background:
+    url(../images/bus-street.webp) center bottom / auto var(--scene) no-repeat,
+    linear-gradient(90deg, #f9fbf8 45.4%, transparent 0) calc(50% + 38.5 * var(--px)) calc(100% - 23 * var(--px)) / calc(141 * var(--px)) calc(5 * var(--px)) repeat-x,
+    linear-gradient(transparent 80%, #c6d0c5 0 80.5%, #d2d5ce 0 84%, #dfe3dc 0 84.8%, #bec4c0 0 85%, #939c99 0 86.7%, #89928f 0) left bottom / 100% var(--scene) no-repeat,
+    linear-gradient(#fff calc(100% - var(--scene) - 220px), var(--sky) calc(100% - var(--scene)));
+}
+.street-scene main { padding-bottom: calc(var(--scene) + 48px); }
 h3 { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.35; }
 p { line-height: 1.5; }
 .muted { color: var(--muted); }

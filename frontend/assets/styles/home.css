@@ -21,7 +21,6 @@
 .home-intro h1 {
   max-width: 12ch;
   font-size: clamp(42px, 4.55vw, 64px);
-  letter-spacing: -.05em;
   text-wrap: balance;
 }
 
