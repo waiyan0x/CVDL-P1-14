@@ -8,6 +8,7 @@ from .detection import Detector
 from .matching import RouteMatcher
 from .ocr.registry import OCRRegistry
 from .pipeline import Pipeline
+from .torchserve_detection import TorchServeDetector
 
 
 class Runtime:
@@ -19,7 +20,12 @@ class Runtime:
 
     def start(self):
         try:
-            detector = Detector(self.settings)
+            if self.settings.torchserve_port is None:
+                detector = Detector(self.settings)
+            else:
+                import torch
+                torch.set_num_threads(self.settings.torch_threads)
+                detector = TorchServeDetector(self.settings)
             ocr = OCRRegistry(self.settings)
             matcher = RouteMatcher(self.settings.root / 'data/bus_information.csv')
             self.pipeline = Pipeline(self.settings, detector, ocr, matcher)
@@ -33,6 +39,10 @@ class Runtime:
     @property
     def backends(self):
         return self.pipeline.ocr.backends() if self.pipeline else []
+
+    @property
+    def detector_runtime(self):
+        return getattr(self.pipeline.detector, 'runtime_name', 'local') if self.pipeline else None
 
     @property
     def ready(self):

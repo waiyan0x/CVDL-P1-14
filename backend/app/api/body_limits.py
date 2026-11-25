@@ -1,5 +1,5 @@
 """Bound multipart bodies before the framework spools uploads to disk."""
-from fastapi.responses import JSONResponse
+from starlette.responses import JSONResponse
 
 from ..errors import AppError
 

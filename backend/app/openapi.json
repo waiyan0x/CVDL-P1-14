@@ -1,0 +1,1466 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "EDS Reader",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/health": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Health",
+        "operationId": "health_api_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/samples": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Samples",
+        "operationId": "samples_api_samples_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/samples/{sample_id}/image": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Sample Image",
+        "operationId": "sample_image_api_samples__sample_id__image_get",
+        "parameters": [
+          {
+            "name": "sample_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Sample Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/speech/status": {
+      "get": {
+        "tags": [
+          "speech"
+        ],
+        "summary": "Speech Status",
+        "operationId": "speech_status_api_speech_status_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/speech/tts": {
+      "post": {
+        "tags": [
+          "speech"
+        ],
+        "summary": "Text To Speech",
+        "operationId": "text_to_speech_api_speech_tts_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpeechRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/analysis": {
+      "post": {
+        "tags": [
+          "analysis"
+        ],
+        "summary": "Analysis",
+        "operationId": "analysis_api_analysis_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_analysis_api_analysis_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalysisResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/comparisons": {
+      "post": {
+        "tags": [
+          "analysis"
+        ],
+        "summary": "Comparisons",
+        "operationId": "comparisons_api_comparisons_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_comparisons_api_comparisons_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComparisonResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/videos": {
+      "post": {
+        "tags": [
+          "videos"
+        ],
+        "summary": "Upload Video",
+        "operationId": "upload_video_api_videos_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_upload_video_api_videos_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/videos/{video_id}/content": {
+      "get": {
+        "tags": [
+          "videos"
+        ],
+        "summary": "Video Content",
+        "operationId": "video_content_api_videos__video_id__content_get",
+        "parameters": [
+          {
+            "name": "video_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Video Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/videos/{video_id}/frames": {
+      "post": {
+        "tags": [
+          "videos"
+        ],
+        "summary": "Video Frame",
+        "operationId": "video_frame_api_videos__video_id__frames_post",
+        "parameters": [
+          {
+            "name": "video_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Video Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VideoFrameOptions"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalysisResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/videos/{video_id}": {
+      "delete": {
+        "tags": [
+          "videos"
+        ],
+        "summary": "Delete Video",
+        "operationId": "delete_video_api_videos__video_id__delete",
+        "parameters": [
+          {
+            "name": "video_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Video Id"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/models": {
+      "get": {
+        "summary": "Models",
+        "operationId": "models_api_models_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/evaluation": {
+      "get": {
+        "summary": "Evaluation",
+        "operationId": "evaluation_api_evaluation_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AnalysisResponse": {
+        "properties": {
+          "frame": {
+            "$ref": "#/components/schemas/ProcessedFrame"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "no_eds",
+              "unreadable",
+              "partial",
+              "unknown_match",
+              "matched"
+            ],
+            "title": "Status"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "backend": {
+            "type": "string",
+            "enum": [
+              "easyocr",
+              "paddleocr",
+              "trocr"
+            ],
+            "title": "Backend"
+          },
+          "image": {
+            "type": "string",
+            "title": "Image"
+          },
+          "width": {
+            "type": "integer",
+            "title": "Width"
+          },
+          "height": {
+            "type": "integer",
+            "title": "Height"
+          },
+          "detections": {
+            "items": {
+              "$ref": "#/components/schemas/Detection"
+            },
+            "type": "array",
+            "title": "Detections"
+          },
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/DisplayResult"
+            },
+            "type": "array",
+            "title": "Results"
+          },
+          "timings": {
+            "$ref": "#/components/schemas/Timings"
+          },
+          "processing_fps": {
+            "type": "number",
+            "title": "Processing Fps"
+          }
+        },
+        "type": "object",
+        "required": [
+          "frame",
+          "status",
+          "message",
+          "backend",
+          "image",
+          "width",
+          "height",
+          "detections",
+          "results",
+          "timings",
+          "processing_fps"
+        ],
+        "title": "AnalysisResponse"
+      },
+      "Body_analysis_api_analysis_post": {
+        "properties": {
+          "file": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File"
+          },
+          "sample_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sample Id"
+          },
+          "backend": {
+            "type": "string",
+            "title": "Backend",
+            "default": "easyocr"
+          },
+          "detection": {
+            "type": "number",
+            "title": "Detection",
+            "default": 0.5
+          },
+          "ocr_threshold": {
+            "type": "number",
+            "title": "Ocr Threshold",
+            "default": 0.25
+          },
+          "similarity": {
+            "type": "number",
+            "title": "Similarity",
+            "default": 0.65
+          },
+          "session_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Session Id"
+          },
+          "frame_id": {
+            "type": "integer",
+            "title": "Frame Id",
+            "default": 0
+          },
+          "source": {
+            "type": "string",
+            "title": "Source",
+            "default": "image"
+          },
+          "source_timestamp_ms": {
+            "type": "number",
+            "title": "Source Timestamp Ms",
+            "default": 0
+          },
+          "captured_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Captured At"
+          }
+        },
+        "type": "object",
+        "title": "Body_analysis_api_analysis_post"
+      },
+      "Body_comparisons_api_comparisons_post": {
+        "properties": {
+          "file": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File"
+          },
+          "sample_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sample Id"
+          },
+          "backend": {
+            "type": "string",
+            "title": "Backend",
+            "default": "easyocr"
+          },
+          "detection": {
+            "type": "number",
+            "title": "Detection",
+            "default": 0.5
+          },
+          "ocr_threshold": {
+            "type": "number",
+            "title": "Ocr Threshold",
+            "default": 0.25
+          },
+          "similarity": {
+            "type": "number",
+            "title": "Similarity",
+            "default": 0.65
+          },
+          "session_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Session Id"
+          },
+          "frame_id": {
+            "type": "integer",
+            "title": "Frame Id",
+            "default": 0
+          },
+          "source": {
+            "type": "string",
+            "title": "Source",
+            "default": "image"
+          },
+          "source_timestamp_ms": {
+            "type": "number",
+            "title": "Source Timestamp Ms",
+            "default": 0
+          },
+          "captured_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Captured At"
+          }
+        },
+        "type": "object",
+        "title": "Body_comparisons_api_comparisons_post"
+      },
+      "Body_upload_video_api_videos_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_upload_video_api_videos_post"
+      },
+      "ComparisonEntry": {
+        "properties": {
+          "backend": {
+            "type": "string",
+            "enum": [
+              "easyocr",
+              "paddleocr",
+              "trocr"
+            ],
+            "title": "Backend"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "success",
+              "unavailable",
+              "error"
+            ],
+            "title": "Status"
+          },
+          "result": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AnalysisResponse"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          }
+        },
+        "type": "object",
+        "required": [
+          "backend",
+          "status",
+          "result",
+          "error"
+        ],
+        "title": "ComparisonEntry"
+      },
+      "ComparisonResponse": {
+        "properties": {
+          "frame": {
+            "$ref": "#/components/schemas/ProcessedFrame"
+          },
+          "image": {
+            "type": "string",
+            "title": "Image"
+          },
+          "width": {
+            "type": "integer",
+            "title": "Width"
+          },
+          "height": {
+            "type": "integer",
+            "title": "Height"
+          },
+          "detections": {
+            "items": {
+              "$ref": "#/components/schemas/Detection"
+            },
+            "type": "array",
+            "title": "Detections"
+          },
+          "comparisons": {
+            "items": {
+              "$ref": "#/components/schemas/ComparisonEntry"
+            },
+            "type": "array",
+            "title": "Comparisons"
+          }
+        },
+        "type": "object",
+        "required": [
+          "frame",
+          "image",
+          "width",
+          "height",
+          "detections",
+          "comparisons"
+        ],
+        "title": "ComparisonResponse"
+      },
+      "Detection": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "display_id": {
+            "type": "string",
+            "title": "Display Id"
+          },
+          "label": {
+            "type": "string",
+            "enum": [
+              "bus_number",
+              "route",
+              "destination",
+              "eds"
+            ],
+            "title": "Label"
+          },
+          "model_label": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "front_eds",
+                  "front_eds_num",
+                  "front_eds_route",
+                  "front_eds_destination"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Label"
+          },
+          "box": {
+            "prefixItems": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              }
+            ],
+            "type": "array",
+            "maxItems": 4,
+            "minItems": 4,
+            "title": "Box"
+          },
+          "confidence": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Confidence"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "model",
+              "field_union"
+            ],
+            "title": "Source",
+            "default": "model"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "display_id",
+          "label",
+          "box"
+        ],
+        "title": "Detection"
+      },
+      "DisplayResult": {
+        "properties": {
+          "display_id": {
+            "type": "string",
+            "title": "Display Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "no_eds",
+              "unreadable",
+              "partial",
+              "unknown_match",
+              "matched"
+            ],
+            "title": "Status"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "screen": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Screen"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "fields": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/FieldResult"
+            },
+            "type": "object",
+            "title": "Fields"
+          },
+          "match": {
+            "$ref": "#/components/schemas/ReferenceMatch"
+          }
+        },
+        "type": "object",
+        "required": [
+          "display_id",
+          "status",
+          "message",
+          "screen",
+          "fields",
+          "match"
+        ],
+        "title": "DisplayResult"
+      },
+      "FieldResult": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "display_id": {
+            "type": "string",
+            "title": "Display Id"
+          },
+          "label": {
+            "type": "string",
+            "enum": [
+              "bus_number",
+              "route",
+              "destination",
+              "eds"
+            ],
+            "title": "Label"
+          },
+          "model_label": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "front_eds",
+                  "front_eds_num",
+                  "front_eds_route",
+                  "front_eds_destination"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Label"
+          },
+          "box": {
+            "prefixItems": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              }
+            ],
+            "type": "array",
+            "maxItems": 4,
+            "minItems": 4,
+            "title": "Box"
+          },
+          "confidence": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Confidence"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "model",
+              "field_union"
+            ],
+            "title": "Source",
+            "default": "model"
+          },
+          "raw": {
+            "type": "string",
+            "title": "Raw"
+          },
+          "ocr_confidence": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ocr Confidence"
+          },
+          "ocr_confidence_method": {
+            "type": "string",
+            "title": "Ocr Confidence Method"
+          },
+          "ocr_source": {
+            "type": "string",
+            "enum": [
+              "field_crop",
+              "whole_display_fallback"
+            ],
+            "title": "Ocr Source",
+            "default": "field_crop"
+          },
+          "crop": {
+            "type": "string",
+            "title": "Crop"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "display_id",
+          "label",
+          "box",
+          "raw",
+          "ocr_confidence_method",
+          "crop"
+        ],
+        "title": "FieldResult"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ProcessedFrame": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "frame_id": {
+            "type": "integer",
+            "title": "Frame Id"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "image",
+              "sample",
+              "camera",
+              "video"
+            ],
+            "title": "Source"
+          },
+          "source_timestamp_ms": {
+            "type": "number",
+            "title": "Source Timestamp Ms"
+          },
+          "captured_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Captured At"
+          },
+          "processed_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Processed At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "frame_id",
+          "source",
+          "source_timestamp_ms",
+          "captured_at",
+          "processed_at"
+        ],
+        "title": "ProcessedFrame"
+      },
+      "ReferenceMatch": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "matched",
+              "service_only",
+              "unmatched"
+            ],
+            "title": "Status"
+          },
+          "service": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Service"
+          },
+          "endpoint": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Endpoint"
+          },
+          "similarity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Similarity"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          },
+          "routes": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Routes"
+          },
+          "destination": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Destination"
+          },
+          "announcement": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Announcement"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "service",
+          "endpoint",
+          "similarity",
+          "reason",
+          "routes"
+        ],
+        "title": "ReferenceMatch"
+      },
+      "Screen": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "display_id": {
+            "type": "string",
+            "title": "Display Id"
+          },
+          "label": {
+            "type": "string",
+            "enum": [
+              "bus_number",
+              "route",
+              "destination",
+              "eds"
+            ],
+            "title": "Label"
+          },
+          "model_label": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "front_eds",
+                  "front_eds_num",
+                  "front_eds_route",
+                  "front_eds_destination"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Label"
+          },
+          "box": {
+            "prefixItems": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              }
+            ],
+            "type": "array",
+            "maxItems": 4,
+            "minItems": 4,
+            "title": "Box"
+          },
+          "confidence": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Confidence"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "model",
+              "field_union"
+            ],
+            "title": "Source",
+            "default": "model"
+          },
+          "crop": {
+            "type": "string",
+            "title": "Crop"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "display_id",
+          "label",
+          "box",
+          "crop"
+        ],
+        "title": "Screen"
+      },
+      "SpeechRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "en",
+              "zh"
+            ],
+            "title": "Language",
+            "default": "en"
+          }
+        },
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "title": "SpeechRequest"
+      },
+      "Timings": {
+        "properties": {
+          "preprocessing_ms": {
+            "type": "number",
+            "title": "Preprocessing Ms"
+          },
+          "detection_ms": {
+            "type": "number",
+            "title": "Detection Ms"
+          },
+          "ocr_ms": {
+            "type": "number",
+            "title": "Ocr Ms"
+          },
+          "matching_ms": {
+            "type": "number",
+            "title": "Matching Ms"
+          },
+          "total_ms": {
+            "type": "number",
+            "title": "Total Ms"
+          }
+        },
+        "type": "object",
+        "required": [
+          "preprocessing_ms",
+          "detection_ms",
+          "ocr_ms",
+          "matching_ms",
+          "total_ms"
+        ],
+        "title": "Timings"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "VideoFrameOptions": {
+        "properties": {
+          "backend": {
+            "type": "string",
+            "enum": [
+              "easyocr",
+              "paddleocr",
+              "trocr"
+            ],
+            "title": "Backend",
+            "default": "easyocr"
+          },
+          "detection": {
+            "type": "number",
+            "maximum": 0.95,
+            "minimum": 0.05,
+            "title": "Detection",
+            "default": 0.5
+          },
+          "ocr_threshold": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Ocr Threshold",
+            "default": 0.25
+          },
+          "similarity": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Similarity",
+            "default": 0.65
+          },
+          "session_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Session Id"
+          },
+          "frame_id": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Frame Id",
+            "default": 0
+          },
+          "source": {
+            "type": "string",
+            "const": "video",
+            "title": "Source",
+            "default": "video"
+          },
+          "source_timestamp_ms": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Source Timestamp Ms",
+            "default": 0
+          },
+          "captured_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Captured At"
+          },
+          "timestamp_ms": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Timestamp Ms",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "title": "VideoFrameOptions"
+      }
+    }
+  }
+}

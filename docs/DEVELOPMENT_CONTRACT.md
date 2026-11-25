@@ -82,7 +82,7 @@ States: `no_eds`, `unreadable`, `partial`, `unknown_match`, `matched`.
 HTTP errors always `{error:{code,message}}`; validation errors are human-readable.
 Use 400 invalid input, 404 missing media/sample, 413 too large, 422 invalid
 options, 429 busy, 503 not ready and 500 processing failure. Never return raw
-stack traces. Standard FastAPI OpenAPI remains available at `/docs`.
+stack traces. The OpenAPI contract is available at `/docs`.
 
 ## Frame and input lifecycle
 
