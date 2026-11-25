@@ -24,6 +24,18 @@ function fieldCard(field, label, result, number, idPrefix = '') {
   return card;
 }
 
+// The confirmed reading drawn large and high-contrast, for users with low vision: the same facts the voice
+// announces, readable at arm's length. Shown only for a confirmed service, destination or not-in-service bus.
+function signCard(result) {
+  const match = result.match || {};
+  const notInService = /^Bus not in service\b/.test(match.announcement ?? '');
+  if (!match.service && !match.destination && !notInService) return null;
+  const label = [match.service && `Bus ${match.service}`, match.destination && `to ${match.destination}`].filter(Boolean).join(' ');
+  return el('section', {class: 'sign-card', 'aria-label': notInService ? 'Bus not in service' : label},
+    el('div', {class: 'sign-service', 'aria-hidden': 'true'}, match.service || '–'),
+    el('div', {class: 'sign-destination', 'aria-hidden': 'true'}, notInService ? 'Not in service' : match.destination || 'Destination not confirmed'));
+}
+
 function routeCard(result) {
   const match = result.match || {};
   const description = result.message || match.reason || 'No reference match is available.';
@@ -46,7 +58,7 @@ export function timingCard(data) {
   return el('section', {class: 'panel timings', 'aria-label': 'Processing time'}, el('span', {class: 'small muted'}, 'Processing time'), dl);
 }
 
-export function renderResults(container, data, {timing = true, numbers = fieldNumbers(data), idPrefix = ''} = {}) {
+export function renderResults(container, data, {timing = true, sign = true, numbers = fieldNumbers(data), idPrefix = ''} = {}) {
   const fragment = document.createDocumentFragment();
   if (data.status === 'no_eds' || !data.results.length) {
     const state = el('div');
@@ -56,6 +68,8 @@ export function renderResults(container, data, {timing = true, numbers = fieldNu
   data.results.forEach((result, index) => {
     const group = el('section', {class: 'display-group', 'aria-label': `Display ${index + 1}`});
     if (data.results.length > 1) group.append(el('h3', {class: 'display-title'}, `Display ${index + 1}`));
+    const card = sign && signCard(result);
+    if (card) group.append(card);
     let fields = 0;
     for (const label of ['bus_number', 'route', 'destination']) {
       const field = result.fields?.[label];

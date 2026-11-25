@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import test from 'node:test';
-import {AnnouncementGate, busAnnouncement, cameraObservation, estimateMetres, spokenAnnouncement, spokenPlace}
+import {AnnouncementGate, busAnnouncement, cameraObservation, chineseAnnouncement, estimateMetres, localPhrase,
+  spokenAnnouncement, spokenPlace}
   from '../../frontend/assets/js/core/bus-announcements.js';
 
 const captured = Date.parse('2026-11-21T00:00:00Z');
@@ -142,4 +143,36 @@ test('live announcements stabilise, deduplicate, and respect cooldown and stop',
 test('spells lettered shuttle codes like bus numbers', () => {
   assert.equal(spokenAnnouncement({service: 'CW1', destination: 'Kranji MRT station',
     announcement: 'Bus CW1 to Kranji MRT station.'}), 'Bus C W 1 to Kranji M R T station.');
+});
+
+test('Chinese voice: Mandarin wording with English place names', () => {
+  const frame = result();
+  assert.equal(busAnnouncement(frame, {language: 'zh'}), '92B号巴士，开往Ghim Moh Terminal。');
+  assert.equal(busAnnouncement(frame, {language: 'zh', distance: 30}), '92B号巴士，开往Ghim Moh Terminal。距离大约30米。');
+  const cases = [
+    [{service: '174', destination: 'Kampong Bahru Bus Terminal',
+      announcement: 'Bus 174 to Kampong Bahru Bus Terminal, via Corporation Rd.'},
+     '174号巴士，开往Kampong Bahru Bus Terminal，途经Corporation Road。'],
+    [{service: '64', destination: null, announcement: 'Bus 64 is approaching. Destination could not be read.'},
+     '64号巴士即将到站。终点站无法识别。'],
+    [{service: '64', destination: null, announcement: 'Bus 64 is approaching, via Jln Besar. Destination could not be confirmed.'},
+     '64号巴士即将到站，途经Jalan Besar。终点站无法确认。'],
+    [{service: null, destination: 'Ang Mo Kio Int', announcement: 'A bus to Ang Mo Kio Int is approaching. Bus number could not be confirmed.'},
+     '开往Ang Mo Kio Interchange的巴士即将到站。车号无法确认。'],
+    [{service: null, destination: null, announcement: 'A bus is approaching. Bus number and destination could not be read.'},
+     '有一辆巴士即将到站。车号和终点站无法识别。'],
+    [{service: null, destination: null, announcement: 'Bus not in service.'}, '这辆巴士不载客。'],
+    [{service: null, destination: null, announcement: ''}, ''],
+  ];
+  for (const [match, expected] of cases) assert.equal(chineseAnnouncement(match), expected);
+  assert.equal(localPhrase('No bus sign in view.', 'zh'), '画面中没有巴士显示屏。');
+  assert.equal(localPhrase('No bus sign in view.', 'en'), 'No bus sign in view.');
+  assert.equal(localPhrase('Bus 92B, to Ghim Moh Terminal.', 'zh'), 'Bus 92B, to Ghim Moh Terminal.');
+});
+
+test('every spoken aiming hint has a Chinese phrase', () => {
+  const source = readFileSync(new URL('../../frontend/assets/js/core/aiming.js', import.meta.url), 'utf8');
+  const hints = [...source.matchAll(/^  \w+: '([^']+)',$/gm)].map(match => match[1]);
+  assert.ok(hints.length >= 7);
+  for (const hint of hints) assert.notEqual(localPhrase(hint, 'zh'), hint, hint);
 });

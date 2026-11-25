@@ -3,13 +3,14 @@ import {analyse} from '../core/api.js';
 import {Camera} from '../core/camera.js';
 import {UploadedVideo} from '../core/video.js';
 import {FrameSession, SamplingLoop} from '../core/session.js';
-import {cameraObservation, estimateMetres} from '../core/bus-announcements.js';
+import {busAnnouncement, cameraObservation, estimateMetres} from '../core/bus-announcements.js';
+import {aimingHint, nearestSign} from '../core/aiming.js';
 import {mediaTime, message, setSegments} from '../core/dom.js';
 import {Options} from '../components/options.js';
 import {Viewer} from '../components/viewer.js?v=2';
 import {renderResults} from '../components/results.js';
 import {dropFiles} from '../components/samples.js';
-import {SpeechControls} from '../components/speech.js';
+import {SpeechControls} from '../components/speech.js?v=2';
 
 const $ = id => document.getElementById(id);
 const session = new FrameSession();
@@ -19,8 +20,9 @@ const video = new UploadedVideo();
 let mode = 'camera', running = false, starting = false, startTime = 0, position = 0, minimum = 100, maxBytes;
 let firstFrame = true;
 let reference = null, latestFrame = null, freshnessTimer;
+let lastSignAt = 0;
 const speech = new SpeechControls({read: $('speech-read'), stop: $('speech-stop'), status: $('speech-status'),
-  automatic: $('speech-auto'), currentDistance: () => estimateMetres(reference, currentObservation())});
+  automatic: $('speech-auto'), language: $('speech-language'), currentDistance: () => estimateMetres(reference, currentObservation())});
 const options = new Options($('options'));
 const interval = () => Math.max(minimum, Number($('interval').value) || 1000);
 const loop = new SamplingLoop(processFrame, interval);
@@ -51,6 +53,24 @@ function refreshDistance() {
   return metres;
 }
 
+function showHint(hint) {
+  const node = $('aim-hint');
+  node.hidden = !hint;
+  node.textContent = hint?.text ?? '';
+  node.dataset.side = hint?.side ?? '';
+}
+
+// Camera only: hints describe how to move the camera, which does not apply to an uploaded video.
+function updateAim(data) {
+  if (mode !== 'camera') { showHint(null); return; }
+  const now = performance.now();
+  if (nearestSign(data)) lastSignAt = now;
+  const hint = aimingHint(data, {sinceSignMs: now - lastSignAt});
+  showHint(hint);
+  // A confirmed bus reading is more useful than a hint, so hints are spoken only when nothing was read.
+  speech.hint(busAnnouncement(data, {confirmedOnly: true}) ? null : hint?.text ?? null);
+}
+
 function buttons() {
   $('start').disabled = running || starting || (mode === 'video' && !video.media);
   $('stop').disabled = !running && !starting;
@@ -59,6 +79,7 @@ function buttons() {
 
 function clearResults() {
   speech.reset();
+  showHint(null);
   viewer.clear();
   message($('results'), 'Ready when you are', mode === 'camera' ? 'Start the camera to process its first frame.' : 'Upload a video, then start processing.');
 }
@@ -72,6 +93,7 @@ function stop(label = 'Stopped') {
   reference = null;
   refreshDistance();
   loop.stop();
+  showHint(null);
   session.reset();
   camera.close();
   $('camera').hidden = !!viewer.last || mode !== 'camera';
@@ -140,6 +162,7 @@ async function start({restart = false} = {}) {
     if (!session.current(generation)) return;
     startTime = performance.now() - position;
     firstFrame = true;
+    lastSignAt = performance.now();
     running = true;
     starting = false;
     buttons();
@@ -184,10 +207,18 @@ async function processFrame() {
         Math.max(0, 3501 - (Date.now() - Date.parse(data.frame.captured_at))));
     }
     speech.update(data, metres, {announce: true});
+    updateAim(data);
     reportStatus(`Processing · ${Number(data.processing_fps || 0).toFixed(1)} frames/s for the latest frame`, 'Processing frames.');
     $('results').setAttribute('aria-busy', 'false');
     if (mode === 'camera') $('camera').hidden = true;
-  } catch (error) { if (session.current(generation)) fail(error); }
+  } catch (error) {
+    if (!session.current(generation)) return;
+    if (error.code === 'processing_busy') {
+      reportStatus('Waiting for the processor. The next frame will be tried automatically.', 'Waiting for the processor.');
+      return;
+    }
+    fail(error);
+  }
 }
 
 $('modes').addEventListener('click', event => {

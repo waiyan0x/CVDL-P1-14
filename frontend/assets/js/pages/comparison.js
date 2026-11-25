@@ -101,7 +101,7 @@ export async function initialiseComparison() {
       const cards = data.comparisons.map(item => {
         const card = el('section', {class: 'stack tight', 'aria-label': engineName(item.backend)}, el('h3', {}, engineName(item.backend)));
         const body = el('div', {class: 'stack tight'});
-        if (item.result) renderResults(body, item.result, {numbers, idPrefix: `${item.backend}-`});
+        if (item.result) renderResults(body, item.result, {numbers, sign: false, idPrefix: `${item.backend}-`});
         else message(body, item.status === 'unavailable' ? 'Engine unavailable' : 'Processing failed', typeof item.error === 'string' ? item.error : item.error?.message || 'This OCR pipeline could not process the image.', {error: true});
         card.append(body);
         return card;

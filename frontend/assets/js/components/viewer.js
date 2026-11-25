@@ -1,5 +1,9 @@
 import {el, mediaTime} from '../core/dom.js';
 
+// The legend under the image names each numbered box in words, so a box is identified without the result card
+// or colour. Names stay off the boxes themselves, where they would cover a small sign.
+const FIELD_NAMES = {bus_number: 'Service', route: 'Route', destination: 'Destination'};
+
 export function fieldNumbers(data) {
   const mapping = new Map();
   let number = 1;
@@ -19,6 +23,9 @@ export class Viewer {
     this.last = null;
     this.boxesButton = boxesButton;
     this.boxesVisible = true;
+    this.legend = el('p', {class: 'box-legend'});
+    this.legend.hidden = true;
+    container.after(this.legend);
     boxesButton?.addEventListener('click', () => {
       this.boxesVisible = !this.boxesVisible;
       boxesButton.textContent = this.boxesVisible ? 'Hide detection boxes' : 'Show detection boxes';
@@ -29,6 +36,7 @@ export class Viewer {
   updateDetectionBoxes() {
     const boxes = this.container.querySelectorAll('.box');
     if (this.boxesButton) this.boxesButton.hidden = boxes.length === 0;
+    this.legend.hidden = !boxes.length || !this.boxesVisible || !this.legend.childElementCount;
     if (!boxes.length) return;
     boxes.forEach(box => { box.hidden = !this.boxesVisible; });
     this.container.querySelector('img').alt = this.boxesVisible ? 'Processed frame with numbered detected regions' : 'Processed frame';
@@ -71,6 +79,10 @@ export class Viewer {
       fragment.append(box);
     }
     this.container.replaceChildren(fragment);
+    const named = data.detections.filter(d => numbers.get(d.id) && FIELD_NAMES[d.label])
+      .sort((a, b) => numbers.get(a.id) - numbers.get(b.id));
+    this.legend.replaceChildren(...named.map(d => el('span', {}, el('span', {class: 'box-number'}, String(numbers.get(d.id))), FIELD_NAMES[d.label])),
+      ...(detections.some(d => d.label === 'eds') ? [el('span', {}, el('span', {class: 'box-number dark'}, 'EDS'), 'Whole sign')] : []));
     this.updateDetectionBoxes();
     const frame = data.frame || {};
     const timestamp = ['video', 'camera'].includes(frame.source) ? ` · ${mediaTime(frame.source_timestamp_ms)}` : '';

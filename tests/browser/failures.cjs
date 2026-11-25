@@ -1,4 +1,4 @@
-const {assert, path, root, base} = require('./helpers.cjs');
+const {assert, base, uploadSample} = require('./helpers.cjs');
 
 module.exports = async function failures(browser) {
   const context = await browser.newContext({viewport: {width: 1440, height: 1000}});
@@ -35,7 +35,7 @@ module.exports = async function failures(browser) {
     await route.fulfill({response});
   });
   await page.getByRole('button', {name: 'Upload image', exact: true}).click();
-  await page.locator('#image-file').setInputFiles(path.join(root, 'data/images/test/0c7ddfa8-27d65774-133.jpg'));
+  await page.locator('#image-file').setInputFiles(uploadSample);
   await heldResponse;
   await page.getByRole('button', {name: 'Reset', exact: true}).click();
   const delivered = page.waitForResponse(response => response.url().endsWith('/api/analysis'));
@@ -43,10 +43,27 @@ module.exports = async function failures(browser) {
   await (await delivered).finished();
   await page.waitForFunction(() => !document.getElementById('results').hasAttribute('aria-busy'));
   assert.equal(await page.locator('#viewer').isVisible(), false);
-  assert.doesNotMatch(await page.locator('#results').innerText(), /133/);
+  assert.equal(await page.locator('#results .field-card').count(), 0);
   assert.match(await page.locator('#status').innerText(), /Reset complete/);
   await page.unroute('**/api/analysis');
   assert.deepEqual(errors, [], 'Failure handling must not cause uncaught errors.');
   await context.close();
-  console.log('Failure lifecycle: camera denial, invalid video and delayed-result reset passed.');
+  const cameraContext = await browser.newContext({permissions: ['camera']});
+  try {
+    const live = await cameraContext.newPage();
+    live.setDefaultTimeout(15000);
+    await live.route('**/api/analysis', route => route.fulfill({
+      status: 429, json: {error: {code: 'processing_busy', message: 'Another frame is processing.'}},
+    }), {times: 1});
+    await live.goto(`${base}/live`);
+    await live.locator('#options summary').waitFor();
+    await live.locator('#interval').fill('2000');
+    await live.getByRole('button', {name: 'Start', exact: true}).click();
+    await live.getByText('Waiting for the processor.', {exact: true}).waitFor({state: 'attached'});
+    await live.getByText(/^Processing ·/).waitFor();
+    await live.getByRole('button', {name: 'Stop', exact: true}).click();
+  } finally {
+    await cameraContext.close();
+  }
+  console.log('Failure lifecycle: camera denial, invalid video, delayed-result reset and busy-frame recovery passed.');
 };

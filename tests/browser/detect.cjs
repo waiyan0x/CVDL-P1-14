@@ -1,4 +1,4 @@
-const {assert, path, root, base, output, assertResponsive, assertAccessible} = require('./helpers.cjs');
+const {assert, path, base, output, uploadSample, assertResponsive, assertAccessible} = require('./helpers.cjs');
 
 module.exports = async function detect(page) {
   await page.goto(`${base}/detect`);
@@ -13,12 +13,12 @@ module.exports = async function detect(page) {
   await page.setViewportSize({width: 1440, height: 1000});
 
   await page.getByRole('button', {name: 'Upload image', exact: true}).click();
-  await page.locator('#image-file').setInputFiles(path.join(root, 'data/images/test/0c7ddfa8-27d65774-133.jpg'));
+  await page.locator('#image-file').setInputFiles(uploadSample);
   await page.waitForFunction(() => document.getElementById('status').textContent === 'Analysis complete.');
-  assert.match(await page.locator('#results').innerText(), /133/);
+  await page.getByText('OCR reads 16', {exact: true}).waitFor();
   await page.getByRole('button', {name: 'Reset', exact: true}).click();
   assert.equal(await page.locator('#viewer').isVisible(), false);
-  assert.doesNotMatch(await page.locator('#results').innerText(), /133/);
+  assert.equal(await page.getByText('OCR reads 16', {exact: true}).count(), 0);
 
   await page.getByRole('button', {name: 'Snapshot', exact: true}).click();
   await page.getByRole('button', {name: 'Open camera', exact: true}).click();

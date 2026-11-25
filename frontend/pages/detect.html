@@ -8,7 +8,7 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/styles/base.css">
   <link rel="stylesheet" href="/assets/styles/analysis.css">
-  <script type="module" src="/assets/js/pages/detect.js?v=2"></script>
+  <script type="module" src="/assets/js/pages/detect.js?v=3"></script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -47,6 +47,13 @@
           <button type="button" id="detection-boxes" class="button push" aria-controls="viewer" hidden>Hide detection boxes</button>
         </div>
         <div class="stack tight announcement-controls" role="group" aria-label="Speech">
+          <fieldset class="voice-language" id="speech-language">
+            <legend>Voice</legend>
+            <div class="segments">
+              <label><input type="radio" name="speech-language" value="en" checked> English</label>
+              <label lang="zh"><input type="radio" name="speech-language" value="zh"> 中文</label>
+            </div>
+          </fieldset>
           <div class="toolbar">
             <button type="button" class="button" id="speech-read" disabled>Read result aloud</button>
             <button type="button" class="button" id="speech-stop" disabled>Stop speech</button>

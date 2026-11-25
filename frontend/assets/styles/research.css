@@ -27,6 +27,7 @@ tr:last-child td { border-bottom: 0; }
 .comparison-controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .comparison-controls label:not(.button) { font-family: var(--mono); font-size: 12px; color: var(--muted); }
 .comparison-controls select { min-height: 44px; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); max-width: 100%; }
+.comparison-controls label.button:has(+ input:focus-visible) { outline: 2px solid var(--ink); outline-offset: 3px; }
 .comparison-input { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
 .comparison-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .comparison-results .scores { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -56,6 +57,6 @@ tr:last-child td { border-bottom: 0; }
 }
 @media (max-width: 600px) {
   .research-grid.two, .comparison-input { grid-template-columns: minmax(0, 1fr); }
-  th, td { padding: 12px; }
+  th, td { padding: 12px 8px; overflow-wrap: anywhere; }
   .comparison-controls { align-items: stretch; flex-direction: column; }
 }
