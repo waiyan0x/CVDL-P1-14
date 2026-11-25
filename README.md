@@ -162,14 +162,21 @@ both far below field crops; see
 `evaluation/ocr_scoring/whole-display-fallback-20261121/`. The fallback worker
 starts on first use. Worker messages go to `.runtime/logs/paddle_worker.log`. If the environment or
 weights are missing, PaddleOCR is reported as unavailable and the other engines
-still work. The supplied TrOCR weight in Git is an LFS pointer; retrieve the real
-checkpoint using authenticated GitHub CLI access:
+still work.
+
+The fine-tuned TrOCR (round 1, run `20261117-031848`) is about 1.3 GB, too large
+for Git. Download its folder from the team Drive
+(`DRIVE/CVDL-OCR-finetune/trocr/20261117-031848/`, or just its `best/` folder),
+then install it and restart the app:
 
 ```sh
-.venv/bin/python scripts/fetch_trocr.py
+.venv/bin/python scripts/install_trocr.py --from ~/Downloads/20261117-031848-....zip
 ```
 
-Hydrated weights stay in ignored `.cache/trocr/`. Model downloads happen during
+`--from` takes the Drive zip or an unzipped folder. The script checks the files,
+copies them into the ignored `.cache/trocr/`, loads the model once and records
+each file's SHA-256 in `.cache/trocr/installed.json`. The `trocr` engine (YOLO +
+fine-tuned TrOCR on `/evaluation`) is then available. Model downloads happen during
 setup, not inference. Individual unavailable OCR engines are reported separately.
 
 ## Pages
@@ -235,7 +242,9 @@ on the corrected Roboflow v4 export. YOLO11s was selected by validation
 mAP50:95 (`0.3510`) and scored `0.3270` on the final held-out test. The earlier
 [`baseline-01`](evaluation/object_detection/bf938f526d2c/runs/baseline-01/RESULTS.md)
 remains as historical evidence. The app now defaults to v4 YOLO11s at confidence
-`0.50` and NMS `0.70`; install its ignored local checkpoint using the
+`0.50` and NMS `0.70`. Its checkpoint is committed
+(`evaluation/object_detection/01760a841333/runs/v4-reviewed-01/checkpoints/yolo11s-best.pt`,
+18 MB) and checked against the SHA-256 in `detector_config.json` at start-up; see the
 [deployment instructions](docs/OBJECT_DETECTION_DEPLOYMENT.md). Continue from
 the [handoff](docs/OBJECT_DETECTION_HANDOFF.md).
 For Cody's OCR work, start with the [OCR handoff README](docs/OCR_CODY_HANDOFF.md).
@@ -243,8 +252,8 @@ The latest run also has a [validation NMS and crop review](evaluation/object_det
 and a saved v4 detector configuration; the Jy/Brendan annotation review is on hold.
 
 Jy and Brendan still need to review the class rules, negatives and capture
-groups. The v4 dataset and checkpoints are local ignored files; a Git pull
-provides reports but not those payloads. A changed dataset requires a new
+groups. The v4 dataset and the other runs' checkpoints are local ignored files; a Git
+pull provides reports and the selected YOLO11s checkpoint, but not those payloads. A changed dataset requires a new
 version and run ID. OCR accuracy and
 real moving-bus camera performance have not been established.
 
