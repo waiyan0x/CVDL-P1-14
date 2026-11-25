@@ -136,3 +136,22 @@ input[type="range"] { accent-color: var(--accent); width: 100%; }
 .aim-hint[data-side="top"]::before { content: "↑"; content: "↑" / ""; }
 .aim-hint[data-side="bottom"]::before { content: "↓"; content: "↓" / ""; }
 @media (forced-colors: active) { .aim-hint { border: 2px solid CanvasText; } }
+
+/* Motion, all of it off when the reader prefers reduced motion:
+   - while Detect analyses or Evaluation compares, a small bus drives along a dashed road above the results. */
+#results[aria-busy="true"]::before, #comparison-results[aria-busy="true"]::before {
+  content: "";
+  display: block;
+  grid-column: 1 / -1;
+  height: 36px;
+  background:
+    url(../images/bus-side.webp) 0 0 / auto 26px no-repeat,
+    linear-gradient(90deg, var(--road) 0 16px, transparent 16px 28px) 0 100% / 28px 3px repeat-x;
+}
+@media (prefers-reduced-motion: no-preference) {
+  #results[aria-busy="true"]::before, #comparison-results[aria-busy="true"]::before { animation: bus-loading 1.6s linear infinite; }
+}
+@keyframes bus-loading {
+  from { background-position: -80px 0, 0 100%; }
+  to { background-position: calc(100% + 80px) 0, 0 100%; }
+}
