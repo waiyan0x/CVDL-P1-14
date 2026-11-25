@@ -24,6 +24,7 @@ __pycache__/
 /evaluation/object_detection/**/checkpoints/*.bin
 /evaluation/object_detection/**/*.tmp
 .env
+.env.local
 .DS_Store
 node_modules/
 test-results/

@@ -47,6 +47,13 @@
           <button type="button" id="detection-boxes" class="button push" aria-controls="viewer" hidden>Hide detection boxes</button>
         </div>
         <div class="stack tight announcement-controls" role="group" aria-label="Speech">
+          <fieldset class="voice-language" id="speech-language">
+            <legend>Voice</legend>
+            <div class="segments">
+              <label><input type="radio" name="speech-language" value="en" checked> English</label>
+              <label lang="zh"><input type="radio" name="speech-language" value="zh"> 中文</label>
+            </div>
+          </fieldset>
           <div class="toolbar">
             <button type="button" class="button" id="speech-read" disabled>Read result aloud</button>
             <button type="button" class="button" id="speech-stop" disabled>Stop speech</button>

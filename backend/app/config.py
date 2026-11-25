@@ -1,12 +1,34 @@
-"""Validated application settings; environment overrides use the EDS_ prefix."""
+"""Validated application settings; environment overrides use the EDS_ prefix.
+
+ElevenLabs speech uses its own names (ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID_EN, ELEVENLABS_VOICE_ID_ZH,
+ELEVENLABS_MODEL_ID), read from the environment or from an untracked .env.local at the repository root.
+"""
 import os
 from pathlib import Path
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+from pydantic import BaseModel, ConfigDict, Field, SecretStr, field_validator, model_validator
 
 from .schemas.analysis import Backend
 
 ROOT = Path(__file__).resolve().parents[2]
+
+# Setting name -> environment variable for the ElevenLabs text-to-speech integration.
+SPEECH_ENV = {'elevenlabs_api_key': 'ELEVENLABS_API_KEY', 'elevenlabs_voice_en': 'ELEVENLABS_VOICE_ID_EN',
+              'elevenlabs_voice_zh': 'ELEVENLABS_VOICE_ID_ZH', 'elevenlabs_model': 'ELEVENLABS_MODEL_ID'}
+
+
+def read_env_file(path):
+    """KEY=value lines from a dotenv-style file; blank lines and # comments are skipped."""
+    values = {}
+    if not path.is_file():
+        return values
+    for line in path.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or line.startswith('#') or '=' not in line:
+            continue
+        key, value = line.removeprefix('export ').split('=', 1)
+        values[key.strip()] = value.strip().strip('"\'')
+    return values
 
 
 class Settings(BaseModel):
@@ -32,6 +54,13 @@ class Settings(BaseModel):
     default_interval_ms: int = Field(500, ge=100)
     min_interval_ms: int = Field(100, ge=50)
     default_backend: Backend = 'paddleocr'
+    elevenlabs_api_key: SecretStr | None = None
+    elevenlabs_voice_en: str | None = None
+    elevenlabs_voice_zh: str | None = None
+    # Flash v2.5: lowest latency, and it speaks both English and Mandarin.
+    elevenlabs_model: str = 'eleven_flash_v2_5'
+    tts_max_chars: int = Field(600, ge=1, le=5000)
+    tts_cache_entries: int = Field(256, ge=0, le=10_000)
 
     @field_validator('root')
     @classmethod
@@ -88,8 +117,17 @@ class Settings(BaseModel):
                 'max_video_duration_seconds': self.max_video_duration_seconds,
                 'default_interval_ms': self.default_interval_ms, 'min_interval_ms': self.min_interval_ms}
 
+    @property
+    def voices(self):
+        """Configured ElevenLabs voice per spoken language ('en', 'zh')."""
+        return {language: voice for language, voice in
+                (('en', self.elevenlabs_voice_en), ('zh', self.elevenlabs_voice_zh)) if voice}
+
     @classmethod
-    def from_env(cls):
-        values = {name: os.environ[f'EDS_{name.upper()}'] for name in cls.model_fields
-                  if f'EDS_{name.upper()}' in os.environ}
+    def from_env(cls, env_file=ROOT / '.env.local'):
+        # The process environment wins over .env.local.
+        environ = {**read_env_file(env_file), **os.environ}
+        values = {name: environ[f'EDS_{name.upper()}'] for name in cls.model_fields
+                  if f'EDS_{name.upper()}' in environ}
+        values.update({name: environ[key] for name, key in SPEECH_ENV.items() if environ.get(key)})
         return cls(**values)

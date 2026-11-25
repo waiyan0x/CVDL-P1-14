@@ -41,7 +41,10 @@
         </div>
         <p id="status" class="notice">Start the camera or choose a video.</p>
         <p id="stream-announcement" class="visually-hidden" role="status"></p>
-        <div id="viewer" class="viewer" hidden></div>
+        <div class="viewer-wrap">
+          <div id="viewer" class="viewer" hidden></div>
+          <p id="aim-hint" class="aim-hint" hidden></p>
+        </div>
         <div class="toolbar">
           <p id="frame-label" class="frame-label"></p>
           <button type="button" id="detection-boxes" class="button push" aria-controls="viewer" hidden>Hide detection boxes</button>
@@ -50,6 +53,13 @@
       </section>
       <section class="stack tight" aria-label="Results">
         <div class="panel stack tight announcement-controls" role="group" aria-label="Speech and distance">
+          <fieldset class="voice-language" id="speech-language">
+            <legend>Voice</legend>
+            <div class="segments">
+              <label><input type="radio" name="speech-language" value="en" checked> English</label>
+              <label lang="zh"><input type="radio" name="speech-language" value="zh"> 中文</label>
+            </div>
+          </fieldset>
           <label class="speech-toggle"><input type="checkbox" id="speech-auto" disabled> Automatic announcements</label>
           <div class="toolbar">
             <button type="button" class="button" id="speech-read" disabled>Read result aloud</button>

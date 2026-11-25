@@ -60,6 +60,13 @@ input[type="range"] { accent-color: var(--ink); width: 100%; }
 .announcement-controls .options > summary { min-height: 44px; align-content: center; }
 .speech-toggle { display: flex; align-items: center; gap: 8px; min-height: 44px; width: fit-content; }
 .speech-toggle input { width: 18px; height: 18px; accent-color: var(--ink); }
+.voice-language { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0; padding: 0; border: 0; min-width: 0; }
+.voice-language legend { float: left; padding: 0; font-size: 14px; font-weight: 500; }
+.voice-language label { position: relative; display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 9px; font-size: 14px; font-weight: 500; color: var(--muted); cursor: pointer; }
+.voice-language input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+.voice-language label:has(input:checked) { background: #fff; color: var(--ink); font-weight: 600; box-shadow: 0 1px 3px #00000024; }
+.voice-language label:has(input:focus-visible) { outline: 2px solid var(--ink); outline-offset: 2px; }
+.panel .voice-language .segments { background: var(--hairline); }
 .speech-status:empty { position: absolute; min-height: 0; }
 .distance-form { align-items: end; }
 .distance-form .control { flex: 1 1 160px; }
@@ -75,3 +82,20 @@ input[type="range"] { accent-color: var(--ink); width: 100%; }
   .live-controls .control { margin-left: 0; width: 100%; }
   .scores dt { font-size: 11px; }
 }
+
+/* Live aiming hint: placed at the edge where the sign is cut off, centred otherwise. */
+.viewer-wrap { position: relative; }
+.aim-hint { position: absolute; z-index: 3; margin: 0; max-width: min(78%, 420px); padding: 10px 16px; border-radius: 14px; background: rgba(29, 29, 31, .88); color: #fff; font-size: 18px; font-weight: 600; line-height: 1.3; text-align: center; pointer-events: none; }
+.aim-hint[hidden] { display: none; }
+.aim-hint[data-side="center"] { left: 50%; bottom: 16px; transform: translateX(-50%); }
+.aim-hint[data-side="left"], .aim-hint[data-side="right"] { max-width: 42%; }
+.aim-hint[data-side="left"] { left: 16px; top: 50%; transform: translateY(-50%); }
+.aim-hint[data-side="right"] { right: 16px; top: 50%; transform: translateY(-50%); }
+.aim-hint[data-side="top"] { left: 50%; top: 16px; transform: translateX(-50%); }
+.aim-hint[data-side="bottom"] { left: 50%; bottom: 16px; transform: translateX(-50%); }
+.aim-hint::before { display: block; font-size: 28px; line-height: 1; margin-bottom: 4px; }
+.aim-hint[data-side="left"]::before { content: "←"; content: "←" / ""; }
+.aim-hint[data-side="right"]::before { content: "→"; content: "→" / ""; }
+.aim-hint[data-side="top"]::before { content: "↑"; content: "↑" / ""; }
+.aim-hint[data-side="bottom"]::before { content: "↓"; content: "↓" / ""; }
+@media (forced-colors: active) { .aim-hint { border: 2px solid CanvasText; } }

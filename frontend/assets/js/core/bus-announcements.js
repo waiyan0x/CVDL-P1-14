@@ -65,6 +65,45 @@ export function spokenAnnouncement(match) {
   return match.destination ? text.replace(`to ${match.destination}`, `to ${spokenPlace(match.destination)}`) : text;
 }
 
+// Mandarin wording of the matcher's message, built from its confirmed service and destination. The six message
+// shapes come from build_announcement (backend/app/services/announcement.py). Place and road names stay in
+// English, as the reference only has English names and Singapore Mandarin announcements say them that way.
+export function chineseAnnouncement(match) {
+  const text = String(match?.announcement ?? '').trim();
+  if (!text) return '';
+  if (/^Bus not in service\b/.test(text)) return '这辆巴士不载客。';
+  const service = serviceId(match.service);
+  const destination = match.destination ? spokenPlace(match.destination) : '';
+  const road = (match.destination ? text.replace(match.destination, '') : text).match(/, via ([^.]+)\./)?.[1];
+  const via = road ? `，途经${spokenPlace(road)}` : '';
+  const reason = /could not be confirmed/.test(text) ? '无法确认' : '无法识别';
+  if (service && destination) return `${service}号巴士，开往${destination}${via}。`;
+  if (service) return `${service}号巴士即将到站${via}。终点站${reason}。`;
+  if (destination) return `开往${destination}的巴士即将到站${via}。车号${reason}。`;
+  return `有一辆巴士即将到站${via}。车号和终点站${reason}。`;
+}
+
+// Fixed phrases the app speaks besides announcements: Read result aloud fallbacks, the automatic
+// announcements confirmation and the aiming hints (core/aiming.js).
+const PHRASES = {
+  zh: {
+    'No bus display detected.': '没有检测到巴士显示屏。',
+    'Could not read the bus display.': '无法读取巴士显示屏。',
+    'Automatic bus announcements enabled.': '已开启自动巴士播报。',
+    'No bus sign in view.': '画面中没有巴士显示屏。',
+    'Sign cut off on the left. Turn slightly left.': '显示屏左边被切掉了。请稍微向左转。',
+    'Sign cut off on the right. Turn slightly right.': '显示屏右边被切掉了。请稍微向右转。',
+    'Sign cut off at the top. Tilt up slightly.': '显示屏上方被切掉了。请稍微向上倾斜。',
+    'Sign cut off at the bottom. Tilt down slightly.': '显示屏下方被切掉了。请稍微向下倾斜。',
+    'Sign fills the view. Step back or zoom out.': '显示屏占满了画面。请后退一步或缩小画面。',
+    'Bus sign is small. The bus may still be far away.': '巴士显示屏很小。巴士可能还很远。',
+  },
+};
+
+export function localPhrase(text, language = 'en') {
+  return PHRASES[language]?.[text] ?? text;
+}
+
 // A confirmed service or destination, or a bus marked not in service.
 function confirmed(match) {
   return !!(serviceId(match?.service) || match?.destination || /^Bus not in service\b/.test(match?.announcement ?? ''));
@@ -79,19 +118,22 @@ function area(result) {
 
 // Up to three displays, largest (nearest) first. confirmedOnly leaves out displays where nothing was
 // confirmed, so automatic announcements do not repeat "could not be read" for every passing frame.
-export function busAnnouncement(data, {distance = null, confirmedOnly = false} = {}) {
+// language 'zh' gives the Mandarin wording (chineseAnnouncement).
+export function busAnnouncement(data, {distance = null, confirmedOnly = false, language = 'en'} = {}) {
+  const zh = language === 'zh';
   const results = [...data?.results ?? []].sort((a, b) => area(b) - area(a));
   const phrases = [];
   for (const result of results) {
     if (confirmedOnly && !confirmed(result.match)) continue;
-    const text = spokenAnnouncement(result.match);
+    const text = zh ? chineseAnnouncement(result.match) : spokenAnnouncement(result.match);
     if (text && !phrases.includes(text)) phrases.push(text);
   }
   if (!phrases.length) return null;
   if (distance !== null && results.length === 1 && serviceId(results[0].match?.service)) {
-    phrases[0] += ` About ${distance} metres away.`;
+    phrases[0] += zh ? `距离大约${distance}米。` : ` About ${distance} metres away.`;
   }
-  return phrases.slice(0, 3).join(' ') + (phrases.length > 3 ? ' More readings are on screen.' : '');
+  const more = phrases.length > 3 ? (zh ? '屏幕上还有更多结果。' : ' More readings are on screen.') : '';
+  return phrases.slice(0, 3).join(zh ? '' : ' ') + more;
 }
 
 export function cameraObservation(data, zoom = null, now = Date.now()) {

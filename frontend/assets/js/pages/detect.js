@@ -13,7 +13,8 @@ const $ = id => document.getElementById(id);
 const session = new FrameSession();
 const viewer = new Viewer($('viewer'), $('frame-label'), {boxesButton: $('detection-boxes')});
 const camera = new Camera($('camera'));
-const speech = new SpeechControls({read: $('speech-read'), stop: $('speech-stop'), status: $('speech-status')});
+const speech = new SpeechControls({read: $('speech-read'), stop: $('speech-stop'), status: $('speech-status'),
+  language: $('speech-language')});
 let mode = 'samples', input = null, objectURL = null, sampleList, maxBytes;
 const options = new Options($('options'), () => { if (input) processInput(); });
 

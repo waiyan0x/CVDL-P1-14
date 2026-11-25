@@ -6,13 +6,14 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.concurrency import run_in_threadpool
 
-from .api import analysis, system, videos
+from .api import analysis, speech, system, videos
 from .api.body_limits import BodyLimitMiddleware
 from .config import Settings
 from .errors import install_error_handlers
 from .media.videos import VideoStore
 from .services.runtime import Runtime
 from .services.samples import SampleRegistry
+from .services.speech import SpeechSynthesizer
 
 
 def create_app(settings=None, runtime_factory=Runtime):
@@ -33,8 +34,10 @@ def create_app(settings=None, runtime_factory=Runtime):
     app.add_middleware(BodyLimitMiddleware, settings=settings)
     app.state.settings = settings
     app.state.samples = SampleRegistry(settings.root)
+    app.state.speech = SpeechSynthesizer(settings)
     install_error_handlers(app)
     app.include_router(system.router)
+    app.include_router(speech.router)
     app.include_router(analysis.router)
     app.include_router(videos.router)
     from .api.evaluation import router as evaluation_router
