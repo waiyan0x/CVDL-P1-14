@@ -138,7 +138,8 @@ input[type="range"] { accent-color: var(--accent); width: 100%; }
 @media (forced-colors: active) { .aim-hint { border: 2px solid CanvasText; } }
 
 /* Motion, all of it off when the reader prefers reduced motion:
-   - while Detect analyses or Evaluation compares, a small bus drives along a dashed road above the results. */
+   - while Detect analyses or Evaluation compares, a small bus drives along a dashed road above the results;
+   - Detect's LED sign switches on left to right, once per result (Live redraws it every frame, so it stays still). */
 #results[aria-busy="true"]::before, #comparison-results[aria-busy="true"]::before {
   content: "";
   display: block;
@@ -150,8 +151,14 @@ input[type="range"] { accent-color: var(--accent); width: 100%; }
 }
 @media (prefers-reduced-motion: no-preference) {
   #results[aria-busy="true"]::before, #comparison-results[aria-busy="true"]::before { animation: bus-loading 1.6s linear infinite; }
+  .detect-page .sign-card > * { animation: led-on 450ms steps(9, end) backwards; }
+  .detect-page .sign-card > .sign-destination { animation-delay: 150ms; }
 }
 @keyframes bus-loading {
   from { background-position: -80px 0, 0 100%; }
   to { background-position: calc(100% + 80px) 0, 0 100%; }
+}
+@keyframes led-on {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0); }
 }
