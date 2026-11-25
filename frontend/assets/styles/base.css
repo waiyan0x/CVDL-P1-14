@@ -23,6 +23,11 @@
   --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --pixel: "Pixelify Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --sky: #e7edeb;
+  /* Deep green: 6:1 on the page, 7:1 on white. Pale lime is for highlights and hovers, with dark text only. */
+  --accent: #25634f;
+  --accent-dark: #1b4a3b;
+  --accent-hover: #2e745e;
+  --accent-tint: #dde8c8;
 }
 * { box-sizing: border-box; }
 body { margin: 0; }
@@ -30,9 +35,9 @@ button, input, select { font: inherit; }
 button, a, input, select, summary { -webkit-tap-highlight-color: transparent; }
 button { cursor: pointer; }
 button:disabled { cursor: default; opacity: .45; }
-a { color: var(--ink); }
-a:hover { color: #000; }
-:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+a { color: var(--accent); }
+a:hover { color: var(--accent-dark); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 [hidden] { display: none !important; }
 header { border-bottom: 1px solid var(--hairline); }
 .nav {
@@ -46,9 +51,11 @@ header { border-bottom: 1px solid var(--hairline); }
   gap: 0 28px;
 }
 .nav a { display: flex; align-items: center; min-height: 44px; text-decoration: none; font-size: 14px; color: var(--muted); white-space: nowrap; }
+.nav a:hover { color: var(--ink); }
 .nav a[aria-current] { color: var(--ink); font-weight: 600; }
+.nav a[aria-current]:not(.brand) { box-shadow: inset 0 -4px 0 var(--accent); }
 .nav .brand { gap: 10px; margin-right: auto; color: var(--ink); font-family: var(--pixel); font-size: 17px; font-weight: 600; }
-.brand-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--ink); display: grid; place-items: center; }
+.brand-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--accent); display: grid; place-items: center; }
 main { max-width: 1248px; margin: 0 auto; padding: 56px 24px 96px; display: flex; flex-direction: column; gap: 40px; }
 .page-heading { display: flex; flex-direction: column; gap: 10px; }
 h1 { margin: 0; font-family: var(--pixel); font-size: 48px; line-height: 1.05; font-weight: 600; }

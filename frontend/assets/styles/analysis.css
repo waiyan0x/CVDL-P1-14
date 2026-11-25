@@ -12,11 +12,11 @@
 .box-legend .box-number { position: static; margin: 0; }
 .samples { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .sample { display: flex; flex-direction: column; gap: 8px; padding: 6px 6px 10px; background: #fff; border-radius: 14px; cursor: pointer; text-align: left; min-width: 0; border: 2px solid var(--hairline); }
-.sample[aria-pressed="true"] { border-color: var(--ink); }
+.sample[aria-pressed="true"] { border-color: var(--accent); }
 .sample img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 9px; }
 .sample span { font-size: 13px; font-weight: 600; color: var(--ink); }
 .dropzone { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; aspect-ratio: 16 / 10; padding: 24px; border: 1.5px dashed #c7c7cc; border-radius: 20px; text-align: center; cursor: pointer; }
-.dropzone.dragging { border-color: #000; background: var(--surface); }
+.dropzone.dragging { border-color: var(--accent); background: var(--accent-tint); }
 .dropzone strong { font-size: 19px; font-weight: 600; }
 .dropzone span, .dropzone input { font-size: 13px; color: var(--muted); max-width: 100%; }
 .dropzone input { width: 100%; padding: 8px; }
@@ -29,11 +29,11 @@
 .options-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 12px; }
 .control { display: flex; flex-direction: column; gap: 8px; min-width: 0; color: var(--muted); font-size: 13px; }
 .control select, .control input[type="number"] { min-height: 44px; border: 1px solid var(--line); border-radius: 10px; padding: 0 12px; background: #fff; color: var(--ink); width: 100%; }
-input[type="range"] { accent-color: var(--ink); width: 100%; }
+input[type="range"] { accent-color: var(--accent); width: 100%; }
 .range-label { display: flex; justify-content: space-between; gap: 12px; }
 .field-card { display: flex; flex-direction: column; gap: 14px; }
 .field-card > p { margin: 0; }
-.field-card:target, .field-card:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.field-card:target, .field-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .field-label { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 500; color: var(--muted); }
 .field-number { width: 22px; height: 22px; border-radius: 6px; background: var(--ink); color: #fff; font-size: 12px; font-weight: 700; display: grid; place-items: center; flex-shrink: 0; }
 .crop { display: block; max-width: 100%; height: 56px; object-fit: contain; object-position: left; align-self: flex-start; border-radius: 8px; background: #000; }
@@ -68,13 +68,13 @@ input[type="range"] { accent-color: var(--ink); width: 100%; }
 .announcement-controls .options { padding-top: 12px; }
 .announcement-controls .options > summary { min-height: 44px; align-content: center; }
 .speech-toggle { display: flex; align-items: center; gap: 8px; min-height: 44px; width: fit-content; }
-.speech-toggle input { width: 18px; height: 18px; accent-color: var(--ink); }
+.speech-toggle input { width: 18px; height: 18px; accent-color: var(--accent); }
 .voice-language { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0; padding: 0; border: 0; min-width: 0; }
 .voice-language legend { float: left; padding: 0; font-size: 14px; font-weight: 500; }
 .voice-language label { position: relative; display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 9px; font-size: 14px; font-weight: 500; color: var(--muted); cursor: pointer; }
 .voice-language input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
 .voice-language label:has(input:checked) { background: #fff; color: var(--ink); font-weight: 600; box-shadow: 0 1px 3px #00000024; }
-.voice-language label:has(input:focus-visible) { outline: 2px solid var(--ink); outline-offset: 2px; }
+.voice-language label:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
 .panel .voice-language .segments { background: var(--hairline); }
 .panel .voice-language label { color: var(--ink); }
 .speech-status:empty { position: absolute; min-height: 0; }
