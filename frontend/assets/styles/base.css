@@ -79,10 +79,10 @@ p { line-height: 1.5; }
 .muted { color: var(--muted); }
 .caption { font-size: 12px; line-height: 1.5; color: var(--muted); margin: 4px 0 0; }
 .small { font-size: 13px; line-height: 1.5; }
-/* Pixel shapes: square with cut corners (--n, default 2px). Buttons and tabs draw their face on ::before, set by
-   --face, --frame and --frame-bottom, so the element's own focus outline is never clipped. */
-.button, .segments, .segments button, .voice-language label { position: relative; isolation: isolate; }
-.button::before, .segments::before, .segments button::before, .voice-language label::before {
+/* Pixel shapes: square with cut corners (--n, default 2px). Buttons, tabs and cards draw their face on ::before, set
+   by --face, --frame and --frame-bottom, so the element's own focus outline is never clipped. */
+.button, .segments, .segments button, .voice-language label, .panel { position: relative; isolation: isolate; }
+.button::before, .segments::before, .segments button::before, .voice-language label::before, .panel::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -92,7 +92,8 @@ p { line-height: 1.5; }
   border: 2px solid var(--frame, transparent);
   border-bottom-width: var(--frame-bottom, 2px);
 }
-.button::before, .segments::before, .segments button::before, .voice-language label::before, .brand-mark {
+.button::before, .segments::before, .segments button::before, .voice-language label::before, .panel::before,
+.brand-mark, .viewer, .camera-preview, .arrival {
   clip-path: polygon(var(--n, 2px) 0, calc(100% - var(--n, 2px)) 0, calc(100% - var(--n, 2px)) var(--n, 2px), 100% var(--n, 2px),
     100% calc(100% - var(--n, 2px)), calc(100% - var(--n, 2px)) calc(100% - var(--n, 2px)), calc(100% - var(--n, 2px)) 100%,
     var(--n, 2px) 100%, var(--n, 2px) calc(100% - var(--n, 2px)), 0 calc(100% - var(--n, 2px)), 0 var(--n, 2px), var(--n, 2px) var(--n, 2px));
@@ -111,13 +112,15 @@ p { line-height: 1.5; }
 .segments button { min-height: 44px; padding: 0 18px; border: 0; font-size: 14px; background: none; color: var(--muted); font-weight: 500; }
 .segments button:hover:not(:disabled) { color: var(--ink); }
 .segments button[aria-pressed="true"] { --face: #fff; --frame: var(--edge); --frame-bottom: 4px; color: var(--ink); font-weight: 600; }
-.panel { padding: 20px; background: var(--surface); border-radius: 18px; min-width: 0; }
+/* Cards as in the deck: off-white with a thick charcoal pixel border. */
+.panel { padding: 22px; min-width: 0; }
+.panel::before { --n: 3px; background: var(--card); border: 3px solid var(--edge); }
 .stack { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 .stack.tight { gap: 12px; }
 .columns { display: grid; grid-template-columns: minmax(0, 2.25fr) minmax(0, 1fr); gap: 32px; align-items: start; }
-.message { border: 1px dashed #c7c7cc; padding: 28px 20px; border-radius: 18px; font-size: 14px; line-height: 1.5; color: var(--muted); }
+.message { border: 2px dashed var(--line); padding: 28px 20px; font-size: 14px; line-height: 1.5; color: var(--muted); }
 .message strong { display: block; font-size: 22px; color: var(--ink); font-weight: 600; margin-bottom: 8px; }
-.message.error { border: 1.5px solid var(--ink); }
+.message.error { border: 3px solid var(--edge); background: var(--card); }
 .message .button { margin-top: 16px; }
 .notice { margin: 0; font-size: 13px; line-height: 1.5; color: var(--muted); min-height: 20px; }
 .skip-link { position: absolute; left: 24px; top: -60px; background: #fff; padding: 12px; z-index: 50; }
