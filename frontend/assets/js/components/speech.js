@@ -85,11 +85,14 @@ export class SpeechControls {
     if (!announce || !this.controls.automatic?.checked) return;
     const text = busAnnouncement(data, {distance, confirmedOnly: true, language: this.language});
     // Frames are compared by bus (and distance), not by sentence. A full match (service and destination both
-    // confirmed) is spoken on its first frame; a partial one needs two frames in a row.
+    // confirmed) is spoken on its first frame; a partial one needs two frames in a row. A bus reading may cut an
+    // aiming hint short, but never another announcement.
     const {key, full} = announcementKey(data);
     const id = text && key ? `${key}@${distance ?? ''}` : null;
     const now = performance.now();
-    if (this.gate.ready(id, now, full ? 1 : 2) && !this.active && this.speak(text)) this.gate.announced(id, now);
+    if (this.gate.ready(id, now, full ? 1 : 2) && (!this.active || this.active.hint) && this.speak(text)) {
+      this.gate.announced(id, now);
+    }
   }
 
   // Aiming hints are spoken only with automatic announcements on, never over other speech,
@@ -98,7 +101,7 @@ export class SpeechControls {
     const now = performance.now();
     const ready = this.hints.ready(text, now);
     if (!ready || !this.controls.automatic?.checked || this.active || now - this.gate.lastAt < 3000) return;
-    if (this.speak(text)) this.hints.announced(text, now);
+    if (this.speak(text, {hint: true})) this.hints.announced(text, now);
   }
 
   // Browsers only allow sound that follows a click; playing silence on one keeps the audio element allowed.
@@ -109,11 +112,12 @@ export class SpeechControls {
     this.audio.play().catch(() => { this.unlocked = false; });
   }
 
-  // Starts speaking and returns true; the audio itself arrives asynchronously.
-  speak(text) {
+  // Starts speaking and returns true; the audio itself arrives asynchronously. hint marks an aiming hint, which a
+  // bus announcement may interrupt.
+  speak(text, {hint = false} = {}) {
     if (!this.supported || !text) return false;
     this.cancel();
-    const job = {text: localPhrase(text, this.language), language: this.language, controller: new AbortController()};
+    const job = {text: localPhrase(text, this.language), language: this.language, controller: new AbortController(), hint};
     this.active = job;
     this.setStatus('');
     this.refresh();

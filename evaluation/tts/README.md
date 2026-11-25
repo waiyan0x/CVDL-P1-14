@@ -239,7 +239,7 @@ and 8.4 s p95.
 The live page waits 3 s between automatic announcements (`AnnouncementGate`; 6 s when
 this was measured), and automatic mode never starts a new announcement while one is
 still being spoken. A longer one is therefore never cut off; the next one waits for it
-to finish.
+to finish. Only an aiming hint can be cut short, by a bus announcement.
 
 Offline synthesis to a file takes about 15 ms per clip (p95 23 ms). That is not the
 browser's start-of-speech delay.
