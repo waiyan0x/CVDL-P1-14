@@ -18,7 +18,10 @@ module.exports = async function live(page) {
   await assertResponsive(page, '/live');
   await assertAccessible(page);
   await page.screenshot({path: path.join(output, 'live-desktop.png'), fullPage: true});
-  const restarted = page.waitForResponse(response => /\/api\/videos\/[^/]+\/frames$/.test(response.url()) && response.status() === 200);
+  const restarted = page.waitForResponse(response =>
+    /\/api\/videos\/[^/]+\/frames$/.test(response.url()) &&
+    response.status() === 200 &&
+    response.request().postDataJSON().session_id !== data.frame.session_id);
   await page.getByRole('button', {name: 'Restart', exact: true}).click();
   const first = await (await restarted).json();
   assert.equal(first.frame.source_timestamp_ms, 0);

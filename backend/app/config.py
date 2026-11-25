@@ -35,6 +35,7 @@ class Settings(BaseModel):
     model_config = ConfigDict(frozen=True, allow_inf_nan=False)
     root: Path = ROOT
     detector_device: str = 'cpu'
+    torchserve_port: int | None = Field(None, ge=1024, le=65535)
     detector_weights: Path | None = None
     trocr_cache: Path | None = None
     easyocr_cache: Path | None = None

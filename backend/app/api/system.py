@@ -1,25 +1,40 @@
 """Runtime readiness and available sample images."""
-from fastapi import APIRouter, Request
-from fastapi.responses import FileResponse
 
-router = APIRouter(prefix='/api', tags=['system'])
+from starlette.responses import FileResponse, JSONResponse
+
+from .submissions import SAMPLE_ID
 
 
-@router.get('/health')
-def health(request: Request):
-    runtime, settings = request.app.state.runtime, request.app.state.settings
+def health_status(app):
+    runtime, settings = app.state.runtime, app.state.settings
     backends = runtime.backends
     default = settings.default_backend if settings.default_backend in backends else next(iter(backends), None)
-    return {'ready': runtime.ready, 'error': runtime.error, 'backends': backends,
-            'default_backend': default, 'limits': settings.limits(),
-            'confidence_note': 'OCR scores are engine-specific heuristics, not calibrated accuracy.'}
+    detector_runtime = getattr(runtime, 'detector_runtime', None)
+    detector_ready = detector_runtime != 'torchserve' or runtime.pipeline.detector.is_ready()
+    error = runtime.error if detector_ready else 'TorchServe detector is unavailable.'
+    return {
+        'ready': runtime.ready and detector_ready, 'error': error, 'backends': backends,
+        'default_backend': default, 'limits': settings.limits(),
+        'detector_runtime': detector_runtime,
+        'confidence_note': 'OCR scores are engine-specific heuristics, not calibrated accuracy.',
+    }
 
 
-@router.get('/samples')
-def samples(request: Request):
-    return request.app.state.samples.list()
+def health(request):
+    return JSONResponse(health_status(request.app))
 
 
-@router.get('/samples/{sample_id}/image')
-def sample_image(sample_id: int, request: Request):
+def readyz(request):
+    state = health_status(request.app)
+    ready = (state['ready'] and state['detector_runtime'] == 'torchserve'
+             and set(state['backends']) == {'easyocr', 'paddleocr', 'trocr'})
+    return JSONResponse(state, status_code=200 if ready else 503)
+
+
+def samples(request):
+    return JSONResponse(request.app.state.samples.list())
+
+
+def sample_image(request):
+    sample_id = SAMPLE_ID.validate_python(request.path_params['sample_id'])
     return FileResponse(request.app.state.samples.path(sample_id))

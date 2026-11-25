@@ -2,15 +2,13 @@
 import logging
 import time
 
-from fastapi import APIRouter, Depends, Request
 from starlette.concurrency import run_in_threadpool
+from starlette.responses import JSONResponse
 
 from ..errors import AppError
 from ..media.images import decode_image
 from ..schemas.analysis import AnalysisResponse, ComparisonResponse
-from .submissions import Submission, parse_submission
-
-router = APIRouter(prefix='/api', tags=['analysis'])
+from .submissions import parse_submission
 
 
 async def analyse_submission(request, submission, comparison=False):
@@ -36,11 +34,16 @@ async def analyse_submission(request, submission, comparison=False):
             raise AppError(500, 'processing_error', 'Image processing failed. Retry or choose another OCR engine.') from exc
 
 
-@router.post('/analysis', response_model=AnalysisResponse)
-async def analysis(request: Request, submission: Submission = Depends(parse_submission)):
-    return await analyse_submission(request, submission)
+async def submission_response(request, comparison=False):
+    async with request.form() as form:
+        result = await analyse_submission(request, parse_submission(form), comparison)
+    model = ComparisonResponse if comparison else AnalysisResponse
+    return JSONResponse(model.model_validate(result).model_dump(mode='json'))
 
 
-@router.post('/comparisons', response_model=ComparisonResponse)
-async def comparisons(request: Request, submission: Submission = Depends(parse_submission)):
-    return await analyse_submission(request, submission, comparison=True)
+async def analysis(request):
+    return await submission_response(request)
+
+
+async def comparisons(request):
+    return await submission_response(request, comparison=True)

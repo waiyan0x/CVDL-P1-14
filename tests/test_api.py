@@ -1,7 +1,7 @@
 """Original demo regression scenarios migrated to the application API."""
 import io
 
-from fastapi.testclient import TestClient
+from starlette.testclient import TestClient
 from PIL import Image
 import pytest
 

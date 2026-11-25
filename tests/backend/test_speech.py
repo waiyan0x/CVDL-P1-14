@@ -1,5 +1,5 @@
 """ElevenLabs text-to-speech route, with the ElevenLabs client faked."""
-from fastapi.testclient import TestClient
+from starlette.testclient import TestClient
 import pytest
 
 from backend.app.config import Settings, read_env_file

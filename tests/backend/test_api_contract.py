@@ -1,7 +1,7 @@
 import io
 import threading
 
-from fastapi.testclient import TestClient
+from starlette.testclient import TestClient
 import numpy as np
 from PIL import Image
 import pytest

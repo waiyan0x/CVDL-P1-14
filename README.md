@@ -188,7 +188,7 @@ setup, not inference. Individual unavailable OCR engines are reported separately
 | `/live` | Continuous camera input or server-decoded uploaded video with configurable sampling and start/stop/restart/reset. |
 | `/evaluation` | Run all three OCR pipelines on one shared set of detections and compare their readings, confidence scores and processing times. |
 | `/models` | Check model provenance, confidence definitions and pipeline methods. |
-| `/docs` | FastAPI's generated API documentation. |
+| `/docs` | Interactive OpenAPI documentation. |
 
 The reader pages use a monochrome layout. The home page illustrates Singapore’s
 green public buses at a stop. Photographs and cropped regions retain their
