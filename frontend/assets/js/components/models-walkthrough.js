@@ -70,7 +70,7 @@ export function initModelsWalkthrough() {
         const confidence = data.detections.filter(item => item.source === 'model' && Number.isFinite(item.confidence))
           .map(item => item.confidence);
         detail = el('div', {class: 'research-card'}, el('p', {}, count
-          ? 'YOLO located ' + count + ' regions. The numbered boxes mark text fields, and EDS marks the whole sign.'
+          ? 'YOLO11s located ' + count + ' regions. The numbered boxes mark text fields, and EDS marks the whole sign.'
           : 'The detector could not find a sign in this photo.'),
         confidence.length ? facts([['Detection confidence', percent(Math.min(...confidence)) + ' to ' + percent(Math.max(...confidence))]]) : null);
       } else if (active === 'read') {

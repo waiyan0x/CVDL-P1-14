@@ -55,7 +55,7 @@ function renderCards(data, voiceStatus) {
     ]),
     card('Text recognition', 'Fine-tuned PaddleOCR reads the sign crops in this walkthrough. Evaluation also compares EasyOCR and fine-tuned TrOCR on the same crops.', [
       ['PaddleOCR', data ? available(ocr) : 'Status unavailable'],
-      ...alternatives.map(engine => [engine.name.replace(/^YOLO \+ (fine-tuned )?/, ''), available(engine)]),
+      ...alternatives.map(engine => [engine.name.replace(/^YOLO11s \+ (fine-tuned )?/, ''), available(engine)]),
     ]),
     card('Route matching', 'The app looks up the exact service number, then checks whether the text resembles a route endpoint in the project’s Singapore bus reference.'),
     card('Spoken announcements', 'English and Mandarin announcements read out the service and destination when available.', [

@@ -13,7 +13,7 @@ export function el(tag, attributes = {}, ...children) {
 
 export const percent = value => Number.isFinite(value) ? `${Math.round(value * 100)}%` : '—';
 export const milliseconds = value => Number.isFinite(value) ? `${Math.round(value)} ms` : '—';
-export const engineName = id => ({easyocr: 'YOLO + EasyOCR', paddleocr: 'YOLO + fine-tuned PaddleOCR', trocr: 'YOLO + fine-tuned TrOCR'}[id] || id);
+export const engineName = id => ({easyocr: 'YOLO11s + EasyOCR', paddleocr: 'YOLO11s + fine-tuned PaddleOCR', trocr: 'YOLO11s + fine-tuned TrOCR'}[id] || id);
 export const mediaTime = value => {
   const seconds = Math.max(0, Number(value) || 0) / 1000;
   return `${Math.floor(seconds / 60)}:${(seconds % 60).toFixed(1).padStart(4, '0')}`;

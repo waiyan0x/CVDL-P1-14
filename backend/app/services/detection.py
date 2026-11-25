@@ -1,4 +1,4 @@
-"""Local YOLO checkpoint adapter; no online weight downloads at startup."""
+"""Local YOLO11s checkpoint adapter; no online weight downloads at startup."""
 import hashlib
 import json
 import numpy as np
@@ -14,7 +14,7 @@ MODEL_TO_API_LABEL = {
 class Detector:
     def __init__(self, settings):
         if not settings.detector_path.is_file():
-            raise RuntimeError('YOLO checkpoint is missing.')
+            raise RuntimeError('YOLO11s checkpoint is missing.')
         if settings.detector_weights is None:
             config_path = settings.root / 'evaluation/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json'
             expected = json.loads(config_path.read_text(encoding='utf-8'))['checkpoint_sha256']
@@ -23,7 +23,7 @@ class Detector:
                 for chunk in iter(lambda: stream.read(1024 * 1024), b''):
                     digest.update(chunk)
             if digest.hexdigest() != expected:
-                raise RuntimeError('Default v4 YOLO checkpoint SHA-256 mismatch.')
+                raise RuntimeError('Default v4 YOLO11s checkpoint SHA-256 mismatch.')
         import torch
         from ultralytics import YOLO
         torch.set_num_threads(settings.torch_threads)
@@ -33,7 +33,7 @@ class Detector:
         actual = [names[index] for index in sorted(names)] if isinstance(names, dict) else list(names)
         expected = list(MODEL_TO_API_LABEL)
         if actual != expected:
-            raise RuntimeError(f'YOLO class contract mismatch: expected {expected}, found {actual}.')
+            raise RuntimeError(f'YOLO11s class contract mismatch: expected {expected}, found {actual}.')
         self.model.predict(
             np.zeros((settings.detector_image_size, settings.detector_image_size, 3), np.uint8),
             device=settings.detector_device, imgsz=settings.detector_image_size,

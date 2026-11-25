@@ -45,11 +45,11 @@ def model_catalog(settings, pipeline=None) -> dict:
     errors = pipeline.ocr.availability() if pipeline is not None and hasattr(pipeline.ocr, "availability") else {}
     common = "An engine-specific heuristic, not calibrated accuracy; confidence scores cannot rank different engines."
     engines = [
-        {"id": "easyocr", "name": "YOLO + EasyOCR", "path": _display_path(settings.easyocr_dir, root),
+        {"id": "easyocr", "name": "YOLO11s + EasyOCR", "path": _display_path(settings.easyocr_dir, root),
          "version": _version("easyocr"), "description": "English OCR baseline on detected text-field crops; CPU inference.",
          "confidence_definition": "Character-count-weighted mean of EasyOCR text confidence. " + common,
          "limitations": ["Small LED characters, glare and blur can reduce recognition quality."]},
-        {"id": "paddleocr", "name": "YOLO + fine-tuned PaddleOCR", "path": _display_path(settings.paddle_model_dir, root),
+        {"id": "paddleocr", "name": "YOLO11s + fine-tuned PaddleOCR", "path": _display_path(settings.paddle_model_dir, root),
          "version": "en_PP-OCRv5_mobile_rec, fine-tuned (Colab run 20261117-031848)",
          "description": "Selected OCR model. Runs on CPU in a separate Paddle Python process; crops are split into lines "
                         "top to bottom with the same automatic segmentation as the saved benchmark for new crops. "
@@ -63,7 +63,7 @@ def model_catalog(settings, pipeline=None) -> dict:
                          "Whole-display fallback is a last resort: on 41 labelled displays it matched 11 (pretrained) "
                          "against 5 (fine-tuned), far below separate field crops.",
                          "First use includes worker start-up and model loading; the fallback worker starts on first use."]},
-        {"id": "trocr", "name": "YOLO + fine-tuned TrOCR", "path": _display_path(settings.trocr_dir, root),
+        {"id": "trocr", "name": "YOLO11s + fine-tuned TrOCR", "path": _display_path(settings.trocr_dir, root),
          "source_path": "models/trocr-finetuned", "version": _version("transformers"),
          "description": "Supplied VisionEncoderDecoder checkpoint, loaded lazily from hydrated local Git LFS weights; no runtime downloads.",
          "confidence_definition": "Geometric mean of generated token probabilities. " + common,
@@ -90,20 +90,20 @@ def model_catalog(settings, pipeline=None) -> dict:
                      ],
                      "training_class_filter": [0, 1, 2, 3], "device": settings.detector_device,
                      "image_size": settings.detector_image_size,
-                     "confidence_definition": "YOLO confidence that a box contains its predicted class; not OCR correctness or model accuracy.",
+                     "confidence_definition": "YOLO11s confidence that a box contains its predicted class; not OCR correctness or model accuracy.",
                      "operating_confidence": operating_confidence, "nms_iou": settings.detector_nms_iou,
                      "checkpoint_sha256_expected": expected_hash,
                      "note": "Panel, number, route and destination are all requested. Model labels are translated explicitly to the stable API labels."},
         "ocr_engines": engines,
         "pipeline": [
             {"id": "input", "title": "Validate and sample", "description": "Validate image/video content, decode a frame, retain frame identity and media time, and bound image dimensions."},
-            {"id": "detection", "title": "Detect display fields", "description": "Run the supplied YOLO checkpoint once. Comparisons share identical boxes and crops across all three OCR engines."},
+            {"id": "detection", "title": "Detect display fields", "description": "Run the supplied YOLO11s checkpoint once. Comparisons share identical boxes and crops across all three OCR engines."},
             {"id": "association", "title": "Associate and crop", "description": "Assign text fields to known EDS screens before pairing remaining nearby fields. Preserve separate display IDs within each frame."},
             {"id": "ocr", "title": "Read visible text", "description": "Read service and destination crops with the selected local engine; retain raw text and engine-specific confidence."},
             {"id": "matching", "title": "Compare references", "description": "Look up an exact recognised service and compare sufficiently confident observed text with that service's CSV endpoints."},
             {"id": "display", "title": "Publish one frame result", "description": "Return boxes, crops, raw text, references, separate scores and stage timings with the processed frame identity. No tracking or temporal text merging is claimed."},
         ],
-        "preprocessing": {"detector": f"Images are bounded before inference and letterboxed by YOLO to size {settings.detector_image_size}.",
+        "preprocessing": {"detector": f"Images are bounded before inference and letterboxed by YOLO11s to size {settings.detector_image_size}.",
                           "ocr": "Small service-number crops may be enlarged; destination fields preserve their line layout. Each engine applies its own documented image preparation."},
         "matching": {"service": "Exact recognised service lookup; no nearest-number guessing.",
                      "destination": "Normalised text/line similarity (abbreviation table, ratio score) against that service's origin and destination; accepted at the cutoff (default 65) with a 10-point lead over the next endpoint; if the destination crop does not fit, the route crop and whole display are tried (line swap); otherwise withheld.",
