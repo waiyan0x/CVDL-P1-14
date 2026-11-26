@@ -1,5 +1,37 @@
 # Final datasets for model training
 
+## Roboflow v9 source-stem-isolated copy (local, review pending)
+
+The raw `data/training/Front EDS.v9i.coco/` export has 7,272 train, 303 validation,
+and 303 test images and no export manifest. Its Roboflow filename stems overlap
+across splits: 56 train/validation, 81 train/test, and 9 validation/test stems.
+These are source-group review flags, not proof that the photographs are identical.
+
+`scripts/prepare_v9_object_detection_export.py` created a separate
+`data/training/2026-11-25-roboflow-v9-stem-isolated/` copy. It retains the test
+split first, then validation, then training, excluding all training variants of
+any stem in a holdout split. It also removes repeated stems within test. The
+result has **6,858 train, 294 validation, and 299 test images**, with 427 total
+image exclusions and unchanged annotations for retained images. Three of the
+training exclusions came from a visually confirmed train/test scene overlap
+with different filenames (the B3 priority-boarding depot scene). The corrected
+folder contains `split_isolation_audit.json` with every decision and
+`preparation_manifest.json` with file checksums. The raw export is unchanged.
+
+Recheck the prepared copy from the repository root with
+`python scripts/verify_v9_object_detection_export.py`. The verifier checks
+every manifest hash, image dimension, bounding box, and cross-split filename
+stem and exact-file duplicate.
+
+This automated rule does not establish independence between different filename
+stems or verify annotation completeness. Human source/capture and label review
+remains necessary before interpreting new validation or test metrics. The
+object-detection notebook points to this corrected copy with training disabled.
+The extracted dataset directory remains Git-ignored; the corrected dataset ZIP
+is distributed through Git LFS. The raw v9 export and synthetic v5 data are not
+part of that ZIP. See [v9 detector status](../../docs/OBJECT_DETECTION_V9_STATUS.md)
+for the training and evaluation handoff.
+
 ## New Roboflow v4 export (local, review required)
 
 The corrected version is now `data/training/2026-11-05-roboflow-v4-reviewed/`.

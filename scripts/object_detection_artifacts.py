@@ -16,7 +16,10 @@ MODEL_NAMES = ("yolo11n", "yolo11s", "detr-resnet-50")
 def archive_dir(repo_root, dataset_fingerprint, model_name, run_id=None):
     if model_name not in MODEL_NAMES:
         raise ValueError(f"Unknown detector: {model_name}")
-    base = Path(repo_root) / "evaluation" / "object_detection" / dataset_fingerprint[:12] / model_name
+    archive_root = Path(os.environ.get(
+        "EDS_ARCHIVE_ROOT", Path(repo_root) / "Obj-Dect-OCR" / "object_detection"
+    )).resolve()
+    base = archive_root / dataset_fingerprint[:12] / model_name
     if run_id is not None:
         if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]{0,63}", run_id):
             raise ValueError(f"Invalid run ID: {run_id!r}")
