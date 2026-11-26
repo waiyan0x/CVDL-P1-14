@@ -2,6 +2,46 @@
 
 ## Detector research and benchmark
 
+### Google Colab GPU setup for the prepared v9 export
+
+The current notebook starts with a Colab setup cell. The corrected v9 dataset is
+`data/training/2026-11-25-roboflow-v9-stem-isolated/`; the raw
+`Front EDS.v9i.coco/` export is retained separately. Upload these two ZIPs to
+`MyDrive/CVDL-P1-14-colab/` in Google Drive:
+
+- `data/training/CVDL-P1-14-v9-colab-code.zip` (notebook, training scripts,
+  package code, YOLO11n/YOLO11s pretrained weights)
+- `data/training/2026-11-25-roboflow-v9-stem-isolated.zip` (verified dataset)
+
+After editing the notebook or training code, rebuild the code ZIP from the
+repository root with `python scripts/package_colab_v9.py` before uploading it.
+The dataset ZIP is a separate export and is not rebuilt by that command.
+
+Keep the updated `notebooks/object_detection_benchmark.ipynb` open locally in
+VS Code. Install the **Colab** extension by Google (and its Jupyter dependency),
+then use the notebook's **Select Kernel > Colab > New Colab Server** option to
+select a GPU machine. Sign in to Google when prompted. The notebook file stays
+in the Windows workspace; its Python cells execute on the remote Colab server.
+Run the setup cell first. It mounts Drive, extracts the
+code and dataset under `/content/CVDL-P1-14/`, installs detector dependencies,
+and sets the paths used by the later notebook cells. The dataset and YOLO
+conversion scratch live on the Colab VM. Checkpoints, per-model training
+results and benchmark reports are written to
+`MyDrive/CVDL-P1-14-colab/results/` so they survive a runtime reset. The
+existing Windows save paths remain the defaults outside Colab.
+
+The repository notebook defaults to `RUN_TRAINING=False` and
+`RUN_BENCHMARK=False`. Record the remaining v9 source-scene and annotation
+review limitations when interpreting results. For a training run, choose
+`TRAIN_MODEL` in the first settings cell,
+set `RUN_TRAINING=True`, keep benchmark and final test off, then Run All. The
+same `RUN_ID` is used for the three separate model runs. Do not rerun a model
+under an existing ID because the trainer refuses to overwrite its checkpoint.
+
+The setup cell is also maintained in
+[colab_v9_setup_cell.py](colab_v9_setup_cell.py); the notebook contains an
+embedded copy so it can run before the repository is extracted.
+
 [object_detection_benchmark.ipynb](object_detection_benchmark.ipynb) contains the
 four-class YOLO11n, YOLO11s and DETR experiment protocol. It audits a verified
 COCO export, converts it for YOLO without changing the source, and reports
@@ -14,8 +54,42 @@ model, use one `RUN_ID` for the three-model comparison, enable training, and
 click Run All. The same notebook then performs validation and test reporting in
 separate runs.
 
-The benchmark defaults to the local manifest-backed
-`data/training/2026-11-05-roboflow-v4-reviewed/` export. Its completed
+Measured benchmarks display **separate Train, Validation, and Test tables**.
+The Test section stays marked as held out until `RUN_FINAL_TEST=True`. Each
+class row shows box count, mAP50, mAP50:95 and mAR@100 recall. The tables are
+also saved beside the benchmark JSON as `benchmark_*_tables.md`; saved v4
+figures remain historical and are not copied into the v9 tables.
+
+### V9 YOLO baseline and tuning status
+
+The v9 training CSVs viewed during the Colab session recorded best validation
+mAP50:95 of `0.67547` for
+YOLO11n (epoch 8) and `0.69106` for YOLO11s (epoch 9). These are Ultralytics
+validation metrics, not a common two-model benchmark or held-out test. The v9
+CSVs and weights have not been copied into this repository. No v9 DETR mAP or
+tuned-variant result is recorded. YOLO11s was interrupted and later resumed;
+its final epoch and files still need verification from Drive. See
+[the v9 status page](../docs/OBJECT_DETECTION_V9_STATUS.md). A [reviewed v4 validation overlay](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/overlays/success_02.jpg)
+illustrates the four EDS bounding-box classes; it is an example image, not v9
+evaluation evidence.
+
+The notebook includes two disabled YOLO11s experiments after baseline training:
+`gentle_aug` adds small translation, scale and brightness changes;
+`localization` raises image size from 640 to 800 and box-loss gain from 7.5 to
+8.5, with batch size 16 for GPU memory. Both use fresh pretrained weights,
+save to new folders, and require `RUN_TUNING=True`. Compare their measured
+validation scores before running a final test. The v9 source and annotation
+review remains open.
+
+The benchmark now defaults to the prepared, manifest-backed
+`data/training/2026-11-25-roboflow-v9-stem-isolated/` export. Set the run flags
+for each model or evaluation pass. The repository copy is paused by default.
+For validation of the two completed YOLO runs, set `RUN_BENCHMARK=True`,
+`RUN_FINAL_TEST=False`, and `BENCHMARK_MODELS=('yolo11n', 'yolo11s')`.
+After selecting one model and threshold on validation, use a one-item model
+tuple and set `RUN_FINAL_TEST=True` while keeping `RUN_BENCHMARK=True`.
+The earlier
+`data/training/2026-11-05-roboflow-v4-reviewed/` export's completed
 `v4-reviewed-01` run has a [saved three-model validation comparison and selected
 YOLO11s final test](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
 The older `2026-10-30-torchvision` dataset and `baseline-01` results are
@@ -30,10 +104,10 @@ TorchMetrics, pycocotools and Notebook installed. Launch from the repository roo
 with `venv\detector\Scripts\python.exe -m notebook`, open the benchmark notebook,
 and choose the **CVDL Detector (CUDA)** kernel.
 
-The v4 notebook has saved outputs, but its older written `baseline-01` table is
-historical. Read the v4 `RESULTS.md` and archived JSON reports for the new
-measurements. Both final-test reports are complete; avoid running either test
-again for threshold selection. Use a new run ID for future experiments.
+The notebook retains saved v4 outputs, but its older written `baseline-01`
+table is historical. Read the v4 `RESULTS.md` and archived JSON reports for
+those measurements. Both v4 final-test reports are complete; avoid running
+either test again for threshold selection. Use a new run ID for v9 experiments.
 The later [v4 validation NMS/crop review](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
 compares `0.50` and `0.70` without reopening the test. The tested v4
 configuration remains NMS `0.70`.

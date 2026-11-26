@@ -2,3 +2,4 @@
 /docs/data_preparation/recipes/* -text
 # Model weights are verified by SHA-256; never convert line endings.
 /evaluation/object_detection/**/checkpoints/*.pt -text
+/data/training/2026-11-25-roboflow-v9-stem-isolated.zip filter=lfs diff=lfs merge=lfs -text

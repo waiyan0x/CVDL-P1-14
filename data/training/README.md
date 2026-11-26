@@ -1,12 +1,11 @@
 # Final datasets for model training
 
-## Roboflow v9 export: YOLO retraining in progress (25 Nov 2026)
+## Raw Roboflow v9 export
 
-YOLO is being retrained on **Roboflow Front EDS v9**, the full dataset. Until that run finishes and
-its weights and results are pushed, the app and the terminal tools still use YOLO11s `v4-reviewed-01`
-(trained on the v4 export below: 735 / 53 / 53), and every detector score in the repo is from v4.
-The v9 export and checkpoints are local, ignored files like v4. The counts and settings below are
-taken from the Roboflow version page; they have not been checked against a local copy.
+The raw `Front EDS.v9i.coco/` COCO annotation files were counted locally.
+The application still uses YOLO11s `v4-reviewed-01` until a v9 detector is
+selected and integrated. The raw v9 export is preserved separately from the
+corrected training copy below.
 
 | Split | Before augmentation | After augmentation (used for training) |
 | --- | ---: | ---: |
@@ -30,8 +29,40 @@ Only the training split is augmented: each training image gives **3 outputs**
 
 These Roboflow settings are wider than the repository's torchvision recipe further down
 (brightness ±10%, rotation ±3°, salt/pepper noise 1%, Gaussian blur sigma 0–1 px), which is
-not what produced v9. Following the run archive's rule, a changed dataset needs a new dataset
-fingerprint and run ID under `evaluation/object_detection/`; the v4 results stay as they are.
+not what produced v9. A changed dataset needs a new dataset fingerprint and
+run ID; the v4 results stay as they are.
+
+## Roboflow v9 source-stem-isolated copy (review pending)
+
+The raw `data/training/Front EDS.v9i.coco/` export has 7,272 train, 303 validation,
+and 303 test images and no export manifest. Its Roboflow filename stems overlap
+across splits: 56 train/validation, 81 train/test, and 9 validation/test stems.
+These are source-group review flags, not proof that the photographs are identical.
+
+`scripts/prepare_v9_object_detection_export.py` created a separate
+`data/training/2026-11-25-roboflow-v9-stem-isolated/` copy. It retains the test
+split first, then validation, then training, excluding all training variants of
+any stem in a holdout split. It also removes repeated stems within test. The
+result has **6,858 train, 294 validation, and 299 test images**, with 427 total
+image exclusions and unchanged annotations for retained images. Three of the
+training exclusions came from a visually confirmed train/test scene overlap
+with different filenames (the B3 priority-boarding depot scene). The corrected
+folder contains `split_isolation_audit.json` with every decision and
+`preparation_manifest.json` with file checksums. The raw export is unchanged.
+
+Recheck the prepared copy from the repository root with
+`python scripts/verify_v9_object_detection_export.py`. The verifier checks
+every manifest hash, image dimension, bounding box, and cross-split filename
+stem and exact-file duplicate.
+
+This automated rule does not establish independence between different filename
+stems or verify annotation completeness. Human source/capture and label review
+remains necessary before interpreting new validation or test metrics. The
+object-detection notebook points to this corrected copy with training disabled.
+The extracted dataset directory remains Git-ignored; the corrected dataset ZIP
+is distributed through Git LFS. The raw v9 export and synthetic v5 data are not
+part of that ZIP. See [v9 detector status](../../docs/OBJECT_DETECTION_V9_STATUS.md)
+for the training and evaluation handoff.
 
 ## New Roboflow v4 export (local, review required)
 

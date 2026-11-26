@@ -1,18 +1,20 @@
 """Mirror existing local detector runs into the results archive."""
 
 import hashlib
+import os
 from pathlib import Path
 
 from object_detection_artifacts import MODEL_NAMES, archive_yolo_run
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DATASET = ROOT / "data/training/2026-10-30-torchvision"
-manifest = DATASET / "augmentation_manifest.json"
+DATASET = Path(os.environ.get("EDS_DATASET_ROOT", ROOT / "data/training/2026-10-30-torchvision")).resolve()
+manifest = next((DATASET / name for name in ("augmentation_manifest.json", "preparation_manifest.json")
+                 if (DATASET / name).is_file()), DATASET / "augmentation_manifest.json")
 if not manifest.is_file():
     raise FileNotFoundError(manifest)
 fingerprint = hashlib.sha256(manifest.read_bytes()).hexdigest()
-runs = ROOT / ".runtime/object_detection_benchmark" / fingerprint[:12] / "runs"
+runs = Path(os.environ.get("EDS_OUTPUT_ROOT", ROOT / ".runtime/object_detection_benchmark")).resolve() / fingerprint[:12] / "runs"
 
 if runs.is_dir():
     for experiment in runs.iterdir():

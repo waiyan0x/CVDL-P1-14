@@ -1,4 +1,5 @@
 """Build the self-contained EDS detector research notebook."""
+import os
 from pathlib import Path
 from contextlib import redirect_stdout
 import json
@@ -19,6 +20,8 @@ cells = [
 
 **Status (6 November 2026): the manifest-backed Roboflow v4 reviewed export has completed three training and validation runs and one selected-model final test.** See the recorded results below and the [archived report](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md). The earlier baseline remains a separate experiment.
 
+**V9 baseline (26 November 2026): YOLO11n and YOLO11s training logs were supplied; DETR has no measured v9 result.** The raw `data/training/Front EDS.v9i.coco` export remains untouched. The separate `data/training/2026-11-25-roboflow-v9-stem-isolated` copy uses a conservative filename-stem rule, excludes 427 overlapping/repeated images including three visually confirmed train/test scene variants, and has a verified checksum manifest plus `split_isolation_audit.json`. Its 6,858/294/299 train/valid/test images still need human source and annotation review. Human source and annotation review remains open. The v9 YOLO figures below are measured; the earlier three-model benchmark uses a different dataset.
+
 This notebook implements the object detection allocation: dataset/label audit, pretrained model selection, fine-tuning, validation, per-class mAP, speed/failure comparison, threshold selection, and a final held-out test. It retains train/valid/test separation and records settings and hashes. Run from the repo's `notebooks/` folder or repo root.
 
 Sources: [task allocation PDF](file:///C:/Users/brend/Downloads/CVDL_Task_Allocation.pdf), [training inventory](../data/training/README.md), [readiness handoff](../docs/data_preparation/TRAINING_READINESS.md), [annotation guide](../docs/annotation/guide.md), [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11), [Hugging Face DETR](https://huggingface.co/docs/transformers/v4.51.1/en/model_doc/detr).
@@ -27,34 +30,36 @@ Sources: [task allocation PDF](file:///C:/Users/brend/Downloads/CVDL_Task_Alloca
 
 Use a dedicated Python environment. Install a PyTorch build appropriate to this machine, then `ultralytics==8.3.158 transformers>=4.52,<5 timm torchmetrics pycocotools pyyaml pillow nbformat ipykernel`. Keep it separate from the pinned data-preparation environment, which uses Transformers 5.x. Pretrained weights may download when training is enabled. The first run is a safe preflight. Train each model separately with `scripts/train_object_detection.py`.
 """),
+    code(Path(__file__).with_name('colab_v9_setup_cell.py').read_text(encoding='utf-8')),
     code(r"""
 from pathlib import Path
 import hashlib, importlib.util, json, os, platform, sys, time
 import re
 from collections import Counter
 
-ROOT = Path.cwd().resolve()
+ROOT = Path(os.environ.get('EDS_REPO_ROOT', Path.cwd())).resolve()
 if not (ROOT / 'src').is_dir():
-    ROOT = ROOT.parent
-assert (ROOT / 'src').is_dir(), 'Run from the repository root or notebooks/ folder.'
+    ROOT = next((p for p in Path.cwd().resolve().parents if (p / 'src').is_dir()), ROOT)
+if not (ROOT / 'src').is_dir():
+    raise RuntimeError(f'Repo not found from {Path.cwd()}. In Colab, run the Colab setup cell first.')
 sys.path.insert(0, str(ROOT / 'src'))
 sys.path.insert(0, str(ROOT / 'scripts'))
 from object_detection_artifacts import archive_benchmark
 
-DATASET_ROOT = Path(os.environ.get('EDS_DATASET_ROOT', ROOT / 'data/training/2026-11-05-roboflow-v4-reviewed')).resolve()
-OUTPUT_ROOT = ROOT / '.runtime/object_detection_benchmark'
-os.environ.setdefault('YOLO_CONFIG_DIR', str(OUTPUT_ROOT / 'ultralytics'))
+DATASET_ROOT = Path(os.environ.get('EDS_DATASET_ROOT', ROOT / 'data/training/2026-11-25-roboflow-v9-stem-isolated')).resolve()
+OUTPUT_ROOT = Path(os.environ.get('EDS_OUTPUT_ROOT', ROOT / '.runtime/object_detection_benchmark')).resolve()
+os.environ.setdefault('YOLO_CONFIG_DIR', str(ROOT / '.runtime/object_detection_benchmark/ultralytics'))
 os.environ.setdefault('USE_TF', '0')  # Keep this detector kernel on the PyTorch backend.
 os.environ.setdefault('HF_HOME', str(OUTPUT_ROOT / 'huggingface'))
 RUN_PREPARE_YOLO = False  # Optional dataset conversion; training CLI prepares it too.
-RUN_TRAINING = False      # Set True only when ready to start TRAIN_MODEL from pretrained weights.
+RUN_TRAINING = False     # Enable manually after reviewing the v9 split audit and verified manifest.
 TRAIN_MODEL = 'yolo11n'   # Choose: 'yolo11n', 'yolo11s', or 'detr-resnet-50'.
-RUN_BENCHMARK = False      # Train/valid mAP and latency for BENCHMARK_MODELS.
-RUN_FINAL_TEST = False     # Enable once, after settings/model selection on validation.
-RUN_ID = 'v4-reviewed-01'   # Completed experiment; choose a new ID for new training.
-BENCHMARK_MODELS = ('yolo11s',)  # Validation-selected model; list all three only for validation comparison.
-YOLO_EPOCHS, DETR_EPOCHS, IMAGE_SIZE, BATCH_SIZE, SEED = 60, 60, 640, 4, 42
-OPERATING_CONF, YOLO_NMS_IOU = 0.50, 0.70  # v4 validation-selected settings.
+RUN_BENCHMARK = False     # Enable for completed v9 models selected below.
+RUN_FINAL_TEST = False    # Keep held-out v9 test closed until validation-based selection.
+RUN_ID = 'v9-2026-11-25-01'  # New comparison set; keep this ID for all three models.
+BENCHMARK_MODELS = ('yolo11n', 'yolo11s')  # Add DETR only after its v9 run completes.
+YOLO_EPOCHS, DETR_EPOCHS, IMAGE_SIZE, BATCH_SIZE, SEED = 60, 60, 640, 32, 42
+OPERATING_CONF, YOLO_NMS_IOU = 0.30, 0.70  # Starting diagnostic threshold; select v9 settings on validation.
 DEVICE = 'cuda' if importlib.util.find_spec('torch') and __import__('torch').cuda.is_available() else 'cpu'
 CLASS_NAMES = ('front_eds', 'front_eds_num', 'front_eds_route', 'front_eds_destination')
 COCO_TO_INDEX = {1: 0, 3: 1, 4: 2, 2: 3}  # Explicit IDs from the readiness handoff.
@@ -65,6 +70,8 @@ if TRAIN_MODEL not in ('yolo11n', 'yolo11s', 'detr-resnet-50'):
     raise ValueError(f'Unsupported TRAIN_MODEL: {TRAIN_MODEL!r}')
 if RUN_TRAINING and (RUN_BENCHMARK or RUN_FINAL_TEST):
     raise ValueError('Train and benchmark/test in separate Run All executions.')
+if RUN_TRAINING and DEVICE != 'cuda':
+    raise RuntimeError('Select a CUDA GPU kernel before starting training.')
 print({'repo': str(ROOT), 'dataset': str(DATASET_ROOT), 'device': DEVICE,
        'run_id': RUN_ID, 'train_model': TRAIN_MODEL, 'training': RUN_TRAINING,
        'prepare_yolo': RUN_PREPARE_YOLO, 'benchmark': RUN_BENCHMARK, 'final_test': RUN_FINAL_TEST})
@@ -147,7 +154,7 @@ The conversion copies images into ignored `.runtime/`, writes one YOLO label fil
 def make_yolo_view():
     import shutil, yaml
     from PIL import Image
-    view = OUTPUT_ROOT / DATA_FINGERPRINT[:12] / 'yolo'
+    view = Path(os.environ.get('EDS_YOLO_VIEW_ROOT', OUTPUT_ROOT)).resolve() / DATA_FINGERPRINT[:12] / 'yolo'
     if view.exists():
         yaml_path = view / 'data.yaml'
         if not yaml_path.is_file():
@@ -209,6 +216,60 @@ if DATA_READY and RUN_TRAINING:
     subprocess.run(command, cwd=ROOT, check=True)
 else:
     print('Training paused. Set RUN_TRAINING=True when the model and run ID are ready.')
+"""),
+    md(r"""
+### V9 baseline and YOLO11s tuning
+
+Measured from the supplied v9 `results.csv` files (best validation epoch):
+
+| Model | Best epoch | Validation mAP50 | Validation mAP50:95 |
+| --- | ---: | ---: | ---: |
+| YOLO11n | 8 | 0.92966 | 0.67547 |
+| YOLO11s | 9 | 0.93337 | **0.69106** |
+
+The YOLO11s log records a resumed run. DETR has no measured v9 result, so this is a two-model v9 comparison. No tuning or v9 final-test scores are claimed here.
+
+Two unrun YOLO11s variants test specific hypotheses: `gentle_aug` adds small shifts, zoom and brightness variation to address overfitting; `localization` uses 800-pixel input and a slightly higher box-loss gain to test tighter text boxes. Both start from published pretrained weights, use the same reviewed v9 split and seed, and save to new folders. Compare best validation mAP50:95, per-class AP and negative-image false positives before opening test.
+
+Run the code cell below **once per variant** after the data audit and YOLO conversion cell. Set `RUN_TUNING=True` and change `TUNING_VARIANT`. Keep the baseline training, benchmark and final-test switches off. Existing checkpoints are not overwritten.
+"""),
+    code(r"""
+RUN_TUNING = False  # Set True only after reviewing the v9 data audit.
+TUNING_VARIANT = "gentle_aug"  # Then run again with "localization".
+
+if RUN_TUNING:
+    if not DATA_READY:
+        raise RuntimeError("The dataset audit must pass before tuning.")
+    if RUN_TRAINING or RUN_BENCHMARK or RUN_FINAL_TEST:
+        raise RuntimeError("Run tuning separately from baseline training and evaluation.")
+    from ultralytics import YOLO
+
+    variants = {
+        "gentle_aug": {"imgsz": 640, "batch": 32,
+                       "translate": 0.02, "scale": 0.10, "hsv_v": 0.08},
+        "localization": {"imgsz": 800, "batch": 16, "box": 8.5},
+    }
+    if TUNING_VARIANT not in variants:
+        raise ValueError(f"Unknown tuning variant: {TUNING_VARIANT}")
+
+    project = OUTPUT_ROOT / DATA_FINGERPRINT[:12] / "runs" / "v9-tuning-01"
+    name = f"yolo11s-{TUNING_VARIANT}"
+    if (project / name).exists():
+        raise FileExistsError(f"Existing run will not be overwritten: {project / name}")
+    settings = {
+        "data": str(make_yolo_view()), "epochs": 60, "patience": 15,
+        "seed": 42, "deterministic": True, "device": 0, "workers": 0,
+        "mosaic": 0.0, "mixup": 0.0, "copy_paste": 0.0,
+        "degrees": 0.0, "translate": 0.0, "scale": 0.0, "fliplr": 0.0,
+        "hsv_h": 0.0, "hsv_s": 0.0, "hsv_v": 0.0,
+    }
+    settings.update(variants[TUNING_VARIANT])
+    YOLO("yolo11s.pt").train(
+        **settings, project=str(project), name=name, exist_ok=False,
+    )
+    print("Tuning output:", project / name)
+else:
+    print("YOLO11s tuning paused. Set RUN_TUNING=True to run one variant.")
 """),
     md(r"""
 ## 4. Common evaluation: all four classes, all splits, and negatives
@@ -311,6 +372,7 @@ if DATA_READY and RUN_BENCHMARK:
                 'mar_100': float(result['mar_100_per_class'][i])}
         return {'images': len(rows), 'negatives': negatives,
                 'map50': float(result50['map_50']), 'map50_95': float(result['map']),
+                'mar_100': float(result['mar_100']),
                 'by_class': by_class, 'false_positives_on_negatives_at_operating_conf': negative_fp,
                 'median_inference_ms': float(np.median(latencies)),
                 'p95_inference_ms': float(np.percentile(latencies, 95))}
@@ -422,6 +484,7 @@ Each per-class entry is `mAP50 / mAP50:95`. YOLO11s remains the selected model b
 
 **EasyOCR integration status:** English EasyOCR assets were installed locally and the real CPU adapter processed YOLO11s number/route/destination crops. Across six diagnostic runs, OCR latency was `184.363 ms` median / `382.270 ms` p95 and total processing was `231.409 ms` median / `558.472 ms` p95. Raw readings on the small/distant cases were often wrong or below the `0.25` acceptance threshold, consistent with the qualitative crop review. No accuracy is claimed without reviewed transcriptions. Missing route-reference data now degrades to an unmatched raw-OCR result rather than disabling the app. Tesseract, fine-tuned TrOCR and a physical-camera moving-bus field run remain open.
 """),
+    code((Path(__file__).parents[1] / 'scripts/object_detection_tables.py').read_text(encoding='utf-8')),
     code(r"""
 if DATA_READY and BENCHMARK:
     import importlib.metadata as metadata
@@ -443,7 +506,13 @@ if DATA_READY and BENCHMARK:
     destination.write_text(json.dumps(report, indent=2), encoding='utf-8')
     for name in BENCHMARK_MODELS:
         archive_benchmark(ROOT, DATA_FINGERPRINT, name, phase, report, RUN_ID)
+    from IPython.display import Markdown, display
+    tables = render_split_tables(BENCHMARK, inventory, CLASS_NAMES, RUN_ID)
+    table_path = destination.with_name(destination.stem + '_tables.md')
+    table_path.write_text(tables, encoding='utf-8')
+    display(Markdown(tables))
     print('Evidence saved:', destination)
+    print('Split tables saved:', table_path)
 else:
     print('No measured benchmark report was written. The table remains pending.')
 """),
@@ -482,6 +551,8 @@ state = {'__name__': '__main__'}
 execution_count = 0
 for cell in notebook['cells']:
     if cell['cell_type'] != 'code':
+        continue
+    if 'Run this notebook cell first in a fresh Google Colab GPU runtime.' in cell['source']:
         continue
     execution_count += 1
     output = StringIO()
