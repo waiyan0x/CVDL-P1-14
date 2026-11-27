@@ -99,21 +99,25 @@ def train_yolo(args, splits, fingerprint, output_root, run_dir, device):
     pretrained_root = Path(os.environ.get("EDS_PRETRAINED_ROOT", output_root / "pretrained")).resolve()
     pretrained = pretrained_root / f"{args.model}.pt"
     model = YOLO(str(pretrained))
-    model.train(
-        data=str(data_yaml), epochs=args.epochs, imgsz=args.image_size,
-        batch=args.batch_size, seed=args.seed, deterministic=True,
-        project=str(run_dir.parent), name=args.model, exist_ok=False,
-        device=device, workers=0, patience=15, mosaic=0.0, mixup=0.0,
-        copy_paste=0.0, degrees=0.0, translate=0.0, scale=0.0,
-        fliplr=0.0, hsv_h=0.0, hsv_s=0.0, hsv_v=0.0,
-    )
-    actual_dir = Path(model.trainer.save_dir)
-    if actual_dir != run_dir:
-        raise RuntimeError(f"Ultralytics chose an unexpected run directory: {actual_dir}")
-    if not (run_dir / "weights/best.pt").is_file():
-        raise FileNotFoundError(run_dir / "weights/best.pt")
-    (run_dir / "complete.txt").write_text("Fresh training completed.\n", encoding="utf-8")
-    archive_yolo_run(ROOT, fingerprint, args.model, run_dir, args.run_id)
+    try:
+        model.train(
+            data=str(data_yaml), epochs=args.epochs, imgsz=args.image_size,
+            batch=args.batch_size, seed=args.seed, deterministic=True,
+            project=str(run_dir.parent), name=args.model, exist_ok=False,
+            device=device, workers=0, patience=15, mosaic=0.0, mixup=0.0,
+            copy_paste=0.0, degrees=0.0, translate=0.0, scale=0.0,
+            fliplr=0.0, hsv_h=0.0, hsv_s=0.0, hsv_v=0.0,
+        )
+        actual_dir = Path(model.trainer.save_dir)
+        if actual_dir != run_dir:
+            raise RuntimeError(f"Ultralytics chose an unexpected run directory: {actual_dir}")
+        if not (run_dir / "weights/best.pt").is_file():
+            raise FileNotFoundError(run_dir / "weights/best.pt")
+        (run_dir / "complete.txt").write_text("Fresh training completed.\n", encoding="utf-8")
+    finally:
+        # Preserve saved epochs and weights on normal completion or interruption.
+        if run_dir.is_dir():
+            archive_yolo_run(ROOT, fingerprint, args.model, run_dir, args.run_id)
 
 
 def train_detr(args, splits, fingerprint, run_dir, device):
@@ -182,6 +186,19 @@ def train_detr(args, splits, fingerprint, run_dir, device):
     archive_detr_epoch(ROOT, fingerprint, history, run_dir, args.run_id)
 
 
+def output_root_for(dataset):
+    """Route the named v9 export and its backups to local, versioned folders."""
+    if dataset.name == "2026-11-25-roboflow-v9-stem-isolated":
+        output_root = (ROOT / "Object-Detection-v9/object_detection").resolve()
+        os.environ["EDS_OUTPUT_ROOT"] = str(output_root)
+        os.environ["EDS_ARCHIVE_ROOT"] = str(output_root)
+        os.environ["EDS_YOLO_BACKUP_ROOT"] = str(ROOT / "YOLO_Weights/v9")
+        os.environ["EDS_YOLO_VIEW_ROOT"] = str(ROOT / ".runtime/object_detection_benchmark")
+        os.environ["EDS_PRETRAINED_ROOT"] = str(ROOT / ".runtime/object_detection_benchmark/pretrained")
+        return output_root
+    return Path(os.environ.get("EDS_OUTPUT_ROOT", ROOT / ".runtime/object_detection_benchmark")).resolve()
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", required=True, choices=("yolo11n", "yolo11s", "detr-resnet-50"))
@@ -198,7 +215,7 @@ def main():
         parser.error("epochs, batch size and image size must be positive")
     dataset = args.dataset.resolve()
     splits, fingerprint = verified_dataset(dataset)
-    output_root = Path(os.environ.get("EDS_OUTPUT_ROOT", ROOT / ".runtime/object_detection_benchmark")).resolve()
+    output_root = output_root_for(dataset)
     run_dir = output_root / fingerprint[:12] / "runs" / args.run_id / args.model
     if run_dir.exists():
         raise FileExistsError(f"Run already exists: {run_dir}. Choose a new --run-id.")

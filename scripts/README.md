@@ -80,7 +80,11 @@ The default dataset is `data/training/2026-10-30-torchvision`, with 30 epochs,
 mirrored to `Object-Detection-v4/object_detection/<dataset-id>/runs/<run-id>/<model>/`
 when these legacy defaults are used. The fresh v9 notebook instead sets both
 output and archive roots to `Object-Detection-v9/object_detection/` before it
-launches this script. It also sets a separate `YOLO_Weights/v9/` backup root.
+launches this script. The script selects those same local roots by itself when
+given `data/training/2026-11-25-roboflow-v9-stem-isolated`, so a standalone
+PowerShell run cannot fall back to the v4 archive or an old Drive path. It also
+sets a separate `YOLO_Weights/v9/` backup root. A normal interruption mirrors
+any YOLO log and weights saved so far with `partial` status.
 Run the notebook for the new local v9 workflow; do not reuse the legacy
 `baseline-01` commands above for v9.
 Set the same `RUN_ID` and model selection in the benchmark notebook for

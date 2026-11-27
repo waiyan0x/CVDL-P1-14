@@ -9,7 +9,8 @@ measured results or checkpoints.
 
 The [benchmark notebook](../notebooks/object_detection_benchmark.ipynb) sets both
 `EDS_OUTPUT_ROOT` and `EDS_ARCHIVE_ROOT` to this directory's
-`object_detection/` subfolder. Raw YOLO training files, validation and test
+`object_detection/` subfolder. The standalone trainer uses the same local paths
+when given the named v9 dataset, even from a new PowerShell session. Raw YOLO training files, validation and test
 benchmarks, split tables, and copied checkpoints therefore stay together on this
 computer. Starting YOLO weights and the generated YOLO dataset view stay under
 ignored `.runtime/object_detection_benchmark/`.
@@ -40,8 +41,10 @@ Object-Detection-v9/
 ```
 
 DETR writes its model and processor files at the model run root and mirrors the
-best model into `checkpoints/`. The notebook backs up YOLO `best.pt` and `last.pt`
-separately under `YOLO_Weights/v9/<dataset-fingerprint>/runs/<run-id>/<model>/`.
+best model into `checkpoints/`. The trainer backs up YOLO `best.pt` and `last.pt`
+separately under [`YOLO_Weights/v9/`](../YOLO_Weights/v9/README.md)
+at `<dataset-fingerprint>/runs/<run-id>/<model>/`. On a normal interruption,
+it also mirrors any epoch log and weights already saved, marked `partial`.
 The `test/` and test summary files are created only when final testing is enabled.
 Nothing here is a measured result until the corresponding training or evaluation
 step completes.
