@@ -5,7 +5,7 @@
   "selection_basis": "Highest validation mAP50:95 among YOLO11n, YOLO11s and DETR-ResNet50",
   "dataset_manifest_sha256": "bf938f526d2c01f1960b9af018f1fd1dc78a431e725037c84d1707dfcc5b826c",
   "checkpoint_sha256": "01d832cb6eda71dcf4a88e6ebbafc080f9dc299be8161c76ab15c75f7c60c2e3",
-  "checkpoint_install_path": "Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/checkpoints/yolo11s-best.pt",
+  "checkpoint_install_path": "Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01/checkpoints/yolo11s-best.pt",
   "input_size": 640,
   "confidence": 0.2,
   "nms_iou": 0.7,

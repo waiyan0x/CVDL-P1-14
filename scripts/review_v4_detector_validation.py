@@ -20,7 +20,7 @@ CLASS_NAMES = ("front_eds", "front_eds_num", "front_eds_route", "front_eds_desti
 COCO_TO_MODEL = {1: 0, 3: 1, 4: 2, 2: 3}
 DATASET = ROOT / "data/training/2026-11-05-roboflow-v4-reviewed"
 CHECKPOINT = ROOT / ".runtime/object_detection_benchmark/01760a841333/runs/v4-reviewed-01/yolo11s/weights/best.pt"
-OUTPUT = ROOT / "Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/validation_review"
+OUTPUT = ROOT / "Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/validation_review"
 
 
 def sha256(path):

@@ -40,7 +40,7 @@ used as correctness or cross-model rankings. EDS precision/recall uses only
 direct model screens at IoU 0.5; inferred envelopes are excluded. Detector mAP
 and reference-endpoint correctness are not computed by this text benchmark.
 
-Reports are written atomically to `Obj-Dect-OCR/reports/` by default and discovered
+Reports are written atomically to `Object-Detection-v4/reports/` by default and discovered
 by `/api/evaluation`. Reviewed transcriptions are a human attestation, not
 automatic proof of annotation correctness. Keep original manifests and datasets
 alongside published reports for reproducibility.

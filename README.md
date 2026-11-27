@@ -168,7 +168,7 @@ backend/app/
   schemas/            Frame, result, confidence and timing contracts
   services/           Detector, ownership, pipeline, matching and OCR adapters
   media/              Bounded image/video decoding and upload lifecycle
-  Obj-Dect-OCR/       Provenance, dataset audit, OCR handoff and benchmark reports
+  Object-Detection-v4/       Provenance, dataset audit, OCR handoff and benchmark reports
 frontend/
   pages/              Detect, Live, Evaluation, Models & Method
   assets/             Shared styles and focused JavaScript modules
@@ -186,16 +186,16 @@ branch.
 ## Object detection handoff
 
 The latest four-class YOLO11n, YOLO11s and DETR comparison is
-[`v4-reviewed-01`](Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md)
+[`v4-reviewed-01`](Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md)
 on the corrected Roboflow v4 export. YOLO11s was selected by validation
 mAP50:95 (`0.3510`) and scored `0.3270` on the final held-out test. The earlier
-[`baseline-01`](Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/RESULTS.md)
+[`baseline-01`](Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01/RESULTS.md)
 remains as historical evidence. The app now defaults to v4 YOLO11s at confidence
 `0.50` and NMS `0.70`; install its Git LFS checkpoint using the
 [deployment instructions](docs/OBJECT_DETECTION_DEPLOYMENT.md). Continue from
 the [handoff](docs/OBJECT_DETECTION_HANDOFF.md).
 For Cody's OCR work, start with the [OCR handoff README](docs/OCR_HANDOFF.md).
-The latest run also has a [validation NMS and crop review](Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
+The latest run also has a [validation NMS and crop review](Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
 and a saved v4 detector configuration; the Jy/Brendan annotation review is on hold.
 
 Jy and Brendan still need to review the class rules, negatives and capture

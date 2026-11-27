@@ -50,7 +50,7 @@ class Settings(BaseModel):
     def detector_path(self):
         return self._path(
             self.detector_weights,
-            'Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/checkpoints/yolo11s-best.pt',
+            'Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/checkpoints/yolo11s-best.pt',
         )
 
     @property

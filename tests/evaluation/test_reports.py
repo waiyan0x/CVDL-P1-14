@@ -5,7 +5,7 @@ from backend.app.evaluation.reports import load_reports
 
 
 def test_reports_without_reviewed_manifest_provenance_do_not_become_accuracy(tmp_path):
-    directory = tmp_path / "Obj-Dect-OCR/reports"
+    directory = tmp_path / "Object-Detection-v4/reports"
     directory.mkdir(parents=True)
     (directory / "invented.json").write_text(json.dumps({"accuracy": 0.99}))
     reports, warnings = load_reports(tmp_path)
@@ -14,7 +14,7 @@ def test_reports_without_reviewed_manifest_provenance_do_not_become_accuracy(tmp
 
 
 def test_detection_report_is_withheld_if_its_label_evidence_changes(tmp_path):
-    directory = tmp_path / "Obj-Dect-OCR/reports"
+    directory = tmp_path / "Object-Detection-v4/reports"
     directory.mkdir(parents=True)
     evidence = {}
     for name in ("model.pt", "image.jpg", "label.txt"):

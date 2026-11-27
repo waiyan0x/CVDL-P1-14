@@ -17,7 +17,7 @@ def archive_dir(repo_root, dataset_fingerprint, model_name, run_id=None):
     if model_name not in MODEL_NAMES:
         raise ValueError(f"Unknown detector: {model_name}")
     archive_root = Path(os.environ.get(
-        "EDS_ARCHIVE_ROOT", Path(repo_root) / "Obj-Dect-OCR" / "object_detection"
+        "EDS_ARCHIVE_ROOT", Path(repo_root) / "Object-Detection-v4" / "object_detection"
     )).resolve()
     base = archive_root / dataset_fingerprint[:12] / model_name
     if run_id is not None:
@@ -80,10 +80,15 @@ def archive_yolo_run(repo_root, dataset_fingerprint, model_name, run_dir, run_id
     for filename in ("results.csv", "args.yaml", "results.png"):
         _copy_if_changed(run_dir / filename, base / "train" / filename)
     checkpoint_hashes = {}
+    backup_root = os.environ.get("EDS_YOLO_BACKUP_ROOT")
     for filename in ("best.pt", "last.pt"):
         source = run_dir / "weights" / filename
         if _copy_if_changed(source, base / "checkpoints" / filename):
             checkpoint_hashes[filename] = _sha256(base / "checkpoints" / filename)
+            if backup_root and run_id:
+                backup = (Path(backup_root).resolve() / dataset_fingerprint[:12]
+                          / "runs" / run_id / model_name / filename)
+                _copy_if_changed(source, backup)
     history = base / "train" / "results.csv"
     epochs = 0
     if history.is_file():

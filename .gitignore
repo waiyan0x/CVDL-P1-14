@@ -19,7 +19,8 @@ __pycache__/
 .pytest_cache/
 .cache/
 .runtime/
-/Obj-Dect-OCR/object_detection/**/*.tmp
+/Object-Detection-v4/object_detection/**/*.tmp
+/Object-Detection-v9/object_detection/**/*.tmp
 .env
 .DS_Store
 node_modules/

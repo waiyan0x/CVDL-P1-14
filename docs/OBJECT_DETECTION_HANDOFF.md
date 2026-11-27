@@ -1,22 +1,22 @@
 # Object detection handoff
 
-## Current v9 continuation
+## Fresh v9 local training
 
-The [v9 status and evaluation steps](OBJECT_DETECTION_V9_STATUS.md) describe
-the corrected 6,858/294/299 COCO splits, Colab training evidence, the
-two-YOLO validation benchmark, and the single-model final-test procedure.
-The v9 dataset ZIP is in Git LFS; Colab checkpoints and benchmark reports
-remain on Google Drive until copied and verified. No v9 result has replaced
-the reviewed-v4 application default.
+The corrected v9 dataset has 6,858/294/299 COCO images and a verified export
+manifest. Its ZIP is in Git LFS. The
+[local v9 run directory](../Object-Detection-v9/README.md) and
+[benchmark notebook](../notebooks/README.md) are prepared for fresh training;
+no prior v9 result is carried into that directory. The reviewed-v4 YOLO11s
+remains the application default.
 
-The latest result is the [reviewed Roboflow v4 run](../Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md),
+The latest result is the [reviewed Roboflow v4 run](../Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md),
 with three trained models, three validation reports and one final YOLO11s test.
 The selected YOLO11s checkpoint and reviewed-v4 source archive are distributed
 through Git LFS in the OCR handoff; other training artifacts remain local.
 The [reviewed-v4 OCR handoff](OCR_HANDOFF.md)
 links the single split/class crop package, full source archive, and detector checkpoint.
-The [validation NMS/failure review](../Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
-and [tested v4 detector configuration](../Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json)
+The [validation NMS/failure review](../Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
+and [tested v4 detector configuration](../Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json)
 are also saved. The v4 checkpoint is now installed as the application default
 and passed a local detection/crop smoke test at confidence `0.50`, NMS `0.70`.
 The older `baseline-01` result and weights remain preserved as historical
@@ -34,16 +34,16 @@ as `baseline-01`. Keep both completed held-out tests closed for tuning.
 - Deployment settings: 640-pixel input, confidence `0.20`, NMS IoU `0.70`
 - Held-out test, per-class metrics, latency, negative-image false positives and
   qualitative failure analysis are saved under
-  `Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/`.
+  `Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01/`.
 - The selected checkpoint contract and SHA-256 are saved in
   `deployment/detector_config.json`. The generated weight itself is intentionally
   ignored by Git and must be retained or transferred separately.
 
-The authoritative numerical summary is [the baseline results](../Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/RESULTS.md).
+The authoritative numerical summary is [the baseline results](../Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01/RESULTS.md).
 
 ## Pending Jy/Brendan data decisions (on hold)
 
-Brendan and Jy still need to complete the prepared [data-review packet](../Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/data_review/REVIEW.md):
+Brendan and Jy still need to complete the prepared [data-review packet](../Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01/data_review/REVIEW.md):
 
 1. Confirm the four class definitions and mapping.
 2. Decide the 15 semantic candidates.
@@ -58,7 +58,7 @@ run ID to retrain all three candidates. Preserve `baseline-01` unchanged as
 historical evidence. If the review makes no changes, retraining is unnecessary.
 
 The v4 validation-only NMS IoU `0.50` versus `0.70` comparison is now recorded
-in the [review](../Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md).
+in the [review](../Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md).
 NMS `0.50` had a small validation advantage, but the existing final test belongs
 to the originally selected `0.70` setting. Keep that tested configuration fixed.
 If a future revision selects `0.50`, use a new independent held-out set.

@@ -24,7 +24,7 @@ from backend.app.services.pipeline import Pipeline
 
 
 DATASET = ROOT / "data/training/2026-10-30-torchvision"
-OUTPUT = ROOT / "Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/deployment/integration_verification.json"
+OUTPUT = ROOT / "Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01/deployment/integration_verification.json"
 MULTI_DISPLAY = DATASET / "valid/4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5.jpg"
 SINGLE_DISPLAY = DATASET / "valid/IMAGE_2026-10-23_22_04_04_jpg.rf.0cb9ed676b55ae03ba0719f27edc5177.jpg"
 NEGATIVE = DATASET / "valid/IMAGE_2026-10-23_21_56_09_jpg.rf.b74dd5352c689be9c7dcc6a048280656.jpg"

@@ -29,8 +29,8 @@ remains necessary before interpreting new validation or test metrics. The
 object-detection notebook points to this corrected copy with training disabled.
 The extracted dataset directory remains Git-ignored; the corrected dataset ZIP
 is distributed through Git LFS. The raw v9 export and synthetic v5 data are not
-part of that ZIP. See [v9 detector status](../../docs/OBJECT_DETECTION_V9_STATUS.md)
-for the training and evaluation handoff.
+part of that ZIP. See the [local v9 run directory](../../Object-Detection-v9/README.md)
+and [notebook instructions](../../notebooks/README.md) for fresh training.
 
 ## New Roboflow v4 export (local, review required)
 
@@ -40,7 +40,7 @@ It has a verified `preparation_manifest.json` and passed the automated audit:
 pairs or marked-up images. Nine training variants from three overlapping source
 families were excluded; the source export and held-out images were preserved.
 The current detector run `v4-reviewed-01` used this corrected version. See its
-[training, validation and final-test results](../../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
+[training, validation and final-test results](../../Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
 Human review of all four class semantics, negatives and source/capture records
 remains necessary. Both local dataset folders are ignored by Git.
 

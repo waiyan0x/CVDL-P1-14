@@ -61,7 +61,7 @@ temporary.write_text(nbformat.writes(notebook), encoding="utf-8")
 os.replace(temporary, NOTEBOOK)
 
 run_root = ROOT / ".runtime/object_detection_benchmark/bf938f526d2c/runs/baseline-01"
-archive_root = ROOT / "Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01"
+archive_root = ROOT / "Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01"
 for phase in ("validation", "test"):
     source_report = run_root / f"benchmark_yolo11n_yolo11s_detr-resnet-50_{phase}.json"
     if not source_report.is_file():

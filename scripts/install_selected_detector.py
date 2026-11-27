@@ -10,7 +10,7 @@ import shutil
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CONFIG = ROOT / "Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json"
+CONFIG = ROOT / "Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json"
 BASELINE_SOURCE = ROOT / ".runtime/object_detection_benchmark/bf938f526d2c/runs/baseline-01/yolo11s/weights/best.pt"
 
 

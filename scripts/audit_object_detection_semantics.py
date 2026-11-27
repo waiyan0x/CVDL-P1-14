@@ -14,7 +14,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATASET = ROOT / "data" / "training" / "2026-10-30-torchvision"
 DEFAULT_OUTPUT = (
-    ROOT / "Obj-Dect-OCR" / "object_detection" / "bf938f526d2c" / "runs"
+    ROOT / "Object-Detection-v4" / "object_detection" / "bf938f526d2c" / "runs"
     / "baseline-01" / "data_review"
 )
 CLASS_NAMES = {

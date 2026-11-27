@@ -1,6 +1,6 @@
 {
   "checkpoint_sha256": "97150601de39a999754015648cad2ef930842d52e8e37eb77d7576ffe2da33b5",
-  "checkpoint": "Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/checkpoints/yolo11s-best.pt",
+  "checkpoint": "Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/checkpoints/yolo11s-best.pt",
   "device": "cuda",
   "confidence": 0.5,
   "nms_iou": 0.7,

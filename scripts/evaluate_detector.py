@@ -16,7 +16,7 @@ from scripts.detection_dataset import prepare_dataset
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--output', type=Path, default=ROOT / 'Obj-Dect-OCR/reports/detection.json')
+    parser.add_argument('--output', type=Path, default=ROOT / 'Object-Detection-v4/reports/detection.json')
     parser.add_argument('--device', default='cpu')
     args = parser.parse_args()
     import torch

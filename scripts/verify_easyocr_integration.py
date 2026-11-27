@@ -27,7 +27,7 @@ CASES = {
     "multiple_displays": DATASET / "4ec3e58a-bus_17_jpg.rf.0cda1156155e556073d323b501e069b5.jpg",
     "single_display": DATASET / "IMAGE_2026-10-23_22_04_04_jpg.rf.0cb9ed676b55ae03ba0719f27edc5177.jpg",
 }
-OUTPUT = ROOT / "Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/deployment/easyocr_integration_verification.json"
+OUTPUT = ROOT / "Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01/deployment/easyocr_integration_verification.json"
 
 
 class NoReferenceMatcher:

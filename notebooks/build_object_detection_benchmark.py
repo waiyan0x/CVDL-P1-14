@@ -1,9 +1,7 @@
 """Build the self-contained EDS detector research notebook."""
 import os
 from pathlib import Path
-from contextlib import redirect_stdout
 import json
-from io import StringIO
 
 def md(source):
     return {'cell_type': 'markdown', 'metadata': {}, 'source': source.strip()}
@@ -18,9 +16,9 @@ cells = [
     md(r"""
 # EDS object detection: YOLO11n, YOLO11s, and DETR
 
-**Status (6 November 2026): the manifest-backed Roboflow v4 reviewed export has completed three training and validation runs and one selected-model final test.** See the recorded results below and the [archived report](../Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md). The earlier baseline remains a separate experiment.
+**Status (6 November 2026): the manifest-backed Roboflow v4 reviewed export has completed three training and validation runs and one selected-model final test.** See the recorded results below and the [archived report](../Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md). The earlier baseline remains a separate experiment.
 
-**V9 baseline (26 November 2026): YOLO11n and YOLO11s training logs were supplied; DETR has no measured v9 result.** The raw `data/training/Front EDS.v9i.coco` export remains untouched. The separate `data/training/2026-11-25-roboflow-v9-stem-isolated` copy uses a conservative filename-stem rule, excludes 427 overlapping/repeated images including three visually confirmed train/test scene variants, and has a verified checksum manifest plus `split_isolation_audit.json`. Its 6,858/294/299 train/valid/test images still need human source and annotation review. Human source and annotation review remains open. The v9 YOLO figures below are measured; the earlier three-model benchmark uses a different dataset.
+**Fresh v9 run:** the prepared `data/training/2026-11-25-roboflow-v9-stem-isolated` export has 6,858/294/299 train/valid/test images and a verified checksum manifest. The earlier v9 training progress is not part of this notebook. All v9 model results start pending. The v4 results below are historical and use different data. Human source and annotation review remains open.
 
 This notebook implements the object detection allocation: dataset/label audit, pretrained model selection, fine-tuning, validation, per-class mAP, speed/failure comparison, threshold selection, and a final held-out test. It retains train/valid/test separation and records settings and hashes. Run from the repo's `notebooks/` folder or repo root.
 
@@ -28,37 +26,41 @@ Sources: [task allocation PDF](file:///C:/Users/brend/Downloads/CVDL_Task_Alloca
 
 ## Environment and run controls
 
-Use a dedicated Python environment. Install a PyTorch build appropriate to this machine, then `ultralytics==8.3.158 transformers>=4.52,<5 timm torchmetrics pycocotools pyyaml pillow nbformat ipykernel`. Keep it separate from the pinned data-preparation environment, which uses Transformers 5.x. Pretrained weights may download when training is enabled. The first run is a safe preflight. Train each model separately with `scripts/train_object_detection.py`.
+Use the local `venv/detector` CUDA kernel in VS Code. Install a PyTorch build appropriate to this machine, then `ultralytics==8.3.158 transformers>=4.52,<5 timm torchmetrics pycocotools pyyaml pillow nbformat ipykernel`. Keep it separate from the pinned data-preparation environment. Put published `yolo11n.pt` and `yolo11s.pt` in `.runtime/object_detection_benchmark/pretrained/`; DETR downloads its published weights on first use. The first run is a preflight with all run switches disabled. Train each model separately with `scripts/train_object_detection.py`.
 """),
-    code(Path(__file__).with_name('colab_v9_setup_cell.py').read_text(encoding='utf-8')),
     code(r"""
 from pathlib import Path
 import hashlib, importlib.util, json, os, platform, sys, time
 import re
 from collections import Counter
 
-ROOT = Path(os.environ.get('EDS_REPO_ROOT', Path.cwd())).resolve()
+ROOT = Path.cwd().resolve()
 if not (ROOT / 'src').is_dir():
     ROOT = next((p for p in Path.cwd().resolve().parents if (p / 'src').is_dir()), ROOT)
 if not (ROOT / 'src').is_dir():
-    raise RuntimeError(f'Repo not found from {Path.cwd()}. In Colab, run the Colab setup cell first.')
+    raise RuntimeError(f'Repo not found from {Path.cwd()}. Open the notebook from the repo root or notebooks/ folder.')
 sys.path.insert(0, str(ROOT / 'src'))
 sys.path.insert(0, str(ROOT / 'scripts'))
 from object_detection_artifacts import archive_benchmark
 
-DATASET_ROOT = Path(os.environ.get('EDS_DATASET_ROOT', ROOT / 'data/training/2026-11-25-roboflow-v9-stem-isolated')).resolve()
-OUTPUT_ROOT = Path(os.environ.get('EDS_OUTPUT_ROOT', ROOT / '.runtime/object_detection_benchmark')).resolve()
+DATASET_ROOT = (ROOT / 'data/training/2026-11-25-roboflow-v9-stem-isolated').resolve()
+OUTPUT_ROOT = (ROOT / 'Object-Detection-v9/object_detection').resolve()
+os.environ['EDS_OUTPUT_ROOT'] = str(OUTPUT_ROOT)
+os.environ['EDS_ARCHIVE_ROOT'] = str(OUTPUT_ROOT)
+os.environ['EDS_YOLO_VIEW_ROOT'] = str(ROOT / '.runtime/object_detection_benchmark')
+os.environ['EDS_PRETRAINED_ROOT'] = str(ROOT / '.runtime/object_detection_benchmark/pretrained')
+os.environ['EDS_YOLO_BACKUP_ROOT'] = str(ROOT / 'YOLO_Weights' / 'v9')
 os.environ.setdefault('YOLO_CONFIG_DIR', str(ROOT / '.runtime/object_detection_benchmark/ultralytics'))
 os.environ.setdefault('USE_TF', '0')  # Keep this detector kernel on the PyTorch backend.
-os.environ.setdefault('HF_HOME', str(OUTPUT_ROOT / 'huggingface'))
+os.environ.setdefault('HF_HOME', str(ROOT / '.runtime/object_detection_benchmark/huggingface'))
 RUN_PREPARE_YOLO = False  # Optional dataset conversion; training CLI prepares it too.
 RUN_TRAINING = False     # Enable manually after reviewing the v9 split audit and verified manifest.
 TRAIN_MODEL = 'yolo11n'   # Choose: 'yolo11n', 'yolo11s', or 'detr-resnet-50'.
 RUN_BENCHMARK = False     # Enable for completed v9 models selected below.
 RUN_FINAL_TEST = False    # Keep held-out v9 test closed until validation-based selection.
-RUN_ID = 'v9-2026-11-25-01'  # New comparison set; keep this ID for all three models.
-BENCHMARK_MODELS = ('yolo11n', 'yolo11s')  # Add DETR only after its v9 run completes.
-YOLO_EPOCHS, DETR_EPOCHS, IMAGE_SIZE, BATCH_SIZE, SEED = 60, 60, 640, 32, 42
+RUN_ID = 'v9-local-01'  # New local comparison set; keep this ID for all three models.
+BENCHMARK_MODELS = ('yolo11n', 'yolo11s', 'detr-resnet-50')
+YOLO_EPOCHS, DETR_EPOCHS, IMAGE_SIZE, BATCH_SIZE, SEED = 60, 60, 640, 4, 42
 OPERATING_CONF, YOLO_NMS_IOU = 0.30, 0.70  # Starting diagnostic threshold; select v9 settings on validation.
 DEVICE = 'cuda' if importlib.util.find_spec('torch') and __import__('torch').cuda.is_available() else 'cpu'
 CLASS_NAMES = ('front_eds', 'front_eds_num', 'front_eds_route', 'front_eds_destination')
@@ -73,6 +75,7 @@ if RUN_TRAINING and (RUN_BENCHMARK or RUN_FINAL_TEST):
 if RUN_TRAINING and DEVICE != 'cuda':
     raise RuntimeError('Select a CUDA GPU kernel before starting training.')
 print({'repo': str(ROOT), 'dataset': str(DATASET_ROOT), 'device': DEVICE,
+       'output': str(OUTPUT_ROOT),
        'run_id': RUN_ID, 'train_model': TRAIN_MODEL, 'training': RUN_TRAINING,
        'prepare_yolo': RUN_PREPARE_YOLO, 'benchmark': RUN_BENCHMARK, 'final_test': RUN_FINAL_TEST})
 """),
@@ -83,9 +86,9 @@ The four foreground classes are **whole front/side panel**, **service number**, 
 
 An image with zero **reviewed** bounding boxes is a negative example and remains in every relevant split with an empty target. An image merely missing annotations must be reviewed before being declared negative. Rear signs and unrelated bus-stop text are negatives under the current scope.
 
-**Integration gap to resolve:** the current reader adapter filters model class IDs `[1, 2, 3]`, and its association service recognises labels `eds`, `bus_number`, and `destination`. A new four-class checkpoint trained with the indices below would emit `front_eds` at index 0 and `front_eds_route` at index 2. Update the adapter's ID/name mapping and the association/output contract before deploying it; otherwise the whole-panel class can be dropped and route boxes can be ignored. Keep the training taxonomy stable rather than renaming labels inside the training data to match legacy app labels.
+**Application contract:** the deployed v4 adapter maps the four training labels to stable API labels. Verify a new v9 checkpoint's class order and hash before changing the deployed model. Keep the training taxonomy stable rather than renaming labels inside the training data.
 
-The uploaded `2026-10-24` Roboflow export has 420/39/20 images but no manifest. The separately built `2026-10-30-torchvision` export contains 411/39/20 images with a manifest; this notebook uses the latter by default. These are distinct dataset versions and their results must not be mixed. Do not overwrite the Roboflow folder or claim it was produced by the torchvision recipe.
+This notebook uses only the manifest-backed v9 stem-isolated export selected in the first code cell. The old v4 and earlier baseline figures later in this notebook are historical context; they are not v9 measurements.
 """),
     code(r"""
 def sha256(path):
@@ -133,7 +136,7 @@ print(json.dumps({'data_ready': DATA_READY, 'reason_if_not_ready': data_error,
 The branch includes one prior YOLO11n field-detector report. Its 13-image deduplicated subset evaluated only service-number and destination classes from a different bundled YOLO dataset, on a Mac CPU. It is not the four-class EDS benchmark below. The next cell reads the recorded values and limitations directly, rather than transcribing them as new measurements.
 """),
     code(r"""
-historical_path = ROOT / 'Obj-Dect-OCR/reports/detection.json'
+historical_path = ROOT / 'Object-Detection-v4/reports/detection.json'
 if historical_path.is_file():
     historical = json.loads(historical_path.read_text(encoding='utf-8'))
     print(json.dumps({'run_id': historical['run_id'], 'images': historical['dataset']['image_count'],
@@ -144,7 +147,7 @@ else:
     print('No historical detector report in this checkout.')
 """),
     md(r"""
-**Audit finding:** automated checks pass for the labelled source and the new export's manifest, images, boxes and class IDs. Inspect per-class box counts and negative counts in the output above. Do not treat `-1` AP (no ground truth for a class) as zero. Capture/recording grouping and semantic review of small, distant signs still require human evidence. The 420-image Roboflow snapshot is not certified by this notebook.
+**Audit gate:** inspect the printed inventory and confirm `data_ready: true` before training. Do not treat `-1` AP (no ground truth for a class) as zero. Capture/recording grouping and semantic review of small, distant signs still require human evidence.
 
 ## 2. Convert only the verified export for YOLO; keep original COCO for DETR
 
@@ -199,7 +202,7 @@ else:
     md(r"""
 ## Manual model training
 
-Select one candidate in the first code cell with `TRAIN_MODEL` and set `RUN_TRAINING=True`. Keep `RUN_BENCHMARK=False` and `RUN_FINAL_TEST=False` during training, then click **Run All**. Use the same `RUN_ID` for YOLO11n, YOLO11s and DETR when they belong to one comparison, such as `baseline-01`; each model still gets its own folder. Change the ID only when starting another experiment set. Training starts from the published pretrained weights and refuses to overwrite the same model under an existing run ID. It does not resume an earlier EDS checkpoint.
+Select one candidate in the first code cell with `TRAIN_MODEL` and set `RUN_TRAINING=True`. Keep `RUN_BENCHMARK=False` and `RUN_FINAL_TEST=False` during training, then click **Run All**. Use the same `RUN_ID` for YOLO11n, YOLO11s and DETR when they belong to one comparison, starting with `v9-local-01`; each model still gets its own folder. Change the ID only when starting another experiment set. Training starts from published pretrained weights and refuses to overwrite the same model under an existing run ID. It does not resume an earlier EDS checkpoint.
 
 After training finishes, set `RUN_TRAINING=False`, keep the same `RUN_ID`, select the model in `BENCHMARK_MODELS`, and enable `RUN_BENCHMARK` in a separate Run All execution.
 """),
@@ -218,63 +221,9 @@ else:
     print('Training paused. Set RUN_TRAINING=True when the model and run ID are ready.')
 """),
     md(r"""
-### V9 baseline and YOLO11s tuning
-
-Measured from the supplied v9 `results.csv` files (best validation epoch):
-
-| Model | Best epoch | Validation mAP50 | Validation mAP50:95 |
-| --- | ---: | ---: | ---: |
-| YOLO11n | 8 | 0.92966 | 0.67547 |
-| YOLO11s | 9 | 0.93337 | **0.69106** |
-
-The YOLO11s log records a resumed run. DETR has no measured v9 result, so this is a two-model v9 comparison. No tuning or v9 final-test scores are claimed here.
-
-Two unrun YOLO11s variants test specific hypotheses: `gentle_aug` adds small shifts, zoom and brightness variation to address overfitting; `localization` uses 800-pixel input and a slightly higher box-loss gain to test tighter text boxes. Both start from published pretrained weights, use the same reviewed v9 split and seed, and save to new folders. Compare best validation mAP50:95, per-class AP and negative-image false positives before opening test.
-
-Run the code cell below **once per variant** after the data audit and YOLO conversion cell. Set `RUN_TUNING=True` and change `TUNING_VARIANT`. Keep the baseline training, benchmark and final-test switches off. Existing checkpoints are not overwritten.
-"""),
-    code(r"""
-RUN_TUNING = False  # Set True only after reviewing the v9 data audit.
-TUNING_VARIANT = "gentle_aug"  # Then run again with "localization".
-
-if RUN_TUNING:
-    if not DATA_READY:
-        raise RuntimeError("The dataset audit must pass before tuning.")
-    if RUN_TRAINING or RUN_BENCHMARK or RUN_FINAL_TEST:
-        raise RuntimeError("Run tuning separately from baseline training and evaluation.")
-    from ultralytics import YOLO
-
-    variants = {
-        "gentle_aug": {"imgsz": 640, "batch": 32,
-                       "translate": 0.02, "scale": 0.10, "hsv_v": 0.08},
-        "localization": {"imgsz": 800, "batch": 16, "box": 8.5},
-    }
-    if TUNING_VARIANT not in variants:
-        raise ValueError(f"Unknown tuning variant: {TUNING_VARIANT}")
-
-    project = OUTPUT_ROOT / DATA_FINGERPRINT[:12] / "runs" / "v9-tuning-01"
-    name = f"yolo11s-{TUNING_VARIANT}"
-    if (project / name).exists():
-        raise FileExistsError(f"Existing run will not be overwritten: {project / name}")
-    settings = {
-        "data": str(make_yolo_view()), "epochs": 60, "patience": 15,
-        "seed": 42, "deterministic": True, "device": 0, "workers": 0,
-        "mosaic": 0.0, "mixup": 0.0, "copy_paste": 0.0,
-        "degrees": 0.0, "translate": 0.0, "scale": 0.0, "fliplr": 0.0,
-        "hsv_h": 0.0, "hsv_s": 0.0, "hsv_v": 0.0,
-    }
-    settings.update(variants[TUNING_VARIANT])
-    YOLO("yolo11s.pt").train(
-        **settings, project=str(project), name=name, exist_ok=False,
-    )
-    print("Tuning output:", project / name)
-else:
-    print("YOLO11s tuning paused. Set RUN_TUNING=True to run one variant.")
-"""),
-    md(r"""
 ## 4. Common evaluation: all four classes, all splits, and negatives
 
-Measure box mAP@0.50 and mAP@0.50:0.95 per class using the same COCO targets and TorchMetrics implementation for each selected candidate. Include zero-box images: predictions on them are false positives. Also report false positives per negative image at score ≥ 0.30, median/p95 end-to-end detector inference milliseconds per image, and sample count. Train metrics describe fit and are optimistic; validation is for selection; test is held out. `RUN_BENCHMARK=True` evaluates train+valid for `BENCHMARK_MODELS`, even if only one checkpoint exists. Each selection writes a separate JSON report. `RUN_FINAL_TEST=True` evaluates test after validation-based model and thresholds are frozen. The small historical YOLO report in `Obj-Dect-OCR/reports/detection.json` is separate: it covers two field classes on 13 images from another dataset and cannot fill this table.
+Measure box mAP@0.50 and mAP@0.50:0.95 per class using the same COCO targets and TorchMetrics implementation for each selected candidate. Include zero-box images: predictions on them are false positives. Also report false positives per negative image at score ≥ 0.30, median/p95 end-to-end detector inference milliseconds per image, and sample count. Train metrics describe fit and are optimistic; validation is for selection; test is held out. `RUN_BENCHMARK=True` evaluates train+valid for `BENCHMARK_MODELS`, even if only one checkpoint exists. Each selection writes a separate JSON report. `RUN_FINAL_TEST=True` evaluates test after validation-based model and thresholds are frozen. The small historical YOLO report in `Object-Detection-v4/reports/detection.json` is separate: it covers two field classes on 13 images from another dataset and cannot fill this table.
 """),
     code(r"""
 MODEL_PATHS, TRAINING_HISTORY = {}, {}
@@ -448,9 +397,9 @@ The reviewed v4 export has 735 train, 53 validation and 53 test images. All thre
 | **YOLO11s** | **0.6131 / 0.3510** | **0.6314 / 0.3270** |
 | DETR-ResNet50 | 0.4377 / 0.1746 | Not tested |
 
-YOLO11s test AP50 / AP50:95 by class: panel `0.7467 / 0.3158`, number `0.7934 / 0.5246`, route `0.4116 / 0.2027`, destination `0.5739 / 0.2651`. At the validation-selected confidence `0.50`, one false positive occurred across 12 zero-box test images; median / p95 inference was `26.46 / 36.57 ms`. Full training settings, per-class validation AP, hashes and evidence paths are in the [v4 results report](../Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md). The older result below uses a different dataset and is historical.
+YOLO11s test AP50 / AP50:95 by class: panel `0.7467 / 0.3158`, number `0.7934 / 0.5246`, route `0.4116 / 0.2027`, destination `0.5739 / 0.2651`. At the validation-selected confidence `0.50`, one false positive occurred across 12 zero-box test images; median / p95 inference was `26.46 / 36.57 ms`. Full training settings, per-class validation AP, hashes and evidence paths are in the [v4 results report](../Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md). The older result below uses a different dataset and is historical.
 
-**Validation-only follow-up:** NMS IoU `0.50` scored mAP50:95 `0.3532` versus `0.3510` at the recorded `0.70` setting. The final test belongs to `0.70`; the later [NMS and crop review](../Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md) is exploratory. The [v4 configuration](../Obj-Dect-OCR/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json) preserves the tested settings. Jy/Brendan human annotation review is on hold.
+**Validation-only follow-up:** NMS IoU `0.50` scored mAP50:95 `0.3532` versus `0.3510` at the recorded `0.70` setting. The final test belongs to `0.70`; the later [NMS and crop review](../Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md) is exploratory. The [v4 configuration](../Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/detector_config.json) preserves the tested settings. Jy/Brendan human annotation review is on hold.
 
 ### Recorded `baseline-01` benchmark results
 
@@ -476,11 +425,11 @@ Each per-class entry is `mAP50 / mAP50:95`. YOLO11s remains the selected model b
 
 **Quantitative interpretation:** YOLO11s provides the strongest validation result and lowest median test latency. Number detection is its strongest localized class. DETR is slower, has substantially lower AP, and produced false positives on reviewed negatives. The 20-image test split is small, including only two reviewed negatives.
 
-**Validation qualitative review:** the ten highest-priority YOLO11s cases were inspected at the validation-selected confidence `0.20`. The ranked cases contained 61 GT boxes: 52 occupied less than 1% of the image and 36 less than 0.25%. Diagnostic class-correct matching counted 109 TP, 47 FP and 45 FN across all 39 validation images, with 17 destination-to-route and 10 route-to-destination confusion candidates. Blur, glare, oblique perspective, crowding and partial occlusion also made several crops unsuitable for OCR. None of four reviewed validation negatives produced a prediction. These counts are diagnostics, not COCO mAP. The review package is under `Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/yolo11s/qualitative_validation/`.
+**Validation qualitative review:** the ten highest-priority YOLO11s cases were inspected at the validation-selected confidence `0.20`. The ranked cases contained 61 GT boxes: 52 occupied less than 1% of the image and 36 less than 0.25%. Diagnostic class-correct matching counted 109 TP, 47 FP and 45 FN across all 39 validation images, with 17 destination-to-route and 10 route-to-destination confusion candidates. Blur, glare, oblique perspective, crowding and partial occlusion also made several crops unsuitable for OCR. None of four reviewed validation negatives produced a prediction. These counts are diagnostics, not COCO mAP. The review package is under `Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01/yolo11s/qualitative_validation/`.
 
-**Task 3 annotation/split audit:** a human-review packet now covers the 137 original training, 39 validation and 20 test images. Structural heuristics flag 15 images containing 17 panels without associated content boxes, and the packet inventories all 22 original zero-box images. Twelve timestamp-derived filename groups cross splits, including same-minute screenshot/image sequences. This is a recording-level isolation warning, not proof of leakage; source/capture records are required to decide it. No labels or splits were changed, and the checklist remains open pending Brendan/Jy decisions. Evidence is under `Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/data_review/`.
+**Task 3 annotation/split audit:** a human-review packet now covers the 137 original training, 39 validation and 20 test images. Structural heuristics flag 15 images containing 17 panels without associated content boxes, and the packet inventories all 22 original zero-box images. Twelve timestamp-derived filename groups cross splits, including same-minute screenshot/image sequences. This is a recording-level isolation warning, not proof of leakage; source/capture records are required to decide it. No labels or splits were changed, and the checklist remains open pending Brendan/Jy decisions. Evidence is under `Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01/data_review/`.
 
-**Application handoff status:** the selected YOLO11s checkpoint was installed and SHA-256 verified locally. The app now requests all four model classes and explicitly maps them to stable API labels: `front_eds→eds`, `front_eds_num→bus_number`, `front_eds_route→route`, and `front_eds_destination→destination`. Real CUDA verification detected two displays and all four field types in a multi-bus image (five-run detector median `35.249 ms`). A four-frame uploaded-video fixture verified decode, timestamps, association and detector flow (`73.706 ms` median / `145.758 ms` p95 total); a labelled still exercised the simulated camera response path. Production OCR/reference matching and a physical-camera field run remain open because local OCR assets, Tesseract, the route CSV and camera evidence are unavailable. Evidence is under `Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/deployment/`.
+**Application handoff status:** the selected YOLO11s checkpoint was installed and SHA-256 verified locally. The app now requests all four model classes and explicitly maps them to stable API labels: `front_eds→eds`, `front_eds_num→bus_number`, `front_eds_route→route`, and `front_eds_destination→destination`. Real CUDA verification detected two displays and all four field types in a multi-bus image (five-run detector median `35.249 ms`). A four-frame uploaded-video fixture verified decode, timestamps, association and detector flow (`73.706 ms` median / `145.758 ms` p95 total); a labelled still exercised the simulated camera response path. Production OCR/reference matching and a physical-camera field run remain open because local OCR assets, Tesseract, the route CSV and camera evidence are unavailable. Evidence is under `Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01/deployment/`.
 
 **EasyOCR integration status:** English EasyOCR assets were installed locally and the real CPU adapter processed YOLO11s number/route/destination crops. Across six diagnostic runs, OCR latency was `184.363 ms` median / `382.270 ms` p95 and total processing was `231.409 ms` median / `558.472 ms` p95. Raw readings on the small/distant cases were often wrong or below the `0.25` acceptance threshold, consistent with the qualitative crop review. No accuracy is claimed without reviewed transcriptions. Missing route-reference data now degrades to an unmatched raw-OCR result rather than disabling the app. Tesseract, fine-tuned TrOCR and a physical-camera moving-bus field run remain open.
 """),
@@ -532,8 +481,8 @@ Primary references: [Ultralytics detection loss source](https://docs.ultralytics
 - [x] Quantitatively benchmark train/validation/test mAP, all four classes, reviewed negatives and inference speed on the target CUDA laptop.
 - [x] Select YOLO11s using validation mAP50:95 and record the validation threshold sweep, held-out test and execution deviation.
 - [x] Document YOLO11 CIoU, BCE classification and DFL losses and their proposed project use.
-- [ ] Review all four class definitions and negative examples with Jy; inspect route/destination ambiguity and missing boxes. Confirm source/recording groups do not cross splits. A prepared joint-review packet flags 15 semantic candidates, inventories 22 original negatives and identifies 12 timestamp-derived cross-split groups under `Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/data_review/`.
-- [x] Inspect ten weak/missed validation detections and available false positives across small, distant, blurred, angled and occluded cases; assess route/destination confusion and OCR crop quality. Evidence is saved under `Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/yolo11s/qualitative_validation/`.
+- [ ] Review all four class definitions and negative examples with Jy; inspect route/destination ambiguity and missing boxes. Confirm source/recording groups do not cross splits. A prepared joint-review packet flags 15 semantic candidates, inventories 22 original negatives and identifies 12 timestamp-derived cross-split groups under `Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01/data_review/`.
+- [x] Inspect ten weak/missed validation detections and available false positives across small, distant, blurred, angled and occluded cases; assess route/destination confusion and OCR crop quality. Evidence is saved under `Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01/yolo11s/qualitative_validation/`.
 - [ ] Deliver selected detector checkpoint/configuration and label/box contract to the app/OCR team; verify multiple displays and camera/uploaded-video latency in the integrated system. Checkpoint/config delivery, four-class app integration, real multi-display detection, uploaded-video decoding, a simulated-camera path and real EasyOCR crop processing are complete. Tesseract, fine-tuned TrOCR, reviewed OCR accuracy and a physical-camera moving-bus field run remain pending.
 
 The historical 13-image field-detector report and sample gallery are useful references, but they do not replace this four-class, held-out evaluation.
@@ -546,22 +495,6 @@ notebook = {'nbformat': 4, 'nbformat_minor': 5, 'cells': cells, 'metadata': {
 }}
 for index, cell in enumerate(notebook['cells'], 1):
     cell['id'] = f'eds-detector-{index:02d}'
-# Save observed preflight output; default controls cannot train or publish benchmark figures.
-state = {'__name__': '__main__'}
-execution_count = 0
-for cell in notebook['cells']:
-    if cell['cell_type'] != 'code':
-        continue
-    if 'Run this notebook cell first in a fresh Google Colab GPU runtime.' in cell['source']:
-        continue
-    execution_count += 1
-    output = StringIO()
-    with redirect_stdout(output):
-        exec(compile(cell['source'], cell['id'], 'exec'), state)
-    cell['execution_count'] = execution_count
-    if output.getvalue():
-        cell['outputs'] = [{'output_type': 'stream', 'name': 'stdout',
-                            'text': output.getvalue()}]
 destination = Path(__file__).with_name('object_detection_benchmark.ipynb')
 destination.write_text(json.dumps(notebook, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
 print(destination)

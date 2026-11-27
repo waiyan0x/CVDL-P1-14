@@ -50,4 +50,4 @@ In another terminal, once the image-level truth is reviewed:
 venv\detector\Scripts\python.exe scripts\evaluate.py --manifest C:\path\to\reviewed-v4-ocr-validation.json --detection 0.50
 ```
 
-Reports go to `Obj-Dect-OCR/reports/` by default. Save each new experiment under a new run name; preserve historical detector results and do not overwrite the supplied dataset.
+Reports go to `Object-Detection-v4/reports/` by default. Save each new experiment under a new run name; preserve historical detector results and do not overwrite the supplied dataset.

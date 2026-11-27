@@ -23,7 +23,7 @@ and real moving-bus evaluation remain open.
 ## Earlier application detector measurement
 
 The earlier application detector benchmark is recorded under
-`Obj-Dect-OCR/object_detection/bf938f526d2c/runs/baseline-01/`. YOLO11s was selected
+`Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01/`. YOLO11s was selected
 using validation mAP50:95 (`0.4274`) with 640-pixel input, confidence `0.20` and NMS
 IoU `0.70`. It detects panel, number, route and destination classes. See
 `docs/OBJECT_DETECTION_DEPLOYMENT.md` for installation and the application contract,
@@ -37,7 +37,7 @@ Reproduce the committed report:
 .venv/bin/python scripts/evaluate_detector.py
 ```
 
-`Obj-Dect-OCR/reports/detection.json` records the exact checkpoint SHA256,
+`Object-Detection-v4/reports/detection.json` records the exact checkpoint SHA256,
 image/annotation hashes, exclusions, library versions, CPU details and settings.
 The run uses 13 labelled images from the bundled test split after removing exact
 training overlaps, repeated test content and the unlabelled annotated example.
@@ -80,7 +80,7 @@ case/whitespace-normalized accuracy, character error rate and median/p95 latency
 Engine confidence values do not determine accuracy rankings. Reports retain
 successes/failures, settings, hardware, errors, hashes and limitations.
 
-Reports are loaded from `Obj-Dect-OCR/reports/`. The interface shows whether their
+Reports are loaded from `Object-Detection-v4/reports/`. The interface shows whether their
 evidence still matches the available artifacts; a reviewed manifest is a human
 attestation and does not itself prove independent annotation quality.
 
