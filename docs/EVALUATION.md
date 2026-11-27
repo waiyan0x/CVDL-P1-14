@@ -1,14 +1,5 @@
 # Evaluation evidence
 
-## V9 detector evaluation in progress
-
-The corrected v9 dataset and Colab workflow are documented in
-[the v9 object detection status](OBJECT_DETECTION_V9_STATUS.md). Two YOLO
-training CSVs have been viewed, but their checkpoints and common benchmark
-reports are not yet archived in this repository. There is no measured v9
-DETR mAP or final held-out test result here. The v4 figures below remain the
-latest committed four-class detector benchmark and selected-model test.
-
 ## Reviewed crop scoring
 
 The saved-prediction scorer and three-model table generator are documented in

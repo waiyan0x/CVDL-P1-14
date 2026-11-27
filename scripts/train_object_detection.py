@@ -2,7 +2,6 @@
 
 import argparse
 import hashlib
-import os
 import re
 import shutil
 import statistics
@@ -50,8 +49,7 @@ def yolo_view(splits, fingerprint, output_root):
     import yaml
     from PIL import Image
 
-    view_root = Path(os.environ.get("EDS_YOLO_VIEW_ROOT", output_root)).resolve()
-    view = view_root / fingerprint[:12] / "yolo"
+    view = output_root / fingerprint[:12] / "yolo"
     config = view / "data.yaml"
     if config.is_file():
         return config
@@ -96,8 +94,7 @@ def train_yolo(args, splits, fingerprint, output_root, run_dir, device):
     from ultralytics import YOLO
 
     data_yaml = yolo_view(splits, fingerprint, output_root)
-    pretrained_root = Path(os.environ.get("EDS_PRETRAINED_ROOT", output_root / "pretrained")).resolve()
-    pretrained = pretrained_root / f"{args.model}.pt"
+    pretrained = output_root / "pretrained" / f"{args.model}.pt"
     model = YOLO(str(pretrained))
     model.train(
         data=str(data_yaml), epochs=args.epochs, imgsz=args.image_size,
@@ -198,7 +195,7 @@ def main():
         parser.error("epochs, batch size and image size must be positive")
     dataset = args.dataset.resolve()
     splits, fingerprint = verified_dataset(dataset)
-    output_root = Path(os.environ.get("EDS_OUTPUT_ROOT", ROOT / ".runtime/object_detection_benchmark")).resolve()
+    output_root = ROOT / ".runtime/object_detection_benchmark"
     run_dir = output_root / fingerprint[:12] / "runs" / args.run_id / args.model
     if run_dir.exists():
         raise FileExistsError(f"Run already exists: {run_dir}. Choose a new --run-id.")

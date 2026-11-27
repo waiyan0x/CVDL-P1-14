@@ -1,15 +1,6 @@
 # Object detection handoff
 
-## Current v9 continuation
-
-The [v9 status and evaluation steps](OBJECT_DETECTION_V9_STATUS.md) describe
-the corrected 6,858/294/299 COCO splits, Colab training evidence, the
-two-YOLO validation benchmark, and the single-model final-test procedure.
-The v9 dataset ZIP is in Git LFS; Colab checkpoints and benchmark reports
-remain on Google Drive until copied and verified. No v9 result has replaced
-the reviewed-v4 application default.
-
-The latest committed final detector result is the [reviewed Roboflow v4 run](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md),
+The latest result is the [reviewed Roboflow v4 run](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md),
 with three trained models, three validation reports and one final YOLO11s test.
 The new YOLO11s checkpoint and dataset payload are local Git-ignored artifacts.
 The [v4 validation crop handoff](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/OCR_HANDOFF.md)

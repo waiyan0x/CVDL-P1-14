@@ -2,11 +2,6 @@
 
 ## Current handoff
 
-**Retraining in progress (25 Nov 2026):** YOLO is being retrained on Roboflow Front EDS v9
-(2,424 / 303 / 303 originals; 7,272 training images after 3× augmentation; settings in
-[the training datasets README](../../data/training/README.md)). That run will get its own
-dataset fingerprint and run ID here. Until then, `v4-reviewed-01` below is the run in use.
-
 The latest completed experiment is
 [`01760a841333/runs/v4-reviewed-01/`](01760a841333/runs/v4-reviewed-01/RESULTS.md):
 YOLO11n, YOLO11s and DETR were trained and compared on the corrected Roboflow v4
