@@ -45,15 +45,61 @@
   "run_id": "v9-local-01",
   "models": {
     "yolo11n": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11n\\weights\\best.pt",
+    "yolo11n-gentle_aug": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11n-gentle_aug\\weights\\best.pt",
+    "yolo11n-localization": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11n-localization\\weights\\best.pt",
     "yolo11s": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11s\\weights\\best.pt",
+    "yolo11s-gentle_aug": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11s-gentle_aug\\weights\\best.pt",
+    "yolo11s-localization": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11s-localization\\weights\\best.pt",
     "detr-resnet-50": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\detr-resnet-50"
+  },
+  "model_run_ids": {
+    "yolo11n": "v9-local-01",
+    "yolo11n-gentle_aug": "v9-tuning-01",
+    "yolo11n-localization": "v9-tuning-01",
+    "yolo11s": "v9-local-01",
+    "yolo11s-gentle_aug": "v9-tuning-01",
+    "yolo11s-localization": "v9-tuning-01",
+    "detr-resnet-50": "v9-local-01"
+  },
+  "model_image_sizes": {
+    "yolo11n": 640,
+    "yolo11n-gentle_aug": 640,
+    "yolo11n-localization": 800,
+    "yolo11s": 640,
+    "yolo11s-gentle_aug": 640,
+    "yolo11s-localization": 800,
+    "detr-resnet-50": 640
   },
   "training_history": {
     "yolo11n": {
-      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11n\\results.csv"
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11n\\results.csv",
+      "run_id": "v9-local-01",
+      "image_size": 640
+    },
+    "yolo11n-gentle_aug": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11n-gentle_aug\\results.csv",
+      "run_id": "v9-tuning-01",
+      "image_size": 640
+    },
+    "yolo11n-localization": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11n-localization\\results.csv",
+      "run_id": "v9-tuning-01",
+      "image_size": 800
     },
     "yolo11s": {
-      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11s\\results.csv"
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11s\\results.csv",
+      "run_id": "v9-local-01",
+      "image_size": 640
+    },
+    "yolo11s-gentle_aug": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11s-gentle_aug\\results.csv",
+      "run_id": "v9-tuning-01",
+      "image_size": 640
+    },
+    "yolo11s-localization": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11s-localization\\results.csv",
+      "run_id": "v9-tuning-01",
+      "image_size": 800
     }
   },
   "benchmark": {
@@ -87,8 +133,8 @@
           }
         },
         "false_positives_on_negatives_at_operating_conf": 123,
-        "median_inference_ms": 15.953800000716,
-        "p95_inference_ms": 25.45183502079453
+        "median_inference_ms": 14.850499981548637,
+        "p95_inference_ms": 24.344114976702258
       },
       "valid": {
         "images": 294,
@@ -119,8 +165,8 @@
           }
         },
         "false_positives_on_negatives_at_operating_conf": 9,
-        "median_inference_ms": 15.716349997092038,
-        "p95_inference_ms": 17.67394501948729
+        "median_inference_ms": 14.910199999576434,
+        "p95_inference_ms": 24.36870998935774
       }
     }
   },

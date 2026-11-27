@@ -1,0 +1,15 @@
+{
+  "model": "yolo11s-localization",
+  "run_id": "v9-tuning-01",
+  "dataset_manifest_sha256": "43159c679cbe4ea7d3b791ef106d66ce7795a10307155fbc33863205868198d7",
+  "training_status": "complete",
+  "epochs_recorded": 20,
+  "source_run": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11s-localization",
+  "checkpoint_sha256": {
+    "best.pt": "6ba8f07d73708a5ebb55f58b3a2a6e8682662379989b5f9b896318e1d059e136",
+    "last.pt": "cf8312b09c409a337e3519aa8da51b028de490b72bdc4eea20c4dc01186c1642"
+  },
+  "validation_status": "saved",
+  "test_status": "pending",
+  "archived_at_utc": "2026-11-27T22:24:14.137973+00:00"
+}
