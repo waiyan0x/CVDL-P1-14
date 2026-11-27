@@ -10,7 +10,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-MODEL_NAMES = ("yolo11n", "yolo11s", "detr-resnet-50")
+MODEL_NAMES = (
+    "yolo11n", "yolo11s", "detr-resnet-50",
+    "yolo11n-gentle_aug", "yolo11n-localization",
+    "yolo11s-gentle_aug", "yolo11s-localization",
+)
 
 
 def archive_dir(repo_root, dataset_fingerprint, model_name, run_id=None):
@@ -77,7 +81,7 @@ def _sha256(path):
 def archive_yolo_run(repo_root, dataset_fingerprint, model_name, run_dir, run_id=None):
     """Copy current YOLO evidence, including partial runs, without changing it."""
     base, run_dir = archive_dir(repo_root, dataset_fingerprint, model_name, run_id), Path(run_dir)
-    for filename in ("results.csv", "args.yaml", "results.png"):
+    for filename in ("results.csv", "args.yaml", "results.png", "experiment.json"):
         _copy_if_changed(run_dir / filename, base / "train" / filename)
     checkpoint_hashes = {}
     backup_root = os.environ.get("EDS_YOLO_BACKUP_ROOT")

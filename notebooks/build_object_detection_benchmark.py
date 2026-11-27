@@ -60,8 +60,14 @@ RUN_BENCHMARK = False     # Enable for completed v9 models selected below.
 RUN_FINAL_TEST = False    # Keep held-out v9 test closed until validation-based selection.
 RUN_ID = 'v9-local-01'  # New local comparison set; keep this ID for all three models.
 BENCHMARK_MODELS = ('yolo11n', 'yolo11s', 'detr-resnet-50')
+BENCHMARK_MODEL_RUNS = {}  # Optional per-candidate run IDs, e.g. {'detr-resnet-50': 'v9-local-02'}.
 YOLO_EPOCHS, DETR_EPOCHS, IMAGE_SIZE, BATCH_SIZE, SEED = 60, 60, 640, 32, 42
 YOLO_WORKERS, DETR_MICRO_BATCH_SIZE = 4, 2
+RUN_TUNING = False  # Run one fresh YOLO A/B variant; never enable with baseline training or benchmark.
+TUNING_MODEL = 'yolo11n'  # 'yolo11n' or 'yolo11s'.
+TUNING_VARIANT = 'gentle_aug'  # A: 'gentle_aug'; B: 'localization'.
+TUNING_RUN_ID = 'v9-tuning-01'  # Separate from the baseline RUN_ID.
+TUNING_BATCH_SIZE = BATCH_SIZE  # Match the model's baseline if it fits; B at 800 may need less.
 OPERATING_CONF, YOLO_NMS_IOU = 0.50, 0.70  # V4 operating settings; select any v9 change on validation.
 DEVICE = 'cuda' if importlib.util.find_spec('torch') and __import__('torch').cuda.is_available() else 'cpu'
 CLASS_NAMES = ('front_eds', 'front_eds_num', 'front_eds_route', 'front_eds_destination')
@@ -69,15 +75,26 @@ COCO_TO_INDEX = {1: 0, 3: 1, 4: 2, 2: 3}  # Explicit IDs from the readiness hand
 INDEX_TO_NAME = dict(enumerate(CLASS_NAMES))
 if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]{0,63}', RUN_ID):
     raise ValueError('RUN_ID may contain only letters, digits, underscores and hyphens.')
+if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]{0,63}', TUNING_RUN_ID):
+    raise ValueError('TUNING_RUN_ID may contain only letters, digits, underscores and hyphens.')
 if TRAIN_MODEL not in ('yolo11n', 'yolo11s', 'detr-resnet-50'):
     raise ValueError(f'Unsupported TRAIN_MODEL: {TRAIN_MODEL!r}')
-if RUN_TRAINING and (RUN_BENCHMARK or RUN_FINAL_TEST):
-    raise ValueError('Train and benchmark/test in separate Run All executions.')
-if RUN_TRAINING and DEVICE != 'cuda':
+if TUNING_MODEL not in ('yolo11n', 'yolo11s') or TUNING_VARIANT not in ('gentle_aug', 'localization'):
+    raise ValueError('Select YOLO11n/s and either gentle_aug (A) or localization (B).')
+if TUNING_BATCH_SIZE < 1:
+    raise ValueError('TUNING_BATCH_SIZE must be positive.')
+if (RUN_TRAINING and RUN_TUNING) or ((RUN_TRAINING or RUN_TUNING) and (RUN_BENCHMARK or RUN_FINAL_TEST)):
+    raise ValueError('Run baseline training, A/B training, and benchmark/test in separate Run All executions.')
+if RUN_FINAL_TEST and (not RUN_BENCHMARK or len(BENCHMARK_MODELS) != 1):
+    raise ValueError('Final test requires benchmarking exactly one validation-selected candidate.')
+if (RUN_TRAINING or RUN_TUNING) and DEVICE != 'cuda':
     raise RuntimeError('Select a CUDA GPU kernel before starting training.')
 print({'repo': str(ROOT), 'dataset': str(DATASET_ROOT), 'device': DEVICE,
        'output': str(OUTPUT_ROOT),
        'run_id': RUN_ID, 'train_model': TRAIN_MODEL, 'training': RUN_TRAINING,
+       'tuning': RUN_TUNING, 'tuning_model': TUNING_MODEL if RUN_TUNING else None,
+       'tuning_variant': TUNING_VARIANT if RUN_TUNING else None,
+       'tuning_run_id': TUNING_RUN_ID if RUN_TUNING else None,
        'prepare_yolo': RUN_PREPARE_YOLO, 'benchmark': RUN_BENCHMARK, 'final_test': RUN_FINAL_TEST})
 """),
     md(r"""
@@ -203,7 +220,7 @@ else:
     md(r"""
 ## Manual model training
 
-Select one candidate in the first code cell with `TRAIN_MODEL` and set `RUN_TRAINING=True`. Keep `RUN_BENCHMARK=False` and `RUN_FINAL_TEST=False` during training, then click **Run All**. Use the same `RUN_ID` for YOLO11n, YOLO11s and DETR when they belong to one comparison, starting with `v9-local-01`; each model still gets its own folder. Change the ID only when starting another experiment set. Training starts from published pretrained weights and refuses to overwrite the same model under an existing run ID. It does not resume an earlier EDS checkpoint.
+Select one candidate in the first code cell with `TRAIN_MODEL` and set `RUN_TRAINING=True`. Keep `RUN_TUNING=False`, `RUN_BENCHMARK=False`, and `RUN_FINAL_TEST=False` during baseline training, then click **Run All**. Use the same `RUN_ID` for YOLO11n, YOLO11s and DETR when they belong to one comparison; each model still gets its own folder. Choose a new ID if that model's folder already exists, including a partial run. Training starts from published pretrained weights and refuses to overwrite an existing run. It does not resume an earlier EDS checkpoint.
 
 After training finishes, set `RUN_TRAINING=False`, keep the same `RUN_ID`, select the model in `BENCHMARK_MODELS`, and enable `RUN_BENCHMARK` in a separate Run All execution.
 """),
@@ -224,28 +241,90 @@ else:
     print('Training paused. Set RUN_TRAINING=True when the model and run ID are ready.')
 """),
     md(r"""
+## 3B. Fresh YOLO11n and YOLO11s A/B experiments
+
+The [A/B plan](../docs/OBJECT_DETECTION_YOLO_TUNING_PLAN.md) defines four **proposed** runs: YOLO11n-A, YOLO11n-B, YOLO11s-A, and YOLO11s-B. Each starts from its own published COCO weight, not from a baseline `best.pt`, and updates the full network. No A/B result is recorded until the corresponding run finishes and is evaluated. Complete the local baseline for the selected model first; the cell below checks its `complete.txt`. The verified v9 images, four classes, seed 42, 60-epoch cap, patience 15, deterministic mode, optimizer choice, and disabled mosaic/MixUp/copy-paste/rotation/flips/hue/saturation remain as in the baseline.
+
+| Candidate | `TUNING_MODEL` | `TUNING_VARIANT` | Changes from that model's baseline | Starting weight |
+| --- | --- | --- | --- | --- |
+| YOLO11n-A | `yolo11n` | `gentle_aug` | `translate=0.02`, `scale=0.10`, `hsv_v=0.08`; input 640 | `yolo11n.pt` |
+| YOLO11n-B | `yolo11n` | `localization` | input 800, `box=8.5`; A transforms off | `yolo11n.pt` |
+| YOLO11s-A | `yolo11s` | `gentle_aug` | same gentle changes as n-A | `yolo11s.pt` |
+| YOLO11s-B | `yolo11s` | `localization` | same localization changes as n-B | `yolo11s.pt` |
+
+**A tests gentle scene variation.** Translation, scaling, and brightness variation apply only during training; they change the training boxes as needed. They may help different bus framing and lighting, but v9 already has saved augmented images. Validation AP and crop quality, not training loss alone, decide whether A helps. The transforms do not alter validation or held-out test images.
+
+**B tests a localization package.** Its 800-pixel input retains more detail in small number/route/destination fields, and the box-loss gain rises from 7.5 to 8.5. B does not include A's transforms. Higher resolution costs more GPU memory and inference time. If `TUNING_BATCH_SIZE=32` does not fit the laptop GPU, select a lower value before starting B and record that difference; changing batch also changes optimization, so this is not a one-variable ablation. Evaluate B at its intended 800-pixel inference size.
+
+**Run one variant at a time.** In the first code cell, keep `RUN_TRAINING=False`, `RUN_BENCHMARK=False`, and `RUN_FINAL_TEST=False`; set `RUN_TUNING=True`, select `TUNING_MODEL` and `TUNING_VARIANT`, and Run All. Repeat with the other three selections. Keep `RUN_ID` pointed at the completed local baseline used for comparison; `TUNING_RUN_ID` names the separate A/B experiment set. Each variant has its own `results.csv`, `args.yaml`, `experiment.json`, `weights/best.pt`, `weights/last.pt`, and completion marker under `Object-Detection-v9/object_detection/<fingerprint>/runs/<TUNING_RUN_ID>/<model>-<variant>/`. Weight copies also go to `YOLO_Weights/v9/<fingerprint>/runs/<TUNING_RUN_ID>/<model>-<variant>/`. Existing baseline and partial runs are never overwritten.
+
+**Compare on validation before testing.** Set `RUN_TUNING=False`, `RUN_BENCHMARK=True`, and list completed candidate names in `BENCHMARK_MODELS`, for example `('yolo11n', 'yolo11n-gentle_aug', 'yolo11n-localization')`. The common evaluator reads each candidate's saved input size and loads only folders with a completion marker. Use `BENCHMARK_MODEL_RUNS` when a baseline lives under another run ID. Compare all four classes, negative-image false positives, inference latency, and OCR crop quality. Select one model and operating settings from validation; run `RUN_FINAL_TEST=True` once on that selected candidate only. The common benchmark is separate from the per-epoch Ultralytics validation curves.
+"""),
+    code(r"""
+if DATA_READY and RUN_TUNING:
+    import subprocess
+    import yaml
+    if TUNING_RUN_ID == RUN_ID:
+        raise ValueError('Keep the A/B tuning run ID separate from the baseline run ID.')
+    baseline_dir = OUTPUT_ROOT / DATA_FINGERPRINT[:12] / 'runs' / RUN_ID / TUNING_MODEL
+    if not (baseline_dir / 'complete.txt').is_file():
+        raise FileNotFoundError(f'Complete local baseline required before A/B: {baseline_dir}')
+    baseline_args = yaml.safe_load((baseline_dir / 'args.yaml').read_text(encoding='utf-8'))
+    if int(baseline_args['batch']) != TUNING_BATCH_SIZE:
+        print('Comparison note: variant batch differs from baseline:',
+              {'baseline': baseline_args['batch'], 'variant': TUNING_BATCH_SIZE})
+    tuning_name = f'{TUNING_MODEL}-{TUNING_VARIANT}'
+    tuning_dir = OUTPUT_ROOT / DATA_FINGERPRINT[:12] / 'runs' / TUNING_RUN_ID / tuning_name
+    if tuning_dir.exists():
+        raise FileExistsError(f'Variant run already exists and will not be overwritten: {tuning_dir}')
+    tuning_size = 800 if TUNING_VARIANT == 'localization' else 640
+    command = [sys.executable, str(ROOT / 'scripts/train_object_detection.py'),
+               '--model', TUNING_MODEL, '--variant', TUNING_VARIANT,
+               '--run-id', TUNING_RUN_ID, '--dataset', str(DATASET_ROOT),
+               '--epochs', str(YOLO_EPOCHS), '--batch-size', str(TUNING_BATCH_SIZE),
+               '--workers', str(YOLO_WORKERS), '--image-size', str(tuning_size),
+               '--seed', str(SEED)]
+    print('Starting fresh A/B run:', ' '.join(command))
+    subprocess.run(command, cwd=ROOT, check=True)
+else:
+    print('A/B training paused. Set RUN_TUNING=True only for one selected YOLO variant.')
+"""),
+    md(r"""
 ## 4. Common evaluation: all four classes, all splits, and negatives
 
 Measure box mAP@0.50 and mAP@0.50:0.95 per class using the same COCO targets and TorchMetrics implementation for each selected candidate. Include zero-box images: predictions on them are false positives. Also report false positives per negative image at the v4 operating score ≥ 0.50, median/p95 end-to-end detector inference milliseconds per image, and sample count. Train metrics describe fit and are optimistic; validation is for selection; test is held out. `RUN_BENCHMARK=True` evaluates train+valid for `BENCHMARK_MODELS`, even if only one checkpoint exists. Each selection writes a separate JSON report. `RUN_FINAL_TEST=True` evaluates test after validation-based model and thresholds are frozen. The small historical YOLO report in `Object-Detection-v4/reports/detection.json` is separate: it covers two field classes on 13 images from another dataset and cannot fill this table.
 """),
     code(r"""
-MODEL_PATHS, TRAINING_HISTORY = {}, {}
+MODEL_PATHS, TRAINING_HISTORY, MODEL_RUN_IDS, MODEL_IMAGE_SIZES = {}, {}, {}, {}
 if DATA_READY:
-    saved_runs = OUTPUT_ROOT / DATA_FINGERPRINT[:12] / 'runs' / RUN_ID
-    for candidate in ('yolo11n', 'yolo11s'):
-        run_dir = saved_runs / candidate
+    import yaml
+    yolo_candidates = tuple(
+        f'{base}{suffix}' for base in ('yolo11n', 'yolo11s')
+        for suffix in ('', '-gentle_aug', '-localization'))
+    for candidate in yolo_candidates:
+        default_run_id = TUNING_RUN_ID if '-' in candidate else RUN_ID
+        candidate_run_id = BENCHMARK_MODEL_RUNS.get(candidate, default_run_id)
+        run_dir = OUTPUT_ROOT / DATA_FINGERPRINT[:12] / 'runs' / candidate_run_id / candidate
         checkpoint = run_dir / 'weights/best.pt'
-        if checkpoint.is_file() and (run_dir / 'complete.txt').is_file():
+        args_path = run_dir / 'args.yaml'
+        if checkpoint.is_file() and args_path.is_file() and (run_dir / 'complete.txt').is_file():
+            saved_args = yaml.safe_load(args_path.read_text(encoding='utf-8'))
             MODEL_PATHS[candidate] = str(checkpoint)
-            TRAINING_HISTORY[candidate] = {'history_csv': str(run_dir / 'results.csv')}
-    detr_dir = saved_runs / 'detr-resnet-50'
+            MODEL_RUN_IDS[candidate] = candidate_run_id
+            MODEL_IMAGE_SIZES[candidate] = int(saved_args['imgsz'])
+            TRAINING_HISTORY[candidate] = {'history_csv': str(run_dir / 'results.csv'),
+                                           'run_id': candidate_run_id,
+                                           'image_size': MODEL_IMAGE_SIZES[candidate]}
+    detr_run_id = BENCHMARK_MODEL_RUNS.get('detr-resnet-50', RUN_ID)
+    detr_dir = OUTPUT_ROOT / DATA_FINGERPRINT[:12] / 'runs' / detr_run_id / 'detr-resnet-50'
     if (detr_dir / 'config.json').is_file() and (detr_dir / 'complete.txt').is_file():
         MODEL_PATHS['detr-resnet-50'] = str(detr_dir)
+        MODEL_RUN_IDS['detr-resnet-50'] = detr_run_id
+        MODEL_IMAGE_SIZES['detr-resnet-50'] = IMAGE_SIZE
 print('Completed runs for evaluation:', MODEL_PATHS)
 """),
     code(r"""
 BENCHMARK = {}
-EXPECTED_MODELS = {'yolo11n', 'yolo11s', 'detr-resnet-50'}
 if RUN_BENCHMARK:
     if not BENCHMARK_MODELS or len(set(BENCHMARK_MODELS)) != len(BENCHMARK_MODELS):
         raise ValueError('BENCHMARK_MODELS must list each selected model once.')
@@ -272,7 +351,7 @@ if DATA_READY and RUN_BENCHMARK:
             model = YOLO(location)
             def predict(image):
                 bgr = np.asarray(image)[:, :, ::-1].copy()  # Ultralytics NumPy input expects OpenCV BGR.
-                out = model.predict(bgr, imgsz=IMAGE_SIZE, conf=0.001,
+                out = model.predict(bgr, imgsz=MODEL_IMAGE_SIZES[name], conf=0.001,
                                     iou=YOLO_NMS_IOU, device=DEVICE, verbose=False)[0]
                 b = out.boxes
                 return {'boxes': b.xyxy.cpu().float(), 'scores': b.conf.cpu().float(),
@@ -442,7 +521,9 @@ if DATA_READY and BENCHMARK:
     import importlib.metadata as metadata
     report = {'dataset_root': str(DATASET_ROOT), 'dataset_manifest_sha256': DATA_FINGERPRINT,
               'inventory': inventory, 'class_map': {str(k): v for k, v in COCO_TO_INDEX.items()},
-              'run_id': RUN_ID, 'models': MODEL_PATHS, 'training_history': TRAINING_HISTORY,
+              'run_id': RUN_ID, 'models': MODEL_PATHS,
+              'model_run_ids': MODEL_RUN_IDS, 'model_image_sizes': MODEL_IMAGE_SIZES,
+              'training_history': TRAINING_HISTORY,
               'benchmark': BENCHMARK, 'validation_threshold_sweep': THRESHOLD_SWEEP,
               'settings': {'yolo_epochs': YOLO_EPOCHS,
               'detr_epochs': DETR_EPOCHS, 'image_size': IMAGE_SIZE, 'batch_size': BATCH_SIZE,
@@ -458,9 +539,10 @@ if DATA_READY and BENCHMARK:
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(report, indent=2), encoding='utf-8')
     for name in BENCHMARK_MODELS:
-        archive_benchmark(ROOT, DATA_FINGERPRINT, name, phase, report, RUN_ID)
+        archive_benchmark(ROOT, DATA_FINGERPRINT, name, phase, report, MODEL_RUN_IDS[name])
     from IPython.display import Markdown, display
-    tables = render_split_tables(BENCHMARK, inventory, CLASS_NAMES, RUN_ID)
+    comparison_runs = ', '.join(sorted({MODEL_RUN_IDS[name] for name in BENCHMARK_MODELS}))
+    tables = render_split_tables(BENCHMARK, inventory, CLASS_NAMES, comparison_runs)
     table_path = destination.with_name(destination.stem + '_tables.md')
     table_path.write_text(tables, encoding='utf-8')
     display(Markdown(tables))
@@ -499,6 +581,7 @@ notebook = {'nbformat': 4, 'nbformat_minor': 5, 'cells': cells, 'metadata': {
 }}
 for index, cell in enumerate(notebook['cells'], 1):
     cell['id'] = f'eds-detector-{index:02d}'
-destination = Path(__file__).with_name('object_detection_benchmark.ipynb')
+destination = Path(os.environ.get(
+    'EDS_NOTEBOOK_DESTINATION', Path(__file__).with_name('object_detection_benchmark.ipynb')))
 destination.write_text(json.dumps(notebook, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
 print(destination)

@@ -49,8 +49,9 @@ The `test/` and test summary files are created only when final testing is enable
 Nothing here is a measured result until the corresponding training or evaluation
 step completes.
 
-Keep `v9-local-01` for the three baseline models. Choose a new run ID for any
-later experiment; the training script refuses to replace an existing model run.
+Keep one baseline run ID for models that belong to the same new comparison set.
+Choose a new ID for any model whose folder already exists, including a partial
+run; the training script refuses to replace an existing model run.
 See the [notebook instructions](../notebooks/README.md) for the manual sequence.
 
 ## V9 baseline settings
@@ -62,5 +63,20 @@ over 16 microbatches for an effective batch of 32. This accumulation is a
 memory-aware approximation of a physical 32-image DETR step. The remaining
 settings stay at 60 epochs, 640-pixel input, seed 42, and the v4 training
 configuration. The benchmark starts with the v4 operating confidence `0.50`
-and NMS IoU `0.70`; choose any later change on v9 validation only. No v9
-training has been run with these settings yet.
+and NMS IoU `0.70`; choose any later change on v9 validation only. A run is
+complete only when its own `complete.txt` exists; a partial epoch history is
+retained as evidence, not a final benchmark result.
+
+## Optional YOLO A/B runs
+
+Notebook section 3B implements the four separate YOLO11n/s experiments in the
+[tuning plan](../docs/OBJECT_DETECTION_YOLO_TUNING_PLAN.md). A (`gentle_aug`)
+uses input 640, translation 0.02, scale 0.10, and brightness variation 0.08.
+B (`localization`) uses input 800 and box-loss gain 8.5. Both start from the
+published model weight and keep baseline checkpoints intact. Each variant is
+saved under `object_detection/<fingerprint>/runs/<tuning-run-id>/` with names
+such as `yolo11s-localization`; its `args.yaml`, `results.csv`,
+`experiment.json`, and `weights/` are separate. YOLO backups use the same
+variant name under `YOLO_Weights/v9/`. The common notebook benchmark can read
+completed variants at their recorded input sizes. No A/B result is implied by
+this setup.

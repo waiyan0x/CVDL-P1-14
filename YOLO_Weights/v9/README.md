@@ -6,5 +6,8 @@ existing root-level `YOLO_Weights/yolo11n.pt` and
 `YOLO_Weights/yolo11s-best.pt` files. The original training checkpoints also
 remain under `Object-Detection-v9/object_detection/<dataset-fingerprint>/runs/`.
 
-No v9 weights have been trained or copied yet. New `.pt` files in this tree use
-Git LFS if they are later added to a commit.
+The optional A/B runs use separate model names such as `yolo11n-gentle_aug`
+and `yolo11s-localization` under their `TUNING_RUN_ID`. Baseline and variant
+weights therefore have separate paths. A weight backup alone is not evidence
+of a finished run; check its model folder's `complete.txt` and `status.json`.
+New `.pt` files in this tree use Git LFS if they are later added to a commit.

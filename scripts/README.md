@@ -90,6 +90,13 @@ loader workers; all other YOLO settings match the recorded v4 run. DETR uses
 four training loader workers, a two-image GPU microbatch, and gradient
 accumulation to an effective batch of 32. `--micro-batch-size` changes DETR's
 physical GPU batch while leaving the effective `--batch-size` explicit.
+For the optional v9 YOLO A/B experiments, pass `--variant gentle_aug` (A) or
+`--variant localization` (B) with `--model yolo11n` or `--model yolo11s`.
+The trainer uses the published base weight, creates a separate suffixed model
+directory, archives `experiment.json` with the manifest hash and actual settings,
+and copies checkpoints into the matching `YOLO_Weights/v9` variant folder.
+A requires `--image-size 640`; B requires `--image-size 800`. The notebook's
+section 3B supplies these settings and checks for a completed baseline.
 Run the notebook for the new local v9 workflow; do not reuse the legacy
 `baseline-01` commands above for v9.
 Set the same `RUN_ID` and model selection in the benchmark notebook for

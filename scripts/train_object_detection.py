@@ -100,15 +100,25 @@ def train_yolo(args, splits, fingerprint, output_root, run_dir, device):
     data_yaml = yolo_view(splits, fingerprint, output_root)
     pretrained_root = Path(os.environ.get("EDS_PRETRAINED_ROOT", output_root / "pretrained")).resolve()
     pretrained = pretrained_root / f"{args.model}.pt"
+    if not pretrained.is_file():
+        raise FileNotFoundError(f"Published starting weight missing: {pretrained}")
+    variant_settings = {
+        "baseline": {"translate": 0.0, "scale": 0.0, "hsv_v": 0.0, "box": 7.5},
+        "gentle_aug": {"translate": 0.02, "scale": 0.10, "hsv_v": 0.08, "box": 7.5},
+        "localization": {"translate": 0.0, "scale": 0.0, "hsv_v": 0.0, "box": 8.5},
+    }[args.variant]
     model = YOLO(str(pretrained))
+    started = time.perf_counter()
     try:
         model.train(
             data=str(data_yaml), epochs=args.epochs, imgsz=args.image_size,
             batch=args.batch_size, seed=args.seed, deterministic=True,
-            project=str(run_dir.parent), name=args.model, exist_ok=False,
+            project=str(run_dir.parent), name=run_dir.name, exist_ok=False,
             device=device, workers=args.workers, patience=15, mosaic=0.0, mixup=0.0,
-            copy_paste=0.0, degrees=0.0, translate=0.0, scale=0.0,
-            fliplr=0.0, hsv_h=0.0, hsv_s=0.0, hsv_v=0.0,
+            copy_paste=0.0, degrees=0.0, translate=variant_settings["translate"],
+            scale=variant_settings["scale"], fliplr=0.0, hsv_h=0.0, hsv_s=0.0,
+            hsv_v=variant_settings["hsv_v"], box=variant_settings["box"],
+            cls=0.5, dfl=1.5,
         )
         actual_dir = Path(model.trainer.save_dir)
         if actual_dir != run_dir:
@@ -119,7 +129,16 @@ def train_yolo(args, splits, fingerprint, output_root, run_dir, device):
     finally:
         # Preserve saved epochs and weights on normal completion or interruption.
         if run_dir.is_dir():
-            archive_yolo_run(ROOT, fingerprint, args.model, run_dir, args.run_id)
+            (run_dir / "experiment.json").write_text(json.dumps({
+                "model": run_dir.name, "published_starting_weight": str(pretrained),
+                "variant": args.variant, "dataset_manifest_sha256": fingerprint,
+                "run_id": args.run_id, "epochs_cap": args.epochs,
+                "image_size": args.image_size, "batch_size": args.batch_size,
+                "workers": args.workers, "seed": args.seed,
+                "training_seconds": time.perf_counter() - started,
+                "variant_settings": variant_settings,
+            }, indent=2) + "\n", encoding="utf-8")
+            archive_yolo_run(ROOT, fingerprint, run_dir.name, run_dir, args.run_id)
 
 
 class DetrCocoDataset:
@@ -333,6 +352,8 @@ def output_root_for(dataset):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", required=True, choices=("yolo11n", "yolo11s", "detr-resnet-50"))
+    parser.add_argument("--variant", choices=("baseline", "gentle_aug", "localization"),
+                        default="baseline", help="Fresh YOLO v9 A/B experiment; DETR uses baseline only")
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--dataset", type=Path, default=ROOT / "data/training/2026-10-30-torchvision")
     parser.add_argument("--epochs", type=int, default=30)
@@ -356,15 +377,22 @@ def main():
     if args.model == "detr-resnet-50" and args.use_detr_loader and (
             args.micro_batch_size < 1 or args.batch_size % args.micro_batch_size):
         parser.error("For v9 DETR, micro batch size must be positive and divide the effective batch size")
+    if args.variant != "baseline" and (not is_v9 or not args.model.startswith("yolo")):
+        parser.error("YOLO A/B variants require a YOLO model and the named verified v9 dataset")
+    if args.variant == "gentle_aug" and args.image_size != 640:
+        parser.error("Gentle augmentation A requires image size 640")
+    if args.variant == "localization" and args.image_size != 800:
+        parser.error("Localization B requires image size 800")
     dataset = args.dataset.resolve()
     splits, fingerprint = verified_dataset(dataset)
     output_root = output_root_for(dataset)
-    run_dir = output_root / fingerprint[:12] / "runs" / args.run_id / args.model
+    run_name = args.model if args.variant == "baseline" else f"{args.model}-{args.variant}"
+    run_dir = output_root / fingerprint[:12] / "runs" / args.run_id / run_name
     if run_dir.exists():
         raise FileExistsError(f"Run already exists: {run_dir}. Choose a new --run-id.")
     import torch
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    print({"model": args.model, "run_id": args.run_id, "device": device,
+    print({"model": args.model, "variant": args.variant, "run_id": args.run_id, "device": device,
            "batch_size": args.batch_size, "workers": args.workers,
            "detr_micro_batch_size": args.micro_batch_size if args.model == "detr-resnet-50" and is_v9 else None,
            "dataset": str(dataset), "run_dir": str(run_dir)}, flush=True)
