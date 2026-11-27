@@ -75,7 +75,7 @@ saved results. See [the handoff](../docs/OBJECT_DETECTION_HANDOFF.md).
 
 The default dataset is `data/training/2026-10-30-torchvision`, with 30 epochs,
 640-pixel input and YOLO batch size 4. Use `--dataset`, `--epochs`,
-`--image-size` or `--batch-size` to change them. New outputs are stored under
+`--image-size`, `--batch-size` or `--workers` to change them. New outputs are stored under
 `.runtime/object_detection_benchmark/<dataset-id>/runs/<run-id>/<model>/` and
 mirrored to `Object-Detection-v4/object_detection/<dataset-id>/runs/<run-id>/<model>/`
 when these legacy defaults are used. The fresh v9 notebook instead sets both
@@ -85,6 +85,11 @@ given `data/training/2026-11-25-roboflow-v9-stem-isolated`, so a standalone
 PowerShell run cannot fall back to the v4 archive or an old Drive path. It also
 sets a separate `YOLO_Weights/v9/` backup root. A normal interruption mirrors
 any YOLO log and weights saved so far with `partial` status.
+For this exact v9 dataset, the script defaults to batch size 32 and four YOLO
+loader workers; all other YOLO settings match the recorded v4 run. DETR uses
+four training loader workers, a two-image GPU microbatch, and gradient
+accumulation to an effective batch of 32. `--micro-batch-size` changes DETR's
+physical GPU batch while leaving the effective `--batch-size` explicit.
 Run the notebook for the new local v9 workflow; do not reuse the legacy
 `baseline-01` commands above for v9.
 Set the same `RUN_ID` and model selection in the benchmark notebook for

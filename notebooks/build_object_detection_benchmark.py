@@ -60,8 +60,9 @@ RUN_BENCHMARK = False     # Enable for completed v9 models selected below.
 RUN_FINAL_TEST = False    # Keep held-out v9 test closed until validation-based selection.
 RUN_ID = 'v9-local-01'  # New local comparison set; keep this ID for all three models.
 BENCHMARK_MODELS = ('yolo11n', 'yolo11s', 'detr-resnet-50')
-YOLO_EPOCHS, DETR_EPOCHS, IMAGE_SIZE, BATCH_SIZE, SEED = 60, 60, 640, 4, 42
-OPERATING_CONF, YOLO_NMS_IOU = 0.30, 0.70  # Starting diagnostic threshold; select v9 settings on validation.
+YOLO_EPOCHS, DETR_EPOCHS, IMAGE_SIZE, BATCH_SIZE, SEED = 60, 60, 640, 32, 42
+YOLO_WORKERS, DETR_MICRO_BATCH_SIZE = 4, 2
+OPERATING_CONF, YOLO_NMS_IOU = 0.50, 0.70  # V4 operating settings; select any v9 change on validation.
 DEVICE = 'cuda' if importlib.util.find_spec('torch') and __import__('torch').cuda.is_available() else 'cpu'
 CLASS_NAMES = ('front_eds', 'front_eds_num', 'front_eds_route', 'front_eds_destination')
 COCO_TO_INDEX = {1: 0, 3: 1, 4: 2, 2: 3}  # Explicit IDs from the readiness handoff.
@@ -213,7 +214,9 @@ if DATA_READY and RUN_TRAINING:
     command = [sys.executable, str(ROOT / 'scripts/train_object_detection.py'),
                '--model', TRAIN_MODEL, '--run-id', RUN_ID,
                '--dataset', str(DATASET_ROOT), '--epochs', str(training_epochs),
-               '--batch-size', str(BATCH_SIZE), '--image-size', str(IMAGE_SIZE),
+               '--batch-size', str(BATCH_SIZE), '--workers', str(YOLO_WORKERS),
+               '--micro-batch-size', str(DETR_MICRO_BATCH_SIZE),
+               '--image-size', str(IMAGE_SIZE),
                '--seed', str(SEED)]
     print('Starting fresh model training:', ' '.join(command))
     subprocess.run(command, cwd=ROOT, check=True)
@@ -223,7 +226,7 @@ else:
     md(r"""
 ## 4. Common evaluation: all four classes, all splits, and negatives
 
-Measure box mAP@0.50 and mAP@0.50:0.95 per class using the same COCO targets and TorchMetrics implementation for each selected candidate. Include zero-box images: predictions on them are false positives. Also report false positives per negative image at score ≥ 0.30, median/p95 end-to-end detector inference milliseconds per image, and sample count. Train metrics describe fit and are optimistic; validation is for selection; test is held out. `RUN_BENCHMARK=True` evaluates train+valid for `BENCHMARK_MODELS`, even if only one checkpoint exists. Each selection writes a separate JSON report. `RUN_FINAL_TEST=True` evaluates test after validation-based model and thresholds are frozen. The small historical YOLO report in `Object-Detection-v4/reports/detection.json` is separate: it covers two field classes on 13 images from another dataset and cannot fill this table.
+Measure box mAP@0.50 and mAP@0.50:0.95 per class using the same COCO targets and TorchMetrics implementation for each selected candidate. Include zero-box images: predictions on them are false positives. Also report false positives per negative image at the v4 operating score ≥ 0.50, median/p95 end-to-end detector inference milliseconds per image, and sample count. Train metrics describe fit and are optimistic; validation is for selection; test is held out. `RUN_BENCHMARK=True` evaluates train+valid for `BENCHMARK_MODELS`, even if only one checkpoint exists. Each selection writes a separate JSON report. `RUN_FINAL_TEST=True` evaluates test after validation-based model and thresholds are frozen. The small historical YOLO report in `Object-Detection-v4/reports/detection.json` is separate: it covers two field classes on 13 images from another dataset and cannot fill this table.
 """),
     code(r"""
 MODEL_PATHS, TRAINING_HISTORY = {}, {}
@@ -443,6 +446,7 @@ if DATA_READY and BENCHMARK:
               'benchmark': BENCHMARK, 'validation_threshold_sweep': THRESHOLD_SWEEP,
               'settings': {'yolo_epochs': YOLO_EPOCHS,
               'detr_epochs': DETR_EPOCHS, 'image_size': IMAGE_SIZE, 'batch_size': BATCH_SIZE,
+              'workers': YOLO_WORKERS, 'detr_micro_batch_size': DETR_MICRO_BATCH_SIZE,
               'seed': SEED, 'device': DEVICE, 'operating_conf': OPERATING_CONF,
               'yolo_nms_iou': YOLO_NMS_IOU, 'final_test_run': RUN_FINAL_TEST},
               'environment': {'platform': platform.platform(), 'python': sys.version,

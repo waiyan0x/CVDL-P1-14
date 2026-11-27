@@ -52,3 +52,15 @@ step completes.
 Keep `v9-local-01` for the three baseline models. Choose a new run ID for any
 later experiment; the training script refuses to replace an existing model run.
 See the [notebook instructions](../notebooks/README.md) for the manual sequence.
+
+## V9 baseline settings
+
+Compared with the reviewed-v4 training, the requested changes are batch size
+`32` and four training data-loading workers. YOLO11n and YOLO11s use a physical
+batch of 32. DETR uses two images per GPU microbatch and accumulates gradients
+over 16 microbatches for an effective batch of 32. This accumulation is a
+memory-aware approximation of a physical 32-image DETR step. The remaining
+settings stay at 60 epochs, 640-pixel input, seed 42, and the v4 training
+configuration. The benchmark starts with the v4 operating confidence `0.50`
+and NMS IoU `0.70`; choose any later change on v9 validation only. No v9
+training has been run with these settings yet.
