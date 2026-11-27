@@ -1,0 +1,10 @@
+{
+  "model": "detr-resnet-50",
+  "run_id": "v9-local-01",
+  "dataset_manifest_sha256": "43159c679cbe4ea7d3b791ef106d66ce7795a10307155fbc33863205868198d7",
+  "training_status": "complete",
+  "epochs_recorded": 60,
+  "validation_status": "saved",
+  "test_status": "pending",
+  "archived_at_utc": "2026-11-27T16:49:14.873827+00:00"
+}
