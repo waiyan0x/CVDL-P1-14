@@ -2,8 +2,7 @@
 
 Completed v9 YOLO11n and YOLO11s runs copied their `best.pt` and `last.pt` here under
 `<dataset-fingerprint>/runs/<run-id>/<model>/`. This folder is separate from the
-existing root-level `YOLO_Weights/yolo11n.pt` and
-`YOLO_Weights/yolo11s-best.pt` files. The original training checkpoints also
+historical [v4-baseline backups](../v4-baseline/README.md). The original training checkpoints also
 remain under `Object-Detection-v9/object_detection/<dataset-fingerprint>/runs/`.
 
 The optional A/B runs use separate model names such as `yolo11n-gentle_aug`

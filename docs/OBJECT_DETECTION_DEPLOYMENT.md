@@ -6,7 +6,8 @@ It was selected using validation mAP50:95 before its held-out test. The old
 `baseline-01` detector and its results remain preserved for documentation.
 The [v9 comparison and final test](../Object-Detection-v9/RESULTS.md) are
 research results; the v9 selected checkpoint has not replaced this application
-default.
+default. The [v4 archive](../Object-Detection-v4/README.md) preserves the
+detector result and handoff evidence separately from the active application paths.
 
 See [the Cody handoff](OBJECT_DETECTION_HANDOFF.md) for the current evidence and
 remaining integration work.

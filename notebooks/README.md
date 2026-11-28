@@ -14,7 +14,7 @@ The [A/B experiment document](../docs/OBJECT_DETECTION_YOLO_TUNING_PLAN.md) expl
 
 The evaluator loads each completed candidate's best checkpoint and saved image size. `BENCHMARK_MODEL_RUNS` can map candidates stored under another run ID. The selected model is still a research result; the deployed application detector remains the reviewed-v4 checkpoint.
 
-Run folders, benchmark JSON, split tables, and checkpoints are in [Object-Detection-v9](../Object-Detection-v9/README.md); identical YOLO weight backups are under [YOLO_Weights/v9](../YOLO_Weights/v9/README.md). These files are tracked through Git/Git LFS. The [v4 archive](../evaluation/object_detection/README.md) remains separate. The notebook does not mount Google Drive.
+Run folders, benchmark JSON, split tables, and checkpoints are in [Object-Detection-v9](../Object-Detection-v9/README.md); identical YOLO weight backups are under [YOLO_Weights/v9](../YOLO_Weights/v9/README.md). These files are tracked through Git/Git LFS. The [v4 archive](../Object-Detection-v4/README.md) remains separate. The notebook does not mount Google Drive.
 
 The notebook source is maintained in [build_object_detection_benchmark.py](build_object_detection_benchmark.py). Regenerating the notebook clears saved cell outputs; it never executes training. Preserve the executed notebook when editing narrative or comments.
 

@@ -10,6 +10,8 @@ trained candidates and report one held-out test for the validation-selected
 YOLO11s A variant. The [benchmark notebook](notebooks/object_detection_benchmark.ipynb)
 contains the saved outputs. The reviewed-v4 detector remains the application
 default; the older data-preparation examples below describe earlier batches.
+The [v4 archive](Object-Detection-v4/README.md) preserves the previous detector
+results, OCR handoff package, and checkpoint history for comparison with v9.
 
 Model dataset: **`data/training/2026-10-24/`**.
 Its current local export contains **420 training, 39 validation and 20 test

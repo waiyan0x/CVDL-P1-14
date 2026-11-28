@@ -5,3 +5,8 @@
 /Object-Detection-v9/**/*.pt filter=lfs diff=lfs merge=lfs -text
 /Object-Detection-v9/**/*.safetensors filter=lfs diff=lfs merge=lfs -text
 /YOLO_Weights/v9/**/*.pt filter=lfs diff=lfs merge=lfs -text
+/Object-Detection-v4/**/*.zip filter=lfs diff=lfs merge=lfs -text
+/Object-Detection-v4/**/*.pt filter=lfs diff=lfs merge=lfs -text
+/Object-Detection-v4/**/*.safetensors filter=lfs diff=lfs merge=lfs -text
+/Object-Detection-v4/**/*.bin filter=lfs diff=lfs merge=lfs -text
+/YOLO_Weights/v4-baseline/*.pt filter=lfs diff=lfs merge=lfs -text

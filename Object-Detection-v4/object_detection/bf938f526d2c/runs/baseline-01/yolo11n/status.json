@@ -1,0 +1,15 @@
+{
+  "model": "yolo11n",
+  "run_id": "baseline-01",
+  "dataset_manifest_sha256": "bf938f526d2c01f1960b9af018f1fd1dc78a431e725037c84d1707dfcc5b826c",
+  "training_status": "complete",
+  "epochs_recorded": 26,
+  "source_run": "C:\\Users\\brend\\CVDL-P1-14\\.runtime\\object_detection_benchmark\\bf938f526d2c\\runs\\baseline-01\\yolo11n",
+  "checkpoint_sha256": {
+    "best.pt": "577f5137b612e174d5ffef0bd7c2be5bf51946c6931827346ce8e1874056aed2",
+    "last.pt": "0d84fbcedd3f82e4cfa255ebc683c4e6bde41da8ceac8af4639e6a3e7c904a15"
+  },
+  "validation_status": "saved",
+  "test_status": "saved",
+  "archived_at_utc": "2026-11-02T07:01:50.096601+00:00"
+}

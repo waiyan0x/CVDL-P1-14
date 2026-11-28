@@ -4,6 +4,8 @@ The [v9 research results](../Object-Detection-v9/RESULTS.md) record seven
 completed training runs, a common validation comparison, and one final test
 for validation-selected YOLO11s A. The [benchmark notebook](../notebooks/object_detection_benchmark.ipynb)
 retains its measured outputs. V9 has not been installed in the application.
+The [v4 archive](../Object-Detection-v4/README.md) retains the earlier detector
+experiments and reviewed-v4 OCR package for historical comparison.
 
 The deployed result is the [reviewed Roboflow v4 run](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md),
 with three trained models, three validation reports and one final YOLO11s test.

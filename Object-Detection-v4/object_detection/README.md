@@ -1,0 +1,35 @@
+# Historical v4 object detection runs
+
+## Reviewed-v4 handoff
+
+The later v4 experiment is
+[`01760a841333/runs/v4-reviewed-01/`](01760a841333/runs/v4-reviewed-01/RESULTS.md):
+YOLO11n, YOLO11s and DETR were trained and compared on the corrected Roboflow v4
+dataset; only validation-selected YOLO11s received a final held-out test. The
+selected checkpoint uses confidence `0.50` and NMS IoU `0.70` for this run. Its
+validation mAP50:95 was `0.3510`, and test mAP50:95 was `0.3270`. The old
+`baseline-01` result below remains a separate historical dataset/run.
+The [validation-only NMS and failure review](01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
+and [v4 configuration](01760a841333/runs/v4-reviewed-01/detector_config.json)
+are saved separately. The app now defaults to the v4 checkpoint at confidence
+`0.50` and NMS `0.70`; the earlier baseline remains documented and preserved.
+
+`bf938f526d2c/runs/baseline-01/` is the earlier three-model benchmark. YOLO11s
+was selected using validation mAP50:95, and the held-out test has already been
+run. Do not overwrite, delete or retune this run using its test results. Start
+with [RESULTS.md](bf938f526d2c/runs/baseline-01/RESULTS.md) and the repository
+[object-detection handoff](../../docs/OBJECT_DETECTION_HANDOFF.md).
+
+The remaining v4 detector decisions are the joint Jy/Brendan annotation and split
+review plus, if required by the allocation, a validation-only comparison of NMS
+IoU settings. Any label or split change requires a new manifest, dataset version
+and run ID. If nothing changes, the existing benchmark should not be rerun.
+
+Each dataset manifest gets a directory named by the first 12 characters of its SHA-256 fingerprint. Fresh experiments use `runs/<RUN_ID>/<model>/`, each with `train/`, `validation/`, `test/`, and `checkpoints/` folders. `status.json` identifies completed, partial, and pending results.
+
+The historical notebook wrote per-model benchmark JSON files here after evaluation. YOLO training CSV, run settings, plots, and copies of `best.pt` and `last.pt` are mirrored here as well. DETR loss histories and best checkpoints are retained. The active notebook now writes v9 experiments to [Object-Detection-v9](../../Object-Detection-v9/RESULTS.md).
+
+Metric files and the existing model weights in `checkpoints/` are tracked. Large weights use Git LFS; run `git lfs pull` after cloning. The source dataset remains under ignored `data/training/`, while the reviewed-v4 OCR package includes its own source COCO export.
+
+This is a frozen record of the two v4 comparisons. Use a new dataset version and
+run ID for any future experiment; preserve these reported tests unchanged.

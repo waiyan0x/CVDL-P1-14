@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "report_type": "detection_benchmark",
+  "run_id": "field-detector-20261022T141403Z",
+  "created_at": "2026-10-22T14:14:03.639594+00:00",
+  "dataset": {
+    "id": "bundled-bus-images",
+    "split": "test-exact-train-overlap-excluded",
+    "fingerprint_sha256": "1a68a0543e9b8925bd2fa662996671eb6b2dfd362c6a46ddc6cd84271a94e13d",
+    "image_count": 13,
+    "included": [
+      {
+        "image": "data/images/test/0c7ddfa8-27d65774-133.jpg",
+        "sha256": "69b3ec64feddf4caf93b5ca2d090861b36df97c917048bd6358545150fa3aba0",
+        "label": "data/labels/test/0c7ddfa8-27d65774-133.txt",
+        "label_sha256": "25beb6eadc59a548935bd0245bf9630723c6ccd600894371b936a192c8ef2e35"
+      },
+      {
+        "image": "data/images/test/1eb1313a-bus_25.jpg",
+        "sha256": "1ff17d804019594e8decccda2dad155a41317f0a34c44c962b5e7829eac97060",
+        "label": "data/labels/test/1eb1313a-bus_25.txt",
+        "label_sha256": "303171a5c5a4e778c6ec83760b9389651eeb86936621ec8f40a6d5a6528e238f"
+      },
+      {
+        "image": "data/images/test/209ac893-6c0f00ef-14.jpg",
+        "sha256": "e4b250a01c834ed8cde1fd3e820c20c587ff2f820af9594bce15b18db33639b0",
+        "label": "data/labels/test/209ac893-6c0f00ef-14.txt",
+        "label_sha256": "8a22efeb3b26642b80a914a7e67fb2268eb34543d89108b4b24897c8932b8cdb"
+      },
+      {
+        "image": "data/images/test/24bc5bfc-bus_18.jpg",
+        "sha256": "3d83a5fe2a112b380260e3dcecbd010e84b36fd8184514abc5bbbe2fcea51dd4",
+        "label": "data/labels/test/24bc5bfc-bus_18.txt",
+        "label_sha256": "b60a6419994e70bda30a78f146db68d68ea4fd31d0ad4c57ebf67e86922173bb"
+      },
+      {
+        "image": "data/images/test/49775ed2__a5dcfafd-122.jpg",
+        "sha256": "661f429b9b1c6849a74450ace7dd2199fbc4be61b9ae4ed992754d2da05686a5",
+        "label": "data/labels/test/49775ed2__a5dcfafd-122.txt",
+        "label_sha256": "fd4fb53d2cc8e7a0a7db377dca42c915e6f8246b65d3dbd89ee82034b90c0f6c"
+      },
+      {
+        "image": "data/images/test/5c28dd2e-426352df-66.jpg",
+        "sha256": "95cbab4e57afe0baa228fe301ca1a86407aa4539b20e1b52f4228bfe3c0bcd50",
+        "label": "data/labels/test/5c28dd2e-426352df-66.txt",
+        "label_sha256": "2c2b506df03a596b5ae00a0920aba849553179fd34a9725c40d0bae445ccaa99"
+      },
+      {
+        "image": "data/images/test/a1af74f0__3b8afd1d-10.jpg",
+        "sha256": "8716b60132862af4935e7eb3cc8ea2634aaaeadcb734acb5f230616fa9806c2f",
+        "label": "data/labels/test/a1af74f0__3b8afd1d-10.txt",
+        "label_sha256": "b9454d0f09802fadf34303e0560b17cdd9ae57aebbb769b267d3e0556a351f74"
+      },
+      {
+        "image": "data/images/test/b856913e-198.jpg",
+        "sha256": "17cfd3b733dbd028b63ae32fef72075e40c398e222674ac62397120e19372d3e",
+        "label": "data/labels/test/b856913e-198.txt",
+        "label_sha256": "5dc72c7753d2fb0d1a071456c788196ef958936ba04887f69688ccb3545cd487"
+      },
+      {
+        "image": "data/images/test/c11fcb6c__636c9cc3-75.jpg",
+        "sha256": "30881ca29f003ecd0dd9df43fd0d681ae92634e20581546eb049228b6241e602",
+        "label": "data/labels/test/c11fcb6c__636c9cc3-75.txt",
+        "label_sha256": "bfb8d10ce6d8ff807103f05be4456383796eea61f6468ee58d10e9dce41cbd87"
+      },
+      {
+        "image": "data/images/test/c9593b19-bus_23.jpg",
+        "sha256": "53a06fa2654db02a34d027a7339f0b97f55b7c8b2ee99dbbd794942fca92ae53",
+        "label": "data/labels/test/c9593b19-bus_23.txt",
+        "label_sha256": "2ba9151b4e2228a2e66f07e67e5a0fd8ec7149f340c4e41ae459fb4ed6223697"
+      },
+      {
+        "image": "data/images/test/ea005707__9aebe21b-3.jpg",
+        "sha256": "080a83308fa4a91ed001b2b1b3dcbd2e0fdcb61fcb88877bc7fda0018e08d811",
+        "label": "data/labels/test/ea005707__9aebe21b-3.txt",
+        "label_sha256": "bde792179602a64cb5956e23981786e43c29ecb7fbb24a320878a9072fd3ac38"
+      },
+      {
+        "image": "data/images/test/f168db11__5c0aa197-386.jpg",
+        "sha256": "37301ff4a7afa5ba6efb8d58acfbacd97a37d435ce7dfe75874b33998616b3d0",
+        "label": "data/labels/test/f168db11__5c0aa197-386.txt",
+        "label_sha256": "e862c8258ad880759b0643d37bd40c00c7b5341140a899027e9eedef9fd47c15"
+      },
+      {
+        "image": "data/images/test/fce01393-3b0671f0-272.jpg",
+        "sha256": "a22586944105436938552e7875294cefbcfd6c1b0aea607b1a8c625f30e7400a",
+        "prepared_encoding": "JPEG transcoded from AVIF; pixels preserved, lossy JPEG",
+        "prepared_sha256": "c60c89f1356588c8ceba7e7806544657d8564c0b2c9babb8955eec8c61f7d68a",
+        "label": "data/labels/test/fce01393-3b0671f0-272.txt",
+        "label_sha256": "80ecd13a88c196cc3e813655ee520cbc5941dd7f31acd0eeffd2b652178e91f4"
+      }
+    ],
+    "excluded": [
+      {
+        "image": "data/images/test/51415b5c-64c0f70b-124.jpg",
+        "sha256": "2972a5f562e67e62b71e949e53d58cfda8981e7200bf68cf3bff77a122174c00",
+        "reason": "training_overlap"
+      },
+      {
+        "image": "data/images/test/annotated_0c7ddfa8-27d65774-133.jpg",
+        "sha256": "0fb1be4607ee184f2fbf43a77dd7fe99dbe0063ef480140eeab23d808a4d8efe",
+        "reason": "missing_labels"
+      }
+    ],
+    "label_review": "Bundled YOLO annotations; not independently re-annotated.",
+    "processed_images": 13
+  },
+  "detector": {
+    "path": "models/yolo-v6-finetuned/best_v6.pt",
+    "sha256": "5bebdc21a38af9be76287f0a65957172ffda8cfdb55b1e953d0849b1c849523d",
+    "architecture": "YOLO11n",
+    "classes": [
+      1,
+      2
+    ]
+  },
+  "protocol": {
+    "settings": {
+      "imgsz": 640,
+      "batch": 1,
+      "classes": [
+        1,
+        2
+      ],
+      "conf": 0.001,
+      "iou": 0.7,
+      "device": "cpu",
+      "workers": 0,
+      "plots": false,
+      "verbose": false,
+      "save": false,
+      "save_json": false,
+      "split": "test"
+    },
+    "metrics": "Ultralytics detection validation; AP over IoU 0.50:0.95.",
+    "speed": "Validator-reported mean milliseconds/image; not sustained application FPS."
+  },
+  "hardware": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "processor": "arm",
+    "torch_threads": 4,
+    "torch": "2.9.0",
+    "ultralytics": "8.3.158"
+  },
+  "metrics": {
+    "precision": 0.9614429997637921,
+    "recall": 1.0,
+    "map_50": 0.995,
+    "map_50_95": 0.7486922272522737,
+    "whole_eds_map": null,
+    "speed_ms_per_image": {
+      "preprocess": 0.24676284654280886,
+      "inference": 26.947298073747124,
+      "loss": 0.0007756909606261895,
+      "postprocess": 0.2769359181491801
+    }
+  },
+  "limitations": [
+    "Only service-number and destination classes [1,2] are evaluated; no whole-EDS accuracy claim.",
+    "Exact training/test duplicates and unlabelled images excluded; near-duplicate and original training provenance are unverified.",
+    "Small bundled image subset; does not establish performance on unseen video or other EDS formats.",
+    "Original bundled detection annotations have not been independently reviewed.",
+    "One .jpg contains AVIF data and is explicitly transcoded to JPEG for validator compatibility; original file is unchanged.",
+    "OCR accuracy is not measured by this detector validation."
+  ],
+  "method_source": "https://docs.ultralytics.com/modes/val/"
+}

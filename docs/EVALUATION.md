@@ -10,6 +10,9 @@ scores, settings, checkpoints, and negative-image detections. The v4 YOLO11s
 remains the application default; v9 has not been deployed. Human source-scene
 and annotation review remains open.
 
+The [v4 archive](../Object-Detection-v4/README.md) preserves the earlier
+baseline, reviewed-v4 comparison, checkpoints, and OCR handoff package.
+
 ## Reviewed crop scoring
 
 The saved-prediction scorer and three-model table generator are documented in

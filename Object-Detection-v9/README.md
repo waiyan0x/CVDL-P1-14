@@ -3,7 +3,7 @@
 This directory holds the completed local detector experiment on
 `data/training/2026-11-25-roboflow-v9-stem-isolated/`. It uses the same
 `object_detection/<dataset-fingerprint>/runs/<run-id>/` layout as the historical
-[`evaluation/object_detection`](../evaluation/object_detection/README.md)
+[`Object-Detection-v4`](../Object-Detection-v4/README.md)
 archive. Read [RESULTS.md](RESULTS.md) for the seven-model validation comparison,
 the selected-model final test, and links to every benchmark report. The v4 OCR
 handoff and deployed detector are separate.
