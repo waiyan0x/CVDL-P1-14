@@ -1,0 +1,195 @@
+{
+  "dataset_root": "C:\\Users\\brend\\CVDL-P1-14\\data\\training\\2026-11-25-roboflow-v9-stem-isolated",
+  "dataset_manifest_sha256": "43159c679cbe4ea7d3b791ef106d66ce7795a10307155fbc33863205868198d7",
+  "inventory": {
+    "train": {
+      "images": 6858,
+      "negative_images": 579,
+      "boxes_by_class": {
+        "front_eds": 7827,
+        "front_eds_num": 7410,
+        "front_eds_route": 5133,
+        "front_eds_destination": 5505
+      },
+      "coco_sha256": "5594cb4b2d1cd7f2754f6f4281441164f25da71870038b2cdc522a6b447c6922"
+    },
+    "valid": {
+      "images": 294,
+      "negative_images": 20,
+      "boxes_by_class": {
+        "front_eds": 348,
+        "front_eds_num": 335,
+        "front_eds_route": 230,
+        "front_eds_destination": 241
+      },
+      "coco_sha256": "0fb320ea1460090ecb3e0252306da1dc093d96a92b2fc5c6f1d53e520d152b2c"
+    },
+    "test": {
+      "images": 299,
+      "negative_images": 20,
+      "boxes_by_class": {
+        "front_eds": 354,
+        "front_eds_num": 340,
+        "front_eds_route": 239,
+        "front_eds_destination": 232
+      },
+      "coco_sha256": "dd74d8c5c031886e7385dd45f87dc6229265c3be689c455fd2539abcd1fa64b4"
+    }
+  },
+  "class_map": {
+    "1": 0,
+    "3": 1,
+    "4": 2,
+    "2": 3
+  },
+  "run_id": "v9-local-01",
+  "models": {
+    "yolo11n": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11n\\weights\\best.pt",
+    "yolo11n-gentle_aug": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11n-gentle_aug\\weights\\best.pt",
+    "yolo11n-localization": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11n-localization\\weights\\best.pt",
+    "yolo11s": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11s\\weights\\best.pt",
+    "yolo11s-gentle_aug": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11s-gentle_aug\\weights\\best.pt",
+    "yolo11s-localization": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11s-localization\\weights\\best.pt",
+    "detr-resnet-50": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\detr-resnet-50"
+  },
+  "model_run_ids": {
+    "yolo11n": "v9-local-01",
+    "yolo11n-gentle_aug": "v9-tuning-01",
+    "yolo11n-localization": "v9-tuning-01",
+    "yolo11s": "v9-local-01",
+    "yolo11s-gentle_aug": "v9-tuning-01",
+    "yolo11s-localization": "v9-tuning-01",
+    "detr-resnet-50": "v9-local-01"
+  },
+  "model_image_sizes": {
+    "yolo11n": 640,
+    "yolo11n-gentle_aug": 640,
+    "yolo11n-localization": 800,
+    "yolo11s": 640,
+    "yolo11s-gentle_aug": 640,
+    "yolo11s-localization": 800,
+    "detr-resnet-50": 640
+  },
+  "training_history": {
+    "yolo11n": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11n\\results.csv",
+      "run_id": "v9-local-01",
+      "image_size": 640
+    },
+    "yolo11n-gentle_aug": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11n-gentle_aug\\results.csv",
+      "run_id": "v9-tuning-01",
+      "image_size": 640
+    },
+    "yolo11n-localization": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11n-localization\\results.csv",
+      "run_id": "v9-tuning-01",
+      "image_size": 800
+    },
+    "yolo11s": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11s\\results.csv",
+      "run_id": "v9-local-01",
+      "image_size": 640
+    },
+    "yolo11s-gentle_aug": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11s-gentle_aug\\results.csv",
+      "run_id": "v9-tuning-01",
+      "image_size": 640
+    },
+    "yolo11s-localization": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11s-localization\\results.csv",
+      "run_id": "v9-tuning-01",
+      "image_size": 800
+    }
+  },
+  "benchmark": {
+    "yolo11n-gentle_aug": {
+      "train": {
+        "images": 6858,
+        "negatives": 579,
+        "map50": 0.9689568281173706,
+        "map50_95": 0.8120861053466797,
+        "mar_100": 0.845756471157074,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9873501658439636,
+            "map50_95": 0.822480320930481,
+            "mar_100": 0.8558323979377747
+          },
+          "front_eds_num": {
+            "map50": 0.9700570702552795,
+            "map50_95": 0.8303837180137634,
+            "mar_100": 0.854723334312439
+          },
+          "front_eds_route": {
+            "map50": 0.9585056900978088,
+            "map50_95": 0.7702755928039551,
+            "mar_100": 0.8116890788078308
+          },
+          "front_eds_destination": {
+            "map50": 0.9599144458770752,
+            "map50_95": 0.8252047300338745,
+            "mar_100": 0.8607811331748962
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 4,
+        "median_inference_ms": 15.037700009997934,
+        "p95_inference_ms": 24.641445020097304
+      },
+      "valid": {
+        "images": 294,
+        "negatives": 20,
+        "map50": 0.916793942451477,
+        "map50_95": 0.6679150462150574,
+        "mar_100": 0.7295637130737305,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9174216389656067,
+            "map50_95": 0.525505006313324,
+            "mar_100": 0.634482741355896
+          },
+          "front_eds_num": {
+            "map50": 0.9415827393531799,
+            "map50_95": 0.7742449045181274,
+            "mar_100": 0.8095522522926331
+          },
+          "front_eds_route": {
+            "map50": 0.9053326845169067,
+            "map50_95": 0.6730617880821228,
+            "mar_100": 0.7260869741439819
+          },
+          "front_eds_destination": {
+            "map50": 0.9028387665748596,
+            "map50_95": 0.6988485455513,
+            "mar_100": 0.7481327652931213
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 7,
+        "median_inference_ms": 15.231050027068704,
+        "p95_inference_ms": 19.856364987208508
+      }
+    }
+  },
+  "validation_threshold_sweep": [],
+  "settings": {
+    "yolo_epochs": 60,
+    "detr_epochs": 60,
+    "image_size": 640,
+    "batch_size": 32,
+    "workers": 4,
+    "detr_micro_batch_size": 2,
+    "seed": 42,
+    "device": "cuda",
+    "operating_conf": 0.5,
+    "yolo_nms_iou": 0.7,
+    "final_test_run": false
+  },
+  "environment": {
+    "platform": "Windows-10-10.0.26300-SP0",
+    "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+    "torch": "2.11.0+cu128",
+    "ultralytics": "8.3.158",
+    "transformers": "4.57.6",
+    "torchmetrics": "1.9.0"
+  }
+}

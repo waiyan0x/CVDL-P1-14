@@ -1,53 +1,22 @@
 # Notebooks
 
-## Detector research and benchmark
+## Local v9 object detection benchmark
 
-[object_detection_benchmark.ipynb](object_detection_benchmark.ipynb) contains the
-four-class YOLO11n, YOLO11s and DETR experiment protocol. It audits a verified
-COCO export, converts it for YOLO without changing the source, and reports
-per-class mAP, negative-image false positives and latency across the
-train/validation/held-out-test splits. It also explains YOLO losses and records
-the object detection tasks still outstanding. The earlier Section 3 and all
-earlier saved model runs were removed. The current notebook has a small manual
-training launcher backed by `scripts/train_object_detection.py`: select one
-model, use one `RUN_ID` for the three-model comparison, enable training, and
-click Run All. The same notebook then performs validation and test reporting in
-separate runs.
+Open [object_detection_benchmark.ipynb](object_detection_benchmark.ipynb) in VS Code with the `CVDL Detector (CUDA)` kernel. It uses the verified [v9 COCO export](../data/training/README.md). Seven model runs, validation comparisons, and one selected-model final test are saved; start with the [v9 results index](../Object-Detection-v9/RESULTS.md). The historical v4 tables in the notebook use different data.
 
-The benchmark defaults to the local manifest-backed
-`data/training/2026-11-05-roboflow-v4-reviewed/` export. Its completed
-`v4-reviewed-01` run has a [saved three-model validation comparison and selected
-YOLO11s final test](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md).
-The older `2026-10-30-torchvision` dataset and `baseline-01` results are
-preserved. Separate model dependencies are needed before training.
-The curated `data/samples/` gallery is for qualitative inspection and cannot
-replace the labelled export. The source for the notebook is maintained in
-[build_object_detection_benchmark.py](build_object_detection_benchmark.py).
+The recorded baseline run ID is `v9-local-01`; A/B variants use `v9-tuning-01`. All execution switches should remain `False` when reviewing saved results. The held-out v9 test is closed for further model selection. Check the first code cell before Run All: a working notebook can retain active switches and old outputs.
 
-On this Windows checkout, `venv/detector/` is the ignored detector environment.
-It reuses the installed CUDA PyTorch build and has Ultralytics, Transformers,
-TorchMetrics, pycocotools and Notebook installed. Launch from the repository root
-with `venv\detector\Scripts\python.exe -m notebook`, open the benchmark notebook,
-and choose the **CVDL Detector (CUDA)** kernel.
+For a **new** training comparison, choose a new run ID, audit the dataset, and enable one training switch at a time. `RUN_TRAINING` handles YOLO11n/s or DETR baselines; `RUN_TUNING` handles one YOLO A/B variant. Starting weights are published pretrained models, not prior EDS checkpoints. The trainer refuses existing model folders and does not resume. Baseline YOLO used batch 32 and four workers; DETR used two-image microbatches accumulated to an effective 32. Exact settings for each completed run are linked from the results index.
 
-The v4 notebook has saved outputs, but its older written `baseline-01` table is
-historical. Read the v4 `RESULTS.md` and archived JSON reports for the new
-measurements. Both final-test reports are complete; avoid running either test
-again for threshold selection. Use a new run ID for future experiments.
-The later [v4 validation NMS/crop review](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/validation_review/REVIEW.md)
-compares `0.50` and `0.70` without reopening the test. The tested v4
-configuration remains NMS `0.70`.
+The benchmark cell reports train and validation for the names in `BENCHMARK_MODELS`; it evaluates test only when `RUN_FINAL_TEST=True`. The saved v9 final test used `('yolo11s-gentle_aug',)` alone, with confidence `0.50` and NMS IoU `0.70`. Its [JSON report](../Object-Detection-v9/object_detection/43159c679cbe/runs/v9-local-01/benchmark_yolo11s-gentle_aug_test.json) and [split tables](../Object-Detection-v9/object_detection/43159c679cbe/runs/v9-local-01/benchmark_yolo11s-gentle_aug_test_tables.md) are preserved.
 
-The `baseline-01` commands below have already completed and are retained only as
-the reproducibility record. Do **not** rerun them with the same run ID: training
-refuses to overwrite an existing model folder. Use a new run ID only after a new
-reviewed dataset version or a deliberately changed experiment is ready.
+The [A/B experiment document](../docs/OBJECT_DETECTION_YOLO_TUNING_PLAN.md) explains the four completed variants and the batch-16 change used by both 800-pixel B runs. The notebook's section 3B is retained for a new, separately named experiment.
 
-```powershell
-venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11n --run-id baseline-01
-venv\detector\Scripts\python.exe scripts\train_object_detection.py --model yolo11s --run-id baseline-01
-venv\detector\Scripts\python.exe scripts\train_object_detection.py --model detr-resnet-50 --run-id baseline-01
-```
+The evaluator loads each completed candidate's best checkpoint and saved image size. `BENCHMARK_MODEL_RUNS` can map candidates stored under another run ID. The selected model is still a research result; the deployed application detector remains the reviewed-v4 checkpoint.
+
+Run folders, benchmark JSON, split tables, and checkpoints are in [Object-Detection-v9](../Object-Detection-v9/README.md); identical YOLO weight backups are under [YOLO_Weights/v9](../YOLO_Weights/v9/README.md). These files are tracked through Git/Git LFS. The [v4 archive](../evaluation/object_detection/README.md) remains separate. The notebook does not mount Google Drive.
+
+The notebook source is maintained in [build_object_detection_benchmark.py](build_object_detection_benchmark.py). Regenerating the notebook clears saved cell outputs; it never executes training. Preserve the executed notebook when editing narrative or comments.
 
 ## Data preparation visual checks
 
@@ -78,7 +47,7 @@ Execute the [scripts](../scripts/README.md) for those preparation phases.
 Plots are generated locally; commit the notebook with outputs cleared to keep
 dataset images out of Git. The previous execution notebooks have been removed.
 
-## Outstanding task-allocation checklist
+## Historical v4 task-allocation checklist
 
 - [x] Copy the uploaded dataset, audit accepted labels, and build a separate manifest-backed training export. Source permissions and capture groups, and the uploaded Roboflow export's missing provenance, still need review.
 - [ ] Review all four class definitions and negative examples with Jy; inspect route/destination ambiguity and missing boxes. Confirm source/recording groups do not cross splits.

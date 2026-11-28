@@ -1,0 +1,566 @@
+{
+  "dataset_root": "C:\\Users\\brend\\CVDL-P1-14\\data\\training\\2026-11-25-roboflow-v9-stem-isolated",
+  "dataset_manifest_sha256": "43159c679cbe4ea7d3b791ef106d66ce7795a10307155fbc33863205868198d7",
+  "inventory": {
+    "train": {
+      "images": 6858,
+      "negative_images": 579,
+      "boxes_by_class": {
+        "front_eds": 7827,
+        "front_eds_num": 7410,
+        "front_eds_route": 5133,
+        "front_eds_destination": 5505
+      },
+      "coco_sha256": "5594cb4b2d1cd7f2754f6f4281441164f25da71870038b2cdc522a6b447c6922"
+    },
+    "valid": {
+      "images": 294,
+      "negative_images": 20,
+      "boxes_by_class": {
+        "front_eds": 348,
+        "front_eds_num": 335,
+        "front_eds_route": 230,
+        "front_eds_destination": 241
+      },
+      "coco_sha256": "0fb320ea1460090ecb3e0252306da1dc093d96a92b2fc5c6f1d53e520d152b2c"
+    },
+    "test": {
+      "images": 299,
+      "negative_images": 20,
+      "boxes_by_class": {
+        "front_eds": 354,
+        "front_eds_num": 340,
+        "front_eds_route": 239,
+        "front_eds_destination": 232
+      },
+      "coco_sha256": "dd74d8c5c031886e7385dd45f87dc6229265c3be689c455fd2539abcd1fa64b4"
+    }
+  },
+  "class_map": {
+    "1": 0,
+    "3": 1,
+    "4": 2,
+    "2": 3
+  },
+  "run_id": "v9-local-01",
+  "models": {
+    "yolo11n": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11n\\weights\\best.pt",
+    "yolo11n-gentle_aug": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11n-gentle_aug\\weights\\best.pt",
+    "yolo11n-localization": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11n-localization\\weights\\best.pt",
+    "yolo11s": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11s\\weights\\best.pt",
+    "yolo11s-gentle_aug": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11s-gentle_aug\\weights\\best.pt",
+    "yolo11s-localization": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11s-localization\\weights\\best.pt",
+    "detr-resnet-50": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\detr-resnet-50"
+  },
+  "model_run_ids": {
+    "yolo11n": "v9-local-01",
+    "yolo11n-gentle_aug": "v9-tuning-01",
+    "yolo11n-localization": "v9-tuning-01",
+    "yolo11s": "v9-local-01",
+    "yolo11s-gentle_aug": "v9-tuning-01",
+    "yolo11s-localization": "v9-tuning-01",
+    "detr-resnet-50": "v9-local-01"
+  },
+  "model_image_sizes": {
+    "yolo11n": 640,
+    "yolo11n-gentle_aug": 640,
+    "yolo11n-localization": 800,
+    "yolo11s": 640,
+    "yolo11s-gentle_aug": 640,
+    "yolo11s-localization": 800,
+    "detr-resnet-50": 640
+  },
+  "training_history": {
+    "yolo11n": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11n\\results.csv",
+      "run_id": "v9-local-01",
+      "image_size": 640
+    },
+    "yolo11n-gentle_aug": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11n-gentle_aug\\results.csv",
+      "run_id": "v9-tuning-01",
+      "image_size": 640
+    },
+    "yolo11n-localization": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11n-localization\\results.csv",
+      "run_id": "v9-tuning-01",
+      "image_size": 800
+    },
+    "yolo11s": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11s\\results.csv",
+      "run_id": "v9-local-01",
+      "image_size": 640
+    },
+    "yolo11s-gentle_aug": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11s-gentle_aug\\results.csv",
+      "run_id": "v9-tuning-01",
+      "image_size": 640
+    },
+    "yolo11s-localization": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11s-localization\\results.csv",
+      "run_id": "v9-tuning-01",
+      "image_size": 800
+    }
+  },
+  "benchmark": {
+    "yolo11n": {
+      "train": {
+        "images": 6858,
+        "negatives": 579,
+        "map50": 0.9315977096557617,
+        "map50_95": 0.6714378595352173,
+        "mar_100": 0.7435570955276489,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.924291729927063,
+            "map50_95": 0.5971927046775818,
+            "mar_100": 0.71735018491745
+          },
+          "front_eds_num": {
+            "map50": 0.950886070728302,
+            "map50_95": 0.7642159461975098,
+            "mar_100": 0.8012280464172363
+          },
+          "front_eds_route": {
+            "map50": 0.9203241467475891,
+            "map50_95": 0.6301621794700623,
+            "mar_100": 0.7020261287689209
+          },
+          "front_eds_destination": {
+            "map50": 0.9308888912200928,
+            "map50_95": 0.6941806077957153,
+            "mar_100": 0.7536239624023438
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 123,
+        "median_inference_ms": 14.850499981548637,
+        "p95_inference_ms": 24.344114976702258
+      },
+      "valid": {
+        "images": 294,
+        "negatives": 20,
+        "map50": 0.9135867953300476,
+        "map50_95": 0.635105311870575,
+        "mar_100": 0.7199133038520813,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.8858497738838196,
+            "map50_95": 0.4949922263622284,
+            "mar_100": 0.665517270565033
+          },
+          "front_eds_num": {
+            "map50": 0.9423016309738159,
+            "map50_95": 0.7530835866928101,
+            "mar_100": 0.7958208918571472
+          },
+          "front_eds_route": {
+            "map50": 0.9162375926971436,
+            "map50_95": 0.6245152354240417,
+            "mar_100": 0.6921738982200623
+          },
+          "front_eds_destination": {
+            "map50": 0.9099581837654114,
+            "map50_95": 0.6678301095962524,
+            "mar_100": 0.726141095161438
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 9,
+        "median_inference_ms": 14.910199999576434,
+        "p95_inference_ms": 24.36870998935774
+      }
+    },
+    "yolo11s": {
+      "train": {
+        "images": 6858,
+        "negatives": 579,
+        "map50": 0.9534043073654175,
+        "map50_95": 0.7301734089851379,
+        "mar_100": 0.7809053063392639,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9630652666091919,
+            "map50_95": 0.6906567811965942,
+            "mar_100": 0.7566372752189636
+          },
+          "front_eds_num": {
+            "map50": 0.9668022394180298,
+            "map50_95": 0.7914636731147766,
+            "mar_100": 0.8273279070854187
+          },
+          "front_eds_route": {
+            "map50": 0.9383617043495178,
+            "map50_95": 0.6903403401374817,
+            "mar_100": 0.7451782822608948
+          },
+          "front_eds_destination": {
+            "map50": 0.9453880190849304,
+            "map50_95": 0.7482327222824097,
+            "mar_100": 0.7944777607917786
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 117,
+        "median_inference_ms": 15.178300003753975,
+        "p95_inference_ms": 24.307414988288656
+      },
+      "valid": {
+        "images": 294,
+        "negatives": 20,
+        "map50": 0.9218630194664001,
+        "map50_95": 0.6388382315635681,
+        "mar_100": 0.710078775882721,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9117236733436584,
+            "map50_95": 0.48629695177078247,
+            "mar_100": 0.6158046126365662
+          },
+          "front_eds_num": {
+            "map50": 0.9481810331344604,
+            "map50_95": 0.7622023224830627,
+            "mar_100": 0.7988059520721436
+          },
+          "front_eds_route": {
+            "map50": 0.9136898517608643,
+            "map50_95": 0.6207994818687439,
+            "mar_100": 0.6904347538948059
+          },
+          "front_eds_destination": {
+            "map50": 0.913857638835907,
+            "map50_95": 0.6860542297363281,
+            "mar_100": 0.7352697253227234
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 11,
+        "median_inference_ms": 14.98340000398457,
+        "p95_inference_ms": 17.54378499172161
+      }
+    },
+    "yolo11n-gentle_aug": {
+      "train": {
+        "images": 6858,
+        "negatives": 579,
+        "map50": 0.9689568281173706,
+        "map50_95": 0.8120861053466797,
+        "mar_100": 0.845756471157074,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9873501658439636,
+            "map50_95": 0.822480320930481,
+            "mar_100": 0.8558323979377747
+          },
+          "front_eds_num": {
+            "map50": 0.9700570702552795,
+            "map50_95": 0.8303837180137634,
+            "mar_100": 0.854723334312439
+          },
+          "front_eds_route": {
+            "map50": 0.9585056900978088,
+            "map50_95": 0.7702755928039551,
+            "mar_100": 0.8116890788078308
+          },
+          "front_eds_destination": {
+            "map50": 0.9599144458770752,
+            "map50_95": 0.8252047300338745,
+            "mar_100": 0.8607811331748962
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 4,
+        "median_inference_ms": 15.037700009997934,
+        "p95_inference_ms": 24.641445020097304
+      },
+      "valid": {
+        "images": 294,
+        "negatives": 20,
+        "map50": 0.916793942451477,
+        "map50_95": 0.6679150462150574,
+        "mar_100": 0.7295637130737305,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9174216389656067,
+            "map50_95": 0.525505006313324,
+            "mar_100": 0.634482741355896
+          },
+          "front_eds_num": {
+            "map50": 0.9415827393531799,
+            "map50_95": 0.7742449045181274,
+            "mar_100": 0.8095522522926331
+          },
+          "front_eds_route": {
+            "map50": 0.9053326845169067,
+            "map50_95": 0.6730617880821228,
+            "mar_100": 0.7260869741439819
+          },
+          "front_eds_destination": {
+            "map50": 0.9028387665748596,
+            "map50_95": 0.6988485455513,
+            "mar_100": 0.7481327652931213
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 7,
+        "median_inference_ms": 15.231050027068704,
+        "p95_inference_ms": 19.856364987208508
+      }
+    },
+    "yolo11n-localization": {
+      "train": {
+        "images": 6858,
+        "negatives": 579,
+        "map50": 0.9504157900810242,
+        "map50_95": 0.7413412928581238,
+        "mar_100": 0.799900472164154,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9499907493591309,
+            "map50_95": 0.6674302220344543,
+            "mar_100": 0.7582470774650574
+          },
+          "front_eds_num": {
+            "map50": 0.9671232104301453,
+            "map50_95": 0.8048515319824219,
+            "mar_100": 0.8415519595146179
+          },
+          "front_eds_route": {
+            "map50": 0.9415414929389954,
+            "map50_95": 0.725162148475647,
+            "mar_100": 0.7828365564346313
+          },
+          "front_eds_destination": {
+            "map50": 0.9430075883865356,
+            "map50_95": 0.7679212689399719,
+            "mar_100": 0.8169664144515991
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 41,
+        "median_inference_ms": 15.947850013617426,
+        "p95_inference_ms": 25.234324994380586
+      },
+      "valid": {
+        "images": 294,
+        "negatives": 20,
+        "map50": 0.918911337852478,
+        "map50_95": 0.6735590100288391,
+        "mar_100": 0.7462968826293945,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9117621183395386,
+            "map50_95": 0.5125304460525513,
+            "mar_100": 0.6577585935592651
+          },
+          "front_eds_num": {
+            "map50": 0.950788140296936,
+            "map50_95": 0.7789475917816162,
+            "mar_100": 0.821194052696228
+          },
+          "front_eds_route": {
+            "map50": 0.910027027130127,
+            "map50_95": 0.6943123936653137,
+            "mar_100": 0.7547826170921326
+          },
+          "front_eds_destination": {
+            "map50": 0.903067946434021,
+            "map50_95": 0.7084454894065857,
+            "mar_100": 0.7514522671699524
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 3,
+        "median_inference_ms": 15.754799998831004,
+        "p95_inference_ms": 20.458480014349334
+      }
+    },
+    "yolo11s-gentle_aug": {
+      "train": {
+        "images": 6858,
+        "negatives": 579,
+        "map50": 0.9694227576255798,
+        "map50_95": 0.8228412866592407,
+        "mar_100": 0.8550369143486023,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9892317652702332,
+            "map50_95": 0.8425058126449585,
+            "mar_100": 0.8734381198883057
+          },
+          "front_eds_num": {
+            "map50": 0.9700294137001038,
+            "map50_95": 0.8415689468383789,
+            "mar_100": 0.8650472164154053
+          },
+          "front_eds_route": {
+            "map50": 0.9586582779884338,
+            "map50_95": 0.7748685479164124,
+            "mar_100": 0.8176115155220032
+          },
+          "front_eds_destination": {
+            "map50": 0.9597716927528381,
+            "map50_95": 0.8324218392372131,
+            "mar_100": 0.8640508651733398
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 18,
+        "median_inference_ms": 15.220549976220354,
+        "p95_inference_ms": 24.362470049527474
+      },
+      "valid": {
+        "images": 294,
+        "negatives": 20,
+        "map50": 0.9199382662773132,
+        "map50_95": 0.6842343211174011,
+        "mar_100": 0.7409870624542236,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9241329431533813,
+            "map50_95": 0.5543056130409241,
+            "mar_100": 0.6405172348022461
+          },
+          "front_eds_num": {
+            "map50": 0.9327727556228638,
+            "map50_95": 0.7765834331512451,
+            "mar_100": 0.8095522522926331
+          },
+          "front_eds_route": {
+            "map50": 0.9104820489883423,
+            "map50_95": 0.6792807579040527,
+            "mar_100": 0.7404347658157349
+          },
+          "front_eds_destination": {
+            "map50": 0.9123653769493103,
+            "map50_95": 0.7267674803733826,
+            "mar_100": 0.7734439969062805
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 13,
+        "median_inference_ms": 16.377849999116734,
+        "p95_inference_ms": 24.805365010979585
+      }
+    },
+    "yolo11s-localization": {
+      "train": {
+        "images": 6858,
+        "negatives": 579,
+        "map50": 0.9479904174804688,
+        "map50_95": 0.6999872922897339,
+        "mar_100": 0.7718399167060852,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9408581852912903,
+            "map50_95": 0.6095468997955322,
+            "mar_100": 0.7208381295204163
+          },
+          "front_eds_num": {
+            "map50": 0.9641978144645691,
+            "map50_95": 0.7948575019836426,
+            "mar_100": 0.835708498954773
+          },
+          "front_eds_route": {
+            "map50": 0.9430868029594421,
+            "map50_95": 0.6892810463905334,
+            "mar_100": 0.7594779133796692
+          },
+          "front_eds_destination": {
+            "map50": 0.9438187479972839,
+            "map50_95": 0.7062637209892273,
+            "mar_100": 0.7713351249694824
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 159,
+        "median_inference_ms": 15.946100000292063,
+        "p95_inference_ms": 25.024915020912882
+      },
+      "valid": {
+        "images": 294,
+        "negatives": 20,
+        "map50": 0.93133544921875,
+        "map50_95": 0.6526424288749695,
+        "mar_100": 0.7352213263511658,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9098806977272034,
+            "map50_95": 0.49674248695373535,
+            "mar_100": 0.6433908343315125
+          },
+          "front_eds_num": {
+            "map50": 0.9548487067222595,
+            "map50_95": 0.7757881283760071,
+            "mar_100": 0.818805992603302
+          },
+          "front_eds_route": {
+            "map50": 0.9362764954566956,
+            "map50_95": 0.6686111688613892,
+            "mar_100": 0.7421739101409912
+          },
+          "front_eds_destination": {
+            "map50": 0.9243359565734863,
+            "map50_95": 0.6694279313087463,
+            "mar_100": 0.7365145087242126
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 6,
+        "median_inference_ms": 16.27164997626096,
+        "p95_inference_ms": 24.799809983232986
+      }
+    }
+  },
+  "validation_threshold_sweep": [
+    {
+      "model": "yolo11s-gentle_aug",
+      "threshold": 0.1,
+      "precision_iou50": 0.8524458700882117,
+      "recall_iou50": 0.9211438474870017,
+      "f1_iou50": 0.8854643898375678,
+      "negative_false_positives": 15
+    },
+    {
+      "model": "yolo11s-gentle_aug",
+      "threshold": 0.2,
+      "precision_iou50": 0.8833892617449665,
+      "recall_iou50": 0.912478336221837,
+      "f1_iou50": 0.89769820971867,
+      "negative_false_positives": 15
+    },
+    {
+      "model": "yolo11s-gentle_aug",
+      "threshold": 0.3,
+      "precision_iou50": 0.9078260869565218,
+      "recall_iou50": 0.9046793760831889,
+      "f1_iou50": 0.90625,
+      "negative_false_positives": 14
+    },
+    {
+      "model": "yolo11s-gentle_aug",
+      "threshold": 0.5,
+      "precision_iou50": 0.9361313868613139,
+      "recall_iou50": 0.8890814558058926,
+      "f1_iou50": 0.912,
+      "negative_false_positives": 13
+    },
+    {
+      "model": "yolo11s-gentle_aug",
+      "threshold": 0.7,
+      "precision_iou50": 0.9619512195121951,
+      "recall_iou50": 0.854419410745234,
+      "f1_iou50": 0.9050022946305646,
+      "negative_false_positives": 11
+    }
+  ],
+  "settings": {
+    "yolo_epochs": 60,
+    "detr_epochs": 60,
+    "image_size": 640,
+    "batch_size": 32,
+    "workers": 4,
+    "detr_micro_batch_size": 2,
+    "seed": 42,
+    "device": "cuda",
+    "operating_conf": 0.5,
+    "yolo_nms_iou": 0.7,
+    "final_test_run": false
+  },
+  "environment": {
+    "platform": "Windows-10-10.0.26300-SP0",
+    "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+    "torch": "2.11.0+cu128",
+    "ultralytics": "8.3.158",
+    "transformers": "4.57.6",
+    "torchmetrics": "1.9.0"
+  }
+}

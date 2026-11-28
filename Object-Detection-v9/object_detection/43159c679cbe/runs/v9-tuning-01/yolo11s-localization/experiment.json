@@ -1,0 +1,19 @@
+{
+  "model": "yolo11s-localization",
+  "published_starting_weight": "C:\\Users\\brend\\CVDL-P1-14\\.runtime\\object_detection_benchmark\\pretrained\\yolo11s.pt",
+  "variant": "localization",
+  "dataset_manifest_sha256": "43159c679cbe4ea7d3b791ef106d66ce7795a10307155fbc33863205868198d7",
+  "run_id": "v9-tuning-01",
+  "epochs_cap": 60,
+  "image_size": 800,
+  "batch_size": 16,
+  "workers": 4,
+  "seed": 42,
+  "training_seconds": 2017.1526841000305,
+  "variant_settings": {
+    "translate": 0.0,
+    "scale": 0.0,
+    "hsv_v": 0.0,
+    "box": 8.5
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "model": "yolo11s-gentle_aug",
+  "run_id": "v9-tuning-01",
+  "dataset_manifest_sha256": "43159c679cbe4ea7d3b791ef106d66ce7795a10307155fbc33863205868198d7",
+  "training_status": "complete",
+  "epochs_recorded": 47,
+  "source_run": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-tuning-01\\yolo11s-gentle_aug",
+  "checkpoint_sha256": {
+    "best.pt": "44bec14038815655341ddb8b9d8859ed9fe52d8223d29bcadc3cd30c1d6f3522",
+    "last.pt": "e03c6e6cf37a5c44ce8c7c72f34ed040d6ca7161c107b2326aaec6f94937210b"
+  },
+  "validation_status": "saved",
+  "test_status": "saved",
+  "archived_at_utc": "2026-11-27T23:51:27.479481+00:00"
+}

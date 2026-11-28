@@ -11,7 +11,18 @@ Scripts read files saved by the previous stage; no notebook is required. The
 working order is **split -> annotate -> review/export -> audit -> augment**.
 Despite its `00` prefix, the audit checks an already labelled dataset.
 
-## Fresh object detection training
+## Completed v9 detector experiment
+
+The [v9 results](../Object-Detection-v9/RESULTS.md) record three baseline
+models, four YOLO A/B variants, validation comparisons, and one selected-model
+final test. The [benchmark notebook](../notebooks/object_detection_benchmark.ipynb)
+contains the saved outputs and has execution switches off by default. With
+`--dataset data/training/2026-11-25-roboflow-v9-stem-isolated`, the trainer
+saves new runs under `Object-Detection-v9/object_detection/` and YOLO weight
+backups under `YOLO_Weights/v9/`. Use a new run ID for any new experiment; the
+dataset itself is local and is not included in this branch.
+
+## Historical v4 object detection training
 
 The reader app now defaults to the completed v4 YOLO11s checkpoint. Install or
 verify the local ignored weight before starting it:
@@ -26,7 +37,7 @@ The earlier baseline checkpoint and its config remain under
 configuration with `--config` to verify or reinstall it without changing the
 application default.
 
-The benchmark notebook has a small manual training launcher backed by this
+The current benchmark notebook has a manual training launcher backed by this
 script. Train one model at a time from its published pretrained weights. Use a
 new run ID for a new attempt of the same model; existing model folders are not
 overwritten:

@@ -1,6 +1,11 @@
 # Object detection handoff
 
-The latest result is the [reviewed Roboflow v4 run](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md),
+The [v9 research results](../Object-Detection-v9/RESULTS.md) record seven
+completed training runs, a common validation comparison, and one final test
+for validation-selected YOLO11s A. The [benchmark notebook](../notebooks/object_detection_benchmark.ipynb)
+retains its measured outputs. V9 has not been installed in the application.
+
+The deployed result is the [reviewed Roboflow v4 run](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md),
 with three trained models, three validation reports and one final YOLO11s test.
 The new YOLO11s checkpoint and dataset payload are local Git-ignored artifacts.
 The [v4 validation crop handoff](../evaluation/object_detection/01760a841333/runs/v4-reviewed-01/OCR_HANDOFF.md)
@@ -13,7 +18,7 @@ The older `baseline-01` result and weights remain preserved as historical
 documentation. The sections below describe that earlier baseline separately.
 
 The earlier three-model benchmark and its application integration are recorded
-as `baseline-01`. Keep both completed held-out tests closed for tuning.
+as `baseline-01`. Keep all completed held-out tests closed for tuning.
 
 ## Completed baseline
 

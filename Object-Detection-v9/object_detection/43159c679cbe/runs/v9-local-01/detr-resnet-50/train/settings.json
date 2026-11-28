@@ -1,0 +1,18 @@
+{
+  "model": "detr-resnet-50",
+  "pretrained": "facebook/detr-resnet-50",
+  "dataset_manifest_sha256": "43159c679cbe4ea7d3b791ef106d66ce7795a10307155fbc33863205868198d7",
+  "run_id": "v9-local-01",
+  "epochs": 60,
+  "image_size": 640,
+  "seed": 42,
+  "effective_batch_size": 32,
+  "gpu_micro_batch_size": 2,
+  "gradient_accumulation_steps": 16,
+  "train_loader_workers": 4,
+  "validation_loader_workers": 0,
+  "optimizer": "AdamW",
+  "learning_rate": 1e-05,
+  "weight_decay": 0.0001,
+  "shuffle": false
+}

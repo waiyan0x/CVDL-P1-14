@@ -10,13 +10,20 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-MODEL_NAMES = ("yolo11n", "yolo11s", "detr-resnet-50")
+MODEL_NAMES = (
+    "yolo11n", "yolo11s", "detr-resnet-50",
+    "yolo11n-gentle_aug", "yolo11n-localization",
+    "yolo11s-gentle_aug", "yolo11s-localization",
+)
 
 
 def archive_dir(repo_root, dataset_fingerprint, model_name, run_id=None):
     if model_name not in MODEL_NAMES:
         raise ValueError(f"Unknown detector: {model_name}")
-    base = Path(repo_root) / "evaluation" / "object_detection" / dataset_fingerprint[:12] / model_name
+    archive_root = Path(os.environ.get(
+        "EDS_ARCHIVE_ROOT", Path(repo_root) / "evaluation" / "object_detection"
+    )).resolve()
+    base = archive_root / dataset_fingerprint[:12] / model_name
     if run_id is not None:
         if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]{0,63}", run_id):
             raise ValueError(f"Invalid run ID: {run_id!r}")
@@ -74,13 +81,18 @@ def _sha256(path):
 def archive_yolo_run(repo_root, dataset_fingerprint, model_name, run_dir, run_id=None):
     """Copy current YOLO evidence, including partial runs, without changing it."""
     base, run_dir = archive_dir(repo_root, dataset_fingerprint, model_name, run_id), Path(run_dir)
-    for filename in ("results.csv", "args.yaml", "results.png"):
+    for filename in ("results.csv", "args.yaml", "results.png", "experiment.json"):
         _copy_if_changed(run_dir / filename, base / "train" / filename)
     checkpoint_hashes = {}
+    backup_root = os.environ.get("EDS_YOLO_BACKUP_ROOT")
     for filename in ("best.pt", "last.pt"):
         source = run_dir / "weights" / filename
         if _copy_if_changed(source, base / "checkpoints" / filename):
             checkpoint_hashes[filename] = _sha256(base / "checkpoints" / filename)
+            if backup_root and run_id:
+                backup = (Path(backup_root).resolve() / dataset_fingerprint[:12]
+                          / "runs" / run_id / model_name / filename)
+                _copy_if_changed(source, backup)
     history = base / "train" / "results.csv"
     epochs = 0
     if history.is_file():

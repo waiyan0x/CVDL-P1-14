@@ -1,5 +1,15 @@
 # Evaluation evidence
 
+## v9 detector research
+
+Seven v9 candidates have saved validation reports: YOLO11n, YOLO11s,
+DETR-ResNet50, and YOLO11n/YOLO11s augmentation A and localization B.
+Validation selected YOLO11s A at 68.4% mAP50:95; its one held-out test scored
+68.2%. See the [v9 results](../Object-Detection-v9/RESULTS.md) for per-class
+scores, settings, checkpoints, and negative-image detections. The v4 YOLO11s
+remains the application default; v9 has not been deployed. Human source-scene
+and annotation review remains open.
+
 ## Reviewed crop scoring
 
 The saved-prediction scorer and three-model table generator are documented in

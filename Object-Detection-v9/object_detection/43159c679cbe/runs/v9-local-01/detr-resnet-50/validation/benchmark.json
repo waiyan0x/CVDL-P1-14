@@ -1,0 +1,149 @@
+{
+  "dataset_root": "C:\\Users\\brend\\CVDL-P1-14\\data\\training\\2026-11-25-roboflow-v9-stem-isolated",
+  "dataset_manifest_sha256": "43159c679cbe4ea7d3b791ef106d66ce7795a10307155fbc33863205868198d7",
+  "inventory": {
+    "train": {
+      "images": 6858,
+      "negative_images": 579,
+      "boxes_by_class": {
+        "front_eds": 7827,
+        "front_eds_num": 7410,
+        "front_eds_route": 5133,
+        "front_eds_destination": 5505
+      },
+      "coco_sha256": "5594cb4b2d1cd7f2754f6f4281441164f25da71870038b2cdc522a6b447c6922"
+    },
+    "valid": {
+      "images": 294,
+      "negative_images": 20,
+      "boxes_by_class": {
+        "front_eds": 348,
+        "front_eds_num": 335,
+        "front_eds_route": 230,
+        "front_eds_destination": 241
+      },
+      "coco_sha256": "0fb320ea1460090ecb3e0252306da1dc093d96a92b2fc5c6f1d53e520d152b2c"
+    },
+    "test": {
+      "images": 299,
+      "negative_images": 20,
+      "boxes_by_class": {
+        "front_eds": 354,
+        "front_eds_num": 340,
+        "front_eds_route": 239,
+        "front_eds_destination": 232
+      },
+      "coco_sha256": "dd74d8c5c031886e7385dd45f87dc6229265c3be689c455fd2539abcd1fa64b4"
+    }
+  },
+  "class_map": {
+    "1": 0,
+    "3": 1,
+    "4": 2,
+    "2": 3
+  },
+  "run_id": "v9-local-01",
+  "models": {
+    "yolo11n": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11n\\weights\\best.pt",
+    "yolo11s": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11s\\weights\\best.pt",
+    "detr-resnet-50": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\detr-resnet-50"
+  },
+  "training_history": {
+    "yolo11n": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11n\\results.csv"
+    },
+    "yolo11s": {
+      "history_csv": "C:\\Users\\brend\\CVDL-P1-14\\Object-Detection-v9\\object_detection\\43159c679cbe\\runs\\v9-local-01\\yolo11s\\results.csv"
+    }
+  },
+  "benchmark": {
+    "detr-resnet-50": {
+      "train": {
+        "images": 6858,
+        "negatives": 579,
+        "map50": 0.8963018655776978,
+        "map50_95": 0.5778177976608276,
+        "mar_100": 0.6913200616836548,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9179311990737915,
+            "map50_95": 0.5456021428108215,
+            "mar_100": 0.661620020866394
+          },
+          "front_eds_num": {
+            "map50": 0.9229487180709839,
+            "map50_95": 0.6335605382919312,
+            "mar_100": 0.7113765478134155
+          },
+          "front_eds_route": {
+            "map50": 0.8405615091323853,
+            "map50_95": 0.49757495522499084,
+            "mar_100": 0.6626923680305481
+          },
+          "front_eds_destination": {
+            "map50": 0.9037659168243408,
+            "map50_95": 0.6345336437225342,
+            "mar_100": 0.7295913100242615
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 1123,
+        "median_inference_ms": 38.835949992062524,
+        "p95_inference_ms": 45.650154986651614
+      },
+      "valid": {
+        "images": 294,
+        "negatives": 20,
+        "map50": 0.8866775035858154,
+        "map50_95": 0.5432292819023132,
+        "mar_100": 0.6605716943740845,
+        "by_class": {
+          "front_eds": {
+            "map50": 0.9087402820587158,
+            "map50_95": 0.4892835319042206,
+            "mar_100": 0.6146551966667175
+          },
+          "front_eds_num": {
+            "map50": 0.9249029159545898,
+            "map50_95": 0.6079682111740112,
+            "mar_100": 0.68597012758255
+          },
+          "front_eds_route": {
+            "map50": 0.8343135714530945,
+            "map50_95": 0.4844421446323395,
+            "mar_100": 0.6491304636001587
+          },
+          "front_eds_destination": {
+            "map50": 0.8787532448768616,
+            "map50_95": 0.5912231802940369,
+            "mar_100": 0.6925311088562012
+          }
+        },
+        "false_positives_on_negatives_at_operating_conf": 51,
+        "median_inference_ms": 41.16715001873672,
+        "p95_inference_ms": 59.68900001316796
+      }
+    }
+  },
+  "validation_threshold_sweep": [],
+  "settings": {
+    "yolo_epochs": 60,
+    "detr_epochs": 60,
+    "image_size": 640,
+    "batch_size": 32,
+    "workers": 4,
+    "detr_micro_batch_size": 2,
+    "seed": 42,
+    "device": "cuda",
+    "operating_conf": 0.5,
+    "yolo_nms_iou": 0.7,
+    "final_test_run": false
+  },
+  "environment": {
+    "platform": "Windows-10-10.0.26300-SP0",
+    "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+    "torch": "2.11.0+cu128",
+    "ultralytics": "8.3.158",
+    "transformers": "4.57.6",
+    "torchmetrics": "1.9.0"
+  }
+}

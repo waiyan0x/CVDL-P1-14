@@ -1,5 +1,24 @@
 # Final datasets for model training
 
+## V9 source-stem-isolated detector export
+
+The v9 detector runs used the local
+`data/training/2026-11-25-roboflow-v9-stem-isolated/` export: 6,858 train,
+294 validation, and 299 held-out test images. The preparation script retained
+test first, then validation, then training, excluding source-filename-stem
+overlaps and three visually confirmed cross-split training images. Its
+`preparation_manifest.json` and `split_isolation_audit.json` record hashes and
+decisions. Run `python scripts/verify_v9_object_detection_export.py` against
+the local folder before reproducing the experiment. Automated isolation does
+not establish source-scene independence or annotation completeness; human
+review remains open.
+
+The [v9 results](../../Object-Detection-v9/RESULTS.md) record seven trained
+candidates and one selected-model final test. The dataset ZIP was removed in
+the latest detector-branch cleanup, so it is not included in this Git branch.
+The extracted dataset is Git-ignored and must be obtained separately for a
+new training or evaluation run.
+
 ## New Roboflow v4 export (local, review required)
 
 The corrected version is now `data/training/2026-11-05-roboflow-v4-reviewed/`.
