@@ -1,4 +1,4 @@
-"""Copy recorded result/checklist markdown from the builder into the notebook."""
+"""Historical v4-only notebook sync; refuse to alter the executed v9 notebook."""
 
 from pathlib import Path
 import os
@@ -10,6 +10,12 @@ import nbformat
 ROOT = Path(__file__).resolve().parents[1]
 BUILDER = ROOT / "notebooks/build_object_detection_benchmark.py"
 NOTEBOOK = ROOT / "notebooks/object_detection_benchmark.ipynb"
+
+if "2026-11-25-roboflow-v9-stem-isolated" in NOTEBOOK.read_text(encoding="utf-8"):
+    raise RuntimeError(
+        "This historical v4 sync script cannot edit the executed v9 benchmark notebook. "
+        "Edit notebooks/build_object_detection_benchmark.py and preserve saved outputs."
+    )
 
 source = BUILDER.read_text(encoding="utf-8")
 namespace = {}

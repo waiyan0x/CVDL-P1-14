@@ -1,21 +1,22 @@
 # Object detection v9: local runs
 
-This directory is reserved for fresh local training on
+This directory holds the completed local detector experiment on
 `data/training/2026-11-25-roboflow-v9-stem-isolated/`. It uses the same
 `object_detection/<dataset-fingerprint>/runs/<run-id>/` layout as the historical
 [`Object-Detection-v4`](../Object-Detection-v4/object_detection/README.md)
-archive. It does not contain the v4 OCR handoff. The v9 folder starts with no
-measured results or checkpoints.
+archive. Read [RESULTS.md](RESULTS.md) for the seven-model validation comparison,
+the selected-model final test, and links to every benchmark report. The v4 OCR
+handoff and deployed detector are separate.
 
 The [benchmark notebook](../notebooks/object_detection_benchmark.ipynb) sets both
 `EDS_OUTPUT_ROOT` and `EDS_ARCHIVE_ROOT` to this directory's
 `object_detection/` subfolder. The standalone trainer uses the same local paths
-when given the named v9 dataset, even from a new PowerShell session. Raw YOLO training files, validation and test
-benchmarks, split tables, and copied checkpoints therefore stay together on this
-computer. Starting YOLO weights and the generated YOLO dataset view stay under
-ignored `.runtime/object_detection_benchmark/`.
+when given the named v9 dataset, even from a new PowerShell session. Training
+histories, benchmarks, split tables, and checkpoints are saved here. Published
+starting weights and the generated YOLO dataset view stay under ignored
+`.runtime/object_detection_benchmark/`.
 
-Expected structure after a run:
+Saved structure (fingerprint prefix `43159c679cbe`):
 
 ```text
 Object-Detection-v9/
@@ -23,7 +24,7 @@ Object-Detection-v9/
     <dataset-fingerprint>/
       runs/
         v9-local-01/
-          yolo11n/                  # One model per folder; likewise yolo11s, detr-resnet-50
+          yolo11n/                  # Also yolo11s and detr-resnet-50
             results.csv             # YOLO epoch log
             args.yaml               # YOLO settings
             weights/best.pt         # Best checkpoint from training
@@ -31,13 +32,16 @@ Object-Detection-v9/
             complete.txt            # Written only after successful training
             train/                  # Mirrored training evidence
             validation/benchmark.json
-            test/benchmark.json     # Only after the final held-out test
             checkpoints/            # Copies of selected training weights
             status.json
           benchmark_*_validation.json
           benchmark_*_validation_tables.md
           benchmark_*_test.json
           benchmark_*_test_tables.md
+        v9-tuning-01/
+          yolo11s-gentle_aug/      # Selected A variant; three other A/B runs alongside it
+            weights/best.pt
+            test/benchmark.json    # Selected model only
 ```
 
 DETR writes its model and processor files at the model run root and mirrors the
@@ -45,9 +49,10 @@ best model into `checkpoints/`. The trainer backs up YOLO `best.pt` and `last.pt
 separately under [`YOLO_Weights/v9/`](../YOLO_Weights/v9/README.md)
 at `<dataset-fingerprint>/runs/<run-id>/<model>/`. On a normal interruption,
 it also mirrors any epoch log and weights already saved, marked `partial`.
-The `test/` and test summary files are created only when final testing is enabled.
-Nothing here is a measured result until the corresponding training or evaluation
-step completes.
+The combined final-test report and tables are under `v9-local-01/`; the
+selected model's per-model test copy is under `v9-tuning-01/`. Other candidates
+received validation only. A model run is complete only when `complete.txt`
+exists; `status.json` records which evaluation phases are saved.
 
 Keep one baseline run ID for models that belong to the same new comparison set.
 Choose a new ID for any model whose folder already exists, including a partial
@@ -62,14 +67,12 @@ batch of 32. DETR uses two images per GPU microbatch and accumulates gradients
 over 16 microbatches for an effective batch of 32. This accumulation is a
 memory-aware approximation of a physical 32-image DETR step. The remaining
 settings stay at 60 epochs, 640-pixel input, seed 42, and the v4 training
-configuration. The benchmark starts with the v4 operating confidence `0.50`
-and NMS IoU `0.70`; choose any later change on v9 validation only. A run is
-complete only when its own `complete.txt` exists; a partial epoch history is
-retained as evidence, not a final benchmark result.
+configuration. The selected v9 final test used validation-chosen confidence
+`0.50` and NMS IoU `0.70`.
 
 ## Optional YOLO A/B runs
 
-Notebook section 3B implements the four separate YOLO11n/s experiments in the
+Notebook section 3B records the four completed YOLO11n/s experiments in the
 [tuning plan](../docs/OBJECT_DETECTION_YOLO_TUNING_PLAN.md). A (`gentle_aug`)
 uses input 640, translation 0.02, scale 0.10, and brightness variation 0.08.
 B (`localization`) uses input 800 and box-loss gain 8.5. Both start from the
@@ -78,5 +81,6 @@ saved under `object_detection/<fingerprint>/runs/<tuning-run-id>/` with names
 such as `yolo11s-localization`; its `args.yaml`, `results.csv`,
 `experiment.json`, and `weights/` are separate. YOLO backups use the same
 variant name under `YOLO_Weights/v9/`. The common notebook benchmark can read
-completed variants at their recorded input sizes. No A/B result is implied by
-this setup.
+completed variants at their recorded input sizes. Both B runs used batch 16
+at 800 pixels; their baselines and A runs used batch 32 at 640 pixels. See
+[RESULTS.md](RESULTS.md) for measured outcomes and remaining review work.

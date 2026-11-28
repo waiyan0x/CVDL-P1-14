@@ -16,17 +16,15 @@ cells = [
     md(r"""
 # EDS object detection: YOLO11n, YOLO11s, and DETR
 
-**Status (6 November 2026): the manifest-backed Roboflow v4 reviewed export has completed three training and validation runs and one selected-model final test.** See the recorded results below and the [archived report](../Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md). The earlier baseline remains a separate experiment.
-
-**Fresh v9 run:** the prepared `data/training/2026-11-25-roboflow-v9-stem-isolated` export has 6,858/294/299 train/valid/test images and a verified checksum manifest. The earlier v9 training progress is not part of this notebook. All v9 model results start pending. The v4 results below are historical and use different data. Human source and annotation review remains open.
+**V9 result (28 November 2026):** seven candidates trained on the verified 6,858/294/299-image v9 split. Validation selected `yolo11s-gentle_aug` (mAP50:95 `0.6842`); its single held-out test scored `0.6819`. See the [v9 results and artifact index](../Object-Detection-v9/RESULTS.md). The v4 tables below use different data and remain historical. Human source and annotation review remains open.
 
 This notebook implements the object detection allocation: dataset/label audit, pretrained model selection, fine-tuning, validation, per-class mAP, speed/failure comparison, threshold selection, and a final held-out test. It retains train/valid/test separation and records settings and hashes. Run from the repo's `notebooks/` folder or repo root.
 
-Sources: [task allocation PDF](file:///C:/Users/brend/Downloads/CVDL_Task_Allocation.pdf), [training inventory](../data/training/README.md), [readiness handoff](../docs/data_preparation/TRAINING_READINESS.md), [annotation guide](../docs/annotation/guide.md), [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11), [Hugging Face DETR](https://huggingface.co/docs/transformers/v4.51.1/en/model_doc/detr).
+Sources: task allocation PDF (external to this repository), [training inventory](../data/training/README.md), [readiness handoff](../docs/data_preparation/TRAINING_READINESS.md), [annotation guide](../docs/annotation/guide.md), [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11), [Hugging Face DETR](https://huggingface.co/docs/transformers/v4.51.1/en/model_doc/detr).
 
 ## Environment and run controls
 
-Use the local `venv/detector` CUDA kernel in VS Code. Install a PyTorch build appropriate to this machine, then `ultralytics==8.3.158 transformers>=4.52,<5 timm torchmetrics pycocotools pyyaml pillow nbformat ipykernel`. Keep it separate from the pinned data-preparation environment. Put published `yolo11n.pt` and `yolo11s.pt` in `.runtime/object_detection_benchmark/pretrained/`; DETR downloads its published weights on first use. The first run is a preflight with all run switches disabled. Train each model separately with `scripts/train_object_detection.py`.
+Use the local `venv/detector` CUDA kernel in VS Code. Published `yolo11n.pt` and `yolo11s.pt` belong in `.runtime/object_detection_benchmark/pretrained/`; DETR downloads its published weights on first use. The saved reports and checkpoints are linked from the v9 results index. All execution switches default to off. Re-run training or evaluation only under a new, explicitly named experiment; the held-out v9 test is closed for further selection.
 """),
     code(r"""
 from pathlib import Path
@@ -56,9 +54,9 @@ os.environ.setdefault('HF_HOME', str(ROOT / '.runtime/object_detection_benchmark
 RUN_PREPARE_YOLO = False  # Optional dataset conversion; training CLI prepares it too.
 RUN_TRAINING = False     # Enable manually after reviewing the v9 split audit and verified manifest.
 TRAIN_MODEL = 'yolo11n'   # Choose: 'yolo11n', 'yolo11s', or 'detr-resnet-50'.
-RUN_BENCHMARK = False     # Enable for completed v9 models selected below.
-RUN_FINAL_TEST = False    # Keep held-out v9 test closed until validation-based selection.
-RUN_ID = 'v9-local-01'  # New local comparison set; keep this ID for all three models.
+RUN_BENCHMARK = False     # Existing v9 validation/test reports are saved; enable only for a new experiment.
+RUN_FINAL_TEST = False    # The selected v9 held-out test is complete; keep this off.
+RUN_ID = 'v9-local-01'  # Baseline/report group; A/B checkpoints use TUNING_RUN_ID.
 BENCHMARK_MODELS = ('yolo11n', 'yolo11s', 'detr-resnet-50')
 BENCHMARK_MODEL_RUNS = {}  # Optional per-candidate run IDs, e.g. {'detr-resnet-50': 'v9-local-02'}.
 YOLO_EPOCHS, DETR_EPOCHS, IMAGE_SIZE, BATCH_SIZE, SEED = 60, 60, 640, 32, 42
@@ -68,7 +66,7 @@ TUNING_MODEL = 'yolo11n'  # 'yolo11n' or 'yolo11s'.
 TUNING_VARIANT = 'gentle_aug'  # A: 'gentle_aug'; B: 'localization'.
 TUNING_RUN_ID = 'v9-tuning-01'  # Separate from the baseline RUN_ID.
 TUNING_BATCH_SIZE = BATCH_SIZE  # Match the model's baseline if it fits; B at 800 may need less.
-OPERATING_CONF, YOLO_NMS_IOU = 0.50, 0.70  # V4 operating settings; select any v9 change on validation.
+OPERATING_CONF, YOLO_NMS_IOU = 0.50, 0.70  # Frozen v9 final-test settings selected on validation.
 DEVICE = 'cuda' if importlib.util.find_spec('torch') and __import__('torch').cuda.is_available() else 'cpu'
 CLASS_NAMES = ('front_eds', 'front_eds_num', 'front_eds_route', 'front_eds_destination')
 COCO_TO_INDEX = {1: 0, 3: 1, 4: 2, 2: 3}  # Explicit IDs from the readiness handoff.
@@ -220,14 +218,13 @@ else:
     md(r"""
 ## Manual model training
 
-Select one candidate in the first code cell with `TRAIN_MODEL` and set `RUN_TRAINING=True`. Keep `RUN_TUNING=False`, `RUN_BENCHMARK=False`, and `RUN_FINAL_TEST=False` during baseline training, then click **Run All**. Use the same `RUN_ID` for YOLO11n, YOLO11s and DETR when they belong to one comparison; each model still gets its own folder. Choose a new ID if that model's folder already exists, including a partial run. Training starts from published pretrained weights and refuses to overwrite an existing run. It does not resume an earlier EDS checkpoint.
-
-After training finishes, set `RUN_TRAINING=False`, keep the same `RUN_ID`, select the model in `BENCHMARK_MODELS`, and enable `RUN_BENCHMARK` in a separate Run All execution.
+The three v9 baselines completed under `v9-local-01`. This cell remains a reusable trainer for a **new** run ID. Select one `TRAIN_MODEL` and set `RUN_TRAINING=True` with all other execution switches off. Training starts from published weights, creates a model-specific folder, and refuses an existing run. It does not resume a checkpoint. Keep this switch off when reading the recorded v9 results.
 """),
     code(r"""
 if DATA_READY and RUN_TRAINING:
     import subprocess
     training_epochs = YOLO_EPOCHS if TRAIN_MODEL.startswith('yolo') else DETR_EPOCHS
+    # The trainer checks the manifest and refuses an existing model folder.
     command = [sys.executable, str(ROOT / 'scripts/train_object_detection.py'),
                '--model', TRAIN_MODEL, '--run-id', RUN_ID,
                '--dataset', str(DATASET_ROOT), '--epochs', str(training_epochs),
@@ -243,7 +240,7 @@ else:
     md(r"""
 ## 3B. Fresh YOLO11n and YOLO11s A/B experiments
 
-The [A/B plan](../docs/OBJECT_DETECTION_YOLO_TUNING_PLAN.md) defines four **proposed** runs: YOLO11n-A, YOLO11n-B, YOLO11s-A, and YOLO11s-B. Each starts from its own published COCO weight, not from a baseline `best.pt`, and updates the full network. No A/B result is recorded until the corresponding run finishes and is evaluated. Complete the local baseline for the selected model first; the cell below checks its `complete.txt`. The verified v9 images, four classes, seed 42, 60-epoch cap, patience 15, deterministic mode, optimizer choice, and disabled mosaic/MixUp/copy-paste/rotation/flips/hue/saturation remain as in the baseline.
+Four A/B runs completed under `v9-tuning-01`; see the [plan and measured comparison](../docs/OBJECT_DETECTION_YOLO_TUNING_PLAN.md). Each started from its published COCO weight and updated the full network. This cell is retained for a new tuning run ID and checks for a completed baseline. All variants used the same v9 split, four classes, seed 42, 60-epoch cap, patience 15, deterministic training, and disabled mosaic, MixUp, copy-paste, rotations, flips, hue and saturation changes.
 
 | Candidate | `TUNING_MODEL` | `TUNING_VARIANT` | Changes from that model's baseline | Starting weight |
 | --- | --- | --- | --- | --- |
@@ -252,18 +249,19 @@ The [A/B plan](../docs/OBJECT_DETECTION_YOLO_TUNING_PLAN.md) defines four **prop
 | YOLO11s-A | `yolo11s` | `gentle_aug` | same gentle changes as n-A | `yolo11s.pt` |
 | YOLO11s-B | `yolo11s` | `localization` | same localization changes as n-B | `yolo11s.pt` |
 
-**A tests gentle scene variation.** Translation, scaling, and brightness variation apply only during training; they change the training boxes as needed. They may help different bus framing and lighting, but v9 already has saved augmented images. Validation AP and crop quality, not training loss alone, decide whether A helps. The transforms do not alter validation or held-out test images.
+**A: gentle variation.** Translation, scale, and brightness changes affect training images and boxes only. V9 already contains saved augmentation; the measured validation comparison determines whether this extra variation helped.
 
-**B tests a localization package.** Its 800-pixel input retains more detail in small number/route/destination fields, and the box-loss gain rises from 7.5 to 8.5. B does not include A's transforms. Higher resolution costs more GPU memory and inference time. If `TUNING_BATCH_SIZE=32` does not fit the laptop GPU, select a lower value before starting B and record that difference; changing batch also changes optimization, so this is not a one-variable ablation. Evaluate B at its intended 800-pixel inference size.
+**B: localization package.** Input size 800 and box gain 8.5 target small EDS fields. Both B runs used batch 16, versus batch 32 for their baselines and A runs; this is an additional optimization difference. B was benchmarked at 800 pixels.
 
-**Run one variant at a time.** In the first code cell, keep `RUN_TRAINING=False`, `RUN_BENCHMARK=False`, and `RUN_FINAL_TEST=False`; set `RUN_TUNING=True`, select `TUNING_MODEL` and `TUNING_VARIANT`, and Run All. Repeat with the other three selections. Keep `RUN_ID` pointed at the completed local baseline used for comparison; `TUNING_RUN_ID` names the separate A/B experiment set. Each variant has its own `results.csv`, `args.yaml`, `experiment.json`, `weights/best.pt`, `weights/last.pt`, and completion marker under `Object-Detection-v9/object_detection/<fingerprint>/runs/<TUNING_RUN_ID>/<model>-<variant>/`. Weight copies also go to `YOLO_Weights/v9/<fingerprint>/runs/<TUNING_RUN_ID>/<model>-<variant>/`. Existing baseline and partial runs are never overwritten.
+**For a new A/B experiment:** keep baseline training, benchmark, and final test off; enable `RUN_TUNING` for one model and variant. Use a new `TUNING_RUN_ID`. Each variant has separate settings, epoch CSV, checkpoints, and completion marker; the trainer also backs up its weights under `YOLO_Weights/v9/`. Existing runs are not overwritten.
 
-**Compare on validation before testing.** Set `RUN_TUNING=False`, `RUN_BENCHMARK=True`, and list completed candidate names in `BENCHMARK_MODELS`, for example `('yolo11n', 'yolo11n-gentle_aug', 'yolo11n-localization')`. The common evaluator reads each candidate's saved input size and loads only folders with a completion marker. Use `BENCHMARK_MODEL_RUNS` when a baseline lives under another run ID. Compare all four classes, negative-image false positives, inference latency, and OCR crop quality. Select one model and operating settings from validation; run `RUN_FINAL_TEST=True` once on that selected candidate only. The common benchmark is separate from the per-epoch Ultralytics validation curves.
+The common evaluator reads each completed candidate's saved input size. The seven-model validation comparison and one selected-model final test are recorded below. Do not use the held-out test to reselect a model or tune thresholds.
 """),
     code(r"""
 if DATA_READY and RUN_TUNING:
     import subprocess
     import yaml
+    # Tuning must start from published weights in a separate run, after its baseline.
     if TUNING_RUN_ID == RUN_ID:
         raise ValueError('Keep the A/B tuning run ID separate from the baseline run ID.')
     baseline_dir = OUTPUT_ROOT / DATA_FINGERPRINT[:12] / 'runs' / RUN_ID / TUNING_MODEL
@@ -298,6 +296,7 @@ Measure box mAP@0.50 and mAP@0.50:0.95 per class using the same COCO targets and
 MODEL_PATHS, TRAINING_HISTORY, MODEL_RUN_IDS, MODEL_IMAGE_SIZES = {}, {}, {}, {}
 if DATA_READY:
     import yaml
+    # Resolve each completed candidate from its own run ID; B uses its saved 800px size.
     yolo_candidates = tuple(
         f'{base}{suffix}' for base in ('yolo11n', 'yolo11s')
         for suffix in ('', '-gentle_aug', '-localization'))
@@ -307,6 +306,7 @@ if DATA_READY:
         run_dir = OUTPUT_ROOT / DATA_FINGERPRINT[:12] / 'runs' / candidate_run_id / candidate
         checkpoint = run_dir / 'weights/best.pt'
         args_path = run_dir / 'args.yaml'
+        # A partial epoch log is not an eligible benchmark checkpoint.
         if checkpoint.is_file() and args_path.is_file() and (run_dir / 'complete.txt').is_file():
             saved_args = yaml.safe_load(args_path.read_text(encoding='utf-8'))
             MODEL_PATHS[candidate] = str(checkpoint)
@@ -351,6 +351,7 @@ if DATA_READY and RUN_BENCHMARK:
             model = YOLO(location)
             def predict(image):
                 bgr = np.asarray(image)[:, :, ::-1].copy()  # Ultralytics NumPy input expects OpenCV BGR.
+                # The low cutoff supplies AP's score sweep; OPERATING_CONF is reported separately.
                 out = model.predict(bgr, imgsz=MODEL_IMAGE_SIZES[name], conf=0.001,
                                     iou=YOLO_NMS_IOU, device=DEVICE, verbose=False)[0]
                 b = out.boxes
@@ -371,6 +372,7 @@ if DATA_READY and RUN_BENCHMARK:
         return predict
 
     def evaluate_split(predict, rows):
+        # All candidates use the same COCO targets, including empty targets on negatives.
         metric = MeanAveragePrecision(box_format='xyxy', class_metrics=True)
         metric50 = MeanAveragePrecision(box_format='xyxy', iou_thresholds=[0.5], class_metrics=True)
         latencies, negative_fp, negatives = [], 0, 0
@@ -414,6 +416,7 @@ if DATA_READY and RUN_BENCHMARK:
         BENCHMARK[name] = {'train': evaluate_split(predict, splits['train']['rows']),
                            'valid': evaluate_split(predict, splits['valid']['rows'])}
         if RUN_FINAL_TEST:
+            # Open test only after the model and threshold are fixed on validation.
             BENCHMARK[name]['test'] = evaluate_split(predict, splits['test']['rows'])
         print(name, json.dumps(BENCHMARK[name], indent=2))
 else:
@@ -431,6 +434,7 @@ if DATA_READY and BENCHMARK:
     from PIL import Image
     from torchvision.ops import box_iou
 
+    # Selection uses validation only, even in the one-model final-test execution.
     selected = max(BENCHMARK, key=lambda name: BENCHMARK[name]['valid']['map50_95'])
     predict = make_predictor(selected, MODEL_PATHS[selected])
     cached = []
@@ -469,6 +473,25 @@ else:
     print('Threshold selection pending validation predictions.')
 """),
     md(r"""
+## 6. Measured v9 comparison and final test
+
+All seven candidates finished training on the same verified v9 export. The separate [three-model baseline report](../Object-Detection-v9/object_detection/43159c679cbe/runs/v9-local-01/benchmark_yolo11n_yolo11s_detr-resnet-50_validation.json) and [six-model YOLO comparison](../Object-Detection-v9/object_detection/43159c679cbe/runs/v9-local-01/benchmark_yolo11n_yolo11s_yolo11n-gentle_aug_yolo11n-localization_yolo11s-gentle_aug_yolo11s-localization_validation.json) record per-class train/validation AP, negative-image detections, and latency. These are results from best checkpoints, not each model's final epoch.
+
+| Candidate | Validation mAP50:95 | Negative-image FP at 0.50 | Median inference |
+| --- | ---: | ---: | ---: |
+| YOLO11n | 63.5% | 9 | 14.9 ms |
+| YOLO11s | 63.9% | 11 | 15.0 ms |
+| DETR-ResNet50 | 54.3% | 51 | 41.2 ms |
+| YOLO11n-A, gentle augmentation | 66.8% | 7 | 15.2 ms |
+| YOLO11n-B, localization | 67.4% | 3 | 15.8 ms |
+| **YOLO11s-A, gentle augmentation** | **68.4%** | 13 | 16.4 ms |
+| YOLO11s-B, localization | 65.3% | 6 | 16.3 ms |
+
+Validation mAP50:95 selected YOLO11s-A. At confidence `0.50` and NMS IoU `0.70`, its [one held-out test](../Object-Detection-v9/object_detection/43159c679cbe/runs/v9-local-01/benchmark_yolo11s-gentle_aug_test.json) scored mAP50 `90.5%`, mAP50:95 `68.2%`, and mAR@100 `74.3%` on 299 images. Test mAP50:95 by class was panel `52.0%`, number `74.9%`, route `68.9%`, and destination `76.9%`. There were 17 detections on 20 negative test images at the frozen operating threshold; median inference was `16.3 ms` on the tested CUDA laptop. The [split tables](../Object-Detection-v9/object_detection/43159c679cbe/runs/v9-local-01/benchmark_yolo11s-gentle_aug_test_tables.md), [selected checkpoint](../Object-Detection-v9/object_detection/43159c679cbe/runs/v9-tuning-01/yolo11s-gentle_aug/weights/best.pt), and [v9 result index](../Object-Detection-v9/RESULTS.md) preserve the evidence. The test is closed for model selection. Bus type, lighting, angle, and OCR crop quality still need a separate qualitative review.
+"""),
+    md(r"""
+## 7. Historical detector results
+
 ### Recorded `v4-reviewed-01` benchmark and final test
 
 The reviewed v4 export has 735 train, 53 validation and 53 test images. All three models trained for up to 60 epochs with seed 42, 640-pixel input and CUDA. The validation comparison selected YOLO11s by mAP50:95; only it received a final held-out test.
@@ -538,6 +561,7 @@ if DATA_READY and BENCHMARK:
     destination = OUTPUT_ROOT / DATA_FINGERPRINT[:12] / 'runs' / RUN_ID / f'benchmark_{suffix}_{phase}.json'
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(report, indent=2), encoding='utf-8')
+    # Keep the combined comparison and a per-model copy alongside that checkpoint.
     for name in BENCHMARK_MODELS:
         archive_benchmark(ROOT, DATA_FINGERPRINT, name, phase, report, MODEL_RUN_IDS[name])
     from IPython.display import Markdown, display
@@ -552,7 +576,7 @@ else:
     print('No measured benchmark report was written. The table remains pending.')
 """),
     md(r"""
-## 6. YOLO loss research and how to apply it
+## 8. YOLO loss research and how to apply it
 
 The supplied slides illustrate three YOLO detection-loss parts. The pinned Ultralytics YOLO11 implementation uses **CIoU box loss**, **BCE classification loss**, and **distribution focal loss (DFL)** for the four box-edge distance distributions. In shorthand, `L = box_gain × L_CIoU + cls_gain × L_BCE + dfl_gain × L_DFL`; the trainer logs `train/box_loss`, `train/cls_loss`, `train/dfl_loss` and corresponding validation losses. CIoU accounts for overlap, centre distance and aspect ratio. DFL is a box-distance regression term, *not* the same as classification focal loss. The slide's BCE-to-focal arrow is an optional experiment, not the default YOLO11 loss. DETR has a different matching/classification/box objective, so do not compare raw loss values across architectures.
 
@@ -560,18 +584,14 @@ The supplied slides illustrate three YOLO detection-loss parts. The pinned Ultra
 
 Primary references: [Ultralytics detection loss source](https://docs.ultralytics.com/reference/utils/loss), [Ultralytics training settings](https://docs.ultralytics.com/modes/train), [CIoU paper](https://arxiv.org/abs/1911.08287), [Focal Loss paper](https://arxiv.org/abs/1708.02002), [Generalized Focal Loss paper](https://arxiv.org/abs/2006.04388), [DETR paper](https://arxiv.org/abs/2005.12872).
 
-## 7. Outstanding task-allocation checklist
+## 9. Remaining v9 review
 
-- [x] Obtain the labelled source, run the automated audit, and build a separate manifest-backed training export. The uploaded Roboflow export still lacks provenance; source permissions and capture groups remain to be documented.
-- [x] Fine-tune YOLO11n, YOLO11s and DETR on identical reviewed splits; save checkpoints, settings, versions and training curves.
-- [x] Quantitatively benchmark train/validation/test mAP, all four classes, reviewed negatives and inference speed on the target CUDA laptop.
-- [x] Select YOLO11s using validation mAP50:95 and record the validation threshold sweep, held-out test and execution deviation.
-- [x] Document YOLO11 CIoU, BCE classification and DFL losses and their proposed project use.
-- [ ] Review all four class definitions and negative examples with Jy; inspect route/destination ambiguity and missing boxes. Confirm source/recording groups do not cross splits. A prepared joint-review packet flags 15 semantic candidates, inventories 22 original negatives and identifies 12 timestamp-derived cross-split groups under `Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01/data_review/`.
-- [x] Inspect ten weak/missed validation detections and available false positives across small, distant, blurred, angled and occluded cases; assess route/destination confusion and OCR crop quality. Evidence is saved under `Object-Detection-v4/object_detection/bf938f526d2c/runs/baseline-01/yolo11s/qualitative_validation/`.
-- [ ] Deliver selected detector checkpoint/configuration and label/box contract to the app/OCR team; verify multiple displays and camera/uploaded-video latency in the integrated system. Checkpoint/config delivery, four-class app integration, real multi-display detection, uploaded-video decoding, a simulated-camera path and real EasyOCR crop processing are complete. Tesseract, fine-tuned TrOCR, reviewed OCR accuracy and a physical-camera moving-bus field run remain pending.
-
-The historical 13-image field-detector report and sample gallery are useful references, but they do not replace this four-class, held-out evaluation.
+- [x] Train YOLO11n, YOLO11s, DETR, and four YOLO A/B variants with saved settings and checkpoints.
+- [x] Compare the seven candidates on validation and run one final test for the selected YOLO11s-A checkpoint.
+- [x] Preserve per-class AP, negative-image detections, latency, hashes, and split tables in the [v9 results index](../Object-Detection-v9/RESULTS.md).
+- [ ] Review source scenes and annotation completeness with the data owners; the automated manifest and split checks do not prove every box is correct.
+- [ ] Describe v9 successes and failures by bus type, lighting, angle, distance, and OCR crop quality. Inspect the 17 test-set detections on negative images.
+- [ ] Decide separately whether to replace the deployed v4 detector; the measured v9 checkpoint has not been installed or tested in the application path.
 """),
 ]
 
@@ -579,8 +599,13 @@ notebook = {'nbformat': 4, 'nbformat_minor': 5, 'cells': cells, 'metadata': {
     'kernelspec': {'display_name': 'CVDL Detector (CUDA)', 'language': 'python', 'name': 'cvdl-detector'},
     'language_info': {'name': 'python'},
 }}
-for index, cell in enumerate(notebook['cells'], 1):
-    cell['id'] = f'eds-detector-{index:02d}'
+v9_result_index = next(i for i, cell in enumerate(notebook['cells'])
+                       if cell['cell_type'] == 'markdown'
+                       and cell['source'].startswith('## 6. Measured v9 comparison'))
+for index, cell in enumerate(notebook['cells']):
+    # Keep existing cell IDs stable so executed notebook outputs can be retained.
+    cell['id'] = ('eds-detector-v9-results' if index == v9_result_index
+                  else f'eds-detector-{index + 1 if index < v9_result_index else index:02d}')
 destination = Path(os.environ.get(
     'EDS_NOTEBOOK_DESTINATION', Path(__file__).with_name('object_detection_benchmark.ipynb')))
 destination.write_text(json.dumps(notebook, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')

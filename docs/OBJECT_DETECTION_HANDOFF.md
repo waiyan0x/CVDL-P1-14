@@ -1,15 +1,16 @@
 # Object detection handoff
 
-## Fresh v9 local training
+## v9 research results
 
 The corrected v9 dataset has 6,858/294/299 COCO images and a verified export
-manifest. Its ZIP is in Git LFS. The
-[local v9 run directory](../Object-Detection-v9/README.md) and
-[benchmark notebook](../notebooks/README.md) are prepared for fresh training;
-no prior v9 result is carried into that directory. The reviewed-v4 YOLO11s
-remains the application default.
+manifest. Its ZIP is in Git LFS. The seven completed training runs, common
+validation comparison, and selected YOLO11s A final test are recorded in the
+[v9 results](../Object-Detection-v9/RESULTS.md) and
+[benchmark notebook](../notebooks/object_detection_benchmark.ipynb). The
+reviewed-v4 YOLO11s remains the application default. The v9 checkpoint has
+not been installed in the application.
 
-The latest result is the [reviewed Roboflow v4 run](../Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md),
+The deployed result is the [reviewed Roboflow v4 run](../Object-Detection-v4/object_detection/01760a841333/runs/v4-reviewed-01/RESULTS.md),
 with three trained models, three validation reports and one final YOLO11s test.
 The selected YOLO11s checkpoint and reviewed-v4 source archive are distributed
 through Git LFS in the OCR handoff; other training artifacts remain local.

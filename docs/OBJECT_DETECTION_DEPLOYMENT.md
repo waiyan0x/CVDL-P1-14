@@ -4,6 +4,9 @@ The application default is now **YOLO11s `v4-reviewed-01`**, checkpoint SHA-256
 `97150601de39a999754015648cad2ef930842d52e8e37eb77d7576ffe2da33b5`.
 It was selected using validation mAP50:95 before its held-out test. The old
 `baseline-01` detector and its results remain preserved for documentation.
+The [v9 comparison and final test](../Object-Detection-v9/RESULTS.md) are
+research results; the v9 selected checkpoint has not replaced this application
+default.
 
 See [the Cody handoff](OBJECT_DETECTION_HANDOFF.md) for the current evidence and
 remaining integration work.

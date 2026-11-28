@@ -1,12 +1,15 @@
 # Evaluation evidence
 
-## Fresh v9 detector evaluation
+## v9 detector evaluation
 
-The verified v9 dataset is documented in the
-[training README](../data/training/README.md). Fresh local runs will be saved in
-[Object-Detection-v9](../Object-Detection-v9/README.md). No v9 model result is
-recorded in that directory yet. The v4 figures below remain the latest completed
-four-class detector benchmark and selected-model test.
+The source-stem-isolated v9 dataset and its limits are documented in the
+[training README](../data/training/README.md). Seven candidates have saved
+validation reports: YOLO11n, YOLO11s, DETR-ResNet50, and YOLO11n/YOLO11s
+augmentation A and localization B. The validation-selected YOLO11s A achieved
+68.4% mAP50:95; its held-out test achieved 68.2%. See the
+[v9 results and artifact paths](../Object-Detection-v9/RESULTS.md) for the
+per-class scores, settings, checkpoints, and negative-image detections. The
+v4 YOLO11s checkpoint remains the application default; v9 has not been deployed.
 
 The application is designed to compare the validation-selected YOLO11s detector
 with EasyOCR, Tesseract and the supplied fine-tuned TrOCR. A same-image comparison
@@ -16,7 +19,7 @@ Tesseract and fine-tuned TrOCR remain pending. Reported text, engine-specific
 confidence and processing time form a functional comparison, not an accuracy
 measurement without reviewed transcriptions.
 
-## Latest four-class detector experiment
+## Deployed v4 detector experiment
 
 The corrected Roboflow v4 dataset was used for `v4-reviewed-01`: all three
 models have training and validation records, and validation-selected YOLO11s has

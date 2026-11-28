@@ -1,20 +1,20 @@
-# YOLO11n and YOLO11s v9 tuning plan
+# YOLO11n and YOLO11s v9 A/B experiments
 
-This is a plan for four **proposed** experiments: A and B for YOLO11n, and A and B for YOLO11s. They are separate fresh fine-tuning runs, not continuations of the baseline checkpoints. No A/B validation or test result is claimed here. The three-model baseline and the four YOLO variants make seven candidates in total; DETR has no A/B variant in this plan.
+Four A/B experiments completed: A and B for YOLO11n and YOLO11s. Each was a fresh fine-tuning run from published weights, separate from its baseline checkpoint. The seven-candidate validation comparison selected YOLO11s-A; only that candidate received a held-out test. See the [measured v9 results](../Object-Detection-v9/RESULTS.md). DETR had no A/B variant.
 
 ## Dataset and decision boundary
 
 Use only the verified `data/training/2026-11-25-roboflow-v9-stem-isolated/` export: 6,858 training, 294 validation, and 299 held-out test images. Its four foreground classes are `front_eds` (whole panel), `front_eds_num` (service number), `front_eds_route` (route or landmark text), and `front_eds_destination` (destination). The training split already contains saved augmented images, so additional transforms may be redundant. The automated split and integrity audit passed; human source-scene and annotation review remains open. If review changes labels or split membership, make a new dataset version and compare all candidates on that version.
 
-The earlier v9 Colab histories are **historical diagnostics**, not the baseline for this plan. Compare A/B only with the new local YOLO11n and YOLO11s baselines trained on the same verified export. Do not fill in scores from the old runs or treat a partial epoch log as a completed baseline.
+Earlier v9 Colab histories are historical diagnostics. The reported A/B comparison uses the completed local baselines and the same verified v9 export. Partial epoch logs are not treated as completed models.
 
-Complete the three local baselines (YOLO11n, YOLO11s, DETR), then train the four YOLO variants. Benchmark all seven on the **same validation split**. Select the final model and inference settings using validation only, then run the held-out test once on the selected model. The test set must not decide whether A or B is kept.
+The three local baselines and four variants completed. Validation selected the model and operating threshold before one selected-model held-out test. The test set was not used to decide whether A or B was kept.
 
 ## Controls shared by both YOLO models
 
 Each run starts from its own published COCO-pretrained weight (`yolo11n.pt` or `yolo11s.pt`), updates the full network, uses seed `42`, a 60-epoch cap, and patience `15`. Keep the same four classes, verified dataset, optimizer choice, and training code version. The current baseline trainer uses deterministic training, Ultralytics optimizer `auto`, `box=7.5`, `cls=0.5`, `dfl=1.5`, and zero mosaic, MixUp, copy-paste, rotation, translation, scaling, horizontal flip, hue change, and saturation change. Keep those baseline choices except for the values explicitly changed below. In particular, horizontal flips can reverse bus sign text and are excluded.
 
-Choose a batch size that fits the local GPU **before** comparing variants. Record the actual batch, GPU, training time, and Ultralytics version in every run. Keep the baseline and A batch equal for a given model. Try to keep B equal too; if 800-pixel images require a smaller batch, record it as an additional difference. Do not assume the previous Colab batch sizes of 32 and 16 will fit the local GPU. Worker count, image cache, and mixed precision can change throughput, but keep them consistent across a model's baseline and variants when possible. Do not alter validation or test images.
+The local baselines and A used batch 32 at 640 pixels; both B runs used batch 16 at 800 pixels to fit the GPU. This batch difference is part of the B comparison. Each run retains its actual settings in `args.yaml`; validation and test images were unchanged.
 
 The loss gains are training weights, not confidence or NMS thresholds. A and B test **different hypotheses**; neither combines the other's changes. B changes resolution and box-loss gain together, so a gain would support the package, not prove which of those two changes caused it. A follow-up ablation would be needed to separate them.
 
@@ -29,7 +29,7 @@ The loss gains are training weights, not confidence or NMS thresholds. A and B t
 | `hsv_v` | 0 | **0.08** | 0 |
 | `box` loss gain | 7.5 | 7.5 | **8.5** |
 | `cls`, `dfl` gains | 0.5, 1.5 | 0.5, 1.5 | 0.5, 1.5 |
-| Batch | measured local fit | same as baseline | same if it fits |
+| Batch | 32 | 32 | 16 |
 
 ## YOLO11n A: gentle scene variation
 
@@ -54,7 +54,7 @@ Use `imgsz=800` and `box=8.5`, with no added A transforms. Going from 640 to 800
 | `hsv_v` | 0 | **0.08** | 0 |
 | `box` loss gain | 7.5 | 7.5 | **8.5** |
 | `cls`, `dfl` gains | 0.5, 1.5 | 0.5, 1.5 | 0.5, 1.5 |
-| Batch | measured local fit | same as baseline | same if it fits |
+| Batch | 32 | 32 | 16 |
 
 ## YOLO11s A: gentle scene variation
 
@@ -72,10 +72,10 @@ Use `imgsz=800` and `box=8.5`, with A transforms off. The motivation is the same
 
 For each baseline and variant, retain `args.yaml`, epoch `results.csv`, `weights/best.pt`, `weights/last.pt`, the best epoch, and the dataset manifest hash. Compare best-checkpoint validation mAP50–95 and mAP50 **per class**, especially `front_eds_num`, `front_eds_route`, and `front_eds_destination`. Also inspect false positives on reviewed zero-box validation images, missed small signs, duplicate or misassigned nested boxes, OCR crop quality, and inference time on the same hardware. Keep the inference confidence/NMS policy consistent for like-for-like comparisons; choose any operating threshold using validation only. The notebook currently starts at the v4 operating confidence `0.50` and NMS IoU `0.70`.
 
-Give each variant a distinct model/run directory, such as `v9-tuning-01/yolo11n-gentle_aug`, `v9-tuning-01/yolo11n-localization`, `v9-tuning-01/yolo11s-gentle_aug`, and `v9-tuning-01/yolo11s-localization`, under `Object-Detection-v9/object_detection/<dataset-fingerprint>/runs/`. Keep the baseline folders intact, including a partial or restarted run under another ID, and use separate YOLO weight backups. A complete common benchmark must load these four variant checkpoints explicitly; baseline-only benchmark results do not evaluate them.
+The four variant folders are `v9-tuning-01/yolo11n-gentle_aug`, `v9-tuning-01/yolo11n-localization`, `v9-tuning-01/yolo11s-gentle_aug`, and `v9-tuning-01/yolo11s-localization` under `Object-Detection-v9/object_detection/43159c679cbe/runs/`. Each has its own checkpoint and YOLO weight backup. Baselines remain under `v9-local-01/`. The [common validation report](../Object-Detection-v9/object_detection/43159c679cbe/runs/v9-local-01/benchmark_yolo11n_yolo11s_yolo11n-gentle_aug_yolo11n-localization_yolo11s-gentle_aug_yolo11s-localization_validation.json) includes all six YOLO candidates; the separate baseline report includes DETR.
 
-**Notebook controls:** in the first code cell, set `RUN_TRAINING=False`, `RUN_TUNING=True`, `TUNING_MODEL` to `yolo11n` or `yolo11s`, and `TUNING_VARIANT` to `gentle_aug` (A) or `localization` (B). Keep `RUN_BENCHMARK=False` and `RUN_FINAL_TEST=False`. Set `RUN_ID` to the completed baseline's ID and `TUNING_RUN_ID` to a distinct ID for all four variants. Run All once per variant. The tuning cell requires that model's baseline `complete.txt` and refuses an existing variant folder. B uses input 800 automatically. Set `TUNING_BATCH_SIZE` before each run, and record any reduction from its baseline batch due to GPU memory.
+**Notebook controls for a new experiment:** keep all switches off when reviewing saved outputs. To train another variant, use a new `TUNING_RUN_ID`, set `RUN_TUNING=True`, and select `TUNING_MODEL` and `TUNING_VARIANT` in the first code cell. The tuning cell requires a completed baseline and refuses an existing variant folder. B uses input 800; set its batch before starting.
 
-**Common benchmark:** after training, set `RUN_TUNING=False`, `RUN_BENCHMARK=True`, and list completed baseline and A/B names in `BENCHMARK_MODELS`. If a baseline has a different run ID from `RUN_ID`, map it in `BENCHMARK_MODEL_RUNS`, for example `{'detr-resnet-50': 'v9-local-02'}`. The evaluator reads each YOLO candidate's saved `args.yaml` input size, including 800 for B; results and tables are written to `Object-Detection-v9`. Use `RUN_FINAL_TEST=True` only for the validation-selected candidate after all settings are frozen. The notebook starts with tuning and benchmarking disabled, and this document does not claim that any A/B run has happened.
+**Recorded outcome:** YOLO11s-A led validation mAP50:95 at `68.4%` and scored `68.2%` on the one held-out test. YOLO11n-B had fewer negative-image validation detections (3 versus 13), which remains a deployment tradeoff. The [final-test report](../Object-Detection-v9/object_detection/43159c679cbe/runs/v9-local-01/benchmark_yolo11s-gentle_aug_test.json) contains the full train/validation/test metrics; do not rerun the test to tune the choice.
 
 Parameter definitions: [Ultralytics training settings](https://docs.ultralytics.com/modes/train) and [augmentation guide](https://docs.ultralytics.com/guides/yolo-data-augmentation).

@@ -5,6 +5,12 @@ Standalone Python scripts own data preparation. The data visual-check notebook
 displays augmentation comparisons and representative scene categories; the
 separate detector benchmark notebook records model evaluation.
 
+The current [v9 detector results](Object-Detection-v9/RESULTS.md) compare seven
+trained candidates and report one held-out test for the validation-selected
+YOLO11s A variant. The [benchmark notebook](notebooks/object_detection_benchmark.ipynb)
+contains the saved outputs. The reviewed-v4 detector remains the application
+default; the older data-preparation examples below describe earlier batches.
+
 Model dataset: **`data/training/2026-10-24/`**.
 Its current local export contains **420 training, 39 validation and 20 test
 images (479 total)**, verified against the COCO records on 2026-10-29.

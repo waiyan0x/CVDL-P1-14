@@ -26,11 +26,14 @@ stem and exact-file duplicate.
 This automated rule does not establish independence between different filename
 stems or verify annotation completeness. Human source/capture and label review
 remains necessary before interpreting new validation or test metrics. The
-object-detection notebook points to this corrected copy with training disabled.
+object-detection notebook uses this corrected copy. Seven detector runs, a
+validation comparison, and one selected-model final test are saved in the
+[v9 results](../../Object-Detection-v9/RESULTS.md).
 The extracted dataset directory remains Git-ignored; the corrected dataset ZIP
 is distributed through Git LFS. The raw v9 export and synthetic v5 data are not
 part of that ZIP. See the [local v9 run directory](../../Object-Detection-v9/README.md)
-and [notebook instructions](../../notebooks/README.md) for fresh training.
+and [notebook instructions](../../notebooks/README.md) for the recorded runs
+and future experiments.
 
 ## New Roboflow v4 export (local, review required)
 
